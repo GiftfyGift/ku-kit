@@ -1,0 +1,516 @@
+{
+  "meta": { "siteName": "KU-KIT", "tagline": "Kituo cha maarifa kwa Wauzaji na Wasambazaji wapya", "langLabel": "Lugha", "sampleBadge": "Data ya mfano" },
+  "nav": { "home": "Nyumbani", "product": "Bidhaa", "parts": "Vipuri", "service": "Huduma", "crops": "Suluhisho za Mazao", "marketing": "Matukio", "artwork": "Vifaa vya Masoko" },
+  "hero": {
+    "title": "Karibu KU-KIT",
+    "subtitle": "Kituo chako cha kujifunza kuhusu bidhaa, vipuri, huduma, na matukio — kimeundwa kwa ajili ya Wauzaji na Wasambazaji wapya, kinapatikana wakati wowote, mahali popote.",
+    "cta": "Anza Kujifunza"
+  },
+  "home": {
+    "introTitle": "KU-KIT ni nini?",
+    "introText": "KU-KIT ni hifadhi kuu ya maarifa kuhusu injini na matrekta ya kutembea, iliyoundwa kwa ajili ya Wauzaji na Wasambazaji wapya nje ya nchi. Inawawezesha timu yako kujifunza kuhusu bidhaa, vipuri, huduma, na matukio yetu wenyewe, bila kusubiri mafunzo ya ana kwa ana — hivyo kupunguza gharama za safari na mafunzo, na kusaidia changamoto za lugha wakati wa kuingia sokoni mpya.",
+    "cards": [
+      { "icon": "⚙️", "title": "Taarifa za Bidhaa", "desc": "Vipimo vya injini ya dizeli ya ZT Plus na trekta la kutembea la NC Plus X, jinsi ya kuthibitisha bidhaa halisi, na mwongozo wa kuunganisha.", "target": "product-engine" },
+      { "icon": "🔧", "title": "Vipuri", "desc": "Jinsi ya kutafuta na kuagiza vipuri halisi, na orodha ya hisa inayopendekezwa kwa kila mfano.", "target": "parts" },
+      { "icon": "🛠️", "title": "Huduma", "desc": "Ukaguzi kabla ya kuwasilisha, njia sahihi ya kuwasha, na huduma baada ya mauzo.", "target": "service" },
+      { "icon": "🌾", "title": "Suluhisho za Mazao", "desc": "Jinsi ya kuchagua mpangilio sahihi wa trekta la kutembea kwa mashamba ya mpunga yenye maji, makavu, muhogo, na mahindi.", "target": "crops" },
+      { "icon": "📣", "title": "Matukio", "desc": "Mifumo minne ya kawaida ya shughuli za KUBOTA, pamoja na kalenda ijayo ya mafunzo ya Wauzaji na matukio ya masoko.", "target": "marketing" },
+      { "icon": "🖼️", "title": "Vifaa vya Masoko", "desc": "Buni bango na standee yako mwenyewe kwa duka. Jaza taarifa za duka lako kisha upakue faili tayari kwa uchapishaji papo hapo.", "target": "artwork" }
+    ]
+  },
+  "product": {
+    "title": "Taarifa za Bidhaa",
+    "intro": "Kila kitu ambacho Muuzaji mpya anahitaji kujua kuhusu aina zetu mbili kuu za bidhaa — injini ya dizeli ya KUBOTA ZT Plus na trekta la kutembea la TRA CHANG NC Plus X.",
+    "tabs": { "engine": "Injini", "tiller": "Trekta la Kutembea", "assembly": "Mwongozo wa Kuunganisha" },
+    "engine": {
+      "title": "Injini ya Dizeli ya KUBOTA — ZT Plus",
+      "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "Injini ya dizeli ya KUBOTA ZT155 DI Plus" },
+      "items": [
+        {
+          "name": "ZT Plus (aina ya TVCS)",
+          "desc": "Mfumo wa Three Vortex Combustion (TVCS). Huwaka kwa urahisi, hufanya kazi kimya, na huokoa mafuta kwa mzunguko wa chini — inafaa kwa kusukuma maji au kushikanishwa na trekta la kutembea.",
+          "specs": [
+            { "label": "Wigo wa nguvu", "value": "10 - 12 HP" },
+            { "label": "Mfumo wa mwako", "value": "Three Vortex Combustion System (TVCS)" },
+            { "label": "Njia za kuwasha", "value": "Standard (mkono) / ES (kuwasha kwa umeme) / SW (funguo)" },
+            { "label": "Udhamini", "value": "Miaka 3" }
+          ]
+        },
+        {
+          "name": "ZT Plus (aina ya DI)",
+          "desc": "Direct Injection (DI). Hujibu vizuri wakati wa kuongeza mwendo na huokoa mafuta kwa mzunguko wa juu — inafaa kwa usafirishaji mzito, kulima kwa mkataba, kuzungusha dynamo, au kusukuma maji kutoka kisima kirefu.",
+          "specs": [
+            { "label": "Wigo wa nguvu", "value": "12.5 - 18 HP" },
+            { "label": "Mfumo wa mwako", "value": "Direct Injection (DI)" },
+            { "label": "Njia za kuwasha", "value": "Standard (mkono) / ES (kuwasha kwa umeme) / SW (funguo)" },
+            { "label": "Udhamini", "value": "Miaka 3" }
+          ]
+        }
+      ],
+      "note": "Jinsi ya kujua HP: angalia lebo ya mfano kwenye injini (mfano ZT100Plus = 10 HP, ZT140Plus = 14 HP) au bamba la jina ubavuni mwa kifuniko cha gia. Mifano inayopatikana inaweza kutofautiana kwa nchi.",
+      "sellingPoints": {
+        "title": "Sifa Kuu za Kuuza za ZT Plus",
+        "items": [
+          { "title": "Tangi la mafuta la chuma", "desc": "Lita 10.5 kwa injini za 10-15.5 HP, lita 14.5 kwa injini ya 18 HP.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Picha ya karibu ya tangi la mafuta la chuma kwenye injini ya ZT Plus" } },
+          { "title": "Wavu wa chuma", "desc": "Hulinda upande wa radiator na feni, huongeza mzunguko wa kichujio cha ndani cha radiator kwa ulinzi bora dhidi ya vumbi na hatari ndogo ya joto kupita kiasi.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Picha ya karibu ya wavu wa chuma unaolinda radiator na feni" } },
+          { "title": "Muundo wa aluminium ulioimarishwa", "desc": "Hulinda radiator na sehemu nyingine dhidi ya uharibifu, umeimarishwa kwa pointi 3 za nanga ili kupunguza mtetemo wakati wa kufanya kazi." },
+          { "title": "Kipimo cha wazi cha kiwango cha mafuta", "desc": "Kipimo cha PVC cha wazi kinakuwezesha kuangalia kiwango cha mafuta kwa haraka." },
+          { "title": "Taa ya mbele ya LED", "desc": "Taa ya mbele yenye mwanga mkali kwa usalama wa kazi za usiku; mfano wa PRO unaongeza taa za kugeuza na tundu la kuchaji la USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Picha ya karibu ya taa ya mbele ya LED yenye mwanga mkali kwenye injini ya ZT Plus" } }
+        ]
+      },
+      "authenticity": {
+        "title": "Jinsi ya Kuthibitisha Injini Halisi ya KUBOTA ZT Plus",
+        "intro": "Bidhaa bandia huathiri imani ya wateja na usalama baada ya mauzo. Tumia vipengele hivi vya ukaguzi kuthibitisha injini halisi ya KUBOTA.",
+        "points": [
+          { "text": "Alama iliyochongwa \"K\" (nembo ya utambulisho ya Kubota) kwenye kifuniko cha injini.", "image": { "src": "assets/img/product/authenticity/engine-01-k-symbol.png", "alt": "Alama ya K iliyochongwa kwenye kifuniko cha injini" } },
+          { "text": "Spoiler ina nembo ya Kubota iliyochorwa ndani — spoiler nyeusi kwa mfano wa Standard, spoiler ya fedha kwa mfano wa PRO.", "image": { "src": "assets/img/product/authenticity/engine-02-spoiler.png", "alt": "Nembo ya KUBOTA iliyochorwa kwenye spoiler" } },
+          { "text": "Kifuniko cha gia cha ubavuni kina alama ya \"K\" iliyochongwa, inayolingana na kifuniko cha injini.", "image": { "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png", "alt": "Alama ya K iliyochongwa kwenye kifuniko cha gia cha ubavuni" } },
+          { "text": "Blocki ya silinda karibu na pampu ya mafuta ina herufi K na nembo ya utambulisho ya Kubota zilizochongwa.", "image": { "src": "assets/img/product/authenticity/engine-04-cylinder-block.png", "alt": "Herufi K na nembo ya Kubota kwenye blocki ya silinda" } },
+          { "text": "Flywheel ina alama mbili za utambulisho wa Kubota zilizochongwa.", "image": { "src": "assets/img/product/authenticity/engine-05-flywheel.png", "alt": "Alama za Kubota zilizochongwa kwenye flywheel" } },
+          { "text": "Kuna kibandiko cha bamba la jina kwenye kifuniko cha gia cha ubavuni kinachoonyesha mfano, mtengenezaji (\"SIAM KUBOTA Corporation Co., Ltd\"), na asili ya uzalishaji (\"MADE IN THAILAND\").", "image": { "src": "assets/img/product/authenticity/engine-06-nameplate.png", "alt": "Kibandiko cha bamba la jina kwenye kifuniko cha gia cha ubavuni" } },
+          { "text": "Kuna kibandiko cha \"Udhamini wa Miaka 3\" kutoka Siam Kubota kwenye kifuniko cha gia cha ubavuni.", "image": { "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png", "alt": "Kibandiko cha udhamini wa miaka 3 kutoka Siam Kubota" } },
+          { "text": "Kuna kibandiko cha TIS (Kiwango cha Viwanda cha Thailand) chenye msimbo wa QR unaoweza kusomwa kuthibitisha utengenezaji na Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "Kibandiko cha TIS chenye msimbo wa QR" } },
+          { "text": "Mfano na nambari ya serial ya tarakimu 6 zimechongwa kwenye injini; changanua msimbo wa QR kwenye kifuniko cha gia cha ubavuni — kifaa halisi kitaonyesha \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Mfano na nambari ya serial ya tarakimu 6 zilizochongwa kwenye injini" } }
+        ]
+      },
+      "resources": [
+        { "title": "ZT Plus — Slaidi za Maarifa ya Bidhaa (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-EN.pptx" },
+        { "title": "ZT Plus — Slaidi za Maarifa ya Bidhaa (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-TH.pptx" },
+        { "title": "Orodha ya ukaguzi wa injini halisi (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-Engine-Checklist-EN.pptx" },
+        { "title": "Mwongozo wa uendeshaji wa ZT Plus (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-EN.pdf" },
+        { "title": "Mwongozo wa uendeshaji wa ZT Plus (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-TH.pdf" },
+        { "title": "Picha ya ubora wa juu — injini ya ZT155 DI Plus", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1gCbfACa3Kh3x1lrPz2jFtoR1dMFyFLzT/view" }
+      ],
+      "videosTitle": "Video",
+      "downloadsTitle": "Vipakuliwa",
+      "note": "Vipimo hapo juu vinatoka kwenye slaidi halisi za Product Knowledge za ZT Plus zilizotolewa na timu. Ukubwa mwingine wa injini (ZT100/110/120/125/155/180) una muundo unaofanana — omba slaidi kutoka kwa timu ya bidhaa ukihitaji kuongeza. Picha ya packshot imeunganishwa moja kwa moja na Drive (13MB) — zaidi ya kikomo cha 10MB ambacho kiunganishi cha Drive cha kipindi hiki kinaweza kupakua, hivyo haikuwekwa kwa ndani."
+    },
+    "tiller": {
+      "title": "Trekta la Kutembea la TRA CHANG — NC Plus X",
+      "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800" },
+      "items": [
+        {
+          "name": "NC Plus X",
+          "desc": "Kipenyo cha gurudumu la kizimba 800 mm, vile vya gurudumu inchi 3 (vipande 16). Inafaa kwa udongo wa mfinyanzi au mchanga, mashamba ya mpunga na makavu, mashamba ya miwa, muhogo, maharage, na mboga. Gurudumu la kizimba linaweza kutumika kwa safari fupi. Haifai kwa mashamba yenye tope kubwa.",
+          "specs": [
+            { "label": "Kipenyo cha gurudumu la kizimba", "value": "800 mm" },
+            { "label": "Vile vya gurudumu", "value": "Inchi 3 x vipande 16" },
+            { "label": "Mfumo wa uendeshaji / klachi", "value": "Mfumo wa kawaida wa kugeuza, klachi ya kawaida, beringi ya mpira" },
+            { "label": "Udhamini wa fremu / sanduku la gia", "value": "Miaka 3 / maisha yote kwa sanduku la gia" }
+          ]
+        },
+        {
+          "name": "NC Plus X Special",
+          "desc": "Kipenyo cha gurudumu la kizimba 880 mm au 980 mm, na mfumo wa Gear Insert wa kugeuza kwa ajili ya kazi nzito za tope na mpunga unaopandwa zaidi ya mara mbili kwa mwaka. Kubadilisha eneo, badilisha kwa magurudumu ya mpira au tumia trela; kwa kazi za tope, tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP.",
+          "specs": [
+            { "label": "Kipenyo cha gurudumu la kizimba", "value": "880 mm / 980 mm" },
+            { "label": "Vile vya gurudumu", "value": "Inchi 4 au 5 x vipande 16" },
+            { "label": "Mfumo wa uendeshaji / klachi", "value": "Mfumo wa Gear Insert (unaweza kugeuzwa ukichakaa, una safety bolt), klachi maalum, beringi ya roller" },
+            { "label": "Udhamini wa fremu / sanduku la gia", "value": "Miaka 3 / maisha yote kwa sanduku la gia" }
+          ]
+        }
+      ],
+      "note": "Jinsi ya kutofautisha NC Plus X na NC Plus X Special: (1) msimbo wa chasi kwenye kadi ya udhamini — \"NC131\" haina \"S\" mwishoni (Plus X) wakati \"NC131S\" ina \"S\" mwishoni (Special); (2) alama ya \"S\" iliyochomwa kwenye sanduku la gia kwa Special pekee. Mifano yote 3 ya trekta la kutembea la TRA CHANG inaweza kubadilishwa kuwa magurudumu ya mpira kwa ajili ya kubeba mazao au usafirishaji wa jumla.",
+      "authenticity": {
+        "title": "Jinsi ya Kuthibitisha Trekta Halisi la Kutembea la TRA CHANG",
+        "intro": "Bidhaa bandia huathiri imani ya wateja na usalama baada ya mauzo. Tumia vipengele hivi vya ukaguzi kuthibitisha trekta halisi la kutembea la TRA CHANG.",
+        "points": [
+          { "text": "Chapa ya biashara ya TRA CHANG: tembo akiwa ameelekea kushoto, ameinua mguu wa mbele wa kushoto, gia ya rangi ya dhahabu inayong'aa, tembo mweupe kwenye mandhari ya duara nyekundu inayong'aa.", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "Chapa ya TRA CHANG — tembo mweupe kwenye duara nyekundu" } },
+          { "text": "Kibandiko cha chapa kinaandika \"TRA CHANG\" kwa herufi nyekundu zinazong'aa zenye mpaka mweupe.", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "Kibandiko cha chapa ya TRA CHANG kwenye mpini wa trekta" } },
+          { "text": "Sanduku la usambazaji lina nembo ya \"TRA CHANG\" (Kithai) iliyochongwa.", "image": { "src": "assets/img/product/authenticity/tiller-03-transmission-case.png", "alt": "Nembo ya TRA CHANG ya Kithai iliyochongwa kwenye sanduku la usambazaji" } },
+          { "text": "Nambari ya kipekee ya fremu ya PT — \"NC-XXXXXX\" (herufi + tarakimu 5) — iliyochapwa kwa undani na wazi na kuonekana kwa urahisi.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Nambari ya fremu iliyochapwa kwenye trekta la kutembea" } },
+          { "text": "Alama ya tembo kwenye kifuniko cha juu cha fremu inaelekea kushoto na mguu wa mbele wa kushoto umeinuliwa, ndani ya umbo la gia.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Alama ya tembo kwenye kifuniko cha juu cha fremu" } },
+          { "text": "Alama ya tembo kwenye lever ya kubadilisha gia pia inaelekea kushoto na mguu wa mbele wa kushoto umeinuliwa, ndani ya umbo la gia.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Alama ya tembo kwenye lever ya kubadilisha gia" } }
+        ]
+      },
+      "resources": [
+        { "title": "NC Plus X — Slaidi za Maarifa ya Bidhaa (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
+        { "title": "NC Plus X — Slaidi za Maarifa ya Bidhaa (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
+        { "title": "Orodha ya ukaguzi wa trekta halisi la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
+        { "title": "Mwongozo wa uendeshaji wa trekta la kutembea la NC131 (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
+        { "title": "Mwongozo wa uendeshaji wa trekta la kutembea la NC131 (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
+        { "title": "Picha ya ubora wa juu — trekta la kutembea NC Plus X 800", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+      ],
+      "videosTitle": "Video",
+      "downloadsTitle": "Vipakuliwa",
+      "note": "Vipimo hapo juu vinatoka kwenye slaidi halisi za Product Knowledge za NC Plus X zilizotolewa na timu. Picha ya packshot imeunganishwa moja kwa moja na Drive (14MB) — zaidi ya kikomo cha 10MB ambacho kiunganishi cha Drive cha kipindi hiki kinaweza kupakua, hivyo haikuwekwa kwa ndani."
+    },
+    "assembly": {
+      "title": "Mwongozo wa Kuunganisha",
+      "intro": "Hatua za kuunganisha trekta la kutembea la TRA CHANG na kushikanisha injini ya dizeli ya KUBOTA nalo.",
+      "tillerTitle": "Kuunganisha Trekta la Kutembea",
+      "engineTitle": "Kushikanisha Injini kwenye Trekta la Kutembea",
+      "tillerSteps": [
+        "Unganisha hitch — lazima iwe upande wa kushoto wa trekta la kutembea.",
+        "Unganisha fremu ya mbele.",
+        "Unganisha magurudumu ya kizimba.",
+        "Weka magurudumu kwenye mhimili wa gurudumu — vile vya gurudumu lazima vielekee nyuma ya trekta la kutembea."
+      ],
+      "engineSteps": [
+        "Unganisha injini kwenye chasi ya trekta la kutembea na kaza nati za injini.",
+        "Unganisha pulley kwenye flywheel.",
+        "Unganisha mkanda kwenye pulley za trekta la kutembea na injini.",
+        "Vuta injini mbele ili mkanda uwe mkazo, kisha kaza nati; ondoa kiegemeo cha injini.",
+        "Rekebisha mkazo wa mkanda hadi karibu 22-28 mm kwa kukaza au kulegeza nati.",
+        "Legeza nati 2 kwenye kiongeza mwendo ili lever isogee kwa uhuru, kisha kaza tena.",
+        "Unganisha kebo ya kiongeza mwendo kwenye lever ya kiongeza mwendo na kaza nati."
+      ],
+      "resources": [
+        { "title": "Mwongozo wa kuunganisha injini + trekta la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
+        { "title": "Video ya mwongozo wa kuunganisha — injini ya ZT Plus + trekta la NC Plus X", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+      ],
+      "videosTitle": "Video",
+      "downloadsTitle": "Vipakuliwa",
+      "note": "Hatua hapo juu zinatoka kwenye slaidi rasmi ya mwongozo wa kuunganisha. Kamilisha kuunganisha trekta la kutembea kwanza, kisha shikanisha injini."
+    }
+  },
+  "parts": {
+    "title": "Vipuri",
+    "intro": "Jinsi Wauzaji na Wasambazaji wapya wanavyoweza kutafuta na kuagiza vipuri halisi, pamoja na orodha ya awali ya hisa kwa mifano ya kawaida zaidi.",
+    "howToOrder": [
+      { "step": "1", "title": "Tambua mfano na nambari ya serial", "desc": "Angalia bamba la jina kwenye kifaa au mwongozo wa mfano husika." },
+      { "step": "2", "title": "Tafuta nambari ya kipuri", "desc": "Tumia Katalogi ya Vipuri kuthibitisha nambari sahihi." },
+      { "step": "3", "title": "Peleka agizo kupitia njia iliyopangwa", "desc": "Wasiliana na timu ya usaidizi wa vipuri ya eneo lako." },
+      { "step": "4", "title": "Fuatilia hali ya usafirishaji", "desc": "Fuatilia agizo lako kupitia mfumo wa ufuatiliaji wa kampuni." }
+    ],
+    "recommended": [
+      {
+        "model": "Injini ya dizeli ZT140 — vipuri vinavyopendekezwa kuwekwa hisa",
+        "groups": [
+          {
+            "label": "Periodical (kubadilishwa mara kwa mara)",
+            "items": [
+              { "code": "1T051-11220", "name": "Kifaa cha kichujio cha hewa" },
+              { "code": "1W071-99261", "name": "Mafuta ya injini CF lita 3 x 8" },
+              { "code": "1W071-43010 / 1W071-43015", "name": "Kifaa cha kichujio cha mafuta" },
+              { "code": "1TA21-35750", "name": "Pete ya kichujio cha mafuta" }
+            ]
+          },
+          {
+            "label": "Consumptive (vipuri vinavyochakaa)",
+            "items": [
+              { "code": "14371-51051", "name": "Kifaa cha plunger" },
+              { "code": "1T071-98511", "name": "Kifaa cha pete za pistoni (140)" },
+              { "code": "1T057-97010", "name": "Mkanda wa feni" },
+              { "code": "1T071-90161", "name": "Seti ya muhuri wa kichwa cha silinda" },
+              { "code": "1T021-61110", "name": "Mkono wa kuwasha" },
+              { "code": "11010-04380", "name": "Muhuri wa crankshaft" }
+            ]
+          }
+        ]
+      },
+      {
+        "model": "Trekta la kutembea la NC — vipuri vinavyopendekezwa kuwekwa hisa",
+        "groups": [
+          {
+            "label": "Periodical (kubadilishwa mara kwa mara)",
+            "items": [
+              { "code": "62735-99091-E", "name": "Mafuta ya gia, Gear90, lita 3 x 8" }
+            ]
+          },
+          {
+            "label": "Consumptive (vipuri vinavyochakaa)",
+            "items": [
+              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Gia za usambazaji (14 / 18 / 18-1)" },
+              { "code": "69211-00722 / 69211-00732", "name": "Mkanda wa V, TRA CHANG (B-72 / B-73)" },
+              { "code": "62735-42110", "name": "Kebo ya klachi kuu" },
+              { "code": "62735-42480", "name": "Kebo ya klachi ya kugeuza" },
+              { "code": "09500-25388", "name": "Muhuri wa mafuta" },
+              { "code": "62735-22132-1", "name": "Kiatu cha breki (vipande 2)" }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      { "name": "Vipuri vya injini", "desc": "Pistoni, pete za pistoni, pampu za sindano, vichujio vya mafuta." },
+      { "name": "Vipuri vya usambazaji nguvu", "desc": "Gia, klachi, mishale ya kuendesha." },
+      { "name": "Vipuri vya kulimia", "desc": "Vile vya trekta, diski, beringi." },
+      { "name": "Vitu vinavyotumika mara moja", "desc": "Mafuta ya injini, vichujio vya hewa, mikanda." }
+    ],
+    "resources": [
+      { "title": "Parts Book — ZT140 (katalogi kamili yenye michoro, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
+      { "title": "Injini ya dizeli — orodha ya vipuri vinavyopendekezwa, mifano yote ZT100-ZT180 (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
+      { "title": "Trekta la kutembea — orodha ya vipuri vinavyopendekezwa (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
+    ],
+    "downloadsTitle": "Vipakuliwa",
+    "note": "Majedwali hapo juu yanaonyesha vipuri vya kawaida zaidi vya kuwekwa hisa kwa injini ya ZT140 na trekta la kutembea la NC kama mfano. Lahajedwali kamili hapa chini inashughulikia kila ukubwa wa injini (ZT100 hadi ZT180) pamoja na nambari za vipuri, hivyo ipakue ukihitaji kupanga hisa kwa mfano mwingine."
+  },
+  "service": {
+    "title": "Huduma",
+    "intro": "Ukaguzi sahihi kabla ya kuwasilisha na njia sahihi ya kuwasha injini ya KUBOTA ZT Plus, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo — pamoja na mipango ya baada ya mauzo ambayo kila Muuzaji anapaswa kujua.",
+    "tableHeaders": { "interval": "Muda", "task": "Kazi" },
+    "preDelivery": {
+      "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
+      "intro": "Kamilisha ukaguzi huu tano kabla ya kumkabidhi mteja injini au kabla ya kuiwasha kwa mara ya kwanza.",
+      "points": [
+        { "title": "1. Kichujio cha hewa", "desc": "Huchuja vumbi kutoka kwenye hewa inayoingia ili kulinda sehemu za ndani dhidi ya kuchakaa.", "steps": ["Jaza mafuta ya injini kwenye chungu cha kichujio.", "Jaza hadi alama ya kiwango iliyoonyeshwa kwenye chungu.", "Weka kichujio cha hewa kwa uangalifu ili muhuri wa mpira usichanike.", "Ongeza mafuta kidogo juu ya kichujio kusaidia kunasa vumbi."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Kuongeza mafuta kwenye kichujio halisi cha hewa cha injini ya ZT Plus" } },
+        { "title": "2. Mfumo wa mafuta", "desc": "Mafuta huchanganyika na hewa na kuwaka kutokana na joto la mgandamizo ili kuendesha injini.", "steps": ["Tumia mafuta safi; hakuna haja ya kuondoa kichujio wakati wa kuongeza mafuta.", "Angalia uvujaji karibu na kichujio — hakuna maji au uchafu unapaswa kuchanganyika na mafuta."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Kikombe halisi cha kichujio cha mafuta kwenye injini ya ZT Plus" } },
+        { "title": "3. Mafuta ya injini", "desc": "Ulainishaji huzuia kuchakaa, huweka sehemu zinazosogea huru, na husaidia kupoza injini.", "steps": ["Tumia mafuta ya injini ya TRA CHANG, SAE40.", "Ongeza takriban lita 2.7-2.8.", "Kiwango cha mafuta lazima kiwe kati ya alama ya juu na chini.", "Kabla ya matumizi, endesha injini bila mzigo kwa dakika 15-20 ili mafuta yazunguke kikamilifu.", "Angalia kiashiria cha shinikizo la mafuta — rangi ya samawati ikifunika nyekundu inamaanisha mfumo wa ulainishaji unafanya kazi vizuri."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "Kiashiria cha shinikizo la mafuta (samawati/nyekundu) kwenye injini halisi" } },
+        { "title": "4. Mfumo wa maji ya kupoza", "desc": "Huweka joto la injini chini ya udhibiti.", "steps": ["Ongeza unga wa kuzuia kutu.", "Jaza maji safi.", "Usitumie maji ya kisima au mfereji — husababisha mchanga kwenye radiator na kuziba."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Kujaza maji safi kwenye radiator ya injini halisi" } },
+        { "title": "5. Mkanda wa feni", "desc": "Huendesha feni ya kupoza na sehemu nyingine.", "steps": ["Bonyeza katikati ya mkanda kwa kidole kuangalia mkazo.", "Upinde sahihi ni 10-15 mm.", "Kama ni mkazo sana au mlegevu sana, rekebisha kufikia kiwango hicho."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Kupima upinde wa mkanda wa feni kwa rula" } }
+      ]
+    },
+    "startProcedure": {
+      "title": "Jinsi ya Kuwasha Injini ya Dizeli ya KUBOTA kwa Usahihi",
+      "steps": [
+        "Sogeza kiongeza mwendo kwenye nafasi ya kuwasha.",
+        "Unganisha kivunjio cha mkono kwenye mhimili wa kuwasha wa injini.",
+        "Zungusha kivunjio kwa mwelekeo wa saa hadi kihisi mkazo.",
+        "Ikiwa mpini wa kivunjio uko juu, kiondoe.",
+        "Unganisha tena kivunjio kwenye mhimili wa kuwasha ukiwa na mpini chini.",
+        "Inua lever ya decompression (valve) na zungusha kivunjio mara 3-5.",
+        "Achia lever ya valve na endelea kuzungusha — injini itawaka."
+      ],
+      "caution": [
+        "Shikilia kivunjio kwa nguvu baada ya injini kuwaka ili kisirushwe na kusababisha jeraha — kitajilegeza na kujiondoa chenyewe.",
+        "Usiachie lever ya valve na kuacha kuzungusha katikati — hii inaweza kusababisha injini kurudisha mlio (moshi utatoka kwenye kichujio cha hewa) na kuzunguka kinyume.",
+        "Ikiwa injini itarudisha mlio, ondoa kichujio cha hewa na kikague — safisha masizi au badilisha kichujio kikiwa kimeharibika."
+      ]
+    },
+    "maintenance": {
+      "title": "Matengenezo ya Kawaida",
+      "intro": "Vipengele vya matengenezo ya kawaida kwa injini ya dizeli ya ZT Plus na trekta la kutembea la TRA CHANG, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo ya matengenezo.",
+      "engine": {
+        "title": "Injini ya Dizeli ya ZT Plus — Vipengele 5 Muhimu vya Matengenezo",
+        "points": [
+          { "title": "1. Kichujio cha hewa", "desc": "Safisha chungu na kichujio cha hewa kila baada ya saa 100 au kila mwezi.", "steps": ["Legeza nati, ondoa kifuniko cha chungu, kisha vuta kichujio cha hewa.", "Ondoa chungu cha kichujio kwa kulegeza nati ya No.10.", "Safisha kichujio kwa dizeli, gonga kwa upole ili kuondoa uchafu, kisha kausha kwa blower.", "Chungu cha kichujio kinaweza kusafishwa kwa dizeli au maji yaliyochanganywa na sabuni — kausha vizuri kabla ya kuunganisha tena.", "Kabla ya kuunganisha, jaza mafuta ya injini ya TRA CHANG hadi kikomo kilichowekwa, kisha kaza nati ya No.10.", "Unganisha tena kichujio cha hewa na kifuniko cha chungu, kisha kaza nati."] },
+          { "title": "2. Mfumo wa mafuta", "desc": "Safisha kichujio cha mafuta kila baada ya saa 100 au kila mwezi; kibadilishe kila baada ya saa 400.", "steps": ["Ondoa nati inayoshikilia kichujio cha mafuta.", "Zungusha kikombe cha kichujio nje, kisha tumia koleo kutenganisha kichujio cha mafuta.", "Safisha kikombe na kichujio kwa kugonga au kupiga mswaki, kisha kausha kwa blower.", "Ikiwa kichujio kimeziba au kimechanika, kibadilishe mara moja.", "Unganisha kichujio cha mafuta kwenye kikombe — usisahau pete ya O juu.", "Zungusha kikombe cha kichujio nyuma kwa nguvu na kaza nati ya No.10 ili kikae imara."] },
+          { "title": "3. Mafuta ya injini", "desc": "Kwa injini mpya, badilisha mafuta baada ya saa 50 za kwanza; baadaye, kila baada ya saa 100.", "steps": ["Ondoa plagi ya kumwaga mafuta na acha mafuta yamwagike kabisa.", "Safisha kichujio cha mafuta kwa dizeli.", "Rudisha plagi ya kumwaga na ikaze vizuri.", "Jaza mafuta ya injini ya TRA CHANG, SAE40 API CF.", "Kiwango cha mafuta lazima kiwe kati ya alama ya juu na chini."] },
+          { "title": "4. Mfumo wa maji ya kupoza", "desc": "Mwaga na jaza tena radiator kila baada ya miezi 3 ikiwa unatumia unga wa kuzuia kutu, au kila mwezi ikiwa hutumii.", "steps": ["Fungua kifuniko cha radiator ili kusaidia maji kumwagika haraka zaidi.", "Ondoa plagi ya kumwaga, acha maji yamwagike kabisa, kisha kaza plagi.", "Ongeza mfuko 1 wa unga wa kuzuia kutu na jaza maji safi.", "Funga kifuniko kwa nguvu."] },
+          { "title": "5. Mkanda wa feni", "desc": "Angalia mkanda kabla ya kila matumizi — mkanda ukikatika wakati wa uendeshaji utasababisha injini kupata joto kupita kiasi.", "steps": ["Mkazo sahihi ni upinde wa 10-15 mm.", "Ikiwa mkanda umepasuka au kuchanika, ubadilishe mara moja."] }
+        ]
+      },
+      "tiller": {
+        "title": "Trekta la Kutembea la NC — Vipengele 5 Muhimu vya Matengenezo",
+        "points": [
+          { "title": "1. Mafuta ya usambazaji (gia)", "desc": "Kwa kifaa kipya, badilisha mafuta baada ya saa 50 za kwanza; baadaye, kila baada ya saa 500.", "steps": ["Tumia mafuta ya gia ya TRA CHANG, SAE90 API GL-4.", "Angalia kiwango kwenye kipimo cha kuona — kinapaswa kuwa katikati ya kiashiria.", "Funga kifuniko kwa nguvu ili kuzuia vumbi na maji."] },
+          { "title": "2. Lever ya kugeuza", "desc": "Upinde huru wa kushoto-kulia wa lever ya kugeuza unapaswa kuwa mm 1-2.", "steps": ["Legeza nati No.12 na No.14, kisha zungusha kirekebishaji hadi upinde huru sahihi na funga nati.", "Weka mafuta kwenye kebo ya kugeuza mara kwa mara ili kuongeza maisha yake.", "Baada ya kuweka mafuta, zungusha kifuniko cha mpira kufunga tundu."] },
+          { "title": "3. Upinde huru wa klachi", "desc": "Upinde huru wa lever kuu ya klachi unapaswa kuwa mm 15-20.", "steps": ["Legeza nati mbili za No.14 kwenye kebo ya klachi.", "Zungusha kirekebishaji mwishoni mwa kebo kufikia upinde huru sahihi, kisha angalia tena."] },
+          { "title": "4. Upinde huru wa breki", "desc": "Upinde huru wa breki kati ya spring na nati ya kurekebisha unapaswa kuwa mm 3-5.", "steps": ["Vuta lever ya klachi hadi nafasi ya kujitenga.", "Legeza nati mwishoni mwa kebo, rekebisha hadi upinde huru sahihi, kisha funga nati kwa nguvu.", "Weka mafuta kwenye kebo ya breki mara kwa mara ili kuongeza maisha yake; zungusha kifuniko cha mpira baada ya hapo."] },
+          { "title": "5. Mkazo wa mkanda wa kuendesha", "desc": "Mkazo sahihi wa mkanda wa kuendesha ni takriban mm 30-40.", "steps": ["Kaza wing nut kuvuta pulley ya mkanda hadi mkazo sahihi.", "Ikiwa mkanda umepasuka au kuchanika, ubadilishe na mpya."] }
+        ]
+      }
+    },
+    "programsTitle": "Mipango ya Baada ya Mauzo",
+    "programs": [
+      { "name": "Mpango wa Udhamini (mfano)", "desc": "Unahusu muundo mkuu na sehemu muhimu kwa kipindi kilichowekwa." },
+      { "name": "Mafunzo ya Mafundi (mfano)", "desc": "Kozi za mafunzo ya matengenezo kwa mafundi wa Muuzaji, nadharia na vitendo." }
+    ],
+    "resources": [
+      { "title": "Slaidi za ukaguzi kabla ya kuwasilisha na kuwasha kwa usahihi (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx" },
+      { "title": "Slaidi za ukaguzi kabla ya kuwasilisha na kuwasha kwa usahihi (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx" },
+      { "title": "Slaidi za matengenezo ya injini — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx" },
+      { "title": "Slaidi za matengenezo ya injini — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx" },
+      { "title": "Slaidi za matengenezo ya trekta la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx" },
+      { "title": "Slaidi za matengenezo ya trekta la kutembea (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" },
+      { "title": "Video — Ukaguzi wa awali wa injini ya ZT Plus", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4" },
+      { "title": "Video — Njia sahihi ya kuwasha injini", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4" },
+      { "title": "Video — Matengenezo ya kichujio cha hewa", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Matengenezo ya mfumo wa mafuta", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Matengenezo ya mafuta ya injini", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Matengenezo ya mfumo wa kupoza (radiator)", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Matengenezo ya mfumo wa feni ya kupoza", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Ukaguzi wa mafuta ya usambazaji (trekta la kutembea)", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Ukaguzi wa lever ya kugeuza (trekta la kutembea)", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Ukaguzi wa upinde huru wa klachi (trekta la kutembea)", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Ukaguzi wa upinde huru wa breki (trekta la kutembea)", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" },
+      { "title": "Video — Ukaguzi wa mkanda wa kuendesha (trekta la kutembea)", "lang": "EN", "type": "video", "note": "Bado haijawekwa mtandaoni — inasubiri uamuzi wa mahali pa kuhifadhi video" }
+    ],
+    "videosTitle": "Video",
+    "downloadsTitle": "Vipakuliwa",
+    "note": "Ukaguzi kabla ya kuwasilisha, hatua za kuwasha, na vipengele vya matengenezo ya kawaida hapo juu vinatoka moja kwa moja kwenye nyenzo rasmi za mafunzo. Video 10 za matengenezo zipo kwa uhalisia kwenye folda ya Drive ya chanzo, lakini hazikuwekwa kwenye build hii (kila moja ni 15-120MB) — angalia Handoff.md kwa hali ya uhifadhi. Sehemu ya mipango hapa chini bado ni mfano — tafadhali thibitisha masharti halisi ya udhamini na mipango ya huduma ya kila nchi kabla ya kuchapisha."
+  },
+  "crops": {
+    "title": "Suluhisho za Mazao",
+    "intro": "Linganisha mpangilio sahihi wa gurudumu na mbinu ya trekta la kutembea na hali ya shamba — mpunga wenye maji au mpunga mkavu — ili Wauzaji waweze kupendekeza mpangilio sahihi kwa wakulima.",
+    "solutions": [
+      {
+        "name": "Shamba la Mpunga wenye Maji (Wet Paddy Field)",
+        "desc": "Kwa mashamba ya mpunga yenye tope na maji, yanayopandwa zaidi ya mara moja kwa mwaka. Tumia NC Plus X Special yenye magurudumu ya kizimba ya 880 mm au 980 mm na mfumo wa Gear Insert wa kugeuza kwa kazi nzito za tope. Tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP ili kupata nguvu ya kutosha kwenye tope refu.",
+        "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+      },
+      {
+        "name": "Shamba la Mpunga Mkavu (Dry Paddy Field)",
+        "desc": "Kwa udongo wa mfinyanzi au mchanga usio na tope, ikiwa ni pamoja na mpunga wa msimu mkavu, miwa, muhogo, maharage, na mboga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi zaidi, rahisi kuendesha, na inaweza kusafiri umbali mfupi kwa magurudumu yake ya kizimba.",
+        "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+      },
+      {
+        "name": "Shamba la Muhogo",
+        "desc": "Kwa mashamba ya muhogo ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi na rahisi kutosha kufanya kazi kati ya mistari ya kupanda bila kuharibu vilima vya muhogo, na inaweza kusafiri umbali mfupi kati ya mashamba kwa magurudumu yake ya kizimba.",
+        "video": { "title": "Cassava field", "lang": "TH / EN", "note": "Video kuu ipo kwenye folda ya Drive ya chanzo (~2.3GB, TH na EN) — haikuwekwa kwenye build hii, inasubiri uamuzi wa mahali pa kuhifadhi video" }
+      },
+      {
+        "name": "Shamba la Mahindi",
+        "desc": "Kwa mashamba ya mahindi ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga, yanayofanana na muhogo na mpunga wa msimu mkavu. NC Plus X yenye magurudumu ya kizimba ya 800 mm hushughulikia vizuri nafasi ya mistari na safari fupi kati ya mashamba.",
+        "video": { "title": "Corn field", "lang": "TH / EN", "note": "Video kuu ipo kwenye folda ya Drive ya chanzo (~2.2GB, TH na EN) — haikuwekwa kwenye build hii, inasubiri uamuzi wa mahali pa kuhifadhi video" }
+      }
+    ],
+    "note": "Ukurasa huu sasa unashughulikia aina nne za mashamba kutoka kwenye video za suluhisho za mazao za timu ya masoko: mpunga wenye maji, mpunga mkavu, muhogo, na mahindi. Video za mpunga wenye maji na mkavu zimewekwa na zinacheza kwenye kompyuta ya ndani; video kuu za muhogo na mahindi (TH+EN, ~2.2-2.4GB kila moja) zipo kwenye folda ya Drive ya chanzo lakini hazikuwekwa kwenye build hii — angalia Handoff.md kwa hali ya uhifadhi."
+  },
+  "marketing": {
+    "title": "Shughuli za Masoko",
+    "intro": "Mifumo minne ya kawaida ya shughuli za Muuzaji kwa ajili ya kujenga uelewa wa bidhaa, kuonyesha utendaji halisi, kutoa huduma baada ya mauzo, na kuwashukuru wateja waliopo — moja kwa moja kutoka kwenye miongozo rasmi ya KUBOTA Activity Standard.",
+    "quickSelectTitle": "Uchaguzi wa Haraka wa Shughuli",
+    "quickSelect": [
+      { "question": "Anzisha bidhaa na tafuta wateja wapya", "answer": "Chagua KUBOTA Family Day" },
+      { "question": "Onyesha uendeshaji halisi na uwaache wateja wajaribu bidhaa", "answer": "Chagua Demonstration Activity" },
+      { "question": "Leta huduma baada ya mauzo karibu na wateja", "answer": "Chagua Mobile Service" },
+      { "question": "Shukuru na uimarishe uhusiano na wateja waliopo", "answer": "Chagua Thank You Customer Activity" }
+    ],
+    "labels": { "minParticipants": "Idadi ya chini ya washiriki", "target": "Wateja walengwa", "duration": "Muda unaopendekezwa", "venue": "Mahali panapofaa", "basic": "Shughuli za msingi (zinazohitajika)", "optional": "Shughuli za hiari", "schedule": "Ratiba inayopendekezwa", "checklist": "Orodha ya ukaguzi kabla ya tukio kuanza" },
+    "activities": [
+      {
+        "name": "1. KUBOTA Family Day (KFD)",
+        "purpose": "Jenga uelewa wa bidhaa za KUBOTA na mtambulishe muuzaji wa eneo kwa wateja katika eneo hilo.",
+        "minParticipants": "Watu 30",
+        "target": ["Wakulima wanaotumia injini ya dizeli au trekta la kutembea kwa sasa", "Wakulima ambao hawana bidhaa bado lakini wanaweza kununua baadaye", "Wateja watarajiwa katika eneo ambalo muuzaji anataka kujenga uelewa wa bidhaa"],
+        "duration": "Saa 2-3",
+        "venue": "Eneo la jamii karibu na wateja walengwa, lenye ufikiaji rahisi, viti vya wateja, nafasi ya maonyesho ya bidhaa, maegesho, na kinga dhidi ya jua au mvua inapohitajika.",
+        "basicActivities": ["Usajili na ukaribishaji wa wateja", "Onyesha injini ya dizeli ya KUBOTA ZT plus", "Onyesha trekta la kutembea la KUBOTA", "Toa uwasilishaji mfupi wa faida kuu za bidhaa", "Maswali na majadiliano ya wateja", "Vitafunio vyepesi na maji ya kunywa"],
+        "optionalActivities": ["Mchezo wa maswali kuhusu bidhaa", "Bahati nasibu", "Matangazo ya tukio", "Ukusanyaji wa taarifa za wateja wenye nia"],
+        "schedule": [
+          { "time": "09:00-09:30", "activity": "Usajili, ukaribishaji, na kuangalia bidhaa" },
+          { "time": "09:30-09:40", "activity": "Maneno ya ukaribishaji na kuanzisha muuzaji" },
+          { "time": "09:40-10:10", "activity": "Kuanzisha injini ya dizeli ya KUBOTA ZT plus" },
+          { "time": "10:10-10:40", "activity": "Kuanzisha trekta la kutembea la KUBOTA" },
+          { "time": "10:40-11:00", "activity": "Maswali na majadiliano ya wateja" },
+          { "time": "11:00-11:20", "activity": "Mchezo au bahati nasibu, ikiwa imechaguliwa" },
+          { "time": "11:20-11:30", "activity": "Shukuru wateja na piga picha ya kikundi" }
+        ],
+        "checklist": ["Wateja angalau 30 wamethibitishwa.", "Injini ya dizeli ya KUBOTA ZT plus safi na tayari kwa maonyesho.", "Trekta la kutembea la KUBOTA safi na tayari kwa maonyesho.", "Maeneo ya usajili, maonyesho ya bidhaa, viti, na maegesho tayari.", "Ishara za tukio, vifaa vya bidhaa, na mfumo wa sauti tayari.", "Wawasilishaji wamepitia taarifa za bidhaa.", "Vitafunio na maji ya kunywa vinatosha.", "Wanachama wote wa timu wanaelewa majukumu yao."],
+        "tip": "Shughuli ya msingi ya kuanzisha bidhaa. Wateja huona bidhaa halisi na kupokea uwasilishaji, lakini onyesho la shambani halihitajiki.",
+        "resources": [
+          { "title": "Mwongozo wa shughuli za KFD (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
+          { "title": "Mwongozo wa shughuli za KFD (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
+        ]
+      },
+      {
+        "name": "2. Demonstration Activity",
+        "purpose": "Onyesha trekta la kutembea la KUBOTA kwenye shamba halisi la mpunga, eleza uendeshaji sahihi, na waache wateja wajaribu bidhaa wakiwa na msaada wa wafanyakazi.",
+        "minParticipants": "Watu 30",
+        "target": ["Wakulima wanaofikiria kununua trekta la kutembea", "Wateja wanaotaka kuona utendaji halisi kabla ya kuamua", "Wakulima wanaotaka kujifunza njia sahihi ya kuendesha"],
+        "duration": "Saa 2-3",
+        "venue": "Shamba la mpunga au eneo halisi la kazi lililoandaliwa mapema, lenye njia ya onyesho iliyowekwa alama wazi, sehemu ya kutazama kwa wateja, na eneo tofauti la majaribio inapohitajika.",
+        "basicActivities": ["Usajili na maelezo ya shughuli", "Kuanzisha trekta la kutembea la KUBOTA na maelekezo ya uendeshaji", "Uendeshaji halisi na onyesho la kazi kwenye shamba halisi la mpunga", "Jaribio la mteja lililosimamiwa", "Maswali na ushauri wa msingi wa matengenezo"],
+        "optionalActivities": ["Jaribio la kasi ya kufanya kazi", "Jaribio la matumizi ya mafuta", "Ulinganisho na washindani kwa masharti sawa ya jaribio", "Uhifadhi au matangazo ya tukio"],
+        "schedule": [
+          { "time": "09:00-09:30", "activity": "Usajili na kuangalia bidhaa" },
+          { "time": "09:30-09:40", "activity": "Maneno ya ukaribishaji na maelezo ya onyesho" },
+          { "time": "09:40-10:00", "activity": "Kuanzisha trekta la kutembea la KUBOTA na maelekezo ya uendeshaji" },
+          { "time": "10:00-10:30", "activity": "Uendeshaji halisi na onyesho la kazi kwenye shamba la mpunga" },
+          { "time": "10:30-11:15", "activity": "Jaribio la mteja lililosimamiwa" },
+          { "time": "11:15-11:35", "activity": "Maswali, ushauri wa matengenezo, na majadiliano ya bidhaa" },
+          { "time": "11:35-11:45", "activity": "Muhtasari na kufunga shughuli" }
+        ],
+        "checklist": ["Shamba la mpunga au eneo la kazi liko tayari.", "Trekta la kutembea la KUBOTA na kifaa chake tayari kuendeshwa.", "Njia ya onyesho, sehemu ya kutazama, na eneo la majaribio vimetenganishwa wazi.", "Dereva wa onyesho amejaribu njia hiyo.", "Wafanyakazi wanaweza kueleza vidhibiti na njia sahihi ya uendeshaji.", "Eneo la majaribio la mteja na vifaa vya usalama viko tayari.", "Ikiwa jaribio la kasi au matumizi ya mafuta limechaguliwa, vifaa vya kupimia na njia ya jaribio viko tayari."],
+        "tip": "Bidhaa lazima ionyeshwe kwenye shamba halisi na wateja lazima wapate jaribio lililosimamiwa. Majaribio ya kasi na matumizi ya mafuta ni ya hiari.",
+        "resources": [
+          { "title": "Mwongozo wa Demonstration Activity (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
+          { "title": "Mwongozo wa Demonstration Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
+        ]
+      },
+      {
+        "name": "3. Mobile Service",
+        "purpose": "Imarisha huduma baada ya mauzo kwa kuleta mafundi na msaada wa huduma karibu zaidi na wateja.",
+        "minParticipants": "Wateja 20",
+        "target": ["Wateja waliopo wanaotumia bidhaa za KUBOTA", "Maeneo yenye idadi inayofaa ya watumiaji wa KUBOTA", "Wateja wanaoishi mbali na muuzaji au wenye ufikiaji mdogo wa huduma"],
+        "duration": "Takriban saa 3",
+        "venue": "Mahali karibu na wateja penye ufikiaji rahisi wa bidhaa, na maeneo tofauti ya kupokea, kusubiri, ukaguzi, mauzo ya vipuri, na uwasilishaji wa bidhaa, pamoja na hema au eneo lililofunikwa kwa mafundi.",
+        "basicActivities": ["Usajili wa wateja na kupokea bidhaa", "Ukaguzi wa msingi wa vipengele vitano (kichujio cha hewa, mfumo wa mafuta, mafuta ya injini, radiator/kupoza, mkanda wa feni)", "Eleza matokeo ya ukaguzi", "Ushauri wa uendeshaji na matengenezo", "Uza au badilisha vipuri inapohitajika", "Rudisha bidhaa kwa mteja"],
+        "optionalActivities": ["Kikao kifupi cha matengenezo cha kikundi", "Maji na vitafunio vyepesi kwa wateja wanaosubiri"],
+        "schedule": [
+          { "time": "08:30-09:00", "activity": "Andaa eneo la huduma, zana, vipuri, na majukumu ya timu" },
+          { "time": "09:00-09:30", "activity": "Sajili wateja, pokea bidhaa, na weka namba za bidhaa" },
+          { "time": "09:30-11:30", "activity": "Ukaguzi wa vipengele vitano, maelezo ya matokeo, na kubadilisha vipuri inapohitajika" },
+          { "time": "11:30-11:50", "activity": "Kikao kifupi cha kikundi kuhusu matumizi sahihi na matengenezo" },
+          { "time": "11:50-12:00", "activity": "Uwasilishaji wa mwisho wa bidhaa na kufunga shughuli" }
+        ],
+        "checklist": ["Wateja angalau 20 na aina za bidhaa zao zimethibitishwa.", "Maeneo ya kupokea, kusubiri, ukaguzi, na uwasilishaji tayari.", "Mafundi na zana za msingi tayari.", "Karatasi za ukaguzi na lebo za namba za bidhaa tayari.", "Vipuri vinavyobadilishwa mara kwa mara vinapatikana.", "Timu inaelewa mchakato wa kupokea-kukagua-kueleza-kuwasilisha.", "Viti vya wateja, maji ya kunywa, na njia za kufikia bidhaa tayari."],
+        "tip": "Lengo kuu ni kuleta huduma baada ya mauzo katika eneo la wateja. Mauzo ya bidhaa au uanzishaji wa bidhaa si lengo kuu.",
+        "resources": [
+          { "title": "Mwongozo wa Mobile Service (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
+          { "title": "Mwongozo wa Mobile Service (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
+        ]
+      },
+      {
+        "name": "4. Thank You Customer Activity",
+        "purpose": "Washukuru wateja waliopo kwa kuchagua KUBOTA na uimarishe uhusiano kati ya wateja, muuzaji, na chapa ya KUBOTA.",
+        "minParticipants": "Watu 50",
+        "target": ["Watumiaji waliopo wa injini ya dizeli ya KUBOTA ZT plus au trekta la kutembea la KUBOTA", "Maeneo yenye idadi kubwa ya wateja wa KUBOTA", "Wateja ambao muuzaji anataka kujenga uhusiano wa muda mrefu"],
+        "duration": "Takriban saa 3",
+        "venue": "Eneo la tukio, mahali pa muuzaji, chumba cha karamu, au eneo la jamii linaloweza kuchukua angalau wateja 50, lenye nafasi ya usajili, chakula, shughuli za jukwaa, maonyesho ya bidhaa, eneo la picha, na maegesho.",
+        "basicActivities": ["Karibisha wateja na wasilisha wazi ujumbe wa shukrani", "Pamba eneo kwa mandhari ya KUBOTA", "Andaa maonyesho ya bidhaa na eneo la picha", "Toa mlo na vinywaji", "Toa zawadi ya ukumbusho kwa mteja", "Jumuisha burudani, michezo, au bahati nasibu"],
+        "optionalActivities": ["Eneo la Mobile Service", "Utangulizi mfupi wa bidhaa mpya", "Ofa maalum", "Friend Get Friend", "Burudani au uimbaji"],
+        "schedule": [
+          { "time": "16:00-16:30", "activity": "Usajili, ugawaji wa zawadi za ukumbusho, kuangalia bidhaa, na picha" },
+          { "time": "16:30-16:40", "activity": "Ukaribishaji na ujumbe wa shukrani" },
+          { "time": "16:40-17:00", "activity": "Habari fupi, bidhaa mpya, au taarifa ya ofa maalum, ikiwa imechaguliwa" },
+          { "time": "17:00-17:30", "activity": "Michezo na ushiriki wa wateja" },
+          { "time": "17:30-18:30", "activity": "Mlo na burudani" },
+          { "time": "18:30-19:00", "activity": "Bahati nasibu" },
+          { "time": "19:00-19:10", "activity": "Shukrani ya mwisho na picha ya kikundi" }
+        ],
+        "checklist": ["Wateja angalau 50 wamethibitishwa.", "Maeneo ya usajili, viti, chakula, jukwaa, na maegesho tayari.", "Backdrop ya tukio, eneo la picha, na maonyesho ya bidhaa tayari.", "Chakula na vinywaji vinatosha.", "Zawadi za ukumbusho na tuzo tayari.", "MC na timu wanaelewa mpangilio wa shughuli.", "Ikiwa Mobile Service imejumuishwa, eneo lake, mafundi, zana, na vipuri viko tayari."],
+        "tip": "Shughuli ya kuthamini wateja na kujenga uhusiano. Mazingira yanapaswa kuwa ya joto na ya kufurahisha bila kulenga sana kuuza.",
+        "resources": [
+          { "title": "Mwongozo wa Thank You Customer Activity (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
+          { "title": "Mwongozo wa Thank You Customer Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
+        ]
+      }
+    ],
+    "resources": [
+      { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (EN, lahajedwali)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
+      { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (TH, lahajedwali)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
+      { "title": "Video ya muhtasari wa Kubota Event", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+    ],
+    "videosTitle": "Video",
+    "downloadsTitle": "Vipakuliwa",
+    "upcomingEvents": {
+      "title": "Kalenda ya Matukio Ijayo",
+      "intro": "Kalenda ya matukio kwa Wauzaji na Wasambazaji, pamoja na muhtasari wa shughuli zilizopita.",
+      "items": [
+        { "date": "Mfano: Robo ya 3", "name": "Mafunzo ya Kuanzishwa kwa Muuzaji", "location": "Mtandaoni / Mchanganyiko", "desc": "Mafunzo ya msingi kuhusu bidhaa, vipuri, na huduma kwa Wauzaji wapya." },
+        { "date": "Mfano: Robo ya 4", "name": "Roadshow ya Kikanda", "location": "Kwa mikoa", "desc": "Maonyesho ya bidhaa na kukusanya maoni ya soko." },
+        { "date": "Mfano: Kila mwaka", "name": "Mkutano wa Mwaka wa Wasambazaji", "location": "Thailand", "desc": "Mapitio ya utendaji wa mwaka na mpango wa biashara wa mwaka ujao." }
+      ],
+      "note": "Kumbuka: matukio hapo juu ni muundo wa mfano tu. Tafadhali badilisha na kalenda halisi ya matukio."
+    },
+    "note": "Miongozo yote minne ya shughuli na jedwali la kulinganisha ni maudhui halisi kutoka kwenye mfululizo rasmi wa KUBOTA Activity Standard. Miongozo isiyo na kiungo cha kupakua cha ndani hapo juu imeunganishwa moja kwa moja na faili ya chanzo kwenye Drive — faili hizo zilikuwa ndogo mno kwa kiunganishi cha Drive cha kipindi hiki kuzihifadhi kwa uhakika kama bytes za ndani, hivyo zinafunguliwa kwenye Google Drive kwenye kichupo kipya badala ya kupakuliwa kutoka kwenye tovuti hii."
+  },
+  "artwork": {
+    "title": "Kitengenezea Vifaa vya Masoko",
+    "intro": "Buni Bango na Standee yako mwenyewe ya dukani. Jaza taarifa za duka lako kisha upakue faili la ubora wa hali ya juu, tayari kwa uchapishaji, papo hapo — bila kusubiri mbunifu wa picha.",
+    "formTitle": "Maelezo ya muundo",
+    "sizeLabel": "Ukubwa wa media",
+    "sizes": { "banner": "Bango (upana m 3 x urefu m 1)", "standee": "Standee (urefu sm 160 x upana sm 80)" },
+    "productLabel": "Bidhaa ya kuonyesha",
+    "products": { "engine": "Injini ya dizeli ya ZT Plus", "tiller": "Trekta la kutembea la TRA CHANG NC Plus X", "both": "Bidhaa zote mbili" },
+    "shopNameLabel": "Jina la duka / Muuzaji",
+    "shopNamePlaceholder": "mfano: Duka la Kilimo la S.",
+    "contactLabel": "Anwani / Simu / LINE",
+    "contactPlaceholder": "123 Barabara ya Sukhumvit, Bang Na, Samut Prakan • Simu 08X-XXX-XXXX • LINE: @xxxx",
+    "promoLabel": "Maandishi ya matangazo (si lazima)",
+    "promoPlaceholder": "mfano: Malipo 0% kwa miezi 10",
+    "previewTitle": "Muhtasari",
+    "downloadButton": "Pakua faili tayari kwa uchapishaji",
+    "downloadingLabel": "Inatengeneza faili...",
+    "resolutionNote": "Ukubwa wa faili: px {px} (takriban DPI {dpi} kwenye ukubwa halisi wa {size})",
+    "note": "Faili hutolewa kwa ubora wa juu zaidi ambao kivinjari chako kinaweza kutengeneza kwa uhakika — inafaa kwa mabango makubwa yanayotazamwa kwa mbali. Shiriki ukubwa halisi na DPI iliyoonyeshwa hapo juu na kiwanda chako cha uchapishaji kabla ya kuagiza, na daima hakiki tahajia na taarifa za mawasiliano kabla ya kutuma faili la mwisho."
+  },
+  "footer": {
+    "contact": "Wasiliana na Timu ya Msaada kwa Wauzaji",
+    "note": "Nyaraka zote na vifaa vya kujifunza vitasasishwa mara kwa mara."
+  },
+  "assistant": {
+    "toggleLabel": "KU-KIT Assistant",
+    "title": "KU-KIT Assistant",
+    "subtitle": "Uliza kuhusu bidhaa, vipuri, huduma, mazao, masoko, au matukio",
+    "placeholder": "Andika swali lako...",
+    "welcome": "Habari! Niulize chochote kuhusu ZT Plus, NC Plus X, vipuri, huduma, suluhisho za mazao, shughuli za masoko, au matukio — nitatafuta kwenye maudhui ya tovuti na kukuelekeza kwenye ukurasa sahihi.",
+    "noResults": "Sikupata kinachofanana na hilo kwenye maudhui ya tovuti. Jaribu maneno mengine, au vinjari kwa kutumia menyu ya juu.",
+    "resultsIntro": "Hivi ndivyo nilivyopata:",
+    "viewButton": "Tazama sehemu hii →",
+    "onPage": "Kwenye ukurasa wa"
+  }
+}
