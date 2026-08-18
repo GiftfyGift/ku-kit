@@ -1,0 +1,516 @@
+{
+  "meta": { "siteName": "KU-KIT", "tagline": "Sentro ng kaalaman para sa mga bagong Dealer at Distributor", "langLabel": "Wika", "sampleBadge": "Sample na datos" },
+  "nav": { "home": "Home", "product": "Produkto", "parts": "Parts", "service": "Serbisyo", "crops": "Crop Solutions", "marketing": "Mga Event", "artwork": "Marketing Materials" },
+  "hero": {
+    "title": "Maligayang pagdating sa KU-KIT",
+    "subtitle": "Ang self-service na sentro ng impormasyon tungkol sa produkto, parts, serbisyo, at mga event — ginawa para sa mga bagong Dealer at Distributor, anumang oras, kahit saan.",
+    "cta": "Simulan ang Pag-aaral"
+  },
+  "home": {
+    "introTitle": "Ano ang KU-KIT?",
+    "introText": "Ang KU-KIT ay isang sentral na knowledge base tungkol sa mga engine at power tiller, na ginawa para sa mga bagong Dealer at Distributor sa ibang bansa. Dito matututo ang inyong koponan tungkol sa aming produkto, parts, serbisyo, at mga event nang mag-isa, nang hindi na kailangan hintayin ang personal na training — na nakakabawas sa gastusin sa paglalakbay at training, at nakakatulong sa hamon sa wika kapag bumubukas ng bagong merkado.",
+    "cards": [
+      { "icon": "⚙️", "title": "Impormasyon ng Produkto", "desc": "Detalye ng ZT Plus diesel engine at NC Plus X power tiller, paano tiyakin ang orihinal na produkto, at gabay sa pag-assemble.", "target": "product-engine" },
+      { "icon": "🔧", "title": "Parts", "desc": "Paano hanapin at mag-order ng orihinal na parts, may rekomendadong listahan ng stock kada modelo.", "target": "parts" },
+      { "icon": "🛠️", "title": "Serbisyo", "desc": "Pre-delivery check, tamang paraan ng pag-start, at after-sales na serbisyo.", "target": "service" },
+      { "icon": "🌾", "title": "Crop Solutions", "desc": "Paano pumili ng tamang setup ng power tiller para sa basa, tuyong palayan, kamoteng-kahoy, at mais.", "target": "crops" },
+      { "icon": "📣", "title": "Mga Event", "desc": "Apat na standard na KUBOTA activity format, plus ang paparating na kalendaryo ng training para sa Dealer at marketing events.", "target": "marketing" },
+      { "icon": "🖼️", "title": "Marketing Materials", "desc": "I-design ang sarili mong banner at standee para sa tindahan. Ilagay ang detalye ng iyong tindahan at mag-download agad ng print-ready na file.", "target": "artwork" }
+    ]
+  },
+  "product": {
+    "title": "Impormasyon ng Produkto",
+    "intro": "Lahat ng dapat malaman ng bagong Dealer tungkol sa dalawang pangunahing linya ng produkto — ang KUBOTA ZT Plus diesel engine at ang TRA CHANG NC Plus X power tiller.",
+    "tabs": { "engine": "Engine", "tiller": "Power Tiller", "assembly": "Gabay sa Pag-assemble" },
+    "engine": {
+      "title": "KUBOTA Diesel Engine — ZT Plus",
+      "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "KUBOTA ZT155 DI Plus diesel engine" },
+      "items": [
+        {
+          "name": "ZT Plus (uri TVCS)",
+          "desc": "Three Vortex Combustion System (TVCS). Madaling mag-start, tahimik tumakbo, at nakakatipid ng gasolina sa mababang RPM — angkop para sa pag-pump ng tubig o isasabit sa power tiller.",
+          "specs": [
+            { "label": "Saklaw ng lakas", "value": "10 - 12 HP" },
+            { "label": "Combustion system", "value": "Three Vortex Combustion System (TVCS)" },
+            { "label": "Paraan ng pag-start", "value": "Standard (manual) / ES (electric start) / SW (key switch)" },
+            { "label": "Warranty", "value": "3 taon" }
+          ]
+        },
+        {
+          "name": "ZT Plus (uri DI)",
+          "desc": "Direct Injection (DI). Mabilis tumugon kapag nag-a-accelerate at nakakatipid ng gasolina sa mataas na RPM — angkop sa mabigat na transportasyon, pag-arado, pag-ikot ng dynamo, o pag-pump mula sa malalim na balon.",
+          "specs": [
+            { "label": "Saklaw ng lakas", "value": "12.5 - 18 HP" },
+            { "label": "Combustion system", "value": "Direct Injection (DI)" },
+            { "label": "Paraan ng pag-start", "value": "Standard (manual) / ES (electric start) / SW (key switch)" },
+            { "label": "Warranty", "value": "3 taon" }
+          ]
+        }
+      ],
+      "note": "Paano malaman ang HP: tingnan ang label ng modelo sa engine (hal. ZT100Plus = 10 HP, ZT140Plus = 14 HP) o ang nameplate sa gilid ng gear cover. Maaaring iba ang available na modelo sa bawat bansa.",
+      "sellingPoints": {
+        "title": "Mga Highlight na Selling Point ng ZT Plus",
+        "items": [
+          { "title": "Steel fuel tank", "desc": "10.5 litro para sa 10-15.5 HP na engine, 14.5 litro para sa 18 HP na engine.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Malapitang larawan ng steel fuel tank sa ZT Plus engine" } },
+          { "title": "Steel grate", "desc": "Pinoprotektahan ang radiator at fan side, dinagdagan ang dalas ng inner radiator filter para sa mas mahusay na proteksyon sa alikabok at mas mababang panganib ng overheating.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Malapitang larawan ng steel grate na nagpoprotekta sa radiator at fan" } },
+          { "title": "Pinatibay na aluminum structure", "desc": "Pinoprotektahan ang radiator at ibang parte laban sa pinsala, may reinforcement sa 3 anchor point para bawasan ang pagyanig habang gumagana." },
+          { "title": "Transparent na fuel level gauge", "desc": "Malinaw na PVC gauge para makita agad ang lebel ng gasolina." },
+          { "title": "LED headlamp", "desc": "Maliwanag na LED headlamp para sa ligtas na gabing operasyon; may dagdag na turn signal at USB charging port ang PRO model.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Malapitang larawan ng maliwanag na LED headlamp sa ZT Plus engine" } }
+        ]
+      },
+      "authenticity": {
+        "title": "Paano Tiyakin ang Orihinal na KUBOTA ZT Plus Engine",
+        "intro": "Ang mga peke ay nakakasira sa tiwala ng customer at kaligtasan pagkatapos ng benta. Gamitin ang mga checkpoint na ito para matiyak na orihinal ang KUBOTA engine.",
+        "points": [
+          { "text": "May embossed na simbolong \"K\" (Kubota identity logo) sa takip ng engine.", "image": { "src": "assets/img/product/authenticity/engine-01-k-symbol.png", "alt": "Embossed na simbolong K sa takip ng engine" } },
+          { "text": "May debossed na Kubota logo ang spoiler — itim na spoiler sa Standard model, pilak na spoiler sa PRO model.", "image": { "src": "assets/img/product/authenticity/engine-02-spoiler.png", "alt": "Debossed na KUBOTA logo sa spoiler" } },
+          { "text": "May embossed na simbolong \"K\" ang side gear cover, tugma sa engine cover.", "image": { "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png", "alt": "Embossed na simbolong K sa side gear cover" } },
+          { "text": "May embossed na letrang K at Kubota identity logo ang cylinder block, malapit sa fuel pump.", "image": { "src": "assets/img/product/authenticity/engine-04-cylinder-block.png", "alt": "Embossed na letrang K at Kubota logo sa cylinder block" } },
+          { "text": "May dalawang Kubota identity symbol na embossed sa flywheel.", "image": { "src": "assets/img/product/authenticity/engine-05-flywheel.png", "alt": "Kubota identity symbol na embossed sa flywheel" } },
+          { "text": "May nameplate sticker sa side gear cover na nagpapakita ng modelo, tagagawa (\"SIAM KUBOTA Corporation Co., Ltd\"), at pinagmulan (\"MADE IN THAILAND\").", "image": { "src": "assets/img/product/authenticity/engine-06-nameplate.png", "alt": "Nameplate sticker sa side gear cover" } },
+          { "text": "May \"3-Years Warranty\" sticker mula sa Siam Kubota sa side gear cover.", "image": { "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png", "alt": "3-Years Warranty sticker mula sa Siam Kubota" } },
+          { "text": "May TIS (Thai Industrial Standard) sticker na may scannable QR code na nagpapatunay na ginawa ng Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "TIS sticker na may scannable QR code" } },
+          { "text": "Nakaukit ang modelo at 6-digit na serial number sa engine; i-scan ang QR code sa side gear cover — ipapakita ng orihinal na yunit ang \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Modelo at 6-digit na serial number na nakaukit sa engine" } }
+        ]
+      },
+      "resources": [
+        { "title": "ZT Plus — Product Knowledge deck (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-EN.pptx" },
+        { "title": "ZT Plus — Product Knowledge deck (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-TH.pptx" },
+        { "title": "Checklist ng orihinal na engine (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-Engine-Checklist-EN.pptx" },
+        { "title": "Operation manual ng ZT Plus (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-EN.pdf" },
+        { "title": "Operation manual ng ZT Plus (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-TH.pdf" },
+        { "title": "High-res na packshot — ZT155 DI Plus engine", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1gCbfACa3Kh3x1lrPz2jFtoR1dMFyFLzT/view" }
+      ],
+      "videosTitle": "Mga Video",
+      "downloadsTitle": "Mga Download",
+      "note": "Ang mga detalye sa itaas ay mula mismo sa aktuwal na Product Knowledge deck ng ZT Plus na ibinigay ng team. Ang ibang laki ng engine (ZT100/110/120/125/155/180) ay may parehong istruktura — humingi ng deck sa product team kung kailangan idagdag. Direktang naka-link sa Drive ang packshot photo (13MB) — lampas sa 10MB na limit na kayang i-download ng Drive connector ng session na ito, kaya hindi ito na-bundle nang lokal."
+    },
+    "tiller": {
+      "title": "TRA CHANG Power Tiller — NC Plus X",
+      "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller" },
+      "items": [
+        {
+          "name": "NC Plus X",
+          "desc": "Cage wheel na 800 mm ang diameter, 3-pulgadang wheel blade (16 piraso). Angkop para sa lupang mabuhangin o hindi masyadong malagkit, parehong basa at tuyong bukid, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Puwedeng gamitin ang cage wheel para sa maikling biyahe. Hindi angkop sa napakalalim na putikan.",
+          "specs": [
+            { "label": "Diameter ng cage wheel", "value": "800 mm" },
+            { "label": "Wheel blade", "value": "3 pulgada x 16 piraso" },
+            { "label": "Steering / clutch system", "value": "Standard turning system, standard clutch, ball bearing" },
+            { "label": "Warranty ng frame / gear case", "value": "3 taon / habambuhay para sa gear housing" }
+          ]
+        },
+        {
+          "name": "NC Plus X Special",
+          "desc": "Cage wheel na 880 mm o 980 mm ang diameter, may Gear Insert turning system para sa mabigat na putikan at palayang tinatamnan nang higit sa dalawang beses sa isang taon. Kung ililipat, palitan ng rubber wheel o gumamit ng trailer; para sa putikan, isamang gamitin ang KUBOTA ZT Plus 14-15.5 HP engine.",
+          "specs": [
+            { "label": "Diameter ng cage wheel", "value": "880 mm / 980 mm" },
+            { "label": "Wheel blade", "value": "4 o 5 pulgada x 16 piraso" },
+            { "label": "Steering / clutch system", "value": "Gear Insert turning system (mababaligtad kapag naluma, may safety bolt), special clutch, roller bearing" },
+            { "label": "Warranty ng frame / gear case", "value": "3 taon / habambuhay para sa gear housing" }
+          ]
+        }
+      ],
+      "note": "Paano makilala ang NC Plus X sa NC Plus X Special: (1) chassis code sa warranty card — walang \"S\" sa dulo ang \"NC131\" (Plus X) samantalang may \"S\" ang \"NC131S\" (Special); (2) may markang \"S\" na naka-punch sa gear case sa Special lamang. Lahat ng 3 modelo ng TRA CHANG power tiller ay maaaring lagyan ng rubber wheel para sa pagdadala ng ani o pangkalahatang transportasyon.",
+      "authenticity": {
+        "title": "Paano Tiyakin ang Orihinal na TRA CHANG Power Tiller",
+        "intro": "Ang mga peke ay nakakasira sa tiwala ng customer at kaligtasan pagkatapos ng benta. Gamitin ang mga checkpoint na ito para matiyak na orihinal ang TRA CHANG power tiller.",
+        "points": [
+          { "text": "TRA CHANG trademark: elepanteng nakaharap sa kaliwa, nakataas ang kaliwang harapang paa, makintab na gintong gear, puting elepante sa maningning na pulang bilog na background.", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "TRA CHANG trademark — puting elepante sa pulang bilog" } },
+          { "text": "Ang trademark sticker ay may baybay na \"TRA CHANG\" sa maningning na pulang letra na may puting border.", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "TRA CHANG trademark sticker sa hawakan ng tiller" } },
+          { "text": "May embossed na logong \"TRA CHANG\" (Thai) ang transmission case.", "image": { "src": "assets/img/product/authenticity/tiller-03-transmission-case.png", "alt": "Embossed na TRA CHANG Thai logo sa transmission case" } },
+          { "text": "May natatanging PT frame number — \"NC-XXXXXX\" (letra + 5 numero) — malalim at malinaw na naka-stamp at madaling makita.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Naka-stamp na PT frame number sa tiller" } },
+          { "text": "Ang simbolong elepante sa itaas na takip ng frame ay nakaharap sa kaliwa, nakataas ang kaliwang harapang paa, nasa loob ng hugis-gear.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Simbolong elepante sa itaas na takip ng frame" } },
+          { "text": "Ganoon din sa gear shift lever — nakaharap sa kaliwa at nakataas ang kaliwang harapang paa, nasa loob ng hugis-gear.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Simbolong elepante sa gear shift lever" } }
+        ]
+      },
+      "resources": [
+        { "title": "NC Plus X — Product Knowledge deck (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
+        { "title": "NC Plus X — Product Knowledge deck (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
+        { "title": "Checklist ng orihinal na power tiller (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
+        { "title": "Operation manual ng NC131 power tiller (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
+        { "title": "Operation manual ng NC131 power tiller (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
+        { "title": "High-res na packshot — NC Plus X 800 power tiller", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+      ],
+      "videosTitle": "Mga Video",
+      "downloadsTitle": "Mga Download",
+      "note": "Ang mga detalye sa itaas ay mula mismo sa aktuwal na Product Knowledge deck ng NC Plus X na ibinigay ng team. Direktang naka-link sa Drive ang packshot photo (14MB) — lampas sa 10MB na limit na kayang i-download ng Drive connector ng session na ito, kaya hindi ito na-bundle nang lokal."
+    },
+    "assembly": {
+      "title": "Gabay sa Pag-assemble",
+      "intro": "Mga hakbang sa pag-assemble ng TRA CHANG power tiller at pagkabit ng KUBOTA diesel engine dito.",
+      "tillerTitle": "Pag-assemble ng Power Tiller",
+      "engineTitle": "Pagkabit ng Engine sa Power Tiller",
+      "tillerSteps": [
+        "I-assemble ang hitch — dapat nasa kaliwang bahagi ng power tiller.",
+        "I-assemble ang frame front.",
+        "I-assemble ang mga cage wheel.",
+        "Ikabit ang mga gulong sa wheel axle — dapat nakaturo ang wheel blade sa likod ng power tiller."
+      ],
+      "engineSteps": [
+        "I-assemble ang engine sa chassis ng power tiller at higpitan ang mga nut ng engine mount.",
+        "Ikabit ang pulley sa flywheel.",
+        "Ikabit ang belt sa mga pulley — kapwa sa power tiller at sa engine.",
+        "Hilahin ang engine paharap para humigpit ang belt, pagkatapos ay higpitan ang nut; alisin ang stand ng engine.",
+        "I-adjust ang tension ng belt sa mga 22-28 mm sa pamamagitan ng paghigpit o pagluwag ng nut.",
+        "Luwagan ang 2 nut sa accelerator para makagalaw nang malaya ang lever, pagkatapos ay higpitan muli.",
+        "Ikabit ang accelerator cable sa accelerator lever at higpitan ang nut."
+      ],
+      "resources": [
+        { "title": "Gabay sa pag-assemble ng engine + power tiller (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
+        { "title": "Video ng pag-assemble — ZT Plus engine + NC Plus X power tiller", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+      ],
+      "videosTitle": "Mga Video",
+      "downloadsTitle": "Mga Download",
+      "note": "Ang mga hakbang sa itaas ay mula sa opisyal na assembly guide deck. Kumpletuhin muna ang pag-assemble ng power tiller, saka ikabit ang engine."
+    }
+  },
+  "parts": {
+    "title": "Parts",
+    "intro": "Paano makakahanap at makakapag-order ng orihinal na parts ang mga bagong Dealer at Distributor, kasama ang panimulang listahan ng stock para sa pinakakaraniwang modelo.",
+    "howToOrder": [
+      { "step": "1", "title": "Tukuyin ang modelo at serial number", "desc": "Tingnan ang nameplate sa makina o sa manual ng modelo." },
+      { "step": "2", "title": "Hanapin ang part code", "desc": "Gamitin ang Parts Catalog para kumpirmahin ang tamang code." },
+      { "step": "3", "title": "Ipadala ang order sa itinakdang channel", "desc": "Makipag-ugnayan sa regional parts support team." },
+      { "step": "4", "title": "Subaybayan ang status ng padala", "desc": "I-follow up ang order sa tracking system ng kompanya." }
+    ],
+    "recommended": [
+      {
+        "model": "ZT140 diesel engine — rekomendadong parts na istak",
+        "groups": [
+          {
+            "label": "Periodical (regular na palitan)",
+            "items": [
+              { "code": "1T051-11220", "name": "Air cleaner element assy" },
+              { "code": "1W071-99261", "name": "Engine oil CF 3L x 8" },
+              { "code": "1W071-43010 / 1W071-43015", "name": "Fuel filter assy" },
+              { "code": "1TA21-35750", "name": "Oil filter ring" }
+            ]
+          },
+          {
+            "label": "Consumptive (mabilis maluma)",
+            "items": [
+              { "code": "14371-51051", "name": "Plunger assy" },
+              { "code": "1T071-98511", "name": "Piston ring assy (140)" },
+              { "code": "1T057-97010", "name": "Fan belt" },
+              { "code": "1T071-90161", "name": "Cylinder head seal set" },
+              { "code": "1T021-61110", "name": "Start handle" },
+              { "code": "11010-04380", "name": "Crankshaft seal" }
+            ]
+          }
+        ]
+      },
+      {
+        "model": "NC power tiller — rekomendadong parts na istak",
+        "groups": [
+          {
+            "label": "Periodical (regular na palitan)",
+            "items": [
+              { "code": "62735-99091-E", "name": "Gear oil, Gear90, 3L x 8" }
+            ]
+          },
+          {
+            "label": "Consumptive (mabilis maluma)",
+            "items": [
+              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Transmission gear (14 / 18 / 18-1)" },
+              { "code": "69211-00722 / 69211-00732", "name": "V-belt, TRA CHANG (B-72 / B-73)" },
+              { "code": "62735-42110", "name": "Main clutch wire" },
+              { "code": "62735-42480", "name": "Steering clutch wire" },
+              { "code": "09500-25388", "name": "Oil seal" },
+              { "code": "62735-22132-1", "name": "Brake shoe (2 pcs)" }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      { "name": "Parts ng Engine", "desc": "Piston, piston ring, injection pump, fuel filter." },
+      { "name": "Parts ng Transmission", "desc": "Gear, clutch, drive shaft." },
+      { "name": "Parts ng Pag-aararo", "desc": "Tiller blade, disc, bearing." },
+      { "name": "Consumables", "desc": "Langis ng makina, air filter, sinturon." }
+    ],
+    "resources": [
+      { "title": "Parts Book — ZT140 (kumpletong illustrated catalog, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
+      { "title": "Diesel engine — listahan ng rekomendadong parts, lahat ng modelo ZT100-ZT180 (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
+      { "title": "Power tiller — listahan ng rekomendadong parts (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
+    ],
+    "downloadsTitle": "Mga Download",
+    "note": "Ipinapakita ng mga talahanayan sa itaas ang pinakakaraniwang parts na dapat istakin para sa ZT140 engine at NC power tiller bilang halimbawa. Ang buong spreadsheet sa ibaba ay sumasaklaw sa bawat laki ng engine (ZT100 hanggang ZT180) kasama ang part number, kaya i-download ito kung magpaplano ng stock para sa ibang modelo."
+  },
+  "service": {
+    "title": "Serbisyo",
+    "intro": "Ang tamang pre-delivery check at paraan ng pag-start ng KUBOTA ZT Plus engine, direkta mula sa opisyal na training deck — kasama ang mga after-sales program na dapat malaman ng bawat Dealer.",
+    "tableHeaders": { "interval": "Agwat", "task": "Gawain" },
+    "preDelivery": {
+      "title": "5 Mahalagang Beripikasyon Bago Patakbuhin ang Engine",
+      "intro": "Kumpletuhin ang limang beripikasyong ito bago ibigay ang engine sa customer o bago ito i-start sa unang pagkakataon.",
+      "points": [
+        { "title": "1. Air filter", "desc": "Sinasala ang alikabok mula sa hanging papasok para protektahan ang mga bahagi sa loob mula sa pagkasira.", "steps": ["Punuin ng langis ng makina ang filter pot.", "Punuin hanggang sa markang antas na nasa pot.", "Ikabit ang air filter nang maingat para hindi mapunit ang rubber seal.", "Lagyan ng kaunting langis ang ibabaw ng filter para makahuli ng alikabok."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Paglalagay ng langis sa tunay na air filter ng ZT Plus engine" } },
+        { "title": "2. Fuel system", "desc": "Naghahalo ang gasolina sa hangin at nag-iignite mula sa init ng compression para patakbuhin ang engine.", "steps": ["Gumamit ng malinis na gasolina; hindi na kailangang alisin ang filter habang nagpupuno.", "Suriin ang pagtagas sa paligid ng filter — walang dapat tubig o dumi na nahahalo sa gasolina."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Ang tunay na fuel filter cup ng isang ZT Plus engine" } },
+        { "title": "3. Langis ng makina", "desc": "Ang lubrication ay pumipigil sa pagkasira, pinapanatiling malaya ang gumagalaw na parte, at tumutulong palamigin ang engine.", "steps": ["Gumamit ng TRA CHANG engine oil, SAE40.", "Magdagdag ng humigit-kumulang 2.7-2.8 litro.", "Ang antas ng langis ay dapat nasa pagitan ng itaas at ibabang marka.", "Bago gamitin, i-idle ang engine ng 15-20 minuto para umikot ang langis nang buo.", "Tingnan ang oil-pressure indicator — kapag natakpan ng asul ang pula, normal ang paggana ng lubrication system."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "Ang oil-pressure indicator (asul/pula) sa tunay na engine" } },
+        { "title": "4. Cooling water system", "desc": "Pinananatili ang temperatura ng engine sa kontrol.", "steps": ["Maglagay ng rust-proofing powder.", "Punuin ng malinis na tubig.", "Huwag gumamit ng tubig mula sa balon o kanal — nagdudulot ito ng latak sa radiator at pagbara."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Paglalagay ng malinis na tubig sa radiator ng tunay na engine" } },
+        { "title": "5. Fan belt", "desc": "Nagpapaikot ng cooling fan at ibang bahagi.", "steps": ["Pindutin ang gitna ng belt gamit ang daliri para tingnan ang tension.", "Ang tamang deflection ay 10-15 mm.", "Kung masyadong mahigpit o maluwag, i-adjust sa saklaw na iyon."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Pagsukat ng deflection ng fan belt gamit ang ruler" } }
+      ]
+    },
+    "startProcedure": {
+      "title": "Paano I-start nang Tama ang KUBOTA Diesel Engine",
+      "steps": [
+        "Ilipat ang accelerator sa posisyon ng pag-start.",
+        "Ikabit ang hand crank sa starter shaft ng engine.",
+        "Paikutin ang crank sa direksyon ng orasan hanggang humigpit.",
+        "Kung nasa ibabaw ang hawakan ng crank, alisin ito.",
+        "Ikabit muli ang crank sa starter shaft na nasa ibaba ang hawakan.",
+        "Itaas ang decompression (valve) lever at paikutin ang crank ng 3-5 beses.",
+        "Bitawan ang valve lever at ipagpatuloy ang pag-ikot — mag-i-start ang engine."
+      ],
+      "caution": [
+        "Hawakan nang mahigpit ang crank matapos mag-start ang engine para hindi ito lumipad at magdulot ng aksidente — kusa itong maluluwag at matatanggal.",
+        "Huwag bitawan ang valve lever at ihinto ang pag-crank sa gitna — maaari itong magdulot ng kickback (aasoke ang air filter) at paikot pabalik ng engine.",
+        "Kung mag-kickback ang engine, alisin ang air filter at suriin — linisin ang uling o palitan ang filter kung sira."
+      ]
+    },
+    "maintenance": {
+      "title": "Regular na Maintenance",
+      "intro": "Mga regular na maintenance point para sa ZT Plus diesel engine at TRA CHANG power tiller, mula mismo sa opisyal na maintenance training deck.",
+      "engine": {
+        "title": "ZT Plus Diesel Engine — 5 Mahalagang Maintenance Point",
+        "points": [
+          { "title": "1. Air filter", "desc": "Linisin ang pot at air filter element tuwing 100 oras o bawat buwan.", "steps": ["Luwagan ang nut, alisin ang takip ng pot, pagkatapos ay hilahin ang air filter.", "Alisin ang filter pot sa pamamagitan ng pagluwag sa No.10 nut.", "Linisin ang filter gamit ang diesel, banayad na ipagpag ang dumi, pagkatapos ay patuyuin gamit ang blower.", "Puwedeng linisin ang filter pot gamit ang diesel o tubig na may sabon — patuyuin nang husto bago i-assemble muli.", "Bago i-assemble, punuin ng TRA CHANG engine oil hanggang sa markang limitasyon, pagkatapos ay higpitan ang No.10 nut.", "I-assemble muli ang air filter at takip ng pot, pagkatapos ay higpitan ang nut."] },
+          { "title": "2. Fuel system", "desc": "Linisin ang fuel filter tuwing 100 oras o bawat buwan; palitan ito tuwing 400 oras.", "steps": ["Alisin ang nut na humahawak sa fuel filter assembly.", "Ikutin ang filter cup papalabas, pagkatapos ay gumamit ng pliers para paghiwalayin ang fuel filter.", "Linisin ang cup at filter sa pagpapagpag o pagsipilyo, pagkatapos ay patuyuin gamit ang blower.", "Kung baradong-barado o punit ang filter, palitan agad.", "I-assemble ang fuel filter papasok sa cup — huwag kalimutan ang O-ring sa itaas.", "Ikutin pabalik ang filter cup nang mahigpit at higpitan ang No.10 nut para maka-lock ito."] },
+          { "title": "3. Langis ng makina", "desc": "Para sa bagong engine, palitan ang langis pagkatapos ng unang 50 oras; pagkatapos noon, tuwing 100 oras.", "steps": ["Alisin ang oil drain plug at hayaang tumulo nang buo ang langis.", "Linisin ang oil filter gamit ang diesel.", "Ikabit muli ang drain plug at higpitan nang maayos.", "Punuin ng TRA CHANG engine oil, SAE40 API CF.", "Ang antas ng langis ay dapat nasa pagitan ng itaas at ibabang marka."] },
+          { "title": "4. Cooling water system", "desc": "I-drain at punuin muli ang radiator tuwing 3 buwan kung gumagamit ng rust-proof powder, o bawat buwan kung wala.", "steps": ["Buksan ang radiator cap para mas mabilis ang pagtulo ng tubig.", "Alisin ang drain plug, hayaang tumulo nang buo ang tubig, pagkatapos ay higpitan ang plug.", "Magdagdag ng 1 sachet ng rust-proof powder at punuin ng malinis na tubig.", "Isara nang mahigpit ang takip."] },
+          { "title": "5. Fan belt", "desc": "Suriin ang belt bago gamitin — kung mapunit ang belt habang ginagamit, magiging sanhi ito ng overheating.", "steps": ["Ang tamang tension ay 10-15 mm ng deflection.", "Kung basag o punit ang belt, palitan agad."] }
+        ]
+      },
+      "tiller": {
+        "title": "NC Power Tiller — 5 Mahalagang Maintenance Point",
+        "points": [
+          { "title": "1. Transmission (gear) oil", "desc": "Para sa bagong unit, palitan ang langis pagkatapos ng unang 50 oras; pagkatapos noon, tuwing 500 oras.", "steps": ["Gumamit ng TRA CHANG gear oil, SAE90 API GL-4.", "Suriin ang antas sa sight gauge — dapat nasa gitna ng indicator.", "Isara nang mahigpit ang takip para walang makapasok na alikabok o tubig."] },
+          { "title": "2. Steering lever", "desc": "Ang kaliwa-kanang free play ng steering lever ay dapat mga 1-2 mm.", "steps": ["Luwagan ang nut No.12 at No.14, pagkatapos ay ikutin ang adjuster sa tamang free play at i-lock ang mga nut.", "Lagyan ng langis ang steering cable nang regular para tumagal ito nang mas matagal.", "Pagkatapos maglagay ng langis, ikutin pabalik ang rubber cap para isara ang butas."] },
+          { "title": "3. Clutch free play", "desc": "Ang free play ng main clutch lever ay dapat mga 15-20 mm.", "steps": ["Luwagan ang dalawang No.14 nut sa clutch cable.", "Ikutin ang adjuster sa dulo ng cable para itakda ang tamang free play, pagkatapos ay suriin muli."] },
+          { "title": "4. Brake free play", "desc": "Ang free play ng preno sa pagitan ng spring at adjusting nut ay dapat mga 3-5 mm.", "steps": ["Hilahin ang clutch lever sa disengaged na posisyon.", "Luwagan ang nut sa dulo ng cable, i-adjust sa tamang free play, pagkatapos ay i-lock nang mahigpit.", "Lagyan ng langis ang brake cable nang regular para tumagal ito; ikutin pabalik ang rubber cap pagkatapos."] },
+          { "title": "5. Tension ng drive belt", "desc": "Ang tamang tension ng drive belt ay mga 30-40 mm.", "steps": ["Higpitan ang wing nut para hilahin ang belt pulley hanggang sa tamang tension.", "Kung basag o punit ang belt, palitan ito ng bago."] }
+        ]
+      }
+    },
+    "programsTitle": "Mga After-Sales Program",
+    "programs": [
+      { "name": "Warranty Program (sample)", "desc": "Saklaw ang pangunahing istraktura at mahahalagang bahagi sa loob ng itinakdang panahon." },
+      { "name": "Training para sa Technician (sample)", "desc": "Kurso sa maintenance training para sa mga technician ng Dealer, teorya at praktikal." }
+    ],
+    "resources": [
+      { "title": "Deck ng pre-delivery check at tamang pag-start (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx" },
+      { "title": "Deck ng pre-delivery check at tamang pag-start (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx" },
+      { "title": "Deck ng engine maintenance — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx" },
+      { "title": "Deck ng engine maintenance — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx" },
+      { "title": "Deck ng power tiller maintenance (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx" },
+      { "title": "Deck ng power tiller maintenance (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" },
+      { "title": "Video — Pre-check inspection ng ZT Plus engine", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4" },
+      { "title": "Video — Tamang paraan ng pag-start ng engine", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4" },
+      { "title": "Video — Maintenance ng air filter", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Maintenance ng fuel system", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Maintenance ng langis ng makina", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Maintenance ng cooling (radiator) system", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Maintenance ng cooling fan system", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Pagsuri ng transmission oil (power tiller)", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Pagsuri ng steering lever (power tiller)", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Pagsuri ng clutch free play (power tiller)", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Pagsuri ng brake free play (power tiller)", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" },
+      { "title": "Video — Pagsuri ng drive belt (power tiller)", "lang": "EN", "type": "video", "note": "Hindi pa naka-host — hinihintay ang desisyon sa video hosting" }
+    ],
+    "videosTitle": "Mga Video",
+    "downloadsTitle": "Mga Download",
+    "note": "Ang pre-delivery check, hakbang sa pag-start, at mga regular na maintenance point sa itaas ay direktang mula sa opisyal na training material. Totoong umiiral ang 10 maintenance video sa Drive folder na pinagmulan, pero hindi isinama sa build na ito (15-120MB bawat isa) — tingnan ang Handoff.md para sa status ng hosting. Ang seksyon ng programa sa ibaba ay sample pa rin — kumpirmahin ang aktuwal na warranty at service-program terms ng bawat bansa bago i-publish."
+  },
+  "crops": {
+    "title": "Crop Solutions",
+    "intro": "Itugma ang tamang setup ng gulong at teknik ng power tiller sa kondisyon ng bukid — basang palayan o tuyong palayan — para makapagrekomenda ang Dealer ng tamang configuration sa magsasaka.",
+    "solutions": [
+      {
+        "name": "Basang Palayan (Wet Paddy Field)",
+        "desc": "Para sa mala-putik, binabahang palayan na tinatamnan nang higit sa isang beses sa isang taon. Gamitin ang NC Plus X Special na may 880 mm o 980 mm na cage wheel at Gear Insert turning system para sa mabigat na putikan. Isamang gamitin ang KUBOTA ZT Plus 14-15.5 HP engine para sapat ang lakas sa malalim na putik.",
+        "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+      },
+      {
+        "name": "Tuyong Palayan (Dry Paddy Field)",
+        "desc": "Para sa lupang mabuhangin o hindi masyadong malagkit na hindi puno ng putik, kasama ang tuyong-panahon na palayan, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Angkop ang NC Plus X na may 800 mm cage wheel — mas magaan, mas agile, at kayang maglakbay ng maikling distansya gamit ang cage wheel.",
+        "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+      },
+      {
+        "name": "Taniman ng Kamoteng-kahoy",
+        "desc": "Para sa taniman ng kamoteng-kahoy sa lupang mabuhangin o hindi masyadong malagkit. Angkop ang NC Plus X na may 800 mm cage wheel — magaan at agile na sapat para gumana sa pagitan ng mga hilera ng tanim nang hindi nasisira ang mga bunton ng kamoteng-kahoy, at kayang maglakbay ng maikling distansya sa pagitan ng mga bukid gamit ang cage wheel.",
+        "video": { "title": "Cassava field", "lang": "TH / EN", "note": "May master video sa source Drive folder (~2.3GB, TH at EN) — hindi isinama sa build na ito, hinihintay ang desisyon sa video hosting" }
+      },
+      {
+        "name": "Taniman ng Mais",
+        "desc": "Para sa taniman ng mais sa lupang mabuhangin o hindi masyadong malagkit, halos katulad ng kamoteng-kahoy at tuyong palayan. Kayang hawakan ng NC Plus X na may 800 mm cage wheel ang spacing ng hilera at maikling paglalakbay sa pagitan ng mga bukid.",
+        "video": { "title": "Corn field", "lang": "TH / EN", "note": "May master video sa source Drive folder (~2.2GB, TH at EN) — hindi isinama sa build na ito, hinihintay ang desisyon sa video hosting" }
+      }
+    ],
+    "note": "Sinasaklaw na ngayon ng page na ito ang apat na uri ng bukid mula sa mga crop-solution video ng marketing team: basang palayan, tuyong palayan, kamoteng-kahoy, at mais. Naka-bundle at gumagana lokal ang mga video ng basa/tuyong palayan; ang mga master video ng kamoteng-kahoy at mais (TH+EN, ~2.2-2.4GB bawat isa) ay umiiral sa source Drive folder pero hindi isinama sa build na ito — tingnan ang Handoff.md para sa status ng hosting."
+  },
+  "marketing": {
+    "title": "Marketing Activities",
+    "intro": "Apat na standard na activity format para sa Dealer para bumuo ng awareness ng produkto, magpakita ng aktuwal na performance, magbigay ng after-sales service, at magpasalamat sa mga umiiral na customer — mula mismo sa opisyal na KUBOTA Activity Standard manuals.",
+    "quickSelectTitle": "Mabilisang Pagpili ng Activity",
+    "quickSelect": [
+      { "question": "Ipakilala ang produkto at maghanap ng bagong customer", "answer": "Piliin ang KUBOTA Family Day" },
+      { "question": "Ipakita ang aktuwal na operasyon at pahintulutan ang customer na subukan ang produkto", "answer": "Piliin ang Demonstration Activity" },
+      { "question": "Dalhin ang after-sales service nang mas malapit sa customer", "answer": "Piliin ang Mobile Service" },
+      { "question": "Magpasalamat at palakasin ang relasyon sa mga umiiral na customer", "answer": "Piliin ang Thank You Customer Activity" }
+    ],
+    "labels": { "minParticipants": "Pinakamababang bilang ng kalahok", "target": "Target na customer", "duration": "Rekomendadong tagal", "venue": "Angkop na venue", "basic": "Batayang activities (kailangan)", "optional": "Opsyonal na activities", "schedule": "Iminumungkahing schedule", "checklist": "Checklist bago simulan ang event" },
+    "activities": [
+      {
+        "name": "1. KUBOTA Family Day (KFD)",
+        "purpose": "Bumuo ng awareness ng mga produkto ng KUBOTA at ipakilala ang lokal na dealer sa mga customer sa lugar.",
+        "minParticipants": "30 katao",
+        "target": ["Mga magsasakang kasalukuyang gumagamit ng diesel engine o power tiller", "Mga magsasakang wala pang produkto pero may pagkakataong bumili sa hinaharap", "Mga potensyal na customer sa lugar kung saan gustong bumuo ng awareness ng dealer"],
+        "duration": "2-3 oras",
+        "venue": "Isang community area na malapit sa target na customer, madaling puntahan, may upuan, espasyo para sa product display, parking, at proteksyon sa araw o ulan kung kailangan.",
+        "basicActivities": ["Pagpaparehistro at pagtanggap sa customer", "I-display ang KUBOTA Diesel engine ZT plus", "I-display ang KUBOTA Power Tiller", "Ipakita ang mga pangunahing benepisyo ng produkto", "Mga tanong at usapan ng customer", "Magaan na meryenda at inuming tubig"],
+        "optionalActivities": ["Product quiz", "Lucky draw", "Event promotion", "Pagkolekta ng lead ng customer"],
+        "schedule": [
+          { "time": "09:00-09:30", "activity": "Rehistro, pagtanggap, at panonood ng produkto" },
+          { "time": "09:30-09:40", "activity": "Mensahe ng pagtanggap at pagpapakilala ng dealer" },
+          { "time": "09:40-10:10", "activity": "Pagpapakilala ng KUBOTA Diesel engine ZT plus" },
+          { "time": "10:10-10:40", "activity": "Pagpapakilala ng KUBOTA Power Tiller" },
+          { "time": "10:40-11:00", "activity": "Mga tanong at usapan ng customer" },
+          { "time": "11:00-11:20", "activity": "Laro o lucky draw, kung pinili" },
+          { "time": "11:20-11:30", "activity": "Pasalamatan ang customer at kuhanan ng group photo" }
+        ],
+        "checklist": ["Nakumpirma ang hindi bababa sa 30 customer.", "Malinis at handa nang i-display ang KUBOTA Diesel engine ZT plus.", "Malinis at handa nang i-display ang KUBOTA Power Tiller.", "Handa na ang rehistro, product display, upuan, at parking area.", "Handa na ang event signs, product materials, at sound system.", "Nasuri na ng mga presenter ang product information.", "Sapat ang meryenda at inuming tubig.", "Naiintindihan ng lahat ng miyembro ng team ang kanilang responsibilidad."],
+        "tip": "Isang batayang product-introduction activity. Nakikita ng customer ang aktuwal na produkto at natatanggap ang presentasyon, pero hindi na kailangan ng field demonstration.",
+        "resources": [
+          { "title": "KFD Activity manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
+          { "title": "KFD Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
+        ]
+      },
+      {
+        "name": "2. Demonstration Activity",
+        "purpose": "Ipakita ang KUBOTA Power Tiller sa tunay na palayan, ipaliwanag ang tamang operasyon, at pahintulutan ang customer na subukan ang produkto na may suporta ng staff.",
+        "minParticipants": "30 katao",
+        "target": ["Mga magsasakang isinasaalang-alang ang pagbili ng power tiller", "Mga customer na gustong makita ang aktuwal na performance bago magdesisyon", "Mga magsasakang gustong matuto ng tamang paraan ng pag-oopereyt"],
+        "duration": "2-3 oras",
+        "venue": "Isang palayan o aktuwal na working area na inihanda nang maaga, may malinaw na markadong demonstration route, viewing point para sa customer, at hiwalay na trial area kung kailangan.",
+        "basicActivities": ["Rehistro at pagpapaliwanag ng activity", "Pagpapakilala ng KUBOTA Power Tiller at mga operating instructions", "Aktuwal na pagmamaneho at working demonstration sa tunay na palayan", "Supervised na pagsubok ng customer", "Mga tanong at batayang payo sa maintenance"],
+        "optionalActivities": ["Working-speed test", "Fuel-consumption test", "Paghahambing sa competitor gamit ang parehong test conditions", "Booking o event promotion"],
+        "schedule": [
+          { "time": "09:00-09:30", "activity": "Rehistro at panonood ng produkto" },
+          { "time": "09:30-09:40", "activity": "Mensahe ng pagtanggap at briefing ng demonstration" },
+          { "time": "09:40-10:00", "activity": "Pagpapakilala ng KUBOTA Power Tiller at operating instructions" },
+          { "time": "10:00-10:30", "activity": "Aktuwal na pagmamaneho at working demonstration sa palayan" },
+          { "time": "10:30-11:15", "activity": "Supervised na pagsubok ng customer" },
+          { "time": "11:15-11:35", "activity": "Mga tanong, payo sa maintenance, at usapan tungkol sa produkto" },
+          { "time": "11:35-11:45", "activity": "Buod at pagsara ng activity" }
+        ],
+        "checklist": ["Handa na ang palayan o working area.", "Handa nang i-opereyt ang KUBOTA Power Tiller at implement.", "Malinaw na hiwalay ang demonstration route, viewing point, at trial area.", "Nasubukan na ng demonstration driver ang ruta.", "Kayang ipaliwanag ng staff ang mga control at tamang paraan ng pag-oopereyt.", "Handa na ang trial area at safety equipment ng customer.", "Kung pinili ang speed o fuel-consumption test, handa na ang measuring equipment at test method."],
+        "tip": "Kailangang ma-demonstrate ang produkto sa tunay na field at magkaroon ng supervised trial ang customer. Opsyonal ang speed at fuel-consumption test.",
+        "resources": [
+          { "title": "Demonstration Activity manual (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
+          { "title": "Demonstration Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
+        ]
+      },
+      {
+        "name": "3. Mobile Service",
+        "purpose": "Palakasin ang after-sales service sa pamamagitan ng pagdadala ng mga technician at service support nang mas malapit sa customer.",
+        "minParticipants": "20 customer",
+        "target": ["Mga umiiral na customer na gumagamit ng produkto ng KUBOTA", "Mga lugar na may makatwirang bilang ng gumagamit ng KUBOTA", "Mga customer na malayo sa dealer o limitado ang access sa serbisyo"],
+        "duration": "Mga 3 oras",
+        "venue": "Isang lokasyon na malapit sa customer na madaling puntahan ang produkto, may hiwalay na area para sa pagtanggap, paghihintay, inspeksyon, pagbebenta ng spare parts, at pag-hahandover ng produkto, plus tolda o may bubong na lugar para sa mga technician.",
+        "basicActivities": ["Rehistro ng customer at pagtanggap ng produkto", "Five-point na batayang inspeksyon (air cleaner, fuel system, engine oil, radiator/cooling, fan belt)", "Ipaliwanag ang resulta ng inspeksyon", "Payo sa operasyon at maintenance", "Magbenta o magpalit ng spare parts kung kinakailangan", "Ibalik ang produkto sa customer"],
+        "optionalActivities": ["Maikling group maintenance session", "Tubig at magaan na meryenda para sa naghihintay na customer"],
+        "schedule": [
+          { "time": "08:30-09:00", "activity": "Ihanda ang service area, tools, spare parts, at mga role ng team" },
+          { "time": "09:00-09:30", "activity": "I-rehistro ang customer, tanggapin ang produkto, at lagyan ng product number" },
+          { "time": "09:30-11:30", "activity": "Five-point na inspeksyon, pagpapaliwanag ng resulta, at pagpapalit ng parts kung kinakailangan" },
+          { "time": "11:30-11:50", "activity": "Maikling group session tungkol sa tamang paggamit at maintenance" },
+          { "time": "11:50-12:00", "activity": "Huling pag-hahandover ng produkto at pagsara ng activity" }
+        ],
+        "checklist": ["Nakumpirma ang hindi bababa sa 20 customer at ang uri ng kanilang produkto.", "Handa na ang mga area para sa pagtanggap, paghihintay, inspeksyon, at handover.", "Handa na ang mga technician at batayang tools.", "Handa na ang inspection sheets at product number tags.", "Available ang madalas na napapalitang spare parts.", "Naiintindihan ng team ang proseso ng receive-inspect-explain-handover.", "Handa na ang upuan ng customer, inuming tubig, at access route ng produkto."],
+        "tip": "Ang pangunahing layunin ay dalhin ang after-sales service sa lugar ng customer. Hindi ito pangunahing tungkol sa pagbebenta o pagpapakilala ng produkto.",
+        "resources": [
+          { "title": "Mobile Service manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
+          { "title": "Mobile Service manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
+        ]
+      },
+      {
+        "name": "4. Thank You Customer Activity",
+        "purpose": "Pasalamatan ang mga umiiral na customer sa pagpili ng KUBOTA at palakasin ang relasyon sa pagitan ng customer, dealer, at brand ng KUBOTA.",
+        "minParticipants": "50 katao",
+        "target": ["Mga umiiral na gumagamit ng KUBOTA Diesel engine ZT plus o KUBOTA Power Tiller", "Mga lugar na may maraming customer ng KUBOTA", "Mga customer na gustong bumuo ng dealer ng pangmatagalang relasyon"],
+        "duration": "Mga 3 oras",
+        "venue": "Isang event area, lokasyon ng dealer, banquet room, o community venue na kayang umupo ng hindi bababa sa 50 customer, may espasyo para sa rehistro, pagkain, stage activities, product display, photo area, at parking.",
+        "basicActivities": ["Tanggapin ang customer at malinaw na ipahayag ang mensahe ng pasasalamat", "Palamutian ang venue gamit ang KUBOTA theme", "Ihanda ang product display at photo area", "Magbigay ng pagkain at inumin", "Magbigay ng souvenir sa customer", "Maglagay ng entertainment, laro, o lucky draw"],
+        "optionalActivities": ["Mobile Service Zone", "Maikling pagpapakilala ng bagong produkto", "Special offer", "Friend Get Friend", "Entertainment o pagkanta"],
+        "schedule": [
+          { "time": "16:00-16:30", "activity": "Rehistro, pamamahagi ng souvenir, panonood ng produkto, at litrato" },
+          { "time": "16:30-16:40", "activity": "Pagtanggap at mensahe ng pasasalamat" },
+          { "time": "16:40-17:00", "activity": "Maikling balita, bagong produkto, o special-offer update, kung pinili" },
+          { "time": "17:00-17:30", "activity": "Mga laro at partisipasyon ng customer" },
+          { "time": "17:30-18:30", "activity": "Pagkain at entertainment" },
+          { "time": "18:30-19:00", "activity": "Lucky draw" },
+          { "time": "19:00-19:10", "activity": "Huling pasasalamat at group photo" }
+        ],
+        "checklist": ["Nakumpirma ang hindi bababa sa 50 customer.", "Handa na ang rehistro, upuan, pagkain, stage, at parking area.", "Handa na ang event backdrop, photo area, at product display.", "Sapat ang pagkain at inumin.", "Handa na ang mga souvenir at premyo.", "Naiintindihan ng MC at team ang pagkakasunud-sunod ng activity.", "Kung may Mobile Service, handa na ang area, technician, tools, at spare parts nito."],
+        "tip": "Isang customer-appreciation at relationship activity. Dapat mainit at masaya ang atmospera nang hindi masyadong nakatuon sa pagbebenta.",
+        "resources": [
+          { "title": "Thank You Customer Activity manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
+          { "title": "Thank You Customer Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
+        ]
+      }
+    ],
+    "resources": [
+      { "title": "KUBOTA Activity Standard — talahanayan ng paghahambing ng 4 activity (EN, spreadsheet)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
+      { "title": "KUBOTA Activity Standard — talahanayan ng paghahambing ng 4 activity (TH, spreadsheet)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
+      { "title": "Kubota Event highlight video", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+    ],
+    "videosTitle": "Mga Video",
+    "downloadsTitle": "Mga Download",
+    "upcomingEvents": {
+      "title": "Paparating na Kalendaryo ng Event",
+      "intro": "Kalendaryo ng mga event para sa Dealer at Distributor, kasama ang mga highlight mula sa mga nagdaang activity.",
+      "items": [
+        { "date": "Sample: Q3", "name": "Dealer Onboarding Training", "location": "Online / Hybrid", "desc": "Batayang training sa produkto, parts, at serbisyo para sa mga bagong Dealer." },
+        { "date": "Sample: Q4", "name": "Regional Roadshow", "location": "Ayon sa rehiyon", "desc": "Demo ng produkto at pangongolekta ng feedback mula sa merkado." },
+        { "date": "Sample: Taunan", "name": "Annual Distributor Meeting", "location": "Thailand", "desc": "Taunang pagsusuri ng performance at plano sa negosyo para sa susunod na taon." }
+      ],
+      "note": "Paalala: ang mga event sa itaas ay sample na istraktura lamang. Palitan ng aktuwal na kalendaryo ng event."
+    },
+    "note": "Ang lahat ng apat na activity manual at ang comparison table ay aktuwal na content mula sa opisyal na serye ng KUBOTA Activity Standard. Ang mga manual na walang local download link sa itaas ay direktang naka-link sa source file sa Drive — masyadong maliit ang mga file na iyon para ma-save nang maaasahan ng Drive connector ng session na ito bilang local bytes, kaya nagbubukas ito sa Google Drive sa bagong tab sa halip na mag-download mula sa site na ito."
+  },
+  "artwork": {
+    "title": "Marketing Material Designer",
+    "intro": "I-design ang sarili mong Banner at Standee para sa tindahan. Ilagay ang detalye ng iyong tindahan at agad na mag-download ng high-resolution, print-ready na file — hindi na kailangang maghintay ng graphic designer.",
+    "formTitle": "Detalye ng design",
+    "sizeLabel": "Sukat ng media",
+    "sizes": { "banner": "Banner (3 m ang lapad x 1 m ang taas)", "standee": "Standee (160 cm ang taas x 80 cm ang lapad)" },
+    "productLabel": "Produktong ipapakita",
+    "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Parehong produkto" },
+    "shopNameLabel": "Pangalan ng tindahan / Dealer",
+    "shopNamePlaceholder": "hal. S. Kaset Agri Shop",
+    "contactLabel": "Address / Telepono / LINE",
+    "contactPlaceholder": "123 Sukhumvit Rd, Bang Na, Samut Prakan • Tel. 08X-XXX-XXXX • LINE: @xxxx",
+    "promoLabel": "Promo text (opsyonal)",
+    "promoPlaceholder": "hal. 0% installment sa loob ng 10 buwan",
+    "previewTitle": "Preview",
+    "downloadButton": "I-download ang print-ready na file",
+    "downloadingLabel": "Gumagawa ng file...",
+    "resolutionNote": "Sukat ng file: {px} px (humigit-kumulang {dpi} DPI sa tunay na sukat na {size})",
+    "note": "Ang file ay nilikha sa pinakamataas na resolution na kaya ng iyong browser nang maaasahan — bagay para sa malalaking signage na tinitingnan mula sa malayo. Ibahagi ang tunay na sukat at ang DPI na nakalagay sa itaas sa iyong print shop bago mag-order, at laging suriin ang spelling at contact details bago ipadala ang final na file."
+  },
+  "footer": {
+    "contact": "Makipag-ugnayan sa Dealer Support Team",
+    "note": "Patuloy na ia-update ang lahat ng dokumento at learning materials."
+  },
+  "assistant": {
+    "toggleLabel": "KU-KIT Assistant",
+    "title": "KU-KIT Assistant",
+    "subtitle": "Magtanong tungkol sa produkto, parts, serbisyo, crops, marketing, o mga event",
+    "placeholder": "I-type ang iyong tanong...",
+    "welcome": "Kumusta! Magtanong ka kahit ano tungkol sa ZT Plus, NC Plus X, parts, serbisyo, crop solutions, marketing activities, o mga event — hahanapin ko sa nilalaman ng site at ituturo kita sa tamang page.",
+    "noResults": "Wala akong nahanap na tugma sa nilalaman ng site. Subukan ang ibang keyword, o mag-browse gamit ang nav menu sa itaas.",
+    "resultsIntro": "Ito ang nahanap ko:",
+    "viewButton": "Tingnan ang seksyong ito →",
+    "onPage": "Sa pahina ng"
+  }
+}
