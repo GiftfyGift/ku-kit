@@ -1,0 +1,5 @@
+# Bundled reference documents (large, already stored in the team's shared Drive)
+assets/docs/
+
+# Regenerable build output — rebuild via the artifact build script when needed
+artifact/
