@@ -33,12 +33,52 @@ function setActiveNav(route) {
   });
 }
 
-function navigate(route) {
+function navigate(route, anchor) {
   state.route = route;
   location.hash = route;
   setActiveNav(route);
   render();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (anchor) {
+    requestAnimationFrame(() => {
+      const el = document.getElementById(anchor);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function renderQuickLinkItem(item) {
+  const clickable = item.route && item.anchor;
+  const label = clickable
+    ? `<button type="button" class="quick-link-btn" data-ql-route="${item.route}" data-ql-anchor="${item.anchor}">${item.label}</button>`
+    : `<span class="quick-link-heading">${item.label}</span>`;
+  const children = item.children && item.children.length
+    ? `<ul class="quick-links-sub">${item.children.map(c => `<li>${renderQuickLinkItem(c)}</li>`).join('')}</ul>`
+    : '';
+  return `${label}${children}`;
+}
+
+function renderQuickLinks(list) {
+  if (!list || !list.length) return '';
+  return `<ul class="quick-links">${list.map(item => `<li>${renderQuickLinkItem(item)}</li>`).join('')}</ul>`;
+}
+
+function renderProductSelector(c, active) {
+  const t = c.product.tabs;
+  const card = (key, label, img, alt) => `
+    <button type="button" class="product-select-card ${active === key ? 'active' : ''}" data-subnav="product-${key}">
+      <span class="product-select-icon"><img src="${img}" alt="${alt}"></span>
+      <span class="product-select-label">${label}</span>
+      <span class="product-select-check" aria-hidden="true">✓</span>
+    </button>
+  `;
+  return `
+    <div class="product-selector">
+      ${card('engine', t.engine, c.product.engine.image.src, c.product.engine.image.alt)}
+      ${card('tiller', t.tiller, c.product.tiller.image.src, c.product.tiller.image.alt)}
+    </div>
+  `;
 }
 
 function renderVideoGrid(videos) {
@@ -127,21 +167,7 @@ function renderHome(c) {
   `;
 }
 
-function renderProductSubnav(c, active) {
-  const t = c.product.tabs;
-  const tab = (key, label) => `
-    <button class="subnav-btn ${active === key ? 'active' : ''}" data-subnav="product-${key}">${label}</button>
-  `;
-  return `
-    <div class="product-subnav">
-      ${tab('engine', t.engine)}
-      ${tab('tiller', t.tiller)}
-      ${tab('assembly', t.assembly)}
-    </div>
-  `;
-}
-
-function renderProductCategory(cat) {
+function renderProductCategory(cat, id) {
   const items = cat.items.map(item => {
     const specs = item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
     return `
@@ -164,7 +190,7 @@ function renderProductCategory(cat) {
     </figure>
   ` : '';
   return `
-    <div class="category-block">
+    <div class="category-block"${id ? ` id="${id}"` : ''}>
       ${catImage}
       <div class="product-grid">${items}</div>
       ${catNote}
@@ -190,10 +216,26 @@ function renderCheckPhotoList(points) {
   `;
 }
 
-function renderAuthenticityBlock(auth) {
+function renderApplicationExamples(app, id) {
+  if (!app) return '';
+  const images = app.images.map(img => `
+    <figure class="application-photo">
+      <img src="${img.src}" alt="${img.alt}">
+    </figure>
+  `).join('');
+  return `
+    <div class="category-block"${id ? ` id="${id}"` : ''}>
+      <h3 class="category-heading">${app.title}</h3>
+      ${app.intro ? `<p class="section-intro">${app.intro}</p>` : ''}
+      <div class="application-gallery">${images}</div>
+    </div>
+  `;
+}
+
+function renderAuthenticityBlock(auth, id) {
   if (!auth) return '';
   return `
-    <div class="category-block">
+    <div class="category-block"${id ? ` id="${id}"` : ''}>
       <h3 class="category-heading">${auth.title}</h3>
       ${auth.intro ? `<p class="section-intro">${auth.intro}</p>` : ''}
       ${renderCheckPhotoList(auth.points)}
@@ -201,7 +243,7 @@ function renderAuthenticityBlock(auth) {
   `;
 }
 
-function renderProductResources(p) {
+function renderProductResources(p, downloadsId) {
   const { videos, docs } = splitResources(p.resources);
   const videoBlock = videos.length ? `
     <div class="category-block">
@@ -210,7 +252,7 @@ function renderProductResources(p) {
     </div>
   ` : '';
   const resources = docs.length ? `
-    <div class="category-block">
+    <div class="category-block"${downloadsId ? ` id="${downloadsId}"` : ''}>
       <h3 class="category-heading">${p.downloadsTitle}</h3>
       ${renderResourceList(docs)}
     </div>
@@ -243,12 +285,14 @@ function renderProductEngine(c) {
     <section>
       <h2 class="section-title">${p.title}</h2>
       <p class="section-intro">${p.intro}</p>
-      ${renderProductSubnav(c, 'engine')}
+      ${renderProductSelector(c, 'engine')}
+      ${renderQuickLinks(e.quickLinks)}
       <h3 class="category-heading">${e.title}</h3>
-      ${renderProductCategory(e)}
+      ${renderProductCategory(e, 'engine-product-info')}
       ${sellingPoints}
-      ${renderAuthenticityBlock(e.authenticity)}
-      ${renderProductResources(e)}
+      ${renderApplicationExamples(e.applicationExamples, 'engine-application')}
+      ${renderAuthenticityBlock(e.authenticity, 'engine-authenticity')}
+      ${renderProductResources(e, 'engine-downloads')}
       <div class="note-callout">${e.note}</div>
     </section>
   `;
@@ -262,11 +306,13 @@ function renderProductTiller(c) {
     <section>
       <h2 class="section-title">${p.title}</h2>
       <p class="section-intro">${p.intro}</p>
-      ${renderProductSubnav(c, 'tiller')}
+      ${renderProductSelector(c, 'tiller')}
+      ${renderQuickLinks(t.quickLinks)}
       <h3 class="category-heading">${t.title}</h3>
-      ${renderProductCategory(t)}
-      ${renderAuthenticityBlock(t.authenticity)}
-      ${renderProductResources(t)}
+      ${renderProductCategory(t, 'tiller-product-info')}
+      ${renderApplicationExamples(t.applicationExamples, 'tiller-application')}
+      ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
+      ${renderProductResources(t, 'tiller-downloads')}
       <div class="note-callout">${t.note}</div>
     </section>
   `;
@@ -280,16 +326,16 @@ function renderProductAssembly(c) {
     <section>
       <h2 class="section-title">${p.title}</h2>
       <p class="section-intro">${p.intro}</p>
-      ${renderProductSubnav(c, 'assembly')}
+      ${renderProductSelector(c, null)}
       <div class="category-block">
         <h3 class="category-heading">${a.title}</h3>
         <p class="section-intro">${a.intro}</p>
         <div class="genuine-grid">
-          <div class="genuine-card">
+          <div class="genuine-card" id="assembly-tiller">
             <h4>1. ${a.tillerTitle}</h4>
             <ol class="check-list">${a.tillerSteps.map(s => `<li>${s}</li>`).join('')}</ol>
           </div>
-          <div class="genuine-card">
+          <div class="genuine-card" id="assembly-engine">
             <h4>2. ${a.engineTitle}</h4>
             <ol class="check-list">${a.engineSteps.map(s => `<li>${s}</li>`).join('')}</ol>
           </div>
@@ -357,7 +403,7 @@ function renderService(c) {
   const s = c.service;
 
   const preDelivery = s.preDelivery ? `
-    <div class="category-block">
+    <div class="category-block" id="service-pre-delivery">
       <h3 class="category-heading">${s.preDelivery.title}</h3>
       <p class="section-intro">${s.preDelivery.intro}</p>
       <div class="check-points">
@@ -376,15 +422,15 @@ function renderService(c) {
   ` : '';
 
   const startProcedure = s.startProcedure ? `
-    <div class="category-block">
+    <div class="category-block" id="service-start-procedure">
       <h3 class="category-heading">${s.startProcedure.title}</h3>
       <ol class="check-list">${s.startProcedure.steps.map(st => `<li>${st}</li>`).join('')}</ol>
       <div class="note-callout">${s.startProcedure.caution.join(' ')}</div>
     </div>
   ` : '';
 
-  const renderMaintenancePoints = pts => pts.map(pt => `
-    <div class="check-point-card">
+  const renderMaintenancePoints = (pts, idPrefix) => pts.map((pt, idx) => `
+    <div class="check-point-card" id="${idPrefix}-${idx}">
       <h4>${pt.title}</h4>
       <p class="desc">${pt.desc}</p>
       <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
@@ -396,9 +442,9 @@ function renderService(c) {
       <h3 class="category-heading">${s.maintenance.title}</h3>
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
-      <div class="check-points">${renderMaintenancePoints(s.maintenance.engine.points)}</div>
+      <div class="check-points">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine')}</div>
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
-      <div class="check-points">${renderMaintenancePoints(s.maintenance.tiller.points)}</div>
+      <div class="check-points">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller')}</div>
     </div>
   ` : '';
 
@@ -427,6 +473,7 @@ function renderService(c) {
     <section>
       <h2 class="section-title">${s.title}</h2>
       <p class="section-intro">${s.intro}</p>
+      ${renderQuickLinks(s.quickLinks)}
       ${preDelivery}
       ${startProcedure}
       ${maintenance}
@@ -443,12 +490,13 @@ function renderService(c) {
 
 function renderCrops(c) {
   const cr = c.crops;
-  const items = cr.solutions.map(sol => {
+
+  const renderSolutionCard = sol => {
     const videoHtml = sol.video && sol.video.href
       ? `<video class="kk-video" controls preload="metadata" src="${encodeURI(sol.video.href)}"></video>`
       : `<div class="video-note">🎬 ${sol.video ? sol.video.title : ''}${sol.video && sol.video.note ? ' — ' + sol.video.note : ''}</div>`;
     return `
-      <div class="product-card">
+      <div class="product-card"${sol.id ? ` id="${sol.id}"` : ''}>
         <div class="product-card-header"><h4>${sol.name}</h4></div>
         <div class="product-card-body">
           <p class="desc">${sol.desc}</p>
@@ -456,15 +504,99 @@ function renderCrops(c) {
         </div>
       </div>
     `;
-  }).join('');
+  };
+
+  const groups = [];
+  const groupIndex = {};
+  const ungrouped = [];
+  cr.solutions.forEach(sol => {
+    if (sol.groupId) {
+      if (!(sol.groupId in groupIndex)) {
+        groupIndex[sol.groupId] = groups.length;
+        groups.push({ id: sol.groupId, name: sol.group, items: [] });
+      }
+      groups[groupIndex[sol.groupId]].items.push(sol);
+    } else {
+      ungrouped.push(sol);
+    }
+  });
+
+  const groupBlocks = groups.map(g => `
+    <div class="category-block" id="${g.id}">
+      <h3 class="category-heading">${g.name}</h3>
+      <div class="product-grid">${g.items.map(renderSolutionCard).join('')}</div>
+    </div>
+  `).join('');
+
+  const ungroupedGrid = ungrouped.length ? `<div class="product-grid">${ungrouped.map(renderSolutionCard).join('')}</div>` : '';
 
   return `
     <section>
       <h2 class="section-title">${cr.title}</h2>
       <p class="section-intro">${cr.intro}</p>
-      <div class="product-grid">${items}</div>
+      ${renderQuickLinks(cr.quickLinks)}
+      ${groupBlocks}
+      ${ungroupedGrid}
       <div class="note-callout">${cr.note}</div>
     </section>
+  `;
+}
+
+function renderActivityComparison(cmp) {
+  if (!cmp) return '';
+  const headCells = cmp.activities.map((a, i) => `
+    <div class="activity-cmp-head activity-cmp-accent-${i % 4}">
+      <span class="activity-cmp-head-icon">${a.icon}</span>
+      <span>${a.name}</span>
+    </div>
+  `).join('');
+
+  const bodyRows = cmp.criteria.map(cr => {
+    const labelCell = `
+      <div class="activity-cmp-label">
+        <span class="activity-cmp-label-icon">${cr.icon}</span>
+        <span>${cr.label}</span>
+      </div>
+    `;
+    const dataCells = cmp.activities.map((a, i) => {
+      const val = a[cr.key];
+      const content = Array.isArray(val)
+        ? `<ul class="activity-cmp-list">${val.map(v => `<li>${v}</li>`).join('')}</ul>`
+        : `<p>${val}</p>`;
+      return `<div class="activity-cmp-cell activity-cmp-accent-${i % 4}">${content}</div>`;
+    }).join('');
+    return labelCell + dataCells;
+  }).join('');
+
+  return `
+    <div class="category-block">
+      <h3 class="category-heading">${cmp.title}</h3>
+      ${cmp.intro ? `<p class="section-intro">${cmp.intro}</p>` : ''}
+      <div class="activity-cmp-scroll">
+        <div class="activity-cmp-grid">
+          <div class="activity-cmp-corner"></div>
+          ${headCells}
+          ${bodyRows}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderActivityPicker(m) {
+  const acts = m.activityComparison.activities;
+  const boxes = acts.map((a, i) => `
+    <button type="button" class="activity-pick-box activity-cmp-accent-${i % 4}" data-ql-route="marketing" data-ql-anchor="activity-${i}">
+      <span class="activity-pick-number">${i + 1}</span>
+      <span class="activity-pick-icon">${a.icon}</span>
+      <span class="activity-pick-name">${a.name}</span>
+    </button>
+  `).join('');
+  return `
+    <div class="category-block">
+      <h3 class="category-heading">${m.quickSelectTitle}</h3>
+      <div class="activity-pick-grid">${boxes}</div>
+    </div>
   `;
 }
 
@@ -472,19 +604,10 @@ function renderMarketing(c) {
   const m = c.marketing;
   const lbl = m.labels;
 
-  const quickSelect = m.quickSelect.map(q => `
-    <div class="event-card">
-      <div>
-        <h4>${q.question}</h4>
-        <p class="desc">${q.answer}</p>
-      </div>
-    </div>
-  `).join('');
-
-  const activities = m.activities.map(a => {
+  const activities = m.activities.map((a, idx) => {
     const { videos, docs } = splitResources(a.resources);
     return `
-      <div class="category-block">
+      <div class="category-block" id="activity-${idx}">
         <h3 class="category-heading">${a.name}</h3>
         <p class="section-intro">${a.purpose}</p>
         <div class="highlight-grid">
@@ -548,10 +671,8 @@ function renderMarketing(c) {
     <section>
       <h2 class="section-title">${m.title}</h2>
       <p class="section-intro">${m.intro}</p>
-      <div class="category-block">
-        <h3 class="category-heading">${m.quickSelectTitle}</h3>
-        <div class="event-list">${quickSelect}</div>
-      </div>
+      ${renderActivityComparison(m.activityComparison)}
+      ${renderActivityPicker(m)}
       ${activities}
       ${upcomingEvents}
       ${videoBlock}
@@ -947,6 +1068,10 @@ function render() {
     btn.addEventListener('click', () => navigate(btn.dataset.subnav));
   });
 
+  app.querySelectorAll('[data-ql-route]').forEach(btn => {
+    btn.addEventListener('click', () => navigate(btn.dataset.qlRoute, btn.dataset.qlAnchor));
+  });
+
   if (state.route === 'artwork') initArtworkPage(c);
 }
 
@@ -1041,7 +1166,6 @@ function buildSearchIndex(c) {
 
   // Marketing
   const m = c.marketing;
-  (m.quickSelect || []).forEach(q => pushEntry(idx, 'marketing', q.question, q.answer));
   (m.activities || []).forEach(act => pushEntry(idx, 'marketing', act.name, act.purpose,
     [...(act.target || []), ...(act.basicActivities || []), ...(act.optionalActivities || []), act.venue, act.minParticipants, act.duration].join(' ')));
 
