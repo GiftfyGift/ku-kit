@@ -690,11 +690,58 @@ function renderMarketing(c) {
   const m = c.marketing;
   const lbl = m.labels;
 
-  const activities = m.activities.map((a, idx) => {
-    const { videos, docs } = splitResources(a.resources);
+  const coverSets = [
+    ['assets/img/activity-kfd-1.webp', 'assets/img/activity-kfd-2.webp', 'assets/img/activity-kfd-3.webp', 'assets/img/activity-kfd-4.webp'],
+    ['assets/img/activity-demo-1.webp', 'assets/img/activity-demo-2.webp', 'assets/img/activity-demo-3.webp', 'assets/img/activity-demo-4.webp'],
+    ['assets/img/activities/mobile-service-1.webp', 'assets/img/activities/mobile-service-2.webp', 'assets/img/activities/mobile-service-3.webp'],
+    ['assets/img/activities/thank-you-1.webp', 'assets/img/activities/thank-you-2.webp', 'assets/img/activities/thank-you-3.webp', 'assets/img/activities/thank-you-4.webp']
+  ];
+  const ui = Object.assign({
+    overviewTitle: m.title,
+    objective: lbl.objective || 'Objective',
+    target: lbl.target,
+    venue: lbl.venue,
+    readMore: 'Read more',
+    showLess: 'Show less',
+    openGuide: 'Open the full activity guide'
+  }, m.cardLabels || {});
+
+  const activityCards = m.activities.map((a, idx) => {
+    const images = coverSets[idx] || [];
     return `
-      <div class="category-block" id="activity-${idx}">
-        <h3 class="category-heading">${a.name}</h3>
+      <article class="activity-overview-card activity-accent-${idx % 4}">
+        <button type="button" class="activity-card-link" data-activity-detail="activity-detail-${idx}" aria-label="${ui.openGuide}: ${a.name}">
+          <span class="activity-cover" data-activity-carousel>
+            <span class="activity-cover-track">
+              ${images.map((src, imageIdx) => `<img src="${src}" alt="${a.name} ${imageIdx + 1}" loading="${idx < 2 && imageIdx === 0 ? 'eager' : 'lazy'}">`).join('')}
+            </span>
+            <span class="activity-cover-count">${String(idx + 1).padStart(2, '0')} / 04</span>
+          </span>
+          <span class="activity-card-title">${a.name.replace(/^\d+\.\s*/, '')}</span>
+        </button>
+        <div class="activity-card-summary">
+          <div class="activity-summary-row"><h4>${ui.objective}</h4><p>${a.purpose}</p></div>
+          <div class="activity-summary-row"><h4>${ui.target}</h4><ul>${a.target.map(t => `<li>${t}</li>`).join('')}</ul></div>
+          <div class="activity-summary-row"><h4>${ui.venue}</h4><p>${a.venue}</p></div>
+        </div>
+        <button type="button" class="activity-expand-button" aria-expanded="false" aria-controls="activity-basic-${idx}" data-activity-expand>
+          <span>${ui.readMore}</span><span class="activity-expand-chevron" aria-hidden="true"></span>
+          <span class="activity-expand-tooltip" role="tooltip">${lbl.basic}</span>
+        </button>
+        <div class="activity-basic-panel" id="activity-basic-${idx}" hidden>
+          <h4>${lbl.basic}</h4>
+          <ol>${a.basicActivities.map(t => `<li>${t}</li>`).join('')}</ol>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  const activities = m.activities.map((a, idx) => {
+    const { docs } = splitResources(a.resources);
+    return `
+      <div class="category-block activity-guide" id="activity-detail-${idx}">
+        <div class="activity-guide-index">${String(idx + 1).padStart(2, '0')}</div>
+        <h3 class="category-heading">${a.name.replace(/^\d+\.\s*/, '')}</h3>
         <p class="section-intro">${a.purpose}</p>
         <div class="highlight-grid">
           <div class="highlight-card"><h4>${lbl.minParticipants}</h4><p>${a.minParticipants}</p></div>
@@ -757,8 +804,14 @@ function renderMarketing(c) {
     <section>
       <h2 class="section-title">${m.title}</h2>
       <p class="section-intro">${m.intro}</p>
-      ${renderActivityComparison(m.activityComparison)}
-      ${renderActivityPicker(m)}
+      <div class="activity-overview">
+        <div class="activity-overview-heading">
+          <span class="activity-overview-eyebrow">KUBOTA ACTIVITY STANDARD</span>
+          <h3>${ui.overviewTitle}</h3>
+        </div>
+        <div class="activity-overview-grid">${activityCards}</div>
+      </div>
+      <div class="activity-guides-heading"><span>${m.fullDetailsTitle || m.title}</span></div>
       ${activities}
       ${upcomingEvents}
       ${videoBlock}
@@ -766,6 +819,44 @@ function renderMarketing(c) {
       <div class="note-callout">${m.note}</div>
     </section>
   `;
+}
+
+let activityCarouselTimers = [];
+
+function initActivityCards(c) {
+  activityCarouselTimers.forEach(clearInterval);
+  activityCarouselTimers = [];
+
+  app.querySelectorAll('[data-activity-carousel]').forEach((carousel, carouselIdx) => {
+    const track = carousel.querySelector('.activity-cover-track');
+    const slides = Array.from(track.querySelectorAll('img'));
+    if (slides.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let current = 0;
+    const advance = () => {
+      current = (current + 1) % slides.length;
+      track.style.transform = `translateX(-${current * 100}%)`;
+    };
+    const timer = setInterval(advance, 4200 + carouselIdx * 450);
+    activityCarouselTimers.push(timer);
+  });
+
+  app.querySelectorAll('[data-activity-expand]').forEach(button => {
+    button.addEventListener('click', () => {
+      const panel = document.getElementById(button.getAttribute('aria-controls'));
+      const isOpen = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isOpen));
+      panel.hidden = isOpen;
+      const label = button.querySelector('span:first-child');
+      const labels = c.marketing.cardLabels || {};
+      label.textContent = isOpen ? (labels.readMore || 'Read more') : (labels.showLess || 'Show less');
+    });
+  });
+
+  app.querySelectorAll('[data-activity-detail]').forEach(button => {
+    button.addEventListener('click', () => {
+      document.getElementById(button.dataset.activityDetail)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 }
 
 function renderMaterialsSelector(c, active) {
@@ -2684,6 +2775,7 @@ function render() {
   });
 
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
+  if (state.route === 'marketing') initActivityCards(c);
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
   if (state.route === 'order-checkout') initOrderCheckoutPage(c);
   if (state.route === 'order-tracking') initOrderTrackingPage(c);
