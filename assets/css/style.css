@@ -2120,6 +2120,28 @@ table.parts-table td.code-col {
 
 .order-cart-bar-label { font-size: 13px; color: var(--kubota-mid-gray); }
 
+/* Plain call-to-action for the Order flow — same shape as .btn-primary but
+   without its glow/beam/dot decoration, since that's meant for a single
+   hero CTA and looked like too much repeated across several buttons here. */
+.order-btn {
+  background: var(--kubota-orange);
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 999px;
+  font-family: 'Prompt', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.15s;
+}
+
+.order-btn:hover { background: var(--kubota-light-orange); }
+.order-btn:disabled { opacity: 0.6; cursor: default; }
+
 .order-cart-bar-total {
   margin-left: auto;
   font-weight: 700;

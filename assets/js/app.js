@@ -923,9 +923,9 @@ function pdfMoney(n) {
 function pdfItemsTable(doc, items, startY, marginX, pageW) {
   const colNo = marginX;
   const colDesc = marginX + 26;
-  const colQty = pageW - marginX - 170;
-  const colPrice = pageW - marginX - 110;
   const colAmount = pageW - marginX;
+  const colPrice = colAmount - 110;
+  const colQty = colPrice - 100;
   let y = startY;
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(9);
@@ -943,7 +943,7 @@ function pdfItemsTable(doc, items, startY, marginX, pageW) {
   items.forEach((item, i) => {
     const amount = item.price * item.qty;
     total += amount;
-    const descLines = doc.splitTextToSize(item.name, colQty - colDesc - 10);
+    const descLines = doc.splitTextToSize(item.name, colQty - 40 - colDesc);
     doc.text(String(i + 1), colNo, y);
     doc.text(descLines, colDesc, y);
     doc.text(String(item.qty), colQty, y, { align: 'right' });
@@ -1128,7 +1128,7 @@ function renderOrderCatalog(c) {
         <span class="order-cart-bar-count" id="order-cart-count">0</span>
         <span class="order-cart-bar-label">${oc.cartHeading}</span>
         <span class="order-cart-bar-total" id="order-cart-total">$0.00</span>
-        <button type="button" class="btn-primary order-cart-bar-btn" id="order-cart-checkout-btn">${oc.goCheckout}</button>
+        <button type="button" class="order-btn order-cart-bar-btn" id="order-cart-checkout-btn">${oc.goCheckout}</button>
       </div>
       <div class="order-model-picker">
         <label class="order-model-label" for="order-model-select">${oc.modelLabel}</label>
@@ -1187,7 +1187,7 @@ async function initOrderCatalogPage(c) {
           </div>
           <div class="order-product-actions">
             <input type="number" min="1" value="1" class="order-qty-input" id="order-product-qty">
-            <button type="button" class="btn-primary order-add-btn" data-add-product="1">${oc.addToCart}</button>
+            <button type="button" class="order-btn order-add-btn" data-add-product="1">${oc.addToCart}</button>
           </div>
         </div>
       </div>
@@ -1372,7 +1372,7 @@ function initOrderCheckoutPage(c) {
       <div class="order-empty-state">
         <p>${co.emptyHeading}</p>
         <p class="order-empty-body">${co.emptyBody}</p>
-        <button type="button" class="btn-primary" id="order-back-catalog-btn">${co.backToCatalog}</button>
+        <button type="button" class="order-btn" id="order-back-catalog-btn">${co.backToCatalog}</button>
       </div>
     `;
     document.getElementById('order-back-catalog-btn').addEventListener('click', () => navigate('order-catalog'));
@@ -1475,7 +1475,7 @@ function initOrderCheckoutPage(c) {
     <div class="order-step-card">
       <h3 class="order-step-title">${co.step3Title}</h3>
       <p class="section-intro">${co.step3Body}</p>
-      <button type="button" class="btn-primary" id="order-generate-po-btn">${co.generatePo}</button>
+      <button type="button" class="order-btn" id="order-generate-po-btn">${co.generatePo}</button>
     </div>
     <div class="order-step-card">
       <h3 class="order-step-title">${co.step4Title}</h3>
@@ -1485,12 +1485,12 @@ function initOrderCheckoutPage(c) {
     <div class="order-step-card">
       <h3 class="order-step-title">${co.step5Title}</h3>
       <p class="section-intro">${co.step5Body}</p>
-      <button type="button" class="btn-primary" id="order-generate-pi-btn">${co.generatePi}</button>
+      <button type="button" class="order-btn" id="order-generate-pi-btn">${co.generatePi}</button>
     </div>
     <div class="order-step-card">
       <h3 class="order-step-title">${co.step6Title}</h3>
       <p class="section-intro">${co.confirmBody}</p>
-      <button type="button" class="btn-primary order-confirm-btn" id="order-confirm-btn">${co.confirmBtn}</button>
+      <button type="button" class="order-btn order-confirm-btn" id="order-confirm-btn">${co.confirmBtn}</button>
     </div>
     <div class="note-callout">${co.disclaimer}</div>
   `;
@@ -1565,7 +1565,7 @@ function initOrderCheckoutPage(c) {
       <div class="order-confirmed-card">
         <h3>${co.confirmedTitle}</h3>
         <p>${co.confirmedBody} <strong>${poNumber}</strong></p>
-        <button type="button" class="btn-primary" id="order-goto-tracking-btn">${co.goTracking}</button>
+        <button type="button" class="order-btn" id="order-goto-tracking-btn">${co.goTracking}</button>
       </div>
     `;
     document.getElementById('order-goto-tracking-btn').addEventListener('click', () => {
@@ -1596,7 +1596,7 @@ function renderOrderTracking(c) {
         <label for="order-tracking-input">${tr.poInputLabel}</label>
         <div class="order-tracking-search-row">
           <input type="text" id="order-tracking-input" placeholder="PO-KUKIT-...">
-          <button type="button" class="btn-primary" id="order-tracking-btn">${tr.lookupBtn}</button>
+          <button type="button" class="order-btn" id="order-tracking-btn">${tr.lookupBtn}</button>
         </div>
       </div>
       <div id="order-tracking-recent" class="order-tracking-recent"></div>
