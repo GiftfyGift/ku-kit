@@ -1188,30 +1188,25 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     ctx.drawImage(manImg, pad, manTopY, manW, manH);
   }
 
-  // --- Headline / sub-headline / body, stacked ---
-  // The farmer decoration stands bottom-left, in the same column this text block would
-  // otherwise use, so when it's active, shift the whole text block to the right of it
-  // (right-aligned in portrait, since portrait text is normally centered) instead of
-  // trying to dodge it vertically — which fails once the farmer is scaled up tall.
+  // --- Headline / sub-headline / body, stacked and centered as one block ---
+  // The farmer decoration stands bottom-left, in the same area this text block would
+  // otherwise use, so when it's active, the whole zone (and this block's centerline)
+  // shifts right of it instead of the two overlapping.
   const textOnDark = bgStyle === 'dark';
   const manGap = manW ? pxW * 0.03 : 0;
-  const dodgeMan = manW > 0;
-  const headlineX = isLandscape
-    ? pad + manW + manGap
-    : (dodgeMan ? pxW - pad : pxW / 2);
-  const headlineMaxW = isLandscape
-    ? pxW * 0.46 - manW - manGap
-    : (dodgeMan ? pxW * 0.86 - manW - manGap : pxW * 0.86);
-  const headlineAlign = isLandscape ? 'left' : (dodgeMan ? 'right' : 'center');
+  const zoneLeft = pad + manW + manGap;
+  const zoneRight = isLandscape ? pxW * 0.59 : pxW - pad;
+  const headlineX = zoneLeft + Math.max(0, zoneRight - zoneLeft) / 2;
+  const headlineMaxW = Math.max(pxW * 0.2, (zoneRight - zoneLeft) * 0.94);
   const baseFontSize = pxH * (isLandscape ? 0.075 : 0.035);
   ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
 
   // Measure every filled block first so the whole stack can be positioned to fit
   // between the logo/photo area and the info panel, instead of a fixed Y that can overflow.
   const rawBlocks = [
-    { text: st.headline, ratio: 1, weight: 700 },
-    { text: st.subheadline, ratio: 0.62, weight: 600 },
-    { text: st.body, ratio: 0.42, weight: 400 }
+    { key: 'headline', text: st.headline, ratio: 1, weight: 800 },
+    { key: 'subheadline', text: st.subheadline, ratio: 0.62, weight: 600 },
+    { key: 'body', text: st.body, ratio: 0.42, weight: 400 }
   ]
     .map(b => ({ ...b, text: b.text && b.text.trim() }))
     .filter(b => b.text);
@@ -1242,13 +1237,34 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     ({ blocks: measuredBlocks, totalH: totalTextH } = measureBlocks(shrink));
   }
 
-  const defaultStartY = isLandscape ? pxH * 0.60 : pxH * 0.55;
-  let cursorY = Math.max(zoneTop, Math.min(defaultStartY, zoneBottomLimit - totalTextH));
+  // Centered — "the artwork" reads as one balanced block, not pinned to a fixed line.
+  let cursorY = zoneTop + Math.max(0, (availableH - totalTextH) / 2);
+  cursorY = Math.max(zoneTop, Math.min(cursorY, zoneBottomLimit - totalTextH));
 
   measuredBlocks.forEach(b => {
     ctx.font = `${b.weight} ${Math.round(b.fontSize)}px Prompt, sans-serif`;
-    ctx.textAlign = headlineAlign;
-    b.lines.forEach((ln, i) => ctx.fillText(ln, headlineX, cursorY + i * b.lineHeight));
+    ctx.textAlign = 'center';
+    if (b.key === 'headline') {
+      const glowColor = textOnDark ? 'rgba(255,196,120,0.95)' : 'rgba(255,140,60,0.9)';
+      b.lines.forEach((ln, i) => {
+        const ly = cursorY + i * b.lineHeight;
+        ctx.save();
+        ctx.shadowColor = glowColor;
+        ctx.shadowBlur = b.fontSize * 0.4;
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillText(ln, headlineX, ly);
+        ctx.fillText(ln, headlineX, ly);
+        ctx.restore();
+        ctx.lineWidth = Math.max(1, b.fontSize * 0.05);
+        ctx.strokeStyle = 'rgba(8,20,22,0.6)';
+        ctx.strokeText(ln, headlineX, ly);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillText(ln, headlineX, ly);
+      });
+    } else {
+      ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
+      b.lines.forEach((ln, i) => ctx.fillText(ln, headlineX, cursorY + i * b.lineHeight));
+    }
     cursorY += b.lines.length * b.lineHeight + b.fontSize * 0.45;
   });
 
