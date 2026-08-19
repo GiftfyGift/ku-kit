@@ -15,7 +15,7 @@
       { "icon": "🛠️", "title": "Service", "desc": "Contrôles avant livraison, procédure de démarrage correcte et service après-vente.", "target": "service" },
       { "icon": "🌾", "title": "Solutions agricoles", "desc": "Comment adapter le motoculteur aux rizières inondées, aux rizières sèches, au manioc et au maïs.", "target": "crops" },
       { "icon": "📣", "title": "Événements", "desc": "Quatre formats d'activités standards KUBOTA, plus le calendrier des formations concessionnaires et activités marketing à venir.", "target": "marketing" },
-      { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "artwork" }
+      { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "materials-custom" }
     ]
   },
   "product": {
@@ -352,13 +352,60 @@
     "title": "Activités marketing",
     "intro": "Quatre formats d'activités standards pour les concessionnaires, permettant de renforcer la notoriété des produits, de démontrer leurs performances réelles, d'assurer le service après-vente et de remercier les clients existants — directement issus des manuels officiels KUBOTA Activity Standard.",
     "quickSelectTitle": "Sélection rapide d'activité",
-    "quickSelect": [
-      { "question": "Présenter les produits et trouver de nouveaux clients", "answer": "Choisir KUBOTA Family Day" },
-      { "question": "Démontrer le fonctionnement réel et laisser les clients essayer le produit", "answer": "Choisir l'activité de démonstration" },
-      { "question": "Rapprocher le service après-vente des clients", "answer": "Choisir le service mobile" },
-      { "question": "Remercier et renforcer la relation avec les clients existants", "answer": "Choisir l'activité de remerciement client" }
-    ],
     "labels": { "minParticipants": "Participants minimum", "target": "Clients ciblés", "duration": "Durée suggérée", "venue": "Lieu adapté", "basic": "Activités de base (obligatoires)", "optional": "Activités optionnelles", "schedule": "Programme suggéré", "checklist": "Liste de contrôle avant le début de l'événement" },
+    "activityComparison": {
+      "title": "Comparatif des standards d'activité",
+      "criteria": [
+        { "key": "objective", "icon": "🎯", "label": "Objectif" },
+        { "key": "target", "icon": "👥", "label": "Clients ciblés" },
+        { "key": "venue", "icon": "📍", "label": "Lieu adapté" },
+        { "key": "basic", "icon": "✅", "label": "Activités de base requises" },
+        { "key": "optional", "icon": "✨", "label": "Activités optionnelles (le cas échéant)" },
+        { "key": "duration", "icon": "⏱️", "label": "Durée suggérée" }
+      ],
+      "activities": [
+        {
+          "icon": "🎪",
+          "name": "KUBOTA Family Day (KFD)",
+          "objective": "Présenter les produits, renforcer la notoriété et donner au concessionnaire l'occasion de rencontrer de nouveaux clients dans la région.",
+          "target": ["Agriculteurs utilisant déjà un moteur diesel ou un motoculteur", "Agriculteurs ne possédant pas encore les produits mais susceptibles d'acheter à l'avenir"],
+          "venue": "Un lieu communautaire proche des clients, facile d'accès, avec un espace d'exposition des produits, des places assises et un parking.",
+          "basic": ["Inscription et accueil des clients", "Exposition du moteur diesel et du motoculteur KUBOTA", "Présentation du concessionnaire et du service après-vente", "Présentation des principaux atouts des produits", "Questions-réponses avec les clients", "Prévoir des collations et de l'eau potable"],
+          "optional": ["Les clients partagent leur expérience", "Programme de facilités de paiement ou promotion", "Quiz avec lots à gagner", "Tirage au sort ou souvenirs"],
+          "duration": "2 à 3 heures"
+        },
+        {
+          "icon": "🚜",
+          "name": "Activité de démonstration (démo motoculteur NC)",
+          "objective": "Démontrer le fonctionnement réel sur le terrain, montrer la bonne utilisation et laisser les clients essayer le produit.",
+          "target": ["Agriculteurs envisageant l'achat d'un motoculteur", "Clients souhaitant constater les performances réelles avant de se décider"],
+          "venue": "Une rizière réelle préparée à l'avance, avec une zone d'inscription, un point de présentation, une tente d'observation pour les clients, un parcours de démonstration et une zone d'essai.",
+          "basic": ["Présenter le motoculteur et le moteur diesel KUBOTA vendus sur ce marché", "Démontrer la conduite et l'utilisation des accessoires sur un terrain réel", "Montrer une conduite maîtrisée par un démonstrateur KUBOTA", "Laisser les clients essayer de conduire avec le soutien du personnel", "Prévoir une collation ou de l'eau potable"],
+          "optional": ["Test de vitesse de travail", "Test de consommation de carburant", "Comparaison avec un concurrent ou un moteur de puissance similaire", "Promotion ou prise de commande"],
+          "duration": "Environ 3 heures"
+        },
+        {
+          "icon": "🔧",
+          "name": "Service mobile",
+          "objective": "Renforcer le service après-vente en envoyant des techniciens inspecter les produits et donner des conseils directement chez le client.",
+          "target": ["Clients possédant un moteur KUBOTA", "Clients possédant un motoculteur KUBOTA"],
+          "venue": "Un lieu proche des clients avec suffisamment d'espace pour le dépôt des produits, l'inscription, l'attente, l'inspection et un stand de pièces détachées.",
+          "basic": ["Inscription et réception du produit", "Inspection de base du moteur et du motoculteur", "Expliquer la bonne utilisation et l'entretien", "Recommander et remplacer les pièces si nécessaire", "Restituer le produit au client", "Installer un stand de vente de pièces détachées"],
+          "optional": ["Aucune (de l'eau ou des collations peuvent être prévues pour les clients en attente)"],
+          "duration": "Environ 3 heures, dont 120 minutes pour l'inspection principale"
+        },
+        {
+          "icon": "🎁",
+          "name": "Activité de remerciement client",
+          "objective": "Remercier les clients existants, créer une bonne impression et renforcer leur relation avec le concessionnaire et la marque KUBOTA.",
+          "target": ["Propriétaires d'un moteur diesel ou d'un motoculteur KUBOTA", "Clients réguliers que le concessionnaire souhaite fidéliser", "Clients susceptibles de recommander le produit à d'autres"],
+          "venue": "Un espace événementiel, le magasin du concessionnaire, une salle de réception ou un lieu communautaire pouvant accueillir une scène, des tables, une exposition de produits, un coin photo et un parking.",
+          "basic": ["Inscription, accueil et remise de souvenirs", "Décorer le lieu aux couleurs orange et blanc de KUBOTA", "Installer des tables et des chaises", "Exposition de produits et coin photo", "Remercier les clients et partager des connaissances sur les produits", "Repas, animations, jeux et tirage au sort"],
+          "optional": ["Service mobile pour les grands événements", "Parrainage (Friend Get Friend)", "Présentation de nouveaux produits ou promotions"],
+          "duration": "Environ 3 h 30"
+        }
+      ]
+    },
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",
@@ -477,6 +524,16 @@
       "note": "Les événements ci-dessus sont une structure d'exemple. Veuillez les remplacer par le calendrier réel des événements."
     },
     "note": "Les quatre manuels d'activité et le tableau comparatif sont issus du contenu officiel de la série KUBOTA Activity Standard. Les manuels sans lien de téléchargement local ci-dessus renvoient directement au fichier Drive source — ces fichiers étaient trop petits pour que le connecteur Drive de cette session les enregistre de façon fiable en local, ils s'ouvrent donc dans Google Drive dans un nouvel onglet plutôt que d'être téléchargés depuis ce site."
+  },
+  "materials": {
+    "title": "Supports marketing",
+    "intro": "Ressources marketing pour les concessionnaires — supports prêts à l'emploi fournis par l'entreprise, et un outil pour créer les vôtres en quelques clics.",
+    "tabs": { "company": "Supports fournis par l'entreprise", "custom": "Créez les vôtres, en un clic" },
+    "company": {
+      "title": "Supports fournis par l'entreprise",
+      "intro": "Fichiers graphiques, bannières, affiches et supports prêts à l'emploi de KUBOTA que les concessionnaires peuvent utiliser immédiatement.",
+      "note": "Cette page est en cours de préparation. Des fichiers et supports seront ajoutés prochainement."
+    }
   },
   "artwork": {
     "title": "Créateur de supports marketing",
