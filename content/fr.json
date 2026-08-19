@@ -668,7 +668,7 @@
     "textOffsetYLabel": "Décaler haut-bas",
     "textScaleLabel": "Taille du texte",
     "textRotationLabel": "Rotation/Inclinaison du texte",
-    "dragHint": "💡 Faites glisser le texte du titre dans l'aperçu avec la souris ou le doigt pour le repositionner directement.",
+    "dragHint": "Oui, c'est modifiable ! Faites glisser le logo, le texte ou l'image du produit directement dans l'aperçu avec la souris ou le doigt pour le repositionner (double-cliquez pour réinitialiser).",
     "decorations": { "label": "Logos décoratifs supplémentaires (facultatif)", "man": "Agriculteur souriant qui encourage", "manAlt": "Agriculteur souriant faisant un pouce levé, autocollant décoratif pour le support", "no1": "Badge \"No.1 Global Brand\"", "no1Alt": "Badge \"No.1 Global Brand with 3.5 Million Units Sold\"", "sizeLabel": "Taille" },
     "previewTitle": "Aperçu",
     "downloadButton": "Télécharger le fichier prêt à imprimer",

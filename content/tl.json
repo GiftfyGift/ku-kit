@@ -668,7 +668,7 @@
     "textOffsetYLabel": "Ilipat Taas-Baba",
     "textScaleLabel": "Laki ng Text",
     "textRotationLabel": "I-rotate/I-tilt ang Text",
-    "dragHint": "💡 I-drag ang headline text sa preview gamit ang mouse o daliri para ilipat ito nang direkta.",
+    "dragHint": "Oo, puwedeng i-edit! I-drag ang logo, text, o larawan ng produkto sa preview gamit ang mouse o daliri para ilipat ito nang direkta (i-double-click para i-reset).",
     "decorations": { "label": "Karagdagang dekorasyong logo (opsyonal)", "man": "Nakangiting magsasakang nagbibigay-lakas ng loob", "manAlt": "Nakangiting magsasakang nag-thumbs-up, dekorasyong sticker para sa disenyo", "no1": "Badge na \"No.1 Global Brand\"", "no1Alt": "Badge na \"No.1 Global Brand with 3.5 Million Units Sold\"", "sizeLabel": "Laki" },
     "previewTitle": "Preview",
     "downloadButton": "I-download ang print-ready na file",

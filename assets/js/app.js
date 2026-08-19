@@ -1824,10 +1824,13 @@ function renderArtworkBody(c) {
         </div>
         <div class="artwork-preview">
           <h3>${a.previewTitle}</h3>
+          <div class="artwork-canvas-hint">
+            <span class="artwork-canvas-hint-icon" aria-hidden="true">✋</span>
+            <span>${a.dragHint}</span>
+          </div>
           <div class="artwork-canvas-wrap">
             <canvas id="aw-canvas"></canvas>
           </div>
-          <p class="artwork-canvas-hint">${a.dragHint}</p>
         </div>
       </div>
       <div class="note-callout">${a.note}</div>
@@ -2091,6 +2094,13 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   ctx.clearRect(0, 0, pxW, pxH);
 
   const pad = pxW * (isLandscape ? 0.025 : 0.06);
+  // Fractions of pxW/pxH (not raw px) so a drag made on the small preview
+  // canvas still lands in the same relative spot on the full-resolution
+  // print canvas — same trick the text offset sliders already use.
+  const logoOffsetXpx = (st.logoOffsetXFrac || 0) * pxW;
+  const logoOffsetYpx = (st.logoOffsetYFrac || 0) * pxH;
+  const photoOffsetXpx = (st.photoOffsetXFrac || 0) * pxW;
+  const photoOffsetYpx = (st.photoOffsetYFrac || 0) * pxH;
   const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
   const kubotaAspect = kubotaImg.width / kubotaImg.height;
 
@@ -2121,9 +2131,10 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     });
   }
 
-  const logoX = isLandscape ? pad : (pxW - logoW) / 2;
+  const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
+  const logoY = pad + logoOffsetYpx;
   if (bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
-  ctx.drawImage(kubotaImg, logoX, pad, logoW, logoH);
+  ctx.drawImage(kubotaImg, logoX, logoY, logoW, logoH);
   ctx.filter = 'none';
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2;
@@ -2137,8 +2148,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
   let wmStartY;
   let wmBelowCount = productImgs.length;
+  // Collected so the logo + wordmark(s) can be treated as one draggable group —
+  // the drag hit box below is the union of all their rects.
+  const wmRects = [];
   if (inlineWm) {
-    wmStartY = pad + logoH + pxH * 0.015;
+    wmStartY = logoY + logoH + pxH * 0.015;
     wmBelowCount = 0;
     const areaX = logoX + logoW + pad * 0.6;
     const rowGap = logoH * 0.12;
@@ -2151,14 +2165,15 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
         wmW = bandAreaW;
         wmH = wmW / wmAspect;
       }
-      const wmY = pad + i * (rowH + rowGap) + (rowH - wmH) / 2;
+      const wmY = logoY + i * (rowH + rowGap) + (rowH - wmH) / 2;
       ctx.drawImage(p.wordmark, areaX, wmY, wmW, wmH);
+      wmRects.push({ x: areaX, y: wmY, w: wmW, h: wmH });
     });
   } else {
     // Only the "frame" style needs the wide gap (in `pad` units, so it scales the
     // same way as that style's band height) to clear the top color band — on the
     // other 2 styles there's no band to avoid, so keep the logo and wordmark close.
-    wmStartY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
+    wmStartY = logoY + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
     productImgs.forEach((p, i) => {
       const wmAspect = p.wordmark.width / p.wordmark.height;
       let wmH = wmHBase;
@@ -2167,10 +2182,27 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
         wmW = maxWmW;
         wmH = wmW / wmAspect;
       }
-      const wmX = isLandscape ? pad : (pxW - wmW) / 2;
-      ctx.drawImage(p.wordmark, wmX, wmStartY + i * wmGap, wmW, wmH);
+      const wmX = (isLandscape ? pad : (pxW - wmW) / 2) + logoOffsetXpx;
+      const wmY = wmStartY + i * wmGap;
+      ctx.drawImage(p.wordmark, wmX, wmY, wmW, wmH);
+      wmRects.push({ x: wmX, y: wmY, w: wmW, h: wmH });
     });
   }
+
+  // Layout math below (text zone) uses the un-offset position so dragging the
+  // logo doesn't also reshuffle where the headline block is allowed to sit —
+  // only the drawn logo/wordmark(s) actually move.
+  const wmStartYForLayout = wmStartY - logoOffsetYpx;
+
+  let logoBounds = { x: logoX, y: logoY, w: logoW, h: logoH };
+  wmRects.forEach(r => {
+    const x2 = Math.max(logoBounds.x + logoBounds.w, r.x + r.w);
+    const y2 = Math.max(logoBounds.y + logoBounds.h, r.y + r.h);
+    logoBounds.x = Math.min(logoBounds.x, r.x);
+    logoBounds.y = Math.min(logoBounds.y, r.y);
+    logoBounds.w = x2 - logoBounds.x;
+    logoBounds.h = y2 - logoBounds.y;
+  });
 
   // --- Bottom info panel geometry: sized to fit shop name + contact so text never overflows ---
   // Computed before the product photo box below so the photo's height can be
@@ -2198,16 +2230,23 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const panelH = Math.max(minPanelH, innerPad * 2 + contentH);
   const panelY = pxH - panelH - pad;
 
+  // photoBoxBottom stays based on the un-offset box (it only feeds the text
+  // zone in portrait mode) so dragging the packshot doesn't also reshuffle
+  // the headline block — same reasoning as wmStartYForLayout above.
   let photoBoxBottom = 0;
+  let photoBounds = null;
   if (isLandscape) {
-    const photoBoxX = pxW * 0.62;
-    const photoBoxW = pxW - pad - photoBoxX;
-    const photoBoxY = pxH * 0.10;
+    const photoBoxXBase = pxW * 0.62;
+    const photoBoxW = pxW - pad - photoBoxXBase;
+    const photoBoxYBase = pxH * 0.10;
     // The pxH*0.15 floor only guards against a degenerate near-zero box (e.g. an
     // absurdly long address) — it must stay well below the normal clearance so it
     // can never win out over avoiding the panel and cause an overlap.
-    const photoBoxH = Math.max(pxH * 0.15, panelY - pxH * 0.045 - photoBoxY);
-    photoBoxBottom = photoBoxY + photoBoxH;
+    const photoBoxH = Math.max(pxH * 0.15, panelY - pxH * 0.045 - photoBoxYBase);
+    photoBoxBottom = photoBoxYBase + photoBoxH;
+    const photoBoxX = photoBoxXBase + photoOffsetXpx;
+    const photoBoxY = photoBoxYBase + photoOffsetYpx;
+    photoBounds = { x: photoBoxX, y: photoBoxY, w: photoBoxW, h: photoBoxH };
     if (productImgs.length === 1) {
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, photoBoxH);
     } else if (productImgs.length === 2) {
@@ -2216,17 +2255,21 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     }
   } else {
     const photoBoxW = pxW * 0.86;
-    const photoBoxX = (pxW - photoBoxW) / 2;
-    const photoBoxY = pxH * 0.16;
+    const photoBoxXBase = (pxW - photoBoxW) / 2;
+    const photoBoxYBase = pxH * 0.16;
+    const photoBoxX = photoBoxXBase + photoOffsetXpx;
+    const photoBoxY = photoBoxYBase + photoOffsetYpx;
     if (productImgs.length === 1) {
-      photoBoxBottom = photoBoxY + pxH * 0.34;
+      photoBoxBottom = photoBoxYBase + pxH * 0.34;
+      photoBounds = { x: photoBoxX, y: photoBoxY, w: photoBoxW, h: pxH * 0.34 };
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, pxH * 0.34);
     } else if (productImgs.length === 2) {
-      photoBoxBottom = photoBoxY + pxH * 0.35;
+      photoBoxBottom = photoBoxYBase + pxH * 0.35;
+      photoBounds = { x: photoBoxX, y: photoBoxY, w: photoBoxW, h: pxH * 0.35 };
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, pxH * 0.17);
       awDrawImageContain(ctx, productImgs[1].photo, photoBoxX, photoBoxY + pxH * 0.18, photoBoxW, pxH * 0.17);
     } else {
-      photoBoxBottom = photoBoxY;
+      photoBoxBottom = photoBoxYBase;
     }
   }
 
@@ -2297,7 +2340,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   }
 
   const zoneTop = isLandscape
-    ? wmStartY + wmGap * wmBelowCount + pxH * 0.03
+    ? wmStartYForLayout + wmGap * wmBelowCount + pxH * 0.03
     : photoBoxBottom + pxH * 0.03;
   const zoneBottomLimit = panelY - pxH * 0.02;
   const availableH = zoneBottomLimit - zoneTop;
@@ -2364,13 +2407,42 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const contactStartY = panelY + innerPad + shopLines.length * shopLineHeight + blockGap + contactFontSize;
   contactLines.forEach((ln, i) => ctx.fillText(ln, panelX + innerPad, contactStartY + i * contactLineHeight));
 
-  // Hand back the headline/sub-headline/body block's (unrotated) bounding box
-  // and pivot so the caller can hit-test mouse/touch drags against it and
-  // convert a drag delta back into the same offset units drawArtwork reads.
+  // If the shop name/contact text is short, the panel has unused width to its
+  // right (the box is sized to fit the longest possible line, not the actual
+  // one) — fill that dead space with a small packshot + a tool-icon badge
+  // instead of leaving it blank.
+  ctx.font = `700 ${Math.round(shopFontSize)}px Prompt, sans-serif`;
+  const shopMaxW = shopLines.reduce((m, l) => Math.max(m, ctx.measureText(l).width), 0);
+  ctx.font = `500 ${Math.round(contactFontSize)}px 'Noto Sans Thai', sans-serif`;
+  const contactMaxW = contactLines.reduce((m, l) => Math.max(m, ctx.measureText(l).width), 0);
+  const panelLeftoverW = panelW - innerPad * 3 - Math.max(shopMaxW, contactMaxW);
+  if (panelLeftoverW > panelH * 0.85 && productImgs.length) {
+    const fillAreaH = panelH - innerPad * 1.4;
+    const fillAreaW = Math.min(panelLeftoverW - innerPad, fillAreaH * 1.15);
+    const fillAreaX = panelX + panelW - innerPad - fillAreaW;
+    const fillAreaY = panelY + innerPad * 0.7;
+    awDrawImageContain(ctx, productImgs[0].photo, fillAreaX, fillAreaY, fillAreaW, fillAreaH);
+    const wrenchSize = fillAreaH * 0.34;
+    ctx.save();
+    ctx.font = `${Math.round(wrenchSize)}px sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.shadowColor = 'rgba(255,255,255,0.9)';
+    ctx.shadowBlur = wrenchSize * 0.3;
+    ctx.fillText('🔧', fillAreaX + fillAreaW - wrenchSize * 0.35, fillAreaY + wrenchSize * 0.35);
+    ctx.restore();
+  }
+
+  // Hand back the (unrotated) bounding boxes for every independently
+  // draggable group — headline stack, logo + wordmark(s), and the packshot —
+  // so the caller can hit-test mouse/touch drags against them and convert a
+  // drag delta back into the same offset units drawArtwork reads here.
   return {
     headlineBounds: measuredBlocks.length
       ? { x: headlineX - headlineMaxW / 2, y: textBlockStartY, w: headlineMaxW, h: totalTextH, rotationDeg: textRotationDeg, pivotX: headlineX, pivotY }
-      : null
+      : null,
+    logoBounds,
+    photoBounds: productImgs.length ? photoBounds : null
   };
 }
 
@@ -2428,6 +2500,10 @@ function initArtworkPage(c) {
       textOffsetY: Number(textOffsetY.value),
       textScale: Number(textScale.value),
       textRotation: Number(textRotation.value),
+      logoOffsetXFrac,
+      logoOffsetYFrac,
+      photoOffsetXFrac,
+      photoOffsetYFrac,
       decorMan: decorManBtn.classList.contains('active'),
       decorNo1: decorNo1Btn.classList.contains('active'),
       decorManScale: Number(decorManSize.value) / 100,
@@ -2476,19 +2552,23 @@ function initArtworkPage(c) {
     canvas.width = pxW;
     canvas.height = pxH;
     canvas.getContext('2d').drawImage(offscreen, 0, 0);
-    // Remembered so the drag handlers below can hit-test the headline text
+    // Remembered so the drag handlers below can hit-test each draggable group
     // and convert a pointer delta into the same px→percent scale drawArtwork
     // used to place it.
-    lastHeadlineBounds = result && result.headlineBounds;
+    lastBounds = result ? { headline: result.headlineBounds, logo: result.logoBounds, photo: result.photoBounds } : { headline: null, logo: null, photo: null };
     lastPxW = pxW;
     lastPxH = pxH;
   }
 
-  // --- Drag the headline/sub-headline block directly on the canvas ---
-  let lastHeadlineBounds = null;
+  // --- Drag the headline block, the logo/wordmark(s), or the packshot photo
+  // directly on the canvas — three independently movable groups sharing one
+  // pointer handler, distinguished by which group's bounding box was hit.
+  let lastBounds = { headline: null, logo: null, photo: null };
   let lastPxW = 0;
   let lastPxH = 0;
   let dragState = null;
+  let logoOffsetXFrac = 0, logoOffsetYFrac = 0;
+  let photoOffsetXFrac = 0, photoOffsetYFrac = 0;
 
   function canvasPoint(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
@@ -2498,47 +2578,73 @@ function initArtworkPage(c) {
     };
   }
 
-  function hitHeadline(pt) {
-    const b = lastHeadlineBounds;
+  function hitBounds(b, pt) {
     if (!b) return false;
-    // Undo the block's own rotation around its pivot before the axis-aligned
-    // bounds test, so dragging still hit-tests correctly when tilted.
-    const angle = -(b.rotationDeg || 0) * Math.PI / 180;
-    const dx = pt.x - b.pivotX;
-    const dy = pt.y - b.pivotY;
-    const rx = dx * Math.cos(angle) - dy * Math.sin(angle) + b.pivotX;
-    const ry = dx * Math.sin(angle) + dy * Math.cos(angle) + b.pivotY;
-    return rx >= b.x && rx <= b.x + b.w && ry >= b.y && ry <= b.y + b.h;
+    if (b.rotationDeg) {
+      // Undo the block's own rotation around its pivot before the axis-aligned
+      // bounds test, so dragging still hit-tests correctly when tilted.
+      const angle = -(b.rotationDeg || 0) * Math.PI / 180;
+      const dx = pt.x - b.pivotX;
+      const dy = pt.y - b.pivotY;
+      const rx = dx * Math.cos(angle) - dy * Math.sin(angle) + b.pivotX;
+      const ry = dx * Math.sin(angle) + dy * Math.cos(angle) + b.pivotY;
+      return rx >= b.x && rx <= b.x + b.w && ry >= b.y && ry <= b.y + b.h;
+    }
+    return pt.x >= b.x && pt.x <= b.x + b.w && pt.y >= b.y && pt.y <= b.y + b.h;
+  }
+
+  function hitGroup(pt) {
+    if (hitBounds(lastBounds.headline, pt)) return 'headline';
+    if (hitBounds(lastBounds.photo, pt)) return 'photo';
+    if (hitBounds(lastBounds.logo, pt)) return 'logo';
+    return null;
   }
 
   function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
 
+  function groupOffset(group) {
+    if (group === 'headline') return { x: Number(textOffsetX.value), y: Number(textOffsetY.value) };
+    if (group === 'logo') return { x: logoOffsetXFrac, y: logoOffsetYFrac };
+    return { x: photoOffsetXFrac, y: photoOffsetYFrac };
+  }
+
   function pointerDown(clientX, clientY) {
     const pt = canvasPoint(clientX, clientY);
-    if (!hitHeadline(pt)) return false;
-    dragState = {
-      startX: pt.x,
-      startY: pt.y,
-      startOffsetX: Number(textOffsetX.value),
-      startOffsetY: Number(textOffsetY.value)
-    };
+    const group = hitGroup(pt);
+    if (!group) return false;
+    const start = groupOffset(group);
+    dragState = { group, startX: pt.x, startY: pt.y, startOffsetX: start.x, startOffsetY: start.y };
     canvas.classList.add('is-dragging');
     return true;
   }
 
   function pointerMove(clientX, clientY) {
     if (!dragState) {
-      canvas.classList.toggle('is-draggable', hitHeadline(canvasPoint(clientX, clientY)));
+      canvas.classList.toggle('is-draggable', !!hitGroup(canvasPoint(clientX, clientY)));
       return;
     }
     const pt = canvasPoint(clientX, clientY);
-    // Same px↔percent mapping drawArtwork uses for textOffsetXpx/textOffsetYpx,
-    // inverted here so a drag of N canvas pixels moves the text by exactly
-    // that many pixels rather than some slider-scaled amount.
-    const dxPct = lastPxW ? ((pt.x - dragState.startX) / (lastPxW * 0.12)) * 100 : 0;
-    const dyPct = lastPxH ? ((pt.y - dragState.startY) / (lastPxH * 0.10)) * 100 : 0;
-    textOffsetX.value = clamp(Math.round(dragState.startOffsetX + dxPct), -100, 100);
-    textOffsetY.value = clamp(Math.round(dragState.startOffsetY + dyPct), -100, 100);
+    const dx = pt.x - dragState.startX;
+    const dy = pt.y - dragState.startY;
+    if (dragState.group === 'headline') {
+      // Same px↔percent mapping drawArtwork uses for textOffsetXpx/textOffsetYpx,
+      // inverted here so a drag of N canvas pixels moves the text by exactly
+      // that many pixels rather than some slider-scaled amount.
+      const dxPct = lastPxW ? (dx / (lastPxW * 0.12)) * 100 : 0;
+      const dyPct = lastPxH ? (dy / (lastPxH * 0.10)) * 100 : 0;
+      textOffsetX.value = clamp(Math.round(dragState.startOffsetX + dxPct), -100, 100);
+      textOffsetY.value = clamp(Math.round(dragState.startOffsetY + dyPct), -100, 100);
+    } else {
+      // Logo/photo offsets are stored as a plain fraction of pxW/pxH (1:1 with
+      // the drag, no slider involved), clamped so a wild drag can't push the
+      // element fully off-canvas.
+      const dxFrac = clamp((lastPxW ? dx / lastPxW : 0), -0.35, 0.35);
+      const dyFrac = clamp((lastPxH ? dy / lastPxH : 0), -0.35, 0.35);
+      const newX = clamp(dragState.startOffsetX + dxFrac, -0.35, 0.35);
+      const newY = clamp(dragState.startOffsetY + dyFrac, -0.35, 0.35);
+      if (dragState.group === 'logo') { logoOffsetXFrac = newX; logoOffsetYFrac = newY; }
+      else { photoOffsetXFrac = newX; photoOffsetYFrac = newY; }
+    }
     schedulePreview();
   }
 
@@ -2548,9 +2654,22 @@ function initArtworkPage(c) {
     canvas.classList.remove('is-dragging');
   }
 
+  function pointerReset(clientX, clientY) {
+    const group = hitGroup(canvasPoint(clientX, clientY));
+    if (!group) return;
+    if (group === 'headline') { textOffsetX.value = 0; textOffsetY.value = 0; }
+    else if (group === 'logo') { logoOffsetXFrac = 0; logoOffsetYFrac = 0; }
+    else { photoOffsetXFrac = 0; photoOffsetYFrac = 0; }
+    schedulePreview();
+  }
+
   canvas.addEventListener('mousedown', e => { if (pointerDown(e.clientX, e.clientY)) e.preventDefault(); });
   window.addEventListener('mousemove', e => pointerMove(e.clientX, e.clientY));
   window.addEventListener('mouseup', pointerUp);
+  // A stray element can't otherwise be recovered once no slider tracks its
+  // position — double-click/tap snaps whichever group was clicked back to its
+  // default spot.
+  canvas.addEventListener('dblclick', e => pointerReset(e.clientX, e.clientY));
 
   canvas.addEventListener('touchstart', e => {
     const t = e.touches[0];
