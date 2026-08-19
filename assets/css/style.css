@@ -762,6 +762,37 @@ main {
   color: var(--kubota-mid-gray);
 }
 
+/* Quick-links shown as side-by-side boxes (e.g. engine vs tiller maintenance) */
+.quick-links-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 0 0 28px;
+}
+
+.quick-links-box {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+}
+
+.quick-links-box-title {
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kubota-navy);
+}
+
+.quick-links-box .quick-links-sub {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 560px) {
+  .quick-links-columns { grid-template-columns: 1fr; }
+}
+
 /* Product cards */
 .category-block { margin-bottom: 40px; }
 

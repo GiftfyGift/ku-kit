@@ -53,8 +53,8 @@
         "items": [
           { "title": "Réservoir de carburant en acier", "desc": "10,5 litres sur les moteurs de 10 à 15,5 ch, 14,5 litres sur le moteur de 18 ch.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Gros plan sur le réservoir de carburant en acier du moteur ZT Plus" } },
           { "title": "Grille en acier", "desc": "Protège le radiateur et le ventilateur, augmente la fréquence du filtre intérieur du radiateur pour une meilleure protection contre la poussière et un risque de surchauffe réduit.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Gros plan sur la grille en acier protégeant le radiateur et le ventilateur" } },
-          { "title": "Structure en aluminium renforcée", "desc": "Protège le radiateur et les autres pièces contre les dommages, renforcée sur 3 points d'ancrage pour réduire les vibrations pendant le fonctionnement." },
-          { "title": "Jauge de niveau de carburant transparente", "desc": "Jauge en PVC transparent permettant de vérifier le niveau de carburant d'un coup d'œil." },
+          { "title": "Structure en aluminium renforcée", "desc": "Protège le radiateur et les autres pièces contre les dommages, renforcée sur 3 points d'ancrage pour réduire les vibrations pendant le fonctionnement.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Les 3 points d'ancrage de la structure en aluminium sur le moteur ZT155DI" } },
+          { "title": "Jauge de niveau de carburant transparente", "desc": "Jauge en PVC transparent permettant de vérifier le niveau de carburant d'un coup d'œil.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Tube de jauge de niveau de carburant en PVC transparent sur le réservoir" } },
           { "title": "Phare LED", "desc": "Phare LED puissant pour un fonctionnement nocturne en sécurité ; le modèle PRO ajoute des clignotants et un port de charge USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Gros plan sur le phare LED puissant du moteur ZT Plus" } }
         ]
       },

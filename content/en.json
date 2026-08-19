@@ -53,9 +53,17 @@
         "items": [
           { "title": "Steel fuel tank", "desc": "10.5 litres on 10-15.5 HP engines, 14.5 litres on the 18 HP engine.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Close-up of the steel fuel tank on the ZT Plus engine" } },
           { "title": "Steel grate", "desc": "Protects the radiator and fan side, increases the inner radiator filter frequency for better dust protection and lower overheating risk.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Close-up of the steel grate protecting the radiator and fan" } },
-          { "title": "Reinforced aluminium structure", "desc": "Protects the radiator and other parts from damage, reinforced at 3 anchor points to reduce vibration during operation." },
-          { "title": "Transparent fuel level gauge", "desc": "Clear PVC gauge lets you check the fuel level at a glance." },
+          { "title": "Reinforced aluminium structure", "desc": "Protects the radiator and other parts from damage, reinforced at 3 anchor points to reduce vibration during operation.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "All 3 aluminium structure anchor points on the ZT155DI engine" } },
+          { "title": "Transparent fuel level gauge", "desc": "Clear PVC gauge lets you check the fuel level at a glance.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Clear PVC fuel level gauge tube on the fuel tank" } },
           { "title": "LED headlamp", "desc": "Bright LED headlamp for safe night-time operation; the PRO model adds turn signals and a USB charging port.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Close-up of the bright LED headlamp on the ZT Plus engine" } }
+        ]
+      },
+      "applicationExamples": {
+        "title": "Application Examples",
+        "intro": "The KUBOTA ZT Plus diesel engine can be installed on a wide range of equipment — from soil preparation, transport, and water pumping to construction work, livestock farms, and other agricultural or garden equipment.",
+        "images": [
+          { "src": "assets/img/product/application/engine-application-en-01.jpg", "alt": "ZT Plus engine application examples — power tiller attachment, agricultural transport, water pumps, multi-purpose/modified tillers, and construction vehicles" },
+          { "src": "assets/img/product/application/engine-application-en-02.jpg", "alt": "ZT Plus engine application examples — livestock farm use, and other agricultural/garden equipment" }
         ]
       },
       "authenticity": {
@@ -111,6 +119,13 @@
         }
       ],
       "note": "Tell NC Plus X and NC Plus X Special apart: (1) chassis code on the warranty card — \"NC131\" has no \"S\" suffix (Plus X) vs \"NC131S\" (Special); (2) a punched \"S\" mark on the gear case only on the Special. All three TRA CHANG power tiller models can switch to rubber wheels for hauling crops or general transport.",
+      "applicationExamples": {
+        "title": "Usage Examples & Attachments for the Power Tiller",
+        "intro": "The TRA CHANG power tiller can be fitted with a wide range of attachments — from plowing, seed sowing, and rice harvesting to transport, threshing, hay baling, and weed control in cassava/sugarcane fields.",
+        "images": [
+          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Attachments that can be used with the TRA CHANG power tiller — plow, seed drill, rice harvester, transport, rice thresher, hay baler, and weed control in cassava/sugarcane fields" }
+        ]
+      },
       "authenticity": {
         "title": "How to Check the Genuine TRA CHANG Power Tiller",
         "intro": "Counterfeits hurt customer trust and after-sales safety. Use these checkpoints to confirm a genuine TRA CHANG power tiller.",

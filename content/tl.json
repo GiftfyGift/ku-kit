@@ -53,8 +53,8 @@
         "items": [
           { "title": "Steel fuel tank", "desc": "10.5 litro para sa 10-15.5 HP na engine, 14.5 litro para sa 18 HP na engine.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Malapitang larawan ng steel fuel tank sa ZT Plus engine" } },
           { "title": "Steel grate", "desc": "Pinoprotektahan ang radiator at fan side, dinagdagan ang dalas ng inner radiator filter para sa mas mahusay na proteksyon sa alikabok at mas mababang panganib ng overheating.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Malapitang larawan ng steel grate na nagpoprotekta sa radiator at fan" } },
-          { "title": "Pinatibay na aluminum structure", "desc": "Pinoprotektahan ang radiator at ibang parte laban sa pinsala, may reinforcement sa 3 anchor point para bawasan ang pagyanig habang gumagana." },
-          { "title": "Transparent na fuel level gauge", "desc": "Malinaw na PVC gauge para makita agad ang lebel ng gasolina." },
+          { "title": "Pinatibay na aluminum structure", "desc": "Pinoprotektahan ang radiator at ibang parte laban sa pinsala, may reinforcement sa 3 anchor point para bawasan ang pagyanig habang gumagana.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Lahat ng 3 anchor point ng aluminum structure sa ZT155DI engine" } },
+          { "title": "Transparent na fuel level gauge", "desc": "Malinaw na PVC gauge para makita agad ang lebel ng gasolina.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Malinaw na PVC fuel level gauge tube sa fuel tank" } },
           { "title": "LED headlamp", "desc": "Maliwanag na LED headlamp para sa ligtas na gabing operasyon; may dagdag na turn signal at USB charging port ang PRO model.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Malapitang larawan ng maliwanag na LED headlamp sa ZT Plus engine" } }
         ]
       },

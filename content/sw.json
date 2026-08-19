@@ -53,8 +53,8 @@
         "items": [
           { "title": "Tangi la mafuta la chuma", "desc": "Lita 10.5 kwa injini za 10-15.5 HP, lita 14.5 kwa injini ya 18 HP.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Picha ya karibu ya tangi la mafuta la chuma kwenye injini ya ZT Plus" } },
           { "title": "Wavu wa chuma", "desc": "Hulinda upande wa radiator na feni, huongeza mzunguko wa kichujio cha ndani cha radiator kwa ulinzi bora dhidi ya vumbi na hatari ndogo ya joto kupita kiasi.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Picha ya karibu ya wavu wa chuma unaolinda radiator na feni" } },
-          { "title": "Muundo wa aluminium ulioimarishwa", "desc": "Hulinda radiator na sehemu nyingine dhidi ya uharibifu, umeimarishwa kwa pointi 3 za nanga ili kupunguza mtetemo wakati wa kufanya kazi." },
-          { "title": "Kipimo cha wazi cha kiwango cha mafuta", "desc": "Kipimo cha PVC cha wazi kinakuwezesha kuangalia kiwango cha mafuta kwa haraka." },
+          { "title": "Muundo wa aluminium ulioimarishwa", "desc": "Hulinda radiator na sehemu nyingine dhidi ya uharibifu, umeimarishwa kwa pointi 3 za nanga ili kupunguza mtetemo wakati wa kufanya kazi.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Pointi zote 3 za nanga za muundo wa aluminium kwenye injini ya ZT155DI" } },
+          { "title": "Kipimo cha wazi cha kiwango cha mafuta", "desc": "Kipimo cha PVC cha wazi kinakuwezesha kuangalia kiwango cha mafuta kwa haraka.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Bomba la kipimo cha PVC cha wazi cha kiwango cha mafuta kwenye tangi" } },
           { "title": "Taa ya mbele ya LED", "desc": "Taa ya mbele yenye mwanga mkali kwa usalama wa kazi za usiku; mfano wa PRO unaongeza taa za kugeuza na tundu la kuchaji la USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Picha ya karibu ya taa ya mbele ya LED yenye mwanga mkali kwenye injini ya ZT Plus" } }
         ]
       },
