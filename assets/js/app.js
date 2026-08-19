@@ -1103,22 +1103,49 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2;
   const wmGap = wmHBase * 1.3;
-  // Only the "frame" style needs the wide gap (in `pad` units, so it scales the
-  // same way as that style's band height) to clear the top color band — on the
-  // other 2 styles there's no band to avoid, so keep the logo and wordmark close.
-  const wmStartY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
   const maxWmW = isLandscape ? pxW * 0.4 : pxW * 0.7;
-  productImgs.forEach((p, i) => {
-    const wmAspect = p.wordmark.width / p.wordmark.height;
-    let wmH = wmHBase;
-    let wmW = wmH * wmAspect;
-    if (wmW > maxWmW) {
-      wmW = maxWmW;
-      wmH = wmW / wmAspect;
-    }
-    const wmX = isLandscape ? pad : (pxW - wmW) / 2;
-    ctx.drawImage(p.wordmark, wmX, wmStartY + i * wmGap, wmW, wmH);
-  });
+  // The "frame" style's orange band already holds the Kubota logo; when there's
+  // room beside it, tuck the product wordmark(s) into that same band instead of
+  // letting them hang below into the body area, where they crowd the farmer
+  // decoration and promo text.
+  const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
+  const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
+  let wmStartY;
+  let wmBelowCount = productImgs.length;
+  if (inlineWm) {
+    wmStartY = pad + logoH + pxH * 0.015;
+    wmBelowCount = 0;
+    const areaX = logoX + logoW + pad * 0.6;
+    const rowGap = logoH * 0.12;
+    const rowH = (logoH - rowGap * (productImgs.length - 1)) / productImgs.length;
+    productImgs.forEach((p, i) => {
+      const wmAspect = p.wordmark.width / p.wordmark.height;
+      let wmH = rowH;
+      let wmW = wmH * wmAspect;
+      if (wmW > bandAreaW) {
+        wmW = bandAreaW;
+        wmH = wmW / wmAspect;
+      }
+      const wmY = pad + i * (rowH + rowGap) + (rowH - wmH) / 2;
+      ctx.drawImage(p.wordmark, areaX, wmY, wmW, wmH);
+    });
+  } else {
+    // Only the "frame" style needs the wide gap (in `pad` units, so it scales the
+    // same way as that style's band height) to clear the top color band — on the
+    // other 2 styles there's no band to avoid, so keep the logo and wordmark close.
+    wmStartY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
+    productImgs.forEach((p, i) => {
+      const wmAspect = p.wordmark.width / p.wordmark.height;
+      let wmH = wmHBase;
+      let wmW = wmH * wmAspect;
+      if (wmW > maxWmW) {
+        wmW = maxWmW;
+        wmH = wmW / wmAspect;
+      }
+      const wmX = isLandscape ? pad : (pxW - wmW) / 2;
+      ctx.drawImage(p.wordmark, wmX, wmStartY + i * wmGap, wmW, wmH);
+    });
+  }
 
   // --- Bottom info panel geometry: sized to fit shop name + contact so text never overflows ---
   // Computed before the product photo box below so the photo's height can be
@@ -1232,7 +1259,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   }
 
   const zoneTop = isLandscape
-    ? wmStartY + wmGap * productImgs.length + pxH * 0.03
+    ? wmStartY + wmGap * wmBelowCount + pxH * 0.03
     : photoBoxBottom + pxH * 0.03;
   const zoneBottomLimit = panelY - pxH * 0.02;
   const availableH = zoneBottomLimit - zoneTop;
