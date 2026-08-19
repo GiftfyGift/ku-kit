@@ -15,7 +15,7 @@
       { "icon": "🛠️", "title": "Service", "desc": "Contrôles avant livraison, procédure de démarrage correcte et service après-vente.", "target": "service" },
       { "icon": "🌾", "title": "Solutions agricoles", "desc": "Comment adapter le motoculteur aux rizières inondées, aux rizières sèches, au manioc et au maïs.", "target": "crops" },
       { "icon": "📣", "title": "Événements", "desc": "Quatre formats d'activités standards KUBOTA, plus le calendrier des formations concessionnaires et activités marketing à venir.", "target": "marketing" },
-      { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "artwork" }
+      { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "materials-custom" }
     ]
   },
   "product": {
@@ -524,6 +524,16 @@
       "note": "Les événements ci-dessus sont une structure d'exemple. Veuillez les remplacer par le calendrier réel des événements."
     },
     "note": "Les quatre manuels d'activité et le tableau comparatif sont issus du contenu officiel de la série KUBOTA Activity Standard. Les manuels sans lien de téléchargement local ci-dessus renvoient directement au fichier Drive source — ces fichiers étaient trop petits pour que le connecteur Drive de cette session les enregistre de façon fiable en local, ils s'ouvrent donc dans Google Drive dans un nouvel onglet plutôt que d'être téléchargés depuis ce site."
+  },
+  "materials": {
+    "title": "Supports marketing",
+    "intro": "Ressources marketing pour les concessionnaires — supports prêts à l'emploi fournis par l'entreprise, et un outil pour créer les vôtres en quelques clics.",
+    "tabs": { "company": "Supports fournis par l'entreprise", "custom": "Créez les vôtres, en un clic" },
+    "company": {
+      "title": "Supports fournis par l'entreprise",
+      "intro": "Fichiers graphiques, bannières, affiches et supports prêts à l'emploi de KUBOTA que les concessionnaires peuvent utiliser immédiatement.",
+      "note": "Cette page est en cours de préparation. Des fichiers et supports seront ajoutés prochainement."
+    }
   },
   "artwork": {
     "title": "Créateur de supports marketing",

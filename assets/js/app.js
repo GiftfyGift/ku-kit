@@ -28,7 +28,8 @@ function setActiveNav(route) {
   navButtons.forEach(btn => {
     const btnRoute = btn.dataset.route;
     const isMatch = btnRoute === route ||
-      (btnRoute.startsWith('product') && route.startsWith('product'));
+      (btnRoute.startsWith('product') && route.startsWith('product')) ||
+      (btnRoute.startsWith('materials') && route.startsWith('materials'));
     btn.classList.toggle('active', isMatch);
   });
 }
@@ -682,12 +683,55 @@ function renderMarketing(c) {
   `;
 }
 
-function renderArtwork(c) {
+function renderMaterialsSelector(c, active) {
+  const t = c.materials.tabs;
+  const card = (key, label, icon) => `
+    <button type="button" class="product-select-card ${active === key ? 'active' : ''}" data-subnav="materials-${key}">
+      <span class="product-select-icon"><span class="product-select-icon-emoji">${icon}</span></span>
+      <span class="product-select-label">${label}</span>
+      <span class="product-select-check" aria-hidden="true">✓</span>
+    </button>
+  `;
+  return `
+    <div class="product-selector">
+      ${card('company', t.company, '🏢')}
+      ${card('custom', t.custom, '🎨')}
+    </div>
+  `;
+}
+
+function renderMaterialsCompany(c) {
+  const m = c.materials;
+  const mc = m.company;
+  return `
+    <section>
+      <h2 class="section-title">${m.title}</h2>
+      <p class="section-intro">${m.intro}</p>
+      ${renderMaterialsSelector(c, 'company')}
+      <div class="category-block">
+        <h3 class="category-heading">${mc.title}</h3>
+        <p class="section-intro">${mc.intro}</p>
+        <div class="note-callout">${mc.note}</div>
+      </div>
+    </section>
+  `;
+}
+
+function renderMaterialsCustom(c) {
+  const m = c.materials;
+  return `
+    <section>
+      <h2 class="section-title">${m.title}</h2>
+      <p class="section-intro">${m.intro}</p>
+      ${renderMaterialsSelector(c, 'custom')}
+      ${renderArtworkBody(c)}
+    </section>
+  `;
+}
+
+function renderArtworkBody(c) {
   const a = c.artwork;
   return `
-    <section class="artwork-page">
-      <h2 class="section-title">${a.title}</h2>
-      <p class="section-intro">${a.intro}</p>
       <div class="artwork-layout">
         <div class="artwork-form">
           <h3>${a.formTitle}</h3>
@@ -729,6 +773,16 @@ function renderArtwork(c) {
         </div>
       </div>
       <div class="note-callout">${a.note}</div>
+  `;
+}
+
+function renderArtwork(c) {
+  const a = c.artwork;
+  return `
+    <section class="artwork-page">
+      <h2 class="section-title">${a.title}</h2>
+      <p class="section-intro">${a.intro}</p>
+      ${renderArtworkBody(c)}
     </section>
   `;
 }
@@ -1033,7 +1087,9 @@ const RENDERERS = {
   service: renderService,
   crops: renderCrops,
   marketing: renderMarketing,
-  artwork: renderArtwork
+  artwork: renderArtwork,
+  'materials-company': renderMaterialsCompany,
+  'materials-custom': renderMaterialsCustom
 };
 
 function applyStaticText(c) {
@@ -1072,7 +1128,7 @@ function render() {
     btn.addEventListener('click', () => navigate(btn.dataset.qlRoute, btn.dataset.qlAnchor));
   });
 
-  if (state.route === 'artwork') initArtworkPage(c);
+  if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
 }
 
 async function setLang(lang) {
@@ -1093,6 +1149,10 @@ function routeLabel(route, c) {
   if (route.startsWith('product-')) {
     const sub = route.replace('product-', '');
     return `${c.nav.product}${c.product.tabs && c.product.tabs[sub] ? ' — ' + c.product.tabs[sub] : ''}`;
+  }
+  if (route.startsWith('materials-')) {
+    const sub = route.replace('materials-', '');
+    return `${c.nav.artwork}${c.materials && c.materials.tabs && c.materials.tabs[sub] ? ' — ' + c.materials.tabs[sub] : ''}`;
   }
   return c.nav[route] || route;
 }
@@ -1172,8 +1232,11 @@ function buildSearchIndex(c) {
   // Events
   ((m.upcomingEvents && m.upcomingEvents.items) || []).forEach(ev => pushEntry(idx, 'marketing', ev.name, ev.desc, ev.location));
 
-  // Artwork
-  pushEntry(idx, 'artwork', c.artwork.title, c.artwork.intro);
+  // Marketing materials
+  pushEntry(idx, 'materials-custom', c.artwork.title, c.artwork.intro);
+  if (c.materials && c.materials.company) {
+    pushEntry(idx, 'materials-company', c.materials.company.title, c.materials.company.intro);
+  }
 
   return idx;
 }

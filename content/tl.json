@@ -15,7 +15,7 @@
       { "icon": "🛠️", "title": "Serbisyo", "desc": "Pre-delivery check, tamang paraan ng pag-start, at after-sales na serbisyo.", "target": "service" },
       { "icon": "🌾", "title": "Crop Solutions", "desc": "Paano pumili ng tamang setup ng power tiller para sa basa, tuyong palayan, kamoteng-kahoy, at mais.", "target": "crops" },
       { "icon": "📣", "title": "Mga Event", "desc": "Apat na standard na KUBOTA activity format, plus ang paparating na kalendaryo ng training para sa Dealer at marketing events.", "target": "marketing" },
-      { "icon": "🖼️", "title": "Marketing Materials", "desc": "I-design ang sarili mong banner at standee para sa tindahan. Ilagay ang detalye ng iyong tindahan at mag-download agad ng print-ready na file.", "target": "artwork" }
+      { "icon": "🖼️", "title": "Marketing Materials", "desc": "I-design ang sarili mong banner at standee para sa tindahan. Ilagay ang detalye ng iyong tindahan at mag-download agad ng print-ready na file.", "target": "materials-custom" }
     ]
   },
   "product": {
@@ -524,6 +524,16 @@
       "note": "Paalala: ang mga event sa itaas ay sample na istraktura lamang. Palitan ng aktuwal na kalendaryo ng event."
     },
     "note": "Ang lahat ng apat na activity manual at ang comparison table ay aktuwal na content mula sa opisyal na serye ng KUBOTA Activity Standard. Ang mga manual na walang local download link sa itaas ay direktang naka-link sa source file sa Drive — masyadong maliit ang mga file na iyon para ma-save nang maaasahan ng Drive connector ng session na ito bilang local bytes, kaya nagbubukas ito sa Google Drive sa bagong tab sa halip na mag-download mula sa site na ito."
+  },
+  "materials": {
+    "title": "Marketing Materials",
+    "intro": "Mga marketing resource para sa Dealer — handa nang materials mula sa kompanya, at isang tool para makapagdisenyo ka ng sarili mo sa ilang click lang.",
+    "tabs": { "company": "Materials Mula sa Kompanya", "custom": "I-design Mo Mismo, Sa Ilang Click Lang" },
+    "company": {
+      "title": "Materials Mula sa Kompanya",
+      "intro": "Mga artwork file, banner, poster, at handa nang materials mula sa KUBOTA na puwedeng gamitin agad ng Dealer.",
+      "note": "Inihahanda pa ang page na ito. Magdaragdag kami ng mga file at materials dito sa lalong madaling panahon."
+    }
   },
   "artwork": {
     "title": "Marketing Material Designer",

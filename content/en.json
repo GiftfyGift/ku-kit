@@ -15,7 +15,7 @@
       { "icon": "🛠️", "title": "Service", "desc": "Pre-delivery checks, correct starting procedure, and after-sales service.", "target": "service" },
       { "icon": "🌾", "title": "Crop Solutions", "desc": "How to match the right power tiller setup to wet paddy, dry paddy, cassava, and corn fields.", "target": "crops" },
       { "icon": "📣", "title": "Events", "desc": "Four standard KUBOTA activity formats, plus the upcoming Dealer training and marketing events calendar.", "target": "marketing" },
-      { "icon": "🖼️", "title": "Marketing Materials", "desc": "Design your own storefront banner and standee. Fill in your shop details and download a print-ready file instantly.", "target": "artwork" }
+      { "icon": "🖼️", "title": "Marketing Materials", "desc": "Design your own storefront banner and standee. Fill in your shop details and download a print-ready file instantly.", "target": "materials-custom" }
     ]
   },
   "product": {
@@ -524,6 +524,16 @@
       "note": "The events above are a sample structure. Please replace with the real events calendar."
     },
     "note": "All four activity manuals and the comparison table are real content from the official KUBOTA Activity Standard series. Manuals without a local download link above are linked directly to the source Drive file — those specific files were too small for this session's Drive connector to reliably save as local bytes, so they open in Google Drive in a new tab instead of downloading from this site."
+  },
+  "materials": {
+    "title": "Marketing Materials",
+    "intro": "Marketing resources for dealers — ready-made materials from the company, plus a tool to design your own in just a few clicks.",
+    "tabs": { "company": "Materials from the Company", "custom": "Design Your Own, At Your Fingertips" },
+    "company": {
+      "title": "Materials from the Company",
+      "intro": "Artwork files, banners, posters, and ready-made materials from KUBOTA that dealers can use right away.",
+      "note": "This page is being prepared. Files and materials will be added here soon."
+    }
   },
   "artwork": {
     "title": "Marketing Material Designer",

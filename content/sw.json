@@ -15,7 +15,7 @@
       { "icon": "🛠️", "title": "Huduma", "desc": "Ukaguzi kabla ya kuwasilisha, njia sahihi ya kuwasha, na huduma baada ya mauzo.", "target": "service" },
       { "icon": "🌾", "title": "Suluhisho za Mazao", "desc": "Jinsi ya kuchagua mpangilio sahihi wa trekta la kutembea kwa mashamba ya mpunga yenye maji, makavu, muhogo, na mahindi.", "target": "crops" },
       { "icon": "📣", "title": "Matukio", "desc": "Mifumo minne ya kawaida ya shughuli za KUBOTA, pamoja na kalenda ijayo ya mafunzo ya Wauzaji na matukio ya masoko.", "target": "marketing" },
-      { "icon": "🖼️", "title": "Vifaa vya Masoko", "desc": "Buni bango na standee yako mwenyewe kwa duka. Jaza taarifa za duka lako kisha upakue faili tayari kwa uchapishaji papo hapo.", "target": "artwork" }
+      { "icon": "🖼️", "title": "Vifaa vya Masoko", "desc": "Buni bango na standee yako mwenyewe kwa duka. Jaza taarifa za duka lako kisha upakue faili tayari kwa uchapishaji papo hapo.", "target": "materials-custom" }
     ]
   },
   "product": {
@@ -524,6 +524,16 @@
       "note": "Kumbuka: matukio hapo juu ni muundo wa mfano tu. Tafadhali badilisha na kalenda halisi ya matukio."
     },
     "note": "Miongozo yote minne ya shughuli na jedwali la kulinganisha ni maudhui halisi kutoka kwenye mfululizo rasmi wa KUBOTA Activity Standard. Miongozo isiyo na kiungo cha kupakua cha ndani hapo juu imeunganishwa moja kwa moja na faili ya chanzo kwenye Drive — faili hizo zilikuwa ndogo mno kwa kiunganishi cha Drive cha kipindi hiki kuzihifadhi kwa uhakika kama bytes za ndani, hivyo zinafunguliwa kwenye Google Drive kwenye kichupo kipya badala ya kupakuliwa kutoka kwenye tovuti hii."
+  },
+  "materials": {
+    "title": "Vifaa vya Masoko",
+    "intro": "Rasilimali za masoko kwa Wauzaji — vifaa vilivyotayarishwa na kampuni, pamoja na chombo cha kubuni vyako mwenyewe kwa mibofyo michache tu.",
+    "tabs": { "company": "Vifaa Kutoka kwa Kampuni", "custom": "Buni Chako Mwenyewe, kwa Vidole Vyako" },
+    "company": {
+      "title": "Vifaa Kutoka kwa Kampuni",
+      "intro": "Faili za sanaa, mabango, mapositi, na vifaa vilivyotayarishwa na KUBOTA ambavyo Wauzaji wanaweza kutumia mara moja.",
+      "note": "Ukurasa huu unaandaliwa. Faili na vifaa vitaongezwa hapa hivi karibuni."
+    }
   },
   "artwork": {
     "title": "Kitengenezea Vifaa vya Masoko",
