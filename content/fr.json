@@ -24,6 +24,15 @@
     "tabs": { "engine": "Moteur", "tiller": "Motoculteur", "assembly": "Guide de montage" },
     "engine": {
       "title": "Moteur diesel KUBOTA — ZT Plus",
+      "quickLinks": [
+        { "label": "Connaissance du produit", "route": "product-engine", "anchor": "engine-product-info" },
+        { "label": "Étapes de livraison et de démarrage", "route": "service", "anchor": "service-pre-delivery" },
+        { "label": "Contrôle avant livraison et procédure de démarrage correcte", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "OPM (Manuel d'utilisation)", "route": "product-engine", "anchor": "engine-downloads" },
+        { "label": "Points de contrôle d'authenticité", "route": "product-engine", "anchor": "engine-authenticity" },
+        { "label": "Exemples d'application", "route": "product-engine", "anchor": "engine-application" }
+      ],
       "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "Moteur diesel KUBOTA ZT155 DI Plus" },
       "items": [
         {
@@ -58,6 +67,14 @@
           { "title": "Phare LED", "desc": "Phare LED puissant pour un fonctionnement nocturne en sécurité ; le modèle PRO ajoute des clignotants et un port de charge USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Gros plan sur le phare LED puissant du moteur ZT Plus" } }
         ]
       },
+      "applicationExamples": {
+        "title": "Exemples d'application",
+        "intro": "Le moteur diesel KUBOTA ZT Plus peut être installé sur une large gamme d'équipements — de la préparation du sol, du transport et du pompage de l'eau aux travaux de construction, aux fermes d'élevage et à d'autres équipements agricoles ou de jardin.",
+        "images": [
+          { "src": "assets/img/product/application/engine-application-en-01.jpg", "alt": "Exemples d'application du moteur ZT Plus — motoculteur, transport agricole, pompes à eau, tracteurs polyvalents/modifiés et véhicules de construction" },
+          { "src": "assets/img/product/application/engine-application-en-02.jpg", "alt": "Exemples d'application du moteur ZT Plus — usage en élevage et autres équipements agricoles/de jardin" }
+        ]
+      },
       "authenticity": {
         "title": "Comment vérifier l'authenticité du moteur KUBOTA ZT Plus",
         "intro": "Les contrefaçons nuisent à la confiance des clients et à la sécurité du service après-vente. Utilisez ces points de contrôle pour confirmer qu'il s'agit d'un moteur KUBOTA authentique.",
@@ -87,6 +104,12 @@
     },
     "tiller": {
       "title": "Motoculteur TRA CHANG — NC Plus X",
+      "quickLinks": [
+        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "OPM (Manuel d'utilisation)", "route": "product-tiller", "anchor": "tiller-downloads" },
+        { "label": "Points de contrôle d'authenticité", "route": "product-tiller", "anchor": "tiller-authenticity" },
+        { "label": "Accessoires pour le motoculteur", "route": "product-tiller", "anchor": "tiller-application" }
+      ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Motoculteur TRA CHANG NC Plus X 800" },
       "items": [
         {
@@ -111,6 +134,13 @@
         }
       ],
       "note": "Distinguer le NC Plus X du NC Plus X Special : (1) le code châssis sur la carte de garantie — « NC131 » sans suffixe « S » (Plus X) contre « NC131S » (Special) ; (2) un marquage « S » poinçonné sur le carter d'engrenage, présent uniquement sur le Special. Les trois modèles de motoculteur TRA CHANG peuvent passer aux roues en caoutchouc pour le transport de récoltes ou usage général.",
+      "applicationExamples": {
+        "title": "Exemples d'utilisation et accessoires pour le motoculteur",
+        "intro": "Le motoculteur TRA CHANG peut être équipé d'une large gamme d'accessoires — du labour, du semis et de la récolte du riz au transport, au battage, au bottelage de foin et au désherbage dans les champs de manioc/canne à sucre.",
+        "images": [
+          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Accessoires utilisables avec le motoculteur TRA CHANG — charrue, semoir, moissonneuse à riz, transport, batteuse, presse à foin et désherbage dans les champs de manioc/canne à sucre" }
+        ]
+      },
       "authenticity": {
         "title": "Comment vérifier l'authenticité du motoculteur TRA CHANG",
         "intro": "Les contrefaçons nuisent à la confiance des clients et à la sécurité du service après-vente. Utilisez ces points de contrôle pour confirmer qu'il s'agit d'un motoculteur TRA CHANG authentique.",
@@ -239,6 +269,28 @@
   "service": {
     "title": "Service",
     "intro": "Le contrôle avant livraison et la procédure de démarrage correcte du moteur KUBOTA ZT Plus, directement issus du diaporama de formation officiel — ainsi que les programmes après-vente que tout concessionnaire doit connaître.",
+    "quickLinks": [
+      {
+        "label": "Étapes d'entretien du moteur",
+        "children": [
+          { "label": "Filtre à air", "route": "service", "anchor": "maintenance-engine-0" },
+          { "label": "Système de carburant", "route": "service", "anchor": "maintenance-engine-1" },
+          { "label": "Lubrification (huile moteur)", "route": "service", "anchor": "maintenance-engine-2" },
+          { "label": "Système de refroidissement (radiateur)", "route": "service", "anchor": "maintenance-engine-3" },
+          { "label": "Système de ventilateur de refroidissement", "route": "service", "anchor": "maintenance-engine-4" }
+        ]
+      },
+      {
+        "label": "Étapes d'entretien du motoculteur",
+        "children": [
+          { "label": "Lubrification (huile de transmission)", "route": "service", "anchor": "maintenance-tiller-0" },
+          { "label": "Contrôle du levier de direction", "route": "service", "anchor": "maintenance-tiller-1" },
+          { "label": "Contrôle du jeu de l'embrayage", "route": "service", "anchor": "maintenance-tiller-2" },
+          { "label": "Contrôle du jeu du frein", "route": "service", "anchor": "maintenance-tiller-3" },
+          { "label": "Contrôle de la courroie d'entraînement", "route": "service", "anchor": "maintenance-tiller-4" }
+        ]
+      }
+    ],
     "tableHeaders": { "interval": "Intervalle", "task": "Tâche" },
     "preDelivery": {
       "title": "5 contrôles essentiels avant de faire fonctionner le moteur",
@@ -324,23 +376,44 @@
   "crops": {
     "title": "Solutions agricoles",
     "intro": "Adaptez le montage des roues du motoculteur et la technique à l'état du champ — rizière inondée ou rizière sèche — afin que les concessionnaires puissent recommander la bonne configuration aux agriculteurs.",
+    "quickLinks": [
+      {
+        "label": "1. Solution de riziculture",
+        "route": "crops",
+        "anchor": "crop-group-rice",
+        "children": [
+          { "label": "Rizière sèche", "route": "crops", "anchor": "crop-dry-paddy" },
+          { "label": "Rizière inondée", "route": "crops", "anchor": "crop-wet-paddy" }
+        ]
+      },
+      { "label": "2. Solution de culture du maïs", "route": "crops", "anchor": "crop-corn" },
+      { "label": "3. Solution de culture du manioc", "route": "crops", "anchor": "crop-cassava" }
+    ],
     "solutions": [
       {
+        "id": "crop-wet-paddy",
+        "group": "Riz",
+        "groupId": "crop-group-rice",
         "name": "Rizière inondée",
         "desc": "Pour les rizières boueuses et inondées cultivées plus d'une fois par an. Utiliser le NC Plus X Special avec des roues à cage de 880 mm ou 980 mm et le système de virage à insert d'engrenage pour les travaux intensifs en boue. Associer à un moteur KUBOTA ZT Plus de 14-15,5 ch pour disposer de suffisamment de puissance en boue profonde.",
         "video": { "title": "Rizière inondée", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-dry-paddy",
+        "group": "Riz",
+        "groupId": "crop-group-rice",
         "name": "Rizière sèche",
         "desc": "Pour les sols limoneux ou sableux non boueux, y compris les rizières de saison sèche, la canne à sucre, le manioc, les légumineuses et les parcelles de légumes. Le NC Plus X avec des roues à cage de 800 mm convient parfaitement — plus léger, plus maniable, et capable de courts déplacements sur ses roues à cage.",
         "video": { "title": "Rizière sèche", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-cassava",
         "name": "Champ de manioc",
         "desc": "Pour les parcelles de manioc en zone de plateau, sur sol limoneux ou sableux. Le NC Plus X avec des roues à cage de 800 mm convient parfaitement — assez léger et maniable pour travailler entre les rangs sans endommager les buttes de manioc, et capable de courts déplacements entre les champs sur ses roues à cage.",
         "video": { "title": "Champ de manioc", "lang": "TH / EN", "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,3 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente" }
       },
       {
+        "id": "crop-corn",
         "name": "Champ de maïs",
         "desc": "Pour les parcelles de maïs en zone de plateau, sur sol limoneux ou sableux, avec un profil similaire au manioc et à la rizière de saison sèche. Le NC Plus X avec des roues à cage de 800 mm gère bien l'espacement des rangs et les courts déplacements entre les champs.",
         "video": { "title": "Champ de maïs", "lang": "TH / EN", "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,2 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente" }

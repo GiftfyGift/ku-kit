@@ -24,6 +24,15 @@
     "tabs": { "engine": "Engine", "tiller": "Power Tiller", "assembly": "Gabay sa Pag-assemble" },
     "engine": {
       "title": "KUBOTA Diesel Engine — ZT Plus",
+      "quickLinks": [
+        { "label": "Kaalaman sa Produkto", "route": "product-engine", "anchor": "engine-product-info" },
+        { "label": "Mga Hakbang sa Paghahatid at Pag-start", "route": "service", "anchor": "service-pre-delivery" },
+        { "label": "Pagsusuri Bago Ihatid at Tamang Paraan ng Pag-start", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "Paano I-assemble ang Diesel Engine sa Power Tiller", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "OPM (Operation Manual)", "route": "product-engine", "anchor": "engine-downloads" },
+        { "label": "Mga Checkpoint ng Orihinalidad", "route": "product-engine", "anchor": "engine-authenticity" },
+        { "label": "Mga Halimbawa ng Application", "route": "product-engine", "anchor": "engine-application" }
+      ],
       "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "KUBOTA ZT155 DI Plus diesel engine" },
       "items": [
         {
@@ -58,6 +67,14 @@
           { "title": "LED headlamp", "desc": "Maliwanag na LED headlamp para sa ligtas na gabing operasyon; may dagdag na turn signal at USB charging port ang PRO model.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Malapitang larawan ng maliwanag na LED headlamp sa ZT Plus engine" } }
         ]
       },
+      "applicationExamples": {
+        "title": "Mga Halimbawa ng Application",
+        "intro": "Ang KUBOTA ZT Plus diesel engine ay maaaring i-install sa iba't ibang kagamitan — mula sa paghahanda ng lupa, transportasyon, at pagsasalok ng tubig hanggang sa gawaing konstruksyon, mga sakahan ng hayop, at iba pang kagamitang pang-agrikultura o pang-hardin.",
+        "images": [
+          { "src": "assets/img/product/application/engine-application-en-01.jpg", "alt": "Mga halimbawa ng application ng ZT Plus engine — pagkabit sa power tiller, transportasyong pang-agrikultura, water pump, multi-purpose/modified na traktora, at sasakyang pang-konstruksyon" },
+          { "src": "assets/img/product/application/engine-application-en-02.jpg", "alt": "Mga halimbawa ng application ng ZT Plus engine — gamit sa sakahan ng hayop, at iba pang kagamitang pang-agrikultura/pang-hardin" }
+        ]
+      },
       "authenticity": {
         "title": "Paano Tiyakin ang Orihinal na KUBOTA ZT Plus Engine",
         "intro": "Ang mga peke ay nakakasira sa tiwala ng customer at kaligtasan pagkatapos ng benta. Gamitin ang mga checkpoint na ito para matiyak na orihinal ang KUBOTA engine.",
@@ -87,6 +104,12 @@
     },
     "tiller": {
       "title": "TRA CHANG Power Tiller — NC Plus X",
+      "quickLinks": [
+        { "label": "Paano I-assemble ang Diesel Engine sa Power Tiller", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "OPM (Operation Manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
+        { "label": "Mga Checkpoint ng Orihinalidad", "route": "product-tiller", "anchor": "tiller-authenticity" },
+        { "label": "Mga Attachment para sa Power Tiller", "route": "product-tiller", "anchor": "tiller-application" }
+      ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller" },
       "items": [
         {
@@ -111,6 +134,13 @@
         }
       ],
       "note": "Paano makilala ang NC Plus X sa NC Plus X Special: (1) chassis code sa warranty card — walang \"S\" sa dulo ang \"NC131\" (Plus X) samantalang may \"S\" ang \"NC131S\" (Special); (2) may markang \"S\" na naka-punch sa gear case sa Special lamang. Lahat ng 3 modelo ng TRA CHANG power tiller ay maaaring lagyan ng rubber wheel para sa pagdadala ng ani o pangkalahatang transportasyon.",
+      "applicationExamples": {
+        "title": "Mga Halimbawa ng Paggamit at Attachment para sa Power Tiller",
+        "intro": "Ang TRA CHANG power tiller ay maaaring lagyan ng iba't ibang attachment — mula sa pag-araro, pagtatanim ng binhi, at pag-ani ng palay hanggang sa transportasyon, paggiik, pagbalot ng dayami, at pagkontrol ng damo sa mga taniman ng kamoteng-kahoy/tubo.",
+        "images": [
+          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Mga attachment na magagamit sa TRA CHANG power tiller — araro, tagatanim ng binhi, tagagapas ng palay, transportasyon, panggiik ng palay, tagabalot ng dayami, at pagkontrol ng damo sa taniman ng kamoteng-kahoy/tubo" }
+        ]
+      },
       "authenticity": {
         "title": "Paano Tiyakin ang Orihinal na TRA CHANG Power Tiller",
         "intro": "Ang mga peke ay nakakasira sa tiwala ng customer at kaligtasan pagkatapos ng benta. Gamitin ang mga checkpoint na ito para matiyak na orihinal ang TRA CHANG power tiller.",
@@ -239,6 +269,28 @@
   "service": {
     "title": "Serbisyo",
     "intro": "Ang tamang pre-delivery check at paraan ng pag-start ng KUBOTA ZT Plus engine, direkta mula sa opisyal na training deck — kasama ang mga after-sales program na dapat malaman ng bawat Dealer.",
+    "quickLinks": [
+      {
+        "label": "Mga Hakbang sa Maintenance ng Engine",
+        "children": [
+          { "label": "Air Filter", "route": "service", "anchor": "maintenance-engine-0" },
+          { "label": "Fuel System", "route": "service", "anchor": "maintenance-engine-1" },
+          { "label": "Lubrication (Langis ng Makina)", "route": "service", "anchor": "maintenance-engine-2" },
+          { "label": "Cooling System (Radiator)", "route": "service", "anchor": "maintenance-engine-3" },
+          { "label": "Cooling Fan System", "route": "service", "anchor": "maintenance-engine-4" }
+        ]
+      },
+      {
+        "label": "Mga Hakbang sa Maintenance ng Power Tiller",
+        "children": [
+          { "label": "Lubrication (Transmission Oil)", "route": "service", "anchor": "maintenance-tiller-0" },
+          { "label": "Pagsusuri sa Steering Lever", "route": "service", "anchor": "maintenance-tiller-1" },
+          { "label": "Pagsusuri sa Clutch Free Play", "route": "service", "anchor": "maintenance-tiller-2" },
+          { "label": "Pagsusuri sa Brake Free Play", "route": "service", "anchor": "maintenance-tiller-3" },
+          { "label": "Pagsusuri sa Drive Belt", "route": "service", "anchor": "maintenance-tiller-4" }
+        ]
+      }
+    ],
     "tableHeaders": { "interval": "Agwat", "task": "Gawain" },
     "preDelivery": {
       "title": "5 Mahalagang Beripikasyon Bago Patakbuhin ang Engine",
@@ -324,23 +376,44 @@
   "crops": {
     "title": "Crop Solutions",
     "intro": "Itugma ang tamang setup ng gulong at teknik ng power tiller sa kondisyon ng bukid — basang palayan o tuyong palayan — para makapagrekomenda ang Dealer ng tamang configuration sa magsasaka.",
+    "quickLinks": [
+      {
+        "label": "1. Solusyon sa Pagtatanim ng Palay",
+        "route": "crops",
+        "anchor": "crop-group-rice",
+        "children": [
+          { "label": "Tuyong Palayan", "route": "crops", "anchor": "crop-dry-paddy" },
+          { "label": "Basang Palayan", "route": "crops", "anchor": "crop-wet-paddy" }
+        ]
+      },
+      { "label": "2. Solusyon sa Pagtatanim ng Mais", "route": "crops", "anchor": "crop-corn" },
+      { "label": "3. Solusyon sa Pagtatanim ng Kamoteng-kahoy", "route": "crops", "anchor": "crop-cassava" }
+    ],
     "solutions": [
       {
+        "id": "crop-wet-paddy",
+        "group": "Palay",
+        "groupId": "crop-group-rice",
         "name": "Basang Palayan (Wet Paddy Field)",
         "desc": "Para sa mala-putik, binabahang palayan na tinatamnan nang higit sa isang beses sa isang taon. Gamitin ang NC Plus X Special na may 880 mm o 980 mm na cage wheel at Gear Insert turning system para sa mabigat na putikan. Isamang gamitin ang KUBOTA ZT Plus 14-15.5 HP engine para sapat ang lakas sa malalim na putik.",
         "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-dry-paddy",
+        "group": "Palay",
+        "groupId": "crop-group-rice",
         "name": "Tuyong Palayan (Dry Paddy Field)",
         "desc": "Para sa lupang mabuhangin o hindi masyadong malagkit na hindi puno ng putik, kasama ang tuyong-panahon na palayan, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Angkop ang NC Plus X na may 800 mm cage wheel — mas magaan, mas agile, at kayang maglakbay ng maikling distansya gamit ang cage wheel.",
         "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-cassava",
         "name": "Taniman ng Kamoteng-kahoy",
         "desc": "Para sa taniman ng kamoteng-kahoy sa lupang mabuhangin o hindi masyadong malagkit. Angkop ang NC Plus X na may 800 mm cage wheel — magaan at agile na sapat para gumana sa pagitan ng mga hilera ng tanim nang hindi nasisira ang mga bunton ng kamoteng-kahoy, at kayang maglakbay ng maikling distansya sa pagitan ng mga bukid gamit ang cage wheel.",
         "video": { "title": "Cassava field", "lang": "TH / EN", "note": "May master video sa source Drive folder (~2.3GB, TH at EN) — hindi isinama sa build na ito, hinihintay ang desisyon sa video hosting" }
       },
       {
+        "id": "crop-corn",
         "name": "Taniman ng Mais",
         "desc": "Para sa taniman ng mais sa lupang mabuhangin o hindi masyadong malagkit, halos katulad ng kamoteng-kahoy at tuyong palayan. Kayang hawakan ng NC Plus X na may 800 mm cage wheel ang spacing ng hilera at maikling paglalakbay sa pagitan ng mga bukid.",
         "video": { "title": "Corn field", "lang": "TH / EN", "note": "May master video sa source Drive folder (~2.2GB, TH at EN) — hindi isinama sa build na ito, hinihintay ang desisyon sa video hosting" }

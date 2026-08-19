@@ -24,6 +24,15 @@
     "tabs": { "engine": "Injini", "tiller": "Trekta la Kutembea", "assembly": "Mwongozo wa Kuunganisha" },
     "engine": {
       "title": "Injini ya Dizeli ya KUBOTA — ZT Plus",
+      "quickLinks": [
+        { "label": "Maarifa ya Bidhaa", "route": "product-engine", "anchor": "engine-product-info" },
+        { "label": "Hatua za Uwasilishaji na Kuwasha", "route": "service", "anchor": "service-pre-delivery" },
+        { "label": "Ukaguzi Kabla ya Kuwasilisha na Utaratibu Sahihi wa Kuwasha", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "OPM (Mwongozo wa Uendeshaji)", "route": "product-engine", "anchor": "engine-downloads" },
+        { "label": "Vipengele vya Ukaguzi wa Uhalisi", "route": "product-engine", "anchor": "engine-authenticity" },
+        { "label": "Mifano ya Matumizi", "route": "product-engine", "anchor": "engine-application" }
+      ],
       "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "Injini ya dizeli ya KUBOTA ZT155 DI Plus" },
       "items": [
         {
@@ -58,6 +67,14 @@
           { "title": "Taa ya mbele ya LED", "desc": "Taa ya mbele yenye mwanga mkali kwa usalama wa kazi za usiku; mfano wa PRO unaongeza taa za kugeuza na tundu la kuchaji la USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Picha ya karibu ya taa ya mbele ya LED yenye mwanga mkali kwenye injini ya ZT Plus" } }
         ]
       },
+      "applicationExamples": {
+        "title": "Mifano ya Matumizi",
+        "intro": "Injini ya dizeli ya KUBOTA ZT Plus inaweza kusakinishwa kwenye vifaa mbalimbali — kutoka kuandaa udongo, usafirishaji, na kusukuma maji hadi kazi za ujenzi, mashamba ya mifugo, na vifaa vingine vya kilimo au bustani.",
+        "images": [
+          { "src": "assets/img/product/application/engine-application-en-01.jpg", "alt": "Mifano ya matumizi ya injini ya ZT Plus — kuunganishwa na trekta la kutembea, usafirishaji wa kilimo, pampu za maji, matrekta ya matumizi mengi/yaliyorekebishwa, na magari ya ujenzi" },
+          { "src": "assets/img/product/application/engine-application-en-02.jpg", "alt": "Mifano ya matumizi ya injini ya ZT Plus — matumizi katika mashamba ya mifugo, na vifaa vingine vya kilimo/bustani" }
+        ]
+      },
       "authenticity": {
         "title": "Jinsi ya Kuthibitisha Injini Halisi ya KUBOTA ZT Plus",
         "intro": "Bidhaa bandia huathiri imani ya wateja na usalama baada ya mauzo. Tumia vipengele hivi vya ukaguzi kuthibitisha injini halisi ya KUBOTA.",
@@ -87,6 +104,12 @@
     },
     "tiller": {
       "title": "Trekta la Kutembea la TRA CHANG — NC Plus X",
+      "quickLinks": [
+        { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "OPM (Mwongozo wa Uendeshaji)", "route": "product-tiller", "anchor": "tiller-downloads" },
+        { "label": "Vipengele vya Ukaguzi wa Uhalisi", "route": "product-tiller", "anchor": "tiller-authenticity" },
+        { "label": "Vifaa vya Kuongeza kwa Trekta la Kutembea", "route": "product-tiller", "anchor": "tiller-application" }
+      ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800" },
       "items": [
         {
@@ -111,6 +134,13 @@
         }
       ],
       "note": "Jinsi ya kutofautisha NC Plus X na NC Plus X Special: (1) msimbo wa chasi kwenye kadi ya udhamini — \"NC131\" haina \"S\" mwishoni (Plus X) wakati \"NC131S\" ina \"S\" mwishoni (Special); (2) alama ya \"S\" iliyochomwa kwenye sanduku la gia kwa Special pekee. Mifano yote 3 ya trekta la kutembea la TRA CHANG inaweza kubadilishwa kuwa magurudumu ya mpira kwa ajili ya kubeba mazao au usafirishaji wa jumla.",
+      "applicationExamples": {
+        "title": "Mifano ya Matumizi na Vifaa vya Kuongeza kwa Trekta la Kutembea",
+        "intro": "Trekta la kutembea la TRA CHANG linaweza kuwekwa vifaa mbalimbali — kutoka kulima, kupanda mbegu, na kuvuna mpunga hadi usafirishaji, kupura, kufunga nyasi, na kudhibiti magugu katika mashamba ya muhogo/miwa.",
+        "images": [
+          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Vifaa vinavyoweza kutumika na trekta la kutembea la TRA CHANG — jembe, mpanzi wa mbegu, mvunaji wa mpunga, usafirishaji, mpuraji wa mpunga, mfungaji wa nyasi, na kudhibiti magugu katika mashamba ya muhogo/miwa" }
+        ]
+      },
       "authenticity": {
         "title": "Jinsi ya Kuthibitisha Trekta Halisi la Kutembea la TRA CHANG",
         "intro": "Bidhaa bandia huathiri imani ya wateja na usalama baada ya mauzo. Tumia vipengele hivi vya ukaguzi kuthibitisha trekta halisi la kutembea la TRA CHANG.",
@@ -239,6 +269,28 @@
   "service": {
     "title": "Huduma",
     "intro": "Ukaguzi sahihi kabla ya kuwasilisha na njia sahihi ya kuwasha injini ya KUBOTA ZT Plus, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo — pamoja na mipango ya baada ya mauzo ambayo kila Muuzaji anapaswa kujua.",
+    "quickLinks": [
+      {
+        "label": "Hatua za Matengenezo ya Injini",
+        "children": [
+          { "label": "Kichujio cha Hewa", "route": "service", "anchor": "maintenance-engine-0" },
+          { "label": "Mfumo wa Mafuta", "route": "service", "anchor": "maintenance-engine-1" },
+          { "label": "Ulainishaji (Mafuta ya Injini)", "route": "service", "anchor": "maintenance-engine-2" },
+          { "label": "Mfumo wa Kupoza (Radiator)", "route": "service", "anchor": "maintenance-engine-3" },
+          { "label": "Mfumo wa Feni ya Kupoza", "route": "service", "anchor": "maintenance-engine-4" }
+        ]
+      },
+      {
+        "label": "Hatua za Matengenezo ya Trekta la Kutembea",
+        "children": [
+          { "label": "Ulainishaji (Mafuta ya Gia)", "route": "service", "anchor": "maintenance-tiller-0" },
+          { "label": "Ukaguzi wa Lever ya Kugeuza", "route": "service", "anchor": "maintenance-tiller-1" },
+          { "label": "Ukaguzi wa Upinde Huru wa Klachi", "route": "service", "anchor": "maintenance-tiller-2" },
+          { "label": "Ukaguzi wa Upinde Huru wa Breki", "route": "service", "anchor": "maintenance-tiller-3" },
+          { "label": "Ukaguzi wa Mkanda wa Kuendesha", "route": "service", "anchor": "maintenance-tiller-4" }
+        ]
+      }
+    ],
     "tableHeaders": { "interval": "Muda", "task": "Kazi" },
     "preDelivery": {
       "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
@@ -324,23 +376,44 @@
   "crops": {
     "title": "Suluhisho za Mazao",
     "intro": "Linganisha mpangilio sahihi wa gurudumu na mbinu ya trekta la kutembea na hali ya shamba — mpunga wenye maji au mpunga mkavu — ili Wauzaji waweze kupendekeza mpangilio sahihi kwa wakulima.",
+    "quickLinks": [
+      {
+        "label": "1. Suluhisho la Kilimo cha Mpunga",
+        "route": "crops",
+        "anchor": "crop-group-rice",
+        "children": [
+          { "label": "Mpunga Mkavu", "route": "crops", "anchor": "crop-dry-paddy" },
+          { "label": "Mpunga wenye Maji", "route": "crops", "anchor": "crop-wet-paddy" }
+        ]
+      },
+      { "label": "2. Suluhisho la Kilimo cha Mahindi", "route": "crops", "anchor": "crop-corn" },
+      { "label": "3. Suluhisho la Kilimo cha Muhogo", "route": "crops", "anchor": "crop-cassava" }
+    ],
     "solutions": [
       {
+        "id": "crop-wet-paddy",
+        "group": "Mpunga",
+        "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga wenye Maji (Wet Paddy Field)",
         "desc": "Kwa mashamba ya mpunga yenye tope na maji, yanayopandwa zaidi ya mara moja kwa mwaka. Tumia NC Plus X Special yenye magurudumu ya kizimba ya 880 mm au 980 mm na mfumo wa Gear Insert wa kugeuza kwa kazi nzito za tope. Tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP ili kupata nguvu ya kutosha kwenye tope refu.",
         "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-dry-paddy",
+        "group": "Mpunga",
+        "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga Mkavu (Dry Paddy Field)",
         "desc": "Kwa udongo wa mfinyanzi au mchanga usio na tope, ikiwa ni pamoja na mpunga wa msimu mkavu, miwa, muhogo, maharage, na mboga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi zaidi, rahisi kuendesha, na inaweza kusafiri umbali mfupi kwa magurudumu yake ya kizimba.",
         "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-cassava",
         "name": "Shamba la Muhogo",
         "desc": "Kwa mashamba ya muhogo ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi na rahisi kutosha kufanya kazi kati ya mistari ya kupanda bila kuharibu vilima vya muhogo, na inaweza kusafiri umbali mfupi kati ya mashamba kwa magurudumu yake ya kizimba.",
         "video": { "title": "Cassava field", "lang": "TH / EN", "note": "Video kuu ipo kwenye folda ya Drive ya chanzo (~2.3GB, TH na EN) — haikuwekwa kwenye build hii, inasubiri uamuzi wa mahali pa kuhifadhi video" }
       },
       {
+        "id": "crop-corn",
         "name": "Shamba la Mahindi",
         "desc": "Kwa mashamba ya mahindi ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga, yanayofanana na muhogo na mpunga wa msimu mkavu. NC Plus X yenye magurudumu ya kizimba ya 800 mm hushughulikia vizuri nafasi ya mistari na safari fupi kati ya mashamba.",
         "video": { "title": "Corn field", "lang": "TH / EN", "note": "Video kuu ipo kwenye folda ya Drive ya chanzo (~2.2GB, TH na EN) — haikuwekwa kwenye build hii, inasubiri uamuzi wa mahali pa kuhifadhi video" }
