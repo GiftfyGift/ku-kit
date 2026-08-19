@@ -246,7 +246,7 @@ function renderPreDeliveryBlock(pd, id) {
           </div>
         `).join('')}
       </div>
-      ${pd.video ? `<div class="video-grid">${renderYouTubeEmbed(pd.video)}</div>` : ''}
+      ${pd.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(pd.video)}</div>` : ''}
     </div>
   `;
 }
@@ -258,7 +258,7 @@ function renderStartProcedureBlock(sp, id) {
       <h3 class="category-heading">${sp.title}</h3>
       <ol class="check-list">${sp.steps.map(st => `<li>${st}</li>`).join('')}</ol>
       <div class="note-callout">${sp.caution.join(' ')}</div>
-      ${sp.video ? `<div class="video-grid">${renderYouTubeEmbed(sp.video)}</div>` : ''}
+      ${sp.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(sp.video)}</div>` : ''}
       ${sp.moreFile ? `<div class="file-pill-row">${renderFilePill(sp.moreFile)}</div>` : ''}
     </div>
   `;
@@ -276,7 +276,7 @@ function renderApplicationExamples(app, id) {
       <h3 class="category-heading">${app.title}</h3>
       ${app.intro ? `<p class="section-intro">${app.intro}</p>` : ''}
       <div class="application-gallery">${images}</div>
-      ${app.video ? `<div class="video-grid">${renderYouTubeEmbed(app.video)}</div>` : ''}
+      ${app.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(app.video)}</div>` : ''}
     </div>
   `;
 }
