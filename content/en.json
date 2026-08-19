@@ -605,7 +605,38 @@
     "company": {
       "title": "Materials from the Company",
       "intro": "Artwork files, banners, posters, and ready-made materials from KUBOTA that dealers can use right away.",
-      "note": "This page is being prepared. Files and materials will be added here soon."
+      "groups": [
+        {
+          "icon": "📘",
+          "title": "Product Knowledge Media",
+          "intro": "Brochures and spec sheets for customers who want an in-depth look at the products.",
+          "items": [
+            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "ZT Plus Africa leaflet page 1 — engine and power tiller spec tables, plus a farmer holding the No.1 Global Brand badge" }, "title": "ZT Plus Africa Leaflet (page 1)", "format": "A4 Leaflet" },
+            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "ZT Plus Africa leaflet page 2 — engine photo with key highlights and a horsepower table by model" }, "title": "ZT Plus Africa Leaflet (page 2)", "format": "A4 Leaflet" }
+          ]
+        },
+        {
+          "icon": "🎪",
+          "title": "Event & Activity Media",
+          "intro": "Roll-ups, bunting, and banners for decorating a storefront or event space.",
+          "items": [
+            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Roll-up introducing Siam Kubota, with a world map and dealer benefits" }, "title": "Company Introduction Roll-up", "format": "Roll-up 85×200 cm" },
+            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Roll-up highlighting the KUBOTA diesel engine and power tiller key benefits" }, "title": "Product Highlight Roll-up", "format": "Roll-up 85×200 cm" },
+            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "A strip of 6 triangular bunting flags for a Thank You Day event in Tanzania" }, "title": "Thank You Day Bunting", "format": "Bunting 30×30 cm" },
+            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "Banner for a Thank You Day event in Tanzania, with a farmer and the power tiller" }, "title": "Thank You Day Banner", "format": "Banner 2×4 m" }
+          ]
+        },
+        {
+          "icon": "📌",
+          "title": "Other Marketing Media",
+          "intro": "Tent cards for a storefront counter or sales desk, showing the overall product line-up.",
+          "items": [
+            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Overall product list tent card, page 1 — engine photo and the No.1 Global Brand logo" }, "title": "Product List Tent Card (page 1)", "format": "Tent Card A4" },
+            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Overall product list tent card, page 2 — TRA CHANG NC Plus X and NC Plus X Special power tillers" }, "title": "Product List Tent Card (page 2)", "format": "Tent Card A4" }
+          ]
+        }
+      ],
+      "note": "Sample images from the company's real artwork files. Click an image to view it larger. High-resolution print-ready files will be added here for download soon."
     }
   },
   "artwork": {

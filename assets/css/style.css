@@ -1726,6 +1726,129 @@ table.parts-table td.code-col {
   .ka-panel { width: calc(100vw - 28px); height: calc(100vh - 120px); bottom: 68px; }
 }
 
+/* Marketing materials — company media groups */
+.materials-group-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.materials-group-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.materials-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.materials-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--kubota-light-gray);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.materials-card:hover {
+  border-color: rgba(255,106,61,0.5);
+  transform: translateY(-3px);
+}
+
+.materials-card-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.materials-card-img-wrap img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.materials-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--kubota-navy);
+  margin-bottom: 4px;
+}
+
+.materials-card-tag {
+  font-size: 11px;
+  color: var(--kubota-mid-gray);
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(2,6,8,0.92);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.lightbox[hidden] { display: none; }
+
+.lightbox-figure {
+  margin: 0;
+  max-width: min(90vw, 1100px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.lightbox-caption {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-close:hover { background: rgba(255,255,255,0.2); }
+
 /* Responsive */
 @media (max-width: 640px) {
   .header-inner { flex-direction: column; align-items: flex-start; }

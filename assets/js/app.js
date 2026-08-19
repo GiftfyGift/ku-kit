@@ -712,19 +712,40 @@ function renderMaterialsSelector(c, active) {
   `;
 }
 
+function renderMaterialsGroup(group) {
+  const cards = group.items.map(item => `
+    <button type="button" class="materials-card" data-lightbox-src="${item.image.src}" data-lightbox-alt="${item.image.alt}" data-lightbox-caption="${item.title}">
+      <span class="materials-card-img-wrap">
+        <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy">
+      </span>
+      <span class="materials-card-title">${item.title}</span>
+      <span class="materials-card-tag">${item.format}</span>
+    </button>
+  `).join('');
+  return `
+    <div class="category-block">
+      <h3 class="category-heading materials-group-heading">
+        <span class="materials-group-icon" aria-hidden="true">${group.icon}</span>
+        ${group.title}
+      </h3>
+      <p class="section-intro">${group.intro}</p>
+      <div class="materials-card-grid">${cards}</div>
+    </div>
+  `;
+}
+
 function renderMaterialsCompany(c) {
   const m = c.materials;
   const mc = m.company;
+  const groups = (mc.groups || []).map(renderMaterialsGroup).join('');
   return `
     <section>
       <h2 class="section-title">${m.title}</h2>
       <p class="section-intro">${m.intro}</p>
       ${renderMaterialsSelector(c, 'company')}
-      <div class="category-block">
-        <h3 class="category-heading">${mc.title}</h3>
-        <p class="section-intro">${mc.intro}</p>
-        <div class="note-callout">${mc.note}</div>
-      </div>
+      <p class="section-intro">${mc.intro}</p>
+      ${groups}
+      <div class="note-callout">${mc.note}</div>
     </section>
   `;
 }
@@ -1182,6 +1203,10 @@ function render() {
     btn.addEventListener('click', () => navigate(btn.dataset.qlRoute, btn.dataset.qlAnchor));
   });
 
+  app.querySelectorAll('[data-lightbox-src]').forEach(btn => {
+    btn.addEventListener('click', () => openLightbox(btn.dataset.lightboxSrc, btn.dataset.lightboxAlt, btn.dataset.lightboxCaption));
+  });
+
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
 }
 
@@ -1414,6 +1439,33 @@ window.addEventListener('hashchange', () => {
   const route = (location.hash || '#home').replace('#', '');
   state.route = route;
   render();
+});
+
+/* ---------- Lightbox ---------- */
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+
+function openLightbox(src, alt, caption) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightboxCaption.textContent = caption || '';
+  lightbox.removeAttribute('hidden');
+}
+
+function closeLightbox() {
+  lightbox.setAttribute('hidden', '');
+  lightboxImg.src = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !lightbox.hasAttribute('hidden')) closeLightbox();
 });
 
 /* ---------- KU-KIT Assistant: wiring ---------- */

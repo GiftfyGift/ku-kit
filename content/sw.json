@@ -605,7 +605,38 @@
     "company": {
       "title": "Vifaa Kutoka kwa Kampuni",
       "intro": "Faili za sanaa, mabango, mapositi, na vifaa vilivyotayarishwa na KUBOTA ambavyo Wauzaji wanaweza kutumia mara moja.",
-      "note": "Ukurasa huu unaandaliwa. Faili na vifaa vitaongezwa hapa hivi karibuni."
+      "groups": [
+        {
+          "icon": "📘",
+          "title": "Vifaa vya Maarifa ya Bidhaa",
+          "intro": "Vipeperushi na karatasi za vipimo kwa wateja wanaotaka kuelewa bidhaa kwa kina.",
+          "items": [
+            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Kipeperushi cha ZT Plus Afrika ukurasa wa 1 — majedwali ya vipimo vya injini na trekta la kutembea, pamoja na mkulima akishikilia beji ya No.1 Global Brand" }, "title": "Kipeperushi cha ZT Plus Afrika (ukurasa 1)", "format": "Kipeperushi A4" },
+            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Kipeperushi cha ZT Plus Afrika ukurasa wa 2 — picha ya injini na vipengele vyake muhimu pamoja na jedwali la nguvu za farasi kwa kila mfano" }, "title": "Kipeperushi cha ZT Plus Afrika (ukurasa 2)", "format": "Kipeperushi A4" }
+          ]
+        },
+        {
+          "icon": "🎪",
+          "title": "Vifaa vya Kuandaa Shughuli",
+          "intro": "Roll-up, bendera za mapambo, na mabango kwa ajili ya kupamba duka au eneo la tukio.",
+          "items": [
+            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Roll-up inayotambulisha Siam Kubota, ikiwa na ramani ya dunia na faida kwa wauzaji" }, "title": "Roll-up ya Utambulisho wa Kampuni", "format": "Roll-up 85×200 sm" },
+            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Roll-up inayoonyesha faida kuu za injini ya dizeli na trekta la kutembea la KUBOTA" }, "title": "Roll-up ya Vipengele Muhimu vya Bidhaa", "format": "Roll-up 85×200 sm" },
+            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "Mstari wa bendera 6 za pembetatu za mapambo kwa tukio la Thank You Day nchini Tanzania" }, "title": "Bendera za Mapambo za Thank You Day", "format": "Bendera 30×30 sm" },
+            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "Bango la tukio la Thank You Day nchini Tanzania, likiwa na mkulima na trekta la kutembea" }, "title": "Bango la Thank You Day", "format": "Bango 2×4 m" }
+          ]
+        },
+        {
+          "icon": "📌",
+          "title": "Vifaa Vingine vya Masoko",
+          "intro": "Kadi za mezani kwa kaunta ya duka au meza ya mauzo, zinazoonyesha orodha nzima ya bidhaa.",
+          "items": [
+            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Kadi ya mezani ya orodha nzima ya bidhaa, ukurasa wa 1 — picha ya injini na nembo ya No.1 Global Brand" }, "title": "Kadi ya Mezani ya Orodha ya Bidhaa (ukurasa 1)", "format": "Kadi ya Mezani A4" },
+            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Kadi ya mezani ya orodha nzima ya bidhaa, ukurasa wa 2 — matrekta ya kutembea ya TRA CHANG NC Plus X na NC Plus X Special" }, "title": "Kadi ya Mezani ya Orodha ya Bidhaa (ukurasa 2)", "format": "Kadi ya Mezani A4" }
+          ]
+        }
+      ],
+      "note": "Picha za mfano kutoka kwenye faili halisi za sanaa za kampuni. Bofya picha ili kuiona kubwa zaidi. Faili za ubora wa juu tayari kwa uchapishaji zitaongezwa hapa kwa upakuaji hivi karibuni."
     }
   },
   "artwork": {

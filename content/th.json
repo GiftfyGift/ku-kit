@@ -605,7 +605,38 @@
     "company": {
       "title": "สื่อการตลาดจากบริษัท",
       "intro": "ไฟล์อาร์ตเวิร์ก แบนเนอร์ โปสเตอร์ และสื่อสำเร็จรูปจาก KUBOTA สำหรับร้านค้านำไปใช้งานได้ทันที",
-      "note": "หน้านี้กำลังเตรียมเนื้อหา จะทยอยเพิ่มไฟล์และสื่อเข้ามาเร็วๆ นี้"
+      "groups": [
+        {
+          "icon": "📘",
+          "title": "สื่อความรู้สินค้า",
+          "intro": "โบรชัวร์และเอกสารสเปกสินค้า สำหรับให้ลูกค้าศึกษารายละเอียดสินค้าเชิงลึก",
+          "items": [
+            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Leaflet ZT Plus แอฟริกา หน้า 1 — ตารางสเปกเครื่องยนต์และรถไถเดินตาม พร้อมภาพเกษตรกรถือ No.1 Global Brand" }, "title": "Leaflet ZT Plus แอฟริกา (หน้า 1)", "format": "A4 Leaflet" },
+            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Leaflet ZT Plus แอฟริกา หน้า 2 — ภาพเครื่องยนต์ ZT Plus พร้อมจุดเด่นสินค้าและตารางแรงม้าแต่ละรุ่น" }, "title": "Leaflet ZT Plus แอฟริกา (หน้า 2)", "format": "A4 Leaflet" }
+          ]
+        },
+        {
+          "icon": "🎪",
+          "title": "สื่อสำหรับจัดกิจกรรม",
+          "intro": "Roll-up, Bunting และ Banner สำหรับใช้ตกแต่งพื้นที่จัดกิจกรรมหน้าร้านหรืองาน Event",
+          "items": [
+            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Roll-up แนะนำบริษัท Siam Kubota พร้อมแผนที่โลกและจุดเด่นสำหรับดีลเลอร์" }, "title": "Roll-up แนะนำบริษัท", "format": "Roll-up 85×200 ซม." },
+            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Roll-up จุดเด่นสินค้า เครื่องยนต์ดีเซลและรถไถเดินตามคูโบต้า" }, "title": "Roll-up จุดเด่นสินค้า", "format": "Roll-up 85×200 ซม." },
+            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "ธงราวตกแต่ง Bunting รูปสามเหลี่ยม 6 ผืน สำหรับงาน Thank You Day ประเทศแทนซาเนีย" }, "title": "Bunting งาน Thank You Day", "format": "Bunting 30×30 ซม." },
+            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "แบนเนอร์งาน Thank You Day ประเทศแทนซาเนีย พร้อมภาพเกษตรกรและรถไถเดินตาม" }, "title": "Banner งาน Thank You Day", "format": "Banner 2×4 ม." }
+          ]
+        },
+        {
+          "icon": "📌",
+          "title": "สื่อการตลาดอื่นๆ",
+          "intro": "Tent Card สำหรับวางหน้าร้านหรือโต๊ะขาย แสดงรายการรุ่นสินค้าโดยรวม",
+          "items": [
+            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Tent Card แสดงรายการรุ่นสินค้าโดยรวม หน้า 1 — เครื่องยนต์และโลโก้ No.1 Global Brand" }, "title": "Tent Card รายการสินค้า (หน้า 1)", "format": "Tent Card A4" },
+            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Tent Card แสดงรายการรุ่นสินค้าโดยรวม หน้า 2 — รถไถเดินตามตราช้าง NC Plus X และ NC Plus X Special" }, "title": "Tent Card รายการสินค้า (หน้า 2)", "format": "Tent Card A4" }
+          ]
+        }
+      ],
+      "note": "ภาพตัวอย่างจากไฟล์อาร์ตเวิร์กจริงของบริษัท คลิกที่ภาพเพื่อดูขนาดใหญ่ ไฟล์ต้นฉบับความละเอียดสูงสำหรับสั่งพิมพ์จะทยอยเพิ่มเข้ามาให้ดาวน์โหลดในภายหลัง"
     }
   },
   "artwork": {
