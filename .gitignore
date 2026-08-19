@@ -1,5 +1,7 @@
 # Bundled reference documents (large, already stored in the team's shared Drive)
-assets/docs/
+assets/docs/*
+!assets/docs/marketing/
+!assets/docs/marketing/*.docx
 
 # Regenerable build output — rebuild via the artifact build script when needed
 artifact/
