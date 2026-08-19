@@ -1429,19 +1429,33 @@ table.parts-table td.code-col {
 .artwork-layout {
   display: grid;
   grid-template-columns: 340px 1fr;
+  grid-template-areas: "form preview";
   gap: 24px;
   align-items: start;
 }
 
 @media (max-width: 860px) {
-  .artwork-layout { grid-template-columns: 1fr; }
+  .artwork-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "preview"
+      "form";
+  }
 }
 
 .artwork-form {
+  grid-area: form;
   background: var(--kubota-light-gray);
   border: 1px solid var(--kubota-border);
   border-radius: var(--radius-md);
   padding: 20px;
+}
+
+.artwork-preview {
+  grid-area: preview;
+  /* The form can grow much taller than the viewport (many fields), so pin the
+     live preview in place as the page scrolls — otherwise it scrolls out of
+     view above while adjusting a field further down the form. */
   position: sticky;
   top: 84px;
 }
