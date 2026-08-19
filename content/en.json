@@ -12,7 +12,7 @@
     "cards": [
       { "icon": "⚙️", "title": "Product Info", "desc": "ZT Plus diesel engine and NC Plus X power tiller specs, genuine-product checks, and assembly guide.", "target": "product-engine" },
       { "icon": "🔧", "title": "Parts", "desc": "How to find and order genuine parts, with recommended stock lists by model.", "target": "parts" },
-      { "icon": "🛠️", "title": "Service", "desc": "Pre-delivery checks, correct starting procedure, and after-sales service.", "target": "service" },
+      { "icon": "🛠️", "title": "Service", "desc": "Maintenance steps for the engine and power tiller, plus after-sales service.", "target": "service" },
       { "icon": "🌾", "title": "Crop Solutions", "desc": "How to match the right power tiller setup to wet paddy, dry paddy, cassava, and corn fields.", "target": "crops" },
       { "icon": "📣", "title": "Events", "desc": "Four standard KUBOTA activity formats, plus the upcoming Dealer training and marketing events calendar.", "target": "marketing" },
       { "icon": "🖼️", "title": "Marketing Materials", "desc": "Design your own storefront banner and standee. Fill in your shop details and download a print-ready file instantly.", "target": "materials-custom" }
@@ -26,8 +26,7 @@
       "title": "KUBOTA Diesel Engine — ZT Plus",
       "quickLinks": [
         { "label": "Product Knowledge", "route": "product-engine", "anchor": "engine-product-info" },
-        { "label": "Delivery & Starting Steps", "route": "service", "anchor": "service-pre-delivery" },
-        { "label": "Pre-Delivery Check & Correct Starting Procedure", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "Pre-Delivery Check & Correct Starting Procedure", "route": "product-engine", "anchor": "engine-pre-delivery" },
         { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-assembly", "anchor": "assembly-engine" },
         { "label": "OPM (Operation Manual)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Authenticity Checkpoints", "route": "product-engine", "anchor": "engine-authenticity" },
@@ -65,6 +64,34 @@
           { "title": "Reinforced aluminium structure", "desc": "Protects the radiator and other parts from damage, reinforced at 3 anchor points to reduce vibration during operation.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "All 3 aluminium structure anchor points on the ZT155DI engine" } },
           { "title": "Transparent fuel level gauge", "desc": "Clear PVC gauge lets you check the fuel level at a glance.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Clear PVC fuel level gauge tube on the fuel tank" } },
           { "title": "LED headlamp", "desc": "Bright LED headlamp for safe night-time operation; the PRO model adds turn signals and a USB charging port.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Close-up of the bright LED headlamp on the ZT Plus engine" } }
+        ]
+      },
+      "preDelivery": {
+        "title": "5 Key Checks Before Operating the Engine",
+        "intro": "Complete these five checks before handing the engine over to a customer or starting it for the first time.",
+        "points": [
+          { "title": "1. Air filter", "desc": "Filters dust from the intake air to protect internal parts from wear.", "steps": ["Fill engine oil into the filter pot.", "Fill to the level mark shown on the pot.", "Fit the air filter carefully so the rubber seal doesn't tear.", "Add a little oil on top of the filter to help trap dust."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Adding oil to the real air filter on a ZT Plus engine" } },
+          { "title": "2. Fuel system", "desc": "Fuel mixes with air and ignites from compression heat to run the engine.", "steps": ["Use clean fuel; no need to remove the filter while refuelling.", "Check for leaks around the filter — no water or debris should be mixed into the fuel."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "The real fuel filter cup on a ZT Plus engine" } },
+          { "title": "3. Engine oil", "desc": "Lubrication prevents wear, keeps moving parts free, and helps cool the engine.", "steps": ["Use TRA CHANG engine oil, SAE40.", "Add about 2.7-2.8 litres.", "Oil level must sit between the upper and lower marks.", "Before use, idle the engine 15-20 minutes to circulate oil fully.", "Check the oil-pressure indicator — blue covering red means the lubrication system is working normally."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "The oil-pressure indicator (blue/red) on a real engine" } },
+          { "title": "4. Cooling water system", "desc": "Keeps engine temperature under control.", "steps": ["Add rust-proofing powder.", "Fill with clean water.", "Never use groundwater or canal water — it causes radiator sediment and clogging."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Filling clean water into a real engine's radiator" } },
+          { "title": "5. Fan belt", "desc": "Drives the cooling fan and other components.", "steps": ["Press the middle of the belt with your finger to check tension.", "Correct deflection is 10-15 mm.", "If too tight or too loose, adjust to that range."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Measuring fan belt deflection with a ruler" } }
+        ]
+      },
+      "startProcedure": {
+        "title": "How to Start the KUBOTA Diesel Engine Correctly",
+        "steps": [
+          "Move the accelerator to the starting position.",
+          "Attach the hand crank to the engine's starter shaft.",
+          "Turn the crank clockwise until it feels tight.",
+          "If the crank handle ends up on top, remove it.",
+          "Refit the crank onto the starter shaft with the handle at the bottom.",
+          "Lift the decompression (valve) lever and spin the crank 3-5 turns.",
+          "Release the valve lever and keep spinning — the engine will start."
+        ],
+        "caution": [
+          "Hold the crank firmly after the engine starts so it doesn't fly out and cause injury — it will free itself and detach on its own.",
+          "Don't release the valve lever and stop cranking mid-way — this can cause the engine to kick back (smoke from the air filter) and spin in reverse.",
+          "If the engine kicks back, remove the air filter and check it — clean off any soot, or replace the filter if it's damaged."
         ]
       },
       "applicationExamples": {
@@ -268,7 +295,7 @@
   },
   "service": {
     "title": "Service",
-    "intro": "The correct pre-delivery check and starting procedure for the KUBOTA ZT Plus engine, straight from the official training deck — plus after-sales programs every Dealer should know.",
+    "intro": "Maintenance guidance for the KUBOTA ZT Plus diesel engine and the TRA CHANG power tiller, straight from the official training deck — plus after-sales programs every Dealer should know.",
     "quickLinks": [
       {
         "label": "Engine Maintenance Steps",
@@ -292,34 +319,6 @@
       }
     ],
     "tableHeaders": { "interval": "Interval", "task": "Task" },
-    "preDelivery": {
-      "title": "5 Key Checks Before Operating the Engine",
-      "intro": "Complete these five checks before handing the engine over to a customer or starting it for the first time.",
-      "points": [
-        { "title": "1. Air filter", "desc": "Filters dust from the intake air to protect internal parts from wear.", "steps": ["Fill engine oil into the filter pot.", "Fill to the level mark shown on the pot.", "Fit the air filter carefully so the rubber seal doesn't tear.", "Add a little oil on top of the filter to help trap dust."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Adding oil to the real air filter on a ZT Plus engine" } },
-        { "title": "2. Fuel system", "desc": "Fuel mixes with air and ignites from compression heat to run the engine.", "steps": ["Use clean fuel; no need to remove the filter while refuelling.", "Check for leaks around the filter — no water or debris should be mixed into the fuel."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "The real fuel filter cup on a ZT Plus engine" } },
-        { "title": "3. Engine oil", "desc": "Lubrication prevents wear, keeps moving parts free, and helps cool the engine.", "steps": ["Use TRA CHANG engine oil, SAE40.", "Add about 2.7-2.8 litres.", "Oil level must sit between the upper and lower marks.", "Before use, idle the engine 15-20 minutes to circulate oil fully.", "Check the oil-pressure indicator — blue covering red means the lubrication system is working normally."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "The oil-pressure indicator (blue/red) on a real engine" } },
-        { "title": "4. Cooling water system", "desc": "Keeps engine temperature under control.", "steps": ["Add rust-proofing powder.", "Fill with clean water.", "Never use groundwater or canal water — it causes radiator sediment and clogging."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Filling clean water into a real engine's radiator" } },
-        { "title": "5. Fan belt", "desc": "Drives the cooling fan and other components.", "steps": ["Press the middle of the belt with your finger to check tension.", "Correct deflection is 10-15 mm.", "If too tight or too loose, adjust to that range."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Measuring fan belt deflection with a ruler" } }
-      ]
-    },
-    "startProcedure": {
-      "title": "How to Start the KUBOTA Diesel Engine Correctly",
-      "steps": [
-        "Move the accelerator to the starting position.",
-        "Attach the hand crank to the engine's starter shaft.",
-        "Turn the crank clockwise until it feels tight.",
-        "If the crank handle ends up on top, remove it.",
-        "Refit the crank onto the starter shaft with the handle at the bottom.",
-        "Lift the decompression (valve) lever and spin the crank 3-5 turns.",
-        "Release the valve lever and keep spinning — the engine will start."
-      ],
-      "caution": [
-        "Hold the crank firmly after the engine starts so it doesn't fly out and cause injury — it will free itself and detach on its own.",
-        "Don't release the valve lever and stop cranking mid-way — this can cause the engine to kick back (smoke from the air filter) and spin in reverse.",
-        "If the engine kicks back, remove the air filter and check it — clean off any soot, or replace the filter if it's damaged."
-      ]
-    },
     "maintenance": {
       "title": "Periodic Maintenance",
       "intro": "Routine maintenance points for the ZT Plus diesel engine and the TRA CHANG power tiller, straight from the official maintenance training decks.",
@@ -371,7 +370,7 @@
     ],
     "videosTitle": "Videos",
     "downloadsTitle": "Downloads",
-    "note": "The pre-delivery check, starting steps, and periodic maintenance points above are sourced directly from the official training material. The 10 maintenance videos are real and exist in the source Drive folder, but were not bundled into this build (each is 15-120MB) — see Handoff.md for hosting status. The programs section below is still a placeholder — please confirm the actual warranty and service-program terms for each country before publishing."
+    "note": "The periodic maintenance points above (the pre-delivery check and starting steps now live on the Product > Engine page) are sourced directly from the official training material. The 10 maintenance videos are real and exist in the source Drive folder, but were not bundled into this build (each is 15-120MB) — see Handoff.md for hosting status. The programs section below is still a placeholder — please confirm the actual warranty and service-program terms for each country before publishing."
   },
   "crops": {
     "title": "Crop Solutions",

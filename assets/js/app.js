@@ -228,6 +228,42 @@ function renderCheckPhotoList(points) {
   `;
 }
 
+function renderPreDeliveryBlock(pd, id) {
+  if (!pd) return '';
+  return `
+    <div class="category-block" id="${id}">
+      <h3 class="category-heading">${pd.title}</h3>
+      <p class="section-intro">${pd.intro}</p>
+      <div class="check-points">
+        ${pd.points.map(pt => `
+          <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
+            ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
+            <div class="check-point-card-body">
+              <h4>${pt.title}</h4>
+              <p class="desc">${pt.desc}</p>
+              <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      ${pd.video ? `<div class="video-grid">${renderYouTubeEmbed(pd.video)}</div>` : ''}
+    </div>
+  `;
+}
+
+function renderStartProcedureBlock(sp, id) {
+  if (!sp) return '';
+  return `
+    <div class="category-block" id="${id}">
+      <h3 class="category-heading">${sp.title}</h3>
+      <ol class="check-list">${sp.steps.map(st => `<li>${st}</li>`).join('')}</ol>
+      <div class="note-callout">${sp.caution.join(' ')}</div>
+      ${sp.video ? `<div class="video-grid">${renderYouTubeEmbed(sp.video)}</div>` : ''}
+      ${sp.moreFile ? `<div class="file-pill-row">${renderFilePill(sp.moreFile)}</div>` : ''}
+    </div>
+  `;
+}
+
 function renderApplicationExamples(app, id) {
   if (!app) return '';
   const images = app.images.map(img => `
@@ -240,22 +276,54 @@ function renderApplicationExamples(app, id) {
       <h3 class="category-heading">${app.title}</h3>
       ${app.intro ? `<p class="section-intro">${app.intro}</p>` : ''}
       <div class="application-gallery">${images}</div>
+      ${app.video ? `<div class="video-grid">${renderYouTubeEmbed(app.video)}</div>` : ''}
     </div>
   `;
 }
 
 function renderAuthenticityBlock(auth, id) {
   if (!auth) return '';
+  const body = auth.artworkImage
+    ? `<figure class="authenticity-artwork"><img src="${auth.artworkImage.src}" alt="${auth.artworkImage.alt}"></figure>`
+    : renderCheckPhotoList(auth.points);
   return `
     <div class="category-block"${id ? ` id="${id}"` : ''}>
       <h3 class="category-heading">${auth.title}</h3>
       ${auth.intro ? `<p class="section-intro">${auth.intro}</p>` : ''}
-      ${renderCheckPhotoList(auth.points)}
+      ${body}
+      ${auth.moreFile ? `<div class="file-pill-row">${renderFilePill(auth.moreFile)}</div>` : ''}
     </div>
   `;
 }
 
-function renderProductResources(p, downloadsId) {
+function renderFilePill(f) {
+  return `
+    <a class="file-pill" href="${f.href}" target="_blank" rel="noopener">
+      <span class="file-pill-icon">${resIcon(f.type)}</span>
+      <span class="file-pill-label">${f.title}${f.lang ? ` <span class="res-tag">${f.lang}</span>` : ''}</span>
+    </a>
+  `;
+}
+
+function renderYouTubeEmbed(v) {
+  return `
+    <div class="video-card">
+      <div class="video-embed-wrap">
+        <iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-caption">${v.title}</div>
+    </div>
+  `;
+}
+
+function renderSellingPointsMedia(media) {
+  if (!media) return '';
+  const videoHtml = media.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(media.video)}</div>` : '';
+  const filesHtml = (media.files && media.files.length) ? `<div class="file-pill-row">${media.files.map(renderFilePill).join('')}</div>` : '';
+  return `${videoHtml}${filesHtml}`;
+}
+
+function renderProductResources(p, downloadsId, usePillStyle) {
   const { videos, docs } = splitResources(p.resources);
   const videoBlock = videos.length ? `
     <div class="category-block">
@@ -263,10 +331,13 @@ function renderProductResources(p, downloadsId) {
       ${renderVideoGrid(videos)}
     </div>
   ` : '';
+  const docsBody = usePillStyle
+    ? `<div class="file-pill-row">${docs.map(renderFilePill).join('')}</div>`
+    : renderResourceList(docs);
   const resources = docs.length ? `
     <div class="category-block"${downloadsId ? ` id="${downloadsId}"` : ''}>
       <h3 class="category-heading">${p.downloadsTitle}</h3>
-      ${renderResourceList(docs)}
+      ${docsBody}
     </div>
   ` : '';
   return videoBlock + resources;
@@ -290,6 +361,7 @@ function renderProductEngine(c) {
           </div>
         `).join('')}
       </div>
+      ${renderSellingPointsMedia(e.sellingPoints.media)}
     </div>
   ` : '';
 
@@ -302,9 +374,11 @@ function renderProductEngine(c) {
       <h3 class="category-heading">${e.title}</h3>
       ${renderProductCategory(e, 'engine-product-info')}
       ${sellingPoints}
+      ${renderPreDeliveryBlock(e.preDelivery, 'engine-pre-delivery')}
+      ${renderStartProcedureBlock(e.startProcedure, 'engine-start-procedure')}
       ${renderApplicationExamples(e.applicationExamples, 'engine-application')}
       ${renderAuthenticityBlock(e.authenticity, 'engine-authenticity')}
-      ${renderProductResources(e, 'engine-downloads')}
+      ${renderProductResources(e, 'engine-downloads', true)}
       <div class="note-callout">${e.note}</div>
     </section>
   `;
@@ -414,33 +488,6 @@ function renderParts(c) {
 function renderService(c) {
   const s = c.service;
 
-  const preDelivery = s.preDelivery ? `
-    <div class="category-block" id="service-pre-delivery">
-      <h3 class="category-heading">${s.preDelivery.title}</h3>
-      <p class="section-intro">${s.preDelivery.intro}</p>
-      <div class="check-points">
-        ${s.preDelivery.points.map(pt => `
-          <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
-            ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
-            <div class="check-point-card-body">
-              <h4>${pt.title}</h4>
-              <p class="desc">${pt.desc}</p>
-              <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  ` : '';
-
-  const startProcedure = s.startProcedure ? `
-    <div class="category-block" id="service-start-procedure">
-      <h3 class="category-heading">${s.startProcedure.title}</h3>
-      <ol class="check-list">${s.startProcedure.steps.map(st => `<li>${st}</li>`).join('')}</ol>
-      <div class="note-callout">${s.startProcedure.caution.join(' ')}</div>
-    </div>
-  ` : '';
-
   const renderMaintenancePoints = (pts, idPrefix) => pts.map((pt, idx) => `
     <div class="check-point-card" id="${idPrefix}-${idx}">
       <h4>${pt.title}</h4>
@@ -486,8 +533,6 @@ function renderService(c) {
       <h2 class="section-title">${s.title}</h2>
       <p class="section-intro">${s.intro}</p>
       ${renderQuickLinksColumns(s.quickLinks)}
-      ${preDelivery}
-      ${startProcedure}
       ${maintenance}
       ${videoBlock}
       <div class="category-block">
@@ -1140,6 +1185,13 @@ function render() {
     btn.addEventListener('click', () => navigate(btn.dataset.qlRoute, btn.dataset.qlAnchor));
   });
 
+  app.querySelectorAll('.file-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      pill.classList.add('is-loading');
+      setTimeout(() => pill.classList.remove('is-loading'), 900);
+    });
+  });
+
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
 }
 
@@ -1191,6 +1243,9 @@ function buildSearchIndex(c) {
     const text = typeof pt === 'string' ? pt : pt.text;
     pushEntry(idx, 'product-engine', `${e.authenticity.title} #${i + 1}`, text);
   });
+  if (e.preDelivery) (e.preDelivery.points || []).forEach(pt =>
+    pushEntry(idx, 'product-engine', pt.title, pt.desc, (pt.steps || []).join(' ')));
+  if (e.startProcedure) pushEntry(idx, 'product-engine', e.startProcedure.title, (e.startProcedure.steps || []).join(' '));
   pushEntry(idx, 'product-engine', e.title, e.note);
 
   // Product — Tiller
@@ -1224,9 +1279,6 @@ function buildSearchIndex(c) {
 
   // Service
   const s = c.service;
-  if (s.preDelivery) (s.preDelivery.points || []).forEach(pt =>
-    pushEntry(idx, 'service', pt.title, pt.desc, (pt.steps || []).join(' ')));
-  if (s.startProcedure) pushEntry(idx, 'service', s.startProcedure.title, (s.startProcedure.steps || []).join(' '));
   if (s.maintenance) {
     (s.maintenance.engine.points || []).forEach(pt => pushEntry(idx, 'service', pt.title, pt.desc, (pt.steps || []).join(' ')));
     (s.maintenance.tiller.points || []).forEach(pt => pushEntry(idx, 'service', pt.title, pt.desc, (pt.steps || []).join(' ')));

@@ -12,7 +12,7 @@
     "cards": [
       { "icon": "⚙️", "title": "Informations produit", "desc": "Caractéristiques du moteur diesel ZT Plus et du motoculteur NC Plus X, contrôles d'authenticité et guide de montage.", "target": "product-engine" },
       { "icon": "🔧", "title": "Pièces", "desc": "Comment trouver et commander des pièces d'origine, avec les listes de stock recommandées par modèle.", "target": "parts" },
-      { "icon": "🛠️", "title": "Service", "desc": "Contrôles avant livraison, procédure de démarrage correcte et service après-vente.", "target": "service" },
+      { "icon": "🛠️", "title": "Service", "desc": "Étapes d'entretien du moteur et du motoculteur, plus le service après-vente.", "target": "service" },
       { "icon": "🌾", "title": "Solutions agricoles", "desc": "Comment adapter le motoculteur aux rizières inondées, aux rizières sèches, au manioc et au maïs.", "target": "crops" },
       { "icon": "📣", "title": "Événements", "desc": "Quatre formats d'activités standards KUBOTA, plus le calendrier des formations concessionnaires et activités marketing à venir.", "target": "marketing" },
       { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "materials-custom" }
@@ -26,8 +26,7 @@
       "title": "Moteur diesel KUBOTA — ZT Plus",
       "quickLinks": [
         { "label": "Connaissance du produit", "route": "product-engine", "anchor": "engine-product-info" },
-        { "label": "Étapes de livraison et de démarrage", "route": "service", "anchor": "service-pre-delivery" },
-        { "label": "Contrôle avant livraison et procédure de démarrage correcte", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "Contrôle avant livraison et procédure de démarrage correcte", "route": "product-engine", "anchor": "engine-pre-delivery" },
         { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-assembly", "anchor": "assembly-engine" },
         { "label": "OPM (Manuel d'utilisation)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Points de contrôle d'authenticité", "route": "product-engine", "anchor": "engine-authenticity" },
@@ -65,6 +64,34 @@
           { "title": "Structure en aluminium renforcée", "desc": "Protège le radiateur et les autres pièces contre les dommages, renforcée sur 3 points d'ancrage pour réduire les vibrations pendant le fonctionnement.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Les 3 points d'ancrage de la structure en aluminium sur le moteur ZT155DI" } },
           { "title": "Jauge de niveau de carburant transparente", "desc": "Jauge en PVC transparent permettant de vérifier le niveau de carburant d'un coup d'œil.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Tube de jauge de niveau de carburant en PVC transparent sur le réservoir" } },
           { "title": "Phare LED", "desc": "Phare LED puissant pour un fonctionnement nocturne en sécurité ; le modèle PRO ajoute des clignotants et un port de charge USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Gros plan sur le phare LED puissant du moteur ZT Plus" } }
+        ]
+      },
+      "preDelivery": {
+        "title": "5 contrôles essentiels avant de faire fonctionner le moteur",
+        "intro": "Effectuez ces cinq contrôles avant de remettre le moteur à un client ou de le démarrer pour la première fois.",
+        "points": [
+          { "title": "1. Filtre à air", "desc": "Filtre la poussière de l'air admis pour protéger les pièces internes contre l'usure.", "steps": ["Verser de l'huile moteur dans le bac du filtre.", "Remplir jusqu'au repère de niveau indiqué sur le bac.", "Poser le filtre à air avec soin pour ne pas déchirer le joint en caoutchouc.", "Ajouter un peu d'huile sur le dessus du filtre pour aider à retenir la poussière."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Ajout d'huile sur le vrai filtre à air d'un moteur ZT Plus" } },
+          { "title": "2. Système de carburant", "desc": "Le carburant se mélange à l'air et s'enflamme sous l'effet de la chaleur de compression pour faire fonctionner le moteur.", "steps": ["Utiliser un carburant propre ; inutile de retirer le filtre pendant le ravitaillement.", "Vérifier l'absence de fuites autour du filtre — aucune eau ni débris ne doit se mélanger au carburant."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Le vrai bol du filtre à carburant sur un moteur ZT Plus" } },
+          { "title": "3. Huile moteur", "desc": "La lubrification évite l'usure, permet aux pièces mobiles de tourner librement et aide à refroidir le moteur.", "steps": ["Utiliser de l'huile moteur TRA CHANG, SAE40.", "Ajouter environ 2,7 à 2,8 litres.", "Le niveau d'huile doit se situer entre les repères supérieur et inférieur.", "Avant utilisation, faire tourner le moteur au ralenti pendant 15-20 minutes pour bien répartir l'huile.", "Vérifier l'indicateur de pression d'huile — le bleu recouvrant le rouge signifie que le système de lubrification fonctionne normalement."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "L'indicateur de pression d'huile (bleu/rouge) sur un vrai moteur" } },
+          { "title": "4. Système de refroidissement à eau", "desc": "Maintient la température du moteur sous contrôle.", "steps": ["Ajouter la poudre anticorrosion.", "Remplir avec de l'eau propre.", "Ne jamais utiliser d'eau souterraine ou d'eau de canal — cela provoque des dépôts et un colmatage du radiateur."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Remplissage d'eau propre dans le radiateur d'un vrai moteur" } },
+          { "title": "5. Courroie de ventilateur", "desc": "Entraîne le ventilateur de refroidissement et d'autres composants.", "steps": ["Appuyer au milieu de la courroie avec le doigt pour vérifier la tension.", "La flèche correcte est de 10-15 mm.", "Si elle est trop tendue ou trop lâche, l'ajuster dans cette plage."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Mesure de la flèche de la courroie de ventilateur avec une règle" } }
+        ]
+      },
+      "startProcedure": {
+        "title": "Comment démarrer correctement le moteur diesel KUBOTA",
+        "steps": [
+          "Placer l'accélérateur en position de démarrage.",
+          "Fixer la manivelle sur l'arbre de démarrage du moteur.",
+          "Tourner la manivelle dans le sens horaire jusqu'à ce qu'elle soit tendue.",
+          "Si la poignée de la manivelle se retrouve vers le haut, la retirer.",
+          "Remonter la manivelle sur l'arbre de démarrage avec la poignée vers le bas.",
+          "Lever le levier de décompression (soupape) et faire tourner la manivelle sur 3-5 tours.",
+          "Relâcher le levier de soupape et continuer à tourner — le moteur démarre."
+        ],
+        "caution": [
+          "Tenir fermement la manivelle après le démarrage du moteur afin qu'elle ne s'échappe pas et ne provoque pas de blessure — elle se libère et se détache d'elle-même.",
+          "Ne pas relâcher le levier de soupape et arrêter de tourner en cours de route — cela peut provoquer un retour de manivelle du moteur (fumée au niveau du filtre à air) et le faire tourner à l'envers.",
+          "En cas de retour de manivelle, retirer le filtre à air et le vérifier — nettoyer la suie ou remplacer le filtre s'il est endommagé."
         ]
       },
       "applicationExamples": {
@@ -268,7 +295,7 @@
   },
   "service": {
     "title": "Service",
-    "intro": "Le contrôle avant livraison et la procédure de démarrage correcte du moteur KUBOTA ZT Plus, directement issus du diaporama de formation officiel — ainsi que les programmes après-vente que tout concessionnaire doit connaître.",
+    "intro": "Conseils d'entretien pour le moteur diesel KUBOTA ZT Plus et le motoculteur TRA CHANG, directement issus du diaporama de formation officiel — ainsi que les programmes après-vente que tout concessionnaire doit connaître.",
     "quickLinks": [
       {
         "label": "Étapes d'entretien du moteur",
@@ -292,34 +319,6 @@
       }
     ],
     "tableHeaders": { "interval": "Intervalle", "task": "Tâche" },
-    "preDelivery": {
-      "title": "5 contrôles essentiels avant de faire fonctionner le moteur",
-      "intro": "Effectuez ces cinq contrôles avant de remettre le moteur à un client ou de le démarrer pour la première fois.",
-      "points": [
-        { "title": "1. Filtre à air", "desc": "Filtre la poussière de l'air admis pour protéger les pièces internes contre l'usure.", "steps": ["Verser de l'huile moteur dans le bac du filtre.", "Remplir jusqu'au repère de niveau indiqué sur le bac.", "Poser le filtre à air avec soin pour ne pas déchirer le joint en caoutchouc.", "Ajouter un peu d'huile sur le dessus du filtre pour aider à retenir la poussière."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Ajout d'huile sur le vrai filtre à air d'un moteur ZT Plus" } },
-        { "title": "2. Système de carburant", "desc": "Le carburant se mélange à l'air et s'enflamme sous l'effet de la chaleur de compression pour faire fonctionner le moteur.", "steps": ["Utiliser un carburant propre ; inutile de retirer le filtre pendant le ravitaillement.", "Vérifier l'absence de fuites autour du filtre — aucune eau ni débris ne doit se mélanger au carburant."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Le vrai bol du filtre à carburant sur un moteur ZT Plus" } },
-        { "title": "3. Huile moteur", "desc": "La lubrification évite l'usure, permet aux pièces mobiles de tourner librement et aide à refroidir le moteur.", "steps": ["Utiliser de l'huile moteur TRA CHANG, SAE40.", "Ajouter environ 2,7 à 2,8 litres.", "Le niveau d'huile doit se situer entre les repères supérieur et inférieur.", "Avant utilisation, faire tourner le moteur au ralenti pendant 15-20 minutes pour bien répartir l'huile.", "Vérifier l'indicateur de pression d'huile — le bleu recouvrant le rouge signifie que le système de lubrification fonctionne normalement."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "L'indicateur de pression d'huile (bleu/rouge) sur un vrai moteur" } },
-        { "title": "4. Système de refroidissement à eau", "desc": "Maintient la température du moteur sous contrôle.", "steps": ["Ajouter la poudre anticorrosion.", "Remplir avec de l'eau propre.", "Ne jamais utiliser d'eau souterraine ou d'eau de canal — cela provoque des dépôts et un colmatage du radiateur."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Remplissage d'eau propre dans le radiateur d'un vrai moteur" } },
-        { "title": "5. Courroie de ventilateur", "desc": "Entraîne le ventilateur de refroidissement et d'autres composants.", "steps": ["Appuyer au milieu de la courroie avec le doigt pour vérifier la tension.", "La flèche correcte est de 10-15 mm.", "Si elle est trop tendue ou trop lâche, l'ajuster dans cette plage."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Mesure de la flèche de la courroie de ventilateur avec une règle" } }
-      ]
-    },
-    "startProcedure": {
-      "title": "Comment démarrer correctement le moteur diesel KUBOTA",
-      "steps": [
-        "Placer l'accélérateur en position de démarrage.",
-        "Fixer la manivelle sur l'arbre de démarrage du moteur.",
-        "Tourner la manivelle dans le sens horaire jusqu'à ce qu'elle soit tendue.",
-        "Si la poignée de la manivelle se retrouve vers le haut, la retirer.",
-        "Remonter la manivelle sur l'arbre de démarrage avec la poignée vers le bas.",
-        "Lever le levier de décompression (soupape) et faire tourner la manivelle sur 3-5 tours.",
-        "Relâcher le levier de soupape et continuer à tourner — le moteur démarre."
-      ],
-      "caution": [
-        "Tenir fermement la manivelle après le démarrage du moteur afin qu'elle ne s'échappe pas et ne provoque pas de blessure — elle se libère et se détache d'elle-même.",
-        "Ne pas relâcher le levier de soupape et arrêter de tourner en cours de route — cela peut provoquer un retour de manivelle du moteur (fumée au niveau du filtre à air) et le faire tourner à l'envers.",
-        "En cas de retour de manivelle, retirer le filtre à air et le vérifier — nettoyer la suie ou remplacer le filtre s'il est endommagé."
-      ]
-    },
     "maintenance": {
       "title": "Entretien périodique",
       "intro": "Points d'entretien courant pour le moteur diesel ZT Plus et le motoculteur TRA CHANG, directement issus des diaporamas de formation à l'entretien officiels.",
@@ -371,7 +370,7 @@
     ],
     "videosTitle": "Vidéos",
     "downloadsTitle": "Téléchargements",
-    "note": "Le contrôle avant livraison, les étapes de démarrage et les points d'entretien périodique ci-dessus proviennent directement du matériel de formation officiel. Les 10 vidéos d'entretien sont réelles et existent dans le dossier Drive source, mais n'ont pas été intégrées à cette version (chacune pèse 15-120 Mo) — voir Handoff.md pour l'état de l'hébergement. La section des programmes ci-dessous reste un exemple — merci de confirmer les conditions réelles de garantie et de service pour chaque pays avant publication."
+    "note": "Les points d'entretien périodique ci-dessus (le contrôle avant livraison et les étapes de démarrage se trouvent désormais sur la page Produits > Moteur) proviennent directement du matériel de formation officiel. Les 10 vidéos d'entretien sont réelles et existent dans le dossier Drive source, mais n'ont pas été intégrées à cette version (chacune pèse 15-120 Mo) — voir Handoff.md pour l'état de l'hébergement. La section des programmes ci-dessous reste un exemple — merci de confirmer les conditions réelles de garantie et de service pour chaque pays avant publication."
   },
   "crops": {
     "title": "Solutions agricoles",

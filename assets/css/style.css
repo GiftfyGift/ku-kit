@@ -586,6 +586,112 @@ main {
 
 .product-select-card.active .product-select-check { display: flex; }
 
+/* File pill buttons (icon + label) for attached documents */
+.file-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.file-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--kubota-orange);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  border: none;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.file-pill:hover {
+  background: var(--kubota-light-orange);
+  transform: translateY(-1px);
+}
+
+.file-pill-icon { font-size: 16px; }
+
+.file-pill-label .res-tag {
+  margin-left: 4px;
+  background: rgba(0,0,0,0.2);
+  color: white;
+}
+
+.file-pill.is-loading {
+  pointer-events: none;
+  animation: file-pill-pulse 0.9s ease;
+}
+
+.file-pill.is-loading .file-pill-icon {
+  display: inline-block;
+  animation: file-pill-spin 0.9s linear;
+}
+
+@keyframes file-pill-pulse {
+  0% { transform: scale(1); }
+  30% { transform: scale(0.94); background: var(--kubota-light-orange); }
+  100% { transform: scale(1); }
+}
+
+@keyframes file-pill-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .file-pill.is-loading,
+  .file-pill.is-loading .file-pill-icon {
+    animation: none;
+  }
+}
+
+/* YouTube / embedded video window inside a .video-card */
+.video-embed-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: black;
+}
+
+.video-embed-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Compact variant: shrink the embed to half width (product selling-points video) */
+.video-grid--compact {
+  max-width: 50%;
+}
+
+@media (max-width: 640px) {
+  .video-grid--compact {
+    max-width: 100%;
+  }
+}
+
+/* Authenticity artwork image (replaces the checklist when provided) */
+.authenticity-artwork {
+  margin: 16px 0 0;
+}
+
+.authenticity-artwork img {
+  width: 100%;
+  max-width: 728px;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
 /* Activity standard comparison grid */
 .activity-cmp-scroll {
   overflow-x: auto;

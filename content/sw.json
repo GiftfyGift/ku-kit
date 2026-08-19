@@ -12,7 +12,7 @@
     "cards": [
       { "icon": "⚙️", "title": "Taarifa za Bidhaa", "desc": "Vipimo vya injini ya dizeli ya ZT Plus na trekta la kutembea la NC Plus X, jinsi ya kuthibitisha bidhaa halisi, na mwongozo wa kuunganisha.", "target": "product-engine" },
       { "icon": "🔧", "title": "Vipuri", "desc": "Jinsi ya kutafuta na kuagiza vipuri halisi, na orodha ya hisa inayopendekezwa kwa kila mfano.", "target": "parts" },
-      { "icon": "🛠️", "title": "Huduma", "desc": "Ukaguzi kabla ya kuwasilisha, njia sahihi ya kuwasha, na huduma baada ya mauzo.", "target": "service" },
+      { "icon": "🛠️", "title": "Huduma", "desc": "Hatua za matengenezo ya injini na trekta la kutembea, pamoja na huduma baada ya mauzo.", "target": "service" },
       { "icon": "🌾", "title": "Suluhisho za Mazao", "desc": "Jinsi ya kuchagua mpangilio sahihi wa trekta la kutembea kwa mashamba ya mpunga yenye maji, makavu, muhogo, na mahindi.", "target": "crops" },
       { "icon": "📣", "title": "Matukio", "desc": "Mifumo minne ya kawaida ya shughuli za KUBOTA, pamoja na kalenda ijayo ya mafunzo ya Wauzaji na matukio ya masoko.", "target": "marketing" },
       { "icon": "🖼️", "title": "Vifaa vya Masoko", "desc": "Buni bango na standee yako mwenyewe kwa duka. Jaza taarifa za duka lako kisha upakue faili tayari kwa uchapishaji papo hapo.", "target": "materials-custom" }
@@ -26,8 +26,7 @@
       "title": "Injini ya Dizeli ya KUBOTA — ZT Plus",
       "quickLinks": [
         { "label": "Maarifa ya Bidhaa", "route": "product-engine", "anchor": "engine-product-info" },
-        { "label": "Hatua za Uwasilishaji na Kuwasha", "route": "service", "anchor": "service-pre-delivery" },
-        { "label": "Ukaguzi Kabla ya Kuwasilisha na Utaratibu Sahihi wa Kuwasha", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "Ukaguzi Kabla ya Kuwasilisha na Utaratibu Sahihi wa Kuwasha", "route": "product-engine", "anchor": "engine-pre-delivery" },
         { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-assembly", "anchor": "assembly-engine" },
         { "label": "OPM (Mwongozo wa Uendeshaji)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Vipengele vya Ukaguzi wa Uhalisi", "route": "product-engine", "anchor": "engine-authenticity" },
@@ -65,6 +64,34 @@
           { "title": "Muundo wa aluminium ulioimarishwa", "desc": "Hulinda radiator na sehemu nyingine dhidi ya uharibifu, umeimarishwa kwa pointi 3 za nanga ili kupunguza mtetemo wakati wa kufanya kazi.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Pointi zote 3 za nanga za muundo wa aluminium kwenye injini ya ZT155DI" } },
           { "title": "Kipimo cha wazi cha kiwango cha mafuta", "desc": "Kipimo cha PVC cha wazi kinakuwezesha kuangalia kiwango cha mafuta kwa haraka.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Bomba la kipimo cha PVC cha wazi cha kiwango cha mafuta kwenye tangi" } },
           { "title": "Taa ya mbele ya LED", "desc": "Taa ya mbele yenye mwanga mkali kwa usalama wa kazi za usiku; mfano wa PRO unaongeza taa za kugeuza na tundu la kuchaji la USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Picha ya karibu ya taa ya mbele ya LED yenye mwanga mkali kwenye injini ya ZT Plus" } }
+        ]
+      },
+      "preDelivery": {
+        "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
+        "intro": "Kamilisha ukaguzi huu tano kabla ya kumkabidhi mteja injini au kabla ya kuiwasha kwa mara ya kwanza.",
+        "points": [
+          { "title": "1. Kichujio cha hewa", "desc": "Huchuja vumbi kutoka kwenye hewa inayoingia ili kulinda sehemu za ndani dhidi ya kuchakaa.", "steps": ["Jaza mafuta ya injini kwenye chungu cha kichujio.", "Jaza hadi alama ya kiwango iliyoonyeshwa kwenye chungu.", "Weka kichujio cha hewa kwa uangalifu ili muhuri wa mpira usichanike.", "Ongeza mafuta kidogo juu ya kichujio kusaidia kunasa vumbi."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Kuongeza mafuta kwenye kichujio halisi cha hewa cha injini ya ZT Plus" } },
+          { "title": "2. Mfumo wa mafuta", "desc": "Mafuta huchanganyika na hewa na kuwaka kutokana na joto la mgandamizo ili kuendesha injini.", "steps": ["Tumia mafuta safi; hakuna haja ya kuondoa kichujio wakati wa kuongeza mafuta.", "Angalia uvujaji karibu na kichujio — hakuna maji au uchafu unapaswa kuchanganyika na mafuta."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Kikombe halisi cha kichujio cha mafuta kwenye injini ya ZT Plus" } },
+          { "title": "3. Mafuta ya injini", "desc": "Ulainishaji huzuia kuchakaa, huweka sehemu zinazosogea huru, na husaidia kupoza injini.", "steps": ["Tumia mafuta ya injini ya TRA CHANG, SAE40.", "Ongeza takriban lita 2.7-2.8.", "Kiwango cha mafuta lazima kiwe kati ya alama ya juu na chini.", "Kabla ya matumizi, endesha injini bila mzigo kwa dakika 15-20 ili mafuta yazunguke kikamilifu.", "Angalia kiashiria cha shinikizo la mafuta — rangi ya samawati ikifunika nyekundu inamaanisha mfumo wa ulainishaji unafanya kazi vizuri."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "Kiashiria cha shinikizo la mafuta (samawati/nyekundu) kwenye injini halisi" } },
+          { "title": "4. Mfumo wa maji ya kupoza", "desc": "Huweka joto la injini chini ya udhibiti.", "steps": ["Ongeza unga wa kuzuia kutu.", "Jaza maji safi.", "Usitumie maji ya kisima au mfereji — husababisha mchanga kwenye radiator na kuziba."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Kujaza maji safi kwenye radiator ya injini halisi" } },
+          { "title": "5. Mkanda wa feni", "desc": "Huendesha feni ya kupoza na sehemu nyingine.", "steps": ["Bonyeza katikati ya mkanda kwa kidole kuangalia mkazo.", "Upinde sahihi ni 10-15 mm.", "Kama ni mkazo sana au mlegevu sana, rekebisha kufikia kiwango hicho."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Kupima upinde wa mkanda wa feni kwa rula" } }
+        ]
+      },
+      "startProcedure": {
+        "title": "Jinsi ya Kuwasha Injini ya Dizeli ya KUBOTA kwa Usahihi",
+        "steps": [
+          "Sogeza kiongeza mwendo kwenye nafasi ya kuwasha.",
+          "Unganisha kivunjio cha mkono kwenye mhimili wa kuwasha wa injini.",
+          "Zungusha kivunjio kwa mwelekeo wa saa hadi kihisi mkazo.",
+          "Ikiwa mpini wa kivunjio uko juu, kiondoe.",
+          "Unganisha tena kivunjio kwenye mhimili wa kuwasha ukiwa na mpini chini.",
+          "Inua lever ya decompression (valve) na zungusha kivunjio mara 3-5.",
+          "Achia lever ya valve na endelea kuzungusha — injini itawaka."
+        ],
+        "caution": [
+          "Shikilia kivunjio kwa nguvu baada ya injini kuwaka ili kisirushwe na kusababisha jeraha — kitajilegeza na kujiondoa chenyewe.",
+          "Usiachie lever ya valve na kuacha kuzungusha katikati — hii inaweza kusababisha injini kurudisha mlio (moshi utatoka kwenye kichujio cha hewa) na kuzunguka kinyume.",
+          "Ikiwa injini itarudisha mlio, ondoa kichujio cha hewa na kikague — safisha masizi au badilisha kichujio kikiwa kimeharibika."
         ]
       },
       "applicationExamples": {
@@ -268,7 +295,7 @@
   },
   "service": {
     "title": "Huduma",
-    "intro": "Ukaguzi sahihi kabla ya kuwasilisha na njia sahihi ya kuwasha injini ya KUBOTA ZT Plus, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo — pamoja na mipango ya baada ya mauzo ambayo kila Muuzaji anapaswa kujua.",
+    "intro": "Miongozo ya matengenezo kwa injini ya dizeli ya KUBOTA ZT Plus na trekta la kutembea la TRA CHANG, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo — pamoja na mipango ya baada ya mauzo ambayo kila Muuzaji anapaswa kujua.",
     "quickLinks": [
       {
         "label": "Hatua za Matengenezo ya Injini",
@@ -292,34 +319,6 @@
       }
     ],
     "tableHeaders": { "interval": "Muda", "task": "Kazi" },
-    "preDelivery": {
-      "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
-      "intro": "Kamilisha ukaguzi huu tano kabla ya kumkabidhi mteja injini au kabla ya kuiwasha kwa mara ya kwanza.",
-      "points": [
-        { "title": "1. Kichujio cha hewa", "desc": "Huchuja vumbi kutoka kwenye hewa inayoingia ili kulinda sehemu za ndani dhidi ya kuchakaa.", "steps": ["Jaza mafuta ya injini kwenye chungu cha kichujio.", "Jaza hadi alama ya kiwango iliyoonyeshwa kwenye chungu.", "Weka kichujio cha hewa kwa uangalifu ili muhuri wa mpira usichanike.", "Ongeza mafuta kidogo juu ya kichujio kusaidia kunasa vumbi."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Kuongeza mafuta kwenye kichujio halisi cha hewa cha injini ya ZT Plus" } },
-        { "title": "2. Mfumo wa mafuta", "desc": "Mafuta huchanganyika na hewa na kuwaka kutokana na joto la mgandamizo ili kuendesha injini.", "steps": ["Tumia mafuta safi; hakuna haja ya kuondoa kichujio wakati wa kuongeza mafuta.", "Angalia uvujaji karibu na kichujio — hakuna maji au uchafu unapaswa kuchanganyika na mafuta."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Kikombe halisi cha kichujio cha mafuta kwenye injini ya ZT Plus" } },
-        { "title": "3. Mafuta ya injini", "desc": "Ulainishaji huzuia kuchakaa, huweka sehemu zinazosogea huru, na husaidia kupoza injini.", "steps": ["Tumia mafuta ya injini ya TRA CHANG, SAE40.", "Ongeza takriban lita 2.7-2.8.", "Kiwango cha mafuta lazima kiwe kati ya alama ya juu na chini.", "Kabla ya matumizi, endesha injini bila mzigo kwa dakika 15-20 ili mafuta yazunguke kikamilifu.", "Angalia kiashiria cha shinikizo la mafuta — rangi ya samawati ikifunika nyekundu inamaanisha mfumo wa ulainishaji unafanya kazi vizuri."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "Kiashiria cha shinikizo la mafuta (samawati/nyekundu) kwenye injini halisi" } },
-        { "title": "4. Mfumo wa maji ya kupoza", "desc": "Huweka joto la injini chini ya udhibiti.", "steps": ["Ongeza unga wa kuzuia kutu.", "Jaza maji safi.", "Usitumie maji ya kisima au mfereji — husababisha mchanga kwenye radiator na kuziba."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Kujaza maji safi kwenye radiator ya injini halisi" } },
-        { "title": "5. Mkanda wa feni", "desc": "Huendesha feni ya kupoza na sehemu nyingine.", "steps": ["Bonyeza katikati ya mkanda kwa kidole kuangalia mkazo.", "Upinde sahihi ni 10-15 mm.", "Kama ni mkazo sana au mlegevu sana, rekebisha kufikia kiwango hicho."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Kupima upinde wa mkanda wa feni kwa rula" } }
-      ]
-    },
-    "startProcedure": {
-      "title": "Jinsi ya Kuwasha Injini ya Dizeli ya KUBOTA kwa Usahihi",
-      "steps": [
-        "Sogeza kiongeza mwendo kwenye nafasi ya kuwasha.",
-        "Unganisha kivunjio cha mkono kwenye mhimili wa kuwasha wa injini.",
-        "Zungusha kivunjio kwa mwelekeo wa saa hadi kihisi mkazo.",
-        "Ikiwa mpini wa kivunjio uko juu, kiondoe.",
-        "Unganisha tena kivunjio kwenye mhimili wa kuwasha ukiwa na mpini chini.",
-        "Inua lever ya decompression (valve) na zungusha kivunjio mara 3-5.",
-        "Achia lever ya valve na endelea kuzungusha — injini itawaka."
-      ],
-      "caution": [
-        "Shikilia kivunjio kwa nguvu baada ya injini kuwaka ili kisirushwe na kusababisha jeraha — kitajilegeza na kujiondoa chenyewe.",
-        "Usiachie lever ya valve na kuacha kuzungusha katikati — hii inaweza kusababisha injini kurudisha mlio (moshi utatoka kwenye kichujio cha hewa) na kuzunguka kinyume.",
-        "Ikiwa injini itarudisha mlio, ondoa kichujio cha hewa na kikague — safisha masizi au badilisha kichujio kikiwa kimeharibika."
-      ]
-    },
     "maintenance": {
       "title": "Matengenezo ya Kawaida",
       "intro": "Vipengele vya matengenezo ya kawaida kwa injini ya dizeli ya ZT Plus na trekta la kutembea la TRA CHANG, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo ya matengenezo.",
@@ -371,7 +370,7 @@
     ],
     "videosTitle": "Video",
     "downloadsTitle": "Vipakuliwa",
-    "note": "Ukaguzi kabla ya kuwasilisha, hatua za kuwasha, na vipengele vya matengenezo ya kawaida hapo juu vinatoka moja kwa moja kwenye nyenzo rasmi za mafunzo. Video 10 za matengenezo zipo kwa uhalisia kwenye folda ya Drive ya chanzo, lakini hazikuwekwa kwenye build hii (kila moja ni 15-120MB) — angalia Handoff.md kwa hali ya uhifadhi. Sehemu ya mipango hapa chini bado ni mfano — tafadhali thibitisha masharti halisi ya udhamini na mipango ya huduma ya kila nchi kabla ya kuchapisha."
+    "note": "Vipengele vya matengenezo ya kawaida hapo juu (ukaguzi kabla ya kuwasilisha na hatua za kuwasha sasa vipo kwenye ukurasa wa Bidhaa > Injini) vinatoka moja kwa moja kwenye nyenzo rasmi za mafunzo. Video 10 za matengenezo zipo kwa uhalisia kwenye folda ya Drive ya chanzo, lakini hazikuwekwa kwenye build hii (kila moja ni 15-120MB) — angalia Handoff.md kwa hali ya uhifadhi. Sehemu ya mipango hapa chini bado ni mfano — tafadhali thibitisha masharti halisi ya udhamini na mipango ya huduma ya kila nchi kabla ya kuchapisha."
   },
   "crops": {
     "title": "Suluhisho za Mazao",

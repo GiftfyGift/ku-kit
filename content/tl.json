@@ -12,7 +12,7 @@
     "cards": [
       { "icon": "⚙️", "title": "Impormasyon ng Produkto", "desc": "Detalye ng ZT Plus diesel engine at NC Plus X power tiller, paano tiyakin ang orihinal na produkto, at gabay sa pag-assemble.", "target": "product-engine" },
       { "icon": "🔧", "title": "Parts", "desc": "Paano hanapin at mag-order ng orihinal na parts, may rekomendadong listahan ng stock kada modelo.", "target": "parts" },
-      { "icon": "🛠️", "title": "Serbisyo", "desc": "Pre-delivery check, tamang paraan ng pag-start, at after-sales na serbisyo.", "target": "service" },
+      { "icon": "🛠️", "title": "Serbisyo", "desc": "Mga hakbang sa maintenance ng engine at power tiller, kasama ang after-sales na serbisyo.", "target": "service" },
       { "icon": "🌾", "title": "Crop Solutions", "desc": "Paano pumili ng tamang setup ng power tiller para sa basa, tuyong palayan, kamoteng-kahoy, at mais.", "target": "crops" },
       { "icon": "📣", "title": "Mga Event", "desc": "Apat na standard na KUBOTA activity format, plus ang paparating na kalendaryo ng training para sa Dealer at marketing events.", "target": "marketing" },
       { "icon": "🖼️", "title": "Marketing Materials", "desc": "I-design ang sarili mong banner at standee para sa tindahan. Ilagay ang detalye ng iyong tindahan at mag-download agad ng print-ready na file.", "target": "materials-custom" }
@@ -26,8 +26,7 @@
       "title": "KUBOTA Diesel Engine — ZT Plus",
       "quickLinks": [
         { "label": "Kaalaman sa Produkto", "route": "product-engine", "anchor": "engine-product-info" },
-        { "label": "Mga Hakbang sa Paghahatid at Pag-start", "route": "service", "anchor": "service-pre-delivery" },
-        { "label": "Pagsusuri Bago Ihatid at Tamang Paraan ng Pag-start", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "Pagsusuri Bago Ihatid at Tamang Paraan ng Pag-start", "route": "product-engine", "anchor": "engine-pre-delivery" },
         { "label": "Paano I-assemble ang Diesel Engine sa Power Tiller", "route": "product-assembly", "anchor": "assembly-engine" },
         { "label": "OPM (Operation Manual)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Mga Checkpoint ng Orihinalidad", "route": "product-engine", "anchor": "engine-authenticity" },
@@ -65,6 +64,34 @@
           { "title": "Pinatibay na aluminum structure", "desc": "Pinoprotektahan ang radiator at ibang parte laban sa pinsala, may reinforcement sa 3 anchor point para bawasan ang pagyanig habang gumagana.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Lahat ng 3 anchor point ng aluminum structure sa ZT155DI engine" } },
           { "title": "Transparent na fuel level gauge", "desc": "Malinaw na PVC gauge para makita agad ang lebel ng gasolina.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Malinaw na PVC fuel level gauge tube sa fuel tank" } },
           { "title": "LED headlamp", "desc": "Maliwanag na LED headlamp para sa ligtas na gabing operasyon; may dagdag na turn signal at USB charging port ang PRO model.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Malapitang larawan ng maliwanag na LED headlamp sa ZT Plus engine" } }
+        ]
+      },
+      "preDelivery": {
+        "title": "5 Mahalagang Beripikasyon Bago Patakbuhin ang Engine",
+        "intro": "Kumpletuhin ang limang beripikasyong ito bago ibigay ang engine sa customer o bago ito i-start sa unang pagkakataon.",
+        "points": [
+          { "title": "1. Air filter", "desc": "Sinasala ang alikabok mula sa hanging papasok para protektahan ang mga bahagi sa loob mula sa pagkasira.", "steps": ["Punuin ng langis ng makina ang filter pot.", "Punuin hanggang sa markang antas na nasa pot.", "Ikabit ang air filter nang maingat para hindi mapunit ang rubber seal.", "Lagyan ng kaunting langis ang ibabaw ng filter para makahuli ng alikabok."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Paglalagay ng langis sa tunay na air filter ng ZT Plus engine" } },
+          { "title": "2. Fuel system", "desc": "Naghahalo ang gasolina sa hangin at nag-iignite mula sa init ng compression para patakbuhin ang engine.", "steps": ["Gumamit ng malinis na gasolina; hindi na kailangang alisin ang filter habang nagpupuno.", "Suriin ang pagtagas sa paligid ng filter — walang dapat tubig o dumi na nahahalo sa gasolina."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Ang tunay na fuel filter cup ng isang ZT Plus engine" } },
+          { "title": "3. Langis ng makina", "desc": "Ang lubrication ay pumipigil sa pagkasira, pinapanatiling malaya ang gumagalaw na parte, at tumutulong palamigin ang engine.", "steps": ["Gumamit ng TRA CHANG engine oil, SAE40.", "Magdagdag ng humigit-kumulang 2.7-2.8 litro.", "Ang antas ng langis ay dapat nasa pagitan ng itaas at ibabang marka.", "Bago gamitin, i-idle ang engine ng 15-20 minuto para umikot ang langis nang buo.", "Tingnan ang oil-pressure indicator — kapag natakpan ng asul ang pula, normal ang paggana ng lubrication system."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "Ang oil-pressure indicator (asul/pula) sa tunay na engine" } },
+          { "title": "4. Cooling water system", "desc": "Pinananatili ang temperatura ng engine sa kontrol.", "steps": ["Maglagay ng rust-proofing powder.", "Punuin ng malinis na tubig.", "Huwag gumamit ng tubig mula sa balon o kanal — nagdudulot ito ng latak sa radiator at pagbara."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Paglalagay ng malinis na tubig sa radiator ng tunay na engine" } },
+          { "title": "5. Fan belt", "desc": "Nagpapaikot ng cooling fan at ibang bahagi.", "steps": ["Pindutin ang gitna ng belt gamit ang daliri para tingnan ang tension.", "Ang tamang deflection ay 10-15 mm.", "Kung masyadong mahigpit o maluwag, i-adjust sa saklaw na iyon."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Pagsukat ng deflection ng fan belt gamit ang ruler" } }
+        ]
+      },
+      "startProcedure": {
+        "title": "Paano I-start nang Tama ang KUBOTA Diesel Engine",
+        "steps": [
+          "Ilipat ang accelerator sa posisyon ng pag-start.",
+          "Ikabit ang hand crank sa starter shaft ng engine.",
+          "Paikutin ang crank sa direksyon ng orasan hanggang humigpit.",
+          "Kung nasa ibabaw ang hawakan ng crank, alisin ito.",
+          "Ikabit muli ang crank sa starter shaft na nasa ibaba ang hawakan.",
+          "Itaas ang decompression (valve) lever at paikutin ang crank ng 3-5 beses.",
+          "Bitawan ang valve lever at ipagpatuloy ang pag-ikot — mag-i-start ang engine."
+        ],
+        "caution": [
+          "Hawakan nang mahigpit ang crank matapos mag-start ang engine para hindi ito lumipad at magdulot ng aksidente — kusa itong maluluwag at matatanggal.",
+          "Huwag bitawan ang valve lever at ihinto ang pag-crank sa gitna — maaari itong magdulot ng kickback (aasoke ang air filter) at paikot pabalik ng engine.",
+          "Kung mag-kickback ang engine, alisin ang air filter at suriin — linisin ang uling o palitan ang filter kung sira."
         ]
       },
       "applicationExamples": {
@@ -268,7 +295,7 @@
   },
   "service": {
     "title": "Serbisyo",
-    "intro": "Ang tamang pre-delivery check at paraan ng pag-start ng KUBOTA ZT Plus engine, direkta mula sa opisyal na training deck — kasama ang mga after-sales program na dapat malaman ng bawat Dealer.",
+    "intro": "Gabay sa maintenance para sa KUBOTA ZT Plus diesel engine at TRA CHANG power tiller, direkta mula sa opisyal na training deck — kasama ang mga after-sales program na dapat malaman ng bawat Dealer.",
     "quickLinks": [
       {
         "label": "Mga Hakbang sa Maintenance ng Engine",
@@ -292,34 +319,6 @@
       }
     ],
     "tableHeaders": { "interval": "Agwat", "task": "Gawain" },
-    "preDelivery": {
-      "title": "5 Mahalagang Beripikasyon Bago Patakbuhin ang Engine",
-      "intro": "Kumpletuhin ang limang beripikasyong ito bago ibigay ang engine sa customer o bago ito i-start sa unang pagkakataon.",
-      "points": [
-        { "title": "1. Air filter", "desc": "Sinasala ang alikabok mula sa hanging papasok para protektahan ang mga bahagi sa loob mula sa pagkasira.", "steps": ["Punuin ng langis ng makina ang filter pot.", "Punuin hanggang sa markang antas na nasa pot.", "Ikabit ang air filter nang maingat para hindi mapunit ang rubber seal.", "Lagyan ng kaunting langis ang ibabaw ng filter para makahuli ng alikabok."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Paglalagay ng langis sa tunay na air filter ng ZT Plus engine" } },
-        { "title": "2. Fuel system", "desc": "Naghahalo ang gasolina sa hangin at nag-iignite mula sa init ng compression para patakbuhin ang engine.", "steps": ["Gumamit ng malinis na gasolina; hindi na kailangang alisin ang filter habang nagpupuno.", "Suriin ang pagtagas sa paligid ng filter — walang dapat tubig o dumi na nahahalo sa gasolina."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Ang tunay na fuel filter cup ng isang ZT Plus engine" } },
-        { "title": "3. Langis ng makina", "desc": "Ang lubrication ay pumipigil sa pagkasira, pinapanatiling malaya ang gumagalaw na parte, at tumutulong palamigin ang engine.", "steps": ["Gumamit ng TRA CHANG engine oil, SAE40.", "Magdagdag ng humigit-kumulang 2.7-2.8 litro.", "Ang antas ng langis ay dapat nasa pagitan ng itaas at ibabang marka.", "Bago gamitin, i-idle ang engine ng 15-20 minuto para umikot ang langis nang buo.", "Tingnan ang oil-pressure indicator — kapag natakpan ng asul ang pula, normal ang paggana ng lubrication system."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "Ang oil-pressure indicator (asul/pula) sa tunay na engine" } },
-        { "title": "4. Cooling water system", "desc": "Pinananatili ang temperatura ng engine sa kontrol.", "steps": ["Maglagay ng rust-proofing powder.", "Punuin ng malinis na tubig.", "Huwag gumamit ng tubig mula sa balon o kanal — nagdudulot ito ng latak sa radiator at pagbara."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Paglalagay ng malinis na tubig sa radiator ng tunay na engine" } },
-        { "title": "5. Fan belt", "desc": "Nagpapaikot ng cooling fan at ibang bahagi.", "steps": ["Pindutin ang gitna ng belt gamit ang daliri para tingnan ang tension.", "Ang tamang deflection ay 10-15 mm.", "Kung masyadong mahigpit o maluwag, i-adjust sa saklaw na iyon."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Pagsukat ng deflection ng fan belt gamit ang ruler" } }
-      ]
-    },
-    "startProcedure": {
-      "title": "Paano I-start nang Tama ang KUBOTA Diesel Engine",
-      "steps": [
-        "Ilipat ang accelerator sa posisyon ng pag-start.",
-        "Ikabit ang hand crank sa starter shaft ng engine.",
-        "Paikutin ang crank sa direksyon ng orasan hanggang humigpit.",
-        "Kung nasa ibabaw ang hawakan ng crank, alisin ito.",
-        "Ikabit muli ang crank sa starter shaft na nasa ibaba ang hawakan.",
-        "Itaas ang decompression (valve) lever at paikutin ang crank ng 3-5 beses.",
-        "Bitawan ang valve lever at ipagpatuloy ang pag-ikot — mag-i-start ang engine."
-      ],
-      "caution": [
-        "Hawakan nang mahigpit ang crank matapos mag-start ang engine para hindi ito lumipad at magdulot ng aksidente — kusa itong maluluwag at matatanggal.",
-        "Huwag bitawan ang valve lever at ihinto ang pag-crank sa gitna — maaari itong magdulot ng kickback (aasoke ang air filter) at paikot pabalik ng engine.",
-        "Kung mag-kickback ang engine, alisin ang air filter at suriin — linisin ang uling o palitan ang filter kung sira."
-      ]
-    },
     "maintenance": {
       "title": "Regular na Maintenance",
       "intro": "Mga regular na maintenance point para sa ZT Plus diesel engine at TRA CHANG power tiller, mula mismo sa opisyal na maintenance training deck.",
@@ -371,7 +370,7 @@
     ],
     "videosTitle": "Mga Video",
     "downloadsTitle": "Mga Download",
-    "note": "Ang pre-delivery check, hakbang sa pag-start, at mga regular na maintenance point sa itaas ay direktang mula sa opisyal na training material. Totoong umiiral ang 10 maintenance video sa Drive folder na pinagmulan, pero hindi isinama sa build na ito (15-120MB bawat isa) — tingnan ang Handoff.md para sa status ng hosting. Ang seksyon ng programa sa ibaba ay sample pa rin — kumpirmahin ang aktuwal na warranty at service-program terms ng bawat bansa bago i-publish."
+    "note": "Ang mga regular na maintenance point sa itaas (ang pre-delivery check at hakbang sa pag-start ay nasa pahina ng Produkto > Engine na ngayon) ay direktang mula sa opisyal na training material. Totoong umiiral ang 10 maintenance video sa Drive folder na pinagmulan, pero hindi isinama sa build na ito (15-120MB bawat isa) — tingnan ang Handoff.md para sa status ng hosting. Ang seksyon ng programa sa ibaba ay sample pa rin — kumpirmahin ang aktuwal na warranty at service-program terms ng bawat bansa bago i-publish."
   },
   "crops": {
     "title": "Crop Solutions",
