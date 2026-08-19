@@ -739,8 +739,13 @@ function renderMarketing(c) {
     `;
   }).join('');
 
+  const hasScheduleDetail = !!m.scheduleHeaders;
+  const scheduleHeaders = Object.assign({ time: lbl.duration || 'Time', activity: lbl.schedule || 'Activity', inCharge: '', whatToDo: '' }, m.scheduleHeaders || {});
+
   const activities = m.activities.map((a, idx) => {
     const { docs } = splitResources(a.resources);
+    const recommendedItems = a.recommendedItems || (a.checklist ? a.checklist.map(t => ({ label: t, details: '' })) : []);
+    const recommendedItemsLabel = lbl.recommendedItems || lbl.checklist || '';
     return `
       <div class="category-block activity-guide" id="activity-detail-${idx}">
         <div class="activity-guide-index">${String(idx + 1).padStart(2, '0')}</div>
@@ -761,18 +766,17 @@ function renderMarketing(c) {
         <div class="activity-table-scroll">
           <table class="kubota-table activity-schedule-table">
             <thead><tr>
-              <th>${m.scheduleHeaders.time}</th>
-              <th>${m.scheduleHeaders.activity}</th>
-              <th>${m.scheduleHeaders.inCharge}</th>
-              <th>${m.scheduleHeaders.whatToDo}</th>
+              <th>${scheduleHeaders.time}</th>
+              <th>${scheduleHeaders.activity}</th>
+              ${hasScheduleDetail ? `<th>${scheduleHeaders.inCharge}</th><th>${scheduleHeaders.whatToDo}</th>` : ''}
             </tr></thead>
-            <tbody>${a.schedule.map(s => `<tr><td>${s.time}</td><td>${s.activity}</td><td>${s.inCharge}</td><td>${s.whatToDo}</td></tr>`).join('')}</tbody>
+            <tbody>${a.schedule.map(s => `<tr><td>${s.time}</td><td>${s.activity}</td>${hasScheduleDetail ? `<td>${s.inCharge || ''}</td><td>${s.whatToDo || ''}</td>` : ''}</tr>`).join('')}</tbody>
           </table>
         </div>
-        <h4 class="subsection-title">${lbl.recommendedItems}</h4>
+        <h4 class="subsection-title">${recommendedItemsLabel}</h4>
         <div class="activity-table-scroll">
           <table class="kubota-table activity-items-table"><tbody>
-            ${a.recommendedItems.map(item => `<tr><th>${item.label}</th><td>${item.details}</td></tr>`).join('')}
+            ${recommendedItems.map(item => item.details ? `<tr><th>${item.label}</th><td>${item.details}</td></tr>` : `<tr><td colspan="2">${item.label}</td></tr>`).join('')}
           </tbody></table>
         </div>
         <div class="note-callout">${a.tip}</div>
