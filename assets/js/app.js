@@ -29,7 +29,8 @@ function setActiveNav(route) {
     const btnRoute = btn.dataset.route;
     const isMatch = btnRoute === route ||
       (btnRoute.startsWith('product') && route.startsWith('product')) ||
-      (btnRoute.startsWith('materials') && route.startsWith('materials'));
+      (btnRoute.startsWith('materials') && route.startsWith('materials')) ||
+      (btnRoute.startsWith('order') && route.startsWith('order'));
     btn.classList.toggle('active', isMatch);
   });
 }
@@ -834,6 +835,841 @@ function renderMaterialsCustom(c) {
   `;
 }
 
+/* ---------- Order: cart + catalog data ---------- */
+
+const ORDER_CART_KEY = 'kukit_cart';
+const ORDER_LIST_KEY = 'kukit_orders';
+const ORDER_BUYER_KEY = 'kukit_buyer';
+const ORDER_TRACKING_STAGE_KEYS = ['orderConfirmed', 'paymentReceived', 'production', 'shipped', 'customs', 'delivered'];
+
+function orderLoadCart() {
+  try { return JSON.parse(localStorage.getItem(ORDER_CART_KEY)) || []; } catch (e) { return []; }
+}
+function orderSaveCart(cart) { localStorage.setItem(ORDER_CART_KEY, JSON.stringify(cart)); }
+function orderCartCount(cart) { return cart.reduce((n, i) => n + i.qty, 0); }
+function orderCartTotal(cart) { return cart.reduce((s, i) => s + i.price * i.qty, 0); }
+function orderFmtUsd(n) { return '$' + (Math.round((n || 0) * 100) / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+function orderLoadBuyer() {
+  try { return JSON.parse(localStorage.getItem(ORDER_BUYER_KEY)) || {}; } catch (e) { return {}; }
+}
+function orderSaveBuyer(buyer) { localStorage.setItem(ORDER_BUYER_KEY, JSON.stringify(buyer)); }
+
+function orderAddToCart(item) {
+  const cart = orderLoadCart();
+  const existing = cart.find(i => i.key === item.key);
+  if (existing) existing.qty += item.qty;
+  else cart.push(item);
+  orderSaveCart(cart);
+  return cart;
+}
+
+function orderGenNumber(prefix) {
+  const d = new Date();
+  const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
+  const rand = Math.floor(1000 + Math.random() * 9000);
+  return `${prefix}-KUKIT-${ymd}-${rand}`;
+}
+
+function orderHashStage(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+  return h % ORDER_TRACKING_STAGE_KEYS.length;
+}
+
+function orderComputeStageIndex(order) {
+  if (!order || !order.createdAt) return orderHashStage(String((order && order.poNumber) || Math.random()));
+  const elapsed = Date.now() - order.createdAt;
+  const demoTotalMs = 3 * 60 * 1000;
+  const ratio = Math.min(1, Math.max(0, elapsed / demoTotalMs));
+  return Math.min(ORDER_TRACKING_STAGE_KEYS.length - 1, Math.floor(ratio * ORDER_TRACKING_STAGE_KEYS.length));
+}
+
+let orderCatalogDataCache = null;
+async function orderLoadCatalogData() {
+  if (orderCatalogDataCache) return orderCatalogDataCache;
+  const [parts, products] = await Promise.all([
+    fetch('assets/data/parts-catalog.json', { cache: 'no-store' }).then(r => r.json()),
+    fetch('assets/data/products-catalog.json', { cache: 'no-store' }).then(r => r.json())
+  ]);
+  orderCatalogDataCache = { parts, products };
+  return orderCatalogDataCache;
+}
+
+function orderUpdateCartBar() {
+  const bar = document.getElementById('order-cart-bar');
+  if (!bar) return;
+  const cart = orderLoadCart();
+  const countEl = document.getElementById('order-cart-count');
+  const totalEl = document.getElementById('order-cart-total');
+  if (countEl) countEl.textContent = String(orderCartCount(cart));
+  if (totalEl) totalEl.textContent = orderFmtUsd(orderCartTotal(cart));
+  bar.classList.toggle('is-empty', cart.length === 0);
+}
+
+function orderFlashAdded(btn, label) {
+  const original = btn.textContent;
+  btn.textContent = label;
+  btn.disabled = true;
+  setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 900);
+}
+
+/* ---------- Order: PDF generation (PO / PI) ---------- */
+
+function pdfMoney(n) {
+  return (Math.round((n || 0) * 100) / 100).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function pdfItemsTable(doc, items, startY, marginX, pageW) {
+  const colNo = marginX;
+  const colDesc = marginX + 26;
+  const colQty = pageW - marginX - 170;
+  const colPrice = pageW - marginX - 110;
+  const colAmount = pageW - marginX;
+  let y = startY;
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(9);
+  doc.text('No.', colNo, y);
+  doc.text('Description', colDesc, y);
+  doc.text('Qty', colQty, y, { align: 'right' });
+  doc.text('Unit Price (USD)', colPrice, y, { align: 'right' });
+  doc.text('Amount (USD)', colAmount, y, { align: 'right' });
+  y += 4;
+  doc.setLineWidth(0.6);
+  doc.line(marginX, y, pageW - marginX, y);
+  y += 14;
+  doc.setFont('helvetica', 'normal');
+  let total = 0;
+  items.forEach((item, i) => {
+    const amount = item.price * item.qty;
+    total += amount;
+    const descLines = doc.splitTextToSize(item.name, colQty - colDesc - 10);
+    doc.text(String(i + 1), colNo, y);
+    doc.text(descLines, colDesc, y);
+    doc.text(String(item.qty), colQty, y, { align: 'right' });
+    doc.text(pdfMoney(item.price), colPrice, y, { align: 'right' });
+    doc.text(pdfMoney(amount), colAmount, y, { align: 'right' });
+    y += Math.max(14, descLines.length * 11 + 3);
+  });
+  doc.line(marginX, y, pageW - marginX, y);
+  y += 16;
+  return { y, total };
+}
+
+function generatePoPdf(order) {
+  if (!window.jspdf) { alert('PDF library failed to load.'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const pageW = doc.internal.pageSize.getWidth();
+  const marginX = 42;
+  let y = 50;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.text('PURCHASE ORDER', pageW / 2, y, { align: 'center' });
+  y += 26;
+
+  doc.setFontSize(10);
+  doc.text(`PO No.: ${order.poNumber}`, marginX, y);
+  doc.text(`Date: ${order.date}`, pageW - marginX, y, { align: 'right' });
+  y += 22;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text('Buyer:', marginX, y);
+  doc.setFont('helvetica', 'normal');
+  doc.text(order.buyer.company || '-', marginX + 55, y);
+  y += 14;
+  doc.text(doc.splitTextToSize(order.buyer.address || '-', pageW - marginX * 2 - 55), marginX + 55, y);
+  y += 14;
+  doc.text(`Contact: ${order.buyer.contact || '-'}   Email: ${order.buyer.email || '-'}`, marginX + 55, y);
+  y += 14;
+  doc.text(`Tel / WhatsApp: ${order.buyer.phone || '-'}`, marginX + 55, y);
+  y += 20;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text('Supplier:', marginX, y);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Siam Kubota Corporation Co., Ltd.', marginX + 55, y);
+  y += 14;
+  doc.text('700/867 Amatanakorn Industrial Estate, Chonburi, Thailand', marginX + 55, y);
+  y += 22;
+
+  doc.text(`Payment Terms: ${order.paymentTermLabel}`, marginX, y);
+  y += 14;
+  doc.text(`Delivery Terms: CIF ${order.buyer.destination || '-'}`, marginX, y);
+  y += 14;
+  doc.text('Shipping Method: By Sea', marginX, y);
+  y += 22;
+
+  const { y: afterTable, total } = pdfItemsTable(doc, order.items, y, marginX, pageW);
+  y = afterTable;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text('Sub-Total (USD):', pageW - marginX - 170, y);
+  doc.text(pdfMoney(total), pageW - marginX, y, { align: 'right' });
+  y += 16;
+  doc.text('Grand Total (USD):', pageW - marginX - 170, y);
+  doc.text(pdfMoney(total), pageW - marginX, y, { align: 'right' });
+  y += 30;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  [
+    'Important — all documents and invoices must be marked with:',
+    '1. Purchase Order No.   2. Consignee address as stated above',
+    '3. Invoice copy enclosed with goods, signed and stamped   4. Certificate of Origin sent by email and original'
+  ].forEach(line => { doc.text(line, marginX, y); y += 13; });
+  y += 20;
+  doc.text('Prepared by: ___________________________', marginX, y);
+  doc.text('Date: ___________________________', pageW - marginX - 160, y);
+
+  y += 40;
+  doc.setFontSize(8);
+  doc.setTextColor(150);
+  doc.text('Demo document generated by the KU-KIT prototype ordering tool. Not a real purchase order.', marginX, y);
+
+  doc.save(`${order.poNumber}.pdf`);
+}
+
+function generatePiPdf(order) {
+  if (!window.jspdf) { alert('PDF library failed to load.'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const pageW = doc.internal.pageSize.getWidth();
+  const marginX = 42;
+  let y = 50;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.text('PROFORMA INVOICE', pageW / 2, y, { align: 'center' });
+  y += 26;
+
+  doc.setFontSize(10);
+  doc.text(`Invoice No.: ${order.piNumber}`, marginX, y);
+  doc.text(`Date: ${order.date}`, pageW - marginX, y, { align: 'right' });
+  y += 22;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text('Consigned to / Buyer:', marginX, y);
+  doc.setFont('helvetica', 'normal');
+  y += 14;
+  doc.text(order.buyer.company || '-', marginX, y);
+  y += 14;
+  doc.text(doc.splitTextToSize(order.buyer.address || '-', pageW - marginX * 2), marginX, y);
+  y += 20;
+
+  doc.text(`Shipped Per: By Sea      Port of Discharge: ${order.buyer.destination || '-'}`, marginX, y);
+  y += 14;
+  doc.text(`Terms of Payment: ${order.paymentTermLabel}`, marginX, y);
+  y += 14;
+  doc.text('Country of Origin: Thailand', marginX, y);
+  y += 22;
+
+  const { y: afterTable, total } = pdfItemsTable(doc, order.items, y, marginX, pageW);
+  y = afterTable;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text(`*** TOTAL CIF ${order.buyer.destination || '-'} ***`, marginX, y);
+  doc.text(pdfMoney(total), pageW - marginX, y, { align: 'right' });
+  y += 30;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.text('Bank Detail: MIZUHO BANK, LTD.   Swift Code: MHCBTHBKXXX', marginX, y);
+  y += 13;
+  doc.text('Account No.: F15-764-917686   A/C Name: Siam Kubota Corporation Co., Ltd.', marginX, y);
+  y += 30;
+
+  doc.text('E. & O.E.                                                    Origin of Thailand', marginX, y);
+  y += 30;
+  doc.text('(Authorized Signature)', pageW - marginX - 150, y);
+  doc.text('Siam Kubota Corporation Co., Ltd.', pageW - marginX - 150, y + 13);
+
+  y += 46;
+  doc.setFontSize(8);
+  doc.setTextColor(150);
+  doc.text('Demo document generated by the KU-KIT prototype ordering tool. Not a real invoice.', marginX, y);
+
+  doc.save(`${order.piNumber}.pdf`);
+}
+
+/* ---------- Order: page selector ---------- */
+
+function renderOrderSelector(c, active) {
+  const t = c.order.tabs;
+  const card = (key, label, icon) => `
+    <button type="button" class="product-select-card ${active === key ? 'active' : ''}" data-subnav="order-${key}">
+      <span class="product-select-icon"><span class="product-select-icon-emoji">${icon}</span></span>
+      <span class="product-select-label">${label}</span>
+      <span class="product-select-check" aria-hidden="true">✓</span>
+    </button>
+  `;
+  return `
+    <div class="product-selector">
+      ${card('catalog', t.catalog, '🛒')}
+      ${card('checkout', t.checkout, '📄')}
+      ${card('tracking', t.tracking, '🚚')}
+    </div>
+  `;
+}
+
+/* ---------- Order: catalog & cart page ---------- */
+
+function renderOrderCatalog(c) {
+  const o = c.order;
+  const oc = o.catalog;
+  return `
+    <section>
+      <h2 class="section-title">${o.title}</h2>
+      <p class="section-intro">${o.intro}</p>
+      ${renderOrderSelector(c, 'catalog')}
+      <div class="order-cart-bar is-empty" id="order-cart-bar">
+        <span class="order-cart-bar-icon" aria-hidden="true">🛒</span>
+        <span class="order-cart-bar-count" id="order-cart-count">0</span>
+        <span class="order-cart-bar-label">${oc.cartHeading}</span>
+        <span class="order-cart-bar-total" id="order-cart-total">$0.00</span>
+        <button type="button" class="btn-primary order-cart-bar-btn" id="order-cart-checkout-btn">${oc.goCheckout}</button>
+      </div>
+      <div class="order-model-picker">
+        <label class="order-model-label" for="order-model-select">${oc.modelLabel}</label>
+        <select id="order-model-select" class="order-model-select"></select>
+      </div>
+      <div id="order-catalog-body" class="order-catalog-body">
+        <div class="order-loading">${oc.loading}</div>
+      </div>
+      <div class="note-callout">${oc.priceNote}</div>
+    </section>
+  `;
+}
+
+async function initOrderCatalogPage(c) {
+  const oc = c.order.catalog;
+  const select = document.getElementById('order-model-select');
+  const body = document.getElementById('order-catalog-body');
+  const checkoutBtn = document.getElementById('order-cart-checkout-btn');
+  if (checkoutBtn) checkoutBtn.addEventListener('click', () => navigate('order-checkout'));
+  orderUpdateCartBar();
+
+  let data;
+  try {
+    data = await orderLoadCatalogData();
+  } catch (e) {
+    body.innerHTML = `<div class="order-loading">Failed to load catalog data.</div>`;
+    return;
+  }
+  if (state.route !== 'order-catalog') return;
+
+  const { parts, products } = data;
+
+  select.innerHTML = parts.models.map(m => `<option value="${m.id}">${m.label}</option>`).join('');
+
+  let currentGroupFilter = 'ALL';
+  let currentSearch = '';
+  const GROUP_ORDER = ['X', 'S', 'A', 'B', 'C'];
+
+  function findProduct(modelId) {
+    return products.engines.find(p => p.id === modelId) || products.tillers.find(p => p.id === modelId);
+  }
+
+  function renderBody() {
+    const modelId = select.value;
+    const model = parts.models.find(m => m.id === modelId);
+    const product = findProduct(modelId);
+    const isTiller = !!products.tillers.find(p => p.id === modelId);
+
+    const productCardHtml = product ? `
+      <div class="category-block">
+        <h3 class="category-heading">${oc.productHeading}</h3>
+        <div class="order-product-card">
+          <div class="order-product-info">
+            <div class="order-product-name">${product.label}</div>
+            <div class="order-product-price">${orderFmtUsd(product.basePrice)} <span class="order-price-tag">(${product.priceSource})</span></div>
+          </div>
+          <div class="order-product-actions">
+            <input type="number" min="1" value="1" class="order-qty-input" id="order-product-qty">
+            <button type="button" class="btn-primary order-add-btn" data-add-product="1">${oc.addToCart}</button>
+          </div>
+        </div>
+      </div>
+    ` : '';
+
+    const implementsHtml = isTiller && products.implements.length ? `
+      <div class="category-block">
+        <h3 class="category-heading">${oc.implementsHeading}</h3>
+        <div class="order-implements-grid">
+          ${products.implements.map(imp => `
+            <div class="order-implement-card">
+              <div class="order-implement-name">${imp.label}</div>
+              <div class="order-implement-price">${orderFmtUsd(imp.basePrice)}</div>
+              <div class="order-product-actions">
+                <input type="number" min="1" value="1" class="order-qty-input" id="order-implement-qty-${imp.id}">
+                <button type="button" class="order-add-btn-small" data-add-implement="${imp.id}">${oc.addToCart}</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    ` : '';
+
+    const firstLotHtml = model.firstLot.length ? `
+      <div class="category-block">
+        <h3 class="category-heading">${oc.firstLotHeading}</h3>
+        <p class="section-intro">${oc.firstLotIntro}</p>
+        <div class="order-firstlot-grid">
+          ${model.firstLot.map(item => `
+            <div class="order-firstlot-card">
+              <div class="order-firstlot-name">${item.name}</div>
+              <div class="order-firstlot-fn">${item.fn}</div>
+              <div class="order-firstlot-meta">
+                <span class="order-firstlot-code">${item.partNo}</span>
+                <span class="order-firstlot-price">${orderFmtUsd(item.price)}</span>
+              </div>
+              <div class="order-product-actions">
+                <input type="number" min="1" value="${item.suggestQty || 1}" class="order-qty-input" id="order-fl-qty-${item.partNo}">
+                <button type="button" class="order-add-btn-small" data-add-part="${item.partNo}" data-part-kind="firstlot">${oc.addToCart}</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    ` : '';
+
+    const groupChips = `
+      <button type="button" class="order-group-chip ${currentGroupFilter === 'ALL' ? 'active' : ''}" data-group-filter="ALL">${oc.groupAll}</button>
+      ${GROUP_ORDER.map(g => `<button type="button" class="order-group-chip ${currentGroupFilter === g ? 'active' : ''}" data-group-filter="${g}">${oc.groupLabels[g] || g}</button>`).join('')}
+    `;
+
+    const filteredCatalog = model.catalog.filter(item => {
+      if (item.group === 'D') return currentGroupFilter === 'D';
+      if (currentGroupFilter !== 'ALL' && item.group !== currentGroupFilter) return false;
+      if (currentSearch) {
+        const q = currentSearch.toLowerCase();
+        if (!item.partNo.toLowerCase().includes(q) && !item.name.toLowerCase().includes(q)) return false;
+      }
+      return true;
+    });
+
+    const catalogRows = filteredCatalog.map(item => `
+      <tr>
+        <td class="code-col">${item.partNo}</td>
+        <td>${item.name}</td>
+        <td>${oc.groupLabels[item.group] || item.group}</td>
+        <td>${orderFmtUsd(item.price)}</td>
+        <td>
+          <div class="order-table-actions">
+            <input type="number" min="1" value="1" class="order-qty-input order-qty-input-sm" id="order-cat-qty-${item.partNo}">
+            <button type="button" class="order-add-btn-small" data-add-part="${item.partNo}" data-part-kind="catalog">${oc.addToCart}</button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+
+    const fullCatalogHtml = `
+      <div class="category-block">
+        <h3 class="category-heading">${oc.fullCatalogHeading}</h3>
+        <p class="section-intro">${oc.fullCatalogIntro}</p>
+        <div class="order-group-filters">${groupChips}</div>
+        <input type="text" class="order-search-input" id="order-search-input" placeholder="${oc.searchPlaceholder}" value="${currentSearch.replace(/"/g, '&quot;')}">
+        <div class="order-table-scroll">
+          <table class="kubota-table order-parts-table">
+            <thead>
+              <tr>
+                <th>${oc.colPartNo}</th>
+                <th>${oc.colName}</th>
+                <th>${oc.colGroup}</th>
+                <th>${oc.colPrice}</th>
+                <th>${oc.colAction}</th>
+              </tr>
+            </thead>
+            <tbody>${catalogRows || `<tr><td colspan="5" class="order-empty-row">—</td></tr>`}</tbody>
+          </table>
+        </div>
+      </div>
+    `;
+
+    body.innerHTML = productCardHtml + implementsHtml + firstLotHtml + fullCatalogHtml;
+
+    const productBtn = body.querySelector('[data-add-product]');
+    if (productBtn) {
+      productBtn.addEventListener('click', () => {
+        const qtyInput = document.getElementById('order-product-qty');
+        const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+        orderAddToCart({ key: `product:${product.id}`, kind: 'product', modelId: product.id, code: product.id, name: product.label, price: product.basePrice, qty });
+        orderUpdateCartBar();
+        orderFlashAdded(productBtn, oc.added);
+      });
+    }
+
+    body.querySelectorAll('[data-add-implement]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const impId = btn.dataset.addImplement;
+        const imp = products.implements.find(x => x.id === impId);
+        const qtyInput = document.getElementById(`order-implement-qty-${impId}`);
+        const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+        orderAddToCart({ key: `implement:${impId}`, kind: 'implement', modelId: null, code: impId, name: imp.label, price: imp.basePrice, qty });
+        orderUpdateCartBar();
+        orderFlashAdded(btn, oc.added);
+      });
+    });
+
+    body.querySelectorAll('[data-add-part]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const partNo = btn.dataset.addPart;
+        const kindTag = btn.dataset.partKind;
+        const source = kindTag === 'firstlot' ? model.firstLot : model.catalog;
+        const partItem = source.find(x => x.partNo === partNo);
+        if (!partItem) return;
+        const qtyInputId = kindTag === 'firstlot' ? `order-fl-qty-${partNo}` : `order-cat-qty-${partNo}`;
+        const qtyInput = document.getElementById(qtyInputId);
+        const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
+        orderAddToCart({ key: `part:${modelId}:${partNo}`, kind: 'part', modelId, modelLabel: model.label, code: partNo, name: partItem.name, price: partItem.price || 0, qty });
+        orderUpdateCartBar();
+        orderFlashAdded(btn, oc.added);
+      });
+    });
+
+    body.querySelectorAll('[data-group-filter]').forEach(btn => {
+      btn.addEventListener('click', () => { currentGroupFilter = btn.dataset.groupFilter; renderBody(); });
+    });
+
+    const searchInput = document.getElementById('order-search-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        currentSearch = searchInput.value;
+        const selStart = searchInput.selectionStart;
+        renderBody();
+        const newInput = document.getElementById('order-search-input');
+        if (newInput) { newInput.focus(); newInput.setSelectionRange(selStart, selStart); }
+      });
+    }
+  }
+
+  select.addEventListener('change', () => { currentGroupFilter = 'ALL'; currentSearch = ''; renderBody(); });
+  renderBody();
+}
+
+/* ---------- Order: checkout page ---------- */
+
+function renderOrderCheckout(c) {
+  const o = c.order;
+  return `
+    <section>
+      <h2 class="section-title">${o.title}</h2>
+      <p class="section-intro">${o.intro}</p>
+      ${renderOrderSelector(c, 'checkout')}
+      <div id="order-checkout-body" class="order-checkout-body"></div>
+    </section>
+  `;
+}
+
+function initOrderCheckoutPage(c) {
+  const co = c.order.checkout;
+  const catLabels = c.order.catalog;
+  const body = document.getElementById('order-checkout-body');
+
+  if (!orderLoadCart().length) {
+    body.innerHTML = `
+      <div class="order-empty-state">
+        <p>${co.emptyHeading}</p>
+        <p class="order-empty-body">${co.emptyBody}</p>
+        <button type="button" class="btn-primary" id="order-back-catalog-btn">${co.backToCatalog}</button>
+      </div>
+    `;
+    document.getElementById('order-back-catalog-btn').addEventListener('click', () => navigate('order-catalog'));
+    return;
+  }
+
+  let paymentTerms = [];
+  let selectedTermId = null;
+
+  function renderCartTable() {
+    const cart = orderLoadCart();
+    const rows = cart.map((item, i) => `
+      <tr>
+        <td>${item.name}${item.modelLabel ? ` <span class="order-row-model">(${item.modelLabel})</span>` : ''}</td>
+        <td class="order-num-col"><input type="number" min="1" value="${item.qty}" class="order-qty-input order-qty-input-sm" data-cart-qty="${i}"></td>
+        <td class="order-num-col">${orderFmtUsd(item.price)}</td>
+        <td class="order-num-col">${orderFmtUsd(item.price * item.qty)}</td>
+        <td><button type="button" class="order-remove-btn" data-cart-remove="${i}">${co.remove}</button></td>
+      </tr>
+    `).join('');
+    return `
+      <div class="order-table-scroll">
+        <table class="kubota-table order-cart-table">
+          <thead><tr><th>${catLabels.colName}</th><th>${co.colQty}</th><th>${co.colUnitPrice}</th><th>${co.colAmount}</th><th></th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <div class="order-cart-subtotal">${co.subtotal}: <strong>${orderFmtUsd(orderCartTotal(cart))}</strong></div>
+    `;
+  }
+
+  function wireCartTableEvents() {
+    const wrap = document.getElementById('order-cart-table-wrap');
+    wrap.querySelectorAll('[data-cart-qty]').forEach(input => {
+      input.addEventListener('change', () => {
+        const idx = Number(input.dataset.cartQty);
+        const cart = orderLoadCart();
+        cart[idx].qty = Math.max(1, parseInt(input.value, 10) || 1);
+        orderSaveCart(cart);
+        orderUpdateCartBar();
+        refreshCartAndPayment();
+      });
+    });
+    wrap.querySelectorAll('[data-cart-remove]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.cartRemove);
+        const cart = orderLoadCart();
+        cart.splice(idx, 1);
+        orderSaveCart(cart);
+        orderUpdateCartBar();
+        if (!cart.length) { initOrderCheckoutPage(c); return; }
+        refreshCartAndPayment();
+      });
+    });
+  }
+
+  function refreshCartAndPayment() {
+    document.getElementById('order-cart-table-wrap').innerHTML = renderCartTable();
+    wireCartTableEvents();
+    renderPaymentSection();
+  }
+
+  function renderPaymentSection() {
+    const el = document.getElementById('order-payment-section');
+    if (!el || !paymentTerms.length) return;
+    const cart = orderLoadCart();
+    el.innerHTML = `
+      <div class="order-table-scroll">
+        <table class="kubota-table order-price-table">
+          <thead><tr><th></th><th>${co.colTerm}</th><th>${co.colTotal}</th></tr></thead>
+          <tbody>
+            ${paymentTerms.map(term => {
+              const total = cart.reduce((s, i) => s + (i.kind === 'part' ? i.price : i.price * term.premium) * i.qty, 0);
+              return `
+                <tr class="${selectedTermId === term.id ? 'is-selected' : ''}">
+                  <td><input type="radio" name="order-payment-term" value="${term.id}" ${selectedTermId === term.id ? 'checked' : ''}></td>
+                  <td>${term.label}</td>
+                  <td class="order-num-col">${orderFmtUsd(total)}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+    el.querySelectorAll('input[name="order-payment-term"]').forEach(radio => {
+      radio.addEventListener('change', () => { selectedTermId = radio.value; renderPaymentSection(); });
+    });
+  }
+
+  body.innerHTML = `
+    <div class="order-step-card">
+      <h3 class="order-step-title">${co.step1Title}</h3>
+      <div class="order-buyer-form" id="order-buyer-form"></div>
+    </div>
+    <div class="order-step-card">
+      <h3 class="order-step-title">${co.step2Title}</h3>
+      <div id="order-cart-table-wrap">${renderCartTable()}</div>
+    </div>
+    <div class="order-step-card">
+      <h3 class="order-step-title">${co.step3Title}</h3>
+      <p class="section-intro">${co.step3Body}</p>
+      <button type="button" class="btn-primary" id="order-generate-po-btn">${co.generatePo}</button>
+    </div>
+    <div class="order-step-card">
+      <h3 class="order-step-title">${co.step4Title}</h3>
+      <p class="section-intro">${co.step4Body}</p>
+      <div id="order-payment-section"><div class="order-loading">${catLabels.loading}</div></div>
+    </div>
+    <div class="order-step-card">
+      <h3 class="order-step-title">${co.step5Title}</h3>
+      <p class="section-intro">${co.step5Body}</p>
+      <button type="button" class="btn-primary" id="order-generate-pi-btn">${co.generatePi}</button>
+    </div>
+    <div class="order-step-card">
+      <h3 class="order-step-title">${co.step6Title}</h3>
+      <p class="section-intro">${co.confirmBody}</p>
+      <button type="button" class="btn-primary order-confirm-btn" id="order-confirm-btn">${co.confirmBtn}</button>
+    </div>
+    <div class="note-callout">${co.disclaimer}</div>
+  `;
+
+  const buyer = orderLoadBuyer();
+  const buyerForm = document.getElementById('order-buyer-form');
+  const fieldDefs = [
+    ['company', co.fields.company, 'text'],
+    ['address', co.fields.address, 'text'],
+    ['contact', co.fields.contact, 'text'],
+    ['email', co.fields.email, 'email'],
+    ['phone', co.fields.phone, 'text'],
+    ['destination', co.fields.destination, 'text']
+  ];
+  buyerForm.innerHTML = fieldDefs.map(([key, label, type]) =>
+    `<label>${label}<input type="${type}" id="order-buyer-${key}" value="${(buyer[key] || '').replace(/"/g, '&quot;')}"></label>`
+  ).join('');
+  fieldDefs.forEach(([key]) => {
+    document.getElementById(`order-buyer-${key}`).addEventListener('input', (e) => {
+      const b = orderLoadBuyer();
+      b[key] = e.target.value;
+      orderSaveBuyer(b);
+    });
+  });
+
+  wireCartTableEvents();
+
+  document.getElementById('order-generate-po-btn').addEventListener('click', () => {
+    const cart = orderLoadCart();
+    const poNumber = orderGenNumber('PO');
+    generatePoPdf({
+      poNumber,
+      date: new Date().toLocaleDateString('en-GB'),
+      buyer: orderLoadBuyer(),
+      items: cart,
+      paymentTermLabel: selectedTermId ? paymentTerms.find(t => t.id === selectedTermId).label : (paymentTerms[0] ? paymentTerms[0].label : 'T/T in Advance')
+    });
+    sessionStorage.setItem('kukit_last_po', poNumber);
+  });
+
+  document.getElementById('order-generate-pi-btn').addEventListener('click', () => {
+    if (!selectedTermId) { alert(co.requirePayment); return; }
+    const cart = orderLoadCart();
+    const term = paymentTerms.find(t => t.id === selectedTermId);
+    const piNumber = orderGenNumber('PI');
+    generatePiPdf({
+      piNumber,
+      date: new Date().toLocaleDateString('en-GB'),
+      buyer: orderLoadBuyer(),
+      items: cart.map(i => ({ ...i, price: i.kind === 'part' ? i.price : i.price * term.premium })),
+      paymentTermLabel: term.label
+    });
+    sessionStorage.setItem('kukit_last_pi', piNumber);
+  });
+
+  document.getElementById('order-confirm-btn').addEventListener('click', () => {
+    const cart = orderLoadCart();
+    if (!cart.length) return;
+    const term = selectedTermId ? paymentTerms.find(t => t.id === selectedTermId) : paymentTerms[0];
+    const poNumber = sessionStorage.getItem('kukit_last_po') || orderGenNumber('PO');
+    const piNumber = sessionStorage.getItem('kukit_last_pi') || orderGenNumber('PI');
+    const total = cart.reduce((s, i) => s + (i.kind === 'part' ? i.price : i.price * term.premium) * i.qty, 0);
+    const orders = JSON.parse(localStorage.getItem(ORDER_LIST_KEY) || '[]');
+    orders.push({ poNumber, piNumber, buyer: orderLoadBuyer(), items: cart, paymentTermId: term.id, paymentTermLabel: term.label, total, createdAt: Date.now() });
+    localStorage.setItem(ORDER_LIST_KEY, JSON.stringify(orders));
+    orderSaveCart([]);
+    sessionStorage.removeItem('kukit_last_po');
+    sessionStorage.removeItem('kukit_last_pi');
+    orderUpdateCartBar();
+
+    body.innerHTML = `
+      <div class="order-confirmed-card">
+        <h3>${co.confirmedTitle}</h3>
+        <p>${co.confirmedBody} <strong>${poNumber}</strong></p>
+        <button type="button" class="btn-primary" id="order-goto-tracking-btn">${co.goTracking}</button>
+      </div>
+    `;
+    document.getElementById('order-goto-tracking-btn').addEventListener('click', () => {
+      sessionStorage.setItem('kukit_prefill_tracking', poNumber);
+      navigate('order-tracking');
+    });
+  });
+
+  orderLoadCatalogData().then(data => {
+    if (state.route !== 'order-checkout') return;
+    paymentTerms = data.products.paymentTerms;
+    selectedTermId = paymentTerms[0].id;
+    renderPaymentSection();
+  });
+}
+
+/* ---------- Order: tracking page ---------- */
+
+function renderOrderTracking(c) {
+  const o = c.order;
+  const tr = o.tracking;
+  return `
+    <section>
+      <h2 class="section-title">${o.title}</h2>
+      <p class="section-intro">${o.intro}</p>
+      ${renderOrderSelector(c, 'tracking')}
+      <div class="order-tracking-search">
+        <label for="order-tracking-input">${tr.poInputLabel}</label>
+        <div class="order-tracking-search-row">
+          <input type="text" id="order-tracking-input" placeholder="PO-KUKIT-...">
+          <button type="button" class="btn-primary" id="order-tracking-btn">${tr.lookupBtn}</button>
+        </div>
+      </div>
+      <div id="order-tracking-recent" class="order-tracking-recent"></div>
+      <div id="order-tracking-result" class="order-tracking-result"></div>
+      <div class="note-callout">${tr.disclaimer}</div>
+    </section>
+  `;
+}
+
+function orderRenderProgress(order, stageIdx, tr, notFound) {
+  const steps = ORDER_TRACKING_STAGE_KEYS.map((key, i) => `
+    <div class="order-tracking-step ${i <= stageIdx ? 'is-done' : ''} ${i === stageIdx ? 'is-current' : ''}">
+      <div class="order-tracking-dot">${i < stageIdx ? '✓' : i + 1}</div>
+      <div class="order-tracking-step-label">${tr.stages[key]}</div>
+    </div>
+  `).join('<div class="order-tracking-connector"></div>');
+
+  return `
+    ${notFound ? `<div class="order-tracking-note">${tr.notFoundNote}</div>` : ''}
+    <div class="order-tracking-summary">
+      <div><strong>${order.poNumber || '—'}</strong>${order.piNumber ? ` / ${order.piNumber}` : ''}</div>
+      ${order.paymentTermLabel ? `<div class="order-tracking-meta">${order.paymentTermLabel}</div>` : ''}
+    </div>
+    <div class="order-tracking-progress">${steps}</div>
+  `;
+}
+
+function initOrderTrackingPage(c) {
+  const tr = c.order.tracking;
+  const input = document.getElementById('order-tracking-input');
+  const btn = document.getElementById('order-tracking-btn');
+  const recentEl = document.getElementById('order-tracking-recent');
+  const resultEl = document.getElementById('order-tracking-result');
+
+  const orders = JSON.parse(localStorage.getItem(ORDER_LIST_KEY) || '[]');
+
+  if (orders.length) {
+    recentEl.innerHTML = `
+      <div class="order-tracking-recent-label">${tr.recentHeading}</div>
+      <div class="order-tracking-recent-chips">
+        ${orders.slice(-5).reverse().map(o => `<button type="button" class="order-tracking-chip" data-track-po="${o.poNumber}">${o.poNumber}</button>`).join('')}
+      </div>
+    `;
+    recentEl.querySelectorAll('[data-track-po]').forEach(chip => {
+      chip.addEventListener('click', () => { input.value = chip.dataset.trackPo; lookup(); });
+    });
+  }
+
+  function lookup() {
+    const q = input.value.trim();
+    if (!q) return;
+    const found = orders.find(o => o.poNumber === q || o.piNumber === q);
+    if (found) {
+      resultEl.innerHTML = orderRenderProgress(found, orderComputeStageIndex(found), tr, false);
+    } else {
+      resultEl.innerHTML = orderRenderProgress({ poNumber: q }, orderHashStage(q), tr, true);
+    }
+  }
+
+  btn.addEventListener('click', lookup);
+  input.addEventListener('keydown', (e) => { if (e.key === 'Enter') lookup(); });
+
+  // Not cleared here: navigate() triggers both an immediate render and an async
+  // hashchange-driven re-render, which re-runs this init a second time. Leaving
+  // the key in place keeps the prefill idempotent across that double render
+  // instead of losing it on the second pass. sessionStorage clears on tab close.
+  const prefill = sessionStorage.getItem('kukit_prefill_tracking');
+  if (prefill) {
+    input.value = prefill;
+    lookup();
+  }
+}
+
 function renderArtworkBody(c) {
   const a = c.artwork;
   return `
@@ -1515,7 +2351,10 @@ const RENDERERS = {
   marketing: renderMarketing,
   artwork: renderArtwork,
   'materials-company': renderMaterialsCompany,
-  'materials-custom': renderMaterialsCustom
+  'materials-custom': renderMaterialsCustom,
+  'order-catalog': renderOrderCatalog,
+  'order-checkout': renderOrderCheckout,
+  'order-tracking': renderOrderTracking
 };
 
 function applyStaticText(c) {
@@ -1566,6 +2405,9 @@ function render() {
   });
 
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
+  if (state.route === 'order-catalog') initOrderCatalogPage(c);
+  if (state.route === 'order-checkout') initOrderCheckoutPage(c);
+  if (state.route === 'order-tracking') initOrderTrackingPage(c);
 }
 
 async function setLang(lang) {
@@ -1590,6 +2432,10 @@ function routeLabel(route, c) {
   if (route.startsWith('materials-')) {
     const sub = route.replace('materials-', '');
     return `${c.nav.artwork}${c.materials && c.materials.tabs && c.materials.tabs[sub] ? ' — ' + c.materials.tabs[sub] : ''}`;
+  }
+  if (route.startsWith('order-')) {
+    const sub = route.replace('order-', '');
+    return `${c.nav.order}${c.order && c.order.tabs && c.order.tabs[sub] ? ' — ' + c.order.tabs[sub] : ''}`;
   }
   return c.nav[route] || route;
 }
@@ -1673,6 +2519,13 @@ function buildSearchIndex(c) {
   pushEntry(idx, 'materials-custom', c.artwork.title, c.artwork.intro);
   if (c.materials && c.materials.company) {
     pushEntry(idx, 'materials-company', c.materials.company.title, c.materials.company.intro);
+  }
+
+  // Order
+  if (c.order) {
+    pushEntry(idx, 'order-catalog', c.order.title, c.order.intro);
+    pushEntry(idx, 'order-checkout', c.order.tabs.checkout, c.order.checkout.step3Body);
+    pushEntry(idx, 'order-tracking', c.order.tabs.tracking, c.order.tracking.disclaimer);
   }
 
   return idx;
