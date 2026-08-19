@@ -8,7 +8,7 @@
   },
   "home": {
     "introTitle": "What is KU-KIT?",
-    "introText": "KU-KIT is a central knowledge base covering engines and power tillers, built for new overseas Dealers and Distributors. It lets your team learn about our products, parts, service, and events independently, without waiting for in-person training — reducing travel and training costs and easing language barriers when entering new markets.",
+    "introText": "KU-KIT stands for Kubota Kit, and echoes the Thai phrase \"kuu-kit\" (คู่คิด) — a trusted business partner. It's a one-stop knowledge base built to be that partner for new overseas Dealers and Distributors, covering engines and power tillers so your team can learn about our products, parts, service, and events independently, without waiting for in-person training — making day-to-day business easier, while reducing travel and training costs and easing language barriers when entering new markets.",
     "cards": [
       { "icon": "⚙️", "title": "Product Info", "desc": "ZT Plus diesel engine and NC Plus X power tiller specs, genuine-product checks, and assembly guide.", "target": "product-engine" },
       { "icon": "🔧", "title": "Parts", "desc": "How to find and order genuine parts, with recommended stock lists by model.", "target": "parts" },

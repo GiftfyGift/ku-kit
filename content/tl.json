@@ -8,7 +8,7 @@
   },
   "home": {
     "introTitle": "Ano ang KU-KIT?",
-    "introText": "Ang KU-KIT ay isang sentral na knowledge base tungkol sa mga engine at power tiller, na ginawa para sa mga bagong Dealer at Distributor sa ibang bansa. Dito matututo ang inyong koponan tungkol sa aming produkto, parts, serbisyo, at mga event nang mag-isa, nang hindi na kailangan hintayin ang personal na training — na nakakabawas sa gastusin sa paglalakbay at training, at nakakatulong sa hamon sa wika kapag bumubukas ng bagong merkado.",
+    "introText": "Ang KU-KIT ay mula sa \"Kubota Kit\", at umaalingawngaw din sa salitang Thai na \"kuu-kit\" (คู่คิด) na nangangahulugang \"pinagkakatiwalaang katuwang sa negosyo\". Ito ay isang one-stop na knowledge base na dinisenyo para maging katuwang na iyon ng mga bagong Dealer at Distributor sa ibang bansa, sumasaklaw sa mga engine at power tiller para matuto ang inyong koponan tungkol sa aming produkto, parts, serbisyo, at mga event nang mag-isa, nang hindi na kailangan hintayin ang personal na training — nagpapadali ito sa pang-araw-araw na negosyo, habang binabawasan ang gastusin sa paglalakbay at training, at nagpapagaan ng hamon sa wika kapag bumubukas ng bagong merkado.",
     "cards": [
       { "icon": "⚙️", "title": "Impormasyon ng Produkto", "desc": "Detalye ng ZT Plus diesel engine at NC Plus X power tiller, paano tiyakin ang orihinal na produkto, at gabay sa pag-assemble.", "target": "product-engine" },
       { "icon": "🔧", "title": "Parts", "desc": "Paano hanapin at mag-order ng orihinal na parts, may rekomendadong listahan ng stock kada modelo.", "target": "parts" },

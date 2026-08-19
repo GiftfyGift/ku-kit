@@ -8,7 +8,7 @@
   },
   "home": {
     "introTitle": "Qu'est-ce que KU-KIT ?",
-    "introText": "KU-KIT est une base de connaissances centrale consacrée aux moteurs et aux motoculteurs, conçue pour les nouveaux concessionnaires et distributeurs à l'étranger. Elle permet à votre équipe de se former sur nos produits, pièces, services et événements en toute autonomie, sans attendre une formation en personne — ce qui réduit les frais de déplacement et de formation et facilite l'entrée sur de nouveaux marchés malgré la barrière de la langue.",
+    "introText": "KU-KIT signifie « Kubota Kit », et fait écho à l'expression thaïe « kuu-kit » (คู่คิด) — un partenaire de confiance. C'est une base de connaissances tout-en-un conçue pour être ce partenaire des nouveaux concessionnaires et distributeurs à l'étranger, couvrant les moteurs et les motoculteurs afin que votre équipe puisse découvrir nos produits, pièces, service et événements en toute autonomie, sans attendre une formation en personne — ce qui facilite la gestion quotidienne de l'activité, tout en réduisant les frais de déplacement et de formation et en facilitant l'entrée sur de nouveaux marchés malgré la barrière de la langue.",
     "cards": [
       { "icon": "⚙️", "title": "Informations produit", "desc": "Caractéristiques du moteur diesel ZT Plus et du motoculteur NC Plus X, contrôles d'authenticité et guide de montage.", "target": "product-engine" },
       { "icon": "🔧", "title": "Pièces", "desc": "Comment trouver et commander des pièces d'origine, avec les listes de stock recommandées par modèle.", "target": "parts" },
