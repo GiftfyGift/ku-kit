@@ -19,7 +19,7 @@ function setLangDisplay(lang) {
 }
 
 async function loadContent(lang) {
-  const res = await fetch(`content/${lang}.json`);
+  const res = await fetch(`content/${lang}.json`, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load content/${lang}.json`);
   return res.json();
 }
