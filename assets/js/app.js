@@ -762,6 +762,21 @@ function renderArtworkBody(c) {
             <span>${a.promoLabel}</span>
             <input type="text" id="aw-promo" placeholder="${a.promoPlaceholder}" maxlength="60">
           </label>
+          <div class="artwork-field">
+            <span>${a.decorations.label}</span>
+            <div class="artwork-decor-grid">
+              <button type="button" class="artwork-decor-btn" id="aw-decor-man" aria-pressed="false">
+                <img src="assets/img/artwork/decor-farmer-thumbsup.png" alt="${a.decorations.manAlt}">
+                <span>${a.decorations.man}</span>
+                <span class="artwork-decor-check" aria-hidden="true">✓</span>
+              </button>
+              <button type="button" class="artwork-decor-btn" id="aw-decor-no1" aria-pressed="false">
+                <img src="assets/img/artwork/decor-no1-badge.png" alt="${a.decorations.no1Alt}">
+                <span>${a.decorations.no1}</span>
+                <span class="artwork-decor-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </div>
           <button type="button" id="aw-download" class="btn-primary artwork-download-btn">${a.downloadButton}</button>
           <p class="artwork-resolution-note" id="aw-resolution-note"></p>
         </div>
@@ -955,6 +970,24 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     }
   }
 
+  const panelH = pxH * (isLandscape ? 0.22 : 0.18);
+  const panelY = pxH - panelH - pad;
+  const panelX = pad;
+  const panelW = pxW - pad * 2;
+
+  if (st.decorNo1) {
+    const no1Img = await loadArtworkImage('assets/img/artwork/decor-no1-badge.png');
+    const badgeH = pxH * (isLandscape ? 0.14 : 0.07);
+    const badgeW = badgeH * (no1Img.width / no1Img.height);
+    ctx.drawImage(no1Img, pxW - pad - badgeW, pad, badgeW, badgeH);
+  }
+  if (st.decorMan) {
+    const manImg = await loadArtworkImage('assets/img/artwork/decor-farmer-thumbsup.png');
+    const manH = pxH * (isLandscape ? 0.30 : 0.16);
+    const manW = manH * (manImg.width / manImg.height);
+    ctx.drawImage(manImg, pad, panelY - manH, manW, manH);
+  }
+
   if (st.promo && st.promo.trim()) {
     ctx.fillStyle = '#081416';
     ctx.font = `700 ${Math.round(pxH * (isLandscape ? 0.075 : 0.035))}px Prompt, sans-serif`;
@@ -964,10 +997,6 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     awWrapText(ctx, st.promo.trim(), headlineX, headlineY, headlineMaxW, pxH * (isLandscape ? 0.09 : 0.045), isLandscape ? 'left' : 'center');
   }
 
-  const panelH = pxH * (isLandscape ? 0.22 : 0.18);
-  const panelY = pxH - panelH - pad;
-  const panelX = pad;
-  const panelW = pxW - pad * 2;
   ctx.fillStyle = 'rgba(255,255,255,0.94)';
   awRoundRect(ctx, panelX, panelY, panelW, panelH, panelH * 0.14);
   ctx.fill();
@@ -996,6 +1025,8 @@ function initArtworkPage(c) {
   const shopInput = document.getElementById('aw-shopname');
   const contactInput = document.getElementById('aw-contact');
   const promoInput = document.getElementById('aw-promo');
+  const decorManBtn = document.getElementById('aw-decor-man');
+  const decorNo1Btn = document.getElementById('aw-decor-no1');
   const canvas = document.getElementById('aw-canvas');
   const downloadBtn = document.getElementById('aw-download');
   const resNote = document.getElementById('aw-resolution-note');
@@ -1007,9 +1038,20 @@ function initArtworkPage(c) {
       product: productSel.value,
       shopName: shopInput.value,
       contact: contactInput.value,
-      promo: promoInput.value
+      promo: promoInput.value,
+      decorMan: decorManBtn.classList.contains('active'),
+      decorNo1: decorNo1Btn.classList.contains('active')
     };
   }
+
+  function toggleDecor(btn) {
+    const active = !btn.classList.contains('active');
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+    schedulePreview();
+  }
+  decorManBtn.addEventListener('click', () => toggleDecor(decorManBtn));
+  decorNo1Btn.addEventListener('click', () => toggleDecor(decorNo1Btn));
 
   let redrawTimer = null;
   function schedulePreview() {

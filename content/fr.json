@@ -549,6 +549,7 @@
     "contactPlaceholder": "123 rue Sukhumvit, Bang Na, Samut Prakan • Tél. 08X-XXX-XXXX • LINE : @xxxx",
     "promoLabel": "Texte promotionnel (facultatif)",
     "promoPlaceholder": "ex. Paiement en 10 fois sans frais",
+    "decorations": { "label": "Logos décoratifs supplémentaires (facultatif)", "man": "Agriculteur souriant qui encourage", "manAlt": "Agriculteur souriant faisant un pouce levé, autocollant décoratif pour le support", "no1": "Badge \"No.1 Global Brand\"", "no1Alt": "Badge \"No.1 Global Brand with 3.5 Million Units Sold\"" },
     "previewTitle": "Aperçu",
     "downloadButton": "Télécharger le fichier prêt à imprimer",
     "downloadingLabel": "Génération du fichier...",

@@ -622,6 +622,7 @@
     "contactPlaceholder": "123 ถ.สุขุมวิท ต.บางนา จ.สมุทรปราการ • โทร. 08X-XXX-XXXX • LINE: @xxxx",
     "promoLabel": "ข้อความโปรโมชั่น (ถ้ามี)",
     "promoPlaceholder": "เช่น ผ่อน 0% นาน 10 เดือน",
+    "decorations": { "label": "โลโก้ตกแต่งเพิ่มเติม (เลือกได้)", "man": "เกษตรกรยิ้มให้กำลังใจ", "manAlt": "ภาพเกษตรกรยิ้มชูนิ้วโป้ง สำหรับตกแต่งสื่อ", "no1": "ตรา No.1 Global Brand", "no1Alt": "ตรา No.1 Global Brand with 3.5 Million Units Sold" },
     "previewTitle": "ตัวอย่าง",
     "downloadButton": "ดาวน์โหลดไฟล์พร้อมพิมพ์",
     "downloadingLabel": "กำลังสร้างไฟล์...",

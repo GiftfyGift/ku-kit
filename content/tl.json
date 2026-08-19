@@ -549,6 +549,7 @@
     "contactPlaceholder": "123 Sukhumvit Rd, Bang Na, Samut Prakan • Tel. 08X-XXX-XXXX • LINE: @xxxx",
     "promoLabel": "Promo text (opsyonal)",
     "promoPlaceholder": "hal. 0% installment sa loob ng 10 buwan",
+    "decorations": { "label": "Karagdagang dekorasyong logo (opsyonal)", "man": "Nakangiting magsasakang nagbibigay-lakas ng loob", "manAlt": "Nakangiting magsasakang nag-thumbs-up, dekorasyong sticker para sa disenyo", "no1": "Badge na \"No.1 Global Brand\"", "no1Alt": "Badge na \"No.1 Global Brand with 3.5 Million Units Sold\"" },
     "previewTitle": "Preview",
     "downloadButton": "I-download ang print-ready na file",
     "downloadingLabel": "Gumagawa ng file...",

@@ -1382,6 +1382,64 @@ table.parts-table td.code-col {
 
 .artwork-field select option { color: #1c1030; }
 
+.artwork-decor-grid {
+  display: flex;
+  gap: 10px;
+}
+
+.artwork-decor-btn {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  padding: 10px 8px;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--kubota-mid-gray);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.artwork-decor-btn:hover { border-color: rgba(255,106,61,0.5); }
+
+.artwork-decor-btn.active {
+  border-color: var(--kubota-orange);
+  background: rgba(255,106,61,0.12);
+  color: var(--kubota-navy);
+}
+
+.artwork-decor-btn img {
+  width: 100%;
+  height: 56px;
+  object-fit: contain;
+}
+
+.artwork-decor-check {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--kubota-orange);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+.artwork-decor-btn.active .artwork-decor-check { display: flex; }
+
 .artwork-download-btn {
   width: 100%;
   justify-content: center;
