@@ -19,7 +19,7 @@ function setLangDisplay(lang) {
 }
 
 async function loadContent(lang) {
-  const res = await fetch(`content/${lang}.json`);
+  const res = await fetch(`content/${lang}.json`, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load content/${lang}.json`);
   return res.json();
 }
@@ -601,12 +601,39 @@ function renderCrops(c) {
 
 function renderActivityComparison(cmp) {
   if (!cmp) return '';
-  const headCells = cmp.activities.map((a, i) => `
-    <div class="activity-cmp-head activity-cmp-accent-${i % 4}">
-      <span class="activity-cmp-head-icon">${a.icon}</span>
-      <span>${a.name}</span>
-    </div>
-  `).join('');
+  const activityPhotoSets = [
+    [
+      'assets/img/activity-kfd-1.png',
+      'assets/img/activity-kfd-2.png',
+      'assets/img/activity-kfd-3.png',
+      'assets/img/activity-kfd-4.png'
+    ],
+    [
+      'assets/img/activity-demo-1.png',
+      'assets/img/activity-demo-2.png',
+      'assets/img/activity-demo-3.png',
+      'assets/img/activity-demo-4.png'
+    ]
+  ];
+
+  const headCells = cmp.activities.map((a, i) => {
+    const photos = activityPhotoSets[i];
+    const carousel = photos ? `
+      <div class="activity-cmp-carousel" aria-hidden="true">
+        <div class="activity-cmp-carousel-track">
+          ${[...photos, photos[0]].map((src, photoIndex) =>
+            `<img src="${src}" alt="" loading="${photoIndex === 0 ? 'eager' : 'lazy'}">`
+          ).join('')}
+        </div>
+      </div>
+    ` : '';
+    return `
+      <div class="activity-cmp-head activity-cmp-accent-${i % 4} ${photos ? 'activity-cmp-head--carousel' : ''}">
+        ${carousel || `<span class="activity-cmp-head-icon">${a.icon}</span>`}
+        <span class="activity-cmp-head-name">${a.name}</span>
+      </div>
+    `;
+  }).join('');
 
   const bodyRows = cmp.criteria.map(cr => {
     const labelCell = `
@@ -757,19 +784,40 @@ function renderMaterialsSelector(c, active) {
   `;
 }
 
+function renderMaterialsGroup(group) {
+  const cards = group.items.map(item => `
+    <button type="button" class="materials-card" data-lightbox-src="${item.image.src}" data-lightbox-alt="${item.image.alt}" data-lightbox-caption="${item.title}">
+      <span class="materials-card-img-wrap">
+        <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy">
+      </span>
+      <span class="materials-card-title">${item.title}</span>
+      <span class="materials-card-tag">${item.format}</span>
+    </button>
+  `).join('');
+  return `
+    <div class="category-block">
+      <h3 class="category-heading materials-group-heading">
+        <span class="materials-group-icon" aria-hidden="true">${group.icon}</span>
+        ${group.title}
+      </h3>
+      <p class="section-intro">${group.intro}</p>
+      <div class="materials-card-grid">${cards}</div>
+    </div>
+  `;
+}
+
 function renderMaterialsCompany(c) {
   const m = c.materials;
   const mc = m.company;
+  const groups = (mc.groups || []).map(renderMaterialsGroup).join('');
   return `
     <section>
       <h2 class="section-title">${m.title}</h2>
       <p class="section-intro">${m.intro}</p>
       ${renderMaterialsSelector(c, 'company')}
-      <div class="category-block">
-        <h3 class="category-heading">${mc.title}</h3>
-        <p class="section-intro">${mc.intro}</p>
-        <div class="note-callout">${mc.note}</div>
-      </div>
+      <p class="section-intro">${mc.intro}</p>
+      ${groups}
+      <div class="note-callout">${mc.note}</div>
     </section>
   `;
 }
@@ -800,6 +848,14 @@ function renderArtworkBody(c) {
             </select>
           </label>
           <label class="artwork-field">
+            <span>${a.bgStyleLabel}</span>
+            <select id="aw-bgstyle">
+              <option value="diagonal">${a.bgStyles.diagonal}</option>
+              <option value="dark">${a.bgStyles.dark}</option>
+              <option value="frame">${a.bgStyles.frame}</option>
+            </select>
+          </label>
+          <label class="artwork-field">
             <span>${a.productLabel}</span>
             <select id="aw-product">
               <option value="engine">${a.products.engine}</option>
@@ -816,9 +872,42 @@ function renderArtworkBody(c) {
             <textarea id="aw-contact" rows="2" placeholder="${a.contactPlaceholder}" maxlength="160"></textarea>
           </label>
           <label class="artwork-field">
-            <span>${a.promoLabel}</span>
-            <input type="text" id="aw-promo" placeholder="${a.promoPlaceholder}" maxlength="60">
+            <span>${a.headlineLabel}</span>
+            <input type="text" id="aw-headline" placeholder="${a.headlinePlaceholder}" maxlength="60">
           </label>
+          <label class="artwork-field">
+            <span>${a.subheadlineLabel}</span>
+            <input type="text" id="aw-subheadline" placeholder="${a.subheadlinePlaceholder}" maxlength="80">
+          </label>
+          <label class="artwork-field">
+            <span>${a.bodyLabel}</span>
+            <textarea id="aw-body" rows="2" placeholder="${a.bodyPlaceholder}" maxlength="160"></textarea>
+          </label>
+          <div class="artwork-field">
+            <span>${a.decorations.label}</span>
+            <div class="artwork-decor-grid">
+              <button type="button" class="artwork-decor-btn" id="aw-decor-man" aria-pressed="false">
+                <img src="assets/img/artwork/decor-farmer-thumbsup.png" alt="${a.decorations.manAlt}">
+                <span>${a.decorations.man}</span>
+                <span class="artwork-decor-check" aria-hidden="true">✓</span>
+              </button>
+              <button type="button" class="artwork-decor-btn" id="aw-decor-no1" aria-pressed="false">
+                <img src="assets/img/artwork/decor-no1-badge.png" alt="${a.decorations.no1Alt}">
+                <span>${a.decorations.no1}</span>
+                <span class="artwork-decor-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+            <div class="artwork-decor-sizes">
+              <label class="artwork-decor-size-row">
+                <span>${a.decorations.man} — ${a.decorations.sizeLabel}</span>
+                <input type="range" id="aw-decor-man-size" min="60" max="160" value="100" step="5">
+              </label>
+              <label class="artwork-decor-size-row">
+                <span>${a.decorations.no1} — ${a.decorations.sizeLabel}</span>
+                <input type="range" id="aw-decor-no1-size" min="60" max="160" value="100" step="5">
+              </label>
+            </div>
+          </div>
           <button type="button" id="aw-download" class="btn-primary artwork-download-btn">${a.downloadButton}</button>
           <p class="artwork-resolution-note" id="aw-resolution-note"></p>
         </div>
@@ -855,7 +944,13 @@ function loadArtworkImage(src) {
     artworkImageCache[src] = new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => resolve(img);
-      img.onerror = reject;
+      img.onerror = () => {
+        // Don't leave a rejected promise cached — a single transient network
+        // hiccup would otherwise permanently break every future redraw of this
+        // image for the rest of the session (dealers may be on flaky mobile data).
+        delete artworkImageCache[src];
+        reject(new Error(`Failed to load image: ${src}`));
+      };
       img.src = src;
     });
   }
@@ -907,7 +1002,7 @@ function awDrawImageContain(ctx, img, x, y, w, h) {
   ctx.drawImage(img, dx, dy, dw, dh);
 }
 
-function awWrapText(ctx, text, x, y, maxWidth, lineHeight, align) {
+function awWrapLines(ctx, text, maxWidth) {
   const words = text.split(/\s+/).filter(Boolean);
   let line = '';
   const lines = [];
@@ -921,19 +1016,68 @@ function awWrapText(ctx, text, x, y, maxWidth, lineHeight, align) {
     }
   }
   if (line) lines.push(line);
+  return lines;
+}
+
+function awWrapText(ctx, text, x, y, maxWidth, lineHeight, align) {
+  const lines = awWrapLines(ctx, text, maxWidth);
   ctx.textAlign = align || 'left';
   lines.forEach((ln, i) => ctx.fillText(ln, x, y + i * lineHeight));
   return lines.length * lineHeight;
 }
 
-async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
-  const isLandscape = spec.wCm >= spec.hCm;
-  const a = c.artwork;
+function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH) {
+  if (bgStyle === 'dark') {
+    ctx.fillStyle = (() => {
+      const g = ctx.createLinearGradient(0, 0, isLandscape ? pxW : 0, isLandscape ? 0 : pxH);
+      g.addColorStop(0, '#0e3338');
+      g.addColorStop(1, '#081416');
+      return g;
+    })();
+    ctx.fillRect(0, 0, pxW, pxH);
+    ctx.fillStyle = (() => {
+      const g = ctx.createLinearGradient(0, pxH, pxW, 0);
+      g.addColorStop(0, '#FF6A3D');
+      g.addColorStop(1, '#FFB35C');
+      return g;
+    })();
+    ctx.beginPath();
+    if (isLandscape) {
+      ctx.moveTo(0, pxH);
+      ctx.lineTo(pxW * 0.24, pxH);
+      ctx.lineTo(0, pxH * 0.68);
+    } else {
+      ctx.moveTo(0, pxH);
+      ctx.lineTo(pxW, pxH);
+      ctx.lineTo(pxW, pxH * 0.9);
+      ctx.lineTo(0, pxH * 0.97);
+    }
+    ctx.closePath();
+    ctx.fill();
+    return;
+  }
 
-  ctx.clearRect(0, 0, pxW, pxH);
+  if (bgStyle === 'frame') {
+    ctx.fillStyle = '#F7F5F0';
+    ctx.fillRect(0, 0, pxW, pxH);
+    const bandH = pad + logoH + pad * 0.6;
+    ctx.fillStyle = (() => {
+      const g = ctx.createLinearGradient(0, 0, pxW, 0);
+      g.addColorStop(0, '#FF6A3D');
+      g.addColorStop(1, '#FFB35C');
+      return g;
+    })();
+    ctx.fillRect(0, 0, pxW, bandH);
+    const frameW = Math.max(2, pxW * 0.008);
+    ctx.strokeStyle = '#FF6A3D';
+    ctx.lineWidth = frameW;
+    ctx.strokeRect(frameW / 2, frameW / 2, pxW - frameW, pxH - frameW);
+    return;
+  }
+
+  // 'diagonal' (default)
   ctx.fillStyle = '#F7F5F0';
   ctx.fillRect(0, 0, pxW, pxH);
-
   ctx.fillStyle = (() => {
     const grad = ctx.createLinearGradient(0, 0, pxW, pxH);
     grad.addColorStop(0, '#FFB35C');
@@ -957,8 +1101,32 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   ctx.strokeStyle = '#081416';
   ctx.lineWidth = Math.max(1, pxW * 0.004);
   ctx.stroke();
+}
 
+async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
+  const isLandscape = spec.wCm >= spec.hCm;
+  const a = c.artwork;
+  const bgStyle = st.bgStyle || 'diagonal';
+
+  ctx.clearRect(0, 0, pxW, pxH);
+
+  const pad = pxW * (isLandscape ? 0.025 : 0.06);
   const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
+  const kubotaAspect = kubotaImg.width / kubotaImg.height;
+
+  let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2;
+  let logoW = logoH * kubotaAspect;
+  // The cropped wordmark is quite wide relative to its height; on the narrower
+  // portrait canvas a height-based size can overflow both edges, so cap it to
+  // a safe share of the width there and derive the height from that instead.
+  const maxLogoW = isLandscape ? pxW * 0.5 : pxW * 0.74;
+  if (logoW > maxLogoW) {
+    logoW = maxLogoW;
+    logoH = logoW / kubotaAspect;
+  }
+
+  awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH);
+
   const productImgs = [];
   if (st.product === 'engine' || st.product === 'both') {
     productImgs.push({
@@ -973,27 +1141,93 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     });
   }
 
-  const pad = pxW * (isLandscape ? 0.025 : 0.06);
-
-  const logoH = pxH * (isLandscape ? 0.09 : 0.05);
-  const logoW = logoH * (kubotaImg.width / kubotaImg.height);
   const logoX = isLandscape ? pad : (pxW - logoW) / 2;
+  if (bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
   ctx.drawImage(kubotaImg, logoX, pad, logoW, logoH);
+  ctx.filter = 'none';
 
-  const wmH = pxH * (isLandscape ? 0.045 : 0.028);
-  const wmGap = wmH * 1.3;
-  const wmStartY = pad + logoH + pxH * 0.02;
-  productImgs.forEach((p, i) => {
-    const wmW = wmH * (p.wordmark.width / p.wordmark.height);
-    const wmX = isLandscape ? pad : (pxW - wmW) / 2;
-    ctx.drawImage(p.wordmark, wmX, wmStartY + i * wmGap, wmW, wmH);
-  });
+  const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2;
+  const wmGap = wmHBase * 1.3;
+  const maxWmW = isLandscape ? pxW * 0.4 : pxW * 0.7;
+  // The "frame" style's orange band already holds the Kubota logo; when there's
+  // room beside it, tuck the product wordmark(s) into that same band instead of
+  // letting them hang below into the body area, where they crowd the farmer
+  // decoration and promo text.
+  const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
+  const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
+  let wmStartY;
+  let wmBelowCount = productImgs.length;
+  if (inlineWm) {
+    wmStartY = pad + logoH + pxH * 0.015;
+    wmBelowCount = 0;
+    const areaX = logoX + logoW + pad * 0.6;
+    const rowGap = logoH * 0.12;
+    const rowH = (logoH - rowGap * (productImgs.length - 1)) / productImgs.length;
+    productImgs.forEach((p, i) => {
+      const wmAspect = p.wordmark.width / p.wordmark.height;
+      let wmH = rowH;
+      let wmW = wmH * wmAspect;
+      if (wmW > bandAreaW) {
+        wmW = bandAreaW;
+        wmH = wmW / wmAspect;
+      }
+      const wmY = pad + i * (rowH + rowGap) + (rowH - wmH) / 2;
+      ctx.drawImage(p.wordmark, areaX, wmY, wmW, wmH);
+    });
+  } else {
+    // Only the "frame" style needs the wide gap (in `pad` units, so it scales the
+    // same way as that style's band height) to clear the top color band — on the
+    // other 2 styles there's no band to avoid, so keep the logo and wordmark close.
+    wmStartY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
+    productImgs.forEach((p, i) => {
+      const wmAspect = p.wordmark.width / p.wordmark.height;
+      let wmH = wmHBase;
+      let wmW = wmH * wmAspect;
+      if (wmW > maxWmW) {
+        wmW = maxWmW;
+        wmH = wmW / wmAspect;
+      }
+      const wmX = isLandscape ? pad : (pxW - wmW) / 2;
+      ctx.drawImage(p.wordmark, wmX, wmStartY + i * wmGap, wmW, wmH);
+    });
+  }
 
+  // --- Bottom info panel geometry: sized to fit shop name + contact so text never overflows ---
+  // Computed before the product photo box below so the photo's height can be
+  // bounded by where the panel actually starts (the panel grows taller when the
+  // address wraps to more lines), instead of a fixed ratio that can overlap it.
+  const panelX = pad;
+  const panelW = pxW - pad * 2;
+  const innerPad = pxH * (isLandscape ? 0.035 : 0.029);
+  const shopFontSize = pxH * (isLandscape ? 0.070 : 0.057);
+  const contactFontSize = pxH * (isLandscape ? 0.035 : 0.029);
+  const shopLineHeight = shopFontSize * 1.18;
+  const contactLineHeight = contactFontSize * 1.32;
+  const blockGap = pxH * 0.015;
+
+  ctx.font = `700 ${Math.round(shopFontSize)}px Prompt, sans-serif`;
+  const shopName = (st.shopName && st.shopName.trim()) || a.shopNamePlaceholder;
+  const shopLines = awWrapLines(ctx, shopName, panelW - innerPad * 2);
+
+  ctx.font = `500 ${Math.round(contactFontSize)}px 'Noto Sans Thai', sans-serif`;
+  const contact = (st.contact && st.contact.trim()) || a.contactPlaceholder;
+  const contactLines = awWrapLines(ctx, contact, panelW - innerPad * 2);
+
+  const contentH = shopLines.length * shopLineHeight + blockGap + contactLines.length * contactLineHeight;
+  const minPanelH = pxH * (isLandscape ? 0.22 : 0.18);
+  const panelH = Math.max(minPanelH, innerPad * 2 + contentH);
+  const panelY = pxH - panelH - pad;
+
+  let photoBoxBottom = 0;
   if (isLandscape) {
-    const photoBoxW = pxW * 0.42;
-    const photoBoxH = pxH * 0.78;
-    const photoBoxX = pxW * 0.55;
+    const photoBoxX = pxW * 0.62;
+    const photoBoxW = pxW - pad - photoBoxX;
     const photoBoxY = pxH * 0.10;
+    // The pxH*0.15 floor only guards against a degenerate near-zero box (e.g. an
+    // absurdly long address) — it must stay well below the normal clearance so it
+    // can never win out over avoiding the panel and cause an overlap.
+    const photoBoxH = Math.max(pxH * 0.15, panelY - pxH * 0.045 - photoBoxY);
+    photoBoxBottom = photoBoxY + photoBoxH;
     if (productImgs.length === 1) {
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, photoBoxH);
     } else if (productImgs.length === 2) {
@@ -1005,26 +1239,118 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     const photoBoxX = (pxW - photoBoxW) / 2;
     const photoBoxY = pxH * 0.16;
     if (productImgs.length === 1) {
+      photoBoxBottom = photoBoxY + pxH * 0.34;
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, pxH * 0.34);
     } else if (productImgs.length === 2) {
+      photoBoxBottom = photoBoxY + pxH * 0.35;
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, pxH * 0.17);
       awDrawImageContain(ctx, productImgs[1].photo, photoBoxX, photoBoxY + pxH * 0.18, photoBoxW, pxH * 0.17);
+    } else {
+      photoBoxBottom = photoBoxY;
     }
   }
 
-  if (st.promo && st.promo.trim()) {
-    ctx.fillStyle = '#081416';
-    ctx.font = `700 ${Math.round(pxH * (isLandscape ? 0.075 : 0.035))}px Prompt, sans-serif`;
-    const headlineX = isLandscape ? pad : pxW / 2;
-    const headlineY = isLandscape ? pxH * 0.60 : pxH * 0.55;
-    const headlineMaxW = isLandscape ? pxW * 0.46 : pxW * 0.86;
-    awWrapText(ctx, st.promo.trim(), headlineX, headlineY, headlineMaxW, pxH * (isLandscape ? 0.09 : 0.045), isLandscape ? 'left' : 'center');
+  if (st.decorNo1) {
+    const no1Img = await loadArtworkImage('assets/img/artwork/decor-no1-badge.png');
+    const badgeH = pxH * (isLandscape ? 0.14 : 0.07) * (st.decorNo1Scale || 1);
+    const badgeW = badgeH * (no1Img.width / no1Img.height);
+    ctx.drawImage(no1Img, pxW - pad - badgeW, pad, badgeW, badgeH);
+  }
+  let manW = 0;
+  let manTopY = null;
+  if (st.decorMan) {
+    const manImg = await loadArtworkImage('assets/img/artwork/decor-farmer-thumbsup.png');
+    const manH = pxH * (isLandscape ? 0.30 : 0.16) * (st.decorManScale || 1);
+    manW = manH * (manImg.width / manImg.height);
+    manTopY = panelY - manH;
+    ctx.drawImage(manImg, pad, manTopY, manW, manH);
   }
 
-  const panelH = pxH * (isLandscape ? 0.22 : 0.18);
-  const panelY = pxH - panelH - pad;
-  const panelX = pad;
-  const panelW = pxW - pad * 2;
+  // --- Headline / sub-headline / body, stacked and centered as one block ---
+  // Centered on the artwork itself (the glow/stroke on the headline is what keeps
+  // it readable even sitting over the product photo). The only thing this block
+  // still dodges is the farmer decoration, since that's opaque artwork drawn in
+  // the same area, not a background photo the text can float over.
+  const textOnDark = bgStyle === 'dark';
+  const manGap = manW ? pxW * 0.03 : 0;
+  const farmerRightEdge = manW ? pad + manW + manGap : pad;
+  const headlineMaxW = isLandscape ? pxW * 0.62 : pxW * 0.86;
+  const headlineX = Math.max(pxW / 2, farmerRightEdge + headlineMaxW / 2);
+  const baseFontSize = pxH * (isLandscape ? 0.075 : 0.035);
+  ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
+
+  // Measure every filled block first so the whole stack can be positioned to fit
+  // between the logo/photo area and the info panel, instead of a fixed Y that can overflow.
+  const rawBlocks = [
+    { key: 'headline', text: st.headline, ratio: 1.1, weight: 800 },
+    { key: 'subheadline', text: st.subheadline, ratio: 0.62, weight: 600 },
+    { key: 'body', text: st.body, ratio: 0.42, weight: 400 }
+  ]
+    .map(b => ({ ...b, text: b.text && b.text.trim() }))
+    .filter(b => b.text);
+
+  function measureBlocks(scale) {
+    let h = 0;
+    const blocks = rawBlocks.map((b, i) => {
+      const fontSize = baseFontSize * b.ratio * scale;
+      ctx.font = `${b.weight} ${Math.round(fontSize)}px Prompt, sans-serif`;
+      const lines = awWrapLines(ctx, b.text, headlineMaxW);
+      const lineHeight = fontSize * 1.28;
+      h += lines.length * lineHeight;
+      if (i < rawBlocks.length - 1) h += fontSize * 0.12;
+      return { ...b, fontSize, lineHeight, lines };
+    });
+    return { blocks, totalH: h };
+  }
+
+  const zoneTop = isLandscape
+    ? wmStartY + wmGap * wmBelowCount + pxH * 0.03
+    : photoBoxBottom + pxH * 0.03;
+  const zoneBottomLimit = panelY - pxH * 0.02;
+  const availableH = zoneBottomLimit - zoneTop;
+
+  let { blocks: measuredBlocks, totalH: totalTextH } = measureBlocks(1);
+  if (totalTextH > availableH && availableH > 0 && totalTextH > 0) {
+    const shrink = Math.max(0.4, availableH / totalTextH);
+    ({ blocks: measuredBlocks, totalH: totalTextH } = measureBlocks(shrink));
+  }
+
+  // Centered — "the artwork" reads as one balanced block, not pinned to a fixed line.
+  let cursorY = zoneTop + Math.max(0, (availableH - totalTextH) / 2);
+  cursorY = Math.max(zoneTop, Math.min(cursorY, zoneBottomLimit - totalTextH));
+
+  measuredBlocks.forEach(b => {
+    ctx.font = `${b.weight} ${Math.round(b.fontSize)}px Prompt, sans-serif`;
+    ctx.textAlign = 'center';
+    if (b.key === 'headline') {
+      // Bold orange-gradient fill with a heavy dark outline — reads clearly on
+      // any of the 3 backgrounds (unlike a white glow, which washes out on the
+      // light "diagonal"/"frame" styles).
+      b.lines.forEach((ln, i) => {
+        const ly = cursorY + i * b.lineHeight;
+        ctx.save();
+        ctx.shadowColor = 'rgba(0,0,0,0.4)';
+        ctx.shadowBlur = b.fontSize * 0.1;
+        ctx.shadowOffsetY = b.fontSize * 0.04;
+        ctx.lineWidth = Math.max(1, b.fontSize * 0.1);
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#1a0e05';
+        ctx.strokeText(ln, headlineX, ly);
+        ctx.restore();
+        const grad = ctx.createLinearGradient(0, ly - b.fontSize * 0.8, 0, ly + b.fontSize * 0.25);
+        grad.addColorStop(0, '#FFC15C');
+        grad.addColorStop(1, '#E8460C');
+        ctx.fillStyle = grad;
+        ctx.fillText(ln, headlineX, ly);
+      });
+    } else {
+      ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
+      b.lines.forEach((ln, i) => ctx.fillText(ln, headlineX, cursorY + i * b.lineHeight));
+    }
+    cursorY += b.lines.length * b.lineHeight + b.fontSize * 0.12;
+  });
+
+  // --- Bottom info panel ---
   ctx.fillStyle = 'rgba(255,255,255,0.94)';
   awRoundRect(ctx, panelX, panelY, panelW, panelH, panelH * 0.14);
   ctx.fill();
@@ -1033,26 +1359,31 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   awRoundRect(ctx, panelX, panelY, panelW, panelH, panelH * 0.14);
   ctx.stroke();
 
-  const innerPad = panelH * 0.16;
   ctx.fillStyle = '#081416';
   ctx.textAlign = 'left';
-  ctx.font = `700 ${Math.round(panelH * 0.32)}px Prompt, sans-serif`;
-  const shopName = (st.shopName && st.shopName.trim()) || a.shopNamePlaceholder;
-  ctx.fillText(shopName, panelX + innerPad, panelY + innerPad + panelH * 0.24, panelW - innerPad * 2);
+  ctx.font = `700 ${Math.round(shopFontSize)}px Prompt, sans-serif`;
+  shopLines.forEach((ln, i) => ctx.fillText(ln, panelX + innerPad, panelY + innerPad + shopFontSize + i * shopLineHeight));
 
-  ctx.font = `500 ${Math.round(panelH * 0.16)}px 'Noto Sans Thai', sans-serif`;
   ctx.fillStyle = '#3a3f42';
-  const contact = (st.contact && st.contact.trim()) || a.contactPlaceholder;
-  awWrapText(ctx, contact, panelX + innerPad, panelY + innerPad + panelH * 0.52, panelW - innerPad * 2, panelH * 0.19, 'left');
+  ctx.font = `500 ${Math.round(contactFontSize)}px 'Noto Sans Thai', sans-serif`;
+  const contactStartY = panelY + innerPad + shopLines.length * shopLineHeight + blockGap + contactFontSize;
+  contactLines.forEach((ln, i) => ctx.fillText(ln, panelX + innerPad, contactStartY + i * contactLineHeight));
 }
 
 function initArtworkPage(c) {
   const a = c.artwork;
   const sizeSel = document.getElementById('aw-size');
+  const bgStyleSel = document.getElementById('aw-bgstyle');
   const productSel = document.getElementById('aw-product');
   const shopInput = document.getElementById('aw-shopname');
   const contactInput = document.getElementById('aw-contact');
-  const promoInput = document.getElementById('aw-promo');
+  const headlineInput = document.getElementById('aw-headline');
+  const subheadlineInput = document.getElementById('aw-subheadline');
+  const bodyInput = document.getElementById('aw-body');
+  const decorManBtn = document.getElementById('aw-decor-man');
+  const decorNo1Btn = document.getElementById('aw-decor-no1');
+  const decorManSize = document.getElementById('aw-decor-man-size');
+  const decorNo1Size = document.getElementById('aw-decor-no1-size');
   const canvas = document.getElementById('aw-canvas');
   const downloadBtn = document.getElementById('aw-download');
   const resNote = document.getElementById('aw-resolution-note');
@@ -1061,12 +1392,28 @@ function initArtworkPage(c) {
   function currentState() {
     return {
       size: sizeSel.value,
+      bgStyle: bgStyleSel.value,
       product: productSel.value,
       shopName: shopInput.value,
       contact: contactInput.value,
-      promo: promoInput.value
+      headline: headlineInput.value,
+      subheadline: subheadlineInput.value,
+      body: bodyInput.value,
+      decorMan: decorManBtn.classList.contains('active'),
+      decorNo1: decorNo1Btn.classList.contains('active'),
+      decorManScale: Number(decorManSize.value) / 100,
+      decorNo1Scale: Number(decorNo1Size.value) / 100
     };
   }
+
+  function toggleDecor(btn) {
+    const active = !btn.classList.contains('active');
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+    schedulePreview();
+  }
+  decorManBtn.addEventListener('click', () => toggleDecor(decorManBtn));
+  decorNo1Btn.addEventListener('click', () => toggleDecor(decorNo1Btn));
 
   let redrawTimer = null;
   function schedulePreview() {
@@ -1074,21 +1421,43 @@ function initArtworkPage(c) {
     redrawTimer = setTimeout(updatePreview, 120);
   }
 
+  let previewGeneration = 0;
   async function updatePreview() {
+    // Draw into an offscreen canvas and only commit it to the visible canvas if
+    // this is still the most recent request. Without this, rapid changes (e.g.
+    // dragging a size slider) can fire several overlapping async draws, and
+    // whichever one's clearRect() happens to run last wins — sometimes leaving
+    // the canvas blank if that call errors (a flaky image load) partway through.
+    const myGen = ++previewGeneration;
     const st = currentState();
     const spec = ARTWORK_SIZES[st.size];
     const { pxW, pxH } = computePreviewPixels(spec.wCm, spec.hCm);
+    const offscreen = document.createElement('canvas');
+    offscreen.width = pxW;
+    offscreen.height = pxH;
+    try {
+      await drawArtwork(offscreen.getContext('2d'), pxW, pxH, spec, st, c);
+    } catch (err) {
+      console.error('Artwork preview render failed, keeping last good preview', err);
+      if (myGen === previewGeneration) setTimeout(() => { if (myGen === previewGeneration) updatePreview(); }, 400);
+      return;
+    }
+    if (myGen !== previewGeneration) return;
     canvas.width = pxW;
     canvas.height = pxH;
-    const ctx = canvas.getContext('2d');
-    await drawArtwork(ctx, pxW, pxH, spec, st, c);
+    canvas.getContext('2d').drawImage(offscreen, 0, 0);
   }
 
   sizeSel.addEventListener('change', schedulePreview);
+  bgStyleSel.addEventListener('change', schedulePreview);
   productSel.addEventListener('change', schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
-  promoInput.addEventListener('input', schedulePreview);
+  headlineInput.addEventListener('input', schedulePreview);
+  subheadlineInput.addEventListener('input', schedulePreview);
+  bodyInput.addEventListener('input', schedulePreview);
+  decorManSize.addEventListener('input', schedulePreview);
+  decorNo1Size.addEventListener('input', schedulePreview);
 
   downloadBtn.addEventListener('click', async () => {
     downloadBtn.disabled = true;
@@ -1190,6 +1559,10 @@ function render() {
       pill.classList.add('is-loading');
       setTimeout(() => pill.classList.remove('is-loading'), 900);
     });
+  });
+
+  app.querySelectorAll('[data-lightbox-src]').forEach(btn => {
+    btn.addEventListener('click', () => openLightbox(btn.dataset.lightboxSrc, btn.dataset.lightboxAlt, btn.dataset.lightboxCaption));
   });
 
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
@@ -1424,6 +1797,33 @@ window.addEventListener('hashchange', () => {
   const route = (location.hash || '#home').replace('#', '');
   state.route = route;
   render();
+});
+
+/* ---------- Lightbox ---------- */
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.getElementById('lightbox-close');
+
+function openLightbox(src, alt, caption) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt || '';
+  lightboxCaption.textContent = caption || '';
+  lightbox.removeAttribute('hidden');
+}
+
+function closeLightbox() {
+  lightbox.setAttribute('hidden', '');
+  lightboxImg.src = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !lightbox.hasAttribute('hidden')) closeLightbox();
 });
 
 /* ---------- KU-KIT Assistant: wiring ---------- */

@@ -604,7 +604,38 @@
     "company": {
       "title": "Supports fournis par l'entreprise",
       "intro": "Fichiers graphiques, bannières, affiches et supports prêts à l'emploi de KUBOTA que les concessionnaires peuvent utiliser immédiatement.",
-      "note": "Cette page est en cours de préparation. Des fichiers et supports seront ajoutés prochainement."
+      "groups": [
+        {
+          "icon": "📘",
+          "title": "Supports de connaissance produit",
+          "intro": "Brochures et fiches techniques pour les clients qui veulent approfondir leur connaissance des produits.",
+          "items": [
+            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Dépliant ZT Plus Afrique, page 1 — tableaux de spécifications du moteur et du motoculteur, avec un agriculteur tenant le badge No.1 Global Brand" }, "title": "Dépliant ZT Plus Afrique (page 1)", "format": "Dépliant A4" },
+            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Dépliant ZT Plus Afrique, page 2 — photo du moteur avec ses points forts et un tableau de puissance par modèle" }, "title": "Dépliant ZT Plus Afrique (page 2)", "format": "Dépliant A4" }
+          ]
+        },
+        {
+          "icon": "🎪",
+          "title": "Supports pour l'organisation d'événements",
+          "intro": "Kakémonos, fanions et banderoles pour décorer un point de vente ou un espace événementiel.",
+          "items": [
+            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Kakémono de présentation de Siam Kubota, avec une carte du monde et les avantages pour les concessionnaires" }, "title": "Kakémono de présentation de l'entreprise", "format": "Kakémono 85×200 cm" },
+            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Kakémono mettant en avant les points forts du moteur diesel et du motoculteur KUBOTA" }, "title": "Kakémono des points forts produit", "format": "Kakémono 85×200 cm" },
+            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "Bande de 6 fanions triangulaires pour un événement Thank You Day en Tanzanie" }, "title": "Fanions pour le Thank You Day", "format": "Fanions 30×30 cm" },
+            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "Banderole pour un événement Thank You Day en Tanzanie, avec un agriculteur et le motoculteur" }, "title": "Banderole pour le Thank You Day", "format": "Banderole 2×4 m" }
+          ]
+        },
+        {
+          "icon": "📌",
+          "title": "Autres supports marketing",
+          "intro": "Chevalets de comptoir pour le point de vente, présentant l'ensemble de la gamme de produits.",
+          "items": [
+            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Chevalet présentant l'ensemble de la gamme de produits, page 1 — photo du moteur et logo No.1 Global Brand" }, "title": "Chevalet de gamme de produits (page 1)", "format": "Chevalet A4" },
+            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Chevalet présentant l'ensemble de la gamme de produits, page 2 — motoculteurs TRA CHANG NC Plus X et NC Plus X Special" }, "title": "Chevalet de gamme de produits (page 2)", "format": "Chevalet A4" }
+          ]
+        }
+      ],
+      "note": "Images d'exemple issues des fichiers graphiques réels de l'entreprise. Cliquez sur une image pour l'agrandir. Les fichiers haute résolution prêts à imprimer seront ajoutés ici au téléchargement prochainement."
     }
   },
   "artwork": {
@@ -613,14 +644,21 @@
     "formTitle": "Détails de conception",
     "sizeLabel": "Taille du support",
     "sizes": { "banner": "Banderole (3 m de large x 1 m de haut)", "standee": "Kakémono (160 cm de haut x 80 cm de large)" },
+    "bgStyleLabel": "Style de fond",
+    "bgStyles": { "diagonal": "Diagonale orange", "dark": "Sombre et premium", "frame": "Cadre classique" },
     "productLabel": "Produit à mettre en avant",
     "products": { "engine": "Moteur diesel ZT Plus", "tiller": "Motoculteur TRA CHANG NC Plus X", "both": "Les deux produits" },
     "shopNameLabel": "Nom du point de vente / concessionnaire",
     "shopNamePlaceholder": "ex. Boutique Agri S.",
-    "contactLabel": "Adresse / Téléphone / LINE",
-    "contactPlaceholder": "123 rue Sukhumvit, Bang Na, Samut Prakan • Tél. 08X-XXX-XXXX • LINE : @xxxx",
-    "promoLabel": "Texte promotionnel (facultatif)",
-    "promoPlaceholder": "ex. Paiement en 10 fois sans frais",
+    "contactLabel": "Adresse / Téléphone / WhatsApp",
+    "contactPlaceholder": "123 rue Sukhumvit, Bang Na, Samut Prakan • Tél./WhatsApp 08X-XXX-XXXX",
+    "headlineLabel": "Titre principal (grand, le plus visible)",
+    "headlinePlaceholder": "ex. Paiement en 10 fois sans frais",
+    "subheadlineLabel": "Sous-titre (taille moyenne)",
+    "subheadlinePlaceholder": "ex. Modèles sélectionnés uniquement",
+    "bodyLabel": "Texte de détail (le plus petit)",
+    "bodyPlaceholder": "ex. Conditions générales applicables. Contactez-nous pour plus de détails.",
+    "decorations": { "label": "Logos décoratifs supplémentaires (facultatif)", "man": "Agriculteur souriant qui encourage", "manAlt": "Agriculteur souriant faisant un pouce levé, autocollant décoratif pour le support", "no1": "Badge \"No.1 Global Brand\"", "no1Alt": "Badge \"No.1 Global Brand with 3.5 Million Units Sold\"", "sizeLabel": "Taille" },
     "previewTitle": "Aperçu",
     "downloadButton": "Télécharger le fichier prêt à imprimer",
     "downloadingLabel": "Génération du fichier...",

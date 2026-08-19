@@ -604,7 +604,38 @@
     "company": {
       "title": "Materials Mula sa Kompanya",
       "intro": "Mga artwork file, banner, poster, at handa nang materials mula sa KUBOTA na puwedeng gamitin agad ng Dealer.",
-      "note": "Inihahanda pa ang page na ito. Magdaragdag kami ng mga file at materials dito sa lalong madaling panahon."
+      "groups": [
+        {
+          "icon": "📘",
+          "title": "Product Knowledge Media",
+          "intro": "Mga brochure at spec sheet para sa mga customer na gustong mas maunawaan pa ang produkto.",
+          "items": [
+            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "ZT Plus Africa leaflet page 1 — spec table ng engine at power tiller, kasama ang magsasakang may hawak na No.1 Global Brand badge" }, "title": "ZT Plus Africa Leaflet (page 1)", "format": "A4 Leaflet" },
+            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "ZT Plus Africa leaflet page 2 — larawan ng engine kasama ang mga highlight at horsepower table bawat model" }, "title": "ZT Plus Africa Leaflet (page 2)", "format": "A4 Leaflet" }
+          ]
+        },
+        {
+          "icon": "🎪",
+          "title": "Event & Activity Media",
+          "intro": "Mga roll-up, bunting, at banner para pagandahin ang tindahan o event space.",
+          "items": [
+            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Roll-up na nagpapakilala sa Siam Kubota, may world map at benepisyo para sa dealer" }, "title": "Company Introduction Roll-up", "format": "Roll-up 85×200 cm" },
+            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Roll-up na nag-hi-highlight ng key benefits ng KUBOTA diesel engine at power tiller" }, "title": "Product Highlight Roll-up", "format": "Roll-up 85×200 cm" },
+            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "Strip ng 6 na triangular na bunting flag para sa Thank You Day event sa Tanzania" }, "title": "Thank You Day Bunting", "format": "Bunting 30×30 cm" },
+            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "Banner para sa Thank You Day event sa Tanzania, may magsasaka at power tiller" }, "title": "Thank You Day Banner", "format": "Banner 2×4 m" }
+          ]
+        },
+        {
+          "icon": "📌",
+          "title": "Iba Pang Marketing Media",
+          "intro": "Mga tent card para sa counter ng tindahan o sales desk, nagpapakita ng buong product line-up.",
+          "items": [
+            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Tent card ng buong product list, page 1 — larawan ng engine at ang No.1 Global Brand logo" }, "title": "Product List Tent Card (page 1)", "format": "Tent Card A4" },
+            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Tent card ng buong product list, page 2 — TRA CHANG NC Plus X at NC Plus X Special power tiller" }, "title": "Product List Tent Card (page 2)", "format": "Tent Card A4" }
+          ]
+        }
+      ],
+      "note": "Sample na larawan mula sa aktuwal na artwork file ng kompanya. I-click ang larawan para makita nang mas malaki. Ang high-resolution na file na print-ready ay idadagdag dito para ma-download sa lalong madaling panahon."
     }
   },
   "artwork": {
@@ -613,14 +644,21 @@
     "formTitle": "Detalye ng design",
     "sizeLabel": "Sukat ng media",
     "sizes": { "banner": "Banner (3 m ang lapad x 1 m ang taas)", "standee": "Standee (160 cm ang taas x 80 cm ang lapad)" },
+    "bgStyleLabel": "Istilo ng background",
+    "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame" },
     "productLabel": "Produktong ipapakita",
     "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Parehong produkto" },
     "shopNameLabel": "Pangalan ng tindahan / Dealer",
     "shopNamePlaceholder": "hal. S. Kaset Agri Shop",
-    "contactLabel": "Address / Telepono / LINE",
-    "contactPlaceholder": "123 Sukhumvit Rd, Bang Na, Samut Prakan • Tel. 08X-XXX-XXXX • LINE: @xxxx",
-    "promoLabel": "Promo text (opsyonal)",
-    "promoPlaceholder": "hal. 0% installment sa loob ng 10 buwan",
+    "contactLabel": "Address / Telepono / WhatsApp",
+    "contactPlaceholder": "123 Sukhumvit Rd, Bang Na, Samut Prakan • Tel./WhatsApp 08X-XXX-XXXX",
+    "headlineLabel": "Headline (malaki, pinaka-eye-catching)",
+    "headlinePlaceholder": "hal. 0% installment sa loob ng 10 buwan",
+    "subheadlineLabel": "Sub-headline (katamtamang laki)",
+    "subheadlinePlaceholder": "hal. Piling model lang",
+    "bodyLabel": "Body text (pinakamaliit)",
+    "bodyPlaceholder": "hal. May mga tuntunin at kondisyon. Makipag-ugnayan sa amin para sa detalye.",
+    "decorations": { "label": "Karagdagang dekorasyong logo (opsyonal)", "man": "Nakangiting magsasakang nagbibigay-lakas ng loob", "manAlt": "Nakangiting magsasakang nag-thumbs-up, dekorasyong sticker para sa disenyo", "no1": "Badge na \"No.1 Global Brand\"", "no1Alt": "Badge na \"No.1 Global Brand with 3.5 Million Units Sold\"", "sizeLabel": "Laki" },
     "previewTitle": "Preview",
     "downloadButton": "I-download ang print-ready na file",
     "downloadingLabel": "Gumagawa ng file...",
