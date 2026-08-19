@@ -1,5 +1,5 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "Knowledge hub for new Dealers and Distributors", "langLabel": "Language", "sampleBadge": "Sample data" },
+  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Language", "sampleBadge": "Sample data" },
   "nav": { "home": "Home", "product": "Product", "parts": "Parts", "service": "Service", "crops": "Crop Solutions", "marketing": "Events", "artwork": "Marketing Materials", "order": "Order" },
   "hero": {
     "title": "Welcome to KU-KIT",

@@ -1,5 +1,5 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "Kituo cha maarifa kwa Wauzaji na Wasambazaji wapya", "langLabel": "Lugha", "sampleBadge": "Data ya mfano" },
+  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Lugha", "sampleBadge": "Data ya mfano" },
   "nav": { "home": "Nyumbani", "product": "Bidhaa", "parts": "Vipuri", "service": "Huduma", "crops": "Suluhisho za Mazao", "marketing": "Matukio", "artwork": "Vifaa vya Masoko", "order": "Agiza" },
   "hero": {
     "title": "Karibu KU-KIT",
