@@ -64,7 +64,12 @@
           { "title": "Structure en aluminium renforcée", "desc": "Protège le radiateur et les autres pièces contre les dommages, renforcée sur 3 points d'ancrage pour réduire les vibrations pendant le fonctionnement.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Les 3 points d'ancrage de la structure en aluminium sur le moteur ZT155DI" } },
           { "title": "Jauge de niveau de carburant transparente", "desc": "Jauge en PVC transparent permettant de vérifier le niveau de carburant d'un coup d'œil.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Tube de jauge de niveau de carburant en PVC transparent sur le réservoir" } },
           { "title": "Phare LED", "desc": "Phare LED puissant pour un fonctionnement nocturne en sécurité ; le modèle PRO ajoute des clignotants et un port de charge USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Gros plan sur le phare LED puissant du moteur ZT Plus" } }
-        ]
+        ],
+        "media": {
+          "files": [
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view" }
+          ]
+        }
       },
       "preDelivery": {
         "title": "5 contrôles essentiels avant de faire fonctionner le moteur",
@@ -92,7 +97,8 @@
           "Tenir fermement la manivelle après le démarrage du moteur afin qu'elle ne s'échappe pas et ne provoque pas de blessure — elle se libère et se détache d'elle-même.",
           "Ne pas relâcher le levier de soupape et arrêter de tourner en cours de route — cela peut provoquer un retour de manivelle du moteur (fumée au niveau du filtre à air) et le faire tourner à l'envers.",
           "En cas de retour de manivelle, retirer le filtre à air et le vérifier — nettoyer la suie ou remplacer le filtre s'il est endommagé."
-        ]
+        ],
+        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view" }
       },
       "applicationExamples": {
         "title": "Exemples d'application",
@@ -105,6 +111,7 @@
       "authenticity": {
         "title": "Comment vérifier l'authenticité du moteur KUBOTA ZT Plus",
         "intro": "Les contrefaçons nuisent à la confiance des clients et à la sécurité du service après-vente. Utilisez ces points de contrôle pour confirmer qu'il s'agit d'un moteur KUBOTA authentique.",
+        "artworkImage": { "src": "assets/img/product/authenticity/engine-authenticity-artwork-en.jpg", "alt": "Comment vérifier l'authenticité du moteur diesel KUBOTA — logo sur le déflecteur, symbole K en relief sur le carter supérieur, marquages K sur le volant moteur, symbole K sur le carter avant, numéro de série à 6 chiffres, et autocollants concessionnaire requis" },
         "points": [
           { "text": "Symbole « K » en relief (logo d'identité Kubota) sur le carter du moteur.", "image": { "src": "assets/img/product/authenticity/engine-01-k-symbol.png", "alt": "Symbole K en relief sur le carter du moteur" } },
           { "text": "Logo Kubota estampé sur le déflecteur — déflecteur noir sur le modèle Standard, déflecteur argenté sur le modèle PRO.", "image": { "src": "assets/img/product/authenticity/engine-02-spoiler.png", "alt": "Logo KUBOTA estampé sur le déflecteur" } },
@@ -115,15 +122,11 @@
           { "text": "Un autocollant « Garantie 3 ans » de Siam Kubota sur le carter latéral.", "image": { "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png", "alt": "Autocollant Garantie 3 ans de Siam Kubota" } },
           { "text": "Un autocollant TIS (norme industrielle thaïlandaise) avec un QR code scannable confirmant la fabrication par Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "Autocollant TIS avec QR code scannable" } },
           { "text": "Le modèle et le numéro de série à 6 chiffres gravés sur le moteur ; scannez le QR code sur le carter latéral — un moteur authentique affiche « Genuine product from Siam Kubota ».", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Modèle et numéro de série à 6 chiffres gravés sur le moteur" } }
-        ]
+        ],
+        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view" }
       },
       "resources": [
-        { "title": "Diaporama de connaissance produit — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-EN.pptx" },
-        { "title": "Diaporama de connaissance produit — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-TH.pptx" },
-        { "title": "Liste de contrôle d'authenticité du moteur (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-Engine-Checklist-EN.pptx" },
-        { "title": "Manuel d'utilisation ZT Plus (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-EN.pdf" },
-        { "title": "Manuel d'utilisation ZT Plus (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-TH.pdf" },
-        { "title": "Photo produit haute résolution — moteur ZT155 DI Plus", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1gCbfACa3Kh3x1lrPz2jFtoR1dMFyFLzT/view" }
+        { "title": "Manuel d'utilisation ZT Plus (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view" }
       ],
       "videosTitle": "Vidéos",
       "downloadsTitle": "Téléchargements",

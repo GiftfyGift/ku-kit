@@ -64,7 +64,12 @@
           { "title": "Pinatibay na aluminum structure", "desc": "Pinoprotektahan ang radiator at ibang parte laban sa pinsala, may reinforcement sa 3 anchor point para bawasan ang pagyanig habang gumagana.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Lahat ng 3 anchor point ng aluminum structure sa ZT155DI engine" } },
           { "title": "Transparent na fuel level gauge", "desc": "Malinaw na PVC gauge para makita agad ang lebel ng gasolina.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Malinaw na PVC fuel level gauge tube sa fuel tank" } },
           { "title": "LED headlamp", "desc": "Maliwanag na LED headlamp para sa ligtas na gabing operasyon; may dagdag na turn signal at USB charging port ang PRO model.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Malapitang larawan ng maliwanag na LED headlamp sa ZT Plus engine" } }
-        ]
+        ],
+        "media": {
+          "files": [
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view" }
+          ]
+        }
       },
       "preDelivery": {
         "title": "5 Mahalagang Beripikasyon Bago Patakbuhin ang Engine",
@@ -92,7 +97,8 @@
           "Hawakan nang mahigpit ang crank matapos mag-start ang engine para hindi ito lumipad at magdulot ng aksidente — kusa itong maluluwag at matatanggal.",
           "Huwag bitawan ang valve lever at ihinto ang pag-crank sa gitna — maaari itong magdulot ng kickback (aasoke ang air filter) at paikot pabalik ng engine.",
           "Kung mag-kickback ang engine, alisin ang air filter at suriin — linisin ang uling o palitan ang filter kung sira."
-        ]
+        ],
+        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view" }
       },
       "applicationExamples": {
         "title": "Mga Halimbawa ng Application",
@@ -105,6 +111,7 @@
       "authenticity": {
         "title": "Paano Tiyakin ang Orihinal na KUBOTA ZT Plus Engine",
         "intro": "Ang mga peke ay nakakasira sa tiwala ng customer at kaligtasan pagkatapos ng benta. Gamitin ang mga checkpoint na ito para matiyak na orihinal ang KUBOTA engine.",
+        "artworkImage": { "src": "assets/img/product/authenticity/engine-authenticity-artwork-en.jpg", "alt": "Paano tiyakin ang orihinal na KUBOTA diesel engine — logo sa spoiler, embossed na K sa takip sa itaas, mga marka ng K sa flywheel, embossed na K sa harap na takip, 6-digit na serial number, at mga kinakailangang dealer sticker" },
         "points": [
           { "text": "May embossed na simbolong \"K\" (Kubota identity logo) sa takip ng engine.", "image": { "src": "assets/img/product/authenticity/engine-01-k-symbol.png", "alt": "Embossed na simbolong K sa takip ng engine" } },
           { "text": "May debossed na Kubota logo ang spoiler — itim na spoiler sa Standard model, pilak na spoiler sa PRO model.", "image": { "src": "assets/img/product/authenticity/engine-02-spoiler.png", "alt": "Debossed na KUBOTA logo sa spoiler" } },
@@ -115,15 +122,11 @@
           { "text": "May \"3-Years Warranty\" sticker mula sa Siam Kubota sa side gear cover.", "image": { "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png", "alt": "3-Years Warranty sticker mula sa Siam Kubota" } },
           { "text": "May TIS (Thai Industrial Standard) sticker na may scannable QR code na nagpapatunay na ginawa ng Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "TIS sticker na may scannable QR code" } },
           { "text": "Nakaukit ang modelo at 6-digit na serial number sa engine; i-scan ang QR code sa side gear cover — ipapakita ng orihinal na yunit ang \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Modelo at 6-digit na serial number na nakaukit sa engine" } }
-        ]
+        ],
+        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view" }
       },
       "resources": [
-        { "title": "ZT Plus — Product Knowledge deck (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-EN.pptx" },
-        { "title": "ZT Plus — Product Knowledge deck (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/ZT-Plus-Product-Knowledge-TH.pptx" },
-        { "title": "Checklist ng orihinal na engine (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-Engine-Checklist-EN.pptx" },
-        { "title": "Operation manual ng ZT Plus (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-EN.pdf" },
-        { "title": "Operation manual ng ZT Plus (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/ZT-Plus-Operation-Manual-TH.pdf" },
-        { "title": "High-res na packshot — ZT155 DI Plus engine", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1gCbfACa3Kh3x1lrPz2jFtoR1dMFyFLzT/view" }
+        { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view" }
       ],
       "videosTitle": "Mga Video",
       "downloadsTitle": "Mga Download",
