@@ -1816,7 +1816,7 @@ function renderArtworkBody(c) {
               </label>
             </div>
           </div>
-          <button type="button" id="aw-download" class="btn-primary artwork-download-btn">${a.downloadButton}</button>
+          <button type="button" id="aw-download" class="file-pill artwork-download-btn">${a.downloadButton}</button>
           <p class="artwork-resolution-note" id="aw-resolution-note"></p>
         </div>
         <div class="artwork-preview">
