@@ -668,6 +668,7 @@
     "textOffsetYLabel": "Shift Up-Down",
     "textScaleLabel": "Text Size",
     "textRotationLabel": "Rotate/Tilt Text",
+    "dragHint": "💡 Drag the headline text in the preview with your mouse or finger to reposition it directly.",
     "decorations": { "label": "Extra decorative logos (optional)", "man": "Smiling farmer giving encouragement", "manAlt": "Smiling farmer giving a thumbs-up, a decorative sticker for the design", "no1": "\"No.1 Global Brand\" badge", "no1Alt": "\"No.1 Global Brand with 3.5 Million Units Sold\" badge", "sizeLabel": "Size" },
     "previewTitle": "Preview",
     "downloadButton": "Download print-ready file",

@@ -1785,6 +1785,7 @@ function renderArtworkBody(c) {
           <div class="artwork-canvas-wrap">
             <canvas id="aw-canvas"></canvas>
           </div>
+          <p class="artwork-canvas-hint">${a.dragHint}</p>
         </div>
       </div>
       <div class="note-callout">${a.note}</div>
@@ -2271,6 +2272,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   let cursorY = zoneTop + Math.max(0, (availableH - totalTextH) / 2);
   cursorY = Math.max(zoneTop, Math.min(cursorY, zoneBottomLimit - totalTextH));
   cursorY += textOffsetYpx;
+  const textBlockStartY = cursorY;
 
   // Tilt the whole headline/sub-headline/body stack together around its own
   // center, like rotating a text layer in a design tool — everything after
@@ -2319,6 +2321,15 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   ctx.font = `500 ${Math.round(contactFontSize)}px 'Noto Sans Thai', sans-serif`;
   const contactStartY = panelY + innerPad + shopLines.length * shopLineHeight + blockGap + contactFontSize;
   contactLines.forEach((ln, i) => ctx.fillText(ln, panelX + innerPad, contactStartY + i * contactLineHeight));
+
+  // Hand back the headline/sub-headline/body block's (unrotated) bounding box
+  // and pivot so the caller can hit-test mouse/touch drags against it and
+  // convert a drag delta back into the same offset units drawArtwork reads.
+  return {
+    headlineBounds: measuredBlocks.length
+      ? { x: headlineX - headlineMaxW / 2, y: textBlockStartY, w: headlineMaxW, h: totalTextH, rotationDeg: textRotationDeg, pivotX: headlineX, pivotY }
+      : null
+  };
 }
 
 function initArtworkPage(c) {
@@ -2411,8 +2422,9 @@ function initArtworkPage(c) {
     const offscreen = document.createElement('canvas');
     offscreen.width = pxW;
     offscreen.height = pxH;
+    let result;
     try {
-      await drawArtwork(offscreen.getContext('2d'), pxW, pxH, spec, st, c);
+      result = await drawArtwork(offscreen.getContext('2d'), pxW, pxH, spec, st, c);
     } catch (err) {
       console.error('Artwork preview render failed, keeping last good preview', err);
       if (myGen === previewGeneration) setTimeout(() => { if (myGen === previewGeneration) updatePreview(); }, 400);
@@ -2422,7 +2434,91 @@ function initArtworkPage(c) {
     canvas.width = pxW;
     canvas.height = pxH;
     canvas.getContext('2d').drawImage(offscreen, 0, 0);
+    // Remembered so the drag handlers below can hit-test the headline text
+    // and convert a pointer delta into the same px→percent scale drawArtwork
+    // used to place it.
+    lastHeadlineBounds = result && result.headlineBounds;
+    lastPxW = pxW;
+    lastPxH = pxH;
   }
+
+  // --- Drag the headline/sub-headline block directly on the canvas ---
+  let lastHeadlineBounds = null;
+  let lastPxW = 0;
+  let lastPxH = 0;
+  let dragState = null;
+
+  function canvasPoint(clientX, clientY) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: (clientX - rect.left) * (canvas.width / rect.width),
+      y: (clientY - rect.top) * (canvas.height / rect.height)
+    };
+  }
+
+  function hitHeadline(pt) {
+    const b = lastHeadlineBounds;
+    if (!b) return false;
+    // Undo the block's own rotation around its pivot before the axis-aligned
+    // bounds test, so dragging still hit-tests correctly when tilted.
+    const angle = -(b.rotationDeg || 0) * Math.PI / 180;
+    const dx = pt.x - b.pivotX;
+    const dy = pt.y - b.pivotY;
+    const rx = dx * Math.cos(angle) - dy * Math.sin(angle) + b.pivotX;
+    const ry = dx * Math.sin(angle) + dy * Math.cos(angle) + b.pivotY;
+    return rx >= b.x && rx <= b.x + b.w && ry >= b.y && ry <= b.y + b.h;
+  }
+
+  function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+
+  function pointerDown(clientX, clientY) {
+    const pt = canvasPoint(clientX, clientY);
+    if (!hitHeadline(pt)) return false;
+    dragState = {
+      startX: pt.x,
+      startY: pt.y,
+      startOffsetX: Number(textOffsetX.value),
+      startOffsetY: Number(textOffsetY.value)
+    };
+    canvas.classList.add('is-dragging');
+    return true;
+  }
+
+  function pointerMove(clientX, clientY) {
+    if (!dragState) {
+      canvas.classList.toggle('is-draggable', hitHeadline(canvasPoint(clientX, clientY)));
+      return;
+    }
+    const pt = canvasPoint(clientX, clientY);
+    // Same px↔percent mapping drawArtwork uses for textOffsetXpx/textOffsetYpx,
+    // inverted here so a drag of N canvas pixels moves the text by exactly
+    // that many pixels rather than some slider-scaled amount.
+    const dxPct = lastPxW ? ((pt.x - dragState.startX) / (lastPxW * 0.12)) * 100 : 0;
+    const dyPct = lastPxH ? ((pt.y - dragState.startY) / (lastPxH * 0.10)) * 100 : 0;
+    textOffsetX.value = clamp(Math.round(dragState.startOffsetX + dxPct), -100, 100);
+    textOffsetY.value = clamp(Math.round(dragState.startOffsetY + dyPct), -100, 100);
+    schedulePreview();
+  }
+
+  function pointerUp() {
+    if (!dragState) return;
+    dragState = null;
+    canvas.classList.remove('is-dragging');
+  }
+
+  canvas.addEventListener('mousedown', e => { if (pointerDown(e.clientX, e.clientY)) e.preventDefault(); });
+  window.addEventListener('mousemove', e => pointerMove(e.clientX, e.clientY));
+  window.addEventListener('mouseup', pointerUp);
+
+  canvas.addEventListener('touchstart', e => {
+    const t = e.touches[0];
+    if (t && pointerDown(t.clientX, t.clientY)) e.preventDefault();
+  }, { passive: false });
+  canvas.addEventListener('touchmove', e => {
+    const t = e.touches[0];
+    if (t && dragState) { pointerMove(t.clientX, t.clientY); e.preventDefault(); }
+  }, { passive: false });
+  canvas.addEventListener('touchend', pointerUp);
 
   sizeSel.addEventListener('change', schedulePreview);
   wireSwatchGroup(bgStyleGroup, schedulePreview);
