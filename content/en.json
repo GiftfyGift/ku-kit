@@ -359,6 +359,59 @@
       { "question": "Thank and strengthen relationships with existing customers", "answer": "Choose Thank You Customer Activity" }
     ],
     "labels": { "minParticipants": "Minimum participants", "target": "Target customers", "duration": "Suggested duration", "venue": "Suitable venue", "basic": "Basic activities (required)", "optional": "Optional activities", "schedule": "Suggested schedule", "checklist": "Checklist before the event starts" },
+    "activityComparison": {
+      "title": "Activity Standards Comparison",
+      "criteria": [
+        { "key": "objective", "icon": "🎯", "label": "Objective" },
+        { "key": "target", "icon": "👥", "label": "Target customers" },
+        { "key": "venue", "icon": "📍", "label": "Suitable venue" },
+        { "key": "basic", "icon": "✅", "label": "Required basic activities" },
+        { "key": "optional", "icon": "✨", "label": "Optional activities (if any)" },
+        { "key": "duration", "icon": "⏱️", "label": "Suggested duration" }
+      ],
+      "activities": [
+        {
+          "icon": "🎪",
+          "name": "KUBOTA Family Day (KFD)",
+          "objective": "Introduce products, build awareness, and give the dealer a chance to meet new customers in the area.",
+          "target": ["Farmers who currently use a diesel engine or power tiller", "Farmers who do not own the products yet but may purchase in the future"],
+          "venue": "A community area close to customers, with easy access, product-display space, seating, and parking.",
+          "basic": ["Registration and customer welcome", "Display the KUBOTA Diesel engine and Power Tiller", "Introduce the dealer and after-sales service", "Present the main product highlights", "Q&A with customers", "Prepare snacks and drinking water"],
+          "optional": ["Customers share their experience", "Installment or promotion program", "Quiz game with prizes", "Lucky draw or souvenirs"],
+          "duration": "2–3 hours"
+        },
+        {
+          "icon": "🚜",
+          "name": "Demonstration Activity (NC Power Tiller Demo)",
+          "objective": "Demonstrate real operation in the field, show correct usage, and let customers try the product.",
+          "target": ["Farmers considering a power tiller purchase", "Customers who want to see real performance before deciding"],
+          "venue": "A real, prepared rice field with a registration area, presentation point, a viewing tent for customers, a demonstration route, and a trial area.",
+          "basic": ["Introduce the KUBOTA Power Tiller and diesel engine sold in that market", "Demonstrate driving and using attachments in a real field", "Show smooth control by a KUBOTA demonstration driver", "Let customers try driving with staff support", "Prepare a snack box or drinking water"],
+          "optional": ["Working-speed test", "Fuel-consumption test", "Comparison with a competitor or similarly powered engine", "Promotion or product booking"],
+          "duration": "About 3 hours"
+        },
+        {
+          "icon": "🔧",
+          "name": "Mobile Service",
+          "objective": "Reinforce after-sales service by bringing technicians to inspect products and give advice at the customer's location.",
+          "target": ["Customers who own a KUBOTA engine", "Customers who own a KUBOTA power tiller"],
+          "venue": "An area close to customers with enough space for product drop-off, registration, waiting, inspection, and a spare-parts booth.",
+          "basic": ["Registration and receive the product", "Basic inspection of the engine and power tiller", "Explain correct usage and maintenance", "Recommend and replace parts when due or needed", "Return the product to the customer", "Set up a spare-parts sales booth"],
+          "optional": ["None (drinking water or snacks can be prepared for waiting customers)"],
+          "duration": "About 3 hours, with the main inspection taking 120 minutes"
+        },
+        {
+          "icon": "🎁",
+          "name": "Thank You Customer Activity",
+          "objective": "Thank existing customers, create a good impression, and strengthen their relationship with the dealer and the KUBOTA brand.",
+          "target": ["Owners of a KUBOTA diesel engine or power tiller", "Regular customers the dealer wants to keep engaged", "Customers likely to refer the product to others"],
+          "venue": "An event ground, dealer shop, banquet hall, or community space that can host a stage, dining tables, a product display, a photo corner, and parking.",
+          "basic": ["Registration, welcome, and souvenir handout", "Decorate the venue in the KUBOTA orange-and-white theme", "Set up dining tables and chairs", "Product display and photo corner", "Thank customers and share product knowledge", "Food, entertainment, games, and a lucky draw"],
+          "optional": ["Mobile Service for larger events", "Friend Get Friend", "Introduce new products or promotions"],
+          "duration": "About 3.5 hours"
+        }
+      ]
+    },
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",

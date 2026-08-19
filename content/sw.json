@@ -359,6 +359,59 @@
       { "question": "Shukuru na uimarishe uhusiano na wateja waliopo", "answer": "Chagua Thank You Customer Activity" }
     ],
     "labels": { "minParticipants": "Idadi ya chini ya washiriki", "target": "Wateja walengwa", "duration": "Muda unaopendekezwa", "venue": "Mahali panapofaa", "basic": "Shughuli za msingi (zinazohitajika)", "optional": "Shughuli za hiari", "schedule": "Ratiba inayopendekezwa", "checklist": "Orodha ya ukaguzi kabla ya tukio kuanza" },
+    "activityComparison": {
+      "title": "Ulinganisho wa Viwango vya Shughuli",
+      "criteria": [
+        { "key": "objective", "icon": "🎯", "label": "Lengo" },
+        { "key": "target", "icon": "👥", "label": "Wateja walengwa" },
+        { "key": "venue", "icon": "📍", "label": "Mahali panapofaa" },
+        { "key": "basic", "icon": "✅", "label": "Shughuli za msingi zinazohitajika" },
+        { "key": "optional", "icon": "✨", "label": "Shughuli za hiari (ikiwa zipo)" },
+        { "key": "duration", "icon": "⏱️", "label": "Muda unaopendekezwa" }
+      ],
+      "activities": [
+        {
+          "icon": "🎪",
+          "name": "KUBOTA Family Day (KFD)",
+          "objective": "Anzisha bidhaa, jenga uelewa, na mpe muuzaji fursa ya kukutana na wateja wapya katika eneo hilo.",
+          "target": ["Wakulima wanaotumia injini ya dizeli au trekta la kutembea kwa sasa", "Wakulima ambao hawana bidhaa bado lakini wanaweza kununua baadaye"],
+          "venue": "Eneo la jamii karibu na wateja, lenye ufikiaji rahisi, nafasi ya maonyesho ya bidhaa, viti, na maegesho.",
+          "basic": ["Usajili na ukaribishaji wa wateja", "Onyesha injini ya dizeli na trekta la kutembea la KUBOTA", "Mtambulishe muuzaji na huduma baada ya mauzo", "Wasilisha faida kuu za bidhaa", "Maswali na majibu na wateja", "Andaa vitafunio na maji ya kunywa"],
+          "optional": ["Wateja washiriki uzoefu wao", "Mpango wa malipo ya awamu au matangazo", "Mchezo wa maswali wenye zawadi", "Bahati nasibu au zawadi za ukumbusho"],
+          "duration": "Saa 2–3"
+        },
+        {
+          "icon": "🚜",
+          "name": "Demonstration Activity (Onyesho la Trekta la NC)",
+          "objective": "Onyesha uendeshaji halisi shambani, onyesha matumizi sahihi, na waache wateja wajaribu bidhaa.",
+          "target": ["Wakulima wanaofikiria kununua trekta la kutembea", "Wateja wanaotaka kuona utendaji halisi kabla ya kuamua"],
+          "venue": "Shamba halisi la mpunga lililoandaliwa mapema, lenye eneo la usajili, sehemu ya uwasilishaji, hema ya kutazama kwa wateja, njia ya onyesho, na eneo la majaribio.",
+          "basic": ["Anzisha trekta la kutembea na injini ya dizeli ya KUBOTA inayouzwa katika soko hilo", "Onyesha uendeshaji na matumizi ya vifaa vya ziada shambani halisi", "Onyesha udhibiti mzuri na dereva wa onyesho wa KUBOTA", "Waache wateja wajaribu kuendesha wakiwa na msaada wa wafanyakazi", "Andaa sanduku la vitafunio au maji ya kunywa"],
+          "optional": ["Jaribio la kasi ya kufanya kazi", "Jaribio la matumizi ya mafuta", "Ulinganisho na washindani au injini yenye nguvu inayolingana", "Matangazo au uhifadhi wa bidhaa"],
+          "duration": "Takriban saa 3"
+        },
+        {
+          "icon": "🔧",
+          "name": "Mobile Service",
+          "objective": "Imarisha huduma baada ya mauzo kwa kuwatuma mafundi kukagua bidhaa na kutoa ushauri mahali alipo mteja.",
+          "target": ["Wateja wanaomiliki injini ya KUBOTA", "Wateja wanaomiliki trekta la kutembea la KUBOTA"],
+          "venue": "Eneo karibu na wateja lenye nafasi ya kutosha kwa kuachia bidhaa, usajili, kusubiri, ukaguzi, na kibanda cha vipuri.",
+          "basic": ["Usajili na kupokea bidhaa", "Ukaguzi wa msingi wa injini na trekta la kutembea", "Eleza matumizi sahihi na matengenezo", "Pendekeza na badilisha vipuri inapohitajika", "Rudisha bidhaa kwa mteja", "Weka kibanda cha kuuza vipuri"],
+          "optional": ["Hakuna (maji ya kunywa au vitafunio vinaweza kuandaliwa kwa wateja wanaosubiri)"],
+          "duration": "Takriban saa 3, huku ukaguzi mkuu ukichukua dakika 120"
+        },
+        {
+          "icon": "🎁",
+          "name": "Thank You Customer Activity",
+          "objective": "Washukuru wateja waliopo, uwaachie hisia njema, na uimarishe uhusiano wao na muuzaji pamoja na chapa ya KUBOTA.",
+          "target": ["Wamiliki wa injini ya dizeli au trekta la kutembea la KUBOTA", "Wateja wa mara kwa mara ambao muuzaji anataka kuendelea kuwashirikisha", "Wateja wanaoweza kupendekeza bidhaa kwa wengine"],
+          "venue": "Uwanja wa tukio, duka la muuzaji, ukumbi wa karamu, au eneo la jamii linaloweza kuwa na jukwaa, meza za chakula, maonyesho ya bidhaa, kona ya picha, na maegesho.",
+          "basic": ["Usajili, ukaribishaji, na ugawaji wa zawadi za ukumbusho", "Pamba eneo kwa mandhari ya rangi ya machungwa na nyeupe ya KUBOTA", "Weka meza na viti vya chakula", "Maonyesho ya bidhaa na kona ya picha", "Washukuru wateja na kushiriki maarifa kuhusu bidhaa", "Chakula, burudani, michezo, na bahati nasibu"],
+          "optional": ["Mobile Service kwa matukio makubwa zaidi", "Friend Get Friend", "Anzisha bidhaa mpya au matangazo"],
+          "duration": "Takriban saa 3.5"
+        }
+      ]
+    },
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",

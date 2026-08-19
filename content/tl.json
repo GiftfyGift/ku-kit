@@ -359,6 +359,59 @@
       { "question": "Magpasalamat at palakasin ang relasyon sa mga umiiral na customer", "answer": "Piliin ang Thank You Customer Activity" }
     ],
     "labels": { "minParticipants": "Pinakamababang bilang ng kalahok", "target": "Target na customer", "duration": "Rekomendadong tagal", "venue": "Angkop na venue", "basic": "Batayang activities (kailangan)", "optional": "Opsyonal na activities", "schedule": "Iminumungkahing schedule", "checklist": "Checklist bago simulan ang event" },
+    "activityComparison": {
+      "title": "Paghahambing ng Activity Standards",
+      "criteria": [
+        { "key": "objective", "icon": "🎯", "label": "Layunin" },
+        { "key": "target", "icon": "👥", "label": "Target na customer" },
+        { "key": "venue", "icon": "📍", "label": "Angkop na venue" },
+        { "key": "basic", "icon": "✅", "label": "Kinakailangang batayang activities" },
+        { "key": "optional", "icon": "✨", "label": "Opsyonal na activities (kung meron)" },
+        { "key": "duration", "icon": "⏱️", "label": "Iminumungkahing tagal" }
+      ],
+      "activities": [
+        {
+          "icon": "🎪",
+          "name": "KUBOTA Family Day (KFD)",
+          "objective": "Ipakilala ang produkto, bumuo ng awareness, at bigyan ang dealer ng pagkakataong makilala ang bagong customer sa lugar.",
+          "target": ["Mga magsasakang kasalukuyang gumagamit ng diesel engine o power tiller", "Mga magsasakang wala pang produkto pero may pagkakataong bumili sa hinaharap"],
+          "venue": "Community area na malapit sa customer, madaling puntahan, may espasyo para sa product display, upuan, at parking.",
+          "basic": ["Pagpaparehistro at pagtanggap sa customer", "I-display ang KUBOTA Diesel engine at Power Tiller", "Ipakilala ang dealer at ang after-sales service", "Ipakita ang mga pangunahing highlight ng produkto", "Q&A sa mga customer", "Maghanda ng meryenda at inuming tubig"],
+          "optional": ["Magbahagi ang customer ng karanasan nila", "Installment o promotion program", "Quiz game na may premyo", "Lucky draw o souvenir"],
+          "duration": "2–3 oras"
+        },
+        {
+          "icon": "🚜",
+          "name": "Demonstration Activity (NC Power Tiller Demo)",
+          "objective": "Ipakita ang aktuwal na operasyon sa field, ipakita ang tamang paggamit, at pahintulutan ang customer na subukan ang produkto.",
+          "target": ["Mga magsasakang isinasaalang-alang ang pagbili ng power tiller", "Mga customer na gustong makita ang aktuwal na performance bago magdesisyon"],
+          "venue": "Tunay na palayan na inihanda nang maaga, may rehistro area, presentation point, viewing tent para sa customer, demonstration route, at trial area.",
+          "basic": ["Ipakilala ang KUBOTA Power Tiller at diesel engine na binebenta sa merkadong iyon", "Ipakita ang pagmamaneho at paggamit ng attachments sa tunay na field", "Ipakita ang maayos na kontrol ng isang KUBOTA demonstration driver", "Pahintulutan ang customer na subukang magmaneho na may suporta ng staff", "Maghanda ng snack box o inuming tubig"],
+          "optional": ["Working-speed test", "Fuel-consumption test", "Paghahambing sa competitor o sa enghinyong may katulad na lakas", "Promotion o pag-book ng produkto"],
+          "duration": "Mga 3 oras"
+        },
+        {
+          "icon": "🔧",
+          "name": "Mobile Service",
+          "objective": "Palakasin ang after-sales service sa pamamagitan ng pagpapadala ng technician para suriin ang produkto at magbigay ng payo sa lokasyon ng customer.",
+          "target": ["Mga customer na may-ari ng KUBOTA engine", "Mga customer na may-ari ng KUBOTA power tiller"],
+          "venue": "Lugar na malapit sa customer na may sapat na espasyo para sa paghatid ng produkto, rehistro, paghihintay, inspeksyon, at spare-parts booth.",
+          "basic": ["Rehistro at pagtanggap ng produkto", "Batayang inspeksyon ng engine at power tiller", "Ipaliwanag ang tamang paggamit at maintenance", "Irekomenda at palitan ang parts kapag oras na o kinakailangan", "Ibalik ang produkto sa customer", "Mag-set up ng spare-parts sales booth"],
+          "optional": ["Wala (puwedeng maghanda ng inuming tubig o meryenda para sa naghihintay na customer)"],
+          "duration": "Mga 3 oras, kung saan 120 minuto ang pangunahing inspeksyon"
+        },
+        {
+          "icon": "🎁",
+          "name": "Thank You Customer Activity",
+          "objective": "Pasalamatan ang mga umiiral na customer, lumikha ng magandang impresyon, at palakasin ang kanilang relasyon sa dealer at sa brand ng KUBOTA.",
+          "target": ["Mga may-ari ng KUBOTA diesel engine o power tiller", "Regular na customer na gustong panatilihing engaged ng dealer", "Mga customer na malamang na magrekomenda ng produkto sa iba"],
+          "venue": "Event ground, tindahan ng dealer, banquet hall, o community space na kayang maghost ng stage, mesa para sa pagkain, product display, photo corner, at parking.",
+          "basic": ["Rehistro, pagtanggap, at pamamahagi ng souvenir", "Palamutian ang venue gamit ang orange-at-white na tema ng KUBOTA", "Mag-set up ng mesa at upuan para sa pagkain", "Product display at photo corner", "Pasalamatan ang customer at magbahagi ng kaalaman sa produkto", "Pagkain, entertainment, laro, at lucky draw"],
+          "optional": ["Mobile Service para sa mas malalaking event", "Friend Get Friend", "Ipakilala ang bagong produkto o promotion"],
+          "duration": "Mga 3.5 oras"
+        }
+      ]
+    },
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",
