@@ -743,10 +743,10 @@ function renderMarketing(c) {
         <div class="activity-guide-index">${String(idx + 1).padStart(2, '0')}</div>
         <h3 class="category-heading">${a.name.replace(/^\d+\.\s*/, '')}</h3>
         <p class="section-intro">${a.purpose}</p>
-        <div class="highlight-grid">
-          <div class="highlight-card"><h4>${lbl.minParticipants}</h4><p>${a.minParticipants}</p></div>
-          <div class="highlight-card"><h4>${lbl.duration}</h4><p>${a.duration}</p></div>
+        <div class="highlight-grid activity-facts-grid">
           <div class="highlight-card"><h4>${lbl.venue}</h4><p>${a.venue}</p></div>
+          <div class="highlight-card"><h4>${lbl.target}</h4><ul>${a.target.map(t => `<li>${t}</li>`).join('')}</ul></div>
+          <div class="highlight-card"><h4>${lbl.minParticipants}</h4><p>${a.minParticipants}</p></div>
         </div>
         <h4 class="subsection-title">${lbl.target}</h4>
         <ul class="check-list">${a.target.map(t => `<li>${t}</li>`).join('')}</ul>
@@ -755,11 +755,23 @@ function renderMarketing(c) {
         <h4 class="subsection-title">${lbl.optional}</h4>
         <ul class="check-list">${a.optionalActivities.map(t => `<li>${t}</li>`).join('')}</ul>
         <h4 class="subsection-title">${lbl.schedule}</h4>
-        <table class="kubota-table parts-table"><tbody>
-          ${a.schedule.map(s => `<tr><td class="code-col">${s.time}</td><td>${s.activity}</td></tr>`).join('')}
-        </tbody></table>
-        <h4 class="subsection-title">${lbl.checklist}</h4>
-        <ul class="check-list">${a.checklist.map(t => `<li>${t}</li>`).join('')}</ul>
+        <div class="activity-table-scroll">
+          <table class="kubota-table activity-schedule-table">
+            <thead><tr>
+              <th>${m.scheduleHeaders.time}</th>
+              <th>${m.scheduleHeaders.activity}</th>
+              <th>${m.scheduleHeaders.inCharge}</th>
+              <th>${m.scheduleHeaders.whatToDo}</th>
+            </tr></thead>
+            <tbody>${a.schedule.map(s => `<tr><td>${s.time}</td><td>${s.activity}</td><td>${s.inCharge}</td><td>${s.whatToDo}</td></tr>`).join('')}</tbody>
+          </table>
+        </div>
+        <h4 class="subsection-title">${lbl.recommendedItems}</h4>
+        <div class="activity-table-scroll">
+          <table class="kubota-table activity-items-table"><tbody>
+            ${a.recommendedItems.map(item => `<tr><th>${item.label}</th><td>${item.details}</td></tr>`).join('')}
+          </tbody></table>
+        </div>
         <div class="note-callout">${a.tip}</div>
         ${docs.length ? renderResourceList(docs) : ''}
       </div>
