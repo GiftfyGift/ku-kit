@@ -426,6 +426,8 @@
   "marketing": {
     "title": "Marketing Activities",
     "intro": "Four standard dealer activity formats for building product awareness, demonstrating real performance, delivering after-sales service, and thanking existing customers — straight from the official KUBOTA Activity Standard manuals.",
+    "fullDetailsTitle": "Full activity details",
+    "cardLabels": { "overviewTitle": "Activity Standards", "objective": "Objective", "target": "Target customers", "venue": "Recommended venue", "readMore": "Read more", "showLess": "Show less", "openGuide": "Go to the full activity details" },
     "quickSelectTitle": "Quick Activity Selection",
     "labels": { "minParticipants": "Minimum participants", "target": "Target customers", "duration": "Suggested duration", "venue": "Suitable venue", "basic": "Basic activities (required)", "optional": "Optional activities", "schedule": "Suggested schedule", "checklist": "Checklist before the event starts" },
     "activityComparison": {
@@ -484,12 +486,12 @@
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",
-        "purpose": "Build awareness of KUBOTA products and introduce the local dealer to customers in the area.",
+        "purpose": "Bring the actual products to customers, explain their key benefits, and show that the dealer can provide advice, service, and spare parts.",
         "minParticipants": "30 people",
-        "target": ["Farmers who currently use a diesel engine or power tiller", "Farmers who do not own the products yet but may purchase in the future", "Potential customers in an area where the dealer wants to build product awareness"],
+        "target": ["Farmers using another brand of diesel engine or power tiller who may switch products", "Customers who have used an engine or power tiller for a long time and are considering a replacement", "New customers in areas where the dealer wants to introduce the products"],
         "duration": "2-3 hours",
         "venue": "A community area close to the target customers, with easy access, customer seating, product-display space, parking, and protection from sun or rain when required.",
-        "basicActivities": ["Customer registration and welcome", "Display the KUBOTA Diesel engine ZT plus", "Display the KUBOTA Power Tiller", "Present the main product benefits", "Customer questions and discussion", "Light snacks and drinking water"],
+        "basicActivities": ["Register customers, collect contact details, and record the products they are interested in", "Display the KUBOTA Diesel engine and TRA CHANG Power Tiller as actual products", "Explain the key benefits and how to select the right product in a short and simple way", "Introduce the dealer, contact channels, after-sales service, and spare parts support", "Allow customers to ask questions and talk with the team"],
         "optionalActivities": ["Product quiz", "Lucky draw", "Event promotion", "Customer lead collection"],
         "schedule": [
           { "time": "09:00-09:30", "activity": "Registration, welcome, and product viewing" },
@@ -503,18 +505,18 @@
         "checklist": ["At least 30 customers are confirmed.", "The KUBOTA Diesel engine ZT plus is clean and ready for display.", "The KUBOTA Power Tiller is clean and ready for display.", "Registration, product display, seating, and parking areas are ready.", "Event signs, product materials, and sound system are ready.", "Presenters have reviewed the product information.", "Snacks and drinking water are sufficient.", "All team members understand their responsibilities."],
         "tip": "A basic product-introduction activity. Customers see the actual products and receive a presentation, but no field demonstration is required.",
         "resources": [
-          { "title": "KFD Activity manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
-          { "title": "KFD Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
+          { "title": "KFD Activity manual (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-EN.docx" },
+          { "title": "KFD Activity manual (TH)", "lang": "TH", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-TH.docx" }
         ]
       },
       {
         "name": "2. Demonstration Activity",
-        "purpose": "Demonstrate the KUBOTA Power Tiller in a real rice field, explain correct operation, and let customers try the product with staff support.",
+        "purpose": "Let customers see the KUBOTA Diesel engine and TRA CHANG Power Tiller working in real field conditions, understand correct operation, and try the product before deciding to buy.",
         "minParticipants": "30 people",
-        "target": ["Farmers considering a power tiller purchase", "Customers who want to see real performance before making a decision", "Farmers who want to learn the correct way to operate the product"],
+        "target": ["Farmers looking for a diesel engine or power tiller for heavy work", "Customers who want to see actual performance before deciding to buy", "Users of other brands who want to compare performance", "Customers who want to learn correct operation and choose suitable implements"],
         "duration": "2-3 hours",
-        "venue": "A rice field or real working area prepared in advance, with a clearly marked demonstration route, a customer viewing point, and a separate trial area when required.",
-        "basicActivities": ["Registration and activity briefing", "KUBOTA Power Tiller introduction and operating instructions", "Actual driving and working demonstration in a real rice field", "Supervised customer trial", "Questions and basic maintenance advice"],
+        "venue": "An easily accessible agricultural field, recommended at about 0.25–0.5 hectare, with clearly separated demonstration, customer trial, viewing tent, parking, and product access areas.",
+        "basicActivities": ["Register and welcome customers, and explain safety precautions", "Introduce the KUBOTA Diesel engine, TRA CHANG Power Tiller, wheels, and implements used in the event", "Demonstrate the product in a real field using the right implement for the product and local conditions", "Explain controls, operation, and key benefits during the demonstration", "Let customers try driving one at a time in a designated area with close staff supervision", "Summarize what customers have seen and open the session for questions"],
         "optionalActivities": ["Working-speed test", "Fuel-consumption test", "Competitor comparison using the same test conditions", "Booking or event promotion"],
         "schedule": [
           { "time": "09:00-09:30", "activity": "Registration and product viewing" },
@@ -529,12 +531,12 @@
         "tip": "The product must be demonstrated in a real field and customers must have a supervised trial. Speed and fuel-consumption tests are optional.",
         "resources": [
           { "title": "Demonstration Activity manual (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
-          { "title": "Demonstration Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
+          { "title": "Demonstration Activity manual (TH)", "lang": "TH", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-TH.docx" }
         ]
       },
       {
         "name": "3. Mobile Service",
-        "purpose": "Strengthen after-sales service by bringing technicians and service support closer to customers.",
+        "purpose": "Bring inspection and maintenance advice closer to customers, helping them use their products correctly and access spare parts more conveniently.",
         "minParticipants": "20 customers",
         "target": ["Existing customers who use KUBOTA products", "Areas with a reasonable number of KUBOTA users", "Customers who live far from the dealer or have limited access to service"],
         "duration": "About 3 hours",
@@ -551,39 +553,38 @@
         "checklist": ["At least 20 customers and their product types are confirmed.", "Receiving, waiting, inspection, and handover areas are ready.", "Technicians and basic tools are ready.", "Inspection sheets and product number tags are ready.", "Frequently replaced spare parts are available.", "The team understands the receive-inspect-explain-handover process.", "Customer seating, drinking water, and product access routes are ready."],
         "tip": "The main purpose is to bring after-sales service into the customer area. Product sales or product introduction is not the main focus.",
         "resources": [
-          { "title": "Mobile Service manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
-          { "title": "Mobile Service manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
+          { "title": "Mobile Service manual (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-EN.docx" },
+          { "title": "Mobile Service manual (TH)", "lang": "TH", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-TH.docx" }
         ]
       },
       {
         "name": "4. Thank You Customer Activity",
-        "purpose": "Thank existing customers for choosing KUBOTA and strengthen the relationship between customers, the dealer, and the KUBOTA brand.",
+        "purpose": "Thank customers for choosing KUBOTA, create a memorable experience, and strengthen the long-term relationship between customers, dealers, and the KUBOTA brand.",
         "minParticipants": "50 people",
-        "target": ["Existing users of the KUBOTA Diesel engine ZT plus or KUBOTA Power Tiller", "Areas with a large number of KUBOTA customers", "Customers with whom the dealer wants to build a long-term relationship"],
+        "target": ["Customers who own a KUBOTA Diesel engine or TRA CHANG Power Tiller", "Regular KUBOTA customers whom the dealer wants to maintain a long-term relationship with", "Customers who may recommend KUBOTA products to friends or other farmers"],
         "duration": "About 3 hours",
         "venue": "An event area, dealer location, banquet room, or community venue that can accommodate at least 50 customers, with space for registration, dining, stage activities, product display, a photo area, and parking.",
-        "basicActivities": ["Welcome customers and clearly communicate the thank-you message", "Decorate the venue with a KUBOTA theme", "Prepare a product display and photo area", "Provide a meal and drinks", "Provide a customer souvenir", "Include entertainment, games, or a lucky draw"],
+        "basicActivities": ["Register and welcome customers, and distribute souvenirs", "Decorate the venue in the orange-and-white KUBOTA theme and provide dining tables and chairs", "Set up a photo area and encourage customers to share photos on social media", "Prepare simple game booths with prizes", "Welcome customers and thank them for choosing KUBOTA", "Display a KUBOTA Diesel engine and TRA CHANG Power Tiller with product and maintenance knowledge", "Invite customers to share their KUBOTA product experience on stage", "Provide a meal, stage entertainment, a lucky draw, and a group photo before closing"],
         "optionalActivities": ["Mobile Service Zone", "Short new-product introduction", "Special offer", "Friend Get Friend", "Entertainment or singing"],
         "schedule": [
-          { "time": "16:00-16:30", "activity": "Registration, souvenir handout, product viewing, and photos" },
-          { "time": "16:30-16:40", "activity": "Welcome and thank-you message" },
-          { "time": "16:40-17:00", "activity": "Short news, new-product, or special-offer update, if selected" },
-          { "time": "17:00-17:30", "activity": "Games and customer participation" },
-          { "time": "17:30-18:30", "activity": "Meal and entertainment" },
-          { "time": "18:30-19:00", "activity": "Lucky draw" },
-          { "time": "19:00-19:10", "activity": "Final thanks and group photo" }
+          { "time": "08:30-09:30", "activity": "Welcome, games, and Mobile Service for a large-scale event" },
+          { "time": "09:30-09:45", "activity": "Opening and welcome speech" },
+          { "time": "09:45-10:15", "activity": "Product and maintenance knowledge" },
+          { "time": "10:15-10:30", "activity": "Customer testimonial" },
+          { "time": "10:30-11:15", "activity": "Meal and stage entertainment" },
+          { "time": "11:15-12:00", "activity": "Grand lucky draw and closing" }
         ],
         "checklist": ["At least 50 customers are confirmed.", "Registration, seating, dining, stage, and parking areas are ready.", "The event backdrop, photo area, and product display are ready.", "Food and drinks are sufficient.", "Souvenirs and prizes are ready.", "The MC and team understand the activity sequence.", "If Mobile Service is included, its area, technicians, tools, and spare parts are ready."],
         "tip": "A customer-appreciation and relationship activity. The atmosphere should be warm and enjoyable without placing too much focus on selling.",
         "resources": [
-          { "title": "Thank You Customer Activity manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
-          { "title": "Thank You Customer Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
+          { "title": "Thank You Customer Activity manual (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-EN.docx" },
+          { "title": "Thank You Customer Activity manual (TH)", "lang": "TH", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-TH.docx" }
         ]
       }
     ],
     "resources": [
-      { "title": "KUBOTA Activity Standard — 4-activity comparison table (EN, spreadsheet)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
-      { "title": "KUBOTA Activity Standard — 4-activity comparison table (TH, spreadsheet)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
+      { "title": "KUBOTA Activity Standard — 4-activity comparison table (EN, spreadsheet)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1adX7TPO4CyUZtWO-NFN99yX5KETA8aiq/view" },
+      { "title": "KUBOTA Activity Standard — 4-activity comparison table (TH, spreadsheet)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/17Xc4MFJIMNhMoZSEQJff8EAzRYfxRbSQ/view" },
       { "title": "Kubota Event highlight video", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
     ],
     "videosTitle": "Videos",
@@ -598,7 +599,7 @@
       ],
       "note": "The events above are a sample structure. Please replace with the real events calendar."
     },
-    "note": "All four activity manuals and the comparison table are real content from the official KUBOTA Activity Standard series. Manuals without a local download link above are linked directly to the source Drive file — those specific files were too small for this session's Drive connector to reliably save as local bytes, so they open in Google Drive in a new tab instead of downloading from this site."
+    "note": "This page is based on the latest KUBOTA Activity Standard manuals. All four activities include downloadable Thai and English manuals, while the summary tables link to the latest files in Google Drive."
   },
   "materials": {
     "title": "Marketing Materials",
