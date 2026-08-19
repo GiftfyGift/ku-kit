@@ -1251,20 +1251,24 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     ctx.font = `${b.weight} ${Math.round(b.fontSize)}px Prompt, sans-serif`;
     ctx.textAlign = 'center';
     if (b.key === 'headline') {
-      const glowColor = textOnDark ? 'rgba(255,196,120,0.95)' : 'rgba(255,140,60,0.9)';
+      // Bold orange-gradient fill with a heavy dark outline — reads clearly on
+      // any of the 3 backgrounds (unlike a white glow, which washes out on the
+      // light "diagonal"/"frame" styles).
       b.lines.forEach((ln, i) => {
         const ly = cursorY + i * b.lineHeight;
         ctx.save();
-        ctx.shadowColor = glowColor;
-        ctx.shadowBlur = b.fontSize * 0.4;
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fillText(ln, headlineX, ly);
-        ctx.fillText(ln, headlineX, ly);
-        ctx.restore();
-        ctx.lineWidth = Math.max(1, b.fontSize * 0.05);
-        ctx.strokeStyle = 'rgba(8,20,22,0.6)';
+        ctx.shadowColor = 'rgba(0,0,0,0.4)';
+        ctx.shadowBlur = b.fontSize * 0.1;
+        ctx.shadowOffsetY = b.fontSize * 0.04;
+        ctx.lineWidth = Math.max(1, b.fontSize * 0.1);
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#1a0e05';
         ctx.strokeText(ln, headlineX, ly);
-        ctx.fillStyle = '#FFFFFF';
+        ctx.restore();
+        const grad = ctx.createLinearGradient(0, ly - b.fontSize * 0.8, 0, ly + b.fontSize * 0.25);
+        grad.addColorStop(0, '#FFC15C');
+        grad.addColorStop(1, '#E8460C');
+        ctx.fillStyle = grad;
         ctx.fillText(ln, headlineX, ly);
       });
     } else {
