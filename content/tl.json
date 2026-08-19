@@ -352,12 +352,6 @@
     "title": "Marketing Activities",
     "intro": "Apat na standard na activity format para sa Dealer para bumuo ng awareness ng produkto, magpakita ng aktuwal na performance, magbigay ng after-sales service, at magpasalamat sa mga umiiral na customer — mula mismo sa opisyal na KUBOTA Activity Standard manuals.",
     "quickSelectTitle": "Mabilisang Pagpili ng Activity",
-    "quickSelect": [
-      { "question": "Ipakilala ang produkto at maghanap ng bagong customer", "answer": "Piliin ang KUBOTA Family Day" },
-      { "question": "Ipakita ang aktuwal na operasyon at pahintulutan ang customer na subukan ang produkto", "answer": "Piliin ang Demonstration Activity" },
-      { "question": "Dalhin ang after-sales service nang mas malapit sa customer", "answer": "Piliin ang Mobile Service" },
-      { "question": "Magpasalamat at palakasin ang relasyon sa mga umiiral na customer", "answer": "Piliin ang Thank You Customer Activity" }
-    ],
     "labels": { "minParticipants": "Pinakamababang bilang ng kalahok", "target": "Target na customer", "duration": "Rekomendadong tagal", "venue": "Angkop na venue", "basic": "Batayang activities (kailangan)", "optional": "Opsyonal na activities", "schedule": "Iminumungkahing schedule", "checklist": "Checklist bago simulan ang event" },
     "activityComparison": {
       "title": "Paghahambing ng Activity Standards",

@@ -352,12 +352,6 @@
     "title": "Activités marketing",
     "intro": "Quatre formats d'activités standards pour les concessionnaires, permettant de renforcer la notoriété des produits, de démontrer leurs performances réelles, d'assurer le service après-vente et de remercier les clients existants — directement issus des manuels officiels KUBOTA Activity Standard.",
     "quickSelectTitle": "Sélection rapide d'activité",
-    "quickSelect": [
-      { "question": "Présenter les produits et trouver de nouveaux clients", "answer": "Choisir KUBOTA Family Day" },
-      { "question": "Démontrer le fonctionnement réel et laisser les clients essayer le produit", "answer": "Choisir l'activité de démonstration" },
-      { "question": "Rapprocher le service après-vente des clients", "answer": "Choisir le service mobile" },
-      { "question": "Remercier et renforcer la relation avec les clients existants", "answer": "Choisir l'activité de remerciement client" }
-    ],
     "labels": { "minParticipants": "Participants minimum", "target": "Clients ciblés", "duration": "Durée suggérée", "venue": "Lieu adapté", "basic": "Activités de base (obligatoires)", "optional": "Activités optionnelles", "schedule": "Programme suggéré", "checklist": "Liste de contrôle avant le début de l'événement" },
     "activityComparison": {
       "title": "Comparatif des standards d'activité",

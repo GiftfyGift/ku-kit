@@ -352,12 +352,6 @@
     "title": "Shughuli za Masoko",
     "intro": "Mifumo minne ya kawaida ya shughuli za Muuzaji kwa ajili ya kujenga uelewa wa bidhaa, kuonyesha utendaji halisi, kutoa huduma baada ya mauzo, na kuwashukuru wateja waliopo — moja kwa moja kutoka kwenye miongozo rasmi ya KUBOTA Activity Standard.",
     "quickSelectTitle": "Uchaguzi wa Haraka wa Shughuli",
-    "quickSelect": [
-      { "question": "Anzisha bidhaa na tafuta wateja wapya", "answer": "Chagua KUBOTA Family Day" },
-      { "question": "Onyesha uendeshaji halisi na uwaache wateja wajaribu bidhaa", "answer": "Chagua Demonstration Activity" },
-      { "question": "Leta huduma baada ya mauzo karibu na wateja", "answer": "Chagua Mobile Service" },
-      { "question": "Shukuru na uimarishe uhusiano na wateja waliopo", "answer": "Chagua Thank You Customer Activity" }
-    ],
     "labels": { "minParticipants": "Idadi ya chini ya washiriki", "target": "Wateja walengwa", "duration": "Muda unaopendekezwa", "venue": "Mahali panapofaa", "basic": "Shughuli za msingi (zinazohitajika)", "optional": "Shughuli za hiari", "schedule": "Ratiba inayopendekezwa", "checklist": "Orodha ya ukaguzi kabla ya tukio kuanza" },
     "activityComparison": {
       "title": "Ulinganisho wa Viwango vya Shughuli",

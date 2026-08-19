@@ -352,12 +352,6 @@
     "title": "Marketing Activities",
     "intro": "Four standard dealer activity formats for building product awareness, demonstrating real performance, delivering after-sales service, and thanking existing customers — straight from the official KUBOTA Activity Standard manuals.",
     "quickSelectTitle": "Quick Activity Selection",
-    "quickSelect": [
-      { "question": "Introduce products and find new customers", "answer": "Choose KUBOTA Family Day" },
-      { "question": "Demonstrate real operation and let customers try the product", "answer": "Choose Demonstration Activity" },
-      { "question": "Bring after-sales service closer to customers", "answer": "Choose Mobile Service" },
-      { "question": "Thank and strengthen relationships with existing customers", "answer": "Choose Thank You Customer Activity" }
-    ],
     "labels": { "minParticipants": "Minimum participants", "target": "Target customers", "duration": "Suggested duration", "venue": "Suitable venue", "basic": "Basic activities (required)", "optional": "Optional activities", "schedule": "Suggested schedule", "checklist": "Checklist before the event starts" },
     "activityComparison": {
       "title": "Activity Standards Comparison",
