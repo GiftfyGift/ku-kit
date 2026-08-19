@@ -24,6 +24,15 @@
     "tabs": { "engine": "Engine", "tiller": "Power Tiller", "assembly": "Assembly Guide" },
     "engine": {
       "title": "KUBOTA Diesel Engine — ZT Plus",
+      "quickLinks": [
+        { "label": "Product Knowledge", "route": "product-engine", "anchor": "engine-product-info" },
+        { "label": "Delivery & Starting Steps", "route": "service", "anchor": "service-pre-delivery" },
+        { "label": "Pre-Delivery Check & Correct Starting Procedure", "route": "service", "anchor": "service-start-procedure" },
+        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "OPM (Operation Manual)", "route": "product-engine", "anchor": "engine-downloads" },
+        { "label": "Authenticity Checkpoints", "route": "product-engine", "anchor": "engine-authenticity" },
+        { "label": "Application Examples", "route": "product-engine", "anchor": "engine-application" }
+      ],
       "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "KUBOTA ZT155 DI Plus diesel engine" },
       "items": [
         {
@@ -53,9 +62,17 @@
         "items": [
           { "title": "Steel fuel tank", "desc": "10.5 litres on 10-15.5 HP engines, 14.5 litres on the 18 HP engine.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Close-up of the steel fuel tank on the ZT Plus engine" } },
           { "title": "Steel grate", "desc": "Protects the radiator and fan side, increases the inner radiator filter frequency for better dust protection and lower overheating risk.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Close-up of the steel grate protecting the radiator and fan" } },
-          { "title": "Reinforced aluminium structure", "desc": "Protects the radiator and other parts from damage, reinforced at 3 anchor points to reduce vibration during operation." },
-          { "title": "Transparent fuel level gauge", "desc": "Clear PVC gauge lets you check the fuel level at a glance." },
+          { "title": "Reinforced aluminium structure", "desc": "Protects the radiator and other parts from damage, reinforced at 3 anchor points to reduce vibration during operation.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "All 3 aluminium structure anchor points on the ZT155DI engine" } },
+          { "title": "Transparent fuel level gauge", "desc": "Clear PVC gauge lets you check the fuel level at a glance.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Clear PVC fuel level gauge tube on the fuel tank" } },
           { "title": "LED headlamp", "desc": "Bright LED headlamp for safe night-time operation; the PRO model adds turn signals and a USB charging port.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Close-up of the bright LED headlamp on the ZT Plus engine" } }
+        ]
+      },
+      "applicationExamples": {
+        "title": "Application Examples",
+        "intro": "The KUBOTA ZT Plus diesel engine can be installed on a wide range of equipment — from soil preparation, transport, and water pumping to construction work, livestock farms, and other agricultural or garden equipment.",
+        "images": [
+          { "src": "assets/img/product/application/engine-application-en-01.jpg", "alt": "ZT Plus engine application examples — power tiller attachment, agricultural transport, water pumps, multi-purpose/modified tillers, and construction vehicles" },
+          { "src": "assets/img/product/application/engine-application-en-02.jpg", "alt": "ZT Plus engine application examples — livestock farm use, and other agricultural/garden equipment" }
         ]
       },
       "authenticity": {
@@ -87,6 +104,12 @@
     },
     "tiller": {
       "title": "TRA CHANG Power Tiller — NC Plus X",
+      "quickLinks": [
+        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "OPM (Operation Manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
+        { "label": "Authenticity Checkpoints", "route": "product-tiller", "anchor": "tiller-authenticity" },
+        { "label": "Attachments for the Power Tiller", "route": "product-tiller", "anchor": "tiller-application" }
+      ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller" },
       "items": [
         {
@@ -111,6 +134,13 @@
         }
       ],
       "note": "Tell NC Plus X and NC Plus X Special apart: (1) chassis code on the warranty card — \"NC131\" has no \"S\" suffix (Plus X) vs \"NC131S\" (Special); (2) a punched \"S\" mark on the gear case only on the Special. All three TRA CHANG power tiller models can switch to rubber wheels for hauling crops or general transport.",
+      "applicationExamples": {
+        "title": "Usage Examples & Attachments for the Power Tiller",
+        "intro": "The TRA CHANG power tiller can be fitted with a wide range of attachments — from plowing, seed sowing, and rice harvesting to transport, threshing, hay baling, and weed control in cassava/sugarcane fields.",
+        "images": [
+          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Attachments that can be used with the TRA CHANG power tiller — plow, seed drill, rice harvester, transport, rice thresher, hay baler, and weed control in cassava/sugarcane fields" }
+        ]
+      },
       "authenticity": {
         "title": "How to Check the Genuine TRA CHANG Power Tiller",
         "intro": "Counterfeits hurt customer trust and after-sales safety. Use these checkpoints to confirm a genuine TRA CHANG power tiller.",
@@ -239,6 +269,28 @@
   "service": {
     "title": "Service",
     "intro": "The correct pre-delivery check and starting procedure for the KUBOTA ZT Plus engine, straight from the official training deck — plus after-sales programs every Dealer should know.",
+    "quickLinks": [
+      {
+        "label": "Engine Maintenance Steps",
+        "children": [
+          { "label": "Air Filter", "route": "service", "anchor": "maintenance-engine-0" },
+          { "label": "Fuel System", "route": "service", "anchor": "maintenance-engine-1" },
+          { "label": "Lubrication (Engine Oil)", "route": "service", "anchor": "maintenance-engine-2" },
+          { "label": "Cooling System (Radiator)", "route": "service", "anchor": "maintenance-engine-3" },
+          { "label": "Cooling Fan System", "route": "service", "anchor": "maintenance-engine-4" }
+        ]
+      },
+      {
+        "label": "Power Tiller Maintenance Steps",
+        "children": [
+          { "label": "Lubrication (Gear Oil)", "route": "service", "anchor": "maintenance-tiller-0" },
+          { "label": "Steering Lever Check", "route": "service", "anchor": "maintenance-tiller-1" },
+          { "label": "Clutch Free Play Check", "route": "service", "anchor": "maintenance-tiller-2" },
+          { "label": "Brake Free Play Check", "route": "service", "anchor": "maintenance-tiller-3" },
+          { "label": "Drive Belt Check", "route": "service", "anchor": "maintenance-tiller-4" }
+        ]
+      }
+    ],
     "tableHeaders": { "interval": "Interval", "task": "Task" },
     "preDelivery": {
       "title": "5 Key Checks Before Operating the Engine",
@@ -324,23 +376,44 @@
   "crops": {
     "title": "Crop Solutions",
     "intro": "Match the right power tiller wheel setup and technique to the field condition — wet paddy or dry paddy — so Dealers can recommend the correct configuration to farmers.",
+    "quickLinks": [
+      {
+        "label": "1. Rice Cultivation Solution",
+        "route": "crops",
+        "anchor": "crop-group-rice",
+        "children": [
+          { "label": "Dry Paddy Field", "route": "crops", "anchor": "crop-dry-paddy" },
+          { "label": "Wet Paddy Field", "route": "crops", "anchor": "crop-wet-paddy" }
+        ]
+      },
+      { "label": "2. Corn Cultivation Solution", "route": "crops", "anchor": "crop-corn" },
+      { "label": "3. Cassava Cultivation Solution", "route": "crops", "anchor": "crop-cassava" }
+    ],
     "solutions": [
       {
+        "id": "crop-wet-paddy",
+        "group": "Rice",
+        "groupId": "crop-group-rice",
         "name": "Wet Paddy Field",
         "desc": "For puddled, flooded paddy fields planted more than once a year. Use the NC Plus X Special with 880 mm or 980 mm cage wheels and the Gear Insert turning system for heavy-duty puddle work. Pair with a KUBOTA ZT Plus 14-15.5 HP engine for enough power in deep mud.",
         "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-dry-paddy",
+        "group": "Rice",
+        "groupId": "crop-group-rice",
         "name": "Dry Paddy Field",
         "desc": "For loamy or sandy soil that isn't puddled, including dry-season paddy, sugarcane, cassava, beans, and vegetable plots. The NC Plus X with 800 mm cage wheels is the right fit — lighter, more agile, and able to travel short distances on its cage wheels.",
         "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
       },
       {
+        "id": "crop-cassava",
         "name": "Cassava Field",
         "desc": "For upland cassava plots on loamy or sandy soil. The NC Plus X with 800 mm cage wheels is the right fit — light and agile enough to work between planting rows without damaging cassava mounds, and able to travel short distances on its cage wheels between fields.",
         "video": { "title": "Cassava field", "lang": "TH / EN", "note": "Master video exists in the source Drive folder (~2.3GB, TH and EN cuts) — not bundled into this build, pending video hosting decision" }
       },
       {
+        "id": "crop-corn",
         "name": "Corn (Maize) Field",
         "desc": "For upland maize plots on loamy or sandy soil, similar in profile to cassava and dry-season paddy. The NC Plus X with 800 mm cage wheels handles row spacing and short-distance travel between fields well.",
         "video": { "title": "Corn field", "lang": "TH / EN", "note": "Master video exists in the source Drive folder (~2.2GB, TH and EN cuts) — not bundled into this build, pending video hosting decision" }

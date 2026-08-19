@@ -65,6 +65,17 @@ function renderQuickLinks(list) {
   return `<ul class="quick-links">${list.map(item => `<li>${renderQuickLinkItem(item)}</li>`).join('')}</ul>`;
 }
 
+function renderQuickLinksColumns(groups) {
+  if (!groups || !groups.length) return '';
+  const boxes = groups.map(g => `
+    <div class="quick-links-box">
+      <h4 class="quick-links-box-title">${g.label}</h4>
+      <ul class="quick-links-sub">${(g.children || []).map(c => `<li>${renderQuickLinkItem(c)}</li>`).join('')}</ul>
+    </div>
+  `).join('');
+  return `<div class="quick-links-columns">${boxes}</div>`;
+}
+
 function renderProductSelector(c, active) {
   const t = c.product.tabs;
   const card = (key, label, img, alt) => `
@@ -474,7 +485,7 @@ function renderService(c) {
     <section>
       <h2 class="section-title">${s.title}</h2>
       <p class="section-intro">${s.intro}</p>
-      ${renderQuickLinks(s.quickLinks)}
+      ${renderQuickLinksColumns(s.quickLinks)}
       ${preDelivery}
       ${startProcedure}
       ${maintenance}
@@ -585,6 +596,7 @@ function renderActivityComparison(cmp) {
 }
 
 function renderActivityPicker(m) {
+  if (!m.activityComparison || !m.activityComparison.activities) return '';
   const acts = m.activityComparison.activities;
   const boxes = acts.map((a, i) => `
     <button type="button" class="activity-pick-box activity-cmp-accent-${i % 4}" data-ql-route="marketing" data-ql-anchor="activity-${i}">
