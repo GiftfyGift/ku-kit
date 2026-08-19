@@ -621,6 +621,79 @@ main {
 
 .activity-cmp-head-icon { font-size: 24px; }
 
+.activity-cmp-head-name {
+  position: relative;
+  z-index: 2;
+}
+
+.activity-cmp-head--carousel {
+  position: relative;
+  min-height: 112px;
+  justify-content: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0;
+}
+
+.activity-cmp-head--carousel::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: 46% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(3, 13, 17, 0.94));
+  pointer-events: none;
+}
+
+.activity-cmp-head--carousel .activity-cmp-head-name {
+  width: 100%;
+  padding: 12px 10px 10px;
+  color: #fff;
+  line-height: 1.35;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.activity-cmp-carousel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.activity-cmp-carousel-track {
+  display: flex;
+  width: 500%;
+  height: 100%;
+  animation: activity-carousel-slide 16s ease-in-out infinite;
+  will-change: transform;
+}
+
+.activity-cmp-carousel-track img {
+  width: 20%;
+  height: 100%;
+  flex: 0 0 20%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.activity-cmp-head--carousel:hover .activity-cmp-carousel-track {
+  animation-play-state: paused;
+}
+
+@keyframes activity-carousel-slide {
+  0%, 18% { transform: translateX(0); }
+  25%, 43% { transform: translateX(-20%); }
+  50%, 68% { transform: translateX(-40%); }
+  75%, 93% { transform: translateX(-60%); }
+  100% { transform: translateX(-80%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-cmp-carousel-track {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
 .activity-cmp-label {
   display: flex;
   align-items: center;
