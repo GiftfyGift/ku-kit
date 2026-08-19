@@ -1103,10 +1103,10 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2;
   const wmGap = wmHBase * 1.3;
-  // Expressed in `pad` units (not pxH) so it scales the same way as the "frame"
-  // style's band height below — guarantees the wordmark starts safely clear of
-  // the band instead of straddling its bottom edge.
-  const wmStartY = pad + logoH + pad * 0.9;
+  // Only the "frame" style needs the wide gap (in `pad` units, so it scales the
+  // same way as that style's band height) to clear the top color band — on the
+  // other 2 styles there's no band to avoid, so keep the logo and wordmark close.
+  const wmStartY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
   const maxWmW = isLandscape ? pxW * 0.4 : pxW * 0.7;
   productImgs.forEach((p, i) => {
     const wmAspect = p.wordmark.width / p.wordmark.height;
