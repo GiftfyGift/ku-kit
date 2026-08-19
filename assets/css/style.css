@@ -2349,6 +2349,16 @@ table.parts-table td.code-col {
 .order-add-btn-small:disabled,
 .order-add-btn:disabled { opacity: 0.7; cursor: default; }
 
+/* Persistent "already in cart" state — stays green (instead of a brief flash)
+   so items already added are easy to spot while scanning a long parts list. */
+.order-add-btn.is-added,
+.order-add-btn-small.is-added {
+  background: #22A05A;
+}
+
+.order-add-btn.is-added:hover,
+.order-add-btn-small.is-added:hover { background: #2BC06B; }
+
 .order-empty-row { text-align: center; color: var(--kubota-mid-gray); padding: 20px !important; }
 
 /* ---------- Order: checkout ---------- */

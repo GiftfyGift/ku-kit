@@ -864,6 +864,11 @@ function orderAddToCart(item) {
   return cart;
 }
 
+function orderCartQtyFor(key) {
+  const item = orderLoadCart().find(i => i.key === key);
+  return item ? item.qty : 0;
+}
+
 function orderGenNumber(prefix) {
   const d = new Date();
   const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
@@ -905,13 +910,6 @@ function orderUpdateCartBar() {
   if (countEl) countEl.textContent = String(orderCartCount(cart));
   if (totalEl) totalEl.textContent = orderFmtUsd(orderCartTotal(cart));
   bar.classList.toggle('is-empty', cart.length === 0);
-}
-
-function orderFlashAdded(btn, label) {
-  const original = btn.textContent;
-  btn.textContent = label;
-  btn.disabled = true;
-  setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 900);
 }
 
 /* ---------- Order: PDF generation (PO / PI) ---------- */
@@ -1177,6 +1175,7 @@ async function initOrderCatalogPage(c) {
     const product = findProduct(modelId);
     const isTiller = !!products.tillers.find(p => p.id === modelId);
 
+    const productCartQty = product ? orderCartQtyFor(`product:${product.id}`) : 0;
     const productCardHtml = product ? `
       <div class="category-block">
         <h3 class="category-heading">${oc.productHeading}</h3>
@@ -1187,7 +1186,7 @@ async function initOrderCatalogPage(c) {
           </div>
           <div class="order-product-actions">
             <input type="number" min="1" value="1" class="order-qty-input" id="order-product-qty">
-            <button type="button" class="order-btn order-add-btn" data-add-product="1">${oc.addToCart}</button>
+            <button type="button" class="order-btn order-add-btn ${productCartQty ? 'is-added' : ''}" data-add-product="1">${productCartQty ? `✓ ${oc.added} (${productCartQty})` : oc.addToCart}</button>
           </div>
         </div>
       </div>
@@ -1197,16 +1196,19 @@ async function initOrderCatalogPage(c) {
       <div class="category-block">
         <h3 class="category-heading">${oc.implementsHeading}</h3>
         <div class="order-implements-grid">
-          ${products.implements.map(imp => `
+          ${products.implements.map(imp => {
+            const q = orderCartQtyFor(`implement:${imp.id}`);
+            return `
             <div class="order-implement-card">
               <div class="order-implement-name">${imp.label}</div>
               <div class="order-implement-price">${orderFmtUsd(imp.basePrice)}</div>
               <div class="order-product-actions">
                 <input type="number" min="1" value="1" class="order-qty-input" id="order-implement-qty-${imp.id}">
-                <button type="button" class="order-add-btn-small" data-add-implement="${imp.id}">${oc.addToCart}</button>
+                <button type="button" class="order-add-btn-small ${q ? 'is-added' : ''}" data-add-implement="${imp.id}">${q ? `✓ ${oc.added} (${q})` : oc.addToCart}</button>
               </div>
             </div>
-          `).join('')}
+          `;
+          }).join('')}
         </div>
       </div>
     ` : '';
@@ -1216,7 +1218,9 @@ async function initOrderCatalogPage(c) {
         <h3 class="category-heading">${oc.firstLotHeading}</h3>
         <p class="section-intro">${oc.firstLotIntro}</p>
         <div class="order-firstlot-grid">
-          ${model.firstLot.map(item => `
+          ${model.firstLot.map(item => {
+            const q = orderCartQtyFor(`part:${modelId}:${item.partNo}`);
+            return `
             <div class="order-firstlot-card">
               <div class="order-firstlot-name">${item.name}</div>
               <div class="order-firstlot-fn">${item.fn}</div>
@@ -1226,10 +1230,11 @@ async function initOrderCatalogPage(c) {
               </div>
               <div class="order-product-actions">
                 <input type="number" min="1" value="${item.suggestQty || 1}" class="order-qty-input" id="order-fl-qty-${item.partNo}">
-                <button type="button" class="order-add-btn-small" data-add-part="${item.partNo}" data-part-kind="firstlot">${oc.addToCart}</button>
+                <button type="button" class="order-add-btn-small ${q ? 'is-added' : ''}" data-add-part="${item.partNo}" data-part-kind="firstlot">${q ? `✓ ${oc.added} (${q})` : oc.addToCart}</button>
               </div>
             </div>
-          `).join('')}
+          `;
+          }).join('')}
         </div>
       </div>
     ` : '';
@@ -1249,7 +1254,9 @@ async function initOrderCatalogPage(c) {
       return true;
     });
 
-    const catalogRows = filteredCatalog.map(item => `
+    const catalogRows = filteredCatalog.map(item => {
+      const q = orderCartQtyFor(`part:${modelId}:${item.partNo}`);
+      return `
       <tr>
         <td class="code-col">${item.partNo}</td>
         <td>${item.name}</td>
@@ -1258,11 +1265,12 @@ async function initOrderCatalogPage(c) {
         <td>
           <div class="order-table-actions">
             <input type="number" min="1" value="1" class="order-qty-input order-qty-input-sm" id="order-cat-qty-${item.partNo}">
-            <button type="button" class="order-add-btn-small" data-add-part="${item.partNo}" data-part-kind="catalog">${oc.addToCart}</button>
+            <button type="button" class="order-add-btn-small ${q ? 'is-added' : ''}" data-add-part="${item.partNo}" data-part-kind="catalog">${q ? `✓ ${oc.added} (${q})` : oc.addToCart}</button>
           </div>
         </td>
       </tr>
-    `).join('');
+    `;
+    }).join('');
 
     const fullCatalogHtml = `
       <div class="category-block">
@@ -1296,7 +1304,7 @@ async function initOrderCatalogPage(c) {
         const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
         orderAddToCart({ key: `product:${product.id}`, kind: 'product', modelId: product.id, code: product.id, name: product.label, price: product.basePrice, qty });
         orderUpdateCartBar();
-        orderFlashAdded(productBtn, oc.added);
+        renderBody();
       });
     }
 
@@ -1308,7 +1316,7 @@ async function initOrderCatalogPage(c) {
         const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
         orderAddToCart({ key: `implement:${impId}`, kind: 'implement', modelId: null, code: impId, name: imp.label, price: imp.basePrice, qty });
         orderUpdateCartBar();
-        orderFlashAdded(btn, oc.added);
+        renderBody();
       });
     });
 
@@ -1324,7 +1332,7 @@ async function initOrderCatalogPage(c) {
         const qty = Math.max(1, parseInt(qtyInput.value, 10) || 1);
         orderAddToCart({ key: `part:${modelId}:${partNo}`, kind: 'part', modelId, modelLabel: model.label, code: partNo, name: partItem.name, price: partItem.price || 0, qty });
         orderUpdateCartBar();
-        orderFlashAdded(btn, oc.added);
+        renderBody();
       });
     });
 
