@@ -3,8 +3,8 @@
   "nav": { "home": "Accueil", "product": "Produits", "parts": "Pièces", "service": "Service", "crops": "Solutions agricoles", "marketing": "Événements", "artwork": "Supports marketing", "order": "Commander" },
   "hero": {
     "title": "Bienvenue sur KU-KIT",
-    "subtitle": "Votre centre de ressources en libre-service pour les produits, les pièces, le service et les événements — conçu pour les nouveaux concessionnaires et distributeurs, accessible à tout moment, où que vous soyez.",
-    "cta": "Commencer"
+    "subtitle": "Tout ce dont vous avez besoin — produits, pièces, service et événements — à portée d'un seul clic. Conçu pour les nouveaux concessionnaires et distributeurs, accessible à tout moment, où que vous soyez.",
+    "cta": "Cliquez pour explorer"
   },
   "home": {
     "introTitle": "Qu'est-ce que KU-KIT ?",

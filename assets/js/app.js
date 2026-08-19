@@ -2641,7 +2641,7 @@ function applyStaticText(c) {
   document.querySelector('.brand-tagline').textContent = c.meta.tagline;
   document.querySelector('.hero h1').textContent = c.hero.title;
   document.querySelector('.hero p').textContent = c.hero.subtitle;
-  document.querySelector('.hero .btn-primary').textContent = c.hero.cta;
+  document.querySelector('.hero .hero-cta-label').textContent = c.hero.cta;
   document.querySelector('.site-footer .contact').textContent = c.footer.contact;
   document.querySelector('.site-footer .note').textContent = c.footer.note;
 

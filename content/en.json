@@ -3,8 +3,8 @@
   "nav": { "home": "Home", "product": "Product", "parts": "Parts", "service": "Service", "crops": "Crop Solutions", "marketing": "Events", "artwork": "Marketing Materials", "order": "Order" },
   "hero": {
     "title": "Welcome to KU-KIT",
-    "subtitle": "Your self-service hub for product, parts, service, and event information — built for new Dealers and Distributors, available anytime, anywhere.",
-    "cta": "Start Learning"
+    "subtitle": "Everything you need — product, parts, service, and event information — just one click away. Built for new Dealers and Distributors, anytime, anywhere.",
+    "cta": "Click to Explore"
   },
   "home": {
     "introTitle": "What is KU-KIT?",

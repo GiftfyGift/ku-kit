@@ -3,8 +3,8 @@
   "nav": { "home": "Nyumbani", "product": "Bidhaa", "parts": "Vipuri", "service": "Huduma", "crops": "Suluhisho za Mazao", "marketing": "Matukio", "artwork": "Vifaa vya Masoko", "order": "Agiza" },
   "hero": {
     "title": "Karibu KU-KIT",
-    "subtitle": "Kituo chako cha kujifunza kuhusu bidhaa, vipuri, huduma, na matukio — kimeundwa kwa ajili ya Wauzaji na Wasambazaji wapya, kinapatikana wakati wowote, mahali popote.",
-    "cta": "Anza Kujifunza"
+    "subtitle": "Kila unachohitaji — bidhaa, vipuri, huduma, na matukio — kwa mbofyo mmoja tu. Kimeundwa kwa ajili ya Wauzaji na Wasambazaji wapya, wakati wowote, mahali popote.",
+    "cta": "Bofya Kuchunguza"
   },
   "home": {
     "introTitle": "KU-KIT ni nini?",
