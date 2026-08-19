@@ -1683,14 +1683,14 @@ function renderArtworkBody(c) {
               <option value="standee">${a.sizes.standee}</option>
             </select>
           </label>
-          <label class="artwork-field">
+          <div class="artwork-field">
             <span>${a.bgStyleLabel}</span>
-            <select id="aw-bgstyle">
-              <option value="diagonal">${a.bgStyles.diagonal}</option>
-              <option value="dark">${a.bgStyles.dark}</option>
-              <option value="frame">${a.bgStyles.frame}</option>
-            </select>
-          </label>
+            <div class="artwork-swatch-group" id="aw-bgstyle-group" role="radiogroup">
+              <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal active" data-value="diagonal" aria-pressed="true" title="${a.bgStyles.diagonal}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-dark" data-value="dark" aria-pressed="false" title="${a.bgStyles.dark}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-frame" data-value="frame" aria-pressed="false" title="${a.bgStyles.frame}"></button>
+            </div>
+          </div>
           <label class="artwork-field">
             <span>${a.productLabel}</span>
             <select id="aw-product">
@@ -1715,18 +1715,14 @@ function renderArtworkBody(c) {
             <span>${a.subheadlineLabel}</span>
             <input type="text" id="aw-subheadline" placeholder="${a.subheadlinePlaceholder}" maxlength="80">
           </label>
-          <label class="artwork-field">
-            <span>${a.bodyLabel}</span>
-            <textarea id="aw-body" rows="2" placeholder="${a.bodyPlaceholder}" maxlength="160"></textarea>
-          </label>
-          <label class="artwork-field">
+          <div class="artwork-field">
             <span>${a.textStyleLabel}</span>
-            <select id="aw-text-style">
-              <option value="orange">${a.textStyles.orange}</option>
-              <option value="chrome">${a.textStyles.chrome}</option>
-              <option value="red">${a.textStyles.red}</option>
-            </select>
-          </label>
+            <div class="artwork-swatch-group" id="aw-text-style-group" role="radiogroup">
+              <button type="button" class="artwork-swatch artwork-swatch--text-orange active" data-value="orange" aria-pressed="true" title="${a.textStyles.orange}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--text-chrome" data-value="chrome" aria-pressed="false" title="${a.textStyles.chrome}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--text-red" data-value="red" aria-pressed="false" title="${a.textStyles.red}"></button>
+            </div>
+          </div>
           <div class="artwork-field">
             <span>${a.textPositionLabel}</span>
             <div class="artwork-slider-group">
@@ -2320,14 +2316,13 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 function initArtworkPage(c) {
   const a = c.artwork;
   const sizeSel = document.getElementById('aw-size');
-  const bgStyleSel = document.getElementById('aw-bgstyle');
+  const bgStyleGroup = document.getElementById('aw-bgstyle-group');
   const productSel = document.getElementById('aw-product');
   const shopInput = document.getElementById('aw-shopname');
   const contactInput = document.getElementById('aw-contact');
   const headlineInput = document.getElementById('aw-headline');
   const subheadlineInput = document.getElementById('aw-subheadline');
-  const bodyInput = document.getElementById('aw-body');
-  const textStyleSel = document.getElementById('aw-text-style');
+  const textStyleGroup = document.getElementById('aw-text-style-group');
   const textOffsetX = document.getElementById('aw-text-offset-x');
   const textOffsetY = document.getElementById('aw-text-offset-y');
   const textScale = document.getElementById('aw-text-scale');
@@ -2341,17 +2336,33 @@ function initArtworkPage(c) {
   const resNote = document.getElementById('aw-resolution-note');
   if (!canvas) return;
 
+  function swatchValue(group, fallback) {
+    const active = group.querySelector('.artwork-swatch.active');
+    return active ? active.dataset.value : fallback;
+  }
+
+  function wireSwatchGroup(group, onChange) {
+    group.querySelectorAll('.artwork-swatch').forEach(btn => {
+      btn.addEventListener('click', () => {
+        group.querySelectorAll('.artwork-swatch').forEach(b => {
+          b.classList.toggle('active', b === btn);
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+        onChange();
+      });
+    });
+  }
+
   function currentState() {
     return {
       size: sizeSel.value,
-      bgStyle: bgStyleSel.value,
+      bgStyle: swatchValue(bgStyleGroup, 'diagonal'),
       product: productSel.value,
       shopName: shopInput.value,
       contact: contactInput.value,
       headline: headlineInput.value,
       subheadline: subheadlineInput.value,
-      body: bodyInput.value,
-      textStyle: textStyleSel.value,
+      textStyle: swatchValue(textStyleGroup, 'orange'),
       textOffsetX: Number(textOffsetX.value),
       textOffsetY: Number(textOffsetY.value),
       textScale: Number(textScale.value),
@@ -2406,14 +2417,13 @@ function initArtworkPage(c) {
   }
 
   sizeSel.addEventListener('change', schedulePreview);
-  bgStyleSel.addEventListener('change', schedulePreview);
+  wireSwatchGroup(bgStyleGroup, schedulePreview);
   productSel.addEventListener('change', schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
   headlineInput.addEventListener('input', schedulePreview);
   subheadlineInput.addEventListener('input', schedulePreview);
-  bodyInput.addEventListener('input', schedulePreview);
-  textStyleSel.addEventListener('change', schedulePreview);
+  wireSwatchGroup(textStyleGroup, schedulePreview);
   textOffsetX.addEventListener('input', schedulePreview);
   textOffsetY.addEventListener('input', schedulePreview);
   textScale.addEventListener('input', schedulePreview);
