@@ -672,6 +672,7 @@
     "textOffsetXLabel": "เลื่อนซ้าย-ขวา",
     "textOffsetYLabel": "เลื่อนขึ้น-ลง",
     "textScaleLabel": "ขนาดตัวอักษร",
+    "textRotationLabel": "หมุน/เอียงข้อความ",
     "decorations": { "label": "โลโก้ตกแต่งเพิ่มเติม (เลือกได้)", "man": "เกษตรกรยิ้มให้กำลังใจ", "manAlt": "ภาพเกษตรกรยิ้มชูนิ้วโป้ง สำหรับตกแต่งสื่อ", "no1": "ตรา No.1 Global Brand", "no1Alt": "ตรา No.1 Global Brand with 3.5 Million Units Sold", "sizeLabel": "ขนาด" },
     "previewTitle": "ตัวอย่าง",
     "downloadButton": "ดาวน์โหลดไฟล์พร้อมพิมพ์",

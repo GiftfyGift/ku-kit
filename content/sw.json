@@ -667,6 +667,7 @@
     "textOffsetXLabel": "Sogeza Kushoto-Kulia",
     "textOffsetYLabel": "Sogeza Juu-Chini",
     "textScaleLabel": "Ukubwa wa Maandishi",
+    "textRotationLabel": "Zungusha/Inamisha Maandishi",
     "decorations": { "label": "Nembo za ziada za mapambo (hiari)", "man": "Mkulima anayetabasamu akitia moyo", "manAlt": "Mkulima anayetabasamu akionyesha kidole gumba, kibandiko cha mapambo kwa muundo", "no1": "Beji ya \"No.1 Global Brand\"", "no1Alt": "Beji ya \"No.1 Global Brand with 3.5 Million Units Sold\"", "sizeLabel": "Ukubwa" },
     "previewTitle": "Muhtasari",
     "downloadButton": "Pakua faili tayari kwa uchapishaji",

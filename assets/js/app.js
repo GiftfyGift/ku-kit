@@ -1742,6 +1742,10 @@ function renderArtworkBody(c) {
                 <span>${a.textScaleLabel}</span>
                 <input type="range" id="aw-text-scale" min="70" max="160" value="100" step="5">
               </label>
+              <label class="artwork-slider-row">
+                <span>${a.textRotationLabel}</span>
+                <input type="range" id="aw-text-rotation" min="-30" max="30" value="0" step="1">
+              </label>
             </div>
           </div>
           <div class="artwork-field">
@@ -1898,35 +1902,56 @@ const AW_TEXT_THEMES = {
 
 function awDrawImpactText(ctx, lines, cx, startY, lineHeight, fontSize, theme, strength) {
   const t = AW_TEXT_THEMES[theme] || AW_TEXT_THEMES.orange;
-  const steps = Math.max(1, Math.round(6 * strength));
-  const depth = fontSize * 0.05 * strength;
+  // A chunky stepped extrusion (many thin offset copies, each a touch darker)
+  // reads as a solid 3D block viewed from a slight angle — the single/shallow
+  // offset used before looked more like a drop shadow than actual depth.
+  const steps = Math.max(4, Math.round(14 * strength));
+  const depth = fontSize * 0.16 * strength;
 
   lines.forEach((ln, i) => {
     const ly = startY + i * lineHeight;
 
     ctx.save();
     ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)';
+    ctx.shadowBlur = fontSize * 0.16;
+    ctx.shadowOffsetX = fontSize * 0.03;
+    ctx.shadowOffsetY = fontSize * 0.1;
     for (let s = steps; s >= 1; s--) {
-      ctx.fillStyle = t.deep;
-      ctx.fillText(ln, cx + (s / steps) * depth, ly + (s / steps) * depth);
+      const k = s / steps;
+      // Darken further back in the stack so the extrusion itself looks lit
+      // from the same direction as the face, not a flat silhouette.
+      ctx.fillStyle = k > 0.5 ? t.deep : t.outline;
+      ctx.fillText(ln, cx + k * depth, ly + k * depth);
+      ctx.shadowColor = 'transparent'; // only the frontmost extrusion layer casts the ground shadow
     }
     ctx.restore();
 
     ctx.save();
     ctx.textAlign = 'center';
-    ctx.shadowColor = 'rgba(0,0,0,0.45)';
-    ctx.shadowBlur = fontSize * 0.12;
-    ctx.shadowOffsetY = fontSize * 0.05;
-    ctx.lineWidth = Math.max(1, fontSize * 0.09 * strength);
+    ctx.lineWidth = Math.max(1, fontSize * 0.1 * strength);
     ctx.lineJoin = 'round';
     ctx.strokeStyle = t.outline;
     ctx.strokeText(ln, cx, ly);
     ctx.restore();
 
-    const grad = ctx.createLinearGradient(0, ly - fontSize * 0.85, 0, ly + fontSize * 0.3);
+    // Beveled highlight rim: a thin light stroke nudged toward the light
+    // source (up-left) so a sliver of it peeks out past the dark outline —
+    // the classic emboss/chrome edge-catch-the-light look.
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.lineWidth = Math.max(1, fontSize * 0.045 * strength);
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = t.hi;
+    ctx.globalAlpha = 0.9;
+    ctx.strokeText(ln, cx - fontSize * 0.02, ly - fontSize * 0.02);
+    ctx.restore();
+
+    const grad = ctx.createLinearGradient(0, ly - fontSize * 0.85, 0, ly + fontSize * 0.35);
     grad.addColorStop(0, t.hi);
-    grad.addColorStop(0.35, t.mid);
-    grad.addColorStop(0.7, t.base);
+    grad.addColorStop(0.22, t.mid);
+    grad.addColorStop(0.5, t.base);
+    grad.addColorStop(0.8, t.base);
     grad.addColorStop(1, t.deep);
     ctx.fillStyle = grad;
     ctx.textAlign = 'center';
@@ -2186,6 +2211,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const textOffsetXpx = ((st.textOffsetX || 0) / 100) * pxW * 0.12;
   const textOffsetYpx = ((st.textOffsetY || 0) / 100) * pxH * 0.10;
   const userTextScale = (st.textScale || 100) / 100;
+  const textRotationDeg = st.textRotation || 0;
   const textStyle = st.textStyle || 'orange';
   const headlineX = Math.max(pxW / 2, farmerRightEdge + headlineMaxW / 2) + textOffsetXpx;
   const baseFontSize = pxH * (isLandscape ? 0.075 : 0.035);
@@ -2201,11 +2227,19 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     .map(b => ({ ...b, text: b.text && b.text.trim() }))
     .filter(b => b.text);
 
+  function awBlockFont(b, fontSize) {
+    // Headline/sub-headline get a slight italic slant — the dynamic angled
+    // lettering that reads as "professionally designed" rather than a plain
+    // upright label; body copy stays upright since it's read as fine print.
+    const style = b.key === 'body' ? '' : 'italic ';
+    return `${style}${b.weight} ${Math.round(fontSize)}px Prompt, sans-serif`;
+  }
+
   function measureBlocks(scale) {
     let h = 0;
     const blocks = rawBlocks.map((b, i) => {
       const fontSize = baseFontSize * b.ratio * scale;
-      ctx.font = `${b.weight} ${Math.round(fontSize)}px Prompt, sans-serif`;
+      ctx.font = awBlockFont(b, fontSize);
       const lines = awWrapLines(ctx, b.text, headlineMaxW);
       const lineHeight = fontSize * 1.28;
       h += lines.length * lineHeight;
@@ -2234,8 +2268,20 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   cursorY = Math.max(zoneTop, Math.min(cursorY, zoneBottomLimit - totalTextH));
   cursorY += textOffsetYpx;
 
+  // Tilt the whole headline/sub-headline/body stack together around its own
+  // center, like rotating a text layer in a design tool — everything after
+  // this transform is drawn in the rotated space and ctx.restore() below
+  // undoes it before the info panel is drawn (which must stay level).
+  const pivotY = cursorY + totalTextH / 2;
+  ctx.save();
+  if (textRotationDeg) {
+    ctx.translate(headlineX, pivotY);
+    ctx.rotate(textRotationDeg * Math.PI / 180);
+    ctx.translate(-headlineX, -pivotY);
+  }
+
   measuredBlocks.forEach(b => {
-    ctx.font = `${b.weight} ${Math.round(b.fontSize)}px Prompt, sans-serif`;
+    ctx.font = awBlockFont(b, b.fontSize);
     ctx.textAlign = 'center';
     if (b.key === 'headline') {
       awDrawImpactText(ctx, b.lines, headlineX, cursorY, b.lineHeight, b.fontSize, textStyle, 1);
@@ -2249,6 +2295,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     }
     cursorY += b.lines.length * b.lineHeight + b.fontSize * 0.12;
   });
+  ctx.restore();
 
   // --- Bottom info panel ---
   ctx.fillStyle = 'rgba(255,255,255,0.94)';
@@ -2284,6 +2331,7 @@ function initArtworkPage(c) {
   const textOffsetX = document.getElementById('aw-text-offset-x');
   const textOffsetY = document.getElementById('aw-text-offset-y');
   const textScale = document.getElementById('aw-text-scale');
+  const textRotation = document.getElementById('aw-text-rotation');
   const decorManBtn = document.getElementById('aw-decor-man');
   const decorNo1Btn = document.getElementById('aw-decor-no1');
   const decorManSize = document.getElementById('aw-decor-man-size');
@@ -2307,6 +2355,7 @@ function initArtworkPage(c) {
       textOffsetX: Number(textOffsetX.value),
       textOffsetY: Number(textOffsetY.value),
       textScale: Number(textScale.value),
+      textRotation: Number(textRotation.value),
       decorMan: decorManBtn.classList.contains('active'),
       decorNo1: decorNo1Btn.classList.contains('active'),
       decorManScale: Number(decorManSize.value) / 100,
@@ -2368,6 +2417,7 @@ function initArtworkPage(c) {
   textOffsetX.addEventListener('input', schedulePreview);
   textOffsetY.addEventListener('input', schedulePreview);
   textScale.addEventListener('input', schedulePreview);
+  textRotation.addEventListener('input', schedulePreview);
   decorManSize.addEventListener('input', schedulePreview);
   decorNo1Size.addEventListener('input', schedulePreview);
 
