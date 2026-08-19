@@ -1208,7 +1208,23 @@ main {
   overflow-x: auto;
   margin-bottom: 22px;
   border-radius: var(--radius-md);
+  border: 1px solid rgba(255,255,255,0.22);
 }
+
+.activity-table-scroll .kubota-table {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.activity-table-scroll .kubota-table th,
+.activity-table-scroll .kubota-table td {
+  border-right: 1px solid rgba(255,255,255,0.18);
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.activity-table-scroll .kubota-table tr > *:last-child { border-right: 0; }
+.activity-table-scroll .kubota-table tbody tr:last-child > * { border-bottom: 0; }
 
 .activity-schedule-table {
   min-width: 820px;
@@ -1216,10 +1232,11 @@ main {
 }
 
 .activity-schedule-table th {
-  background: rgba(255,106,61,0.16);
+  background: #c84c27;
   color: #fff;
   font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
   font-size: 12px;
+  font-weight: 700;
   text-align: left;
 }
 
@@ -1241,19 +1258,25 @@ main {
 .activity-items-table th {
   width: 23%;
   min-width: 150px;
-  background: rgba(255,255,255,0.055);
-  color: var(--kubota-light-orange);
+  background: #17343a;
+  color: #fff;
+  border-left: 4px solid var(--kubota-orange);
   font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
   font-size: 12px;
+  font-weight: 700;
   text-align: left;
   vertical-align: top;
 }
 
 .activity-items-table td {
+  background: #10282d;
   color: var(--kubota-mid-gray);
   white-space: normal;
   line-height: 1.65;
 }
+
+.activity-items-table tr:nth-child(even) th { background: #1b3c42; }
+.activity-items-table tr:nth-child(even) td { background: #143037; }
 
 @media (max-width: 760px) {
   .activity-overview-grid { grid-template-columns: 1fr; }
