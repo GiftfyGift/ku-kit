@@ -899,7 +899,13 @@ function loadArtworkImage(src) {
     artworkImageCache[src] = new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => resolve(img);
-      img.onerror = reject;
+      img.onerror = () => {
+        // Don't leave a rejected promise cached — a single transient network
+        // hiccup would otherwise permanently break every future redraw of this
+        // image for the rest of the session (dealers may be on flaky mobile data).
+        delete artworkImageCache[src];
+        reject(new Error(`Failed to load image: ${src}`));
+      };
       img.src = src;
     });
   }
@@ -1297,14 +1303,31 @@ function initArtworkPage(c) {
     redrawTimer = setTimeout(updatePreview, 120);
   }
 
+  let previewGeneration = 0;
   async function updatePreview() {
+    // Draw into an offscreen canvas and only commit it to the visible canvas if
+    // this is still the most recent request. Without this, rapid changes (e.g.
+    // dragging a size slider) can fire several overlapping async draws, and
+    // whichever one's clearRect() happens to run last wins — sometimes leaving
+    // the canvas blank if that call errors (a flaky image load) partway through.
+    const myGen = ++previewGeneration;
     const st = currentState();
     const spec = ARTWORK_SIZES[st.size];
     const { pxW, pxH } = computePreviewPixels(spec.wCm, spec.hCm);
+    const offscreen = document.createElement('canvas');
+    offscreen.width = pxW;
+    offscreen.height = pxH;
+    try {
+      await drawArtwork(offscreen.getContext('2d'), pxW, pxH, spec, st, c);
+    } catch (err) {
+      console.error('Artwork preview render failed, keeping last good preview', err);
+      if (myGen === previewGeneration) setTimeout(() => { if (myGen === previewGeneration) updatePreview(); }, 400);
+      return;
+    }
+    if (myGen !== previewGeneration) return;
     canvas.width = pxW;
     canvas.height = pxH;
-    const ctx = canvas.getContext('2d');
-    await drawArtwork(ctx, pxW, pxH, spec, st, c);
+    canvas.getContext('2d').drawImage(offscreen, 0, 0);
   }
 
   sizeSel.addEventListener('change', schedulePreview);
