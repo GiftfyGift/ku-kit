@@ -556,12 +556,39 @@ function renderCrops(c) {
 
 function renderActivityComparison(cmp) {
   if (!cmp) return '';
-  const headCells = cmp.activities.map((a, i) => `
-    <div class="activity-cmp-head activity-cmp-accent-${i % 4}">
-      <span class="activity-cmp-head-icon">${a.icon}</span>
-      <span>${a.name}</span>
-    </div>
-  `).join('');
+  const activityPhotoSets = [
+    [
+      'assets/img/activity-kfd-1.png',
+      'assets/img/activity-kfd-2.png',
+      'assets/img/activity-kfd-3.png',
+      'assets/img/activity-kfd-4.png'
+    ],
+    [
+      'assets/img/activity-demo-1.png',
+      'assets/img/activity-demo-2.png',
+      'assets/img/activity-demo-3.png',
+      'assets/img/activity-demo-4.png'
+    ]
+  ];
+
+  const headCells = cmp.activities.map((a, i) => {
+    const photos = activityPhotoSets[i];
+    const carousel = photos ? `
+      <div class="activity-cmp-carousel" aria-hidden="true">
+        <div class="activity-cmp-carousel-track">
+          ${[...photos, photos[0]].map((src, photoIndex) =>
+            `<img src="${src}" alt="" loading="${photoIndex === 0 ? 'eager' : 'lazy'}">`
+          ).join('')}
+        </div>
+      </div>
+    ` : '';
+    return `
+      <div class="activity-cmp-head activity-cmp-accent-${i % 4} ${photos ? 'activity-cmp-head--carousel' : ''}">
+        ${carousel || `<span class="activity-cmp-head-icon">${a.icon}</span>`}
+        <span class="activity-cmp-head-name">${a.name}</span>
+      </div>
+    `;
+  }).join('');
 
   const bodyRows = cmp.criteria.map(cr => {
     const labelCell = `
