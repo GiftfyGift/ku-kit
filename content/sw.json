@@ -8,7 +8,7 @@
   },
   "home": {
     "introTitle": "KU-KIT ni nini?",
-    "introText": "KU-KIT ni hifadhi kuu ya maarifa kuhusu injini na matrekta ya kutembea, iliyoundwa kwa ajili ya Wauzaji na Wasambazaji wapya nje ya nchi. Inawawezesha timu yako kujifunza kuhusu bidhaa, vipuri, huduma, na matukio yetu wenyewe, bila kusubiri mafunzo ya ana kwa ana — hivyo kupunguza gharama za safari na mafunzo, na kusaidia changamoto za lugha wakati wa kuingia sokoni mpya.",
+    "introText": "KU-KIT inatokana na \"Kubota Kit\", na pia inasikika kama neno la Kithai \"kuu-kit\" (คู่คิด) linalomaanisha \"mshirika wa kuaminika katika biashara\". Ni hifadhi kuu ya maarifa iliyoundwa kuwa mshirika huyo kwa Wauzaji na Wasambazaji wapya nje ya nchi, ikijumuisha injini na matrekta ya kutembea ili timu yako iweze kujifunza kuhusu bidhaa, vipuri, huduma, na matukio yetu wenyewe, bila kusubiri mafunzo ya ana kwa ana — hii inarahisisha uendeshaji wa biashara ya kila siku, huku ikipunguza gharama za safari na mafunzo, na kusaidia changamoto za lugha wakati wa kuingia sokoni mpya.",
     "cards": [
       { "icon": "⚙️", "title": "Taarifa za Bidhaa", "desc": "Vipimo vya injini ya dizeli ya ZT Plus na trekta la kutembea la NC Plus X, jinsi ya kuthibitisha bidhaa halisi, na mwongozo wa kuunganisha.", "target": "product-engine" },
       { "icon": "🔧", "title": "Vipuri", "desc": "Jinsi ya kutafuta na kuagiza vipuri halisi, na orodha ya hisa inayopendekezwa kwa kila mfano.", "target": "parts" },
