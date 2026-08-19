@@ -1103,7 +1103,10 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2;
   const wmGap = wmHBase * 1.3;
-  const wmStartY = pad + logoH + pxH * 0.02;
+  // Expressed in `pad` units (not pxH) so it scales the same way as the "frame"
+  // style's band height below — guarantees the wordmark starts safely clear of
+  // the band instead of straddling its bottom edge.
+  const wmStartY = pad + logoH + pad * 0.9;
   const maxWmW = isLandscape ? pxW * 0.4 : pxW * 0.7;
   productImgs.forEach((p, i) => {
     const wmAspect = p.wordmark.width / p.wordmark.height;
@@ -1148,7 +1151,10 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     const photoBoxX = pxW * 0.62;
     const photoBoxW = pxW - pad - photoBoxX;
     const photoBoxY = pxH * 0.10;
-    const photoBoxH = Math.max(pxH * 0.3, panelY - pxH * 0.03 - photoBoxY);
+    // The pxH*0.15 floor only guards against a degenerate near-zero box (e.g. an
+    // absurdly long address) — it must stay well below the normal clearance so it
+    // can never win out over avoiding the panel and cause an overlap.
+    const photoBoxH = Math.max(pxH * 0.15, panelY - pxH * 0.045 - photoBoxY);
     photoBoxBottom = photoBoxY + photoBoxH;
     if (productImgs.length === 1) {
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, photoBoxH);
@@ -1189,15 +1195,15 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   }
 
   // --- Headline / sub-headline / body, stacked and centered as one block ---
-  // The farmer decoration stands bottom-left, in the same area this text block would
-  // otherwise use, so when it's active, the whole zone (and this block's centerline)
-  // shifts right of it instead of the two overlapping.
+  // Centered on the artwork itself (the glow/stroke on the headline is what keeps
+  // it readable even sitting over the product photo). The only thing this block
+  // still dodges is the farmer decoration, since that's opaque artwork drawn in
+  // the same area, not a background photo the text can float over.
   const textOnDark = bgStyle === 'dark';
   const manGap = manW ? pxW * 0.03 : 0;
-  const zoneLeft = pad + manW + manGap;
-  const zoneRight = isLandscape ? pxW * 0.59 : pxW - pad;
-  const headlineX = zoneLeft + Math.max(0, zoneRight - zoneLeft) / 2;
-  const headlineMaxW = Math.max(pxW * 0.2, (zoneRight - zoneLeft) * 0.94);
+  const farmerRightEdge = manW ? pad + manW + manGap : pad;
+  const headlineMaxW = isLandscape ? pxW * 0.62 : pxW * 0.86;
+  const headlineX = Math.max(pxW / 2, farmerRightEdge + headlineMaxW / 2);
   const baseFontSize = pxH * (isLandscape ? 0.075 : 0.035);
   ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
 
