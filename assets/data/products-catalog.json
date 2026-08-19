@@ -1,0 +1,34 @@
+{
+  "updated": "2026-08-19",
+  "currency": "USD",
+  "priceNote": "Indicative example prices (FCL, CIF) based on sample Quotation AF-007-26 and internal reference costing. Not final — confirm with Siam Kubota before ordering.",
+  "paymentTerms": [
+    { "id": "tt", "label": "T/T in Advance", "premium": 1.0 },
+    { "id": "lc90", "label": "L/C 90 Days after B/L Date", "premium": 1.0037 },
+    { "id": "lc120", "label": "L/C 120 Days after B/L Date", "premium": 1.0067 },
+    { "id": "lc180", "label": "L/C 180 Days after B/L Date", "premium": 1.023 },
+    { "id": "lc240", "label": "L/C 240 Days after B/L Date", "premium": 1.023 },
+    { "id": "lc270", "label": "L/C 270 Days after B/L Date", "premium": 1.0543 },
+    { "id": "lc360", "label": "L/C 360 Days after B/L Date", "premium": 1.077 }
+  ],
+  "engines": [
+    { "id": "ZT100", "label": "Kubota ZT100", "basePrice": 1000, "priceSource": "example" },
+    { "id": "ZT100DI", "label": "Kubota ZT100DI", "basePrice": 1000, "priceSource": "example" },
+    { "id": "ZT110", "label": "Kubota ZT110", "basePrice": 970, "priceSource": "example" },
+    { "id": "ZT110DI", "label": "Kubota ZT110DI", "basePrice": 970, "priceSource": "example" },
+    { "id": "ZT120", "label": "Kubota ZT120", "basePrice": 970, "priceSource": "example" },
+    { "id": "ZT125DI", "label": "Kubota ZT125DI (ZT125 Plus)", "basePrice": 1136, "priceSource": "Quotation AF-007-26" },
+    { "id": "ZT140DI", "label": "Kubota ZT140DI (ZT140 Plus)", "basePrice": 1139, "priceSource": "Quotation AF-007-26" },
+    { "id": "ZT155DI", "label": "Kubota ZT155DI (ZT155 Plus)", "basePrice": 1171, "priceSource": "Quotation AF-007-26" },
+    { "id": "ZT180_PLUS", "label": "Kubota ZT180 PLUS", "basePrice": 1567, "priceSource": "example" }
+  ],
+  "tillers": [
+    { "id": "NC_PLUS_X", "label": "Tra Chang NC PLUS X", "basePrice": 1216, "priceSource": "Quotation AF-007-26" }
+  ],
+  "implements": [
+    { "id": "TIRE_L", "label": "Rubber Tire (L)", "basePrice": 113, "priceSource": "Quotation AF-007-26" },
+    { "id": "TIRE_R", "label": "Rubber Tire (R)", "basePrice": 113, "priceSource": "Quotation AF-007-26" },
+    { "id": "DISC_PLOW", "label": "Disc Plow", "basePrice": 175, "priceSource": "Quotation AF-007-26" },
+    { "id": "MOLD_BOARD_PLOW", "label": "Mold Board Plow", "basePrice": 83, "priceSource": "Quotation AF-007-26" }
+  ]
+}
