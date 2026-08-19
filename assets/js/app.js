@@ -1066,11 +1066,22 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   ctx.clearRect(0, 0, pxW, pxH);
 
   const pad = pxW * (isLandscape ? 0.025 : 0.06);
-  const logoH = pxH * (isLandscape ? 0.09 : 0.05);
+  const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
+  const kubotaAspect = kubotaImg.width / kubotaImg.height;
+
+  let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2;
+  let logoW = logoH * kubotaAspect;
+  // The cropped wordmark is quite wide relative to its height; on the narrower
+  // portrait canvas a height-based size can overflow both edges, so cap it to
+  // a safe share of the width there and derive the height from that instead.
+  const maxLogoW = isLandscape ? pxW * 0.5 : pxW * 0.74;
+  if (logoW > maxLogoW) {
+    logoW = maxLogoW;
+    logoH = logoW / kubotaAspect;
+  }
 
   awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH);
 
-  const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
   const productImgs = [];
   if (st.product === 'engine' || st.product === 'both') {
     productImgs.push({
@@ -1085,27 +1096,59 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     });
   }
 
-  const logoW = logoH * (kubotaImg.width / kubotaImg.height);
   const logoX = isLandscape ? pad : (pxW - logoW) / 2;
   if (bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
   ctx.drawImage(kubotaImg, logoX, pad, logoW, logoH);
   ctx.filter = 'none';
 
-  const wmH = pxH * (isLandscape ? 0.045 : 0.028);
-  const wmGap = wmH * 1.3;
+  const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2;
+  const wmGap = wmHBase * 1.3;
   const wmStartY = pad + logoH + pxH * 0.02;
+  const maxWmW = isLandscape ? pxW * 0.4 : pxW * 0.7;
   productImgs.forEach((p, i) => {
-    const wmW = wmH * (p.wordmark.width / p.wordmark.height);
+    const wmAspect = p.wordmark.width / p.wordmark.height;
+    let wmH = wmHBase;
+    let wmW = wmH * wmAspect;
+    if (wmW > maxWmW) {
+      wmW = maxWmW;
+      wmH = wmW / wmAspect;
+    }
     const wmX = isLandscape ? pad : (pxW - wmW) / 2;
     ctx.drawImage(p.wordmark, wmX, wmStartY + i * wmGap, wmW, wmH);
   });
 
+  // --- Bottom info panel geometry: sized to fit shop name + contact so text never overflows ---
+  // Computed before the product photo box below so the photo's height can be
+  // bounded by where the panel actually starts (the panel grows taller when the
+  // address wraps to more lines), instead of a fixed ratio that can overlap it.
+  const panelX = pad;
+  const panelW = pxW - pad * 2;
+  const innerPad = pxH * (isLandscape ? 0.035 : 0.029);
+  const shopFontSize = pxH * (isLandscape ? 0.070 : 0.057);
+  const contactFontSize = pxH * (isLandscape ? 0.035 : 0.029);
+  const shopLineHeight = shopFontSize * 1.18;
+  const contactLineHeight = contactFontSize * 1.32;
+  const blockGap = pxH * 0.015;
+
+  ctx.font = `700 ${Math.round(shopFontSize)}px Prompt, sans-serif`;
+  const shopName = (st.shopName && st.shopName.trim()) || a.shopNamePlaceholder;
+  const shopLines = awWrapLines(ctx, shopName, panelW - innerPad * 2);
+
+  ctx.font = `500 ${Math.round(contactFontSize)}px 'Noto Sans Thai', sans-serif`;
+  const contact = (st.contact && st.contact.trim()) || a.contactPlaceholder;
+  const contactLines = awWrapLines(ctx, contact, panelW - innerPad * 2);
+
+  const contentH = shopLines.length * shopLineHeight + blockGap + contactLines.length * contactLineHeight;
+  const minPanelH = pxH * (isLandscape ? 0.22 : 0.18);
+  const panelH = Math.max(minPanelH, innerPad * 2 + contentH);
+  const panelY = pxH - panelH - pad;
+
   let photoBoxBottom = 0;
   if (isLandscape) {
-    const photoBoxW = pxW * 0.42;
-    const photoBoxH = pxH * 0.78;
-    const photoBoxX = pxW * 0.55;
+    const photoBoxX = pxW * 0.62;
+    const photoBoxW = pxW - pad - photoBoxX;
     const photoBoxY = pxH * 0.10;
+    const photoBoxH = Math.max(pxH * 0.3, panelY - pxH * 0.03 - photoBoxY);
     photoBoxBottom = photoBoxY + photoBoxH;
     if (productImgs.length === 1) {
       awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, photoBoxH);
@@ -1128,29 +1171,6 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       photoBoxBottom = photoBoxY;
     }
   }
-
-  // --- Bottom info panel geometry: sized to fit shop name + contact so text never overflows ---
-  const panelX = pad;
-  const panelW = pxW - pad * 2;
-  const innerPad = pxH * (isLandscape ? 0.035 : 0.029);
-  const shopFontSize = pxH * (isLandscape ? 0.070 : 0.057);
-  const contactFontSize = pxH * (isLandscape ? 0.035 : 0.029);
-  const shopLineHeight = shopFontSize * 1.18;
-  const contactLineHeight = contactFontSize * 1.32;
-  const blockGap = pxH * 0.015;
-
-  ctx.font = `700 ${Math.round(shopFontSize)}px Prompt, sans-serif`;
-  const shopName = (st.shopName && st.shopName.trim()) || a.shopNamePlaceholder;
-  const shopLines = awWrapLines(ctx, shopName, panelW - innerPad * 2);
-
-  ctx.font = `500 ${Math.round(contactFontSize)}px 'Noto Sans Thai', sans-serif`;
-  const contact = (st.contact && st.contact.trim()) || a.contactPlaceholder;
-  const contactLines = awWrapLines(ctx, contact, panelW - innerPad * 2);
-
-  const contentH = shopLines.length * shopLineHeight + blockGap + contactLines.length * contactLineHeight;
-  const minPanelH = pxH * (isLandscape ? 0.22 : 0.18);
-  const panelH = Math.max(minPanelH, innerPad * 2 + contentH);
-  const panelY = pxH - panelH - pad;
 
   if (st.decorNo1) {
     const no1Img = await loadArtworkImage('assets/img/artwork/decor-no1-badge.png');
