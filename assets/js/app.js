@@ -1210,7 +1210,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // Measure every filled block first so the whole stack can be positioned to fit
   // between the logo/photo area and the info panel, instead of a fixed Y that can overflow.
   const rawBlocks = [
-    { key: 'headline', text: st.headline, ratio: 1, weight: 800 },
+    { key: 'headline', text: st.headline, ratio: 1.1, weight: 800 },
     { key: 'subheadline', text: st.subheadline, ratio: 0.62, weight: 600 },
     { key: 'body', text: st.body, ratio: 0.42, weight: 400 }
   ]
@@ -1225,7 +1225,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       const lines = awWrapLines(ctx, b.text, headlineMaxW);
       const lineHeight = fontSize * 1.28;
       h += lines.length * lineHeight;
-      if (i < rawBlocks.length - 1) h += fontSize * 0.45;
+      if (i < rawBlocks.length - 1) h += fontSize * 0.12;
       return { ...b, fontSize, lineHeight, lines };
     });
     return { blocks, totalH: h };
@@ -1275,7 +1275,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
       b.lines.forEach((ln, i) => ctx.fillText(ln, headlineX, cursorY + i * b.lineHeight));
     }
-    cursorY += b.lines.length * b.lineHeight + b.fontSize * 0.45;
+    cursorY += b.lines.length * b.lineHeight + b.fontSize * 0.12;
   });
 
   // --- Bottom info panel ---
