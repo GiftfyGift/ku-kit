@@ -1544,6 +1544,27 @@ table.parts-table td.code-col {
 
 .artwork-decor-btn.active .artwork-decor-check { display: flex; }
 
+.artwork-decor-sizes {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.artwork-decor-size-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--kubota-mid-gray);
+  font-weight: 600;
+}
+
+.artwork-decor-size-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--kubota-orange);
+}
+
 .artwork-download-btn {
   width: 100%;
   justify-content: center;
