@@ -1707,6 +1707,27 @@ table.parts-table td.code-col {
   accent-color: var(--kubota-orange);
 }
 
+.artwork-slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.artwork-slider-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--kubota-mid-gray);
+  font-weight: 600;
+}
+
+.artwork-slider-row input[type="range"] {
+  width: 100%;
+  accent-color: var(--kubota-orange);
+}
+
 .artwork-download-btn {
   width: 100%;
   justify-content: center;

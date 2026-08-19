@@ -883,6 +883,31 @@ function renderArtworkBody(c) {
             <span>${a.bodyLabel}</span>
             <textarea id="aw-body" rows="2" placeholder="${a.bodyPlaceholder}" maxlength="160"></textarea>
           </label>
+          <label class="artwork-field">
+            <span>${a.textStyleLabel}</span>
+            <select id="aw-text-style">
+              <option value="orange">${a.textStyles.orange}</option>
+              <option value="chrome">${a.textStyles.chrome}</option>
+              <option value="red">${a.textStyles.red}</option>
+            </select>
+          </label>
+          <div class="artwork-field">
+            <span>${a.textPositionLabel}</span>
+            <div class="artwork-slider-group">
+              <label class="artwork-slider-row">
+                <span>${a.textOffsetXLabel}</span>
+                <input type="range" id="aw-text-offset-x" min="-100" max="100" value="0" step="5">
+              </label>
+              <label class="artwork-slider-row">
+                <span>${a.textOffsetYLabel}</span>
+                <input type="range" id="aw-text-offset-y" min="-100" max="100" value="0" step="5">
+              </label>
+              <label class="artwork-slider-row">
+                <span>${a.textScaleLabel}</span>
+                <input type="range" id="aw-text-scale" min="70" max="160" value="100" step="5">
+              </label>
+            </div>
+          </div>
           <div class="artwork-field">
             <span>${a.decorations.label}</span>
             <div class="artwork-decor-grid">
@@ -1024,6 +1049,53 @@ function awWrapText(ctx, text, x, y, maxWidth, lineHeight, align) {
   ctx.textAlign = align || 'left';
   lines.forEach((ln, i) => ctx.fillText(ln, x, y + i * lineHeight));
   return lines.length * lineHeight;
+}
+
+// Glossy/embossed marketing-poster text: a solid extrusion (stacked offset
+// copies) for depth, a heavy outline for edge definition, then a top-lit
+// gradient fill so the letters read as a lit 3D object rather than flat ink.
+const AW_TEXT_THEMES = {
+  orange: { hi: '#FFEAB0', mid: '#FFB35C', base: '#FF6A3D', deep: '#9C2E0B', outline: '#1a0e05' },
+  chrome: { hi: '#FFFFFF', mid: '#D8E0E4', base: '#8B98A1', deep: '#20262a', outline: '#050607' },
+  red:    { hi: '#FFD3C4', mid: '#FF6A4D', base: '#D42A1B', deep: '#5C0E07', outline: '#1a0403' }
+};
+
+function awDrawImpactText(ctx, lines, cx, startY, lineHeight, fontSize, theme, strength) {
+  const t = AW_TEXT_THEMES[theme] || AW_TEXT_THEMES.orange;
+  const steps = Math.max(1, Math.round(6 * strength));
+  const depth = fontSize * 0.05 * strength;
+
+  lines.forEach((ln, i) => {
+    const ly = startY + i * lineHeight;
+
+    ctx.save();
+    ctx.textAlign = 'center';
+    for (let s = steps; s >= 1; s--) {
+      ctx.fillStyle = t.deep;
+      ctx.fillText(ln, cx + (s / steps) * depth, ly + (s / steps) * depth);
+    }
+    ctx.restore();
+
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0,0,0,0.45)';
+    ctx.shadowBlur = fontSize * 0.12;
+    ctx.shadowOffsetY = fontSize * 0.05;
+    ctx.lineWidth = Math.max(1, fontSize * 0.09 * strength);
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = t.outline;
+    ctx.strokeText(ln, cx, ly);
+    ctx.restore();
+
+    const grad = ctx.createLinearGradient(0, ly - fontSize * 0.85, 0, ly + fontSize * 0.3);
+    grad.addColorStop(0, t.hi);
+    grad.addColorStop(0.35, t.mid);
+    grad.addColorStop(0.7, t.base);
+    grad.addColorStop(1, t.deep);
+    ctx.fillStyle = grad;
+    ctx.textAlign = 'center';
+    ctx.fillText(ln, cx, ly);
+  });
 }
 
 function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH) {
@@ -1275,7 +1347,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const manGap = manW ? pxW * 0.03 : 0;
   const farmerRightEdge = manW ? pad + manW + manGap : pad;
   const headlineMaxW = isLandscape ? pxW * 0.62 : pxW * 0.86;
-  const headlineX = Math.max(pxW / 2, farmerRightEdge + headlineMaxW / 2);
+  const textOffsetXpx = ((st.textOffsetX || 0) / 100) * pxW * 0.12;
+  const textOffsetYpx = ((st.textOffsetY || 0) / 100) * pxH * 0.10;
+  const userTextScale = (st.textScale || 100) / 100;
+  const textStyle = st.textStyle || 'orange';
+  const headlineX = Math.max(pxW / 2, farmerRightEdge + headlineMaxW / 2) + textOffsetXpx;
   const baseFontSize = pxH * (isLandscape ? 0.075 : 0.035);
   ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
 
@@ -1309,40 +1385,28 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const zoneBottomLimit = panelY - pxH * 0.02;
   const availableH = zoneBottomLimit - zoneTop;
 
-  let { blocks: measuredBlocks, totalH: totalTextH } = measureBlocks(1);
+  let { blocks: measuredBlocks, totalH: totalTextH } = measureBlocks(userTextScale);
   if (totalTextH > availableH && availableH > 0 && totalTextH > 0) {
     const shrink = Math.max(0.4, availableH / totalTextH);
-    ({ blocks: measuredBlocks, totalH: totalTextH } = measureBlocks(shrink));
+    ({ blocks: measuredBlocks, totalH: totalTextH } = measureBlocks(userTextScale * shrink));
   }
 
   // Centered — "the artwork" reads as one balanced block, not pinned to a fixed line.
+  // The manual offset is applied after centering/clamping so it nudges the whole
+  // block from its balanced position rather than fighting the auto-fit logic.
   let cursorY = zoneTop + Math.max(0, (availableH - totalTextH) / 2);
   cursorY = Math.max(zoneTop, Math.min(cursorY, zoneBottomLimit - totalTextH));
+  cursorY += textOffsetYpx;
 
   measuredBlocks.forEach(b => {
     ctx.font = `${b.weight} ${Math.round(b.fontSize)}px Prompt, sans-serif`;
     ctx.textAlign = 'center';
     if (b.key === 'headline') {
-      // Bold orange-gradient fill with a heavy dark outline — reads clearly on
-      // any of the 3 backgrounds (unlike a white glow, which washes out on the
-      // light "diagonal"/"frame" styles).
-      b.lines.forEach((ln, i) => {
-        const ly = cursorY + i * b.lineHeight;
-        ctx.save();
-        ctx.shadowColor = 'rgba(0,0,0,0.4)';
-        ctx.shadowBlur = b.fontSize * 0.1;
-        ctx.shadowOffsetY = b.fontSize * 0.04;
-        ctx.lineWidth = Math.max(1, b.fontSize * 0.1);
-        ctx.lineJoin = 'round';
-        ctx.strokeStyle = '#1a0e05';
-        ctx.strokeText(ln, headlineX, ly);
-        ctx.restore();
-        const grad = ctx.createLinearGradient(0, ly - b.fontSize * 0.8, 0, ly + b.fontSize * 0.25);
-        grad.addColorStop(0, '#FFC15C');
-        grad.addColorStop(1, '#E8460C');
-        ctx.fillStyle = grad;
-        ctx.fillText(ln, headlineX, ly);
-      });
+      awDrawImpactText(ctx, b.lines, headlineX, cursorY, b.lineHeight, b.fontSize, textStyle, 1);
+    } else if (b.key === 'subheadline') {
+      // Same glossy theme as the headline but toned down — a lighter outline
+      // and shallower extrusion so it reads as secondary, not competing.
+      awDrawImpactText(ctx, b.lines, headlineX, cursorY, b.lineHeight, b.fontSize, textStyle, 0.5);
     } else {
       ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
       b.lines.forEach((ln, i) => ctx.fillText(ln, headlineX, cursorY + i * b.lineHeight));
@@ -1380,6 +1444,10 @@ function initArtworkPage(c) {
   const headlineInput = document.getElementById('aw-headline');
   const subheadlineInput = document.getElementById('aw-subheadline');
   const bodyInput = document.getElementById('aw-body');
+  const textStyleSel = document.getElementById('aw-text-style');
+  const textOffsetX = document.getElementById('aw-text-offset-x');
+  const textOffsetY = document.getElementById('aw-text-offset-y');
+  const textScale = document.getElementById('aw-text-scale');
   const decorManBtn = document.getElementById('aw-decor-man');
   const decorNo1Btn = document.getElementById('aw-decor-no1');
   const decorManSize = document.getElementById('aw-decor-man-size');
@@ -1399,6 +1467,10 @@ function initArtworkPage(c) {
       headline: headlineInput.value,
       subheadline: subheadlineInput.value,
       body: bodyInput.value,
+      textStyle: textStyleSel.value,
+      textOffsetX: Number(textOffsetX.value),
+      textOffsetY: Number(textOffsetY.value),
+      textScale: Number(textScale.value),
       decorMan: decorManBtn.classList.contains('active'),
       decorNo1: decorNo1Btn.classList.contains('active'),
       decorManScale: Number(decorManSize.value) / 100,
@@ -1456,6 +1528,10 @@ function initArtworkPage(c) {
   headlineInput.addEventListener('input', schedulePreview);
   subheadlineInput.addEventListener('input', schedulePreview);
   bodyInput.addEventListener('input', schedulePreview);
+  textStyleSel.addEventListener('change', schedulePreview);
+  textOffsetX.addEventListener('input', schedulePreview);
+  textOffsetY.addEventListener('input', schedulePreview);
+  textScale.addEventListener('input', schedulePreview);
   decorManSize.addEventListener('input', schedulePreview);
   decorNo1Size.addEventListener('input', schedulePreview);
 
