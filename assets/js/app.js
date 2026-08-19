@@ -910,6 +910,19 @@ function orderUpdateCartBar() {
   if (countEl) countEl.textContent = String(orderCartCount(cart));
   if (totalEl) totalEl.textContent = orderFmtUsd(orderCartTotal(cart));
   bar.classList.toggle('is-empty', cart.length === 0);
+
+  const preview = document.getElementById('order-cart-preview');
+  if (preview) {
+    const removeLabel = (state.content && state.content.order && state.content.order.checkout.remove) || 'Remove';
+    preview.innerHTML = cart.map((item, i) => `
+      <div class="order-cart-preview-row">
+        <span class="order-cart-preview-name">${item.name}${item.modelLabel ? ` <span class="order-row-model">(${item.modelLabel})</span>` : ''}</span>
+        <span class="order-cart-preview-qty">× ${item.qty}</span>
+        <span class="order-cart-preview-price">${orderFmtUsd(item.price * item.qty)}</span>
+        <button type="button" class="order-cart-preview-remove" data-cart-preview-remove="${i}" aria-label="${removeLabel}">✕</button>
+      </div>
+    `).join('');
+  }
 }
 
 /* ---------- Order: PDF generation (PO / PI) ---------- */
@@ -1122,12 +1135,16 @@ function renderOrderCatalog(c) {
       <p class="section-intro">${o.intro}</p>
       ${renderOrderSelector(c, 'catalog')}
       <div class="order-cart-bar is-empty" id="order-cart-bar">
-        <span class="order-cart-bar-icon" aria-hidden="true">🛒</span>
-        <span class="order-cart-bar-count" id="order-cart-count">0</span>
-        <span class="order-cart-bar-label">${oc.cartHeading}</span>
+        <button type="button" class="order-cart-bar-toggle" id="order-cart-bar-toggle" aria-expanded="false">
+          <span class="order-cart-bar-icon" aria-hidden="true">🛒</span>
+          <span class="order-cart-bar-count" id="order-cart-count">0</span>
+          <span class="order-cart-bar-label">${oc.cartHeading}</span>
+          <span class="order-cart-bar-caret" aria-hidden="true">▾</span>
+        </button>
         <span class="order-cart-bar-total" id="order-cart-total">$0.00</span>
         <button type="button" class="order-btn order-cart-bar-btn" id="order-cart-checkout-btn">${oc.goCheckout}</button>
       </div>
+      <div class="order-cart-preview" id="order-cart-preview" hidden></div>
       <div class="order-model-picker">
         <label class="order-model-label" for="order-model-select">${oc.modelLabel}</label>
         <select id="order-model-select" class="order-model-select"></select>
@@ -1146,6 +1163,27 @@ async function initOrderCatalogPage(c) {
   const body = document.getElementById('order-catalog-body');
   const checkoutBtn = document.getElementById('order-cart-checkout-btn');
   if (checkoutBtn) checkoutBtn.addEventListener('click', () => navigate('order-checkout'));
+
+  let catalogReady = false;
+  const cartBarToggle = document.getElementById('order-cart-bar-toggle');
+  const cartPreview = document.getElementById('order-cart-preview');
+  if (cartBarToggle && cartPreview) {
+    cartBarToggle.addEventListener('click', () => {
+      const expanded = cartBarToggle.getAttribute('aria-expanded') === 'true';
+      cartBarToggle.setAttribute('aria-expanded', String(!expanded));
+      cartPreview.hidden = expanded;
+    });
+    cartPreview.addEventListener('click', (e) => {
+      const removeBtn = e.target.closest('[data-cart-preview-remove]');
+      if (!removeBtn) return;
+      const cart = orderLoadCart();
+      cart.splice(Number(removeBtn.dataset.cartPreviewRemove), 1);
+      orderSaveCart(cart);
+      orderUpdateCartBar();
+      if (catalogReady) renderBody();
+    });
+  }
+
   orderUpdateCartBar();
 
   let data;
@@ -1158,6 +1196,7 @@ async function initOrderCatalogPage(c) {
   if (state.route !== 'order-catalog') return;
 
   const { parts, products } = data;
+  catalogReady = true;
 
   select.innerHTML = parts.models.map(m => `<option value="${m.id}">${m.label}</option>`).join('');
 

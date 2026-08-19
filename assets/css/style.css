@@ -2189,6 +2189,66 @@ table.parts-table td.code-col {
 
 .order-cart-bar-label { font-size: 13px; color: var(--kubota-mid-gray); }
 
+.order-cart-bar-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.order-cart-bar.is-empty .order-cart-bar-toggle { pointer-events: none; opacity: 0.7; }
+
+.order-cart-bar-caret { font-size: 11px; color: var(--kubota-mid-gray); transition: transform 0.15s; }
+
+.order-cart-bar-toggle[aria-expanded="true"] .order-cart-bar-caret { transform: rotate(180deg); }
+
+.order-cart-preview {
+  background: var(--kubota-light-gray);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  padding: 4px 16px;
+  margin: -14px 0 24px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.order-cart-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--kubota-border);
+  font-size: 13px;
+}
+
+.order-cart-preview-row:last-child { border-bottom: none; }
+
+.order-cart-preview-name { flex: 1 1 auto; color: var(--kubota-dark); }
+
+.order-cart-preview-qty { color: var(--kubota-mid-gray); white-space: nowrap; }
+
+.order-cart-preview-price { color: var(--kubota-light-orange); font-weight: 600; white-space: nowrap; min-width: 80px; text-align: right; }
+
+.order-cart-preview-remove {
+  background: none;
+  border: 1px solid var(--kubota-border);
+  color: var(--kubota-mid-gray);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.order-cart-preview-remove:hover { border-color: var(--kubota-orange); color: var(--kubota-light-orange); }
+
 /* Plain call-to-action for the Order flow — same shape as .btn-primary but
    without its glow/beam/dot decoration, since that's meant for a single
    hero CTA and looked like too much repeated across several buttons here. */
