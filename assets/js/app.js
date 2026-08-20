@@ -695,7 +695,7 @@ function renderMarketing(c) {
 
   const coverSets = [
     ['assets/img/activity-kfd-1.webp', 'assets/img/activity-kfd-2.webp', 'assets/img/activity-kfd-3.webp', 'assets/img/activity-kfd-4.webp'],
-    ['assets/img/activity-demo-1.webp', 'assets/img/activity-demo-2.webp', 'assets/img/activity-demo-3.webp', 'assets/img/activity-demo-4.webp'],
+    ['assets/img/activity-demo-1.webp', 'assets/img/activity-demo-2.webp', 'assets/img/activity-demo-3.webp', 'assets/img/activity-demo-4.webp?v=20260820a'],
     ['assets/img/activities/mobile-service-1.webp', 'assets/img/activities/mobile-service-2.webp', 'assets/img/activities/mobile-service-3.webp'],
     ['assets/img/activities/thank-you-1.webp', 'assets/img/activities/thank-you-2.webp', 'assets/img/activities/thank-you-3.webp', 'assets/img/activities/thank-you-4.webp']
   ];
