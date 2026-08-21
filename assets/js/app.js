@@ -121,6 +121,17 @@ function splitResources(resources) {
   return { videos, docs };
 }
 
+function localizedActivityDocs(resources) {
+  const docs = (resources || []).filter(r => r.type !== 'video');
+  const preferredLang = ({ th: 'TH', en: 'EN', sw: 'SWA', fr: 'FR', tl: 'TL' })[state.lang] || 'EN';
+  const preferredDocs = docs.filter(r => (r.lang || '').toUpperCase() === preferredLang);
+  if (preferredDocs.length) return preferredDocs;
+
+  // Until a French or Filipino manual is supplied, use the English edition.
+  const englishDocs = docs.filter(r => (r.lang || '').toUpperCase() === 'EN');
+  return englishDocs.length ? englishDocs : docs;
+}
+
 function renderResourceList(resources) {
   if (!resources || !resources.length) return '';
   const items = resources.map(r => {
@@ -743,7 +754,7 @@ function renderMarketing(c) {
   const scheduleHeaders = Object.assign({ time: lbl.duration || 'Time', activity: lbl.schedule || 'Activity', inCharge: '', whatToDo: '' }, m.scheduleHeaders || {});
 
   const activities = m.activities.map((a, idx) => {
-    const { docs } = splitResources(a.resources);
+    const docs = localizedActivityDocs(a.resources);
     const recommendedItems = a.recommendedItems || (a.checklist ? a.checklist.map(t => ({ label: t, details: '' })) : []);
     const recommendedItemsLabel = lbl.recommendedItems || lbl.checklist || '';
     return `
@@ -785,27 +796,8 @@ function renderMarketing(c) {
     `;
   }).join('');
 
-  const upcomingEvents = m.upcomingEvents ? `
-    <div class="category-block">
-      <h3 class="category-heading">${m.upcomingEvents.title}</h3>
-      <p class="section-intro">${m.upcomingEvents.intro}</p>
-      <div class="event-list">
-        ${m.upcomingEvents.items.map(e => `
-          <div class="event-card">
-            <div class="event-date">${e.date}</div>
-            <div>
-              <h4>${e.name}</h4>
-              <div class="loc">${e.location}</div>
-              <p class="desc">${e.desc}</p>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-      <div class="note-callout">${m.upcomingEvents.note}</div>
-    </div>
-  ` : '';
-
-  const { videos, docs } = splitResources(m.resources);
+  const { videos } = splitResources(m.resources);
+  const docs = localizedActivityDocs(m.resources);
   const videoBlock = videos.length ? `
     <div class="category-block">
       <h3 class="category-heading">${m.videosTitle}</h3>
@@ -832,7 +824,6 @@ function renderMarketing(c) {
       </div>
       <div class="activity-guides-heading"><span>${m.fullDetailsTitle || m.title}</span></div>
       ${activities}
-      ${upcomingEvents}
       ${videoBlock}
       ${resources}
       <div class="note-callout">${m.note}</div>
@@ -3020,9 +3011,6 @@ function buildSearchIndex(c) {
   const m = c.marketing;
   (m.activities || []).forEach(act => pushEntry(idx, 'marketing', act.name, act.purpose,
     [...(act.target || []), ...(act.basicActivities || []), ...(act.optionalActivities || []), act.venue, act.minParticipants, act.duration].join(' ')));
-
-  // Events
-  ((m.upcomingEvents && m.upcomingEvents.items) || []).forEach(ev => pushEntry(idx, 'marketing', ev.name, ev.desc, ev.location));
 
   // Marketing materials
   pushEntry(idx, 'materials-custom', c.artwork.title, c.artwork.intro);
