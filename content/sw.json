@@ -14,7 +14,7 @@
       { "icon": "🔧", "title": "Vipuri", "desc": "Jinsi ya kutafuta na kuagiza vipuri halisi, na orodha ya hisa inayopendekezwa kwa kila mfano.", "target": "parts" },
       { "icon": "🛠️", "title": "Huduma", "desc": "Hatua za matengenezo ya injini na trekta la kutembea, pamoja na huduma baada ya mauzo.", "target": "service" },
       { "icon": "🌾", "title": "Suluhisho za Mazao", "desc": "Jinsi ya kuchagua mpangilio sahihi wa trekta la kutembea kwa mashamba ya mpunga yenye maji, makavu, muhogo, na mahindi.", "target": "crops" },
-      { "icon": "📣", "title": "Matukio", "desc": "Mifumo minne ya kawaida ya shughuli za KUBOTA, pamoja na kalenda ijayo ya mafunzo ya Wauzaji na matukio ya masoko.", "target": "marketing" },
+      { "icon": "📣", "title": "Matukio", "desc": "Mifumo minne ya kawaida ya shughuli za KUBOTA, pamoja na miongozo na vitu vinavyopendekezwa kwa kila tukio.", "target": "marketing" },
       { "icon": "🖼️", "title": "Vifaa vya Masoko", "desc": "Buni bango na standee yako mwenyewe kwa duka. Jaza taarifa za duka lako kisha upakue faili tayari kwa uchapishaji papo hapo.", "target": "materials-custom" }
     ]
   },
@@ -503,6 +503,7 @@
         "checklist": ["Wateja angalau 30 wamethibitishwa.", "Injini ya dizeli ya KUBOTA ZT plus safi na tayari kwa maonyesho.", "Trekta la kutembea la KUBOTA safi na tayari kwa maonyesho.", "Maeneo ya usajili, maonyesho ya bidhaa, viti, na maegesho tayari.", "Ishara za tukio, vifaa vya bidhaa, na mfumo wa sauti tayari.", "Wawasilishaji wamepitia taarifa za bidhaa.", "Vitafunio na maji ya kunywa vinatosha.", "Wanachama wote wa timu wanaelewa majukumu yao."],
         "tip": "Shughuli ya msingi ya kuanzisha bidhaa. Wateja huona bidhaa halisi na kupokea uwasilishaji, lakini onyesho la shambani halihitajiki.",
         "resources": [
+          { "title": "Mwongozo wa shughuli za KFD (SWA)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/file/d/1FJL1Oe9Vl1b8kXnZSPli317mZNwpbdAw/view" },
           { "title": "Mwongozo wa shughuli za KFD (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
           { "title": "Mwongozo wa shughuli za KFD (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
         ]
@@ -528,6 +529,7 @@
         "checklist": ["Shamba la mpunga au eneo la kazi liko tayari.", "Trekta la kutembea la KUBOTA na kifaa chake tayari kuendeshwa.", "Njia ya onyesho, sehemu ya kutazama, na eneo la majaribio vimetenganishwa wazi.", "Dereva wa onyesho amejaribu njia hiyo.", "Wafanyakazi wanaweza kueleza vidhibiti na njia sahihi ya uendeshaji.", "Eneo la majaribio la mteja na vifaa vya usalama viko tayari.", "Ikiwa jaribio la kasi au matumizi ya mafuta limechaguliwa, vifaa vya kupimia na njia ya jaribio viko tayari."],
         "tip": "Bidhaa lazima ionyeshwe kwenye shamba halisi na wateja lazima wapate jaribio lililosimamiwa. Majaribio ya kasi na matumizi ya mafuta ni ya hiari.",
         "resources": [
+          { "title": "Mwongozo wa Demonstration Activity (SWA)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/file/d/1CGvySMMda89h8oBfmPlkZ10XohuebOCG/view" },
           { "title": "Mwongozo wa Demonstration Activity (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
           { "title": "Mwongozo wa Demonstration Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
         ]
@@ -551,6 +553,7 @@
         "checklist": ["Wateja angalau 20 na aina za bidhaa zao zimethibitishwa.", "Maeneo ya kupokea, kusubiri, ukaguzi, na uwasilishaji tayari.", "Mafundi na zana za msingi tayari.", "Karatasi za ukaguzi na lebo za namba za bidhaa tayari.", "Vipuri vinavyobadilishwa mara kwa mara vinapatikana.", "Timu inaelewa mchakato wa kupokea-kukagua-kueleza-kuwasilisha.", "Viti vya wateja, maji ya kunywa, na njia za kufikia bidhaa tayari."],
         "tip": "Lengo kuu ni kuleta huduma baada ya mauzo katika eneo la wateja. Mauzo ya bidhaa au uanzishaji wa bidhaa si lengo kuu.",
         "resources": [
+          { "title": "Mwongozo wa Mobile Service (SWA)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/file/d/1VI_n8dXYiR6LtmDPn7upa_g_fYhr3-0m/view" },
           { "title": "Mwongozo wa Mobile Service (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
           { "title": "Mwongozo wa Mobile Service (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
         ]
@@ -576,29 +579,21 @@
         "checklist": ["Wateja angalau 50 wamethibitishwa.", "Maeneo ya usajili, viti, chakula, jukwaa, na maegesho tayari.", "Backdrop ya tukio, eneo la picha, na maonyesho ya bidhaa tayari.", "Chakula na vinywaji vinatosha.", "Zawadi za ukumbusho na tuzo tayari.", "MC na timu wanaelewa mpangilio wa shughuli.", "Ikiwa Mobile Service imejumuishwa, eneo lake, mafundi, zana, na vipuri viko tayari."],
         "tip": "Shughuli ya kuthamini wateja na kujenga uhusiano. Mazingira yanapaswa kuwa ya joto na ya kufurahisha bila kulenga sana kuuza.",
         "resources": [
+          { "title": "Mwongozo wa Thank You Customer Activity (SWA)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/file/d/1AZGnT_UfWW7z_WAJgtMcsURIlCbKKhnl/view" },
           { "title": "Mwongozo wa Thank You Customer Activity (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
           { "title": "Mwongozo wa Thank You Customer Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
         ]
       }
     ],
     "resources": [
+      { "title": "KUBOTA Activity Standard — muhtasari wa shughuli 4 (SWA, PDF)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/file/d/1ixyvY1jwz3KcBD-Y2-aBAxSnCj0Bi8fR/view" },
       { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (EN, lahajedwali)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
       { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (TH, lahajedwali)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
       { "title": "Video ya muhtasari wa Kubota Event", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
     ],
     "videosTitle": "Video",
     "downloadsTitle": "Vipakuliwa",
-    "upcomingEvents": {
-      "title": "Kalenda ya Matukio Ijayo",
-      "intro": "Kalenda ya matukio kwa Wauzaji na Wasambazaji, pamoja na muhtasari wa shughuli zilizopita.",
-      "items": [
-        { "date": "Mfano: Robo ya 3", "name": "Mafunzo ya Kuanzishwa kwa Muuzaji", "location": "Mtandaoni / Mchanganyiko", "desc": "Mafunzo ya msingi kuhusu bidhaa, vipuri, na huduma kwa Wauzaji wapya." },
-        { "date": "Mfano: Robo ya 4", "name": "Roadshow ya Kikanda", "location": "Kwa mikoa", "desc": "Maonyesho ya bidhaa na kukusanya maoni ya soko." },
-        { "date": "Mfano: Kila mwaka", "name": "Mkutano wa Mwaka wa Wasambazaji", "location": "Thailand", "desc": "Mapitio ya utendaji wa mwaka na mpango wa biashara wa mwaka ujao." }
-      ],
-      "note": "Kumbuka: matukio hapo juu ni muundo wa mfano tu. Tafadhali badilisha na kalenda halisi ya matukio."
-    },
-    "note": "Miongozo yote minne ya shughuli na jedwali la kulinganisha ni maudhui halisi kutoka kwenye mfululizo rasmi wa KUBOTA Activity Standard. Miongozo isiyo na kiungo cha kupakua cha ndani hapo juu imeunganishwa moja kwa moja na faili ya chanzo kwenye Drive — faili hizo zilikuwa ndogo mno kwa kiunganishi cha Drive cha kipindi hiki kuzihifadhi kwa uhakika kama bytes za ndani, hivyo zinafunguliwa kwenye Google Drive kwenye kichupo kipya badala ya kupakuliwa kutoka kwenye tovuti hii."
+    "note": "Miongozo yote minne ya shughuli na muhtasari unaoonyeshwa hapa ni toleo la Kiswahili kutoka kwenye mfululizo rasmi wa KUBOTA Activity Standard."
   },
   "materials": {
     "title": "Vifaa vya Masoko",

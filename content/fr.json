@@ -14,7 +14,7 @@
       { "icon": "🔧", "title": "Pièces", "desc": "Comment trouver et commander des pièces d'origine, avec les listes de stock recommandées par modèle.", "target": "parts" },
       { "icon": "🛠️", "title": "Service", "desc": "Étapes d'entretien du moteur et du motoculteur, plus le service après-vente.", "target": "service" },
       { "icon": "🌾", "title": "Solutions agricoles", "desc": "Comment adapter le motoculteur aux rizières inondées, aux rizières sèches, au manioc et au maïs.", "target": "crops" },
-      { "icon": "📣", "title": "Événements", "desc": "Quatre formats d'activités standards KUBOTA, plus le calendrier des formations concessionnaires et activités marketing à venir.", "target": "marketing" },
+      { "icon": "📣", "title": "Événements", "desc": "Quatre formats d'activités standards KUBOTA, avec des manuels et des recommandations pour chaque événement.", "target": "marketing" },
       { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "materials-custom" }
     ]
   },
@@ -588,17 +588,7 @@
     ],
     "videosTitle": "Vidéos",
     "downloadsTitle": "Téléchargements",
-    "upcomingEvents": {
-      "title": "Calendrier des événements à venir",
-      "intro": "Calendrier des événements pour les concessionnaires et distributeurs, ainsi que les temps forts des activités passées.",
-      "items": [
-        { "date": "Exemple : T3", "name": "Formation d'intégration des concessionnaires", "location": "En ligne / Hybride", "desc": "Formation de base sur les produits, les pièces et le service pour les nouveaux concessionnaires." },
-        { "date": "Exemple : T4", "name": "Tournée régionale", "location": "Par région", "desc": "Démonstrations produit et collecte de retours du marché." },
-        { "date": "Exemple : Annuel", "name": "Réunion annuelle des distributeurs", "location": "Thaïlande", "desc": "Bilan de performance annuel et plan d'affaires pour l'année suivante." }
-      ],
-      "note": "Les événements ci-dessus sont une structure d'exemple. Veuillez les remplacer par le calendrier réel des événements."
-    },
-    "note": "Les quatre manuels d'activité et le tableau comparatif sont issus du contenu officiel de la série KUBOTA Activity Standard. Les manuels sans lien de téléchargement local ci-dessus renvoient directement au fichier Drive source — ces fichiers étaient trop petits pour que le connecteur Drive de cette session les enregistre de façon fiable en local, ils s'ouvrent donc dans Google Drive dans un nouvel onglet plutôt que d'être téléchargés depuis ce site."
+    "note": "Les manuels et documents récapitulatifs suivent la langue sélectionnée sur le site. La version anglaise est affichée lorsque la version française n'est pas encore disponible."
   },
   "materials": {
     "title": "Supports marketing",

@@ -14,7 +14,7 @@
       { "icon": "🔧", "title": "Parts", "desc": "Paano hanapin at mag-order ng orihinal na parts, may rekomendadong listahan ng stock kada modelo.", "target": "parts" },
       { "icon": "🛠️", "title": "Serbisyo", "desc": "Mga hakbang sa maintenance ng engine at power tiller, kasama ang after-sales na serbisyo.", "target": "service" },
       { "icon": "🌾", "title": "Crop Solutions", "desc": "Paano pumili ng tamang setup ng power tiller para sa basa, tuyong palayan, kamoteng-kahoy, at mais.", "target": "crops" },
-      { "icon": "📣", "title": "Mga Event", "desc": "Apat na standard na KUBOTA activity format, plus ang paparating na kalendaryo ng training para sa Dealer at marketing events.", "target": "marketing" },
+      { "icon": "📣", "title": "Mga Event", "desc": "Apat na standard na KUBOTA activity format, kasama ang mga manual at rekomendadong kailangan para sa bawat event.", "target": "marketing" },
       { "icon": "🖼️", "title": "Marketing Materials", "desc": "I-design ang sarili mong banner at standee para sa tindahan. Ilagay ang detalye ng iyong tindahan at mag-download agad ng print-ready na file.", "target": "materials-custom" }
     ]
   },
@@ -588,17 +588,7 @@
     ],
     "videosTitle": "Mga Video",
     "downloadsTitle": "Mga Download",
-    "upcomingEvents": {
-      "title": "Paparating na Kalendaryo ng Event",
-      "intro": "Kalendaryo ng mga event para sa Dealer at Distributor, kasama ang mga highlight mula sa mga nagdaang activity.",
-      "items": [
-        { "date": "Sample: Q3", "name": "Dealer Onboarding Training", "location": "Online / Hybrid", "desc": "Batayang training sa produkto, parts, at serbisyo para sa mga bagong Dealer." },
-        { "date": "Sample: Q4", "name": "Regional Roadshow", "location": "Ayon sa rehiyon", "desc": "Demo ng produkto at pangongolekta ng feedback mula sa merkado." },
-        { "date": "Sample: Taunan", "name": "Annual Distributor Meeting", "location": "Thailand", "desc": "Taunang pagsusuri ng performance at plano sa negosyo para sa susunod na taon." }
-      ],
-      "note": "Paalala: ang mga event sa itaas ay sample na istraktura lamang. Palitan ng aktuwal na kalendaryo ng event."
-    },
-    "note": "Ang lahat ng apat na activity manual at ang comparison table ay aktuwal na content mula sa opisyal na serye ng KUBOTA Activity Standard. Ang mga manual na walang local download link sa itaas ay direktang naka-link sa source file sa Drive — masyadong maliit ang mga file na iyon para ma-save nang maaasahan ng Drive connector ng session na ito bilang local bytes, kaya nagbubukas ito sa Google Drive sa bagong tab sa halip na mag-download mula sa site na ito."
+    "note": "Ang mga activity manual at summary document ay sumusunod sa wikang pinili sa website. English edition muna ang ipinapakita habang wala pang Filipino edition."
   },
   "materials": {
     "title": "Marketing Materials",
