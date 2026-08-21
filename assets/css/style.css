@@ -1809,36 +1809,63 @@ ol.check-list li::before {
   gap: 12px;
 }
 
-/* Points that carry their own video: stack as full-width rows instead of a
-   ragged multi-column grid, since content length (and therefore card
-   height) varies a lot from point to point. */
+/* Points that carry their own video: one full-width row per point (image |
+   text | video side by side) instead of a multi-column grid. A grid staggered
+   badly here because content length varies a lot between points, so each
+   point gets its own self-contained row — its height depends only on its own
+   content, never on a taller neighbour sharing the row. Keeping the video
+   beside the text instead of below it also avoids stacking extra height on
+   every point, so the section doesn't balloon in length. */
 .check-points--stacked {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
+}
+
+.check-points--stacked .check-point-item {
+  flex-direction: row;
+  align-items: stretch;
+  gap: 16px;
 }
 
 .check-points--stacked .check-point-card--photo {
+  flex: 1 1 auto;
+  min-width: 0;
   flex-direction: row;
   align-items: stretch;
 }
 
 .check-points--stacked .check-point-photo {
-  width: 260px;
-  flex: 0 0 260px;
+  width: 180px;
+  flex: 0 0 180px;
   height: auto;
   aspect-ratio: auto;
 }
 
 .check-points--stacked .check-point-card--photo .check-point-card-body {
   flex: 1 1 auto;
+  min-width: 0;
 }
 
 .check-points--stacked .video-grid {
-  max-width: 420px;
+  flex: 0 0 280px;
+  align-self: center;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
+  .check-points--stacked .check-point-item {
+    flex-direction: column;
+  }
+  .check-points--stacked .check-point-card--photo {
+    flex-direction: row;
+  }
+  .check-points--stacked .video-grid {
+    flex: none;
+    align-self: stretch;
+  }
+}
+
+@media (max-width: 560px) {
   .check-points--stacked .check-point-card--photo {
     flex-direction: column;
   }
@@ -1846,9 +1873,6 @@ ol.check-list li::before {
     width: 100%;
     flex: none;
     aspect-ratio: 4 / 3;
-  }
-  .check-points--stacked .video-grid {
-    max-width: 100%;
   }
 }
 
