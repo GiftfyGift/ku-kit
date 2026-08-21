@@ -1809,6 +1809,49 @@ ol.check-list li::before {
   gap: 12px;
 }
 
+/* Points that carry their own video: stack as full-width rows instead of a
+   ragged multi-column grid, since content length (and therefore card
+   height) varies a lot from point to point. */
+.check-points--stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.check-points--stacked .check-point-card--photo {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.check-points--stacked .check-point-photo {
+  width: 260px;
+  flex: 0 0 260px;
+  height: auto;
+  aspect-ratio: auto;
+}
+
+.check-points--stacked .check-point-card--photo .check-point-card-body {
+  flex: 1 1 auto;
+}
+
+.check-points--stacked .video-grid {
+  max-width: 420px;
+}
+
+@media (max-width: 720px) {
+  .check-points--stacked .check-point-card--photo {
+    flex-direction: column;
+  }
+  .check-points--stacked .check-point-photo {
+    width: 100%;
+    flex: none;
+    aspect-ratio: 4 / 3;
+  }
+  .check-points--stacked .video-grid {
+    max-width: 100%;
+  }
+}
+
 /* Match the five-card product selling-points layout on wider screens. */
 .check-points--five {
   grid-template-columns: repeat(5, minmax(0, 1fr));

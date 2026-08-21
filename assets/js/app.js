@@ -514,14 +514,16 @@ function renderService(c) {
     </div>
   `).join('');
 
+  const pointsGridClass = pts => 'check-points' + (pts.some(pt => pt.video) ? ' check-points--stacked' : '');
+
   const maintenance = s.maintenance ? `
     <div class="category-block">
       <h3 class="category-heading">${s.maintenance.title}</h3>
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
-      <div class="check-points">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine')}</div>
+      <div class="${pointsGridClass(s.maintenance.engine.points)}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine')}</div>
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
-      <div class="check-points">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller')}</div>
+      <div class="${pointsGridClass(s.maintenance.tiller.points)}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller')}</div>
     </div>
   ` : '';
 
