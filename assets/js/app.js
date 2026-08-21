@@ -278,6 +278,126 @@ function renderStartProcedureBlock(sp, id) {
 
 function renderApplicationExamples(app, id) {
   if (!app) return '';
+  const applicationVideoTitle = ({
+    th: 'VDO ภาพการใช้งานกับ Application ต่างๆ',
+    en: 'Videos of Different Application Uses',
+    fr: "Vidéos d’utilisation pour différentes applications",
+    sw: 'Video za Matumizi katika Application Mbalimbali',
+    tl: 'Mga Video ng Iba’t Ibang Application'
+  })[state.lang] || 'Videos of Different Application Uses';
+  const applicationVideo = id === 'engine-application'
+    ? (app.video || { title: applicationVideoTitle, type: 'youtube', youtubeId: 'CuETaLudUGg' })
+    : app.video;
+  const applicationVideoBlock = applicationVideo ? `
+    <div class="application-video-section">
+      <h3 class="application-video-heading">${applicationVideoTitle}</h3>
+      <div class="video-grid application-video-grid">${renderYouTubeEmbed(applicationVideo)}</div>
+    </div>
+  ` : '';
+  // Preview branch: load the latest Application images directly from the
+  // team's shared Drive folder so reviewers always see the newest uploads.
+  if (app.categories && id === 'engine-application') {
+    const driveImage = fileId => `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`;
+    const previewImages = {
+      'power-tiller': [
+        ['Soil Preparation', '1B-BeFNTvhMk4ZMQzxBVj1OxRfMAGpL9H'],
+        ['Soil Preparation', '1qMU1g2vq99Yj7dqeDezTS83CDgf02QQk'],
+        ['Soil Preparation', '14bvXcL-drIo0TSYq7Z1humIZauXNICme'],
+        ['Transportation with a Power Tiller', '15ZrEDr-T_T5FZZBMGA4LN36kPtoRYaaT'],
+        ['Transportation with a Power Tiller', '1fbj2a3by9MRlM0oxf5JnNS8KaIt_3mBh']
+      ],
+      transport: [
+        ['Agricultural Produce Transport Vehicle', '1hFO1YzPiHyVYClk6UazS681u2AlojSYN'],
+        ['Farm Cargo Truck', '1AYLcjoxkTWY4E_qdW9kzwfUWgmWHJS7T'],
+        ['Agricultural Transport Truck', '1rvxZQ-_xjg_oZ1nbGAS-3FeVDtZZ2iuo'],
+        ['Heavy-Duty Farm Transport Vehicle', '1ac4__Y9ZjPF3-TSLo5KA7wyGQ6h6SXr0'],
+        ['Produce Hauling Truck', '1DyK82k73jrwG2Io3UGADWmvyWyXkrn57'],
+        ['Farm Utility Truck', '1O-pl5IbL96-tu88CXqtglO3wXsRDHbr3']
+      ],
+      construction: [
+        ['Micropile Machine', '1dooxmQ9TS2hnHlR58jPno38bLYVV4Udq'],
+        ['Dumper 1', '11ghPhxghwfLED2VEerfE1OtnXEhcIXWs'],
+        ['Dumper 2', '1SKLdigWuZ_Nzim_xeXglEBsu6SZhDzle'],
+        ['Concrete Mixer Truck 1', '1Hn0ui95lAtpFawXixmlgmeGxlExHt3YY'],
+        ['Concrete Mixer Truck 2', '1YaSQ12PL02GcNYf43YQPSDYXWW062n0N'],
+        ['Concrete Sprayer', '1E_b3JZj8w6Xdf8pxNpYxlS5EX7SEHxrZ']
+      ],
+      'other-agricultural': [
+        ['Riding Grass Mower', '1svMx-n_u33BimwuWLjwYfYA_63KMN4qv'],
+        ['Straw Baler', '1BkaN-kyH8XuaVL-1-NGyhiqU6gLq4W9k'],
+        ['Rice Thresher', '1RNjVb6gKul1X4dY8kafUeSYlKHndjWqA'],
+        ['Generator for Drone Charger', '1_ZO69yVjLpsCpBtNtBrlNYjt-0TaZDS4'],
+        ['Animal Feed Mixer', '1X-KHC4wUMJ91_IgxF-dhCISGJ2ngIUx6'],
+        ['Lawn Mower', '1ssEIHZ_GnkMZli4K-eXzGIaWd3PNwM7b'],
+        ['Multi-Purpose Vehicle', '1lI_ok9Oo8Q9UUQzkSbvrjmbBPB3pw3eh'],
+        ['Cassava Chopper', '1AqJDIwYDYBwed58-r7ezBnWevRyOYnXn']
+      ]
+    };
+    app.categories.forEach(category => {
+      if (!previewImages[category.id]) return;
+      category.items = previewImages[category.id].map(([title, fileId]) => ({
+        title,
+        src: driveImage(fileId),
+        alt: `${title} — KUBOTA ZT Plus engine application`
+      }));
+    });
+  }
+  if (app.categories && app.categories.length) {
+    const ui = Object.assign({
+      categoryLabel: 'Select application category',
+      previous: 'Previous image',
+      next: 'Next image',
+      openImage: 'Open image'
+    }, app.ui || {});
+    const categoryTabs = app.categories.map((category, categoryIdx) => `
+      <button type="button" class="application-category-tab${categoryIdx === 0 ? ' active' : ''}"
+        role="tab" aria-selected="${categoryIdx === 0}" aria-controls="application-panel-${id}-${categoryIdx}"
+        id="application-tab-${id}-${categoryIdx}" data-application-tab="${categoryIdx}">${category.title}</button>
+    `).join('');
+    const categoryPanels = app.categories.map((category, categoryIdx) => `
+      <section class="application-carousel-panel" id="application-panel-${id}-${categoryIdx}"
+        role="tabpanel" aria-labelledby="application-tab-${id}-${categoryIdx}"
+        data-application-panel="${categoryIdx}"${categoryIdx === 0 ? '' : ' hidden'}>
+        <div class="application-picture-frame-heading">
+          <span>Applications of Kubota Diesel Engines</span>
+          <img src="https://drive.google.com/thumbnail?id=1CBjOziL8SgTOTQd-H-g_4SqkFWrE1AHt&sz=w1000" alt="ZT Plus" class="application-zt-plus-logo">
+        </div>
+        <div class="application-carousel-frame">
+          <div class="application-carousel-track">
+            ${category.items.map((item, itemIdx) => `
+              <button type="button" class="application-carousel-slide" data-application-slide
+                data-title="${escapeHtml(item.title)}" data-lightbox-src="${item.src}"
+                data-lightbox-alt="${escapeHtml(item.alt || item.title)}" data-lightbox-caption="${escapeHtml(item.title)}"
+                aria-label="${escapeHtml(ui.openImage)}: ${escapeHtml(item.title)}">
+                <span class="application-slide-backdrop" style="background-image:url('${item.src}')" aria-hidden="true"></span>
+                <img src="${item.src}" alt="${escapeHtml(item.alt || item.title)}" loading="${categoryIdx === 0 && itemIdx === 0 ? 'eager' : 'lazy'}">
+              </button>
+            `).join('')}
+          </div>
+          <button type="button" class="application-carousel-arrow application-carousel-arrow--prev" data-application-prev aria-label="${escapeHtml(ui.previous)}">‹</button>
+          <button type="button" class="application-carousel-arrow application-carousel-arrow--next" data-application-next aria-label="${escapeHtml(ui.next)}">›</button>
+          <span class="application-carousel-count" data-application-count>01 / ${String(category.items.length).padStart(2, '0')}</span>
+        </div>
+        <div class="application-carousel-meta">
+          <h4 data-application-caption>${category.items[0]?.title || ''}</h4>
+          <div class="application-carousel-dots" role="group" aria-label="${escapeHtml(category.title)}">
+            ${category.items.map((item, itemIdx) => `<button type="button" class="application-carousel-dot${itemIdx === 0 ? ' active' : ''}" data-application-dot="${itemIdx}" aria-label="${itemIdx + 1}: ${escapeHtml(item.title)}"></button>`).join('')}
+          </div>
+        </div>
+      </section>
+    `).join('');
+    return `
+      <div class="category-block"${id ? ` id="${id}"` : ''}>
+        <h3 class="category-heading">${app.title}</h3>
+        ${app.intro ? `<p class="section-intro">${app.intro}</p>` : ''}
+        <div class="application-showcase" data-application-showcase>
+          <div class="application-category-tabs" role="tablist" aria-label="${escapeHtml(ui.categoryLabel)}">${categoryTabs}</div>
+          ${categoryPanels}
+        </div>
+        ${applicationVideoBlock}
+      </div>
+    `;
+  }
   const images = app.images.map(img => `
     <figure class="application-photo">
       <img src="${img.src}" alt="${img.alt}">
@@ -288,9 +408,66 @@ function renderApplicationExamples(app, id) {
       <h3 class="category-heading">${app.title}</h3>
       ${app.intro ? `<p class="section-intro">${app.intro}</p>` : ''}
       <div class="application-gallery">${images}</div>
-      ${app.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(app.video)}</div>` : ''}
+      ${applicationVideoBlock}
     </div>
   `;
+}
+
+let applicationCarouselTimers = [];
+
+function initApplicationCarousels() {
+  applicationCarouselTimers.forEach(clearInterval);
+  applicationCarouselTimers = [];
+
+  app.querySelectorAll('[data-application-showcase]').forEach(showcase => {
+    const tabs = Array.from(showcase.querySelectorAll('[data-application-tab]'));
+    const panels = Array.from(showcase.querySelectorAll('[data-application-panel]'));
+
+    panels.forEach(panel => {
+      const track = panel.querySelector('.application-carousel-track');
+      const slides = Array.from(panel.querySelectorAll('[data-application-slide]'));
+      const dots = Array.from(panel.querySelectorAll('[data-application-dot]'));
+      const caption = panel.querySelector('[data-application-caption]');
+      const count = panel.querySelector('[data-application-count]');
+      let current = 0;
+      let touchStartX = 0;
+
+      const showSlide = index => {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((dot, dotIdx) => dot.classList.toggle('active', dotIdx === current));
+        caption.textContent = slides[current]?.dataset.title || '';
+        count.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      };
+
+      panel.querySelector('[data-application-prev]')?.addEventListener('click', () => showSlide(current - 1));
+      panel.querySelector('[data-application-next]')?.addEventListener('click', () => showSlide(current + 1));
+      dots.forEach(dot => dot.addEventListener('click', () => showSlide(Number(dot.dataset.applicationDot))));
+      panel.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+      panel.addEventListener('touchend', event => {
+        const delta = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(delta) > 45) showSlide(current + (delta < 0 ? 1 : -1));
+      }, { passive: true });
+
+      if (slides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const timer = setInterval(() => {
+          if (!panel.hidden && !document.hidden) showSlide(current + 1);
+        }, 4800);
+        applicationCarouselTimers.push(timer);
+      }
+    });
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const selected = Number(tab.dataset.applicationTab);
+        tabs.forEach((item, idx) => {
+          item.classList.toggle('active', idx === selected);
+          item.setAttribute('aria-selected', String(idx === selected));
+        });
+        panels.forEach((panel, idx) => { panel.hidden = idx !== selected; });
+      });
+    });
+  });
 }
 
 function renderAuthenticityBlock(auth, id) {
@@ -501,29 +678,24 @@ function renderService(c) {
   const s = c.service;
 
   const renderMaintenancePoints = (pts, idPrefix) => pts.map((pt, idx) => `
-    <div class="check-point-item" id="${idPrefix}-${idx}">
-      <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
-        ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
-        <div class="check-point-card-body">
-          <h4>${pt.title}</h4>
-          <p class="desc">${pt.desc}</p>
-          <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
-        </div>
+    <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}" id="${idPrefix}-${idx}">
+      ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
+      <div class="check-point-card-body">
+        <h4>${pt.title}</h4>
+        <p class="desc">${pt.desc}</p>
+        <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
       </div>
-      ${pt.video ? `<div class="video-grid">${renderYouTubeEmbed(pt.video)}</div>` : ''}
     </div>
   `).join('');
-
-  const pointsGridClass = pts => 'check-points' + (pts.some(pt => pt.video) ? ' check-points--stacked' : '');
 
   const maintenance = s.maintenance ? `
     <div class="category-block">
       <h3 class="category-heading">${s.maintenance.title}</h3>
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
-      <div class="${pointsGridClass(s.maintenance.engine.points)}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine')}</div>
+      <div class="check-points">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine')}</div>
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
-      <div class="${pointsGridClass(s.maintenance.tiller.points)}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller')}</div>
+      <div class="check-points">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller')}</div>
     </div>
   ` : '';
 
@@ -2909,6 +3081,7 @@ function render() {
   });
 
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
+  if (state.route === 'product' || state.route === 'product-engine') initApplicationCarousels();
   if (state.route === 'marketing') initActivityCards(c);
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
   if (state.route === 'order-checkout') initOrderCheckoutPage(c);
