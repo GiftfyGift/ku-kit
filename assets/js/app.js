@@ -342,6 +342,10 @@ function renderApplicationExamples(app, id) {
       <section class="application-carousel-panel" id="application-panel-${id}-${categoryIdx}"
         role="tabpanel" aria-labelledby="application-tab-${id}-${categoryIdx}"
         data-application-panel="${categoryIdx}"${categoryIdx === 0 ? '' : ' hidden'}>
+        <div class="application-picture-frame-heading">
+          <span>Applications of Kubota Diesel Engines</span>
+          <strong>ZT <em>PLUS</em></strong>
+        </div>
         <div class="application-carousel-frame">
           <div class="application-carousel-track">
             ${category.items.map((item, itemIdx) => `
