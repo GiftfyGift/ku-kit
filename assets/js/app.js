@@ -284,19 +284,19 @@ function renderApplicationExamples(app, id) {
     const driveImage = fileId => `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`;
     const previewImages = {
       'power-tiller': [
-        ['Soil Preparation 1', '1B-BeFNTvhMk4ZMQzxBVj1OxRfMAGpL9H'],
-        ['Soil Preparation 2', '1qMU1g2vq99Yj7dqeDezTS83CDgf02QQk'],
-        ['Soil Preparation 3', '14bvXcL-drIo0TSYq7Z1humIZauXNICme'],
-        ['Transportation 1', '15ZrEDr-T_T5FZZBMGA4LN36kPtoRYaaT'],
-        ['Transportation 2', '1fbj2a3by9MRlM0oxf5JnNS8KaIt_3mBh']
+        ['Soil Preparation', '1B-BeFNTvhMk4ZMQzxBVj1OxRfMAGpL9H'],
+        ['Soil Preparation', '1qMU1g2vq99Yj7dqeDezTS83CDgf02QQk'],
+        ['Soil Preparation', '14bvXcL-drIo0TSYq7Z1humIZauXNICme'],
+        ['Transportation with a Power Tiller', '15ZrEDr-T_T5FZZBMGA4LN36kPtoRYaaT'],
+        ['Transportation with a Power Tiller', '1fbj2a3by9MRlM0oxf5JnNS8KaIt_3mBh']
       ],
       transport: [
-        ['Picture 3', '1hFO1YzPiHyVYClk6UazS681u2AlojSYN'],
-        ['Picture 4', '1AYLcjoxkTWY4E_qdW9kzwfUWgmWHJS7T'],
-        ['Picture 5', '1rvxZQ-_xjg_oZ1nbGAS-3FeVDtZZ2iuo'],
-        ['Picture 6', '1ac4__Y9ZjPF3-TSLo5KA7wyGQ6h6SXr0'],
-        ['Picture 7', '1DyK82k73jrwG2Io3UGADWmvyWyXkrn57'],
-        ['Picture 8', '1O-pl5IbL96-tu88CXqtglO3wXsRDHbr3']
+        ['Agricultural Produce Transport Vehicle', '1hFO1YzPiHyVYClk6UazS681u2AlojSYN'],
+        ['Farm Cargo Truck', '1AYLcjoxkTWY4E_qdW9kzwfUWgmWHJS7T'],
+        ['Agricultural Transport Truck', '1rvxZQ-_xjg_oZ1nbGAS-3FeVDtZZ2iuo'],
+        ['Heavy-Duty Farm Transport Vehicle', '1ac4__Y9ZjPF3-TSLo5KA7wyGQ6h6SXr0'],
+        ['Produce Hauling Truck', '1DyK82k73jrwG2Io3UGADWmvyWyXkrn57'],
+        ['Farm Utility Truck', '1O-pl5IbL96-tu88CXqtglO3wXsRDHbr3']
       ],
       construction: [
         ['Micropile Machine', '1dooxmQ9TS2hnHlR58jPno38bLYVV4Udq'],
