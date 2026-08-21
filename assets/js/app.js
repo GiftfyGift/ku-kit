@@ -278,6 +278,54 @@ function renderStartProcedureBlock(sp, id) {
 
 function renderApplicationExamples(app, id) {
   if (!app) return '';
+  // Preview branch: load the latest Application images directly from the
+  // team's shared Drive folder so reviewers always see the newest uploads.
+  if (app.categories && id === 'engine-application') {
+    const driveImage = fileId => `https://drive.google.com/thumbnail?id=${fileId}&sz=w2000`;
+    const previewImages = {
+      'power-tiller': [
+        ['Soil Preparation 1', '1B-BeFNTvhMk4ZMQzxBVj1OxRfMAGpL9H'],
+        ['Soil Preparation 2', '1qMU1g2vq99Yj7dqeDezTS83CDgf02QQk'],
+        ['Soil Preparation 3', '14bvXcL-drIo0TSYq7Z1humIZauXNICme'],
+        ['Transportation 1', '15ZrEDr-T_T5FZZBMGA4LN36kPtoRYaaT'],
+        ['Transportation 2', '1fbj2a3by9MRlM0oxf5JnNS8KaIt_3mBh']
+      ],
+      transport: [
+        ['Picture 3', '1hFO1YzPiHyVYClk6UazS681u2AlojSYN'],
+        ['Picture 4', '1AYLcjoxkTWY4E_qdW9kzwfUWgmWHJS7T'],
+        ['Picture 5', '1rvxZQ-_xjg_oZ1nbGAS-3FeVDtZZ2iuo'],
+        ['Picture 6', '1ac4__Y9ZjPF3-TSLo5KA7wyGQ6h6SXr0'],
+        ['Picture 7', '1DyK82k73jrwG2Io3UGADWmvyWyXkrn57'],
+        ['Picture 8', '1O-pl5IbL96-tu88CXqtglO3wXsRDHbr3']
+      ],
+      construction: [
+        ['Micropile Machine', '1dooxmQ9TS2hnHlR58jPno38bLYVV4Udq'],
+        ['Dumper 1', '11ghPhxghwfLED2VEerfE1OtnXEhcIXWs'],
+        ['Dumper 2', '1SKLdigWuZ_Nzim_xeXglEBsu6SZhDzle'],
+        ['Concrete Mixer Truck 1', '1Hn0ui95lAtpFawXixmlgmeGxlExHt3YY'],
+        ['Concrete Mixer Truck 2', '1YaSQ12PL02GcNYf43YQPSDYXWW062n0N'],
+        ['Concrete Sprayer', '1E_b3JZj8w6Xdf8pxNpYxlS5EX7SEHxrZ']
+      ],
+      'other-agricultural': [
+        ['Riding Grass Mower', '1svMx-n_u33BimwuWLjwYfYA_63KMN4qv'],
+        ['Straw Baler', '1BkaN-kyH8XuaVL-1-NGyhiqU6gLq4W9k'],
+        ['Rice Thresher', '1RNjVb6gKul1X4dY8kafUeSYlKHndjWqA'],
+        ['Generator for Drone Charger', '1_ZO69yVjLpsCpBtNtBrlNYjt-0TaZDS4'],
+        ['Animal Feed Mixer', '1X-KHC4wUMJ91_IgxF-dhCISGJ2ngIUx6'],
+        ['Lawn Mower', '1ssEIHZ_GnkMZli4K-eXzGIaWd3PNwM7b'],
+        ['Multi-Purpose Vehicle', '1lI_ok9Oo8Q9UUQzkSbvrjmbBPB3pw3eh'],
+        ['Cassava Chopper', '1AqJDIwYDYBwed58-r7ezBnWevRyOYnXn']
+      ]
+    };
+    app.categories.forEach(category => {
+      if (!previewImages[category.id]) return;
+      category.items = previewImages[category.id].map(([title, fileId]) => ({
+        title,
+        src: driveImage(fileId),
+        alt: `${title} — KUBOTA ZT Plus engine application`
+      }));
+    });
+  }
   if (app.categories && app.categories.length) {
     const ui = Object.assign({
       categoryLabel: 'Select application category',
