@@ -1946,17 +1946,61 @@ table.parts-table td.code-col {
 
 .application-carousel-panel {
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 14px;
-  background: rgba(5,17,20,0.82);
-  box-shadow: 0 18px 48px rgba(0,0,0,0.24);
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #182326 0%, #05090a 42%, #0b2222 100%);
+  box-shadow: 0 20px 52px rgba(0,0,0,0.36), inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+.application-picture-frame-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 58px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 10px 10px 4px 4px;
+  background: linear-gradient(180deg, #090d0f 0%, #010202 100%);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 5px 16px rgba(0,0,0,0.3);
+}
+
+.application-picture-frame-heading > span {
+  font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+  font-size: clamp(15px, 2vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.application-picture-frame-heading strong {
+  flex: 0 0 auto;
+  color: #ef3b25;
+  font-family: Arial, sans-serif;
+  font-size: clamp(20px, 3vw, 32px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  text-shadow: 1px 1px 0 #fff, 2px 2px 0 rgba(255,255,255,0.28);
+}
+
+.application-picture-frame-heading strong em {
+  margin-left: 7px;
+  color: #fff;
+  font-size: 0.72em;
+  letter-spacing: 0.04em;
 }
 
 .application-carousel-frame {
   position: relative;
   aspect-ratio: 16 / 8.5;
+  margin-top: 8px;
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 9px 9px 3px 3px;
   background: #050d0f;
+  box-shadow: inset 0 0 0 5px rgba(0,0,0,0.2);
 }
 
 .application-carousel-track {
@@ -2051,8 +2095,11 @@ table.parts-table td.code-col {
   justify-content: space-between;
   gap: 16px;
   min-height: 66px;
+  margin-top: 1px;
   padding: 14px 18px;
   border-top: 1px solid rgba(255,255,255,0.12);
+  border-radius: 3px 3px 9px 9px;
+  background: linear-gradient(90deg, rgba(0,38,38,0.96), rgba(4,15,17,0.96));
 }
 
 .application-carousel-meta h4 {
@@ -2100,6 +2147,8 @@ table.parts-table td.code-col {
   .application-carousel-arrow--next { right: 9px; }
   .application-carousel-meta { align-items: flex-start; flex-direction: column; gap: 10px; }
   .application-carousel-dots { justify-content: flex-start; }
+  .application-picture-frame-heading { min-height: 50px; padding: 9px 12px; }
+  .application-picture-frame-heading > span { font-size: 13px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
