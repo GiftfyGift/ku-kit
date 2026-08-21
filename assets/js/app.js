@@ -501,14 +501,16 @@ function renderService(c) {
   const s = c.service;
 
   const renderMaintenancePoints = (pts, idPrefix) => pts.map((pt, idx) => `
-    <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}" id="${idPrefix}-${idx}">
-      ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
-      <div class="check-point-card-body">
-        <h4>${pt.title}</h4>
-        <p class="desc">${pt.desc}</p>
-        <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
-        ${pt.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(pt.video)}</div>` : ''}
+    <div class="check-point-item" id="${idPrefix}-${idx}">
+      <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
+        ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
+        <div class="check-point-card-body">
+          <h4>${pt.title}</h4>
+          <p class="desc">${pt.desc}</p>
+          <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
+        </div>
       </div>
+      ${pt.video ? `<div class="video-grid">${renderYouTubeEmbed(pt.video)}</div>` : ''}
     </div>
   `).join('');
 
