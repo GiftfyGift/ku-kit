@@ -3085,7 +3085,8 @@ function render() {
     btn.addEventListener('click', () => openLightbox(btn.dataset.lightboxSrc, btn.dataset.lightboxAlt, btn.dataset.lightboxCaption));
   });
 
-  if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);\n  if (state.route === 'product' || state.route === 'product-engine') initApplicationCarousels();
+  if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
+  if (state.route === 'product' || state.route === 'product-engine') initApplicationCarousels();
   if (state.route === 'marketing') initActivityCards(c);
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
   if (state.route === 'order-checkout') initOrderCheckoutPage(c);
