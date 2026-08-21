@@ -1,6 +1,20 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Language", "sampleBadge": "Sample data" },
-  "nav": { "home": "Home", "product": "Product", "parts": "Parts", "service": "Service", "crops": "Crop Solutions", "marketing": "Events", "artwork": "Marketing Materials", "order": "Order" },
+  "meta": {
+    "siteName": "KU-KIT",
+    "tagline": "One Click for Everyday Success with Kubota",
+    "langLabel": "Language",
+    "sampleBadge": "Sample data"
+  },
+  "nav": {
+    "home": "Home",
+    "product": "Product",
+    "parts": "Parts",
+    "service": "Service",
+    "crops": "Crop Solutions",
+    "marketing": "Events",
+    "artwork": "Marketing Materials",
+    "order": "Order"
+  },
   "hero": {
     "title": "Welcome to KU-KIT",
     "subtitle": "Everything you need — product, parts, service, and event information — just one click away. Built for new Dealers and Distributors, anytime, anywhere.",
@@ -10,64 +24,189 @@
     "introTitle": "What is KU-KIT?",
     "introText": "KU-KIT stands for Kubota Kit, and echoes the Thai phrase \"kuu-kit\" (คู่คิด) — a trusted business partner. It's a one-stop knowledge base built to be that partner for new overseas Dealers and Distributors, covering engines and power tillers so your team can learn about our products, parts, service, and events independently, without waiting for in-person training — making day-to-day business easier, while reducing travel and training costs and easing language barriers when entering new markets.",
     "cards": [
-      { "icon": "⚙️", "title": "Product Info", "desc": "ZT Plus diesel engine and NC Plus X power tiller specs, genuine-product checks, and assembly guide.", "target": "product-engine" },
-      { "icon": "🔧", "title": "Parts", "desc": "How to find and order genuine parts, with recommended stock lists by model.", "target": "parts" },
-      { "icon": "🛠️", "title": "Service", "desc": "Maintenance steps for the engine and power tiller, plus after-sales service.", "target": "service" },
-      { "icon": "🌾", "title": "Crop Solutions", "desc": "How to match the right power tiller setup to wet paddy, dry paddy, cassava, and corn fields.", "target": "crops" },
-      { "icon": "📣", "title": "Events", "desc": "Four standard KUBOTA activity formats, with manuals and recommended items for each event.", "target": "marketing" },
-      { "icon": "🖼️", "title": "Marketing Materials", "desc": "Design your own storefront banner and standee. Fill in your shop details and download a print-ready file instantly.", "target": "materials-custom" }
+      {
+        "icon": "⚙️",
+        "title": "Product Info",
+        "desc": "ZT Plus diesel engine and NC Plus X power tiller specs, genuine-product checks, and assembly guide.",
+        "target": "product-engine"
+      },
+      {
+        "icon": "🔧",
+        "title": "Parts",
+        "desc": "How to find and order genuine parts, with recommended stock lists by model.",
+        "target": "parts"
+      },
+      {
+        "icon": "🛠️",
+        "title": "Service",
+        "desc": "Maintenance steps for the engine and power tiller, plus after-sales service.",
+        "target": "service"
+      },
+      {
+        "icon": "🌾",
+        "title": "Crop Solutions",
+        "desc": "How to match the right power tiller setup to wet paddy, dry paddy, cassava, and corn fields.",
+        "target": "crops"
+      },
+      {
+        "icon": "📣",
+        "title": "Events",
+        "desc": "Four standard KUBOTA activity formats, with manuals and recommended items for each event.",
+        "target": "marketing"
+      },
+      {
+        "icon": "🖼️",
+        "title": "Marketing Materials",
+        "desc": "Design your own storefront banner and standee. Fill in your shop details and download a print-ready file instantly.",
+        "target": "materials-custom"
+      }
     ]
   },
   "product": {
     "title": "Product Information",
     "intro": "Everything a new Dealer needs to know about our two core product lines — the KUBOTA ZT Plus diesel engine and the TRA CHANG NC Plus X power tiller.",
-    "tabs": { "engine": "Engine", "tiller": "Power Tiller", "assembly": "Assembly Guide" },
+    "tabs": {
+      "engine": "Engine",
+      "tiller": "Power Tiller",
+      "assembly": "Assembly Guide"
+    },
     "engine": {
       "title": "KUBOTA Diesel Engine — ZT Plus",
       "quickLinks": [
-        { "label": "Product Knowledge", "route": "product-engine", "anchor": "engine-product-info" },
-        { "label": "Pre-Delivery Check & Correct Starting Procedure", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-assembly", "anchor": "assembly-engine" },
-        { "label": "OPM (Operation Manual)", "route": "product-engine", "anchor": "engine-downloads" },
-        { "label": "Authenticity Checkpoints", "route": "product-engine", "anchor": "engine-authenticity" },
-        { "label": "Application Examples", "route": "product-engine", "anchor": "engine-application" }
+        {
+          "label": "Product Knowledge",
+          "route": "product-engine",
+          "anchor": "engine-product-info"
+        },
+        {
+          "label": "Pre-Delivery Check & Correct Starting Procedure",
+          "route": "product-engine",
+          "anchor": "engine-pre-delivery"
+        },
+        {
+          "label": "How to Assemble the Diesel Engine with the Power Tiller",
+          "route": "product-assembly",
+          "anchor": "assembly-engine"
+        },
+        {
+          "label": "OPM (Operation Manual)",
+          "route": "product-engine",
+          "anchor": "engine-downloads"
+        },
+        {
+          "label": "Authenticity Checkpoints",
+          "route": "product-engine",
+          "anchor": "engine-authenticity"
+        },
+        {
+          "label": "Application Examples",
+          "route": "product-engine",
+          "anchor": "engine-application"
+        }
       ],
-      "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "KUBOTA ZT155 DI Plus diesel engine" },
+      "image": {
+        "src": "assets/img/product/zt155-engine-cutout.png",
+        "alt": "KUBOTA ZT155 DI Plus diesel engine"
+      },
       "items": [
         {
           "name": "ZT Plus (TVCS type)",
           "desc": "Three Vortex Combustion System (TVCS). Starts easily, runs quietly, and saves fuel at low RPM — ideal for water pumping or attaching to a power tiller for tillage.",
           "specs": [
-            { "label": "Power range", "value": "10 - 12 HP" },
-            { "label": "Combustion system", "value": "Three Vortex Combustion System (TVCS)" },
-            { "label": "Start methods", "value": "Standard (manual) / ES (electric start) / SW (key switch)" },
-            { "label": "Warranty", "value": "3 years" }
+            {
+              "label": "Power range",
+              "value": "10 - 12 HP"
+            },
+            {
+              "label": "Combustion system",
+              "value": "Three Vortex Combustion System (TVCS)"
+            },
+            {
+              "label": "Start methods",
+              "value": "Standard (manual) / ES (electric start) / SW (key switch)"
+            },
+            {
+              "label": "Warranty",
+              "value": "3 years"
+            }
           ]
         },
         {
           "name": "ZT Plus (DI type)",
           "desc": "Direct Injection (DI). Responds well when accelerating and saves fuel at high RPM — suited to heavy transport, tillage contracting, dynamo spinning, or pumping from deep wells.",
           "specs": [
-            { "label": "Power range", "value": "12.5 - 18 HP" },
-            { "label": "Combustion system", "value": "Direct Injection (DI)" },
-            { "label": "Start methods", "value": "Standard (manual) / ES (electric start) / SW (key switch)" },
-            { "label": "Warranty", "value": "3 years" }
+            {
+              "label": "Power range",
+              "value": "12.5 - 18 HP"
+            },
+            {
+              "label": "Combustion system",
+              "value": "Direct Injection (DI)"
+            },
+            {
+              "label": "Start methods",
+              "value": "Standard (manual) / ES (electric start) / SW (key switch)"
+            },
+            {
+              "label": "Warranty",
+              "value": "3 years"
+            }
           ]
         }
       ],
-      "note": "How to read the horsepower: check the model label on the engine (e.g. ZT100Plus = 10 HP, ZT140Plus = 14 HP) or the nameplate on the side gear cover. Available models may differ by country.",
+      "note": "Specs above come from the actual ZT Plus product knowledge deck provided by the team. Other engine sizes (ZT100/110/120/125/155/180) follow the same structure — ask the product team for their decks if you need to add them. The packshot photo links directly to Drive (13MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally.",
       "sellingPoints": {
         "title": "ZT Plus Highlight Selling Points",
         "items": [
-          { "title": "Steel fuel tank", "desc": "10.5 litres on 10-15.5 HP engines, 14.5 litres on the 18 HP engine.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Close-up of the steel fuel tank on the ZT Plus engine" } },
-          { "title": "Steel grate", "desc": "Protects the radiator and fan side, increases the inner radiator filter frequency for better dust protection and lower overheating risk.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Close-up of the steel grate protecting the radiator and fan" } },
-          { "title": "Reinforced aluminium structure", "desc": "Protects the radiator and other parts from damage, reinforced at 3 anchor points to reduce vibration during operation.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "All 3 aluminium structure anchor points on the ZT155DI engine" } },
-          { "title": "Transparent fuel level gauge", "desc": "Clear PVC gauge lets you check the fuel level at a glance.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Clear PVC fuel level gauge tube on the fuel tank" } },
-          { "title": "LED headlamp", "desc": "Bright LED headlamp for safe night-time operation; the PRO model adds turn signals and a USB charging port.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Close-up of the bright LED headlamp on the ZT Plus engine" } }
+          {
+            "title": "Steel fuel tank",
+            "desc": "10.5 litres on 10-15.5 HP engines, 14.5 litres on the 18 HP engine.",
+            "image": {
+              "src": "assets/img/product/detail-fuel-tank.jpg",
+              "alt": "Close-up of the steel fuel tank on the ZT Plus engine"
+            }
+          },
+          {
+            "title": "Steel grate",
+            "desc": "Protects the radiator and fan side, increases the inner radiator filter frequency for better dust protection and lower overheating risk.",
+            "image": {
+              "src": "assets/img/product/detail-steel-grate.jpg",
+              "alt": "Close-up of the steel grate protecting the radiator and fan"
+            }
+          },
+          {
+            "title": "Reinforced aluminium structure",
+            "desc": "Protects the radiator and other parts from damage, reinforced at 3 anchor points to reduce vibration during operation.",
+            "image": {
+              "src": "assets/img/product/detail-aluminum-structure.jpg",
+              "alt": "All 3 aluminium structure anchor points on the ZT155DI engine"
+            }
+          },
+          {
+            "title": "Transparent fuel level gauge",
+            "desc": "Clear PVC gauge lets you check the fuel level at a glance.",
+            "image": {
+              "src": "assets/img/product/detail-fuel-gauge.jpg",
+              "alt": "Clear PVC fuel level gauge tube on the fuel tank"
+            }
+          },
+          {
+            "title": "LED headlamp",
+            "desc": "Bright LED headlamp for safe night-time operation; the PRO model adds turn signals and a USB charging port.",
+            "image": {
+              "src": "assets/img/product/detail-led-headlamp.jpg",
+              "alt": "Close-up of the bright LED headlamp on the ZT Plus engine"
+            }
+          }
         ],
         "media": {
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view" }
+            {
+              "title": "EPB_Product Knowledge_ZT Plus",
+              "lang": "EN",
+              "type": "pptx",
+              "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view"
+            }
           ]
         }
       },
@@ -75,11 +214,73 @@
         "title": "5 Key Checks Before Operating the Engine",
         "intro": "Complete these five checks before handing the engine over to a customer or starting it for the first time.",
         "points": [
-          { "title": "1. Air filter", "desc": "Filters dust from the intake air to protect internal parts from wear.", "steps": ["Fill engine oil into the filter pot.", "Fill to the level mark shown on the pot.", "Fit the air filter carefully so the rubber seal doesn't tear.", "Add a little oil on top of the filter to help trap dust."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Adding oil to the real air filter on a ZT Plus engine" } },
-          { "title": "2. Fuel system", "desc": "Fuel mixes with air and ignites from compression heat to run the engine.", "steps": ["Use clean fuel; no need to remove the filter while refuelling.", "Check for leaks around the filter — no water or debris should be mixed into the fuel."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "The real fuel filter cup on a ZT Plus engine" } },
-          { "title": "3. Engine oil", "desc": "Lubrication prevents wear, keeps moving parts free, and helps cool the engine.", "steps": ["Use TRA CHANG engine oil, SAE40.", "Add about 2.7-2.8 litres.", "Oil level must sit between the upper and lower marks.", "Before use, idle the engine 15-20 minutes to circulate oil fully.", "Check the oil-pressure indicator — blue covering red means the lubrication system is working normally."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "The oil-pressure indicator (blue/red) on a real engine" } },
-          { "title": "4. Cooling water system", "desc": "Keeps engine temperature under control.", "steps": ["Add rust-proofing powder.", "Fill with clean water.", "Never use groundwater or canal water — it causes radiator sediment and clogging."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Filling clean water into a real engine's radiator" } },
-          { "title": "5. Fan belt", "desc": "Drives the cooling fan and other components.", "steps": ["Press the middle of the belt with your finger to check tension.", "Correct deflection is 10-15 mm.", "If too tight or too loose, adjust to that range."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Measuring fan belt deflection with a ruler" } }
+          {
+            "title": "1. Air filter",
+            "desc": "Filters dust from the intake air to protect internal parts from wear.",
+            "steps": [
+              "Fill engine oil into the filter pot.",
+              "Fill to the level mark shown on the pot.",
+              "Fit the air filter carefully so the rubber seal doesn't tear.",
+              "Add a little oil on top of the filter to help trap dust."
+            ],
+            "image": {
+              "src": "assets/img/service/check-air-filter.jpg",
+              "alt": "Adding oil to the real air filter on a ZT Plus engine"
+            }
+          },
+          {
+            "title": "2. Fuel system",
+            "desc": "Fuel mixes with air and ignites from compression heat to run the engine.",
+            "steps": [
+              "Use clean fuel; no need to remove the filter while refuelling.",
+              "Check for leaks around the filter — no water or debris should be mixed into the fuel."
+            ],
+            "image": {
+              "src": "assets/img/service/check-fuel-system.jpg",
+              "alt": "The real fuel filter cup on a ZT Plus engine"
+            }
+          },
+          {
+            "title": "3. Engine oil",
+            "desc": "Lubrication prevents wear, keeps moving parts free, and helps cool the engine.",
+            "steps": [
+              "Use TRA CHANG engine oil, SAE40.",
+              "Add about 2.7-2.8 litres.",
+              "Oil level must sit between the upper and lower marks.",
+              "Before use, idle the engine 15-20 minutes to circulate oil fully.",
+              "Check the oil-pressure indicator — blue covering red means the lubrication system is working normally."
+            ],
+            "image": {
+              "src": "assets/img/service/check-engine-oil.jpg",
+              "alt": "The oil-pressure indicator (blue/red) on a real engine"
+            }
+          },
+          {
+            "title": "4. Cooling water system",
+            "desc": "Keeps engine temperature under control.",
+            "steps": [
+              "Add rust-proofing powder.",
+              "Fill with clean water.",
+              "Never use groundwater or canal water — it causes radiator sediment and clogging."
+            ],
+            "image": {
+              "src": "assets/img/service/check-radiator.jpg",
+              "alt": "Filling clean water into a real engine's radiator"
+            }
+          },
+          {
+            "title": "5. Fan belt",
+            "desc": "Drives the cooling fan and other components.",
+            "steps": [
+              "Press the middle of the belt with your finger to check tension.",
+              "Correct deflection is 10-15 mm.",
+              "If too tight or too loose, adjust to that range."
+            ],
+            "image": {
+              "src": "assets/img/service/check-fan-belt.jpg",
+              "alt": "Measuring fan belt deflection with a ruler"
+            }
+          }
         ]
       },
       "startProcedure": {
@@ -98,7 +299,12 @@
           "Don't release the valve lever and stop cranking mid-way — this can cause the engine to kick back (smoke from the air filter) and spin in reverse.",
           "If the engine kicks back, remove the air filter and check it — clean off any soot, or replace the filter if it's damaged."
         ],
-        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view" }
+        "moreFile": {
+          "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view"
+        }
       },
       "applicationExamples": {
         "title": "Application Examples",
@@ -115,14 +321,29 @@
             "title": "Power Tiller Applications",
             "items": [
               {
-                "title": "Soil Preparation",
-                "src": "assets/img/product/application/power-tiller-soil-preparation.png",
-                "alt": "Soil Preparation — KUBOTA ZT Plus engine application"
+                "title": "Soil Preparation — 1",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-1.png",
+                "alt": "Soil Preparation — 1 — KUBOTA ZT Plus engine application"
               },
               {
-                "title": "Transportation with a Power Tiller",
-                "src": "assets/img/product/application/power-tiller-transportation.png",
-                "alt": "Transportation with a Power Tiller — KUBOTA ZT Plus engine application"
+                "title": "Soil Preparation — 2",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-2.png",
+                "alt": "Soil Preparation — 2 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Soil Preparation — 3",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-3.jpg",
+                "alt": "Soil Preparation — 3 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Transportation with a Power Tiller — 1",
+                "src": "assets/img/product/application/power-tiller-transportation-1.jpg",
+                "alt": "Transportation with a Power Tiller — 1 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Transportation with a Power Tiller — 2",
+                "src": "assets/img/product/application/power-tiller-transportation-2.png",
+                "alt": "Transportation with a Power Tiller — 2 — KUBOTA ZT Plus engine application"
               }
             ]
           },
@@ -154,6 +375,11 @@
                 "title": "Agricultural Transport Trailer",
                 "src": "assets/img/product/application/transport-farm-trailer.png",
                 "alt": "Agricultural Transport Trailer — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "4x4 Utility Transport Vehicle",
+                "src": "assets/img/product/application/transport-four-wheel-utility-vehicle.jpg",
+                "alt": "4x4 Utility Transport Vehicle — KUBOTA ZT Plus engine application"
               }
             ]
           },
@@ -307,89 +533,266 @@
       "authenticity": {
         "title": "How to Check the Genuine KUBOTA ZT Plus Engine",
         "intro": "Counterfeits hurt customer trust and after-sales safety. Use these checkpoints to confirm a genuine KUBOTA engine.",
-        "artworkImage": { "src": "assets/img/product/authenticity/engine-authenticity-artwork-en.jpg", "alt": "How to check the genuine KUBOTA diesel engine — spoiler logo, embossed K on the top cover, flywheel K markings, embossed K on the front cover, 6-digit serial number, and required dealer stickers" },
+        "artworkImage": {
+          "src": "assets/img/product/authenticity/engine-authenticity-artwork-en.jpg",
+          "alt": "How to check the genuine KUBOTA diesel engine — spoiler logo, embossed K on the top cover, flywheel K markings, embossed K on the front cover, 6-digit serial number, and required dealer stickers"
+        },
         "points": [
-          { "text": "Embossed \"K\" symbol (Kubota identity logo) on the engine cover.", "image": { "src": "assets/img/product/authenticity/engine-01-k-symbol.png", "alt": "Embossed K symbol on the engine cover" } },
-          { "text": "Debossed Kubota logo on the spoiler — black spoiler on the Standard model, silver spoiler on the PRO model.", "image": { "src": "assets/img/product/authenticity/engine-02-spoiler.png", "alt": "Debossed KUBOTA logo on the spoiler" } },
-          { "text": "Embossed \"K\" symbol on the side gear cover, matching the engine cover.", "image": { "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png", "alt": "Embossed K symbol on the side gear cover" } },
-          { "text": "Embossed \"K\" letter and Kubota identity logo on the cylinder block, near the fuel pump.", "image": { "src": "assets/img/product/authenticity/engine-04-cylinder-block.png", "alt": "Embossed K letter and Kubota logo on the cylinder block" } },
-          { "text": "Two Kubota identity symbols embossed on the flywheel.", "image": { "src": "assets/img/product/authenticity/engine-05-flywheel.png", "alt": "Kubota identity symbols embossed on the flywheel" } },
-          { "text": "Nameplate sticker on the side gear cover showing the model, manufacturer (\"SIAM KUBOTA Corporation Co., Ltd\"), and production origin (\"MADE IN THAILAND\").", "image": { "src": "assets/img/product/authenticity/engine-06-nameplate.png", "alt": "Nameplate sticker on the side gear cover" } },
-          { "text": "A \"3-Years Warranty\" sticker from Siam Kubota on the side gear cover.", "image": { "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png", "alt": "3-Years Warranty sticker from Siam Kubota" } },
-          { "text": "A TIS (Thai Industrial Standard) sticker with a scannable QR code confirming manufacture by Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "TIS sticker with scannable QR code" } },
-          { "text": "The model and 6-digit serial number engraved on the engine; scan the QR code on the side gear cover — a genuine unit shows \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Model and 6-digit serial number engraved on the engine" } }
+          {
+            "text": "Embossed \"K\" symbol (Kubota identity logo) on the engine cover.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-01-k-symbol.png",
+              "alt": "Embossed K symbol on the engine cover"
+            }
+          },
+          {
+            "text": "Debossed Kubota logo on the spoiler — black spoiler on the Standard model, silver spoiler on the PRO model.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-02-spoiler.png",
+              "alt": "Debossed KUBOTA logo on the spoiler"
+            }
+          },
+          {
+            "text": "Embossed \"K\" symbol on the side gear cover, matching the engine cover.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png",
+              "alt": "Embossed K symbol on the side gear cover"
+            }
+          },
+          {
+            "text": "Embossed \"K\" letter and Kubota identity logo on the cylinder block, near the fuel pump.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-04-cylinder-block.png",
+              "alt": "Embossed K letter and Kubota logo on the cylinder block"
+            }
+          },
+          {
+            "text": "Two Kubota identity symbols embossed on the flywheel.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-05-flywheel.png",
+              "alt": "Kubota identity symbols embossed on the flywheel"
+            }
+          },
+          {
+            "text": "Nameplate sticker on the side gear cover showing the model, manufacturer (\"SIAM KUBOTA Corporation Co., Ltd\"), and production origin (\"MADE IN THAILAND\").",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-06-nameplate.png",
+              "alt": "Nameplate sticker on the side gear cover"
+            }
+          },
+          {
+            "text": "A \"3-Years Warranty\" sticker from Siam Kubota on the side gear cover.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png",
+              "alt": "3-Years Warranty sticker from Siam Kubota"
+            }
+          },
+          {
+            "text": "A TIS (Thai Industrial Standard) sticker with a scannable QR code confirming manufacture by Siam Kubota.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-08-tis-qr.png",
+              "alt": "TIS sticker with scannable QR code"
+            }
+          },
+          {
+            "text": "The model and 6-digit serial number engraved on the engine; scan the QR code on the side gear cover — a genuine unit shows \"Genuine product from Siam Kubota\".",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-09-serial-number.png",
+              "alt": "Model and 6-digit serial number engraved on the engine"
+            }
+          }
         ],
-        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view" }
+        "moreFile": {
+          "title": "Check list - The genuine Kubota Engine ZT Plus",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view"
+        }
       },
       "resources": [
-        { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view" }
+        {
+          "title": "ZT Plus Operation Manual (OPM)",
+          "lang": "EN",
+          "type": "pdf",
+          "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view"
+        }
       ],
       "videosTitle": "Videos",
-      "downloadsTitle": "Downloads",
-      "note": "Specs above come from the actual ZT Plus product knowledge deck provided by the team. Other engine sizes (ZT100/110/120/125/155/180) follow the same structure — ask the product team for their decks if you need to add them. The packshot photo links directly to Drive (13MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally."
+      "downloadsTitle": "Downloads"
     },
     "tiller": {
       "title": "TRA CHANG Power Tiller — NC Plus X",
       "quickLinks": [
-        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-assembly", "anchor": "assembly-tiller" },
-        { "label": "OPM (Operation Manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
-        { "label": "Authenticity Checkpoints", "route": "product-tiller", "anchor": "tiller-authenticity" },
-        { "label": "Attachments for the Power Tiller", "route": "product-tiller", "anchor": "tiller-application" }
+        {
+          "label": "How to Assemble the Diesel Engine with the Power Tiller",
+          "route": "product-assembly",
+          "anchor": "assembly-tiller"
+        },
+        {
+          "label": "OPM (Operation Manual)",
+          "route": "product-tiller",
+          "anchor": "tiller-downloads"
+        },
+        {
+          "label": "Authenticity Checkpoints",
+          "route": "product-tiller",
+          "anchor": "tiller-authenticity"
+        },
+        {
+          "label": "Attachments for the Power Tiller",
+          "route": "product-tiller",
+          "anchor": "tiller-application"
+        }
       ],
-      "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller" },
+      "image": {
+        "src": "assets/img/product/nc-plusx-tiller-cutout.png",
+        "alt": "TRA CHANG NC Plus X 800 power tiller"
+      },
       "items": [
         {
           "name": "NC Plus X",
           "desc": "Cage wheel diameter 800 mm, 3-inch wheel blades (16 pieces). Suitable for loamy or sandy soil, both paddy and dry fields, sugarcane/cassava/bean/vegetable plots. Cage wheels can travel short distances. Not recommended for puddled (deep-mud) fields.",
           "specs": [
-            { "label": "Cage wheel diameter", "value": "800 mm" },
-            { "label": "Wheel blades", "value": "3 inch x 16 pieces" },
-            { "label": "Steering / clutch system", "value": "Standard turning system, standard clutch, ball bearing" },
-            { "label": "Frame / gear case warranty", "value": "3 years / lifetime on gear housing" }
+            {
+              "label": "Cage wheel diameter",
+              "value": "800 mm"
+            },
+            {
+              "label": "Wheel blades",
+              "value": "3 inch x 16 pieces"
+            },
+            {
+              "label": "Steering / clutch system",
+              "value": "Standard turning system, standard clutch, ball bearing"
+            },
+            {
+              "label": "Frame / gear case warranty",
+              "value": "3 years / lifetime on gear housing"
+            }
           ]
         },
         {
           "name": "NC Plus X Special",
           "desc": "Cage wheel diameter 880 mm or 980 mm, with the Gear Insert turning system for heavy-duty puddled fields and paddy planted more than twice a year. To relocate it, switch to rubber wheels or use a trailer; for puddle work, pair with a KUBOTA ZT Plus 14-15.5 HP engine.",
           "specs": [
-            { "label": "Cage wheel diameter", "value": "880 mm / 980 mm" },
-            { "label": "Wheel blades", "value": "4 inch or 5 inch x 16 pieces" },
-            { "label": "Steering / clutch system", "value": "Gear Insert turning system (reversible when worn, safety bolt), special clutch, roller bearing" },
-            { "label": "Frame / gear case warranty", "value": "3 years / lifetime on gear housing" }
+            {
+              "label": "Cage wheel diameter",
+              "value": "880 mm / 980 mm"
+            },
+            {
+              "label": "Wheel blades",
+              "value": "4 inch or 5 inch x 16 pieces"
+            },
+            {
+              "label": "Steering / clutch system",
+              "value": "Gear Insert turning system (reversible when worn, safety bolt), special clutch, roller bearing"
+            },
+            {
+              "label": "Frame / gear case warranty",
+              "value": "3 years / lifetime on gear housing"
+            }
           ]
         }
       ],
-      "note": "Tell NC Plus X and NC Plus X Special apart: (1) chassis code on the warranty card — \"NC131\" has no \"S\" suffix (Plus X) vs \"NC131S\" (Special); (2) a punched \"S\" mark on the gear case only on the Special. All three TRA CHANG power tiller models can switch to rubber wheels for hauling crops or general transport.",
+      "note": "Specs above come from the actual NC Plus X product knowledge deck provided by the team. The packshot photo links directly to Drive (14MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally.",
       "applicationExamples": {
         "title": "Usage Examples & Attachments for the Power Tiller",
         "intro": "The TRA CHANG power tiller can be fitted with a wide range of attachments — from plowing, seed sowing, and rice harvesting to transport, threshing, hay baling, and weed control in cassava/sugarcane fields.",
         "images": [
-          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Attachments that can be used with the TRA CHANG power tiller — plow, seed drill, rice harvester, transport, rice thresher, hay baler, and weed control in cassava/sugarcane fields" }
+          {
+            "src": "assets/img/product/application/tiller-application-en-01.jpg",
+            "alt": "Attachments that can be used with the TRA CHANG power tiller — plow, seed drill, rice harvester, transport, rice thresher, hay baler, and weed control in cassava/sugarcane fields"
+          }
         ]
       },
       "authenticity": {
         "title": "How to Check the Genuine TRA CHANG Power Tiller",
         "intro": "Counterfeits hurt customer trust and after-sales safety. Use these checkpoints to confirm a genuine TRA CHANG power tiller.",
         "points": [
-          { "text": "TRA CHANG trademark: elephant facing left, raising its left front foot, bright gold gear, white elephant on a vibrant red circular background.", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "TRA CHANG trademark — white elephant on a red circular background" } },
-          { "text": "Trademark sticker spells \"TRA CHANG\" in vibrant red lettering with a white border.", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "TRA CHANG trademark sticker on the tiller handle" } },
-          { "text": "The transmission case is embossed with the \"TRA CHANG\" (Thai) logo.", "image": { "src": "assets/img/product/authenticity/tiller-03-transmission-case.png", "alt": "Embossed TRA CHANG Thai logo on the transmission case" } },
-          { "text": "A unique PT frame number — \"NC-XXXXXX\" (letters + 5 digits) — deeply and clearly stamped and easy to see.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Stamped PT frame number on the tiller" } },
-          { "text": "The elephant symbol on the frame's top cover faces left with its left front foot raised, inside the gear shape.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Elephant symbol on the frame's top cover" } },
-          { "text": "The elephant symbol on the gear shift lever also faces left with its left front foot raised, inside the gear shape.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Elephant symbol on the gear shift lever" } }
+          {
+            "text": "TRA CHANG trademark: elephant facing left, raising its left front foot, bright gold gear, white elephant on a vibrant red circular background.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-01-trademark.png",
+              "alt": "TRA CHANG trademark — white elephant on a red circular background"
+            }
+          },
+          {
+            "text": "Trademark sticker spells \"TRA CHANG\" in vibrant red lettering with a white border.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png",
+              "alt": "TRA CHANG trademark sticker on the tiller handle"
+            }
+          },
+          {
+            "text": "The transmission case is embossed with the \"TRA CHANG\" (Thai) logo.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-03-transmission-case.png",
+              "alt": "Embossed TRA CHANG Thai logo on the transmission case"
+            }
+          },
+          {
+            "text": "A unique PT frame number — \"NC-XXXXXX\" (letters + 5 digits) — deeply and clearly stamped and easy to see.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-04-frame-number.png",
+              "alt": "Stamped PT frame number on the tiller"
+            }
+          },
+          {
+            "text": "The elephant symbol on the frame's top cover faces left with its left front foot raised, inside the gear shape.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg",
+              "alt": "Elephant symbol on the frame's top cover"
+            }
+          },
+          {
+            "text": "The elephant symbol on the gear shift lever also faces left with its left front foot raised, inside the gear shape.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-06-gear-lever.png",
+              "alt": "Elephant symbol on the gear shift lever"
+            }
+          }
         ]
       },
       "resources": [
-        { "title": "NC Plus X — Product Knowledge deck (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
-        { "title": "NC Plus X — Product Knowledge deck (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
-        { "title": "Genuine power tiller checklist (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
-        { "title": "NC131 power tiller operation manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
-        { "title": "NC131 power tiller operation manual (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
-        { "title": "High-res packshot — NC Plus X 800 power tiller", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+        {
+          "title": "NC Plus X — Product Knowledge deck (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx"
+        },
+        {
+          "title": "NC Plus X — Product Knowledge deck (TH)",
+          "lang": "TH",
+          "type": "pptx",
+          "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx"
+        },
+        {
+          "title": "Genuine power tiller checklist (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx"
+        },
+        {
+          "title": "NC131 power tiller operation manual (EN)",
+          "lang": "EN",
+          "type": "pdf",
+          "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf"
+        },
+        {
+          "title": "NC131 power tiller operation manual (TH)",
+          "lang": "TH",
+          "type": "pdf",
+          "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf"
+        },
+        {
+          "title": "High-res packshot — NC Plus X 800 power tiller",
+          "lang": "EN",
+          "type": "jpg",
+          "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view"
+        }
       ],
       "videosTitle": "Videos",
-      "downloadsTitle": "Downloads",
-      "note": "Specs above come from the actual NC Plus X product knowledge deck provided by the team. The packshot photo links directly to Drive (14MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally."
+      "downloadsTitle": "Downloads"
     },
     "assembly": {
       "title": "Assembly Guide",
@@ -412,8 +815,18 @@
         "Attach the accelerator cable to the accelerator lever and tighten the nut."
       ],
       "resources": [
-        { "title": "Engine + power tiller assembly guide (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
-        { "title": "Assembly walkthrough — ZT Plus engine + NC Plus X power tiller", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+        {
+          "title": "Engine + power tiller assembly guide (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/assembly/Assembly-Guide-EN.pptx"
+        },
+        {
+          "title": "Assembly walkthrough — ZT Plus engine + NC Plus X power tiller",
+          "lang": "EN",
+          "type": "video",
+          "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4"
+        }
       ],
       "videosTitle": "Videos",
       "downloadsTitle": "Downloads",
@@ -424,10 +837,26 @@
     "title": "Parts",
     "intro": "How new Dealers and Distributors can find and order genuine parts, plus a starter stock list for the most common models.",
     "howToOrder": [
-      { "step": "1", "title": "Identify the model and serial number", "desc": "Check the nameplate on the unit or the model's manual." },
-      { "step": "2", "title": "Look up the part code", "desc": "Use the Parts Catalog to confirm the correct part code." },
-      { "step": "3", "title": "Submit the order through the designated channel", "desc": "Contact your regional parts support team." },
-      { "step": "4", "title": "Track shipment status", "desc": "Follow up on your order through the company's tracking system." }
+      {
+        "step": "1",
+        "title": "Identify the model and serial number",
+        "desc": "Check the nameplate on the unit or the model's manual."
+      },
+      {
+        "step": "2",
+        "title": "Look up the part code",
+        "desc": "Use the Parts Catalog to confirm the correct part code."
+      },
+      {
+        "step": "3",
+        "title": "Submit the order through the designated channel",
+        "desc": "Contact your regional parts support team."
+      },
+      {
+        "step": "4",
+        "title": "Track shipment status",
+        "desc": "Follow up on your order through the company's tracking system."
+      }
     ],
     "recommended": [
       {
@@ -436,21 +865,51 @@
           {
             "label": "Periodical (scheduled replacement)",
             "items": [
-              { "code": "1T051-11220", "name": "Air cleaner element assy" },
-              { "code": "1W071-99261", "name": "Engine oil CF 3L x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "Fuel filter assy" },
-              { "code": "1TA21-35750", "name": "Oil filter ring" }
+              {
+                "code": "1T051-11220",
+                "name": "Air cleaner element assy"
+              },
+              {
+                "code": "1W071-99261",
+                "name": "Engine oil CF 3L x 8"
+              },
+              {
+                "code": "1W071-43010 / 1W071-43015",
+                "name": "Fuel filter assy"
+              },
+              {
+                "code": "1TA21-35750",
+                "name": "Oil filter ring"
+              }
             ]
           },
           {
             "label": "Consumptive (wear parts)",
             "items": [
-              { "code": "14371-51051", "name": "Plunger assy" },
-              { "code": "1T071-98511", "name": "Piston ring assy (140)" },
-              { "code": "1T057-97010", "name": "Fan belt" },
-              { "code": "1T071-90161", "name": "Cylinder head seal set" },
-              { "code": "1T021-61110", "name": "Start handle" },
-              { "code": "11010-04380", "name": "Crankshaft seal" }
+              {
+                "code": "14371-51051",
+                "name": "Plunger assy"
+              },
+              {
+                "code": "1T071-98511",
+                "name": "Piston ring assy (140)"
+              },
+              {
+                "code": "1T057-97010",
+                "name": "Fan belt"
+              },
+              {
+                "code": "1T071-90161",
+                "name": "Cylinder head seal set"
+              },
+              {
+                "code": "1T021-61110",
+                "name": "Start handle"
+              },
+              {
+                "code": "11010-04380",
+                "name": "Crankshaft seal"
+              }
             ]
           }
         ]
@@ -461,33 +920,81 @@
           {
             "label": "Periodical (scheduled replacement)",
             "items": [
-              { "code": "62735-99091-E", "name": "Gear oil, Gear90, 3L x 8" }
+              {
+                "code": "62735-99091-E",
+                "name": "Gear oil, Gear90, 3L x 8"
+              }
             ]
           },
           {
             "label": "Consumptive (wear parts)",
             "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Transmission gears (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "V-belt, TRA CHANG (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "Main clutch wire" },
-              { "code": "62735-42480", "name": "Steering clutch wire" },
-              { "code": "09500-25388", "name": "Oil seal" },
-              { "code": "62735-22132-1", "name": "Brake shoe (2 pcs)" }
+              {
+                "code": "62735-14140 / 62735-14230 / 62735-14120-1",
+                "name": "Transmission gears (14 / 18 / 18-1)"
+              },
+              {
+                "code": "69211-00722 / 69211-00732",
+                "name": "V-belt, TRA CHANG (B-72 / B-73)"
+              },
+              {
+                "code": "62735-42110",
+                "name": "Main clutch wire"
+              },
+              {
+                "code": "62735-42480",
+                "name": "Steering clutch wire"
+              },
+              {
+                "code": "09500-25388",
+                "name": "Oil seal"
+              },
+              {
+                "code": "62735-22132-1",
+                "name": "Brake shoe (2 pcs)"
+              }
             ]
           }
         ]
       }
     ],
     "categories": [
-      { "name": "Engine parts", "desc": "Pistons, piston rings, injection pumps, fuel filters." },
-      { "name": "Transmission parts", "desc": "Gears, clutches, drive shafts." },
-      { "name": "Tillage parts", "desc": "Tiller blades, discs, bearings." },
-      { "name": "Consumables", "desc": "Engine oil, air filters, belts." }
+      {
+        "name": "Engine parts",
+        "desc": "Pistons, piston rings, injection pumps, fuel filters."
+      },
+      {
+        "name": "Transmission parts",
+        "desc": "Gears, clutches, drive shafts."
+      },
+      {
+        "name": "Tillage parts",
+        "desc": "Tiller blades, discs, bearings."
+      },
+      {
+        "name": "Consumables",
+        "desc": "Engine oil, air filters, belts."
+      }
     ],
     "resources": [
-      { "title": "Parts Book — ZT140 (full illustrated catalog, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
-      { "title": "Diesel engine — recommended parts list, all models ZT100-ZT180 (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
-      { "title": "Power tiller — recommended parts list (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
+      {
+        "title": "Parts Book — ZT140 (full illustrated catalog, EN)",
+        "lang": "EN",
+        "type": "pdf",
+        "href": "assets/docs/parts/Parts-Book-ZT140.pdf"
+      },
+      {
+        "title": "Diesel engine — recommended parts list, all models ZT100-ZT180 (spreadsheet)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx"
+      },
+      {
+        "title": "Power tiller — recommended parts list (spreadsheet)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx"
+      }
     ],
     "downloadsTitle": "Downloads",
     "note": "The tables above show the most common stock items for the ZT140 engine and the NC power tiller as an example. The full spreadsheet below covers every engine size (ZT100 through ZT180) with part numbers, so download it to plan stock for a different model."
@@ -499,73 +1006,338 @@
       {
         "label": "Engine Maintenance Steps",
         "children": [
-          { "label": "Air Filter", "route": "service", "anchor": "maintenance-engine-0" },
-          { "label": "Fuel System", "route": "service", "anchor": "maintenance-engine-1" },
-          { "label": "Lubrication (Engine Oil)", "route": "service", "anchor": "maintenance-engine-2" },
-          { "label": "Cooling System (Radiator)", "route": "service", "anchor": "maintenance-engine-3" },
-          { "label": "Cooling Fan System", "route": "service", "anchor": "maintenance-engine-4" }
+          {
+            "label": "Air Filter",
+            "route": "service",
+            "anchor": "maintenance-engine-0"
+          },
+          {
+            "label": "Fuel System",
+            "route": "service",
+            "anchor": "maintenance-engine-1"
+          },
+          {
+            "label": "Lubrication (Engine Oil)",
+            "route": "service",
+            "anchor": "maintenance-engine-2"
+          },
+          {
+            "label": "Cooling System (Radiator)",
+            "route": "service",
+            "anchor": "maintenance-engine-3"
+          },
+          {
+            "label": "Cooling Fan System",
+            "route": "service",
+            "anchor": "maintenance-engine-4"
+          }
         ]
       },
       {
         "label": "Power Tiller Maintenance Steps",
         "children": [
-          { "label": "Lubrication (Gear Oil)", "route": "service", "anchor": "maintenance-tiller-0" },
-          { "label": "Steering Lever Check", "route": "service", "anchor": "maintenance-tiller-1" },
-          { "label": "Clutch Free Play Check", "route": "service", "anchor": "maintenance-tiller-2" },
-          { "label": "Brake Free Play Check", "route": "service", "anchor": "maintenance-tiller-3" },
-          { "label": "Drive Belt Check", "route": "service", "anchor": "maintenance-tiller-4" }
+          {
+            "label": "Lubrication (Gear Oil)",
+            "route": "service",
+            "anchor": "maintenance-tiller-0"
+          },
+          {
+            "label": "Steering Lever Check",
+            "route": "service",
+            "anchor": "maintenance-tiller-1"
+          },
+          {
+            "label": "Clutch Free Play Check",
+            "route": "service",
+            "anchor": "maintenance-tiller-2"
+          },
+          {
+            "label": "Brake Free Play Check",
+            "route": "service",
+            "anchor": "maintenance-tiller-3"
+          },
+          {
+            "label": "Drive Belt Check",
+            "route": "service",
+            "anchor": "maintenance-tiller-4"
+          }
         ]
       }
     ],
-    "tableHeaders": { "interval": "Interval", "task": "Task" },
+    "tableHeaders": {
+      "interval": "Interval",
+      "task": "Task"
+    },
     "maintenance": {
       "title": "Periodic Maintenance",
       "intro": "Routine maintenance points for the ZT Plus diesel engine and the TRA CHANG power tiller, straight from the official maintenance training decks.",
       "engine": {
         "title": "ZT Plus Diesel Engine — 5 Key Maintenance Points",
         "points": [
-          { "title": "1. Air filter", "desc": "Clean the pot and air filter element every 100 hours or every month.", "steps": ["Loosen the nut, remove the pot cover, then pull out the air filter.", "Remove the filter pot by loosening the No.10 nut.", "Clean the filter with diesel, gently tap out the dirt, then dry it with a blower.", "The filter pot can be cleaned with diesel or water mixed with detergent — dry it fully before reassembling.", "Before assembling, fill TRA CHANG engine oil to the marked limit, then tighten the No.10 nut.", "Reassemble the air filter and pot cover, then tighten the nut."], "image": { "src": "assets/img/service/maintenance-engine-air-filter.jpg", "alt": "Real air filter housing on the ZT Plus engine for periodic maintenance" } },
-          { "title": "2. Fuel system", "desc": "Clean the fuel filter every 100 hours or every month; change it every 400 hours.", "steps": ["Remove the nut holding the fuel filter assembly.", "Turn the filter cup out, then use pliers to separate the fuel filter.", "Clean the cup and filter by tapping or brushing, then dry with a blower.", "If the filter is clogged or torn, replace it immediately.", "Assemble the fuel filter into the cup — don't forget the O-ring on top.", "Turn the filter cup back on firmly and tighten the No.10 nut to lock it in place."], "image": { "src": "assets/img/service/maintenance-engine-fuel-system.jpg", "alt": "Real fuel filter assembly on the ZT Plus engine for periodic maintenance" } },
-          { "title": "3. Engine oil", "desc": "For a new engine, change the oil after the first 50 hours; after that, every 100 hours.", "steps": ["Remove the oil drain plug and let the oil drain out completely.", "Clean the oil filter with diesel.", "Refit the drain plug and tighten it firmly.", "Fill with TRA CHANG engine oil, SAE40 API CF.", "The oil level must sit between the upper and lower marks."], "image": { "src": "assets/img/service/maintenance-engine-oil.jpg", "alt": "Real oil drain point on the ZT Plus engine for periodic maintenance" } },
-          { "title": "4. Cooling water system", "desc": "Drain and refill the radiator every 3 months if using rust-proof powder, or every month if not.", "steps": ["Open the radiator cap to help the water drain faster.", "Remove the drain plug, let the water drain completely, then tighten the plug.", "Add 1 bag of rust-proof powder and fill with clean water.", "Close the cap tightly."], "image": { "src": "assets/img/service/maintenance-engine-radiator.jpg", "alt": "Real radiator on the ZT Plus engine for periodic maintenance" } },
-          { "title": "5. Fan belt", "desc": "Check the belt before every use — a broken belt in operation will cause the engine to overheat.", "steps": ["The correct tension is 10-15 mm of deflection.", "If the belt is cracked or torn, replace it immediately."], "image": { "src": "assets/img/service/maintenance-engine-fan-belt.jpg", "alt": "Real cooling fan belt on the ZT Plus engine for periodic maintenance" } }
+          {
+            "title": "1. Air filter",
+            "desc": "Clean the pot and air filter element every 100 hours or every month.",
+            "steps": [
+              "Loosen the nut, remove the pot cover, then pull out the air filter.",
+              "Remove the filter pot by loosening the No.10 nut.",
+              "Clean the filter with diesel, gently tap out the dirt, then dry it with a blower.",
+              "The filter pot can be cleaned with diesel or water mixed with detergent — dry it fully before reassembling.",
+              "Before assembling, fill TRA CHANG engine oil to the marked limit, then tighten the No.10 nut.",
+              "Reassemble the air filter and pot cover, then tighten the nut."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-air-filter.jpg",
+              "alt": "Real air filter housing on the ZT Plus engine for periodic maintenance"
+            }
+          },
+          {
+            "title": "2. Fuel system",
+            "desc": "Clean the fuel filter every 100 hours or every month; change it every 400 hours.",
+            "steps": [
+              "Remove the nut holding the fuel filter assembly.",
+              "Turn the filter cup out, then use pliers to separate the fuel filter.",
+              "Clean the cup and filter by tapping or brushing, then dry with a blower.",
+              "If the filter is clogged or torn, replace it immediately.",
+              "Assemble the fuel filter into the cup — don't forget the O-ring on top.",
+              "Turn the filter cup back on firmly and tighten the No.10 nut to lock it in place."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-fuel-system.jpg",
+              "alt": "Real fuel filter assembly on the ZT Plus engine for periodic maintenance"
+            }
+          },
+          {
+            "title": "3. Engine oil",
+            "desc": "For a new engine, change the oil after the first 50 hours; after that, every 100 hours.",
+            "steps": [
+              "Remove the oil drain plug and let the oil drain out completely.",
+              "Clean the oil filter with diesel.",
+              "Refit the drain plug and tighten it firmly.",
+              "Fill with TRA CHANG engine oil, SAE40 API CF.",
+              "The oil level must sit between the upper and lower marks."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-oil.jpg",
+              "alt": "Real oil drain point on the ZT Plus engine for periodic maintenance"
+            }
+          },
+          {
+            "title": "4. Cooling water system",
+            "desc": "Drain and refill the radiator every 3 months if using rust-proof powder, or every month if not.",
+            "steps": [
+              "Open the radiator cap to help the water drain faster.",
+              "Remove the drain plug, let the water drain completely, then tighten the plug.",
+              "Add 1 bag of rust-proof powder and fill with clean water.",
+              "Close the cap tightly."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-radiator.jpg",
+              "alt": "Real radiator on the ZT Plus engine for periodic maintenance"
+            }
+          },
+          {
+            "title": "5. Fan belt",
+            "desc": "Check the belt before every use — a broken belt in operation will cause the engine to overheat.",
+            "steps": [
+              "The correct tension is 10-15 mm of deflection.",
+              "If the belt is cracked or torn, replace it immediately."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-fan-belt.jpg",
+              "alt": "Real cooling fan belt on the ZT Plus engine for periodic maintenance"
+            }
+          }
         ]
       },
       "tiller": {
         "title": "NC Power Tiller — 5 Key Maintenance Points",
         "points": [
-          { "title": "1. Transmission (gear) oil", "desc": "For a new unit, change the oil after the first 50 hours; after that, every 500 hours.", "steps": ["Use TRA CHANG gear oil, SAE90 API GL-4.", "Check the level at the sight gauge — it should sit in the middle of the indicator.", "Close the lid tightly to keep out dust and water."], "image": { "src": "assets/img/service/maintenance-tiller-gear-oil.jpg", "alt": "Real gear oil check point on the NC Plus X power tiller for periodic maintenance" } },
-          { "title": "2. Steering lever", "desc": "Left-right steering lever free play should be about 1-2 mm.", "steps": ["Loosen nuts No.12 and No.14, then rotate the adjuster to the correct free play and lock the nuts.", "Lubricate the steering cable regularly to extend its service life.", "After lubricating, turn the rubber cap back to close the hole."], "image": { "src": "assets/img/service/maintenance-tiller-steering.jpg", "alt": "Real steering lever adjustment on the NC Plus X power tiller for periodic maintenance" } },
-          { "title": "3. Clutch free play", "desc": "Main clutch lever free play should be about 15-20 mm.", "steps": ["Loosen the two No.14 nuts on the clutch cable.", "Turn the cable end adjuster to set the correct free play, then recheck."], "image": { "src": "assets/img/service/maintenance-tiller-clutch.jpg", "alt": "Real clutch free-play adjustment on the NC Plus X power tiller for periodic maintenance" } },
-          { "title": "4. Brake free play", "desc": "Brake free play between the spring and adjusting nut should be about 3-5 mm.", "steps": ["Pull the clutch lever to the disengaged position.", "Loosen the nut at the cable end, adjust to the correct free play, then lock the nut tight.", "Lubricate the brake cable regularly to extend its service life; turn the rubber cap closed afterward."], "image": { "src": "assets/img/service/maintenance-tiller-brake.jpg", "alt": "Real brake free-play adjustment on the NC Plus X power tiller for periodic maintenance" } },
-          { "title": "5. Drive belt tension", "desc": "The correct drive belt tension is about 30-40 mm.", "steps": ["Tighten the wing nut to pull the belt pulley until the belt reaches the correct tension.", "If the belt is cracked or torn, replace it with a new one."], "image": { "src": "assets/img/service/maintenance-tiller-drive-belt.jpg", "alt": "Real drive belt tension adjustment on the NC Plus X power tiller for periodic maintenance" } }
+          {
+            "title": "1. Transmission (gear) oil",
+            "desc": "For a new unit, change the oil after the first 50 hours; after that, every 500 hours.",
+            "steps": [
+              "Use TRA CHANG gear oil, SAE90 API GL-4.",
+              "Check the level at the sight gauge — it should sit in the middle of the indicator.",
+              "Close the lid tightly to keep out dust and water."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-gear-oil.jpg",
+              "alt": "Real gear oil check point on the NC Plus X power tiller for periodic maintenance"
+            }
+          },
+          {
+            "title": "2. Steering lever",
+            "desc": "Left-right steering lever free play should be about 1-2 mm.",
+            "steps": [
+              "Loosen nuts No.12 and No.14, then rotate the adjuster to the correct free play and lock the nuts.",
+              "Lubricate the steering cable regularly to extend its service life.",
+              "After lubricating, turn the rubber cap back to close the hole."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-steering.jpg",
+              "alt": "Real steering lever adjustment on the NC Plus X power tiller for periodic maintenance"
+            }
+          },
+          {
+            "title": "3. Clutch free play",
+            "desc": "Main clutch lever free play should be about 15-20 mm.",
+            "steps": [
+              "Loosen the two No.14 nuts on the clutch cable.",
+              "Turn the cable end adjuster to set the correct free play, then recheck."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-clutch.jpg",
+              "alt": "Real clutch free-play adjustment on the NC Plus X power tiller for periodic maintenance"
+            }
+          },
+          {
+            "title": "4. Brake free play",
+            "desc": "Brake free play between the spring and adjusting nut should be about 3-5 mm.",
+            "steps": [
+              "Pull the clutch lever to the disengaged position.",
+              "Loosen the nut at the cable end, adjust to the correct free play, then lock the nut tight.",
+              "Lubricate the brake cable regularly to extend its service life; turn the rubber cap closed afterward."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-brake.jpg",
+              "alt": "Real brake free-play adjustment on the NC Plus X power tiller for periodic maintenance"
+            }
+          },
+          {
+            "title": "5. Drive belt tension",
+            "desc": "The correct drive belt tension is about 30-40 mm.",
+            "steps": [
+              "Tighten the wing nut to pull the belt pulley until the belt reaches the correct tension.",
+              "If the belt is cracked or torn, replace it with a new one."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-drive-belt.jpg",
+              "alt": "Real drive belt tension adjustment on the NC Plus X power tiller for periodic maintenance"
+            }
+          }
         ]
       }
     },
     "programsTitle": "After-Sales Programs",
     "programs": [
-      { "name": "Warranty Program (sample)", "desc": "Coverage for the main structure and key components for a set period." },
-      { "name": "Technician Training (sample)", "desc": "Maintenance training courses for Dealer technicians, covering both theory and hands-on practice." }
+      {
+        "name": "Warranty Program (sample)",
+        "desc": "Coverage for the main structure and key components for a set period."
+      },
+      {
+        "name": "Technician Training (sample)",
+        "desc": "Maintenance training courses for Dealer technicians, covering both theory and hands-on practice."
+      }
     ],
     "resources": [
-      { "title": "Pre-delivery check & correct starting procedure deck (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx" },
-      { "title": "Pre-delivery check & correct starting procedure deck (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx" },
-      { "title": "Engine maintenance deck — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx" },
-      { "title": "Engine maintenance deck — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx" },
-      { "title": "Power tiller maintenance deck (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx" },
-      { "title": "Power tiller maintenance deck (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" },
-      { "title": "Video — Engine pre-check inspection (ZT Plus)", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4" },
-      { "title": "Video — Correct engine starting method", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4" },
-      { "title": "Video — Air filter maintenance", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Fuel system maintenance", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Engine oil / lubrication maintenance", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Cooling (radiator) system maintenance", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Cooling fan system maintenance", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Transmission oil check (power tiller)", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Steering lever check (power tiller)", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Clutch free play check (power tiller)", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Brake free play check (power tiller)", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" },
-      { "title": "Video — Drive belt check (power tiller)", "lang": "EN", "type": "video", "note": "Not yet hosted — pending video hosting decision" }
+      {
+        "title": "Pre-delivery check & correct starting procedure deck (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx"
+      },
+      {
+        "title": "Pre-delivery check & correct starting procedure deck (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx"
+      },
+      {
+        "title": "Engine maintenance deck — ZT Plus (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx"
+      },
+      {
+        "title": "Engine maintenance deck — ZT Plus (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx"
+      },
+      {
+        "title": "Power tiller maintenance deck (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx"
+      },
+      {
+        "title": "Power tiller maintenance deck (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx"
+      },
+      {
+        "title": "Video — Engine pre-check inspection (ZT Plus)",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4"
+      },
+      {
+        "title": "Video — Correct engine starting method",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4"
+      },
+      {
+        "title": "Video — Air filter maintenance",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Fuel system maintenance",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Engine oil / lubrication maintenance",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Cooling (radiator) system maintenance",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Cooling fan system maintenance",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Transmission oil check (power tiller)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Steering lever check (power tiller)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Clutch free play check (power tiller)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Brake free play check (power tiller)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      },
+      {
+        "title": "Video — Drive belt check (power tiller)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Not yet hosted — pending video hosting decision"
+      }
     ],
     "videosTitle": "Videos",
     "downloadsTitle": "Downloads",
@@ -580,12 +1352,28 @@
         "route": "crops",
         "anchor": "crop-group-rice",
         "children": [
-          { "label": "Dry Paddy Field", "route": "crops", "anchor": "crop-dry-paddy" },
-          { "label": "Wet Paddy Field", "route": "crops", "anchor": "crop-wet-paddy" }
+          {
+            "label": "Dry Paddy Field",
+            "route": "crops",
+            "anchor": "crop-dry-paddy"
+          },
+          {
+            "label": "Wet Paddy Field",
+            "route": "crops",
+            "anchor": "crop-wet-paddy"
+          }
         ]
       },
-      { "label": "2. Corn Cultivation Solution", "route": "crops", "anchor": "crop-corn" },
-      { "label": "3. Cassava Cultivation Solution", "route": "crops", "anchor": "crop-cassava" }
+      {
+        "label": "2. Corn Cultivation Solution",
+        "route": "crops",
+        "anchor": "crop-corn"
+      },
+      {
+        "label": "3. Cassava Cultivation Solution",
+        "route": "crops",
+        "anchor": "crop-cassava"
+      }
     ],
     "solutions": [
       {
@@ -594,7 +1382,11 @@
         "groupId": "crop-group-rice",
         "name": "Wet Paddy Field",
         "desc": "For puddled, flooded paddy fields planted more than once a year. Use the NC Plus X Special with 880 mm or 980 mm cage wheels and the Gear Insert turning system for heavy-duty puddle work. Pair with a KUBOTA ZT Plus 14-15.5 HP engine for enough power in deep mud.",
-        "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+        "video": {
+          "title": "Wet paddy field",
+          "lang": "EN",
+          "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4"
+        }
       },
       {
         "id": "crop-dry-paddy",
@@ -602,19 +1394,31 @@
         "groupId": "crop-group-rice",
         "name": "Dry Paddy Field",
         "desc": "For loamy or sandy soil that isn't puddled, including dry-season paddy, sugarcane, cassava, beans, and vegetable plots. The NC Plus X with 800 mm cage wheels is the right fit — lighter, more agile, and able to travel short distances on its cage wheels.",
-        "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+        "video": {
+          "title": "Dry paddy field",
+          "lang": "EN",
+          "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4"
+        }
       },
       {
         "id": "crop-cassava",
         "name": "Cassava Field",
         "desc": "For upland cassava plots on loamy or sandy soil. The NC Plus X with 800 mm cage wheels is the right fit — light and agile enough to work between planting rows without damaging cassava mounds, and able to travel short distances on its cage wheels between fields.",
-        "video": { "title": "Cassava field", "lang": "TH / EN", "note": "Master video exists in the source Drive folder (~2.3GB, TH and EN cuts) — not bundled into this build, pending video hosting decision" }
+        "video": {
+          "title": "Cassava field",
+          "lang": "TH / EN",
+          "note": "Master video exists in the source Drive folder (~2.3GB, TH and EN cuts) — not bundled into this build, pending video hosting decision"
+        }
       },
       {
         "id": "crop-corn",
         "name": "Corn (Maize) Field",
         "desc": "For upland maize plots on loamy or sandy soil, similar in profile to cassava and dry-season paddy. The NC Plus X with 800 mm cage wheels handles row spacing and short-distance travel between fields well.",
-        "video": { "title": "Corn field", "lang": "TH / EN", "note": "Master video exists in the source Drive folder (~2.2GB, TH and EN cuts) — not bundled into this build, pending video hosting decision" }
+        "video": {
+          "title": "Corn field",
+          "lang": "TH / EN",
+          "note": "Master video exists in the source Drive folder (~2.2GB, TH and EN cuts) — not bundled into this build, pending video hosting decision"
+        }
       }
     ],
     "note": "This page now covers four field types from the marketing team's crop-solution videos: wet paddy, dry paddy, cassava, and corn. The wet- and dry-paddy videos are bundled and play locally; the cassava and corn master videos (TH + EN, ~2.2-2.4GB each) exist in the source Drive folder but were not bundled into this build — see Handoff.md for hosting status."
@@ -623,59 +1427,161 @@
     "title": "Marketing Activities",
     "intro": "Four standard dealer activity formats for building product awareness, demonstrating real performance, delivering after-sales service, and thanking existing customers — straight from the official KUBOTA Activity Standard manuals.",
     "fullDetailsTitle": "Full activity details",
-    "cardLabels": { "overviewTitle": "Activity Standards", "objective": "Objective", "target": "Target customers", "venue": "Recommended venue", "readMore": "Read more", "showLess": "Show less", "openGuide": "Go to the full activity details" },
+    "cardLabels": {
+      "overviewTitle": "Activity Standards",
+      "objective": "Objective",
+      "target": "Target customers",
+      "venue": "Recommended venue",
+      "readMore": "Read more",
+      "showLess": "Show less",
+      "openGuide": "Go to the full activity details"
+    },
     "quickSelectTitle": "Quick Activity Selection",
-    "labels": { "minParticipants": "Number of participants", "target": "Target customers", "duration": "Suggested duration", "venue": "Suitable venue", "basic": "Basic activities (required)", "optional": "Optional activities", "schedule": "Suggested schedule", "recommendedItems": "Recommended Items for One Event" },
-    "scheduleHeaders": {"time":"Time & Duration","activity":"Activity","inCharge":"In Charge","whatToDo":"What to Do"},
+    "labels": {
+      "minParticipants": "Number of participants",
+      "target": "Target customers",
+      "duration": "Suggested duration",
+      "venue": "Suitable venue",
+      "basic": "Basic activities (required)",
+      "optional": "Optional activities",
+      "schedule": "Suggested schedule",
+      "recommendedItems": "Recommended Items for One Event"
+    },
+    "scheduleHeaders": {
+      "time": "Time & Duration",
+      "activity": "Activity",
+      "inCharge": "In Charge",
+      "whatToDo": "What to Do"
+    },
     "activityComparison": {
       "title": "Activity Standards Comparison",
       "criteria": [
-        { "key": "objective", "icon": "🎯", "label": "Objective" },
-        { "key": "target", "icon": "👥", "label": "Target customers" },
-        { "key": "venue", "icon": "📍", "label": "Suitable venue" },
-        { "key": "basic", "icon": "✅", "label": "Required basic activities" },
-        { "key": "optional", "icon": "✨", "label": "Optional activities (if any)" },
-        { "key": "duration", "icon": "⏱️", "label": "Suggested duration" }
+        {
+          "key": "objective",
+          "icon": "🎯",
+          "label": "Objective"
+        },
+        {
+          "key": "target",
+          "icon": "👥",
+          "label": "Target customers"
+        },
+        {
+          "key": "venue",
+          "icon": "📍",
+          "label": "Suitable venue"
+        },
+        {
+          "key": "basic",
+          "icon": "✅",
+          "label": "Required basic activities"
+        },
+        {
+          "key": "optional",
+          "icon": "✨",
+          "label": "Optional activities (if any)"
+        },
+        {
+          "key": "duration",
+          "icon": "⏱️",
+          "label": "Suggested duration"
+        }
       ],
       "activities": [
         {
           "icon": "🎪",
           "name": "KUBOTA Family Day (KFD)",
           "objective": "Introduce products, build awareness, and give the dealer a chance to meet new customers in the area.",
-          "target": ["Farmers who currently use a diesel engine or power tiller", "Farmers who do not own the products yet but may purchase in the future"],
+          "target": [
+            "Farmers who currently use a diesel engine or power tiller",
+            "Farmers who do not own the products yet but may purchase in the future"
+          ],
           "venue": "A community area close to customers, with easy access, product-display space, seating, and parking.",
-          "basic": ["Registration and customer welcome", "Display the KUBOTA Diesel engine and Power Tiller", "Introduce the dealer and after-sales service", "Present the main product highlights", "Q&A with customers", "Prepare snacks and drinking water"],
-          "optional": ["Customers share their experience", "Installment or promotion program", "Quiz game with prizes", "Lucky draw or souvenirs"],
+          "basic": [
+            "Registration and customer welcome",
+            "Display the KUBOTA Diesel engine and Power Tiller",
+            "Introduce the dealer and after-sales service",
+            "Present the main product highlights",
+            "Q&A with customers",
+            "Prepare snacks and drinking water"
+          ],
+          "optional": [
+            "Customers share their experience",
+            "Installment or promotion program",
+            "Quiz game with prizes",
+            "Lucky draw or souvenirs"
+          ],
           "duration": "2–3 hours"
         },
         {
           "icon": "🚜",
           "name": "Demonstration Activity (NC Power Tiller Demo)",
           "objective": "Demonstrate real operation in the field, show correct usage, and let customers try the product.",
-          "target": ["Farmers considering a power tiller purchase", "Customers who want to see real performance before deciding"],
+          "target": [
+            "Farmers considering a power tiller purchase",
+            "Customers who want to see real performance before deciding"
+          ],
           "venue": "A real, prepared rice field with a registration area, presentation point, a viewing tent for customers, a demonstration route, and a trial area.",
-          "basic": ["Introduce the KUBOTA Power Tiller and diesel engine sold in that market", "Demonstrate driving and using attachments in a real field", "Show smooth control by a KUBOTA demonstration driver", "Let customers try driving with staff support", "Prepare a snack box or drinking water"],
-          "optional": ["Working-speed test", "Fuel-consumption test", "Comparison with a competitor or similarly powered engine", "Promotion or product booking"],
+          "basic": [
+            "Introduce the KUBOTA Power Tiller and diesel engine sold in that market",
+            "Demonstrate driving and using attachments in a real field",
+            "Show smooth control by a KUBOTA demonstration driver",
+            "Let customers try driving with staff support",
+            "Prepare a snack box or drinking water"
+          ],
+          "optional": [
+            "Working-speed test",
+            "Fuel-consumption test",
+            "Comparison with a competitor or similarly powered engine",
+            "Promotion or product booking"
+          ],
           "duration": "About 3 hours"
         },
         {
           "icon": "🔧",
           "name": "Mobile Service",
           "objective": "Reinforce after-sales service by bringing technicians to inspect products and give advice at the customer's location.",
-          "target": ["Customers who own a KUBOTA engine", "Customers who own a KUBOTA power tiller"],
+          "target": [
+            "Customers who own a KUBOTA engine",
+            "Customers who own a KUBOTA power tiller"
+          ],
           "venue": "An area close to customers with enough space for product drop-off, registration, waiting, inspection, and a spare-parts booth.",
-          "basic": ["Registration and receive the product", "Basic inspection of the engine and power tiller", "Explain correct usage and maintenance", "Recommend and replace parts when due or needed", "Return the product to the customer", "Set up a spare-parts sales booth"],
-          "optional": ["None (drinking water or snacks can be prepared for waiting customers)"],
+          "basic": [
+            "Registration and receive the product",
+            "Basic inspection of the engine and power tiller",
+            "Explain correct usage and maintenance",
+            "Recommend and replace parts when due or needed",
+            "Return the product to the customer",
+            "Set up a spare-parts sales booth"
+          ],
+          "optional": [
+            "None (drinking water or snacks can be prepared for waiting customers)"
+          ],
           "duration": "About 3 hours, with the main inspection taking 120 minutes"
         },
         {
           "icon": "🎁",
           "name": "Thank You Customer Activity",
           "objective": "Thank existing customers, create a good impression, and strengthen their relationship with the dealer and the KUBOTA brand.",
-          "target": ["Owners of a KUBOTA diesel engine or power tiller", "Regular customers the dealer wants to keep engaged", "Customers likely to refer the product to others"],
+          "target": [
+            "Owners of a KUBOTA diesel engine or power tiller",
+            "Regular customers the dealer wants to keep engaged",
+            "Customers likely to refer the product to others"
+          ],
           "venue": "An event ground, dealer shop, banquet hall, or community space that can host a stage, dining tables, a product display, a photo corner, and parking.",
-          "basic": ["Registration, welcome, and souvenir handout", "Decorate the venue in the KUBOTA orange-and-white theme", "Set up dining tables and chairs", "Product display and photo corner", "Thank customers and share product knowledge", "Food, entertainment, games, and a lucky draw"],
-          "optional": ["Mobile Service for larger events", "Friend Get Friend", "Introduce new products or promotions"],
+          "basic": [
+            "Registration, welcome, and souvenir handout",
+            "Decorate the venue in the KUBOTA orange-and-white theme",
+            "Set up dining tables and chairs",
+            "Product display and photo corner",
+            "Thank customers and share product knowledge",
+            "Food, entertainment, games, and a lucky draw"
+          ],
+          "optional": [
+            "Mobile Service for larger events",
+            "Friend Get Friend",
+            "Introduce new products or promotions"
+          ],
           "duration": "About 3.5 hours"
         }
       ]
@@ -1115,9 +2021,24 @@
       }
     ],
     "resources": [
-      { "title": "KUBOTA Activity Standard — 4-activity comparison table (EN, spreadsheet)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1adX7TPO4CyUZtWO-NFN99yX5KETA8aiq/view" },
-      { "title": "KUBOTA Activity Standard — 4-activity comparison table (TH, spreadsheet)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/17Xc4MFJIMNhMoZSEQJff8EAzRYfxRbSQ/view" },
-      { "title": "Kubota Event highlight video", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      {
+        "title": "KUBOTA Activity Standard — 4-activity comparison table (EN, spreadsheet)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "https://drive.google.com/file/d/1adX7TPO4CyUZtWO-NFN99yX5KETA8aiq/view"
+      },
+      {
+        "title": "KUBOTA Activity Standard — 4-activity comparison table (TH, spreadsheet)",
+        "lang": "TH",
+        "type": "xlsx",
+        "href": "https://drive.google.com/file/d/17Xc4MFJIMNhMoZSEQJff8EAzRYfxRbSQ/view"
+      },
+      {
+        "title": "Kubota Event highlight video",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4"
+      }
     ],
     "videosTitle": "Videos",
     "downloadsTitle": "Downloads",
@@ -1126,7 +2047,10 @@
   "materials": {
     "title": "Marketing Materials",
     "intro": "Marketing resources for dealers — ready-made materials from the company, plus a tool to design your own in just a few clicks.",
-    "tabs": { "company": "Materials from the Company", "custom": "Design Your Own, At Your Fingertips" },
+    "tabs": {
+      "company": "Materials from the Company",
+      "custom": "Design Your Own, At Your Fingertips"
+    },
     "company": {
       "title": "Materials from the Company",
       "intro": "Artwork files, banners, posters, and ready-made materials from KUBOTA that dealers can use right away.",
@@ -1136,8 +2060,22 @@
           "title": "Product Knowledge Media",
           "intro": "Brochures and spec sheets for customers who want an in-depth look at the products.",
           "items": [
-            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "ZT Plus Africa leaflet page 1 — engine and power tiller spec tables, plus a farmer holding the No.1 Global Brand badge" }, "title": "ZT Plus Africa Leaflet (page 1)", "format": "A4 Leaflet" },
-            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "ZT Plus Africa leaflet page 2 — engine photo with key highlights and a horsepower table by model" }, "title": "ZT Plus Africa Leaflet (page 2)", "format": "A4 Leaflet" }
+            {
+              "image": {
+                "src": "assets/img/materials/leaflet-01.jpg",
+                "alt": "ZT Plus Africa leaflet page 1 — engine and power tiller spec tables, plus a farmer holding the No.1 Global Brand badge"
+              },
+              "title": "ZT Plus Africa Leaflet (page 1)",
+              "format": "A4 Leaflet"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/leaflet-02.jpg",
+                "alt": "ZT Plus Africa leaflet page 2 — engine photo with key highlights and a horsepower table by model"
+              },
+              "title": "ZT Plus Africa Leaflet (page 2)",
+              "format": "A4 Leaflet"
+            }
           ]
         },
         {
@@ -1145,10 +2083,38 @@
           "title": "Event & Activity Media",
           "intro": "Roll-ups, bunting, and banners for decorating a storefront or event space.",
           "items": [
-            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Roll-up introducing Siam Kubota, with a world map and dealer benefits" }, "title": "Company Introduction Roll-up", "format": "Roll-up 85×200 cm" },
-            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Roll-up highlighting the KUBOTA diesel engine and power tiller key benefits" }, "title": "Product Highlight Roll-up", "format": "Roll-up 85×200 cm" },
-            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "A strip of 6 triangular bunting flags for a Thank You Day event in Tanzania" }, "title": "Thank You Day Bunting", "format": "Bunting 30×30 cm" },
-            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "Banner for a Thank You Day event in Tanzania, with a farmer and the power tiller" }, "title": "Thank You Day Banner", "format": "Banner 2×4 m" }
+            {
+              "image": {
+                "src": "assets/img/materials/rollup-company.jpg",
+                "alt": "Roll-up introducing Siam Kubota, with a world map and dealer benefits"
+              },
+              "title": "Company Introduction Roll-up",
+              "format": "Roll-up 85×200 cm"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/rollup-product.jpg",
+                "alt": "Roll-up highlighting the KUBOTA diesel engine and power tiller key benefits"
+              },
+              "title": "Product Highlight Roll-up",
+              "format": "Roll-up 85×200 cm"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/bunting-thankyou.jpg",
+                "alt": "A strip of 6 triangular bunting flags for a Thank You Day event in Tanzania"
+              },
+              "title": "Thank You Day Bunting",
+              "format": "Bunting 30×30 cm"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/banner-thankyou.jpg",
+                "alt": "Banner for a Thank You Day event in Tanzania, with a farmer and the power tiller"
+              },
+              "title": "Thank You Day Banner",
+              "format": "Banner 2×4 m"
+            }
           ]
         },
         {
@@ -1156,8 +2122,22 @@
           "title": "Other Marketing Media",
           "intro": "Tent cards for a storefront counter or sales desk, showing the overall product line-up.",
           "items": [
-            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Overall product list tent card, page 1 — engine photo and the No.1 Global Brand logo" }, "title": "Product List Tent Card (page 1)", "format": "Tent Card A4" },
-            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Overall product list tent card, page 2 — TRA CHANG NC Plus X and NC Plus X Special power tillers" }, "title": "Product List Tent Card (page 2)", "format": "Tent Card A4" }
+            {
+              "image": {
+                "src": "assets/img/materials/tentcard-01.jpg",
+                "alt": "Overall product list tent card, page 1 — engine photo and the No.1 Global Brand logo"
+              },
+              "title": "Product List Tent Card (page 1)",
+              "format": "Tent Card A4"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/tentcard-02.jpg",
+                "alt": "Overall product list tent card, page 2 — TRA CHANG NC Plus X and NC Plus X Special power tillers"
+              },
+              "title": "Product List Tent Card (page 2)",
+              "format": "Tent Card A4"
+            }
           ]
         }
       ],
@@ -1169,11 +2149,22 @@
     "intro": "Design your own storefront Banner and Standee. Fill in your shop details and download a high-resolution, print-ready file instantly — no need to wait for a graphic designer.",
     "formTitle": "Design details",
     "sizeLabel": "Media size",
-    "sizes": { "banner": "Banner (3 m wide x 1 m tall)", "standee": "Standee (160 cm tall x 80 cm wide)" },
+    "sizes": {
+      "banner": "Banner (3 m wide x 1 m tall)",
+      "standee": "Standee (160 cm tall x 80 cm wide)"
+    },
     "bgStyleLabel": "Background style",
-    "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame" },
+    "bgStyles": {
+      "diagonal": "Orange Diagonal",
+      "dark": "Dark & Premium",
+      "frame": "Classic Frame"
+    },
     "productLabel": "Product to feature",
-    "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Both products" },
+    "products": {
+      "engine": "ZT Plus diesel engine",
+      "tiller": "TRA CHANG NC Plus X power tiller",
+      "both": "Both products"
+    },
     "shopNameLabel": "Shop / Dealer name",
     "shopNamePlaceholder": "e.g. S. Kaset Agri Shop",
     "contactLabel": "Address / Phone / WhatsApp",
@@ -1185,14 +2176,25 @@
     "bodyLabel": "Body text (smallest)",
     "bodyPlaceholder": "e.g. Terms and conditions apply. Contact us for details.",
     "textStyleLabel": "Headline Text Color",
-    "textStyles": { "orange": "Glossy Orange-Gold", "chrome": "Chrome Silver", "red": "Deep Red" },
+    "textStyles": {
+      "orange": "Glossy Orange-Gold",
+      "chrome": "Chrome Silver",
+      "red": "Deep Red"
+    },
     "textPositionLabel": "Adjust Headline Position/Size",
     "textOffsetXLabel": "Shift Left-Right",
     "textOffsetYLabel": "Shift Up-Down",
     "textScaleLabel": "Text Size",
     "textRotationLabel": "Rotate/Tilt Text",
     "dragHint": "Yes, you can edit it! Drag the logo, text, or product image right in the preview with your mouse or finger to reposition it (double-click to reset).",
-    "decorations": { "label": "Extra decorative logos (optional)", "man": "Smiling farmer giving encouragement", "manAlt": "Smiling farmer giving a thumbs-up, a decorative sticker for the design", "no1": "\"No.1 Global Brand\" badge", "no1Alt": "\"No.1 Global Brand with 3.5 Million Units Sold\" badge", "sizeLabel": "Size" },
+    "decorations": {
+      "label": "Extra decorative logos (optional)",
+      "man": "Smiling farmer giving encouragement",
+      "manAlt": "Smiling farmer giving a thumbs-up, a decorative sticker for the design",
+      "no1": "\"No.1 Global Brand\" badge",
+      "no1Alt": "\"No.1 Global Brand with 3.5 Million Units Sold\" badge",
+      "sizeLabel": "Size"
+    },
     "previewTitle": "Preview",
     "downloadButton": "Download print-ready file",
     "downloadingLabel": "Generating file...",
@@ -1202,7 +2204,11 @@
   "order": {
     "title": "Order Products & Parts",
     "intro": "Browse Kubota engines, Tra Chang tillers, and recommended spare parts, add them to your cart, and generate a Purchase Order (PO) and Proforma Invoice (PI) — a working prototype of the ordering flow.",
-    "tabs": { "catalog": "Catalog & Cart", "checkout": "Checkout & Documents", "tracking": "Shipment Tracking" },
+    "tabs": {
+      "catalog": "Catalog & Cart",
+      "checkout": "Checkout & Documents",
+      "tracking": "Shipment Tracking"
+    },
     "catalog": {
       "modelLabel": "Select model",
       "productHeading": "Product",
@@ -1214,7 +2220,13 @@
       "fullCatalogHeading": "Full parts catalog",
       "fullCatalogIntro": "Every part for this model, grouped by how often you'll need it. Use the filters or search by part number / name.",
       "groupAll": "All groups",
-      "groupLabels": { "X": "Periodical", "S": "Consumptive", "A": "Fast repairing", "B": "Slow repairing", "C": "Warranty" },
+      "groupLabels": {
+        "X": "Periodical",
+        "S": "Consumptive",
+        "A": "Fast repairing",
+        "B": "Slow repairing",
+        "C": "Warranty"
+      },
       "searchPlaceholder": "Search part number or name...",
       "colPartNo": "Part No.",
       "colName": "Name",
@@ -1233,7 +2245,14 @@
       "emptyBody": "Add a product or parts from the Catalog tab first.",
       "backToCatalog": "Back to Catalog",
       "step1Title": "1. Buyer information",
-      "fields": { "company": "Company name", "address": "Delivery address", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "destination": "Final destination (country/port)" },
+      "fields": {
+        "company": "Company name",
+        "address": "Delivery address",
+        "contact": "Contact name",
+        "email": "Email",
+        "phone": "Phone / WhatsApp",
+        "destination": "Final destination (country/port)"
+      },
       "step2Title": "2. Review order",
       "colQty": "Qty",
       "colUnitPrice": "Unit price (USD)",
@@ -1265,7 +2284,14 @@
       "lookupBtn": "Track",
       "recentHeading": "Your recent demo orders",
       "notFoundNote": "Number not found in this browser's demo orders — showing a sample tracking result instead.",
-      "stages": { "orderConfirmed": "Order Confirmed", "paymentReceived": "Payment Received", "production": "Production", "shipped": "Shipped", "customs": "Customs Clearance", "delivered": "Delivered" },
+      "stages": {
+        "orderConfirmed": "Order Confirmed",
+        "paymentReceived": "Payment Received",
+        "production": "Production",
+        "shipped": "Shipped",
+        "customs": "Customs Clearance",
+        "delivered": "Delivered"
+      },
       "disclaimer": "Demo tracking only — stages advance automatically over a few minutes to simulate the real 1-2 month process. No live logistics data is connected."
     }
   },

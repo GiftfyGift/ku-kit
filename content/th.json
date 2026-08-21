@@ -1,6 +1,20 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "ภาษา", "sampleBadge": "ข้อมูลตัวอย่าง" },
-  "nav": { "home": "หน้าหลัก", "product": "สินค้า", "parts": "อะไหล่", "service": "บริการ", "crops": "โซลูชันพืชผล", "marketing": "กิจกรรม", "artwork": "สื่อการตลาด", "order": "สั่งซื้อ" },
+  "meta": {
+    "siteName": "KU-KIT",
+    "tagline": "One Click for Everyday Success with Kubota",
+    "langLabel": "ภาษา",
+    "sampleBadge": "ข้อมูลตัวอย่าง"
+  },
+  "nav": {
+    "home": "หน้าหลัก",
+    "product": "สินค้า",
+    "parts": "อะไหล่",
+    "service": "บริการ",
+    "crops": "โซลูชันพืชผล",
+    "marketing": "กิจกรรม",
+    "artwork": "สื่อการตลาด",
+    "order": "สั่งซื้อ"
+  },
   "hero": {
     "title": "ยินดีต้อนรับสู่ KU-KIT",
     "subtitle": "ศูนย์รวมข้อมูลผลิตภัณฑ์ อะไหล่ บริการ และกิจกรรม พร้อมให้คุณเพียงคลิกเดียว สำหรับ Dealer และ Distributor รายใหม่ เรียนรู้ได้ทุกที่ทุกเวลา",
@@ -10,65 +24,194 @@
     "introTitle": "KU-KIT คืออะไร",
     "introText": "KU-KIT มาจากคำว่า \"คู่คิด\" คู่คิดทางธุรกิจที่พร้อมอยู่เคียงข้าง Dealer และ Distributor รายใหม่ในทุกก้าวของการทำงาน และยังหมายถึง Kubota Kit ชุดข้อมูลครบวงจรแบบ One-Stop Service ที่รวมความรู้เรื่องเครื่องยนต์และรถไถเดินตามไว้ในที่เดียว เพื่ออำนวยความสะดวกให้ Dealer และ Distributor ดำเนินธุรกิจได้ง่ายขึ้น ให้คุณเรียนรู้สินค้า อะไหล่ บริการ และกิจกรรมของเราได้ด้วยตนเอง โดยไม่ต้องรอการอบรมแบบตัวต่อตัว ช่วยลดค่าใช้จ่ายในการส่งทีมไปสอนหน้างาน และลดปัญหาด้านภาษาเมื่อเปิดตลาดใหม่",
     "cards": [
-      { "icon": "⚙️", "title": "ข้อมูลสินค้า", "desc": "สเปคเครื่องยนต์ดีเซล ZT Plus และรถไถเดินตาม NC Plus X วิธีตรวจสอบสินค้าแท้ และวิธีการประกอบ", "target": "product-engine" },
-      { "icon": "🔧", "title": "อะไหล่", "desc": "วิธีค้นหาและสั่งอะไหล่แท้ พร้อมรายการอะไหล่แนะนำแยกตามรุ่น", "target": "parts" },
-      { "icon": "🛠️", "title": "บริการ", "desc": "ขั้นตอนการบำรุงรักษาเครื่องยนต์และรถไถเดินตาม พร้อมบริการหลังการขาย", "target": "service" },
-      { "icon": "🌾", "title": "โซลูชันพืชผล", "desc": "เลือกล้อและเทคนิคการใช้งานรถไถเดินตามให้เหมาะกับนาน้ำ นาแห้ง ไร่มันสำปะหลัง และไร่ข้าวโพด", "target": "crops" },
-      { "icon": "📣", "title": "กิจกรรม", "desc": "4 รูปแบบกิจกรรมมาตรฐาน KUBOTA พร้อมคู่มือและรายการแนะนำสำหรับการจัดงาน", "target": "marketing" },
-      { "icon": "🖼️", "title": "สื่อการตลาด", "desc": "ออกแบบ Banner และ Standee หน้าร้านด้วยตัวเอง กรอกข้อมูลแล้วดาวน์โหลดไฟล์พร้อมพิมพ์ได้ทันที", "target": "materials-custom" }
+      {
+        "icon": "⚙️",
+        "title": "ข้อมูลสินค้า",
+        "desc": "สเปคเครื่องยนต์ดีเซล ZT Plus และรถไถเดินตาม NC Plus X วิธีตรวจสอบสินค้าแท้ และวิธีการประกอบ",
+        "target": "product-engine"
+      },
+      {
+        "icon": "🔧",
+        "title": "อะไหล่",
+        "desc": "วิธีค้นหาและสั่งอะไหล่แท้ พร้อมรายการอะไหล่แนะนำแยกตามรุ่น",
+        "target": "parts"
+      },
+      {
+        "icon": "🛠️",
+        "title": "บริการ",
+        "desc": "ขั้นตอนการบำรุงรักษาเครื่องยนต์และรถไถเดินตาม พร้อมบริการหลังการขาย",
+        "target": "service"
+      },
+      {
+        "icon": "🌾",
+        "title": "โซลูชันพืชผล",
+        "desc": "เลือกล้อและเทคนิคการใช้งานรถไถเดินตามให้เหมาะกับนาน้ำ นาแห้ง ไร่มันสำปะหลัง และไร่ข้าวโพด",
+        "target": "crops"
+      },
+      {
+        "icon": "📣",
+        "title": "กิจกรรม",
+        "desc": "4 รูปแบบกิจกรรมมาตรฐาน KUBOTA พร้อมคู่มือและรายการแนะนำสำหรับการจัดงาน",
+        "target": "marketing"
+      },
+      {
+        "icon": "🖼️",
+        "title": "สื่อการตลาด",
+        "desc": "ออกแบบ Banner และ Standee หน้าร้านด้วยตัวเอง กรอกข้อมูลแล้วดาวน์โหลดไฟล์พร้อมพิมพ์ได้ทันที",
+        "target": "materials-custom"
+      }
     ]
   },
   "product": {
     "title": "ข้อมูลสินค้า",
     "intro": "ทุกสิ่งที่ Dealer ใหม่ควรรู้เกี่ยวกับผลิตภัณฑ์หลักสองกลุ่ม ได้แก่ เครื่องยนต์ดีเซลคูโบต้า ZT Plus และรถไถเดินตามตราช้าง NC Plus X",
-    "tabs": { "engine": "เครื่องยนต์", "tiller": "รถไถเดินตาม", "assembly": "วิธีการประกอบ" },
+    "tabs": {
+      "engine": "เครื่องยนต์",
+      "tiller": "รถไถเดินตาม",
+      "assembly": "วิธีการประกอบ"
+    },
     "engine": {
       "title": "เครื่องยนต์ดีเซลคูโบต้า ZT Plus",
       "quickLinks": [
-        { "label": "ความรู้เกี่ยวกับสินค้า", "route": "product-engine", "anchor": "engine-product-info" },
-        { "label": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ทเครื่องยนต์คูโบต้า", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม", "route": "product-assembly", "anchor": "assembly-engine" },
-        { "label": "เอกสาร OPM (Operation manual)", "route": "product-engine", "anchor": "engine-downloads" },
-        { "label": "จุดสังเกตุและวิธีเช็กสินค้าของแท้", "route": "product-engine", "anchor": "engine-authenticity" },
-        { "label": "ตัวอย่างภาพการใช้งานใน Application ต่างๆ", "route": "product-engine", "anchor": "engine-application" }
+        {
+          "label": "ความรู้เกี่ยวกับสินค้า",
+          "route": "product-engine",
+          "anchor": "engine-product-info"
+        },
+        {
+          "label": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ทเครื่องยนต์คูโบต้า",
+          "route": "product-engine",
+          "anchor": "engine-pre-delivery"
+        },
+        {
+          "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม",
+          "route": "product-assembly",
+          "anchor": "assembly-engine"
+        },
+        {
+          "label": "เอกสาร OPM (Operation manual)",
+          "route": "product-engine",
+          "anchor": "engine-downloads"
+        },
+        {
+          "label": "จุดสังเกตุและวิธีเช็กสินค้าของแท้",
+          "route": "product-engine",
+          "anchor": "engine-authenticity"
+        },
+        {
+          "label": "ตัวอย่างภาพการใช้งานใน Application ต่างๆ",
+          "route": "product-engine",
+          "anchor": "engine-application"
+        }
       ],
-      "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "เครื่องยนต์ดีเซลคูโบต้า ZT155 DI Plus" },
+      "image": {
+        "src": "assets/img/product/zt155-engine-cutout.png",
+        "alt": "เครื่องยนต์ดีเซลคูโบต้า ZT155 DI Plus"
+      },
       "items": [
         {
           "name": "ZT Plus (ระบบ TVCS)",
           "desc": "ระบบห้องเผาไหม้ช่วย (Three Vortex Combustion System) เครื่องยนต์สตาร์ทติดง่าย เสียงเบา ประหยัดน้ำมันขณะทำงานรอบต่ำ เหมาะกับงานสูบน้ำหรือใช้กับรถไถเดินตาม",
           "specs": [
-            { "label": "ช่วงแรงม้า", "value": "10 - 12 แรงม้า" },
-            { "label": "ระบบเผาไหม้", "value": "Three Vortex Combustion System (TVCS)" },
-            { "label": "ระบบสตาร์ท", "value": "Standard (มือหมุน) / ES (มอเตอร์สตาร์ท) / SW (กุญแจสตาร์ท)" },
-            { "label": "การรับประกัน", "value": "3 ปี" }
+            {
+              "label": "ช่วงแรงม้า",
+              "value": "10 - 12 แรงม้า"
+            },
+            {
+              "label": "ระบบเผาไหม้",
+              "value": "Three Vortex Combustion System (TVCS)"
+            },
+            {
+              "label": "ระบบสตาร์ท",
+              "value": "Standard (มือหมุน) / ES (มอเตอร์สตาร์ท) / SW (กุญแจสตาร์ท)"
+            },
+            {
+              "label": "การรับประกัน",
+              "value": "3 ปี"
+            }
           ]
         },
         {
           "name": "ZT Plus (ระบบ Direct Injection)",
           "desc": "ระบบ Direct Injection ตอบสนองอัตราเร่งได้ดี ประหยัดน้ำมันขณะทำงานรอบสูง เหมาะกับรถขนส่งผลผลิต รถไถเดินตามรับจ้างเตรียมดิน ไดนาโม หรือสูบน้ำบาดาลลึก",
           "specs": [
-            { "label": "ช่วงแรงม้า", "value": "12.5 - 18 แรงม้า" },
-            { "label": "ระบบเผาไหม้", "value": "Direct Injection (DI)" },
-            { "label": "ระบบสตาร์ท", "value": "Standard (มือหมุน) / ES (มอเตอร์สตาร์ท) / SW (กุญแจสตาร์ท)" },
-            { "label": "การรับประกัน", "value": "3 ปี" }
+            {
+              "label": "ช่วงแรงม้า",
+              "value": "12.5 - 18 แรงม้า"
+            },
+            {
+              "label": "ระบบเผาไหม้",
+              "value": "Direct Injection (DI)"
+            },
+            {
+              "label": "ระบบสตาร์ท",
+              "value": "Standard (มือหมุน) / ES (มอเตอร์สตาร์ท) / SW (กุญแจสตาร์ท)"
+            },
+            {
+              "label": "การรับประกัน",
+              "value": "3 ปี"
+            }
           ]
         }
       ],
-      "note": "วิธีดูแรงม้า: ดูจากสติกเกอร์ชื่อรุ่นข้างตัวเครื่อง (เช่น ZT100Plus = 10 แรงม้า, ZT140Plus = 14 แรงม้า) หรือดูจาก Name Plate ข้างตัวเครื่อง รุ่นที่จำหน่ายในแต่ละประเทศอาจมีความแตกต่างกัน",
+      "note": "ข้อมูลสเปคด้านบนดึงมาจากสไลด์ Product Knowledge ของ ZT Plus ที่ทีมส่งมาจริง ส่วนเครื่องยนต์ขนาดอื่น (ZT100/110/120/125/155/180) มีโครงสร้างข้อมูลคล้ายกัน หากต้องการเพิ่มข้อมูล กรุณาขอสไลด์จากทีมผลิตภัณฑ์ รูป Packshot ลิงก์ไปที่ Drive โดยตรง (13MB) เพราะเกินขีดจำกัด 10MB ที่ตัวเชื่อมต่อ Drive ในเซสชันนี้ดาวน์โหลดได้ จึงไม่ได้แนบไฟล์ไว้ในเครื่อง",
       "sellingPoints": {
         "title": "จุดเด่นเครื่องยนต์ดีเซลคูโบต้า ZT Plus",
         "items": [
-          { "title": "ถังน้ำมันเหล็ก", "desc": "ขนาด 10.5 ลิตร สำหรับเครื่องยนต์ 10-15.5 แรงม้า และ 14.5 ลิตร สำหรับเครื่องยนต์ 18 แรงม้า", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "ภาพระยะใกล้ถังน้ำมันเหล็กบนเครื่องยนต์ ZT Plus" } },
-          { "title": "ตะแกรงเหล็ก", "desc": "ป้องกันชิ้นส่วนฝั่งหม้อน้ำและพัดลม เพิ่มความถี่ตะแกรงหม้อน้ำชั้นในเพื่อป้องกันฝุ่นและลดความเสี่ยงเครื่องร้อนจัด (overheat)", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "ภาพระยะใกล้ตะแกรงเหล็กป้องกันหม้อน้ำและพัดลม" } },
-          { "title": "เพิ่มโครงสร้างอลูมิเนียม", "desc": "ป้องกันความเสียหายของหม้อน้ำและชิ้นส่วนขณะใช้งาน เสริมจุดยึด 3 จุดเพื่อลดการสั่นสะเทือน", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "จุดยึดโครงสร้างอลูมิเนียมทั้ง 3 จุดบนเครื่องยนต์ ZT155DI" } },
-          { "title": "ช่องมองระดับน้ำมัน", "desc": "หลอด PVC แบบใส สังเกตระดับน้ำมันได้สะดวกและชัดเจน", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "ช่องมองระดับน้ำมันแบบหลอด PVC ใสบนถังน้ำมันเครื่องยนต์" } },
-          { "title": "ไฟหน้า LED", "desc": "ส่องสว่างเพื่อความปลอดภัยขณะทำงานกลางคืน รุ่น PRO เพิ่มไฟเลี้ยวและช่องชาร์จ USB", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "ภาพระยะใกล้ไฟหน้า LED บนเครื่องยนต์ ZT Plus" } }
+          {
+            "title": "ถังน้ำมันเหล็ก",
+            "desc": "ขนาด 10.5 ลิตร สำหรับเครื่องยนต์ 10-15.5 แรงม้า และ 14.5 ลิตร สำหรับเครื่องยนต์ 18 แรงม้า",
+            "image": {
+              "src": "assets/img/product/detail-fuel-tank.jpg",
+              "alt": "ภาพระยะใกล้ถังน้ำมันเหล็กบนเครื่องยนต์ ZT Plus"
+            }
+          },
+          {
+            "title": "ตะแกรงเหล็ก",
+            "desc": "ป้องกันชิ้นส่วนฝั่งหม้อน้ำและพัดลม เพิ่มความถี่ตะแกรงหม้อน้ำชั้นในเพื่อป้องกันฝุ่นและลดความเสี่ยงเครื่องร้อนจัด (overheat)",
+            "image": {
+              "src": "assets/img/product/detail-steel-grate.jpg",
+              "alt": "ภาพระยะใกล้ตะแกรงเหล็กป้องกันหม้อน้ำและพัดลม"
+            }
+          },
+          {
+            "title": "เพิ่มโครงสร้างอลูมิเนียม",
+            "desc": "ป้องกันความเสียหายของหม้อน้ำและชิ้นส่วนขณะใช้งาน เสริมจุดยึด 3 จุดเพื่อลดการสั่นสะเทือน",
+            "image": {
+              "src": "assets/img/product/detail-aluminum-structure.jpg",
+              "alt": "จุดยึดโครงสร้างอลูมิเนียมทั้ง 3 จุดบนเครื่องยนต์ ZT155DI"
+            }
+          },
+          {
+            "title": "ช่องมองระดับน้ำมัน",
+            "desc": "หลอด PVC แบบใส สังเกตระดับน้ำมันได้สะดวกและชัดเจน",
+            "image": {
+              "src": "assets/img/product/detail-fuel-gauge.jpg",
+              "alt": "ช่องมองระดับน้ำมันแบบหลอด PVC ใสบนถังน้ำมันเครื่องยนต์"
+            }
+          },
+          {
+            "title": "ไฟหน้า LED",
+            "desc": "ส่องสว่างเพื่อความปลอดภัยขณะทำงานกลางคืน รุ่น PRO เพิ่มไฟเลี้ยวและช่องชาร์จ USB",
+            "image": {
+              "src": "assets/img/product/detail-led-headlamp.jpg",
+              "alt": "ภาพระยะใกล้ไฟหน้า LED บนเครื่องยนต์ ZT Plus"
+            }
+          }
         ],
         "media": {
-          "video": { "title": "New ZT Plus !", "type": "youtube", "youtubeId": "2TyKkvsv-3I" },
+          "video": {
+            "title": "New ZT Plus !",
+            "type": "youtube",
+            "youtubeId": "2TyKkvsv-3I"
+          },
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/1i1dcLN-jQnwJ4C_3tNwxHQoVmH6XzSCp/view" }
+            {
+              "title": "EPB_Product Knowledge_ZT Plus",
+              "lang": "TH",
+              "type": "pptx",
+              "href": "https://drive.google.com/file/d/1i1dcLN-jQnwJ4C_3tNwxHQoVmH6XzSCp/view"
+            }
           ]
         }
       },
@@ -76,13 +219,79 @@
         "title": "5 จุดสำคัญที่ต้องตรวจเช็กก่อนใช้งานเครื่องยนต์",
         "intro": "ตรวจเช็กครบทั้ง 5 จุดนี้ก่อนส่งมอบเครื่องยนต์ให้ลูกค้า หรือก่อนสตาร์ทเครื่องเป็นครั้งแรก",
         "points": [
-          { "title": "1. ระบบกรองอากาศ (Air Filter)", "desc": "ทำหน้าที่กรองและดักฝุ่นที่ปนมากับอากาศ ไม่ให้เข้าไปในเครื่องยนต์ ป้องกันชิ้นส่วนภายในสึกหรอ", "steps": ["เติมน้ำมันเครื่องลงไปในหม้อกรอง (ใช้น้ำมันเครื่องที่เหลือจากเติมเครื่องยนต์)", "สังเกตเครื่องหมายบอกระดับของน้ำมันเครื่อง", "ใส่กรองอากาศ ระวังอย่าให้ลูกยางขาด", "หยอดน้ำมันเครื่องลงบนกรองอากาศเพื่อช่วยดักจับฝุ่น"], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "หยอดน้ำมันเครื่องลงบนกรองอากาศจริงของเครื่องยนต์ ZT Plus" } },
-          { "title": "2. ระบบน้ำมันเชื้อเพลิง", "desc": "เครื่องยนต์ทำงานได้ต้องอาศัยน้ำมันเชื้อเพลิงผสมกับอากาศในพื้นที่จำกัด และความร้อนจากการอัดของลูกสูบจนเกิดการระเบิด", "steps": ["เลือกใช้น้ำมันที่สะอาด ไม่ต้องถอดไส้กรองถังออกขณะเติมน้ำมัน", "ตรวจเช็กการรั่วซึมรอบกรอง ต้องไม่มีน้ำและสิ่งสกปรกผสมอยู่ในน้ำมัน"], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "กระปุกกรองน้ำมันเชื้อเพลิงจริงของเครื่องยนต์ ZT Plus" } },
-          { "title": "3. ระบบหล่อลื่น (น้ำมันเครื่อง)", "desc": "ช่วยป้องกันการสึกหรอ ให้ชิ้นส่วนหมุนหรือเคลื่อนตัวได้ไม่ติดขัด และช่วยระบายความร้อนภายในเครื่องยนต์", "steps": ["ใช้น้ำมันเครื่องตราช้าง เกรด SAE40", "เติมน้ำมันเครื่องประมาณ 2.7-2.8 ลิตร", "สังเกตระดับน้ำมันเครื่อง ต้องไม่สูงกว่าขีดบนและไม่ต่ำกว่าขีดล่าง", "ก่อนใช้งานควรสตาร์ทเครื่องยนต์และเดินเบาไว้ประมาณ 15-20 นาที เพื่อให้น้ำมันเครื่องหล่อลื่นทั่วเครื่องยนต์", "สังเกตจุดเช็กแรงดันน้ำมันเครื่อง ถ้าสีน้ำเงินเลื่อนมาครอบสีแดง แสดงว่าระบบหล่อลื่นทำงานปกติ"], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "จุดเช็กแรงดันน้ำมันเครื่อง (สีน้ำเงิน/แดง) บนเครื่องยนต์จริง" } },
-          { "title": "4. ระบบน้ำระบายความร้อน (หม้อน้ำ)", "desc": "ควบคุมอุณหภูมิของเครื่องยนต์", "steps": ["ใส่ผงกันสนิม", "เติมน้ำสะอาดให้เต็ม", "ห้ามใช้น้ำบาดาลหรือน้ำคลอง เพราะจะทำให้หม้อน้ำมีตะกอนและอุดตันได้"], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "เติมน้ำสะอาดลงในหม้อน้ำเครื่องยนต์จริง" } },
-          { "title": "5. ระบบสายพานพัดลมระบายความร้อน", "desc": "ขับเคลื่อนพัดลมระบายความร้อนและอุปกรณ์อื่นๆ", "steps": ["ใช้นิ้วกดตรงกลางสายพานเพื่อดูความตึงหย่อน", "ค่าความตึงหย่อนที่เหมาะสมอยู่ที่ 10-15 มม.", "ถ้าตึงหรือหย่อนเกินไป ให้ปรับตามค่าที่กำหนด"], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "วัดค่าความตึงหย่อนของสายพานพัดลมด้วยไม้บรรทัด" } }
+          {
+            "title": "1. ระบบกรองอากาศ (Air Filter)",
+            "desc": "ทำหน้าที่กรองและดักฝุ่นที่ปนมากับอากาศ ไม่ให้เข้าไปในเครื่องยนต์ ป้องกันชิ้นส่วนภายในสึกหรอ",
+            "steps": [
+              "เติมน้ำมันเครื่องลงไปในหม้อกรอง (ใช้น้ำมันเครื่องที่เหลือจากเติมเครื่องยนต์)",
+              "สังเกตเครื่องหมายบอกระดับของน้ำมันเครื่อง",
+              "ใส่กรองอากาศ ระวังอย่าให้ลูกยางขาด",
+              "หยอดน้ำมันเครื่องลงบนกรองอากาศเพื่อช่วยดักจับฝุ่น"
+            ],
+            "image": {
+              "src": "assets/img/service/check-air-filter.jpg",
+              "alt": "หยอดน้ำมันเครื่องลงบนกรองอากาศจริงของเครื่องยนต์ ZT Plus"
+            }
+          },
+          {
+            "title": "2. ระบบน้ำมันเชื้อเพลิง",
+            "desc": "เครื่องยนต์ทำงานได้ต้องอาศัยน้ำมันเชื้อเพลิงผสมกับอากาศในพื้นที่จำกัด และความร้อนจากการอัดของลูกสูบจนเกิดการระเบิด",
+            "steps": [
+              "เลือกใช้น้ำมันที่สะอาด ไม่ต้องถอดไส้กรองถังออกขณะเติมน้ำมัน",
+              "ตรวจเช็กการรั่วซึมรอบกรอง ต้องไม่มีน้ำและสิ่งสกปรกผสมอยู่ในน้ำมัน"
+            ],
+            "image": {
+              "src": "assets/img/service/check-fuel-system.jpg",
+              "alt": "กระปุกกรองน้ำมันเชื้อเพลิงจริงของเครื่องยนต์ ZT Plus"
+            }
+          },
+          {
+            "title": "3. ระบบหล่อลื่น (น้ำมันเครื่อง)",
+            "desc": "ช่วยป้องกันการสึกหรอ ให้ชิ้นส่วนหมุนหรือเคลื่อนตัวได้ไม่ติดขัด และช่วยระบายความร้อนภายในเครื่องยนต์",
+            "steps": [
+              "ใช้น้ำมันเครื่องตราช้าง เกรด SAE40",
+              "เติมน้ำมันเครื่องประมาณ 2.7-2.8 ลิตร",
+              "สังเกตระดับน้ำมันเครื่อง ต้องไม่สูงกว่าขีดบนและไม่ต่ำกว่าขีดล่าง",
+              "ก่อนใช้งานควรสตาร์ทเครื่องยนต์และเดินเบาไว้ประมาณ 15-20 นาที เพื่อให้น้ำมันเครื่องหล่อลื่นทั่วเครื่องยนต์",
+              "สังเกตจุดเช็กแรงดันน้ำมันเครื่อง ถ้าสีน้ำเงินเลื่อนมาครอบสีแดง แสดงว่าระบบหล่อลื่นทำงานปกติ"
+            ],
+            "image": {
+              "src": "assets/img/service/check-engine-oil.jpg",
+              "alt": "จุดเช็กแรงดันน้ำมันเครื่อง (สีน้ำเงิน/แดง) บนเครื่องยนต์จริง"
+            }
+          },
+          {
+            "title": "4. ระบบน้ำระบายความร้อน (หม้อน้ำ)",
+            "desc": "ควบคุมอุณหภูมิของเครื่องยนต์",
+            "steps": [
+              "ใส่ผงกันสนิม",
+              "เติมน้ำสะอาดให้เต็ม",
+              "ห้ามใช้น้ำบาดาลหรือน้ำคลอง เพราะจะทำให้หม้อน้ำมีตะกอนและอุดตันได้"
+            ],
+            "image": {
+              "src": "assets/img/service/check-radiator.jpg",
+              "alt": "เติมน้ำสะอาดลงในหม้อน้ำเครื่องยนต์จริง"
+            }
+          },
+          {
+            "title": "5. ระบบสายพานพัดลมระบายความร้อน",
+            "desc": "ขับเคลื่อนพัดลมระบายความร้อนและอุปกรณ์อื่นๆ",
+            "steps": [
+              "ใช้นิ้วกดตรงกลางสายพานเพื่อดูความตึงหย่อน",
+              "ค่าความตึงหย่อนที่เหมาะสมอยู่ที่ 10-15 มม.",
+              "ถ้าตึงหรือหย่อนเกินไป ให้ปรับตามค่าที่กำหนด"
+            ],
+            "image": {
+              "src": "assets/img/service/check-fan-belt.jpg",
+              "alt": "วัดค่าความตึงหย่อนของสายพานพัดลมด้วยไม้บรรทัด"
+            }
+          }
         ],
-        "video": { "title": "VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT Plus", "type": "youtube", "youtubeId": "VjNgK_Ycirc" }
+        "video": {
+          "title": "VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT Plus",
+          "type": "youtube",
+          "youtubeId": "VjNgK_Ycirc"
+        }
       },
       "startProcedure": {
         "title": "ขั้นตอนการสตาร์ทเครื่องยนต์ดีเซลคูโบต้าอย่างถูกวิธี",
@@ -100,8 +309,17 @@
           "อย่าปล่อยคันยกวาล์วและหยุดหมุนกลางคัน เพราะจะทำให้เครื่องตีกลับ (ควันจะออกที่หม้อกรองอากาศ) เครื่องยนต์จะหมุนกลับด้าน",
           "ถ้าเครื่องยนต์ตีกลับ ให้ถอดชุดไส้กรองออกมาตรวจสอบ ถ้ามีเขม่าให้ทำความสะอาด หรือเปลี่ยนไส้กรองใหม่หากชำรุด"
         ],
-        "video": { "title": "VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี", "type": "youtube", "youtubeId": "MB2sObwUZFQ" },
-        "moreFile": { "title": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ท เครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/18X2kaej-2VgTz-hjcsr2Jq09qEI-maVK/view" }
+        "video": {
+          "title": "VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี",
+          "type": "youtube",
+          "youtubeId": "MB2sObwUZFQ"
+        },
+        "moreFile": {
+          "title": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ท เครื่องยนต์คูโบต้า ZT Plus",
+          "lang": "TH",
+          "type": "pptx",
+          "href": "https://drive.google.com/file/d/18X2kaej-2VgTz-hjcsr2Jq09qEI-maVK/view"
+        }
       },
       "applicationExamples": {
         "title": "ตัวอย่างภาพการใช้งานใน Application ต่างๆ",
@@ -118,14 +336,29 @@
             "title": "การใช้งานร่วมกับรถไถเดินตาม",
             "items": [
               {
-                "title": "การเตรียมดิน",
-                "src": "assets/img/product/application/power-tiller-soil-preparation.png",
-                "alt": "การเตรียมดิน — KUBOTA ZT Plus engine application"
+                "title": "การเตรียมดิน — 1",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-1.png",
+                "alt": "การเตรียมดิน — 1 — KUBOTA ZT Plus engine application"
               },
               {
-                "title": "การขนส่งด้วยรถไถเดินตาม",
-                "src": "assets/img/product/application/power-tiller-transportation.png",
-                "alt": "การขนส่งด้วยรถไถเดินตาม — KUBOTA ZT Plus engine application"
+                "title": "การเตรียมดิน — 2",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-2.png",
+                "alt": "การเตรียมดิน — 2 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "การเตรียมดิน — 3",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-3.jpg",
+                "alt": "การเตรียมดิน — 3 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "การขนส่งด้วยรถไถเดินตาม — 1",
+                "src": "assets/img/product/application/power-tiller-transportation-1.jpg",
+                "alt": "การขนส่งด้วยรถไถเดินตาม — 1 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "การขนส่งด้วยรถไถเดินตาม — 2",
+                "src": "assets/img/product/application/power-tiller-transportation-2.png",
+                "alt": "การขนส่งด้วยรถไถเดินตาม — 2 — KUBOTA ZT Plus engine application"
               }
             ]
           },
@@ -157,6 +390,11 @@
                 "title": "รถพ่วงขนส่งทางการเกษตร",
                 "src": "assets/img/product/application/transport-farm-trailer.png",
                 "alt": "รถพ่วงขนส่งทางการเกษตร — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "รถขนส่งอเนกประสงค์ 4x4",
+                "src": "assets/img/product/application/transport-four-wheel-utility-vehicle.jpg",
+                "alt": "รถขนส่งอเนกประสงค์ 4x4 — KUBOTA ZT Plus engine application"
               }
             ]
           },
@@ -315,90 +553,271 @@
       "authenticity": {
         "title": "วิธีตรวจสอบเครื่องยนต์คูโบต้า ZT Plus ของแท้",
         "intro": "สินค้าปลอมส่งผลต่อความเชื่อมั่นของลูกค้าและความปลอดภัยหลังการขาย ใช้จุดสังเกตเหล่านี้ยืนยันว่าเป็นเครื่องยนต์คูโบต้าของแท้",
-        "artworkImage": { "src": "assets/img/product/authenticity/engine-authenticity-artwork.jpg", "alt": "จุดสังเกตเครื่องยนต์คูโบต้าของแท้ — สปอยเลอร์มีโลโก้, ฝาครอบเครื่องมีตัวอักษร K นูน, ล้อช่วยแรงมีสัญลักษณ์ K 2 จุด, ฝาครอบเกียร์ข้างเครื่องมีตัวอักษร K, บริเวณปั๊มน้ำมันเชื้อเพลิงมีตัวอักษร K และโลโก้, และต้องมีสติกเกอร์รับประกัน/แหล่งผลิตครบถ้วน" },
+        "artworkImage": {
+          "src": "assets/img/product/authenticity/engine-authenticity-artwork.jpg",
+          "alt": "จุดสังเกตเครื่องยนต์คูโบต้าของแท้ — สปอยเลอร์มีโลโก้, ฝาครอบเครื่องมีตัวอักษร K นูน, ล้อช่วยแรงมีสัญลักษณ์ K 2 จุด, ฝาครอบเกียร์ข้างเครื่องมีตัวอักษร K, บริเวณปั๊มน้ำมันเชื้อเพลิงมีตัวอักษร K และโลโก้, และต้องมีสติกเกอร์รับประกัน/แหล่งผลิตครบถ้วน"
+        },
         "points": [
-          { "text": "ฝาครอบเครื่องยนต์มีตัวอักษร \"K\" นูน ซึ่งเป็นโลโก้ประจำตัวคูโบต้า", "image": { "src": "assets/img/product/authenticity/engine-01-k-symbol.png", "alt": "ตัวอักษร K นูนบนฝาครอบเครื่องยนต์" } },
-          { "text": "สปอยเลอร์มีโลโก้คูโบต้าปั๊มลึก — รุ่น Standard สปอยเลอร์สีดำ รุ่น Pro สปอยเลอร์สีเงิน", "image": { "src": "assets/img/product/authenticity/engine-02-spoiler.png", "alt": "โลโก้คูโบต้าปั๊มลึกบนสปอยเลอร์" } },
-          { "text": "ฝาครอบเกียร์ข้างเครื่องมีตัวอักษร \"K\" นูน ตรงกับสัญลักษณ์บนฝาครอบเครื่องยนต์", "image": { "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png", "alt": "ตัวอักษร K นูนบนฝาครอบเกียร์ข้างเครื่อง" } },
-          { "text": "บล็อกสูบใกล้ปั๊มน้ำมันเชื้อเพลิงมีตัวอักษร K และโลโก้ประจำตัวคูโบต้าแบบนูน", "image": { "src": "assets/img/product/authenticity/engine-04-cylinder-block.png", "alt": "ตัวอักษร K และโลโก้คูโบต้าบนบล็อกสูบ" } },
-          { "text": "ล้อช่วยแรง (Flywheel) มีสัญลักษณ์ประจำตัวคูโบต้า 2 จุด", "image": { "src": "assets/img/product/authenticity/engine-05-flywheel.png", "alt": "สัญลักษณ์คูโบต้าบนล้อช่วยแรง" } },
-          { "text": "มีสติกเกอร์ Name Plate ที่ฝาครอบเกียร์ข้างเครื่อง ระบุรุ่น ผู้ผลิต (\"SIAM KUBOTA Corporation Co., Ltd\") และแหล่งผลิต (\"MADE IN THAILAND\")", "image": { "src": "assets/img/product/authenticity/engine-06-nameplate.png", "alt": "สติกเกอร์ Name Plate บนฝาครอบเกียร์ข้างเครื่อง" } },
-          { "text": "มีสติกเกอร์รับประกัน 3 ปี จากสยามคูโบต้า ติดที่ฝาครอบเกียร์ข้างเครื่อง", "image": { "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png", "alt": "สติกเกอร์รับประกัน 3 ปี จากสยามคูโบต้า" } },
-          { "text": "มีสติกเกอร์ มอก. (TIS) พร้อม QR Code สแกนตรวจสอบว่าผลิตโดยสยามคูโบต้า", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "สติกเกอร์ มอก. พร้อม QR Code" } },
-          { "text": "มีการสลักรุ่นและหมายเลขซีเรียล 6 หลักบนตัวเครื่อง สแกน QR Code ที่ฝาครอบเกียร์เพื่อตรวจสอบ สินค้าแท้จะแสดงข้อความ \"Genuine product from Siam Kubota\"", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "รุ่นและหมายเลขซีเรียล 6 หลักที่สลักบนตัวเครื่อง" } }
+          {
+            "text": "ฝาครอบเครื่องยนต์มีตัวอักษร \"K\" นูน ซึ่งเป็นโลโก้ประจำตัวคูโบต้า",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-01-k-symbol.png",
+              "alt": "ตัวอักษร K นูนบนฝาครอบเครื่องยนต์"
+            }
+          },
+          {
+            "text": "สปอยเลอร์มีโลโก้คูโบต้าปั๊มลึก — รุ่น Standard สปอยเลอร์สีดำ รุ่น Pro สปอยเลอร์สีเงิน",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-02-spoiler.png",
+              "alt": "โลโก้คูโบต้าปั๊มลึกบนสปอยเลอร์"
+            }
+          },
+          {
+            "text": "ฝาครอบเกียร์ข้างเครื่องมีตัวอักษร \"K\" นูน ตรงกับสัญลักษณ์บนฝาครอบเครื่องยนต์",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png",
+              "alt": "ตัวอักษร K นูนบนฝาครอบเกียร์ข้างเครื่อง"
+            }
+          },
+          {
+            "text": "บล็อกสูบใกล้ปั๊มน้ำมันเชื้อเพลิงมีตัวอักษร K และโลโก้ประจำตัวคูโบต้าแบบนูน",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-04-cylinder-block.png",
+              "alt": "ตัวอักษร K และโลโก้คูโบต้าบนบล็อกสูบ"
+            }
+          },
+          {
+            "text": "ล้อช่วยแรง (Flywheel) มีสัญลักษณ์ประจำตัวคูโบต้า 2 จุด",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-05-flywheel.png",
+              "alt": "สัญลักษณ์คูโบต้าบนล้อช่วยแรง"
+            }
+          },
+          {
+            "text": "มีสติกเกอร์ Name Plate ที่ฝาครอบเกียร์ข้างเครื่อง ระบุรุ่น ผู้ผลิต (\"SIAM KUBOTA Corporation Co., Ltd\") และแหล่งผลิต (\"MADE IN THAILAND\")",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-06-nameplate.png",
+              "alt": "สติกเกอร์ Name Plate บนฝาครอบเกียร์ข้างเครื่อง"
+            }
+          },
+          {
+            "text": "มีสติกเกอร์รับประกัน 3 ปี จากสยามคูโบต้า ติดที่ฝาครอบเกียร์ข้างเครื่อง",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png",
+              "alt": "สติกเกอร์รับประกัน 3 ปี จากสยามคูโบต้า"
+            }
+          },
+          {
+            "text": "มีสติกเกอร์ มอก. (TIS) พร้อม QR Code สแกนตรวจสอบว่าผลิตโดยสยามคูโบต้า",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-08-tis-qr.png",
+              "alt": "สติกเกอร์ มอก. พร้อม QR Code"
+            }
+          },
+          {
+            "text": "มีการสลักรุ่นและหมายเลขซีเรียล 6 หลักบนตัวเครื่อง สแกน QR Code ที่ฝาครอบเกียร์เพื่อตรวจสอบ สินค้าแท้จะแสดงข้อความ \"Genuine product from Siam Kubota\"",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-09-serial-number.png",
+              "alt": "รุ่นและหมายเลขซีเรียล 6 หลักที่สลักบนตัวเครื่อง"
+            }
+          }
         ],
-        "moreFile": { "title": "Check list - รวมจุดสังเกตเครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/1Gjo4kgHKKRF2ZMiGRERZ6h78AiyZLqaA/view" }
+        "moreFile": {
+          "title": "Check list - รวมจุดสังเกตเครื่องยนต์คูโบต้า ZT Plus",
+          "lang": "TH",
+          "type": "pptx",
+          "href": "https://drive.google.com/file/d/1Gjo4kgHKKRF2ZMiGRERZ6h78AiyZLqaA/view"
+        }
       },
       "resources": [
-        { "title": "คู่มือการใช้งาน ZT Plus (Operation Manual)", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/file/d/1YknIVJcKdMFyVmISognvHzteahHibfF6/view" }
+        {
+          "title": "คู่มือการใช้งาน ZT Plus (Operation Manual)",
+          "lang": "TH",
+          "type": "pdf",
+          "href": "https://drive.google.com/file/d/1YknIVJcKdMFyVmISognvHzteahHibfF6/view"
+        }
       ],
       "videosTitle": "วิดีโอ",
-      "downloadsTitle": "เอกสารดาวน์โหลด",
-      "note": "ข้อมูลสเปคด้านบนดึงมาจากสไลด์ Product Knowledge ของ ZT Plus ที่ทีมส่งมาจริง ส่วนเครื่องยนต์ขนาดอื่น (ZT100/110/120/125/155/180) มีโครงสร้างข้อมูลคล้ายกัน หากต้องการเพิ่มข้อมูล กรุณาขอสไลด์จากทีมผลิตภัณฑ์ รูป Packshot ลิงก์ไปที่ Drive โดยตรง (13MB) เพราะเกินขีดจำกัด 10MB ที่ตัวเชื่อมต่อ Drive ในเซสชันนี้ดาวน์โหลดได้ จึงไม่ได้แนบไฟล์ไว้ในเครื่อง"
+      "downloadsTitle": "เอกสารดาวน์โหลด"
     },
     "tiller": {
       "title": "รถไถเดินตามตราช้าง NC Plus X",
       "quickLinks": [
-        { "label": "ความรู้เกี่ยวกับสินค้า", "route": "product-tiller", "anchor": "tiller-product-info" },
-        { "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม", "route": "product-assembly", "anchor": "assembly-tiller" },
-        { "label": "เอกสาร OPM (Operation manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
-        { "label": "จุดสังเกตุและวิธีเช็กสินค้าของแท้", "route": "product-tiller", "anchor": "tiller-authenticity" },
-        { "label": "อุปกรณ์ต่อพ่วงที่สามารถใช้กับรถไถเดินตาม", "route": "product-tiller", "anchor": "tiller-application" }
+        {
+          "label": "ความรู้เกี่ยวกับสินค้า",
+          "route": "product-tiller",
+          "anchor": "tiller-product-info"
+        },
+        {
+          "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม",
+          "route": "product-assembly",
+          "anchor": "assembly-tiller"
+        },
+        {
+          "label": "เอกสาร OPM (Operation manual)",
+          "route": "product-tiller",
+          "anchor": "tiller-downloads"
+        },
+        {
+          "label": "จุดสังเกตุและวิธีเช็กสินค้าของแท้",
+          "route": "product-tiller",
+          "anchor": "tiller-authenticity"
+        },
+        {
+          "label": "อุปกรณ์ต่อพ่วงที่สามารถใช้กับรถไถเดินตาม",
+          "route": "product-tiller",
+          "anchor": "tiller-application"
+        }
       ],
-      "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "รถไถเดินตามตราช้าง NC Plus X 800" },
+      "image": {
+        "src": "assets/img/product/nc-plusx-tiller-cutout.png",
+        "alt": "รถไถเดินตามตราช้าง NC Plus X 800"
+      },
       "items": [
         {
           "name": "NC Plus X",
           "desc": "เส้นผ่านศูนย์กลางล้อ 800 มม. ใบล้อขนาด 3 นิ้ว 16 ใบ เหมาะกับดินร่วน ดินทราย ใช้ได้ทั้งนาน้ำและนาแห้งที่ไม่หล่ม ไร่อ้อย มันสำปะหลัง ถั่ว และแปลงผัก สามารถใช้ล้อเหล็กเดินทางระยะสั้นได้ ไม่เหมาะกับนาหล่มหรือดินเหนียว",
           "specs": [
-            { "label": "เส้นผ่านศูนย์กลางล้อ", "value": "800 มม." },
-            { "label": "ใบล้อ", "value": "3 นิ้ว x 16 ใบ" },
-            { "label": "ระบบเกียร์บีบเลี้ยว/คลัตช์", "value": "ระบบ Standard, ชุดคลัตช์ Standard, ลูกปืนแบบกลม" },
-            { "label": "รับประกันโครง/เสื้อเกียร์", "value": "3 ปี / เสื้อเกียร์รับประกันตลอดอายุการใช้งาน" }
+            {
+              "label": "เส้นผ่านศูนย์กลางล้อ",
+              "value": "800 มม."
+            },
+            {
+              "label": "ใบล้อ",
+              "value": "3 นิ้ว x 16 ใบ"
+            },
+            {
+              "label": "ระบบเกียร์บีบเลี้ยว/คลัตช์",
+              "value": "ระบบ Standard, ชุดคลัตช์ Standard, ลูกปืนแบบกลม"
+            },
+            {
+              "label": "รับประกันโครง/เสื้อเกียร์",
+              "value": "3 ปี / เสื้อเกียร์รับประกันตลอดอายุการใช้งาน"
+            }
           ]
         },
         {
           "name": "NC Plus X Special",
           "desc": "เส้นผ่านศูนย์กลางล้อ 880 หรือ 980 มม. ใช้ระบบเกียร์อินเสิร์ท เหมาะกับงานเตรียมดินในพื้นที่ดินเหนียว ดินหล่ม และนาที่ทำปีละ 2 ครั้ง หากต้องขนย้ายควรเปลี่ยนเป็นล้อยางหรือใช้เทรลเลอร์ งานลุยหล่มควรใช้คู่กับเครื่องยนต์คูโบต้า 14-15.5 แรงม้า",
           "specs": [
-            { "label": "เส้นผ่านศูนย์กลางล้อ", "value": "880 มม. / 980 มม." },
-            { "label": "ใบล้อ", "value": "4 นิ้ว หรือ 5 นิ้ว x 16 ใบ" },
-            { "label": "ระบบเกียร์บีบเลี้ยว/คลัตช์", "value": "ระบบเกียร์อินเสิร์ท (สลับด้านได้เมื่อสึกหรอ มี Safety Bolt), คลัตช์พิเศษ, ลูกปืนแบบโรลเลอร์" },
-            { "label": "รับประกันโครง/เสื้อเกียร์", "value": "3 ปี / เสื้อเกียร์รับประกันตลอดอายุการใช้งาน" }
+            {
+              "label": "เส้นผ่านศูนย์กลางล้อ",
+              "value": "880 มม. / 980 มม."
+            },
+            {
+              "label": "ใบล้อ",
+              "value": "4 นิ้ว หรือ 5 นิ้ว x 16 ใบ"
+            },
+            {
+              "label": "ระบบเกียร์บีบเลี้ยว/คลัตช์",
+              "value": "ระบบเกียร์อินเสิร์ท (สลับด้านได้เมื่อสึกหรอ มี Safety Bolt), คลัตช์พิเศษ, ลูกปืนแบบโรลเลอร์"
+            },
+            {
+              "label": "รับประกันโครง/เสื้อเกียร์",
+              "value": "3 ปี / เสื้อเกียร์รับประกันตลอดอายุการใช้งาน"
+            }
           ]
         }
       ],
-      "note": "วิธีแยก NC Plus X กับ NC Plus X Special: (1) รหัส Chassis บนบัตรรับประกัน — \"NC131\" ไม่มีตัว S ต่อท้าย (Plus X) ส่วน \"NC131S\" มีตัว S ต่อท้าย (Special) (2) มีการตอกสัญลักษณ์ตัว S ที่ Case Gear เฉพาะรุ่น Special เท่านั้น รถไถเดินตามตราช้างทั้ง 3 รุ่นสามารถเปลี่ยนเป็นล้อยางเพื่อใช้บรรทุกผลผลิตหรือขนส่งได้",
+      "note": "ข้อมูลสเปคด้านบนดึงมาจากสไลด์ Product Knowledge ของ NC Plus X ที่ทีมส่งมาจริง รูป Packshot ลิงก์ไปที่ Drive โดยตรง (14MB) เพราะเกินขีดจำกัด 10MB ที่ตัวเชื่อมต่อ Drive ในเซสชันนี้ดาวน์โหลดได้ จึงไม่ได้แนบไฟล์ไว้ในเครื่อง",
       "applicationExamples": {
         "title": "ตัวอย่างภาพการใช้งาน และอุปกรณ์ต่อพ่วงที่ใช้กับรถไถเดินตาม",
         "intro": "รถไถเดินตามตราช้างต่อพ่วงอุปกรณ์ได้หลากหลาย ครอบคลุมตั้งแต่ไถนา หยอดเมล็ด เกี่ยวข้าว ขนส่ง นวดข้าว อัดฟาง ไปจนถึงกำจัดวัชพืชในไร่มันสำปะหลัง/อ้อย",
         "images": [
-          { "src": "assets/img/product/application/tiller-application-th-01.jpg", "alt": "อุปกรณ์ต่อพ่วงที่สามารถใช้กับรถไถเดินตามตราช้าง — ไถนา เครื่องหยอดเมล็ดข้าว เกี่ยวข้าว ขนส่ง เครื่องนวดข้าว เครื่องอัดฟาง และกำจัดวัชพืชในไร่มันสำปะหลัง/อ้อย" }
+          {
+            "src": "assets/img/product/application/tiller-application-th-01.jpg",
+            "alt": "อุปกรณ์ต่อพ่วงที่สามารถใช้กับรถไถเดินตามตราช้าง — ไถนา เครื่องหยอดเมล็ดข้าว เกี่ยวข้าว ขนส่ง เครื่องนวดข้าว เครื่องอัดฟาง และกำจัดวัชพืชในไร่มันสำปะหลัง/อ้อย"
+          }
         ]
       },
       "authenticity": {
         "title": "วิธีตรวจสอบรถไถเดินตามตราช้างของแท้",
         "intro": "สินค้าปลอมส่งผลต่อความเชื่อมั่นของลูกค้าและความปลอดภัยหลังการขาย ใช้จุดสังเกตเหล่านี้ยืนยันว่าเป็นรถไถเดินตามตราช้างของแท้",
         "points": [
-          { "text": "เครื่องหมายการค้าตราช้าง: ช้างหันหน้าซ้าย ยกเท้าหน้าซ้าย เฟืองสีทองสด บนพื้นวงกลมสีแดงสด", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "เครื่องหมายการค้าตราช้าง ช้างขาวบนพื้นวงกลมสีแดง" } },
-          { "text": "สติกเกอร์ตราสินค้าสะกดคำว่า \"TRA CHANG\" ด้วยตัวอักษรสีแดงสดขอบขาว", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "สติกเกอร์ตราช้างที่ด้ามจับรถไถเดินตาม" } },
-          { "text": "เสื้อเกียร์มีโลโก้ \"ตราช้าง\" (ภาษาไทย) แบบนูน", "image": { "src": "assets/img/product/authenticity/tiller-03-transmission-case.png", "alt": "โลโก้ตราช้างแบบนูนบนเสื้อเกียร์" } },
-          { "text": "หมายเลขเฟรมเฉพาะตัว รูปแบบ \"NC-XXXXXX\" (ตัวอักษรตามด้วยเลข 5 หลัก) ตอกลึกและชัดเจน มองเห็นง่าย", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "หมายเลขเฟรมที่ตอกบนตัวรถไถเดินตาม" } },
-          { "text": "สัญลักษณ์ช้างที่ฝาครอบด้านบนของเฟรม หันหน้าซ้ายและยกเท้าหน้าซ้าย อยู่ภายในรูปเฟือง", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "สัญลักษณ์ช้างที่ฝาครอบด้านบนของเฟรม" } },
-          { "text": "สัญลักษณ์ช้างที่คันเกียร์ก็หันหน้าซ้ายและยกเท้าหน้าซ้ายเช่นกัน อยู่ภายในรูปเฟือง", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "สัญลักษณ์ช้างที่คันเกียร์" } }
+          {
+            "text": "เครื่องหมายการค้าตราช้าง: ช้างหันหน้าซ้าย ยกเท้าหน้าซ้าย เฟืองสีทองสด บนพื้นวงกลมสีแดงสด",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-01-trademark.png",
+              "alt": "เครื่องหมายการค้าตราช้าง ช้างขาวบนพื้นวงกลมสีแดง"
+            }
+          },
+          {
+            "text": "สติกเกอร์ตราสินค้าสะกดคำว่า \"TRA CHANG\" ด้วยตัวอักษรสีแดงสดขอบขาว",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png",
+              "alt": "สติกเกอร์ตราช้างที่ด้ามจับรถไถเดินตาม"
+            }
+          },
+          {
+            "text": "เสื้อเกียร์มีโลโก้ \"ตราช้าง\" (ภาษาไทย) แบบนูน",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-03-transmission-case.png",
+              "alt": "โลโก้ตราช้างแบบนูนบนเสื้อเกียร์"
+            }
+          },
+          {
+            "text": "หมายเลขเฟรมเฉพาะตัว รูปแบบ \"NC-XXXXXX\" (ตัวอักษรตามด้วยเลข 5 หลัก) ตอกลึกและชัดเจน มองเห็นง่าย",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-04-frame-number.png",
+              "alt": "หมายเลขเฟรมที่ตอกบนตัวรถไถเดินตาม"
+            }
+          },
+          {
+            "text": "สัญลักษณ์ช้างที่ฝาครอบด้านบนของเฟรม หันหน้าซ้ายและยกเท้าหน้าซ้าย อยู่ภายในรูปเฟือง",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg",
+              "alt": "สัญลักษณ์ช้างที่ฝาครอบด้านบนของเฟรม"
+            }
+          },
+          {
+            "text": "สัญลักษณ์ช้างที่คันเกียร์ก็หันหน้าซ้ายและยกเท้าหน้าซ้ายเช่นกัน อยู่ภายในรูปเฟือง",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-06-gear-lever.png",
+              "alt": "สัญลักษณ์ช้างที่คันเกียร์"
+            }
+          }
         ]
       },
       "resources": [
-        { "title": "สไลด์ความรู้ผลิตภัณฑ์ NC Plus X (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
-        { "title": "สไลด์ความรู้ผลิตภัณฑ์ NC Plus X (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
-        { "title": "จุดสังเกตรถไถเดินตามแท้ (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
-        { "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
-        { "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
-        { "title": "รูปสินค้าคุณภาพสูง — รถไถเดินตาม NC Plus X 800", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+        {
+          "title": "สไลด์ความรู้ผลิตภัณฑ์ NC Plus X (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx"
+        },
+        {
+          "title": "สไลด์ความรู้ผลิตภัณฑ์ NC Plus X (TH)",
+          "lang": "TH",
+          "type": "pptx",
+          "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx"
+        },
+        {
+          "title": "จุดสังเกตรถไถเดินตามแท้ (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx"
+        },
+        {
+          "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (EN)",
+          "lang": "EN",
+          "type": "pdf",
+          "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf"
+        },
+        {
+          "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (TH)",
+          "lang": "TH",
+          "type": "pdf",
+          "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf"
+        },
+        {
+          "title": "รูปสินค้าคุณภาพสูง — รถไถเดินตาม NC Plus X 800",
+          "lang": "EN",
+          "type": "jpg",
+          "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view"
+        }
       ],
       "videosTitle": "วิดีโอ",
-      "downloadsTitle": "เอกสารดาวน์โหลด",
-      "note": "ข้อมูลสเปคด้านบนดึงมาจากสไลด์ Product Knowledge ของ NC Plus X ที่ทีมส่งมาจริง รูป Packshot ลิงก์ไปที่ Drive โดยตรง (14MB) เพราะเกินขีดจำกัด 10MB ที่ตัวเชื่อมต่อ Drive ในเซสชันนี้ดาวน์โหลดได้ จึงไม่ได้แนบไฟล์ไว้ในเครื่อง"
+      "downloadsTitle": "เอกสารดาวน์โหลด"
     },
     "assembly": {
       "title": "วิธีการประกอบ",
@@ -421,8 +840,18 @@
         "ต่อสายคันเร่งเข้ากับคันเร่งแล้วขันน็อตให้แน่น"
       ],
       "resources": [
-        { "title": "คู่มือวิธีการประกอบเครื่องยนต์กับรถไถเดินตาม (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
-        { "title": "วิดีโอสาธิตการประกอบเครื่องยนต์ ZT Plus + รถไถเดินตาม NC Plus X", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+        {
+          "title": "คู่มือวิธีการประกอบเครื่องยนต์กับรถไถเดินตาม (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/assembly/Assembly-Guide-EN.pptx"
+        },
+        {
+          "title": "วิดีโอสาธิตการประกอบเครื่องยนต์ ZT Plus + รถไถเดินตาม NC Plus X",
+          "lang": "EN",
+          "type": "video",
+          "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4"
+        }
       ],
       "videosTitle": "วิดีโอ",
       "downloadsTitle": "เอกสารดาวน์โหลด",
@@ -433,10 +862,26 @@
     "title": "อะไหล่",
     "intro": "แนวทางการค้นหาและสั่งซื้ออะไหล่แท้ สำหรับ Dealer และ Distributor รายใหม่ พร้อมรายการอะไหล่แนะนำเบื้องต้นสำหรับรุ่นยอดนิยม",
     "howToOrder": [
-      { "step": "1", "title": "ระบุรุ่นเครื่องและหมายเลขซีเรียล", "desc": "ตรวจสอบจากแผ่นป้ายบนตัวเครื่องหรือคู่มือประจำรุ่น" },
-      { "step": "2", "title": "ค้นหารหัสอะไหล่", "desc": "ใช้แคตตาล็อกอะไหล่ (Parts Catalog) เพื่อระบุรหัสที่ถูกต้อง" },
-      { "step": "3", "title": "ส่งคำสั่งซื้อผ่านช่องทางที่กำหนด", "desc": "ติดต่อทีมสนับสนุนอะไหล่ประจำภูมิภาคของท่าน" },
-      { "step": "4", "title": "ตรวจสอบสถานะการจัดส่ง", "desc": "ติดตามคำสั่งซื้อผ่านระบบที่บริษัทจัดเตรียมให้" }
+      {
+        "step": "1",
+        "title": "ระบุรุ่นเครื่องและหมายเลขซีเรียล",
+        "desc": "ตรวจสอบจากแผ่นป้ายบนตัวเครื่องหรือคู่มือประจำรุ่น"
+      },
+      {
+        "step": "2",
+        "title": "ค้นหารหัสอะไหล่",
+        "desc": "ใช้แคตตาล็อกอะไหล่ (Parts Catalog) เพื่อระบุรหัสที่ถูกต้อง"
+      },
+      {
+        "step": "3",
+        "title": "ส่งคำสั่งซื้อผ่านช่องทางที่กำหนด",
+        "desc": "ติดต่อทีมสนับสนุนอะไหล่ประจำภูมิภาคของท่าน"
+      },
+      {
+        "step": "4",
+        "title": "ตรวจสอบสถานะการจัดส่ง",
+        "desc": "ติดตามคำสั่งซื้อผ่านระบบที่บริษัทจัดเตรียมให้"
+      }
     ],
     "recommended": [
       {
@@ -445,21 +890,51 @@
           {
             "label": "อะไหล่เปลี่ยนตามระยะ (Periodical)",
             "items": [
-              { "code": "1T051-11220", "name": "ชุดกรองอากาศ (Air cleaner element assy)" },
-              { "code": "1W071-99261", "name": "น้ำมันเครื่อง CF 3 ลิตร x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "ชุดกรองน้ำมันเชื้อเพลิง" },
-              { "code": "1TA21-35750", "name": "แหวนกรองน้ำมันเครื่อง" }
+              {
+                "code": "1T051-11220",
+                "name": "ชุดกรองอากาศ (Air cleaner element assy)"
+              },
+              {
+                "code": "1W071-99261",
+                "name": "น้ำมันเครื่อง CF 3 ลิตร x 8"
+              },
+              {
+                "code": "1W071-43010 / 1W071-43015",
+                "name": "ชุดกรองน้ำมันเชื้อเพลิง"
+              },
+              {
+                "code": "1TA21-35750",
+                "name": "แหวนกรองน้ำมันเครื่อง"
+              }
             ]
           },
           {
             "label": "อะไหล่สึกหรอ (Consumptive)",
             "items": [
-              { "code": "14371-51051", "name": "ชุดปลันเจอร์ (Plunger assy)" },
-              { "code": "1T071-98511", "name": "ชุดแหวนลูกสูบ 140" },
-              { "code": "1T057-97010", "name": "สายพานพัดลม" },
-              { "code": "1T071-90161", "name": "ชุดซีลฝาสูบ" },
-              { "code": "1T021-61110", "name": "มือหมุนสตาร์ท" },
-              { "code": "11010-04380", "name": "ซีลเพลาข้อเหวี่ยง" }
+              {
+                "code": "14371-51051",
+                "name": "ชุดปลันเจอร์ (Plunger assy)"
+              },
+              {
+                "code": "1T071-98511",
+                "name": "ชุดแหวนลูกสูบ 140"
+              },
+              {
+                "code": "1T057-97010",
+                "name": "สายพานพัดลม"
+              },
+              {
+                "code": "1T071-90161",
+                "name": "ชุดซีลฝาสูบ"
+              },
+              {
+                "code": "1T021-61110",
+                "name": "มือหมุนสตาร์ท"
+              },
+              {
+                "code": "11010-04380",
+                "name": "ซีลเพลาข้อเหวี่ยง"
+              }
             ]
           }
         ]
@@ -470,33 +945,81 @@
           {
             "label": "อะไหล่เปลี่ยนตามระยะ (Periodical)",
             "items": [
-              { "code": "62735-99091-E", "name": "น้ำมันเกียร์ Gear90 3 ลิตร x 8" }
+              {
+                "code": "62735-99091-E",
+                "name": "น้ำมันเกียร์ Gear90 3 ลิตร x 8"
+              }
             ]
           },
           {
             "label": "อะไหล่สึกหรอ (Consumptive)",
             "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "เฟืองเกียร์ (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "สายพาน V-belt ตราช้าง (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "สายคลัตช์หลัก" },
-              { "code": "62735-42480", "name": "สายคลัตช์บีบเลี้ยว" },
-              { "code": "09500-25388", "name": "ซีลน้ำมัน" },
-              { "code": "62735-22132-1", "name": "ผ้าเบรก (2 ชิ้น)" }
+              {
+                "code": "62735-14140 / 62735-14230 / 62735-14120-1",
+                "name": "เฟืองเกียร์ (14 / 18 / 18-1)"
+              },
+              {
+                "code": "69211-00722 / 69211-00732",
+                "name": "สายพาน V-belt ตราช้าง (B-72 / B-73)"
+              },
+              {
+                "code": "62735-42110",
+                "name": "สายคลัตช์หลัก"
+              },
+              {
+                "code": "62735-42480",
+                "name": "สายคลัตช์บีบเลี้ยว"
+              },
+              {
+                "code": "09500-25388",
+                "name": "ซีลน้ำมัน"
+              },
+              {
+                "code": "62735-22132-1",
+                "name": "ผ้าเบรก (2 ชิ้น)"
+              }
             ]
           }
         ]
       }
     ],
     "categories": [
-      { "name": "อะไหล่เครื่องยนต์", "desc": "ลูกสูบ แหวนลูกสูบ ปั๊มหัวฉีด กรองน้ำมันเชื้อเพลิง" },
-      { "name": "อะไหล่ระบบส่งกำลัง", "desc": "เฟืองเกียร์ คลัตช์ เพลาขับ" },
-      { "name": "อะไหล่ระบบไถพรวน", "desc": "ใบมีดไถ จานไถ ตลับลูกปืน" },
-      { "name": "วัสดุสิ้นเปลือง", "desc": "น้ำมันเครื่อง กรองอากาศ สายพาน" }
+      {
+        "name": "อะไหล่เครื่องยนต์",
+        "desc": "ลูกสูบ แหวนลูกสูบ ปั๊มหัวฉีด กรองน้ำมันเชื้อเพลิง"
+      },
+      {
+        "name": "อะไหล่ระบบส่งกำลัง",
+        "desc": "เฟืองเกียร์ คลัตช์ เพลาขับ"
+      },
+      {
+        "name": "อะไหล่ระบบไถพรวน",
+        "desc": "ใบมีดไถ จานไถ ตลับลูกปืน"
+      },
+      {
+        "name": "วัสดุสิ้นเปลือง",
+        "desc": "น้ำมันเครื่อง กรองอากาศ สายพาน"
+      }
     ],
     "resources": [
-      { "title": "Parts Book — ZT140 (แคตตาล็อกอะไหล่แบบเต็ม พร้อมภาพประกอบ, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
-      { "title": "รายการอะไหล่แนะนำ เครื่องยนต์ดีเซล ทุกรุ่น ZT100-ZT180 (ไฟล์ Excel)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
-      { "title": "รายการอะไหล่แนะนำ รถไถเดินตาม (ไฟล์ Excel)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
+      {
+        "title": "Parts Book — ZT140 (แคตตาล็อกอะไหล่แบบเต็ม พร้อมภาพประกอบ, EN)",
+        "lang": "EN",
+        "type": "pdf",
+        "href": "assets/docs/parts/Parts-Book-ZT140.pdf"
+      },
+      {
+        "title": "รายการอะไหล่แนะนำ เครื่องยนต์ดีเซล ทุกรุ่น ZT100-ZT180 (ไฟล์ Excel)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx"
+      },
+      {
+        "title": "รายการอะไหล่แนะนำ รถไถเดินตาม (ไฟล์ Excel)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx"
+      }
     ],
     "downloadsTitle": "เอกสารดาวน์โหลด",
     "note": "ตารางด้านบนแสดงอะไหล่ที่สำรองบ่อยที่สุดสำหรับเครื่องยนต์ ZT140 และรถไถเดินตาม NC เป็นตัวอย่าง ไฟล์ Excel ด้านล่างมีข้อมูลครบทุกขนาดเครื่องยนต์ (ZT100 ถึง ZT180) พร้อมรหัสอะไหล่ ดาวน์โหลดได้หากต้องวางแผนสต๊อกสำหรับรุ่นอื่น"
@@ -508,73 +1031,338 @@
       {
         "label": "ขั้นตอนการบำรุงรักษาเครื่องยนต์",
         "children": [
-          { "label": "ระบบกรองอากาศ", "route": "service", "anchor": "maintenance-engine-0" },
-          { "label": "ระบบน้ำมันเชื้อเพลิง", "route": "service", "anchor": "maintenance-engine-1" },
-          { "label": "ระบบหล่อลื่น (น้ำมันเครื่อง)", "route": "service", "anchor": "maintenance-engine-2" },
-          { "label": "ระบบระบายความร้อน (หม้อน้ำ)", "route": "service", "anchor": "maintenance-engine-3" },
-          { "label": "ระบบพัดลมระบายความร้อน", "route": "service", "anchor": "maintenance-engine-4" }
+          {
+            "label": "ระบบกรองอากาศ",
+            "route": "service",
+            "anchor": "maintenance-engine-0"
+          },
+          {
+            "label": "ระบบน้ำมันเชื้อเพลิง",
+            "route": "service",
+            "anchor": "maintenance-engine-1"
+          },
+          {
+            "label": "ระบบหล่อลื่น (น้ำมันเครื่อง)",
+            "route": "service",
+            "anchor": "maintenance-engine-2"
+          },
+          {
+            "label": "ระบบระบายความร้อน (หม้อน้ำ)",
+            "route": "service",
+            "anchor": "maintenance-engine-3"
+          },
+          {
+            "label": "ระบบพัดลมระบายความร้อน",
+            "route": "service",
+            "anchor": "maintenance-engine-4"
+          }
         ]
       },
       {
         "label": "ขั้นตอนการบำรุงรักษารถไถเดินตาม",
         "children": [
-          { "label": "ระบบหล่อลื่น (น้ำมันเกียร์)", "route": "service", "anchor": "maintenance-tiller-0" },
-          { "label": "ตรวจเช็กก้านบีบเลี้ยว", "route": "service", "anchor": "maintenance-tiller-1" },
-          { "label": "ตรวจเช็กระยะฟรีคลัตช์", "route": "service", "anchor": "maintenance-tiller-2" },
-          { "label": "ตรวจเช็กระยะฟรีเบรก", "route": "service", "anchor": "maintenance-tiller-3" },
-          { "label": "ตรวจเช็กสายพานขับ", "route": "service", "anchor": "maintenance-tiller-4" }
+          {
+            "label": "ระบบหล่อลื่น (น้ำมันเกียร์)",
+            "route": "service",
+            "anchor": "maintenance-tiller-0"
+          },
+          {
+            "label": "ตรวจเช็กก้านบีบเลี้ยว",
+            "route": "service",
+            "anchor": "maintenance-tiller-1"
+          },
+          {
+            "label": "ตรวจเช็กระยะฟรีคลัตช์",
+            "route": "service",
+            "anchor": "maintenance-tiller-2"
+          },
+          {
+            "label": "ตรวจเช็กระยะฟรีเบรก",
+            "route": "service",
+            "anchor": "maintenance-tiller-3"
+          },
+          {
+            "label": "ตรวจเช็กสายพานขับ",
+            "route": "service",
+            "anchor": "maintenance-tiller-4"
+          }
         ]
       }
     ],
-    "tableHeaders": { "interval": "รอบเวลา", "task": "รายการตรวจเช็ค" },
+    "tableHeaders": {
+      "interval": "รอบเวลา",
+      "task": "รายการตรวจเช็ค"
+    },
     "maintenance": {
       "title": "การบำรุงรักษาตามระยะ",
       "intro": "จุดบำรุงรักษาตามระยะสำหรับเครื่องยนต์ดีเซล ZT Plus และรถไถเดินตามตราช้าง ตามสไลด์อบรมการบำรุงรักษาจริงของบริษัท",
       "engine": {
         "title": "เครื่องยนต์ดีเซล ZT Plus — 5 จุดบำรุงรักษาสำคัญ",
         "points": [
-          { "title": "1. ระบบกรองอากาศ", "desc": "ทำความสะอาดหม้อกรองและไส้กรองอากาศทุกๆ 100 ชม. หรือ 1 เดือน", "steps": ["คลายน๊อตหางปลา และถอดฝาครอบหม้อกรอง แล้วดึงไส้กรองอากาศออก", "ถอดหม้อกรองอากาศออก โดยคลายน๊อตยึดเบอร์ 10", "ล้างทำความสะอาดไส้กรองด้วยน้ำมันดีเซล เคาะเบาๆให้สิ่งสกปรกหลุดออก แล้วใช้ลมเป่า", "หม้อกรองสามารถใช้น้ำมันดีเซลหรือน้ำผสมผงซักฟอกทำความสะอาดได้ แต่ก่อนประกอบต้องเช็ดให้แห้งก่อน", "ก่อนประกอบ เติมน้ำมันเครื่องตราช้างให้พอดีกับขีดที่กำหนด แล้วขันน๊อตเบอร์ 10 ให้แน่น", "ประกอบไส้กรองอากาศและฝาครอบหม้อกรองกลับที่เดิม ขันน๊อตหางปลาให้แน่น"], "image": { "src": "assets/img/service/maintenance-engine-air-filter.jpg", "alt": "หม้อกรองอากาศจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "2. ระบบน้ำมันเชื้อเพลิง", "desc": "ทำความสะอาดไส้กรองทุกๆ 100 ชม. หรือ 1 เดือน และเปลี่ยนไส้กรองทุกๆ 400 ชม.", "steps": ["ถอดน๊อตยึดชุดกรองน้ำมันเชื้อเพลิงออก", "หมุนถ้วยกรองน้ำมันเชื้อเพลิงออก แล้วใช้คีมดึงกรองน้ำมันเชื้อเพลิงแยกออกจากกัน", "ล้างทำความสะอาดถ้วยกรองและไส้กรอง โดยเคาะหรือใช้แปรงปัด แล้วใช้ลมเป่า", "ถ้าไส้กรองอุดตันหรือฉีกขาด ให้เปลี่ยนทันที", "ประกอบไส้กรองน้ำมันเชื้อเพลิงเข้ากับถ้วยกรอง อย่าลืมใส่โอริงที่ขอบด้านบนของไส้กรอง", "หมุนชุดถ้วยกรองกลับที่เดิมให้แน่น และขันน๊อตเบอร์ 10 ล๊อกให้แน่น"], "image": { "src": "assets/img/service/maintenance-engine-fuel-system.jpg", "alt": "ชุดกรองน้ำมันเชื้อเพลิงจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "3. ระบบหล่อลื่น (น้ำมันเครื่อง)", "desc": "เครื่องยนต์ใหม่ให้เปลี่ยนถ่ายหลังการใช้งาน 50 ชม.แรก หลังจากนั้นเปลี่ยนถ่ายทุกๆ 100 ชม.", "steps": ["ถอดปลั๊กถ่ายน้ำมันเครื่องออก และปล่อยให้น้ำมันเครื่องไหลออกจนหมด", "ทำความสะอาดไส้กรองน้ำมันเครื่องด้วยน้ำมันดีเซล", "ใส่ปลั๊กถ่ายน้ำมันเครื่อง และขันให้แน่นพอประมาณ", "ใช้น้ำมันเครื่องตราช้าง เกรด SAE 40 API CF เติมลงในเครื่องยนต์", "ระดับน้ำมันเครื่องต้องไม่สูงกว่าขีดบน และไม่ต่ำกว่าขีดล่าง"], "image": { "src": "assets/img/service/maintenance-engine-oil.jpg", "alt": "จุดเปลี่ยนถ่ายน้ำมันเครื่องจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "4. ระบบน้ำระบายความร้อน", "desc": "เปลี่ยนถ่ายน้ำในหม้อน้ำทุกๆ 3 เดือนหากใส่ผงกันสนิม หรือทุกๆ 1 เดือนหากไม่ใส่ผงกันสนิม", "steps": ["ขณะถ่ายน้ำ แนะนำให้เปิดฝาหม้อน้ำด้วยเพื่อให้น้ำที่ถ่ายออกเร็วขึ้น", "ถอดปลั๊กถ่ายน้ำออก และปล่อยให้น้ำไหลออกจนหมด แล้วขันปลั๊กถ่ายน้ำให้แน่น", "ใส่ผงกันสนิม 1 ซอง และเติมน้ำสะอาดให้เต็ม", "ปิดฝาให้แน่น"], "image": { "src": "assets/img/service/maintenance-engine-radiator.jpg", "alt": "หม้อน้ำระบายความร้อนจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "5. ระบบสายพานพัดลมระบายความร้อน", "desc": "ตรวจเช็กทุกครั้งก่อนใช้งาน — ถ้าสายพานขาดระหว่างใช้งาน จะทำให้เครื่องยนต์ร้อนและเกิดอาการ Overheat ได้", "steps": ["ปรับตั้งความตึงสายพานให้เหมาะสม ระยะฟรีที่เหมาะสมประมาณ 10-15 มม.", "ถ้าสายพานมีรอยแตกร้าวหรือฉีกขาด ให้เปลี่ยนใหม่ทันที"], "image": { "src": "assets/img/service/maintenance-engine-fan-belt.jpg", "alt": "สายพานพัดลมระบายความร้อนจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ" } }
+          {
+            "title": "1. ระบบกรองอากาศ",
+            "desc": "ทำความสะอาดหม้อกรองและไส้กรองอากาศทุกๆ 100 ชม. หรือ 1 เดือน",
+            "steps": [
+              "คลายน๊อตหางปลา และถอดฝาครอบหม้อกรอง แล้วดึงไส้กรองอากาศออก",
+              "ถอดหม้อกรองอากาศออก โดยคลายน๊อตยึดเบอร์ 10",
+              "ล้างทำความสะอาดไส้กรองด้วยน้ำมันดีเซล เคาะเบาๆให้สิ่งสกปรกหลุดออก แล้วใช้ลมเป่า",
+              "หม้อกรองสามารถใช้น้ำมันดีเซลหรือน้ำผสมผงซักฟอกทำความสะอาดได้ แต่ก่อนประกอบต้องเช็ดให้แห้งก่อน",
+              "ก่อนประกอบ เติมน้ำมันเครื่องตราช้างให้พอดีกับขีดที่กำหนด แล้วขันน๊อตเบอร์ 10 ให้แน่น",
+              "ประกอบไส้กรองอากาศและฝาครอบหม้อกรองกลับที่เดิม ขันน๊อตหางปลาให้แน่น"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-air-filter.jpg",
+              "alt": "หม้อกรองอากาศจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "2. ระบบน้ำมันเชื้อเพลิง",
+            "desc": "ทำความสะอาดไส้กรองทุกๆ 100 ชม. หรือ 1 เดือน และเปลี่ยนไส้กรองทุกๆ 400 ชม.",
+            "steps": [
+              "ถอดน๊อตยึดชุดกรองน้ำมันเชื้อเพลิงออก",
+              "หมุนถ้วยกรองน้ำมันเชื้อเพลิงออก แล้วใช้คีมดึงกรองน้ำมันเชื้อเพลิงแยกออกจากกัน",
+              "ล้างทำความสะอาดถ้วยกรองและไส้กรอง โดยเคาะหรือใช้แปรงปัด แล้วใช้ลมเป่า",
+              "ถ้าไส้กรองอุดตันหรือฉีกขาด ให้เปลี่ยนทันที",
+              "ประกอบไส้กรองน้ำมันเชื้อเพลิงเข้ากับถ้วยกรอง อย่าลืมใส่โอริงที่ขอบด้านบนของไส้กรอง",
+              "หมุนชุดถ้วยกรองกลับที่เดิมให้แน่น และขันน๊อตเบอร์ 10 ล๊อกให้แน่น"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-fuel-system.jpg",
+              "alt": "ชุดกรองน้ำมันเชื้อเพลิงจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "3. ระบบหล่อลื่น (น้ำมันเครื่อง)",
+            "desc": "เครื่องยนต์ใหม่ให้เปลี่ยนถ่ายหลังการใช้งาน 50 ชม.แรก หลังจากนั้นเปลี่ยนถ่ายทุกๆ 100 ชม.",
+            "steps": [
+              "ถอดปลั๊กถ่ายน้ำมันเครื่องออก และปล่อยให้น้ำมันเครื่องไหลออกจนหมด",
+              "ทำความสะอาดไส้กรองน้ำมันเครื่องด้วยน้ำมันดีเซล",
+              "ใส่ปลั๊กถ่ายน้ำมันเครื่อง และขันให้แน่นพอประมาณ",
+              "ใช้น้ำมันเครื่องตราช้าง เกรด SAE 40 API CF เติมลงในเครื่องยนต์",
+              "ระดับน้ำมันเครื่องต้องไม่สูงกว่าขีดบน และไม่ต่ำกว่าขีดล่าง"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-oil.jpg",
+              "alt": "จุดเปลี่ยนถ่ายน้ำมันเครื่องจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "4. ระบบน้ำระบายความร้อน",
+            "desc": "เปลี่ยนถ่ายน้ำในหม้อน้ำทุกๆ 3 เดือนหากใส่ผงกันสนิม หรือทุกๆ 1 เดือนหากไม่ใส่ผงกันสนิม",
+            "steps": [
+              "ขณะถ่ายน้ำ แนะนำให้เปิดฝาหม้อน้ำด้วยเพื่อให้น้ำที่ถ่ายออกเร็วขึ้น",
+              "ถอดปลั๊กถ่ายน้ำออก และปล่อยให้น้ำไหลออกจนหมด แล้วขันปลั๊กถ่ายน้ำให้แน่น",
+              "ใส่ผงกันสนิม 1 ซอง และเติมน้ำสะอาดให้เต็ม",
+              "ปิดฝาให้แน่น"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-radiator.jpg",
+              "alt": "หม้อน้ำระบายความร้อนจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "5. ระบบสายพานพัดลมระบายความร้อน",
+            "desc": "ตรวจเช็กทุกครั้งก่อนใช้งาน — ถ้าสายพานขาดระหว่างใช้งาน จะทำให้เครื่องยนต์ร้อนและเกิดอาการ Overheat ได้",
+            "steps": [
+              "ปรับตั้งความตึงสายพานให้เหมาะสม ระยะฟรีที่เหมาะสมประมาณ 10-15 มม.",
+              "ถ้าสายพานมีรอยแตกร้าวหรือฉีกขาด ให้เปลี่ยนใหม่ทันที"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-fan-belt.jpg",
+              "alt": "สายพานพัดลมระบายความร้อนจริงของเครื่องยนต์ ZT Plus สำหรับบำรุงรักษาตามระยะ"
+            }
+          }
         ]
       },
       "tiller": {
         "title": "รถไถเดินตาม NC — 5 จุดบำรุงรักษาสำคัญ",
         "points": [
-          { "title": "1. ระบบหล่อลื่น (น้ำมันเกียร์)", "desc": "รถใหม่ให้เปลี่ยนถ่ายหลังการใช้งาน 50 ชม.แรก ครั้งต่อไปให้เปลี่ยนทุกๆ 500 ชั่วโมง", "steps": ["ใช้น้ำมันเกียร์ตราช้าง เกรด SAE 90 API GL-4", "ตรวจเช็กระดับน้ำมันเกียร์ที่ช่องดูระดับ — ต้องอยู่ระหว่างกึ่งกลางของช่องบอกระดับ", "ปิดฝาให้แน่นป้องกันฝุ่นหรือน้ำเข้าไปข้างใน"], "image": { "src": "assets/img/service/maintenance-tiller-gear-oil.jpg", "alt": "จุดตรวจเช็กน้ำมันเกียร์จริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "2. ก้านบีบเลี้ยว", "desc": "ระยะฟรีของบีบเลี้ยว ซ้าย-ขวา ประมาณ 1-2 มม.", "steps": ["คลายน๊อตเบอร์ 12 และ 14 ปรับระยะฟรีที่เหมาะสม แล้วล๊อกน๊อตให้แน่น", "หยอดน้ำมันหล่อลื่นสายอย่างสม่ำเสมอ เพื่อยืดอายุการใช้งานของสายบีบเลี้ยว", "หลังหยอดน้ำมันหล่อลื่นเสร็จให้หมุนลูกยางปิดรูไว้"], "image": { "src": "assets/img/service/maintenance-tiller-steering.jpg", "alt": "การปรับตั้งก้านบีบเลี้ยวจริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "3. ระยะฟรีคลัตช์", "desc": "ระยะฟรีของคลัตช์หลักประมาณ 15-20 มม.", "steps": ["คลายน๊อตเบอร์ 14 สองตัวที่สายคลัตช์", "หมุนปลายสายปรับระยะฟรีที่เหมาะสม แล้วตรวจเช็กซ้ำ"], "image": { "src": "assets/img/service/maintenance-tiller-clutch.jpg", "alt": "การปรับตั้งระยะฟรีคลัตช์จริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "4. ระยะฟรีเบรก", "desc": "ระยะฟรีของเบรกระหว่างสปริงและน๊อตปรับตั้งประมาณ 3-5 มม.", "steps": ["ดึงคันคลัตช์ให้อยู่ในตำแหน่งฟรี", "คลายน๊อตที่ปลายสาย แล้วปรับระยะฟรีตามค่าที่กำหนด และล๊อกน๊อตให้แน่น", "หยอดน้ำมันหล่อลื่นสายอย่างสม่ำเสมอเพื่อยืดอายุการใช้งาน และหมุนลูกยางปิดรูไว้หลังหยอด"], "image": { "src": "assets/img/service/maintenance-tiller-brake.jpg", "alt": "การปรับตั้งระยะฟรีเบรกจริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ" } },
-          { "title": "5. ความตึงสายพานขับ", "desc": "ระยะฟรีของสายพานเครื่องที่เหมาะสมประมาณ 30-40 มม.", "steps": ["ขันน๊อตหางปลา ดึงลูกรอกสายพาน ให้สายพานตึงตามค่าที่กำหนด", "ตรวจเช็คสายพาน หากมีรอยแตกร้าวหรือฉีกขาดให้เปลี่ยนสายพานใหม่"], "image": { "src": "assets/img/service/maintenance-tiller-drive-belt.jpg", "alt": "การปรับตั้งความตึงสายพานขับจริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ" } }
+          {
+            "title": "1. ระบบหล่อลื่น (น้ำมันเกียร์)",
+            "desc": "รถใหม่ให้เปลี่ยนถ่ายหลังการใช้งาน 50 ชม.แรก ครั้งต่อไปให้เปลี่ยนทุกๆ 500 ชั่วโมง",
+            "steps": [
+              "ใช้น้ำมันเกียร์ตราช้าง เกรด SAE 90 API GL-4",
+              "ตรวจเช็กระดับน้ำมันเกียร์ที่ช่องดูระดับ — ต้องอยู่ระหว่างกึ่งกลางของช่องบอกระดับ",
+              "ปิดฝาให้แน่นป้องกันฝุ่นหรือน้ำเข้าไปข้างใน"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-gear-oil.jpg",
+              "alt": "จุดตรวจเช็กน้ำมันเกียร์จริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "2. ก้านบีบเลี้ยว",
+            "desc": "ระยะฟรีของบีบเลี้ยว ซ้าย-ขวา ประมาณ 1-2 มม.",
+            "steps": [
+              "คลายน๊อตเบอร์ 12 และ 14 ปรับระยะฟรีที่เหมาะสม แล้วล๊อกน๊อตให้แน่น",
+              "หยอดน้ำมันหล่อลื่นสายอย่างสม่ำเสมอ เพื่อยืดอายุการใช้งานของสายบีบเลี้ยว",
+              "หลังหยอดน้ำมันหล่อลื่นเสร็จให้หมุนลูกยางปิดรูไว้"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-steering.jpg",
+              "alt": "การปรับตั้งก้านบีบเลี้ยวจริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "3. ระยะฟรีคลัตช์",
+            "desc": "ระยะฟรีของคลัตช์หลักประมาณ 15-20 มม.",
+            "steps": [
+              "คลายน๊อตเบอร์ 14 สองตัวที่สายคลัตช์",
+              "หมุนปลายสายปรับระยะฟรีที่เหมาะสม แล้วตรวจเช็กซ้ำ"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-clutch.jpg",
+              "alt": "การปรับตั้งระยะฟรีคลัตช์จริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "4. ระยะฟรีเบรก",
+            "desc": "ระยะฟรีของเบรกระหว่างสปริงและน๊อตปรับตั้งประมาณ 3-5 มม.",
+            "steps": [
+              "ดึงคันคลัตช์ให้อยู่ในตำแหน่งฟรี",
+              "คลายน๊อตที่ปลายสาย แล้วปรับระยะฟรีตามค่าที่กำหนด และล๊อกน๊อตให้แน่น",
+              "หยอดน้ำมันหล่อลื่นสายอย่างสม่ำเสมอเพื่อยืดอายุการใช้งาน และหมุนลูกยางปิดรูไว้หลังหยอด"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-brake.jpg",
+              "alt": "การปรับตั้งระยะฟรีเบรกจริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ"
+            }
+          },
+          {
+            "title": "5. ความตึงสายพานขับ",
+            "desc": "ระยะฟรีของสายพานเครื่องที่เหมาะสมประมาณ 30-40 มม.",
+            "steps": [
+              "ขันน๊อตหางปลา ดึงลูกรอกสายพาน ให้สายพานตึงตามค่าที่กำหนด",
+              "ตรวจเช็คสายพาน หากมีรอยแตกร้าวหรือฉีกขาดให้เปลี่ยนสายพานใหม่"
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-drive-belt.jpg",
+              "alt": "การปรับตั้งความตึงสายพานขับจริงของรถไถเดินตาม NC Plus X สำหรับบำรุงรักษาตามระยะ"
+            }
+          }
         ]
       }
     },
     "programsTitle": "โปรแกรมบริการหลังการขาย",
     "programs": [
-      { "name": "โปรแกรมรับประกัน (ตัวอย่าง)", "desc": "รับประกันโครงสร้างหลักและชิ้นส่วนสำคัญตามระยะเวลาที่กำหนด" },
-      { "name": "การฝึกอบรมช่างเทคนิค (ตัวอย่าง)", "desc": "หลักสูตรอบรมซ่อมบำรุงสำหรับช่างของ Dealer ทั้งภาคทฤษฎีและปฏิบัติ" }
+      {
+        "name": "โปรแกรมรับประกัน (ตัวอย่าง)",
+        "desc": "รับประกันโครงสร้างหลักและชิ้นส่วนสำคัญตามระยะเวลาที่กำหนด"
+      },
+      {
+        "name": "การฝึกอบรมช่างเทคนิค (ตัวอย่าง)",
+        "desc": "หลักสูตรอบรมซ่อมบำรุงสำหรับช่างของ Dealer ทั้งภาคทฤษฎีและปฏิบัติ"
+      }
     ],
     "resources": [
-      { "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx" },
-      { "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx" },
-      { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx" },
-      { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx" },
-      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx" },
-      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" },
-      { "title": "วิดีโอ — การตรวจเช็คเบื้องต้นก่อนใช้งานเครื่องยนต์ ZT Plus", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4" },
-      { "title": "วิดีโอ — วิธีสตาร์ทเครื่องยนต์ที่ถูกต้อง", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4" },
-      { "title": "วิดีโอ — บำรุงรักษาระบบกรองอากาศ", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — บำรุงรักษาระบบน้ำมันเชื้อเพลิง", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — บำรุงรักษาระบบหล่อลื่น (น้ำมันเครื่อง)", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — บำรุงรักษาระบบระบายความร้อน (หม้อน้ำ)", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — บำรุงรักษาระบบพัดลมระบายความร้อน", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — ตรวจเช็กน้ำมันเกียร์ (รถไถเดินตาม)", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — ตรวจเช็กก้านบีบเลี้ยว (รถไถเดินตาม)", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — ตรวจเช็กระยะฟรีคลัตช์ (รถไถเดินตาม)", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — ตรวจเช็กระยะฟรีเบรก (รถไถเดินตาม)", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" },
-      { "title": "วิดีโอ — ตรวจเช็กสายพานขับ (รถไถเดินตาม)", "lang": "EN", "type": "video", "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting" }
+      {
+        "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx"
+      },
+      {
+        "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx"
+      },
+      {
+        "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx"
+      },
+      {
+        "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx"
+      },
+      {
+        "title": "สไลด์การบำรุงรักษารถไถเดินตาม (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx"
+      },
+      {
+        "title": "สไลด์การบำรุงรักษารถไถเดินตาม (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx"
+      },
+      {
+        "title": "วิดีโอ — การตรวจเช็คเบื้องต้นก่อนใช้งานเครื่องยนต์ ZT Plus",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4"
+      },
+      {
+        "title": "วิดีโอ — วิธีสตาร์ทเครื่องยนต์ที่ถูกต้อง",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4"
+      },
+      {
+        "title": "วิดีโอ — บำรุงรักษาระบบกรองอากาศ",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — บำรุงรักษาระบบน้ำมันเชื้อเพลิง",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — บำรุงรักษาระบบหล่อลื่น (น้ำมันเครื่อง)",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — บำรุงรักษาระบบระบายความร้อน (หม้อน้ำ)",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — บำรุงรักษาระบบพัดลมระบายความร้อน",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — ตรวจเช็กน้ำมันเกียร์ (รถไถเดินตาม)",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — ตรวจเช็กก้านบีบเลี้ยว (รถไถเดินตาม)",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — ตรวจเช็กระยะฟรีคลัตช์ (รถไถเดินตาม)",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — ตรวจเช็กระยะฟรีเบรก (รถไถเดินตาม)",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      },
+      {
+        "title": "วิดีโอ — ตรวจเช็กสายพานขับ (รถไถเดินตาม)",
+        "lang": "EN",
+        "type": "video",
+        "note": "ยังไม่ได้อัปโหลด — รอการตัดสินใจเรื่อง video hosting"
+      }
     ],
     "videosTitle": "วิดีโอ",
     "downloadsTitle": "เอกสารดาวน์โหลด",
@@ -589,12 +1377,28 @@
         "route": "crops",
         "anchor": "crop-group-rice",
         "children": [
-          { "label": "ทำนาแห้ง", "route": "crops", "anchor": "crop-dry-paddy" },
-          { "label": "ทำนาน้ำ", "route": "crops", "anchor": "crop-wet-paddy" }
+          {
+            "label": "ทำนาแห้ง",
+            "route": "crops",
+            "anchor": "crop-dry-paddy"
+          },
+          {
+            "label": "ทำนาน้ำ",
+            "route": "crops",
+            "anchor": "crop-wet-paddy"
+          }
         ]
       },
-      { "label": "2. Solution การปลูกข้าวโพด", "route": "crops", "anchor": "crop-corn" },
-      { "label": "3. Solution การปลูกมันสำปะหลัง", "route": "crops", "anchor": "crop-cassava" }
+      {
+        "label": "2. Solution การปลูกข้าวโพด",
+        "route": "crops",
+        "anchor": "crop-corn"
+      },
+      {
+        "label": "3. Solution การปลูกมันสำปะหลัง",
+        "route": "crops",
+        "anchor": "crop-cassava"
+      }
     ],
     "solutions": [
       {
@@ -603,7 +1407,11 @@
         "groupId": "crop-group-rice",
         "name": "นาน้ำ (Wet Paddy Field)",
         "desc": "สำหรับพื้นที่นาหล่ม มีน้ำขัง ทำนามากกว่า 1 ครั้งต่อปี ใช้ NC Plus X Special ล้อเหล็ก 880 หรือ 980 มม. พร้อมระบบเกียร์อินเสิร์ทสำหรับงานหล่มหนัก ควรใช้คู่กับเครื่องยนต์คูโบต้า ZT Plus 14-15.5 แรงม้า เพื่อให้มีกำลังเพียงพอในโคลนลึก",
-        "video": { "title": "นาน้ำ (Wet paddy field)", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+        "video": {
+          "title": "นาน้ำ (Wet paddy field)",
+          "lang": "EN",
+          "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4"
+        }
       },
       {
         "id": "crop-dry-paddy",
@@ -611,19 +1419,31 @@
         "groupId": "crop-group-rice",
         "name": "นาแห้ง (Dry Paddy Field)",
         "desc": "สำหรับดินร่วนหรือดินทรายที่ไม่หล่ม รวมถึงนาแห้งตามฤดู ไร่อ้อย มันสำปะหลัง ถั่ว และแปลงผัก เหมาะกับ NC Plus X ล้อเหล็ก 800 มม. ที่เบากว่า คล่องตัวกว่า และเดินทางระยะสั้นด้วยล้อเหล็กได้",
-        "video": { "title": "นาแห้ง (Dry paddy field)", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+        "video": {
+          "title": "นาแห้ง (Dry paddy field)",
+          "lang": "EN",
+          "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4"
+        }
       },
       {
         "id": "crop-cassava",
         "name": "ไร่มันสำปะหลัง (Cassava Field)",
         "desc": "สำหรับไร่มันสำปะหลังบนดินร่วนหรือดินทราย เหมาะกับ NC Plus X ล้อเหล็ก 800 มม. ที่เบาและคล่องตัวพอจะทำงานระหว่างร่องปลูกโดยไม่ทำลายโคนมันสำปะหลัง และเดินทางระยะสั้นระหว่างแปลงด้วยล้อเหล็กได้",
-        "video": { "title": "ไร่มันสำปะหลัง (Cassava field)", "lang": "TH / EN", "note": "มีวิดีโอ Master อยู่ในโฟลเดอร์ Drive ต้นทาง (~2.3GB ทั้ง TH และ EN) ยังไม่ได้แนบเข้าเว็บนี้ รอการตัดสินใจเรื่อง video hosting" }
+        "video": {
+          "title": "ไร่มันสำปะหลัง (Cassava field)",
+          "lang": "TH / EN",
+          "note": "มีวิดีโอ Master อยู่ในโฟลเดอร์ Drive ต้นทาง (~2.3GB ทั้ง TH และ EN) ยังไม่ได้แนบเข้าเว็บนี้ รอการตัดสินใจเรื่อง video hosting"
+        }
       },
       {
         "id": "crop-corn",
         "name": "ไร่ข้าวโพด (Corn Field)",
         "desc": "สำหรับไร่ข้าวโพดบนดินร่วนหรือดินทราย ลักษณะใกล้เคียงกับไร่มันสำปะหลังและนาแห้ง เหมาะกับ NC Plus X ล้อเหล็ก 800 มม. ที่รับมือกับระยะห่างแถวปลูกและการเดินทางระยะสั้นระหว่างแปลงได้ดี",
-        "video": { "title": "ไร่ข้าวโพด (Corn field)", "lang": "TH / EN", "note": "มีวิดีโอ Master อยู่ในโฟลเดอร์ Drive ต้นทาง (~2.2GB ทั้ง TH และ EN) ยังไม่ได้แนบเข้าเว็บนี้ รอการตัดสินใจเรื่อง video hosting" }
+        "video": {
+          "title": "ไร่ข้าวโพด (Corn field)",
+          "lang": "TH / EN",
+          "note": "มีวิดีโอ Master อยู่ในโฟลเดอร์ Drive ต้นทาง (~2.2GB ทั้ง TH และ EN) ยังไม่ได้แนบเข้าเว็บนี้ รอการตัดสินใจเรื่อง video hosting"
+        }
       }
     ],
     "note": "ตอนนี้หน้านี้ครอบคลุมสภาพแปลง 4 แบบตามวิดีโอโซลูชันพืชผลที่ทีมการตลาดส่งมา ได้แก่ นาน้ำ นาแห้ง ไร่มันสำปะหลัง และไร่ข้าวโพด วิดีโอนาน้ำและนาแห้งแนบมากับเว็บและเล่นได้ในเครื่อง ส่วนวิดีโอ Master ของมันสำปะหลังและข้าวโพด (TH+EN ไฟล์ละ ~2.2-2.4GB) มีอยู่จริงในโฟลเดอร์ Drive ต้นทาง แต่ยังไม่ได้แนบเข้าเว็บนี้ ดูสถานะการโฮสต์ใน Handoff.md"
@@ -632,59 +1452,161 @@
     "title": "กิจกรรมการตลาด",
     "intro": "4 รูปแบบกิจกรรมมาตรฐานสำหรับ Dealer เพื่อสร้างการรับรู้สินค้า สาธิตการใช้งานจริง ให้บริการหลังการขาย และขอบคุณลูกค้าเดิม ตามคู่มือ KUBOTA Activity Standard ฉบับจริง",
     "fullDetailsTitle": "รายละเอียดกิจกรรมฉบับเต็ม",
-    "cardLabels": { "overviewTitle": "มาตรฐานการจัดกิจกรรม", "objective": "วัตถุประสงค์", "target": "ลูกค้าเป้าหมาย", "venue": "สถานที่แนะนำ", "readMore": "อ่านเพิ่มเติม", "showLess": "ย่อรายละเอียด", "openGuide": "ไปยังรายละเอียดกิจกรรมฉบับเต็ม" },
+    "cardLabels": {
+      "overviewTitle": "มาตรฐานการจัดกิจกรรม",
+      "objective": "วัตถุประสงค์",
+      "target": "ลูกค้าเป้าหมาย",
+      "venue": "สถานที่แนะนำ",
+      "readMore": "อ่านเพิ่มเติม",
+      "showLess": "ย่อรายละเอียด",
+      "openGuide": "ไปยังรายละเอียดกิจกรรมฉบับเต็ม"
+    },
     "quickSelectTitle": "เลือกกิจกรรมที่เหมาะกับเป้าหมาย",
-    "labels": { "minParticipants": "จำนวนผู้ร่วมงาน", "target": "ลูกค้าเป้าหมาย", "duration": "ระยะเวลาแนะนำ", "venue": "สถานที่ที่เหมาะสม", "basic": "กิจกรรมพื้นฐาน (ต้องมี)", "optional": "กิจกรรมเสริม (เลือกทำได้)", "schedule": "ตัวอย่างกำหนดการ", "recommendedItems": "รายการแนะนำสำหรับ 1 งาน" },
-    "scheduleHeaders": {"time":"เวลาและระยะเวลา","activity":"กิจกรรม","inCharge":"ผู้รับผิดชอบ","whatToDo":"สิ่งที่ต้องทำ"},
+    "labels": {
+      "minParticipants": "จำนวนผู้ร่วมงาน",
+      "target": "ลูกค้าเป้าหมาย",
+      "duration": "ระยะเวลาแนะนำ",
+      "venue": "สถานที่ที่เหมาะสม",
+      "basic": "กิจกรรมพื้นฐาน (ต้องมี)",
+      "optional": "กิจกรรมเสริม (เลือกทำได้)",
+      "schedule": "ตัวอย่างกำหนดการ",
+      "recommendedItems": "รายการแนะนำสำหรับ 1 งาน"
+    },
+    "scheduleHeaders": {
+      "time": "เวลาและระยะเวลา",
+      "activity": "กิจกรรม",
+      "inCharge": "ผู้รับผิดชอบ",
+      "whatToDo": "สิ่งที่ต้องทำ"
+    },
     "activityComparison": {
       "title": "มาตรฐานการจัดกิจกรรม",
       "criteria": [
-        { "key": "objective", "icon": "🎯", "label": "วัตถุประสงค์" },
-        { "key": "target", "icon": "👥", "label": "ลูกค้าเป้าหมาย" },
-        { "key": "venue", "icon": "📍", "label": "สถานที่ที่เหมาะสม" },
-        { "key": "basic", "icon": "✅", "label": "กิจกรรมพื้นฐานที่ต้องมี" },
-        { "key": "optional", "icon": "✨", "label": "กิจกรรมเสริม (ถ้ามี)" },
-        { "key": "duration", "icon": "⏱️", "label": "ระยะเวลาจัดกิจกรรม" }
+        {
+          "key": "objective",
+          "icon": "🎯",
+          "label": "วัตถุประสงค์"
+        },
+        {
+          "key": "target",
+          "icon": "👥",
+          "label": "ลูกค้าเป้าหมาย"
+        },
+        {
+          "key": "venue",
+          "icon": "📍",
+          "label": "สถานที่ที่เหมาะสม"
+        },
+        {
+          "key": "basic",
+          "icon": "✅",
+          "label": "กิจกรรมพื้นฐานที่ต้องมี"
+        },
+        {
+          "key": "optional",
+          "icon": "✨",
+          "label": "กิจกรรมเสริม (ถ้ามี)"
+        },
+        {
+          "key": "duration",
+          "icon": "⏱️",
+          "label": "ระยะเวลาจัดกิจกรรม"
+        }
       ],
       "activities": [
         {
           "icon": "🎪",
           "name": "KUBOTA Family Day (KFD)",
           "objective": "แนะนำสินค้า สร้างการรับรู้ และเปิดโอกาสให้ร้านค้าได้พบลูกค้าใหม่ในพื้นที่",
-          "target": ["เกษตรกรที่ใช้เครื่องยนต์ดีเซลหรือรถไถเดินตาม", "เกษตรกรที่ยังไม่มีสินค้า แต่มีโอกาสซื้อในอนาคต"],
+          "target": [
+            "เกษตรกรที่ใช้เครื่องยนต์ดีเซลหรือรถไถเดินตาม",
+            "เกษตรกรที่ยังไม่มีสินค้า แต่มีโอกาสซื้อในอนาคต"
+          ],
           "venue": "พื้นที่ในชุมชนหรือใกล้กลุ่มลูกค้า เดินทางสะดวก มีพื้นที่จัดแสดงสินค้า ที่นั่ง และที่จอดรถ",
-          "basic": ["ลงทะเบียนและต้อนรับลูกค้า", "จัดแสดงเครื่องยนต์ดีเซลคูโบต้าและรถไถเดินตามตราช้าง", "แนะนำร้านค้าและบริการหลังการขาย", "พรีเซนต์จุดเด่นสินค้า", "ถาม–ตอบกับลูกค้า", "เตรียมขนมและน้ำดื่ม"],
-          "optional": ["ลูกค้าแชร์ประสบการณ์", "โปรแกรมผ่อนชำระหรือโปรโมชั่น", "เกมตอบคำถามและของรางวัล", "จับรางวัลหรือแจกของที่ระลึก"],
+          "basic": [
+            "ลงทะเบียนและต้อนรับลูกค้า",
+            "จัดแสดงเครื่องยนต์ดีเซลคูโบต้าและรถไถเดินตามตราช้าง",
+            "แนะนำร้านค้าและบริการหลังการขาย",
+            "พรีเซนต์จุดเด่นสินค้า",
+            "ถาม–ตอบกับลูกค้า",
+            "เตรียมขนมและน้ำดื่ม"
+          ],
+          "optional": [
+            "ลูกค้าแชร์ประสบการณ์",
+            "โปรแกรมผ่อนชำระหรือโปรโมชั่น",
+            "เกมตอบคำถามและของรางวัล",
+            "จับรางวัลหรือแจกของที่ระลึก"
+          ],
           "duration": "2–3 ชั่วโมง"
         },
         {
           "icon": "🚜",
           "name": "Demonstration Activity (NC Power Tiller Demo)",
           "objective": "สาธิตการทำงานจริงในแปลงนา แนะนำวิธีใช้งาน และให้ลูกค้าทดลองขับ",
-          "target": ["เกษตรกรที่กำลังพิจารณาซื้อรถไถเดินตาม", "ลูกค้าที่ต้องการเห็นการทำงานจริงก่อนตัดสินใจ"],
+          "target": [
+            "เกษตรกรที่กำลังพิจารณาซื้อรถไถเดินตาม",
+            "ลูกค้าที่ต้องการเห็นการทำงานจริงก่อนตัดสินใจ"
+          ],
           "venue": "แปลงนาจริงที่เตรียมสภาพพร้อม มีพื้นที่ลงทะเบียน จุดพรีเซนต์ เต็นท์สำหรับลูกค้านั่งชม เส้นทางสาธิต และพื้นที่ทดลองขับ",
-          "basic": ["แนะนำรถไถเดินตามตราช้างและเครื่องยนต์ดีเซลคูโบต้า รุ่นที่ขายในประเทศนั้นๆ", "สาธิตการขับและการใช้อุปกรณ์ต่อพ่วงในแปลงนาจริง", "แสดงการควบคุมอย่างคล่องตัวโดยผู้ขับสาธิตของ KUBOTA", "ให้ลูกค้าทดลองขับโดยมีทีมงานดูแล", "เตรียม Snack box หรือน้ำดื่ม"],
-          "optional": ["ทดสอบความเร็วในการทำงาน", "ทดสอบอัตราการใช้น้ำมัน", "เปรียบเทียบกับเครื่องยนต์คู่แข่งหรือเครื่องยนต์รถไถที่มีกำลังใกล้เคียงกัน", "โปรโมชั่นหรือรับจองสินค้า"],
+          "basic": [
+            "แนะนำรถไถเดินตามตราช้างและเครื่องยนต์ดีเซลคูโบต้า รุ่นที่ขายในประเทศนั้นๆ",
+            "สาธิตการขับและการใช้อุปกรณ์ต่อพ่วงในแปลงนาจริง",
+            "แสดงการควบคุมอย่างคล่องตัวโดยผู้ขับสาธิตของ KUBOTA",
+            "ให้ลูกค้าทดลองขับโดยมีทีมงานดูแล",
+            "เตรียม Snack box หรือน้ำดื่ม"
+          ],
+          "optional": [
+            "ทดสอบความเร็วในการทำงาน",
+            "ทดสอบอัตราการใช้น้ำมัน",
+            "เปรียบเทียบกับเครื่องยนต์คู่แข่งหรือเครื่องยนต์รถไถที่มีกำลังใกล้เคียงกัน",
+            "โปรโมชั่นหรือรับจองสินค้า"
+          ],
           "duration": "ประมาณ 3 ชั่วโมง"
         },
         {
           "icon": "🔧",
           "name": "Mobile Service",
           "objective": "ตอกย้ำบริการหลังการขาย โดยนำช่างเข้าไปตรวจเช็กและให้คำแนะนำถึงพื้นที่ลูกค้า",
-          "target": ["ลูกค้าที่เป็นเจ้าของเครื่องยนต์คูโบต้า", "ลูกค้าที่เป็นเจ้าของรถไถเดินตามคูโบต้า"],
+          "target": [
+            "ลูกค้าที่เป็นเจ้าของเครื่องยนต์คูโบต้า",
+            "ลูกค้าที่เป็นเจ้าของรถไถเดินตามคูโบต้า"
+          ],
           "venue": "พื้นที่ใกล้ลูกค้า เดินทางสะดวก และมีพื้นที่เพียงพอสำหรับจอดสินค้า ลงทะเบียน รอตรวจเช็ก จุดตรวจเช็ก และบูธขายอะไหล่",
-          "basic": ["ลงทะเบียนและรับสินค้า", "ตรวจเช็กพื้นฐานเครื่องยนต์และรถไถเดินตาม", "แนะนำการใช้งานและการดูแลรักษาที่ถูกต้อง", "แนะนำและเปลี่ยนอะไหล่เมื่อถึงรอบหรือมีความจำเป็น", "ส่งมอบสินค้าคืนลูกค้า", "จัดบูธขายอะไหล่"],
-          "optional": ["ไม่มี (สามารถเตรียมน้ำดื่มหรือขนมสำหรับลูกค้าที่รอรับบริการได้)"],
+          "basic": [
+            "ลงทะเบียนและรับสินค้า",
+            "ตรวจเช็กพื้นฐานเครื่องยนต์และรถไถเดินตาม",
+            "แนะนำการใช้งานและการดูแลรักษาที่ถูกต้อง",
+            "แนะนำและเปลี่ยนอะไหล่เมื่อถึงรอบหรือมีความจำเป็น",
+            "ส่งมอบสินค้าคืนลูกค้า",
+            "จัดบูธขายอะไหล่"
+          ],
+          "optional": [
+            "ไม่มี (สามารถเตรียมน้ำดื่มหรือขนมสำหรับลูกค้าที่รอรับบริการได้)"
+          ],
           "duration": "ประมาณ 3 ชั่วโมง ช่วงตรวจเช็กหลัก 120 นาที"
         },
         {
           "icon": "🎁",
           "name": "Thank You Customer Activity",
           "objective": "ขอบคุณลูกค้าเดิม สร้างความประทับใจ และกระชับความสัมพันธ์กับร้านค้าและแบรนด์ KUBOTA",
-          "target": ["เจ้าของเครื่องยนต์ดีเซลคูโบต้าหรือรถไถเดินตามตราช้าง", "ลูกค้าประจำที่ร้านค้าต้องการดูแลความสัมพันธ์อย่างต่อเนื่อง", "ลูกค้าที่มีโอกาสแนะนำสินค้าให้ผู้อื่น"],
+          "target": [
+            "เจ้าของเครื่องยนต์ดีเซลคูโบต้าหรือรถไถเดินตามตราช้าง",
+            "ลูกค้าประจำที่ร้านค้าต้องการดูแลความสัมพันธ์อย่างต่อเนื่อง",
+            "ลูกค้าที่มีโอกาสแนะนำสินค้าให้ผู้อื่น"
+          ],
           "venue": "ลานกิจกรรม ร้านค้า ห้องจัดเลี้ยง หรือพื้นที่ชุมชนที่รองรับเวที โต๊ะ–เก้าอี้รับประทานอาหาร Product Display มุมถ่ายภาพ และที่จอดรถ",
-          "basic": ["ลงทะเบียน ต้อนรับ และแจกของที่ระลึก", "ตกแต่งสถานที่ให้สวยงามภายใต้ธีม KUBOTA สีส้ม–ขาว", "จัดโต๊ะ–เก้าอี้สำหรับรับประทานอาหาร", "Product Display และมุมถ่ายภาพ", "กล่าวขอบคุณลูกค้าและให้ความรู้สินค้า", "อาหาร ความบันเทิง เกม และจับรางวัล"],
-          "optional": ["Mobile Service สำหรับงานขนาดใหญ่", "Friend Get Friend", "แนะนำสินค้าใหม่หรือโปรโมชั่น"],
+          "basic": [
+            "ลงทะเบียน ต้อนรับ และแจกของที่ระลึก",
+            "ตกแต่งสถานที่ให้สวยงามภายใต้ธีม KUBOTA สีส้ม–ขาว",
+            "จัดโต๊ะ–เก้าอี้สำหรับรับประทานอาหาร",
+            "Product Display และมุมถ่ายภาพ",
+            "กล่าวขอบคุณลูกค้าและให้ความรู้สินค้า",
+            "อาหาร ความบันเทิง เกม และจับรางวัล"
+          ],
+          "optional": [
+            "Mobile Service สำหรับงานขนาดใหญ่",
+            "Friend Get Friend",
+            "แนะนำสินค้าใหม่หรือโปรโมชั่น"
+          ],
           "duration": "ประมาณ 3.5 ชั่วโมง"
         }
       ]
@@ -1125,9 +2047,24 @@
       }
     ],
     "resources": [
-      { "title": "ตารางเปรียบเทียบ 4 กิจกรรมหลัก KUBOTA Activity Standard (TH, Excel)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/17Xc4MFJIMNhMoZSEQJff8EAzRYfxRbSQ/view" },
-      { "title": "ตารางเปรียบเทียบ 4 กิจกรรมหลัก KUBOTA Activity Standard (EN, Excel)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1adX7TPO4CyUZtWO-NFN99yX5KETA8aiq/view" },
-      { "title": "วิดีโอไฮไลต์ Kubota Event", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      {
+        "title": "ตารางเปรียบเทียบ 4 กิจกรรมหลัก KUBOTA Activity Standard (TH, Excel)",
+        "lang": "TH",
+        "type": "xlsx",
+        "href": "https://drive.google.com/file/d/17Xc4MFJIMNhMoZSEQJff8EAzRYfxRbSQ/view"
+      },
+      {
+        "title": "ตารางเปรียบเทียบ 4 กิจกรรมหลัก KUBOTA Activity Standard (EN, Excel)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "https://drive.google.com/file/d/1adX7TPO4CyUZtWO-NFN99yX5KETA8aiq/view"
+      },
+      {
+        "title": "วิดีโอไฮไลต์ Kubota Event",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4"
+      }
     ],
     "videosTitle": "วิดีโอ",
     "downloadsTitle": "เอกสารดาวน์โหลด",
@@ -1136,7 +2073,10 @@
   "materials": {
     "title": "สื่อการตลาด",
     "intro": "รวมสื่อการตลาดสำหรับร้านค้า ทั้งสื่อสำเร็จรูปจากบริษัท และเครื่องมือออกแบบสื่อได้เองแบบง่ายๆ",
-    "tabs": { "company": "สื่อการตลาดจากบริษัท", "custom": "ออกแบบเองเพียงปลายนิ้ว" },
+    "tabs": {
+      "company": "สื่อการตลาดจากบริษัท",
+      "custom": "ออกแบบเองเพียงปลายนิ้ว"
+    },
     "company": {
       "title": "สื่อการตลาดจากบริษัท",
       "intro": "ไฟล์อาร์ตเวิร์ก แบนเนอร์ โปสเตอร์ และสื่อสำเร็จรูปจาก KUBOTA สำหรับร้านค้านำไปใช้งานได้ทันที",
@@ -1146,8 +2086,22 @@
           "title": "สื่อความรู้สินค้า",
           "intro": "โบรชัวร์และเอกสารสเปกสินค้า สำหรับให้ลูกค้าศึกษารายละเอียดสินค้าเชิงลึก",
           "items": [
-            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Leaflet ZT Plus แอฟริกา หน้า 1 — ตารางสเปกเครื่องยนต์และรถไถเดินตาม พร้อมภาพเกษตรกรถือ No.1 Global Brand" }, "title": "Leaflet ZT Plus แอฟริกา (หน้า 1)", "format": "A4 Leaflet" },
-            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Leaflet ZT Plus แอฟริกา หน้า 2 — ภาพเครื่องยนต์ ZT Plus พร้อมจุดเด่นสินค้าและตารางแรงม้าแต่ละรุ่น" }, "title": "Leaflet ZT Plus แอฟริกา (หน้า 2)", "format": "A4 Leaflet" }
+            {
+              "image": {
+                "src": "assets/img/materials/leaflet-01.jpg",
+                "alt": "Leaflet ZT Plus แอฟริกา หน้า 1 — ตารางสเปกเครื่องยนต์และรถไถเดินตาม พร้อมภาพเกษตรกรถือ No.1 Global Brand"
+              },
+              "title": "Leaflet ZT Plus แอฟริกา (หน้า 1)",
+              "format": "A4 Leaflet"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/leaflet-02.jpg",
+                "alt": "Leaflet ZT Plus แอฟริกา หน้า 2 — ภาพเครื่องยนต์ ZT Plus พร้อมจุดเด่นสินค้าและตารางแรงม้าแต่ละรุ่น"
+              },
+              "title": "Leaflet ZT Plus แอฟริกา (หน้า 2)",
+              "format": "A4 Leaflet"
+            }
           ]
         },
         {
@@ -1155,10 +2109,38 @@
           "title": "สื่อสำหรับจัดกิจกรรม",
           "intro": "Roll-up, Bunting และ Banner สำหรับใช้ตกแต่งพื้นที่จัดกิจกรรมหน้าร้านหรืองาน Event",
           "items": [
-            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Roll-up แนะนำบริษัท Siam Kubota พร้อมแผนที่โลกและจุดเด่นสำหรับดีลเลอร์" }, "title": "Roll-up แนะนำบริษัท", "format": "Roll-up 85×200 ซม." },
-            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Roll-up จุดเด่นสินค้า เครื่องยนต์ดีเซลและรถไถเดินตามคูโบต้า" }, "title": "Roll-up จุดเด่นสินค้า", "format": "Roll-up 85×200 ซม." },
-            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "ธงราวตกแต่ง Bunting รูปสามเหลี่ยม 6 ผืน สำหรับงาน Thank You Day ประเทศแทนซาเนีย" }, "title": "Bunting งาน Thank You Day", "format": "Bunting 30×30 ซม." },
-            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "แบนเนอร์งาน Thank You Day ประเทศแทนซาเนีย พร้อมภาพเกษตรกรและรถไถเดินตาม" }, "title": "Banner งาน Thank You Day", "format": "Banner 2×4 ม." }
+            {
+              "image": {
+                "src": "assets/img/materials/rollup-company.jpg",
+                "alt": "Roll-up แนะนำบริษัท Siam Kubota พร้อมแผนที่โลกและจุดเด่นสำหรับดีลเลอร์"
+              },
+              "title": "Roll-up แนะนำบริษัท",
+              "format": "Roll-up 85×200 ซม."
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/rollup-product.jpg",
+                "alt": "Roll-up จุดเด่นสินค้า เครื่องยนต์ดีเซลและรถไถเดินตามคูโบต้า"
+              },
+              "title": "Roll-up จุดเด่นสินค้า",
+              "format": "Roll-up 85×200 ซม."
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/bunting-thankyou.jpg",
+                "alt": "ธงราวตกแต่ง Bunting รูปสามเหลี่ยม 6 ผืน สำหรับงาน Thank You Day ประเทศแทนซาเนีย"
+              },
+              "title": "Bunting งาน Thank You Day",
+              "format": "Bunting 30×30 ซม."
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/banner-thankyou.jpg",
+                "alt": "แบนเนอร์งาน Thank You Day ประเทศแทนซาเนีย พร้อมภาพเกษตรกรและรถไถเดินตาม"
+              },
+              "title": "Banner งาน Thank You Day",
+              "format": "Banner 2×4 ม."
+            }
           ]
         },
         {
@@ -1166,8 +2148,22 @@
           "title": "สื่อการตลาดอื่นๆ",
           "intro": "Tent Card สำหรับวางหน้าร้านหรือโต๊ะขาย แสดงรายการรุ่นสินค้าโดยรวม",
           "items": [
-            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Tent Card แสดงรายการรุ่นสินค้าโดยรวม หน้า 1 — เครื่องยนต์และโลโก้ No.1 Global Brand" }, "title": "Tent Card รายการสินค้า (หน้า 1)", "format": "Tent Card A4" },
-            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Tent Card แสดงรายการรุ่นสินค้าโดยรวม หน้า 2 — รถไถเดินตามตราช้าง NC Plus X และ NC Plus X Special" }, "title": "Tent Card รายการสินค้า (หน้า 2)", "format": "Tent Card A4" }
+            {
+              "image": {
+                "src": "assets/img/materials/tentcard-01.jpg",
+                "alt": "Tent Card แสดงรายการรุ่นสินค้าโดยรวม หน้า 1 — เครื่องยนต์และโลโก้ No.1 Global Brand"
+              },
+              "title": "Tent Card รายการสินค้า (หน้า 1)",
+              "format": "Tent Card A4"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/tentcard-02.jpg",
+                "alt": "Tent Card แสดงรายการรุ่นสินค้าโดยรวม หน้า 2 — รถไถเดินตามตราช้าง NC Plus X และ NC Plus X Special"
+              },
+              "title": "Tent Card รายการสินค้า (หน้า 2)",
+              "format": "Tent Card A4"
+            }
           ]
         }
       ],
@@ -1179,11 +2175,22 @@
     "intro": "ออกแบบ Banner และ Standee สำหรับหน้าร้านด้วยตัวเอง กรอกข้อมูลร้านค้าแล้วดาวน์โหลดไฟล์ความละเอียดสูงพร้อมส่งโรงพิมพ์ได้ทันที ไม่ต้องรอทีมกราฟิกออกแบบให้",
     "formTitle": "ข้อมูลสำหรับออกแบบ",
     "sizeLabel": "ขนาดสื่อ",
-    "sizes": { "banner": "Banner (กว้าง 3 ม. x สูง 1 ม.)", "standee": "Standee (สูง 160 ซม. x กว้าง 80 ซม.)" },
+    "sizes": {
+      "banner": "Banner (กว้าง 3 ม. x สูง 1 ม.)",
+      "standee": "Standee (สูง 160 ซม. x กว้าง 80 ซม.)"
+    },
     "bgStyleLabel": "รูปแบบพื้นหลัง",
-    "bgStyles": { "diagonal": "ทแยงมุมส้ม", "dark": "เข้มหรู", "frame": "กรอบคลาสสิก" },
+    "bgStyles": {
+      "diagonal": "ทแยงมุมส้ม",
+      "dark": "เข้มหรู",
+      "frame": "กรอบคลาสสิก"
+    },
     "productLabel": "สินค้าที่จะแสดงบนป้าย",
-    "products": { "engine": "เครื่องยนต์ดีเซล ZT Plus", "tiller": "รถไถเดินตามตราช้าง NC Plus X", "both": "ทั้งสองสินค้า" },
+    "products": {
+      "engine": "เครื่องยนต์ดีเซล ZT Plus",
+      "tiller": "รถไถเดินตามตราช้าง NC Plus X",
+      "both": "ทั้งสองสินค้า"
+    },
     "shopNameLabel": "ชื่อร้าน / ตัวแทนจำหน่าย",
     "shopNamePlaceholder": "เช่น ร้าน ส.การเกษตร",
     "contactLabel": "ที่อยู่ / เบอร์โทร / WhatsApp",
@@ -1195,14 +2202,25 @@
     "bodyLabel": "เนื้อหา (ตัวเล็กสุด)",
     "bodyPlaceholder": "เช่น เงื่อนไขเป็นไปตามที่บริษัทกำหนด สอบถามเพิ่มเติมที่ร้าน",
     "textStyleLabel": "โทนสีตัวอักษรหัวข้อ",
-    "textStyles": { "orange": "ส้ม-ทอง เงางาม", "chrome": "โครเมี่ยมเงิน", "red": "แดงเข้ม" },
+    "textStyles": {
+      "orange": "ส้ม-ทอง เงางาม",
+      "chrome": "โครเมี่ยมเงิน",
+      "red": "แดงเข้ม"
+    },
     "textPositionLabel": "ปรับตำแหน่ง/ขนาดข้อความหัวข้อ",
     "textOffsetXLabel": "เลื่อนซ้าย-ขวา",
     "textOffsetYLabel": "เลื่อนขึ้น-ลง",
     "textScaleLabel": "ขนาดตัวอักษร",
     "textRotationLabel": "หมุน/เอียงข้อความ",
     "dragHint": "แก้ไขได้จริง! ลากโลโก้ ข้อความ หรือรูปสินค้าในภาพตัวอย่างด้วยเมาส์หรือนิ้ว เพื่อขยับตำแหน่งได้โดยตรง (ดับเบิลคลิกเพื่อรีเซ็ตตำแหน่ง)",
-    "decorations": { "label": "โลโก้ตกแต่งเพิ่มเติม (เลือกได้)", "man": "เกษตรกรยิ้มให้กำลังใจ", "manAlt": "ภาพเกษตรกรยิ้มชูนิ้วโป้ง สำหรับตกแต่งสื่อ", "no1": "ตรา No.1 Global Brand", "no1Alt": "ตรา No.1 Global Brand with 3.5 Million Units Sold", "sizeLabel": "ขนาด" },
+    "decorations": {
+      "label": "โลโก้ตกแต่งเพิ่มเติม (เลือกได้)",
+      "man": "เกษตรกรยิ้มให้กำลังใจ",
+      "manAlt": "ภาพเกษตรกรยิ้มชูนิ้วโป้ง สำหรับตกแต่งสื่อ",
+      "no1": "ตรา No.1 Global Brand",
+      "no1Alt": "ตรา No.1 Global Brand with 3.5 Million Units Sold",
+      "sizeLabel": "ขนาด"
+    },
     "previewTitle": "ตัวอย่าง",
     "downloadButton": "ดาวน์โหลดไฟล์พร้อมพิมพ์",
     "downloadingLabel": "กำลังสร้างไฟล์...",
@@ -1212,7 +2230,11 @@
   "order": {
     "title": "สั่งซื้อสินค้าและอะไหล่",
     "intro": "เลือกเครื่องยนต์คูโบต้า รถไถเดินตามตราช้าง และอะไหล่แนะนำ ใส่ตะกร้า แล้วสร้างใบสั่งซื้อ (PO) และใบแจ้งหนี้ล่วงหน้า (PI) — ต้นแบบขั้นตอนการสั่งซื้อที่ใช้งานได้จริงบนหน้าเว็บ",
-    "tabs": { "catalog": "แคตตาล็อกและตะกร้า", "checkout": "ชำระเงินและเอกสาร", "tracking": "ติดตามการจัดส่ง" },
+    "tabs": {
+      "catalog": "แคตตาล็อกและตะกร้า",
+      "checkout": "ชำระเงินและเอกสาร",
+      "tracking": "ติดตามการจัดส่ง"
+    },
     "catalog": {
       "modelLabel": "เลือกรุ่น",
       "productHeading": "ตัวสินค้า",
@@ -1224,7 +2246,13 @@
       "fullCatalogHeading": "อะไหล่ทั้งหมด",
       "fullCatalogIntro": "อะไหล่ทุกชิ้นของรุ่นนี้ แบ่งกลุ่มตามความจำเป็นในการใช้งาน กรองหรือค้นหาด้วยรหัส/ชื่ออะไหล่ได้",
       "groupAll": "ทุกกลุ่ม",
-      "groupLabels": { "X": "เปลี่ยนตามรอบ", "S": "ของสิ้นเปลือง", "A": "ซ่อมบ่อย", "B": "ซ่อมนาน ๆ ครั้ง", "C": "อยู่ในประกัน" },
+      "groupLabels": {
+        "X": "เปลี่ยนตามรอบ",
+        "S": "ของสิ้นเปลือง",
+        "A": "ซ่อมบ่อย",
+        "B": "ซ่อมนาน ๆ ครั้ง",
+        "C": "อยู่ในประกัน"
+      },
       "searchPlaceholder": "ค้นหารหัสหรือชื่ออะไหล่...",
       "colPartNo": "รหัสอะไหล่",
       "colName": "ชื่อ",
@@ -1243,7 +2271,14 @@
       "emptyBody": "กลับไปเลือกสินค้าหรืออะไหล่ที่แท็บแคตตาล็อกก่อน",
       "backToCatalog": "กลับไปแคตตาล็อก",
       "step1Title": "1. ข้อมูลผู้ซื้อ",
-      "fields": { "company": "ชื่อบริษัท", "address": "ที่อยู่จัดส่ง", "contact": "ชื่อผู้ติดต่อ", "email": "อีเมล", "phone": "เบอร์โทร / WhatsApp", "destination": "ปลายทาง (ประเทศ/ท่าเรือ)" },
+      "fields": {
+        "company": "ชื่อบริษัท",
+        "address": "ที่อยู่จัดส่ง",
+        "contact": "ชื่อผู้ติดต่อ",
+        "email": "อีเมล",
+        "phone": "เบอร์โทร / WhatsApp",
+        "destination": "ปลายทาง (ประเทศ/ท่าเรือ)"
+      },
       "step2Title": "2. ตรวจสอบรายการสั่งซื้อ",
       "colQty": "จำนวน",
       "colUnitPrice": "ราคาต่อหน่วย (USD)",
@@ -1275,7 +2310,14 @@
       "lookupBtn": "ติดตาม",
       "recentHeading": "คำสั่งซื้อจำลองล่าสุดของคุณ",
       "notFoundNote": "ไม่พบเลขนี้ในคำสั่งซื้อจำลองของเบราว์เซอร์นี้ — แสดงผลตัวอย่างสถานะจำลองแทน",
-      "stages": { "orderConfirmed": "ยืนยันคำสั่งซื้อ", "paymentReceived": "ได้รับการชำระเงิน", "production": "อยู่ระหว่างผลิต", "shipped": "จัดส่งแล้ว", "customs": "ผ่านพิธีการศุลกากร", "delivered": "จัดส่งถึงปลายทาง" },
+      "stages": {
+        "orderConfirmed": "ยืนยันคำสั่งซื้อ",
+        "paymentReceived": "ได้รับการชำระเงิน",
+        "production": "อยู่ระหว่างผลิต",
+        "shipped": "จัดส่งแล้ว",
+        "customs": "ผ่านพิธีการศุลกากร",
+        "delivered": "จัดส่งถึงปลายทาง"
+      },
       "disclaimer": "หน้าติดตามนี้เป็นการสาธิตเท่านั้น สถานะจะขยับอัตโนมัติในไม่กี่นาทีเพื่อจำลองกระบวนการจริงที่ใช้เวลา 1-2 เดือน ไม่ได้เชื่อมต่อข้อมูล logistics จริง"
     }
   },

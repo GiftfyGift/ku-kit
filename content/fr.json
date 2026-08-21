@@ -1,6 +1,20 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Langue", "sampleBadge": "Données d'exemple" },
-  "nav": { "home": "Accueil", "product": "Produits", "parts": "Pièces", "service": "Service", "crops": "Solutions agricoles", "marketing": "Événements", "artwork": "Supports marketing", "order": "Commander" },
+  "meta": {
+    "siteName": "KU-KIT",
+    "tagline": "One Click for Everyday Success with Kubota",
+    "langLabel": "Langue",
+    "sampleBadge": "Données d'exemple"
+  },
+  "nav": {
+    "home": "Accueil",
+    "product": "Produits",
+    "parts": "Pièces",
+    "service": "Service",
+    "crops": "Solutions agricoles",
+    "marketing": "Événements",
+    "artwork": "Supports marketing",
+    "order": "Commander"
+  },
   "hero": {
     "title": "Bienvenue sur KU-KIT",
     "subtitle": "Tout ce dont vous avez besoin — produits, pièces, service et événements — à portée d'un seul clic. Conçu pour les nouveaux concessionnaires et distributeurs, accessible à tout moment, où que vous soyez.",
@@ -10,64 +24,189 @@
     "introTitle": "Qu'est-ce que KU-KIT ?",
     "introText": "KU-KIT signifie « Kubota Kit », et fait écho à l'expression thaïe « kuu-kit » (คู่คิด) — un partenaire de confiance. C'est une base de connaissances tout-en-un conçue pour être ce partenaire des nouveaux concessionnaires et distributeurs à l'étranger, couvrant les moteurs et les motoculteurs afin que votre équipe puisse découvrir nos produits, pièces, service et événements en toute autonomie, sans attendre une formation en personne — ce qui facilite la gestion quotidienne de l'activité, tout en réduisant les frais de déplacement et de formation et en facilitant l'entrée sur de nouveaux marchés malgré la barrière de la langue.",
     "cards": [
-      { "icon": "⚙️", "title": "Informations produit", "desc": "Caractéristiques du moteur diesel ZT Plus et du motoculteur NC Plus X, contrôles d'authenticité et guide de montage.", "target": "product-engine" },
-      { "icon": "🔧", "title": "Pièces", "desc": "Comment trouver et commander des pièces d'origine, avec les listes de stock recommandées par modèle.", "target": "parts" },
-      { "icon": "🛠️", "title": "Service", "desc": "Étapes d'entretien du moteur et du motoculteur, plus le service après-vente.", "target": "service" },
-      { "icon": "🌾", "title": "Solutions agricoles", "desc": "Comment adapter le motoculteur aux rizières inondées, aux rizières sèches, au manioc et au maïs.", "target": "crops" },
-      { "icon": "📣", "title": "Événements", "desc": "Quatre formats d'activités standards KUBOTA, avec des manuels et des recommandations pour chaque événement.", "target": "marketing" },
-      { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "materials-custom" }
+      {
+        "icon": "⚙️",
+        "title": "Informations produit",
+        "desc": "Caractéristiques du moteur diesel ZT Plus et du motoculteur NC Plus X, contrôles d'authenticité et guide de montage.",
+        "target": "product-engine"
+      },
+      {
+        "icon": "🔧",
+        "title": "Pièces",
+        "desc": "Comment trouver et commander des pièces d'origine, avec les listes de stock recommandées par modèle.",
+        "target": "parts"
+      },
+      {
+        "icon": "🛠️",
+        "title": "Service",
+        "desc": "Étapes d'entretien du moteur et du motoculteur, plus le service après-vente.",
+        "target": "service"
+      },
+      {
+        "icon": "🌾",
+        "title": "Solutions agricoles",
+        "desc": "Comment adapter le motoculteur aux rizières inondées, aux rizières sèches, au manioc et au maïs.",
+        "target": "crops"
+      },
+      {
+        "icon": "📣",
+        "title": "Événements",
+        "desc": "Quatre formats d'activités standards KUBOTA, avec des manuels et des recommandations pour chaque événement.",
+        "target": "marketing"
+      },
+      {
+        "icon": "🖼️",
+        "title": "Supports marketing",
+        "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.",
+        "target": "materials-custom"
+      }
     ]
   },
   "product": {
     "title": "Informations produit",
     "intro": "Tout ce qu'un nouveau concessionnaire doit savoir sur nos deux gammes de produits principales — le moteur diesel KUBOTA ZT Plus et le motoculteur TRA CHANG NC Plus X.",
-    "tabs": { "engine": "Moteur", "tiller": "Motoculteur", "assembly": "Guide de montage" },
+    "tabs": {
+      "engine": "Moteur",
+      "tiller": "Motoculteur",
+      "assembly": "Guide de montage"
+    },
     "engine": {
       "title": "Moteur diesel KUBOTA — ZT Plus",
       "quickLinks": [
-        { "label": "Connaissance du produit", "route": "product-engine", "anchor": "engine-product-info" },
-        { "label": "Contrôle avant livraison et procédure de démarrage correcte", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-assembly", "anchor": "assembly-engine" },
-        { "label": "OPM (Manuel d'utilisation)", "route": "product-engine", "anchor": "engine-downloads" },
-        { "label": "Points de contrôle d'authenticité", "route": "product-engine", "anchor": "engine-authenticity" },
-        { "label": "Exemples d'application", "route": "product-engine", "anchor": "engine-application" }
+        {
+          "label": "Connaissance du produit",
+          "route": "product-engine",
+          "anchor": "engine-product-info"
+        },
+        {
+          "label": "Contrôle avant livraison et procédure de démarrage correcte",
+          "route": "product-engine",
+          "anchor": "engine-pre-delivery"
+        },
+        {
+          "label": "Comment assembler le moteur diesel avec le motoculteur",
+          "route": "product-assembly",
+          "anchor": "assembly-engine"
+        },
+        {
+          "label": "OPM (Manuel d'utilisation)",
+          "route": "product-engine",
+          "anchor": "engine-downloads"
+        },
+        {
+          "label": "Points de contrôle d'authenticité",
+          "route": "product-engine",
+          "anchor": "engine-authenticity"
+        },
+        {
+          "label": "Exemples d'application",
+          "route": "product-engine",
+          "anchor": "engine-application"
+        }
       ],
-      "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "Moteur diesel KUBOTA ZT155 DI Plus" },
+      "image": {
+        "src": "assets/img/product/zt155-engine-cutout.png",
+        "alt": "Moteur diesel KUBOTA ZT155 DI Plus"
+      },
       "items": [
         {
           "name": "ZT Plus (type TVCS)",
           "desc": "Système de combustion à triple tourbillon (TVCS). Démarrage facile, fonctionnement silencieux et économie de carburant à bas régime — idéal pour le pompage d'eau ou l'attelage à un motoculteur pour le travail du sol.",
           "specs": [
-            { "label": "Plage de puissance", "value": "10 - 12 ch" },
-            { "label": "Système de combustion", "value": "Three Vortex Combustion System (TVCS)" },
-            { "label": "Méthodes de démarrage", "value": "Standard (manuel) / ES (démarrage électrique) / SW (à clé)" },
-            { "label": "Garantie", "value": "3 ans" }
+            {
+              "label": "Plage de puissance",
+              "value": "10 - 12 ch"
+            },
+            {
+              "label": "Système de combustion",
+              "value": "Three Vortex Combustion System (TVCS)"
+            },
+            {
+              "label": "Méthodes de démarrage",
+              "value": "Standard (manuel) / ES (démarrage électrique) / SW (à clé)"
+            },
+            {
+              "label": "Garantie",
+              "value": "3 ans"
+            }
           ]
         },
         {
           "name": "ZT Plus (type DI)",
           "desc": "Injection directe (DI). Bonne réponse à l'accélération et économie de carburant à haut régime — adapté au transport lourd, aux prestations de travail du sol, à l'entraînement de dynamo ou au pompage de puits profonds.",
           "specs": [
-            { "label": "Plage de puissance", "value": "12,5 - 18 ch" },
-            { "label": "Système de combustion", "value": "Injection directe (DI)" },
-            { "label": "Méthodes de démarrage", "value": "Standard (manuel) / ES (démarrage électrique) / SW (à clé)" },
-            { "label": "Garantie", "value": "3 ans" }
+            {
+              "label": "Plage de puissance",
+              "value": "12,5 - 18 ch"
+            },
+            {
+              "label": "Système de combustion",
+              "value": "Injection directe (DI)"
+            },
+            {
+              "label": "Méthodes de démarrage",
+              "value": "Standard (manuel) / ES (démarrage électrique) / SW (à clé)"
+            },
+            {
+              "label": "Garantie",
+              "value": "3 ans"
+            }
           ]
         }
       ],
-      "note": "Comment lire la puissance : consultez l'étiquette du modèle sur le moteur (par ex. ZT100Plus = 10 ch, ZT140Plus = 14 ch) ou la plaque signalétique sur le carter latéral. Les modèles disponibles peuvent varier selon le pays.",
+      "note": "Les caractéristiques ci-dessus proviennent du diaporama de connaissance produit ZT Plus fourni par l'équipe. Les autres cylindrées (ZT100/110/120/125/155/180) suivent la même structure — demandez les diaporamas correspondants à l'équipe produit si nécessaire. La photo produit pointe directement vers Drive (13 Mo) — au-delà de la limite de 10 Mo du connecteur Drive de cette session, elle n'a donc pas été intégrée localement.",
       "sellingPoints": {
         "title": "Points forts du ZT Plus",
         "items": [
-          { "title": "Réservoir de carburant en acier", "desc": "10,5 litres sur les moteurs de 10 à 15,5 ch, 14,5 litres sur le moteur de 18 ch.", "image": { "src": "assets/img/product/detail-fuel-tank.jpg", "alt": "Gros plan sur le réservoir de carburant en acier du moteur ZT Plus" } },
-          { "title": "Grille en acier", "desc": "Protège le radiateur et le ventilateur, augmente la fréquence du filtre intérieur du radiateur pour une meilleure protection contre la poussière et un risque de surchauffe réduit.", "image": { "src": "assets/img/product/detail-steel-grate.jpg", "alt": "Gros plan sur la grille en acier protégeant le radiateur et le ventilateur" } },
-          { "title": "Structure en aluminium renforcée", "desc": "Protège le radiateur et les autres pièces contre les dommages, renforcée sur 3 points d'ancrage pour réduire les vibrations pendant le fonctionnement.", "image": { "src": "assets/img/product/detail-aluminum-structure.jpg", "alt": "Les 3 points d'ancrage de la structure en aluminium sur le moteur ZT155DI" } },
-          { "title": "Jauge de niveau de carburant transparente", "desc": "Jauge en PVC transparent permettant de vérifier le niveau de carburant d'un coup d'œil.", "image": { "src": "assets/img/product/detail-fuel-gauge.jpg", "alt": "Tube de jauge de niveau de carburant en PVC transparent sur le réservoir" } },
-          { "title": "Phare LED", "desc": "Phare LED puissant pour un fonctionnement nocturne en sécurité ; le modèle PRO ajoute des clignotants et un port de charge USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Gros plan sur le phare LED puissant du moteur ZT Plus" } }
+          {
+            "title": "Réservoir de carburant en acier",
+            "desc": "10,5 litres sur les moteurs de 10 à 15,5 ch, 14,5 litres sur le moteur de 18 ch.",
+            "image": {
+              "src": "assets/img/product/detail-fuel-tank.jpg",
+              "alt": "Gros plan sur le réservoir de carburant en acier du moteur ZT Plus"
+            }
+          },
+          {
+            "title": "Grille en acier",
+            "desc": "Protège le radiateur et le ventilateur, augmente la fréquence du filtre intérieur du radiateur pour une meilleure protection contre la poussière et un risque de surchauffe réduit.",
+            "image": {
+              "src": "assets/img/product/detail-steel-grate.jpg",
+              "alt": "Gros plan sur la grille en acier protégeant le radiateur et le ventilateur"
+            }
+          },
+          {
+            "title": "Structure en aluminium renforcée",
+            "desc": "Protège le radiateur et les autres pièces contre les dommages, renforcée sur 3 points d'ancrage pour réduire les vibrations pendant le fonctionnement.",
+            "image": {
+              "src": "assets/img/product/detail-aluminum-structure.jpg",
+              "alt": "Les 3 points d'ancrage de la structure en aluminium sur le moteur ZT155DI"
+            }
+          },
+          {
+            "title": "Jauge de niveau de carburant transparente",
+            "desc": "Jauge en PVC transparent permettant de vérifier le niveau de carburant d'un coup d'œil.",
+            "image": {
+              "src": "assets/img/product/detail-fuel-gauge.jpg",
+              "alt": "Tube de jauge de niveau de carburant en PVC transparent sur le réservoir"
+            }
+          },
+          {
+            "title": "Phare LED",
+            "desc": "Phare LED puissant pour un fonctionnement nocturne en sécurité ; le modèle PRO ajoute des clignotants et un port de charge USB.",
+            "image": {
+              "src": "assets/img/product/detail-led-headlamp.jpg",
+              "alt": "Gros plan sur le phare LED puissant du moteur ZT Plus"
+            }
+          }
         ],
         "media": {
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view" }
+            {
+              "title": "EPB_Product Knowledge_ZT Plus",
+              "lang": "EN",
+              "type": "pptx",
+              "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view"
+            }
           ]
         }
       },
@@ -75,11 +214,73 @@
         "title": "5 contrôles essentiels avant de faire fonctionner le moteur",
         "intro": "Effectuez ces cinq contrôles avant de remettre le moteur à un client ou de le démarrer pour la première fois.",
         "points": [
-          { "title": "1. Filtre à air", "desc": "Filtre la poussière de l'air admis pour protéger les pièces internes contre l'usure.", "steps": ["Verser de l'huile moteur dans le bac du filtre.", "Remplir jusqu'au repère de niveau indiqué sur le bac.", "Poser le filtre à air avec soin pour ne pas déchirer le joint en caoutchouc.", "Ajouter un peu d'huile sur le dessus du filtre pour aider à retenir la poussière."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Ajout d'huile sur le vrai filtre à air d'un moteur ZT Plus" } },
-          { "title": "2. Système de carburant", "desc": "Le carburant se mélange à l'air et s'enflamme sous l'effet de la chaleur de compression pour faire fonctionner le moteur.", "steps": ["Utiliser un carburant propre ; inutile de retirer le filtre pendant le ravitaillement.", "Vérifier l'absence de fuites autour du filtre — aucune eau ni débris ne doit se mélanger au carburant."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Le vrai bol du filtre à carburant sur un moteur ZT Plus" } },
-          { "title": "3. Huile moteur", "desc": "La lubrification évite l'usure, permet aux pièces mobiles de tourner librement et aide à refroidir le moteur.", "steps": ["Utiliser de l'huile moteur TRA CHANG, SAE40.", "Ajouter environ 2,7 à 2,8 litres.", "Le niveau d'huile doit se situer entre les repères supérieur et inférieur.", "Avant utilisation, faire tourner le moteur au ralenti pendant 15-20 minutes pour bien répartir l'huile.", "Vérifier l'indicateur de pression d'huile — le bleu recouvrant le rouge signifie que le système de lubrification fonctionne normalement."], "image": { "src": "assets/img/service/check-engine-oil.jpg", "alt": "L'indicateur de pression d'huile (bleu/rouge) sur un vrai moteur" } },
-          { "title": "4. Système de refroidissement à eau", "desc": "Maintient la température du moteur sous contrôle.", "steps": ["Ajouter la poudre anticorrosion.", "Remplir avec de l'eau propre.", "Ne jamais utiliser d'eau souterraine ou d'eau de canal — cela provoque des dépôts et un colmatage du radiateur."], "image": { "src": "assets/img/service/check-radiator.jpg", "alt": "Remplissage d'eau propre dans le radiateur d'un vrai moteur" } },
-          { "title": "5. Courroie de ventilateur", "desc": "Entraîne le ventilateur de refroidissement et d'autres composants.", "steps": ["Appuyer au milieu de la courroie avec le doigt pour vérifier la tension.", "La flèche correcte est de 10-15 mm.", "Si elle est trop tendue ou trop lâche, l'ajuster dans cette plage."], "image": { "src": "assets/img/service/check-fan-belt.jpg", "alt": "Mesure de la flèche de la courroie de ventilateur avec une règle" } }
+          {
+            "title": "1. Filtre à air",
+            "desc": "Filtre la poussière de l'air admis pour protéger les pièces internes contre l'usure.",
+            "steps": [
+              "Verser de l'huile moteur dans le bac du filtre.",
+              "Remplir jusqu'au repère de niveau indiqué sur le bac.",
+              "Poser le filtre à air avec soin pour ne pas déchirer le joint en caoutchouc.",
+              "Ajouter un peu d'huile sur le dessus du filtre pour aider à retenir la poussière."
+            ],
+            "image": {
+              "src": "assets/img/service/check-air-filter.jpg",
+              "alt": "Ajout d'huile sur le vrai filtre à air d'un moteur ZT Plus"
+            }
+          },
+          {
+            "title": "2. Système de carburant",
+            "desc": "Le carburant se mélange à l'air et s'enflamme sous l'effet de la chaleur de compression pour faire fonctionner le moteur.",
+            "steps": [
+              "Utiliser un carburant propre ; inutile de retirer le filtre pendant le ravitaillement.",
+              "Vérifier l'absence de fuites autour du filtre — aucune eau ni débris ne doit se mélanger au carburant."
+            ],
+            "image": {
+              "src": "assets/img/service/check-fuel-system.jpg",
+              "alt": "Le vrai bol du filtre à carburant sur un moteur ZT Plus"
+            }
+          },
+          {
+            "title": "3. Huile moteur",
+            "desc": "La lubrification évite l'usure, permet aux pièces mobiles de tourner librement et aide à refroidir le moteur.",
+            "steps": [
+              "Utiliser de l'huile moteur TRA CHANG, SAE40.",
+              "Ajouter environ 2,7 à 2,8 litres.",
+              "Le niveau d'huile doit se situer entre les repères supérieur et inférieur.",
+              "Avant utilisation, faire tourner le moteur au ralenti pendant 15-20 minutes pour bien répartir l'huile.",
+              "Vérifier l'indicateur de pression d'huile — le bleu recouvrant le rouge signifie que le système de lubrification fonctionne normalement."
+            ],
+            "image": {
+              "src": "assets/img/service/check-engine-oil.jpg",
+              "alt": "L'indicateur de pression d'huile (bleu/rouge) sur un vrai moteur"
+            }
+          },
+          {
+            "title": "4. Système de refroidissement à eau",
+            "desc": "Maintient la température du moteur sous contrôle.",
+            "steps": [
+              "Ajouter la poudre anticorrosion.",
+              "Remplir avec de l'eau propre.",
+              "Ne jamais utiliser d'eau souterraine ou d'eau de canal — cela provoque des dépôts et un colmatage du radiateur."
+            ],
+            "image": {
+              "src": "assets/img/service/check-radiator.jpg",
+              "alt": "Remplissage d'eau propre dans le radiateur d'un vrai moteur"
+            }
+          },
+          {
+            "title": "5. Courroie de ventilateur",
+            "desc": "Entraîne le ventilateur de refroidissement et d'autres composants.",
+            "steps": [
+              "Appuyer au milieu de la courroie avec le doigt pour vérifier la tension.",
+              "La flèche correcte est de 10-15 mm.",
+              "Si elle est trop tendue ou trop lâche, l'ajuster dans cette plage."
+            ],
+            "image": {
+              "src": "assets/img/service/check-fan-belt.jpg",
+              "alt": "Mesure de la flèche de la courroie de ventilateur avec une règle"
+            }
+          }
         ]
       },
       "startProcedure": {
@@ -98,7 +299,12 @@
           "Ne pas relâcher le levier de soupape et arrêter de tourner en cours de route — cela peut provoquer un retour de manivelle du moteur (fumée au niveau du filtre à air) et le faire tourner à l'envers.",
           "En cas de retour de manivelle, retirer le filtre à air et le vérifier — nettoyer la suie ou remplacer le filtre s'il est endommagé."
         ],
-        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view" }
+        "moreFile": {
+          "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view"
+        }
       },
       "applicationExamples": {
         "title": "Exemples d'application",
@@ -115,14 +321,29 @@
             "title": "Applications avec motoculteur",
             "items": [
               {
-                "title": "Soil Preparation",
-                "src": "assets/img/product/application/power-tiller-soil-preparation.png",
-                "alt": "Soil Preparation — KUBOTA ZT Plus engine application"
+                "title": "Préparation du sol — 1",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-1.png",
+                "alt": "Préparation du sol — 1 — KUBOTA ZT Plus engine application"
               },
               {
-                "title": "Transportation with a Power Tiller",
-                "src": "assets/img/product/application/power-tiller-transportation.png",
-                "alt": "Transportation with a Power Tiller — KUBOTA ZT Plus engine application"
+                "title": "Préparation du sol — 2",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-2.png",
+                "alt": "Préparation du sol — 2 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Préparation du sol — 3",
+                "src": "assets/img/product/application/power-tiller-soil-preparation-3.jpg",
+                "alt": "Préparation du sol — 3 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Transport avec un motoculteur — 1",
+                "src": "assets/img/product/application/power-tiller-transportation-1.jpg",
+                "alt": "Transport avec un motoculteur — 1 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Transport avec un motoculteur — 2",
+                "src": "assets/img/product/application/power-tiller-transportation-2.png",
+                "alt": "Transport avec un motoculteur — 2 — KUBOTA ZT Plus engine application"
               }
             ]
           },
@@ -154,6 +375,11 @@
                 "title": "Agricultural Transport Trailer",
                 "src": "assets/img/product/application/transport-farm-trailer.png",
                 "alt": "Agricultural Transport Trailer — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Véhicule utilitaire de transport 4x4",
+                "src": "assets/img/product/application/transport-four-wheel-utility-vehicle.jpg",
+                "alt": "Véhicule utilitaire de transport 4x4 — KUBOTA ZT Plus engine application"
               }
             ]
           },
@@ -307,89 +533,266 @@
       "authenticity": {
         "title": "Comment vérifier l'authenticité du moteur KUBOTA ZT Plus",
         "intro": "Les contrefaçons nuisent à la confiance des clients et à la sécurité du service après-vente. Utilisez ces points de contrôle pour confirmer qu'il s'agit d'un moteur KUBOTA authentique.",
-        "artworkImage": { "src": "assets/img/product/authenticity/engine-authenticity-artwork-en.jpg", "alt": "Comment vérifier l'authenticité du moteur diesel KUBOTA — logo sur le déflecteur, symbole K en relief sur le carter supérieur, marquages K sur le volant moteur, symbole K sur le carter avant, numéro de série à 6 chiffres, et autocollants concessionnaire requis" },
+        "artworkImage": {
+          "src": "assets/img/product/authenticity/engine-authenticity-artwork-en.jpg",
+          "alt": "Comment vérifier l'authenticité du moteur diesel KUBOTA — logo sur le déflecteur, symbole K en relief sur le carter supérieur, marquages K sur le volant moteur, symbole K sur le carter avant, numéro de série à 6 chiffres, et autocollants concessionnaire requis"
+        },
         "points": [
-          { "text": "Symbole « K » en relief (logo d'identité Kubota) sur le carter du moteur.", "image": { "src": "assets/img/product/authenticity/engine-01-k-symbol.png", "alt": "Symbole K en relief sur le carter du moteur" } },
-          { "text": "Logo Kubota estampé sur le déflecteur — déflecteur noir sur le modèle Standard, déflecteur argenté sur le modèle PRO.", "image": { "src": "assets/img/product/authenticity/engine-02-spoiler.png", "alt": "Logo KUBOTA estampé sur le déflecteur" } },
-          { "text": "Symbole « K » en relief sur le carter latéral, identique à celui du carter du moteur.", "image": { "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png", "alt": "Symbole K en relief sur le carter latéral" } },
-          { "text": "Lettre « K » en relief et logo d'identité Kubota sur le bloc-cylindres, près de la pompe à carburant.", "image": { "src": "assets/img/product/authenticity/engine-04-cylinder-block.png", "alt": "Lettre K en relief et logo Kubota sur le bloc-cylindres" } },
-          { "text": "Deux symboles d'identité Kubota en relief sur le volant moteur.", "image": { "src": "assets/img/product/authenticity/engine-05-flywheel.png", "alt": "Symboles d'identité Kubota en relief sur le volant moteur" } },
-          { "text": "Plaque signalétique autocollante sur le carter latéral indiquant le modèle, le fabricant (« SIAM KUBOTA Corporation Co., Ltd ») et le pays de fabrication (« MADE IN THAILAND »).", "image": { "src": "assets/img/product/authenticity/engine-06-nameplate.png", "alt": "Plaque signalétique autocollante sur le carter latéral" } },
-          { "text": "Un autocollant « Garantie 3 ans » de Siam Kubota sur le carter latéral.", "image": { "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png", "alt": "Autocollant Garantie 3 ans de Siam Kubota" } },
-          { "text": "Un autocollant TIS (norme industrielle thaïlandaise) avec un QR code scannable confirmant la fabrication par Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "Autocollant TIS avec QR code scannable" } },
-          { "text": "Le modèle et le numéro de série à 6 chiffres gravés sur le moteur ; scannez le QR code sur le carter latéral — un moteur authentique affiche « Genuine product from Siam Kubota ».", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Modèle et numéro de série à 6 chiffres gravés sur le moteur" } }
+          {
+            "text": "Symbole « K » en relief (logo d'identité Kubota) sur le carter du moteur.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-01-k-symbol.png",
+              "alt": "Symbole K en relief sur le carter du moteur"
+            }
+          },
+          {
+            "text": "Logo Kubota estampé sur le déflecteur — déflecteur noir sur le modèle Standard, déflecteur argenté sur le modèle PRO.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-02-spoiler.png",
+              "alt": "Logo KUBOTA estampé sur le déflecteur"
+            }
+          },
+          {
+            "text": "Symbole « K » en relief sur le carter latéral, identique à celui du carter du moteur.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-03-side-gear-cover.png",
+              "alt": "Symbole K en relief sur le carter latéral"
+            }
+          },
+          {
+            "text": "Lettre « K » en relief et logo d'identité Kubota sur le bloc-cylindres, près de la pompe à carburant.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-04-cylinder-block.png",
+              "alt": "Lettre K en relief et logo Kubota sur le bloc-cylindres"
+            }
+          },
+          {
+            "text": "Deux symboles d'identité Kubota en relief sur le volant moteur.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-05-flywheel.png",
+              "alt": "Symboles d'identité Kubota en relief sur le volant moteur"
+            }
+          },
+          {
+            "text": "Plaque signalétique autocollante sur le carter latéral indiquant le modèle, le fabricant (« SIAM KUBOTA Corporation Co., Ltd ») et le pays de fabrication (« MADE IN THAILAND »).",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-06-nameplate.png",
+              "alt": "Plaque signalétique autocollante sur le carter latéral"
+            }
+          },
+          {
+            "text": "Un autocollant « Garantie 3 ans » de Siam Kubota sur le carter latéral.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-07-warranty-sticker.png",
+              "alt": "Autocollant Garantie 3 ans de Siam Kubota"
+            }
+          },
+          {
+            "text": "Un autocollant TIS (norme industrielle thaïlandaise) avec un QR code scannable confirmant la fabrication par Siam Kubota.",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-08-tis-qr.png",
+              "alt": "Autocollant TIS avec QR code scannable"
+            }
+          },
+          {
+            "text": "Le modèle et le numéro de série à 6 chiffres gravés sur le moteur ; scannez le QR code sur le carter latéral — un moteur authentique affiche « Genuine product from Siam Kubota ».",
+            "image": {
+              "src": "assets/img/product/authenticity/engine-09-serial-number.png",
+              "alt": "Modèle et numéro de série à 6 chiffres gravés sur le moteur"
+            }
+          }
         ],
-        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view" }
+        "moreFile": {
+          "title": "Check list - The genuine Kubota Engine ZT Plus",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view"
+        }
       },
       "resources": [
-        { "title": "Manuel d'utilisation ZT Plus (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view" }
+        {
+          "title": "Manuel d'utilisation ZT Plus (OPM)",
+          "lang": "EN",
+          "type": "pdf",
+          "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view"
+        }
       ],
       "videosTitle": "Vidéos",
-      "downloadsTitle": "Téléchargements",
-      "note": "Les caractéristiques ci-dessus proviennent du diaporama de connaissance produit ZT Plus fourni par l'équipe. Les autres cylindrées (ZT100/110/120/125/155/180) suivent la même structure — demandez les diaporamas correspondants à l'équipe produit si nécessaire. La photo produit pointe directement vers Drive (13 Mo) — au-delà de la limite de 10 Mo du connecteur Drive de cette session, elle n'a donc pas été intégrée localement."
+      "downloadsTitle": "Téléchargements"
     },
     "tiller": {
       "title": "Motoculteur TRA CHANG — NC Plus X",
       "quickLinks": [
-        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-assembly", "anchor": "assembly-tiller" },
-        { "label": "OPM (Manuel d'utilisation)", "route": "product-tiller", "anchor": "tiller-downloads" },
-        { "label": "Points de contrôle d'authenticité", "route": "product-tiller", "anchor": "tiller-authenticity" },
-        { "label": "Accessoires pour le motoculteur", "route": "product-tiller", "anchor": "tiller-application" }
+        {
+          "label": "Comment assembler le moteur diesel avec le motoculteur",
+          "route": "product-assembly",
+          "anchor": "assembly-tiller"
+        },
+        {
+          "label": "OPM (Manuel d'utilisation)",
+          "route": "product-tiller",
+          "anchor": "tiller-downloads"
+        },
+        {
+          "label": "Points de contrôle d'authenticité",
+          "route": "product-tiller",
+          "anchor": "tiller-authenticity"
+        },
+        {
+          "label": "Accessoires pour le motoculteur",
+          "route": "product-tiller",
+          "anchor": "tiller-application"
+        }
       ],
-      "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Motoculteur TRA CHANG NC Plus X 800" },
+      "image": {
+        "src": "assets/img/product/nc-plusx-tiller-cutout.png",
+        "alt": "Motoculteur TRA CHANG NC Plus X 800"
+      },
       "items": [
         {
           "name": "NC Plus X",
           "desc": "Roue à cage de 800 mm de diamètre, pales de roue de 3 pouces (16 pièces). Convient aux sols limoneux ou sableux, aux rizières comme aux champs secs, ainsi qu'aux parcelles de canne à sucre, manioc, légumineuses et légumes. Les roues à cage permettent de courts déplacements. Non recommandé pour les champs très boueux (submergés en profondeur).",
           "specs": [
-            { "label": "Diamètre de la roue à cage", "value": "800 mm" },
-            { "label": "Pales de roue", "value": "3 pouces x 16 pièces" },
-            { "label": "Système de direction / embrayage", "value": "Système de virage standard, embrayage standard, roulement à billes" },
-            { "label": "Garantie châssis / carter de transmission", "value": "3 ans / à vie sur le carter de transmission" }
+            {
+              "label": "Diamètre de la roue à cage",
+              "value": "800 mm"
+            },
+            {
+              "label": "Pales de roue",
+              "value": "3 pouces x 16 pièces"
+            },
+            {
+              "label": "Système de direction / embrayage",
+              "value": "Système de virage standard, embrayage standard, roulement à billes"
+            },
+            {
+              "label": "Garantie châssis / carter de transmission",
+              "value": "3 ans / à vie sur le carter de transmission"
+            }
           ]
         },
         {
           "name": "NC Plus X Special",
           "desc": "Roue à cage de 880 mm ou 980 mm de diamètre, avec système de virage à insert d'engrenage pour les travaux intensifs en rizière boueuse et les rizières cultivées plus de deux fois par an. Pour le déplacer, passez aux roues en caoutchouc ou utilisez une remorque ; pour le travail en boue profonde, associez-le à un moteur KUBOTA ZT Plus de 14 à 15,5 ch.",
           "specs": [
-            { "label": "Diamètre de la roue à cage", "value": "880 mm / 980 mm" },
-            { "label": "Pales de roue", "value": "4 ou 5 pouces x 16 pièces" },
-            { "label": "Système de direction / embrayage", "value": "Système de virage à insert d'engrenage (réversible en cas d'usure, boulon de sécurité), embrayage spécial, roulement à rouleaux" },
-            { "label": "Garantie châssis / carter de transmission", "value": "3 ans / à vie sur le carter de transmission" }
+            {
+              "label": "Diamètre de la roue à cage",
+              "value": "880 mm / 980 mm"
+            },
+            {
+              "label": "Pales de roue",
+              "value": "4 ou 5 pouces x 16 pièces"
+            },
+            {
+              "label": "Système de direction / embrayage",
+              "value": "Système de virage à insert d'engrenage (réversible en cas d'usure, boulon de sécurité), embrayage spécial, roulement à rouleaux"
+            },
+            {
+              "label": "Garantie châssis / carter de transmission",
+              "value": "3 ans / à vie sur le carter de transmission"
+            }
           ]
         }
       ],
-      "note": "Distinguer le NC Plus X du NC Plus X Special : (1) le code châssis sur la carte de garantie — « NC131 » sans suffixe « S » (Plus X) contre « NC131S » (Special) ; (2) un marquage « S » poinçonné sur le carter d'engrenage, présent uniquement sur le Special. Les trois modèles de motoculteur TRA CHANG peuvent passer aux roues en caoutchouc pour le transport de récoltes ou usage général.",
+      "note": "Les caractéristiques ci-dessus proviennent du diaporama de connaissance produit NC Plus X fourni par l'équipe. La photo produit pointe directement vers Drive (14 Mo) — au-delà de la limite de 10 Mo du connecteur Drive de cette session, elle n'a donc pas été intégrée localement.",
       "applicationExamples": {
         "title": "Exemples d'utilisation et accessoires pour le motoculteur",
         "intro": "Le motoculteur TRA CHANG peut être équipé d'une large gamme d'accessoires — du labour, du semis et de la récolte du riz au transport, au battage, au bottelage de foin et au désherbage dans les champs de manioc/canne à sucre.",
         "images": [
-          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Accessoires utilisables avec le motoculteur TRA CHANG — charrue, semoir, moissonneuse à riz, transport, batteuse, presse à foin et désherbage dans les champs de manioc/canne à sucre" }
+          {
+            "src": "assets/img/product/application/tiller-application-en-01.jpg",
+            "alt": "Accessoires utilisables avec le motoculteur TRA CHANG — charrue, semoir, moissonneuse à riz, transport, batteuse, presse à foin et désherbage dans les champs de manioc/canne à sucre"
+          }
         ]
       },
       "authenticity": {
         "title": "Comment vérifier l'authenticité du motoculteur TRA CHANG",
         "intro": "Les contrefaçons nuisent à la confiance des clients et à la sécurité du service après-vente. Utilisez ces points de contrôle pour confirmer qu'il s'agit d'un motoculteur TRA CHANG authentique.",
         "points": [
-          { "text": "Marque déposée TRA CHANG : éléphant tourné vers la gauche, patte avant gauche levée, engrenage doré éclatant, éléphant blanc sur fond circulaire rouge vif.", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "Marque déposée TRA CHANG — éléphant blanc sur fond circulaire rouge" } },
-          { "text": "L'autocollant de marque affiche « TRA CHANG » en lettres rouge vif bordées de blanc.", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "Autocollant de marque TRA CHANG sur le guidon du motoculteur" } },
-          { "text": "Le carter de transmission porte le logo « TRA CHANG » (en thaï) en relief.", "image": { "src": "assets/img/product/authenticity/tiller-03-transmission-case.png", "alt": "Logo TRA CHANG en thaï en relief sur le carter de transmission" } },
-          { "text": "Un numéro de châssis unique — « NC-XXXXXX » (lettres + 5 chiffres) — profondément et clairement estampé, facile à repérer.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Numéro de châssis estampé sur le motoculteur" } },
-          { "text": "Le symbole de l'éléphant sur le carter supérieur du châssis est tourné vers la gauche, patte avant gauche levée, à l'intérieur de la forme d'engrenage.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Symbole de l'éléphant sur le carter supérieur du châssis" } },
-          { "text": "Le symbole de l'éléphant sur le levier de vitesses est également tourné vers la gauche, patte avant gauche levée, à l'intérieur de la forme d'engrenage.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Symbole de l'éléphant sur le levier de vitesses" } }
+          {
+            "text": "Marque déposée TRA CHANG : éléphant tourné vers la gauche, patte avant gauche levée, engrenage doré éclatant, éléphant blanc sur fond circulaire rouge vif.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-01-trademark.png",
+              "alt": "Marque déposée TRA CHANG — éléphant blanc sur fond circulaire rouge"
+            }
+          },
+          {
+            "text": "L'autocollant de marque affiche « TRA CHANG » en lettres rouge vif bordées de blanc.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png",
+              "alt": "Autocollant de marque TRA CHANG sur le guidon du motoculteur"
+            }
+          },
+          {
+            "text": "Le carter de transmission porte le logo « TRA CHANG » (en thaï) en relief.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-03-transmission-case.png",
+              "alt": "Logo TRA CHANG en thaï en relief sur le carter de transmission"
+            }
+          },
+          {
+            "text": "Un numéro de châssis unique — « NC-XXXXXX » (lettres + 5 chiffres) — profondément et clairement estampé, facile à repérer.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-04-frame-number.png",
+              "alt": "Numéro de châssis estampé sur le motoculteur"
+            }
+          },
+          {
+            "text": "Le symbole de l'éléphant sur le carter supérieur du châssis est tourné vers la gauche, patte avant gauche levée, à l'intérieur de la forme d'engrenage.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg",
+              "alt": "Symbole de l'éléphant sur le carter supérieur du châssis"
+            }
+          },
+          {
+            "text": "Le symbole de l'éléphant sur le levier de vitesses est également tourné vers la gauche, patte avant gauche levée, à l'intérieur de la forme d'engrenage.",
+            "image": {
+              "src": "assets/img/product/authenticity/tiller-06-gear-lever.png",
+              "alt": "Symbole de l'éléphant sur le levier de vitesses"
+            }
+          }
         ]
       },
       "resources": [
-        { "title": "Diaporama de connaissance produit — NC Plus X (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
-        { "title": "Diaporama de connaissance produit — NC Plus X (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
-        { "title": "Liste de contrôle d'authenticité du motoculteur (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
-        { "title": "Manuel d'utilisation du motoculteur NC131 (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
-        { "title": "Manuel d'utilisation du motoculteur NC131 (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
-        { "title": "Photo produit haute résolution — motoculteur NC Plus X 800", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+        {
+          "title": "Diaporama de connaissance produit — NC Plus X (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx"
+        },
+        {
+          "title": "Diaporama de connaissance produit — NC Plus X (TH)",
+          "lang": "TH",
+          "type": "pptx",
+          "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx"
+        },
+        {
+          "title": "Liste de contrôle d'authenticité du motoculteur (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx"
+        },
+        {
+          "title": "Manuel d'utilisation du motoculteur NC131 (EN)",
+          "lang": "EN",
+          "type": "pdf",
+          "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf"
+        },
+        {
+          "title": "Manuel d'utilisation du motoculteur NC131 (TH)",
+          "lang": "TH",
+          "type": "pdf",
+          "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf"
+        },
+        {
+          "title": "Photo produit haute résolution — motoculteur NC Plus X 800",
+          "lang": "EN",
+          "type": "jpg",
+          "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view"
+        }
       ],
       "videosTitle": "Vidéos",
-      "downloadsTitle": "Téléchargements",
-      "note": "Les caractéristiques ci-dessus proviennent du diaporama de connaissance produit NC Plus X fourni par l'équipe. La photo produit pointe directement vers Drive (14 Mo) — au-delà de la limite de 10 Mo du connecteur Drive de cette session, elle n'a donc pas été intégrée localement."
+      "downloadsTitle": "Téléchargements"
     },
     "assembly": {
       "title": "Guide de montage",
@@ -412,8 +815,18 @@
         "Fixer le câble d'accélérateur sur le levier d'accélérateur et serrer l'écrou."
       ],
       "resources": [
-        { "title": "Guide de montage moteur + motoculteur (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
-        { "title": "Démonstration de montage — moteur ZT Plus + motoculteur NC Plus X", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+        {
+          "title": "Guide de montage moteur + motoculteur (EN)",
+          "lang": "EN",
+          "type": "pptx",
+          "href": "assets/docs/assembly/Assembly-Guide-EN.pptx"
+        },
+        {
+          "title": "Démonstration de montage — moteur ZT Plus + motoculteur NC Plus X",
+          "lang": "EN",
+          "type": "video",
+          "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4"
+        }
       ],
       "videosTitle": "Vidéos",
       "downloadsTitle": "Téléchargements",
@@ -424,10 +837,26 @@
     "title": "Pièces",
     "intro": "Comment les nouveaux concessionnaires et distributeurs peuvent trouver et commander des pièces d'origine, avec une liste de stock de départ pour les modèles les plus courants.",
     "howToOrder": [
-      { "step": "1", "title": "Identifier le modèle et le numéro de série", "desc": "Vérifiez la plaque signalétique sur l'appareil ou le manuel du modèle." },
-      { "step": "2", "title": "Rechercher le code de la pièce", "desc": "Utilisez le catalogue de pièces pour confirmer le bon code." },
-      { "step": "3", "title": "Soumettre la commande via le canal désigné", "desc": "Contactez votre équipe régionale de support pièces." },
-      { "step": "4", "title": "Suivre l'état de l'expédition", "desc": "Suivez votre commande via le système de suivi de l'entreprise." }
+      {
+        "step": "1",
+        "title": "Identifier le modèle et le numéro de série",
+        "desc": "Vérifiez la plaque signalétique sur l'appareil ou le manuel du modèle."
+      },
+      {
+        "step": "2",
+        "title": "Rechercher le code de la pièce",
+        "desc": "Utilisez le catalogue de pièces pour confirmer le bon code."
+      },
+      {
+        "step": "3",
+        "title": "Soumettre la commande via le canal désigné",
+        "desc": "Contactez votre équipe régionale de support pièces."
+      },
+      {
+        "step": "4",
+        "title": "Suivre l'état de l'expédition",
+        "desc": "Suivez votre commande via le système de suivi de l'entreprise."
+      }
     ],
     "recommended": [
       {
@@ -436,21 +865,51 @@
           {
             "label": "Périodiques (remplacement programmé)",
             "items": [
-              { "code": "1T051-11220", "name": "Ensemble élément de filtre à air" },
-              { "code": "1W071-99261", "name": "Huile moteur CF 3 L x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "Ensemble filtre à carburant" },
-              { "code": "1TA21-35750", "name": "Joint de filtre à huile" }
+              {
+                "code": "1T051-11220",
+                "name": "Ensemble élément de filtre à air"
+              },
+              {
+                "code": "1W071-99261",
+                "name": "Huile moteur CF 3 L x 8"
+              },
+              {
+                "code": "1W071-43010 / 1W071-43015",
+                "name": "Ensemble filtre à carburant"
+              },
+              {
+                "code": "1TA21-35750",
+                "name": "Joint de filtre à huile"
+              }
             ]
           },
           {
             "label": "Consommables (pièces d'usure)",
             "items": [
-              { "code": "14371-51051", "name": "Ensemble piston de pompe (plunger)" },
-              { "code": "1T071-98511", "name": "Jeu de segments de piston (140)" },
-              { "code": "1T057-97010", "name": "Courroie de ventilateur" },
-              { "code": "1T071-90161", "name": "Jeu de joints de culasse" },
-              { "code": "1T021-61110", "name": "Manivelle de démarrage" },
-              { "code": "11010-04380", "name": "Joint de vilebrequin" }
+              {
+                "code": "14371-51051",
+                "name": "Ensemble piston de pompe (plunger)"
+              },
+              {
+                "code": "1T071-98511",
+                "name": "Jeu de segments de piston (140)"
+              },
+              {
+                "code": "1T057-97010",
+                "name": "Courroie de ventilateur"
+              },
+              {
+                "code": "1T071-90161",
+                "name": "Jeu de joints de culasse"
+              },
+              {
+                "code": "1T021-61110",
+                "name": "Manivelle de démarrage"
+              },
+              {
+                "code": "11010-04380",
+                "name": "Joint de vilebrequin"
+              }
             ]
           }
         ]
@@ -461,33 +920,81 @@
           {
             "label": "Périodiques (remplacement programmé)",
             "items": [
-              { "code": "62735-99091-E", "name": "Huile de transmission, Gear90, 3 L x 8" }
+              {
+                "code": "62735-99091-E",
+                "name": "Huile de transmission, Gear90, 3 L x 8"
+              }
             ]
           },
           {
             "label": "Consommables (pièces d'usure)",
             "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Engrenages de transmission (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "Courroie trapézoïdale, TRA CHANG (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "Câble d'embrayage principal" },
-              { "code": "62735-42480", "name": "Câble d'embrayage de direction" },
-              { "code": "09500-25388", "name": "Joint d'étanchéité d'huile" },
-              { "code": "62735-22132-1", "name": "Mâchoire de frein (2 pièces)" }
+              {
+                "code": "62735-14140 / 62735-14230 / 62735-14120-1",
+                "name": "Engrenages de transmission (14 / 18 / 18-1)"
+              },
+              {
+                "code": "69211-00722 / 69211-00732",
+                "name": "Courroie trapézoïdale, TRA CHANG (B-72 / B-73)"
+              },
+              {
+                "code": "62735-42110",
+                "name": "Câble d'embrayage principal"
+              },
+              {
+                "code": "62735-42480",
+                "name": "Câble d'embrayage de direction"
+              },
+              {
+                "code": "09500-25388",
+                "name": "Joint d'étanchéité d'huile"
+              },
+              {
+                "code": "62735-22132-1",
+                "name": "Mâchoire de frein (2 pièces)"
+              }
             ]
           }
         ]
       }
     ],
     "categories": [
-      { "name": "Pièces moteur", "desc": "Pistons, segments de piston, pompes d'injection, filtres à carburant." },
-      { "name": "Pièces de transmission", "desc": "Engrenages, embrayages, arbres de transmission." },
-      { "name": "Pièces de travail du sol", "desc": "Lames de motoculteur, disques, roulements." },
-      { "name": "Consommables", "desc": "Huile moteur, filtres à air, courroies." }
+      {
+        "name": "Pièces moteur",
+        "desc": "Pistons, segments de piston, pompes d'injection, filtres à carburant."
+      },
+      {
+        "name": "Pièces de transmission",
+        "desc": "Engrenages, embrayages, arbres de transmission."
+      },
+      {
+        "name": "Pièces de travail du sol",
+        "desc": "Lames de motoculteur, disques, roulements."
+      },
+      {
+        "name": "Consommables",
+        "desc": "Huile moteur, filtres à air, courroies."
+      }
     ],
     "resources": [
-      { "title": "Catalogue de pièces — ZT140 (catalogue illustré complet, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
-      { "title": "Moteur diesel — liste de pièces recommandées, tous modèles ZT100-ZT180 (tableur)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
-      { "title": "Motoculteur — liste de pièces recommandées (tableur)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
+      {
+        "title": "Catalogue de pièces — ZT140 (catalogue illustré complet, EN)",
+        "lang": "EN",
+        "type": "pdf",
+        "href": "assets/docs/parts/Parts-Book-ZT140.pdf"
+      },
+      {
+        "title": "Moteur diesel — liste de pièces recommandées, tous modèles ZT100-ZT180 (tableur)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx"
+      },
+      {
+        "title": "Motoculteur — liste de pièces recommandées (tableur)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx"
+      }
     ],
     "downloadsTitle": "Téléchargements",
     "note": "Les tableaux ci-dessus présentent, à titre d'exemple, les pièces de stock les plus courantes pour le moteur ZT140 et le motoculteur NC. Le tableur complet ci-dessous couvre chaque cylindrée (de ZT100 à ZT180) avec les références de pièces — téléchargez-le pour planifier le stock d'un autre modèle."
@@ -499,73 +1006,338 @@
       {
         "label": "Étapes d'entretien du moteur",
         "children": [
-          { "label": "Filtre à air", "route": "service", "anchor": "maintenance-engine-0" },
-          { "label": "Système de carburant", "route": "service", "anchor": "maintenance-engine-1" },
-          { "label": "Lubrification (huile moteur)", "route": "service", "anchor": "maintenance-engine-2" },
-          { "label": "Système de refroidissement (radiateur)", "route": "service", "anchor": "maintenance-engine-3" },
-          { "label": "Système de ventilateur de refroidissement", "route": "service", "anchor": "maintenance-engine-4" }
+          {
+            "label": "Filtre à air",
+            "route": "service",
+            "anchor": "maintenance-engine-0"
+          },
+          {
+            "label": "Système de carburant",
+            "route": "service",
+            "anchor": "maintenance-engine-1"
+          },
+          {
+            "label": "Lubrification (huile moteur)",
+            "route": "service",
+            "anchor": "maintenance-engine-2"
+          },
+          {
+            "label": "Système de refroidissement (radiateur)",
+            "route": "service",
+            "anchor": "maintenance-engine-3"
+          },
+          {
+            "label": "Système de ventilateur de refroidissement",
+            "route": "service",
+            "anchor": "maintenance-engine-4"
+          }
         ]
       },
       {
         "label": "Étapes d'entretien du motoculteur",
         "children": [
-          { "label": "Lubrification (huile de transmission)", "route": "service", "anchor": "maintenance-tiller-0" },
-          { "label": "Contrôle du levier de direction", "route": "service", "anchor": "maintenance-tiller-1" },
-          { "label": "Contrôle du jeu de l'embrayage", "route": "service", "anchor": "maintenance-tiller-2" },
-          { "label": "Contrôle du jeu du frein", "route": "service", "anchor": "maintenance-tiller-3" },
-          { "label": "Contrôle de la courroie d'entraînement", "route": "service", "anchor": "maintenance-tiller-4" }
+          {
+            "label": "Lubrification (huile de transmission)",
+            "route": "service",
+            "anchor": "maintenance-tiller-0"
+          },
+          {
+            "label": "Contrôle du levier de direction",
+            "route": "service",
+            "anchor": "maintenance-tiller-1"
+          },
+          {
+            "label": "Contrôle du jeu de l'embrayage",
+            "route": "service",
+            "anchor": "maintenance-tiller-2"
+          },
+          {
+            "label": "Contrôle du jeu du frein",
+            "route": "service",
+            "anchor": "maintenance-tiller-3"
+          },
+          {
+            "label": "Contrôle de la courroie d'entraînement",
+            "route": "service",
+            "anchor": "maintenance-tiller-4"
+          }
         ]
       }
     ],
-    "tableHeaders": { "interval": "Intervalle", "task": "Tâche" },
+    "tableHeaders": {
+      "interval": "Intervalle",
+      "task": "Tâche"
+    },
     "maintenance": {
       "title": "Entretien périodique",
       "intro": "Points d'entretien courant pour le moteur diesel ZT Plus et le motoculteur TRA CHANG, directement issus des diaporamas de formation à l'entretien officiels.",
       "engine": {
         "title": "Moteur diesel ZT Plus — 5 points d'entretien essentiels",
         "points": [
-          { "title": "1. Filtre à air", "desc": "Nettoyer le bac et l'élément du filtre à air toutes les 100 heures ou tous les mois.", "steps": ["Desserrer l'écrou, retirer le couvercle du bac, puis sortir le filtre à air.", "Retirer le bac du filtre en desserrant l'écrou n°10.", "Nettoyer le filtre au gazole, tapoter délicatement pour enlever la saleté, puis sécher au souffleur.", "Le bac du filtre peut être nettoyé au gazole ou à l'eau savonneuse — le sécher complètement avant remontage.", "Avant le montage, remplir d'huile moteur TRA CHANG jusqu'au repère indiqué, puis serrer l'écrou n°10.", "Remonter le filtre à air et le couvercle du bac, puis serrer l'écrou."], "image": { "src": "assets/img/service/maintenance-engine-air-filter.jpg", "alt": "Boîtier réel du filtre à air sur le moteur ZT Plus pour l'entretien périodique" } },
-          { "title": "2. Système de carburant", "desc": "Nettoyer le filtre à carburant toutes les 100 heures ou tous les mois ; le remplacer toutes les 400 heures.", "steps": ["Retirer l'écrou maintenant l'ensemble du filtre à carburant.", "Dévisser le bol du filtre, puis utiliser une pince pour séparer le filtre à carburant.", "Nettoyer le bol et le filtre en tapotant ou en brossant, puis sécher au souffleur.", "Si le filtre est colmaté ou déchiré, le remplacer immédiatement.", "Remonter le filtre à carburant dans le bol — ne pas oublier le joint torique sur le dessus.", "Revisser fermement le bol du filtre et serrer l'écrou n°10 pour le bloquer en place."], "image": { "src": "assets/img/service/maintenance-engine-fuel-system.jpg", "alt": "Filtre à carburant réel sur le moteur ZT Plus pour l'entretien périodique" } },
-          { "title": "3. Huile moteur", "desc": "Pour un moteur neuf, changer l'huile après les 50 premières heures ; ensuite, toutes les 100 heures.", "steps": ["Retirer le bouchon de vidange et laisser l'huile s'écouler complètement.", "Nettoyer le filtre à huile au gazole.", "Remettre le bouchon de vidange et le serrer fermement.", "Remplir d'huile moteur TRA CHANG, SAE40 API CF.", "Le niveau d'huile doit se situer entre les repères supérieur et inférieur."], "image": { "src": "assets/img/service/maintenance-engine-oil.jpg", "alt": "Point de vidange d'huile réel sur le moteur ZT Plus pour l'entretien périodique" } },
-          { "title": "4. Système de refroidissement à eau", "desc": "Vidanger et remplir le radiateur tous les 3 mois en cas d'utilisation de poudre anticorrosion, ou tous les mois sinon.", "steps": ["Ouvrir le bouchon du radiateur pour accélérer la vidange.", "Retirer le bouchon de vidange, laisser l'eau s'écouler complètement, puis le remettre.", "Ajouter 1 sachet de poudre anticorrosion et remplir avec de l'eau propre.", "Refermer le bouchon fermement."], "image": { "src": "assets/img/service/maintenance-engine-radiator.jpg", "alt": "Radiateur réel du moteur ZT Plus pour l'entretien périodique" } },
-          { "title": "5. Courroie de ventilateur", "desc": "Vérifier la courroie avant chaque utilisation — une courroie cassée en fonctionnement provoque une surchauffe du moteur.", "steps": ["La tension correcte est une flèche de 10-15 mm.", "Si la courroie est fissurée ou déchirée, la remplacer immédiatement."], "image": { "src": "assets/img/service/maintenance-engine-fan-belt.jpg", "alt": "Courroie de ventilateur réelle du moteur ZT Plus pour l'entretien périodique" } }
+          {
+            "title": "1. Filtre à air",
+            "desc": "Nettoyer le bac et l'élément du filtre à air toutes les 100 heures ou tous les mois.",
+            "steps": [
+              "Desserrer l'écrou, retirer le couvercle du bac, puis sortir le filtre à air.",
+              "Retirer le bac du filtre en desserrant l'écrou n°10.",
+              "Nettoyer le filtre au gazole, tapoter délicatement pour enlever la saleté, puis sécher au souffleur.",
+              "Le bac du filtre peut être nettoyé au gazole ou à l'eau savonneuse — le sécher complètement avant remontage.",
+              "Avant le montage, remplir d'huile moteur TRA CHANG jusqu'au repère indiqué, puis serrer l'écrou n°10.",
+              "Remonter le filtre à air et le couvercle du bac, puis serrer l'écrou."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-air-filter.jpg",
+              "alt": "Boîtier réel du filtre à air sur le moteur ZT Plus pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "2. Système de carburant",
+            "desc": "Nettoyer le filtre à carburant toutes les 100 heures ou tous les mois ; le remplacer toutes les 400 heures.",
+            "steps": [
+              "Retirer l'écrou maintenant l'ensemble du filtre à carburant.",
+              "Dévisser le bol du filtre, puis utiliser une pince pour séparer le filtre à carburant.",
+              "Nettoyer le bol et le filtre en tapotant ou en brossant, puis sécher au souffleur.",
+              "Si le filtre est colmaté ou déchiré, le remplacer immédiatement.",
+              "Remonter le filtre à carburant dans le bol — ne pas oublier le joint torique sur le dessus.",
+              "Revisser fermement le bol du filtre et serrer l'écrou n°10 pour le bloquer en place."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-fuel-system.jpg",
+              "alt": "Filtre à carburant réel sur le moteur ZT Plus pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "3. Huile moteur",
+            "desc": "Pour un moteur neuf, changer l'huile après les 50 premières heures ; ensuite, toutes les 100 heures.",
+            "steps": [
+              "Retirer le bouchon de vidange et laisser l'huile s'écouler complètement.",
+              "Nettoyer le filtre à huile au gazole.",
+              "Remettre le bouchon de vidange et le serrer fermement.",
+              "Remplir d'huile moteur TRA CHANG, SAE40 API CF.",
+              "Le niveau d'huile doit se situer entre les repères supérieur et inférieur."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-oil.jpg",
+              "alt": "Point de vidange d'huile réel sur le moteur ZT Plus pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "4. Système de refroidissement à eau",
+            "desc": "Vidanger et remplir le radiateur tous les 3 mois en cas d'utilisation de poudre anticorrosion, ou tous les mois sinon.",
+            "steps": [
+              "Ouvrir le bouchon du radiateur pour accélérer la vidange.",
+              "Retirer le bouchon de vidange, laisser l'eau s'écouler complètement, puis le remettre.",
+              "Ajouter 1 sachet de poudre anticorrosion et remplir avec de l'eau propre.",
+              "Refermer le bouchon fermement."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-radiator.jpg",
+              "alt": "Radiateur réel du moteur ZT Plus pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "5. Courroie de ventilateur",
+            "desc": "Vérifier la courroie avant chaque utilisation — une courroie cassée en fonctionnement provoque une surchauffe du moteur.",
+            "steps": [
+              "La tension correcte est une flèche de 10-15 mm.",
+              "Si la courroie est fissurée ou déchirée, la remplacer immédiatement."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-engine-fan-belt.jpg",
+              "alt": "Courroie de ventilateur réelle du moteur ZT Plus pour l'entretien périodique"
+            }
+          }
         ]
       },
       "tiller": {
         "title": "Motoculteur NC — 5 points d'entretien essentiels",
         "points": [
-          { "title": "1. Huile de transmission", "desc": "Pour un appareil neuf, changer l'huile après les 50 premières heures ; ensuite, toutes les 500 heures.", "steps": ["Utiliser de l'huile de transmission TRA CHANG, SAE90 API GL-4.", "Vérifier le niveau au voyant — il doit se situer au milieu de l'indicateur.", "Bien refermer le bouchon pour empêcher l'entrée de poussière et d'eau."], "image": { "src": "assets/img/service/maintenance-tiller-gear-oil.jpg", "alt": "Point de contrôle réel de l'huile de transmission sur le motoculteur NC Plus X pour l'entretien périodique" } },
-          { "title": "2. Levier de direction", "desc": "Le jeu libre du levier de direction gauche-droite doit être d'environ 1-2 mm.", "steps": ["Desserrer les écrous n°12 et n°14, puis tourner le dispositif de réglage jusqu'au bon jeu et bloquer les écrous.", "Lubrifier régulièrement le câble de direction pour prolonger sa durée de vie.", "Après lubrification, refermer le capuchon en caoutchouc sur l'orifice."], "image": { "src": "assets/img/service/maintenance-tiller-steering.jpg", "alt": "Réglage réel du levier de direction sur le motoculteur NC Plus X pour l'entretien périodique" } },
-          { "title": "3. Jeu de l'embrayage", "desc": "Le jeu libre du levier d'embrayage principal doit être d'environ 15-20 mm.", "steps": ["Desserrer les deux écrous n°14 sur le câble d'embrayage.", "Tourner le dispositif de réglage à l'extrémité du câble pour obtenir le bon jeu, puis revérifier."], "image": { "src": "assets/img/service/maintenance-tiller-clutch.jpg", "alt": "Réglage réel du jeu de l'embrayage sur le motoculteur NC Plus X pour l'entretien périodique" } },
-          { "title": "4. Jeu du frein", "desc": "Le jeu libre entre le ressort et l'écrou de réglage doit être d'environ 3-5 mm.", "steps": ["Tirer le levier d'embrayage en position débrayée.", "Desserrer l'écrou à l'extrémité du câble, régler le bon jeu, puis bloquer l'écrou fermement.", "Lubrifier régulièrement le câble de frein pour prolonger sa durée de vie ; refermer le capuchon en caoutchouc ensuite."], "image": { "src": "assets/img/service/maintenance-tiller-brake.jpg", "alt": "Réglage réel du jeu du frein sur le motoculteur NC Plus X pour l'entretien périodique" } },
-          { "title": "5. Tension de la courroie d'entraînement", "desc": "La tension correcte de la courroie d'entraînement est d'environ 30-40 mm.", "steps": ["Serrer l'écrou papillon pour tirer la poulie de courroie jusqu'à la tension correcte.", "Si la courroie est fissurée ou déchirée, la remplacer par une neuve."], "image": { "src": "assets/img/service/maintenance-tiller-drive-belt.jpg", "alt": "Réglage réel de la tension de la courroie d'entraînement sur le motoculteur NC Plus X pour l'entretien périodique" } }
+          {
+            "title": "1. Huile de transmission",
+            "desc": "Pour un appareil neuf, changer l'huile après les 50 premières heures ; ensuite, toutes les 500 heures.",
+            "steps": [
+              "Utiliser de l'huile de transmission TRA CHANG, SAE90 API GL-4.",
+              "Vérifier le niveau au voyant — il doit se situer au milieu de l'indicateur.",
+              "Bien refermer le bouchon pour empêcher l'entrée de poussière et d'eau."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-gear-oil.jpg",
+              "alt": "Point de contrôle réel de l'huile de transmission sur le motoculteur NC Plus X pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "2. Levier de direction",
+            "desc": "Le jeu libre du levier de direction gauche-droite doit être d'environ 1-2 mm.",
+            "steps": [
+              "Desserrer les écrous n°12 et n°14, puis tourner le dispositif de réglage jusqu'au bon jeu et bloquer les écrous.",
+              "Lubrifier régulièrement le câble de direction pour prolonger sa durée de vie.",
+              "Après lubrification, refermer le capuchon en caoutchouc sur l'orifice."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-steering.jpg",
+              "alt": "Réglage réel du levier de direction sur le motoculteur NC Plus X pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "3. Jeu de l'embrayage",
+            "desc": "Le jeu libre du levier d'embrayage principal doit être d'environ 15-20 mm.",
+            "steps": [
+              "Desserrer les deux écrous n°14 sur le câble d'embrayage.",
+              "Tourner le dispositif de réglage à l'extrémité du câble pour obtenir le bon jeu, puis revérifier."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-clutch.jpg",
+              "alt": "Réglage réel du jeu de l'embrayage sur le motoculteur NC Plus X pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "4. Jeu du frein",
+            "desc": "Le jeu libre entre le ressort et l'écrou de réglage doit être d'environ 3-5 mm.",
+            "steps": [
+              "Tirer le levier d'embrayage en position débrayée.",
+              "Desserrer l'écrou à l'extrémité du câble, régler le bon jeu, puis bloquer l'écrou fermement.",
+              "Lubrifier régulièrement le câble de frein pour prolonger sa durée de vie ; refermer le capuchon en caoutchouc ensuite."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-brake.jpg",
+              "alt": "Réglage réel du jeu du frein sur le motoculteur NC Plus X pour l'entretien périodique"
+            }
+          },
+          {
+            "title": "5. Tension de la courroie d'entraînement",
+            "desc": "La tension correcte de la courroie d'entraînement est d'environ 30-40 mm.",
+            "steps": [
+              "Serrer l'écrou papillon pour tirer la poulie de courroie jusqu'à la tension correcte.",
+              "Si la courroie est fissurée ou déchirée, la remplacer par une neuve."
+            ],
+            "image": {
+              "src": "assets/img/service/maintenance-tiller-drive-belt.jpg",
+              "alt": "Réglage réel de la tension de la courroie d'entraînement sur le motoculteur NC Plus X pour l'entretien périodique"
+            }
+          }
         ]
       }
     },
     "programsTitle": "Programmes après-vente",
     "programs": [
-      { "name": "Programme de garantie (exemple)", "desc": "Couverture de la structure principale et des composants clés pendant une période déterminée." },
-      { "name": "Formation technicien (exemple)", "desc": "Cours de formation à l'entretien pour les techniciens du concessionnaire, alliant théorie et pratique." }
+      {
+        "name": "Programme de garantie (exemple)",
+        "desc": "Couverture de la structure principale et des composants clés pendant une période déterminée."
+      },
+      {
+        "name": "Formation technicien (exemple)",
+        "desc": "Cours de formation à l'entretien pour les techniciens du concessionnaire, alliant théorie et pratique."
+      }
     ],
     "resources": [
-      { "title": "Diaporama contrôle avant livraison et procédure de démarrage (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx" },
-      { "title": "Diaporama contrôle avant livraison et procédure de démarrage (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx" },
-      { "title": "Diaporama entretien moteur — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx" },
-      { "title": "Diaporama entretien moteur — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx" },
-      { "title": "Diaporama entretien motoculteur (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx" },
-      { "title": "Diaporama entretien motoculteur (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" },
-      { "title": "Vidéo — Contrôle préalable du moteur (ZT Plus)", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4" },
-      { "title": "Vidéo — Méthode de démarrage correcte du moteur", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4" },
-      { "title": "Vidéo — Entretien du filtre à air", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Entretien du système de carburant", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Entretien de l'huile moteur / lubrification", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Entretien du système de refroidissement (radiateur)", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Entretien du système de ventilation", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Contrôle de l'huile de transmission (motoculteur)", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Contrôle du levier de direction (motoculteur)", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Contrôle du jeu d'embrayage (motoculteur)", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Contrôle du jeu de frein (motoculteur)", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" },
-      { "title": "Vidéo — Contrôle de la courroie d'entraînement (motoculteur)", "lang": "EN", "type": "video", "note": "Pas encore hébergée — décision d'hébergement vidéo en attente" }
+      {
+        "title": "Diaporama contrôle avant livraison et procédure de démarrage (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx"
+      },
+      {
+        "title": "Diaporama contrôle avant livraison et procédure de démarrage (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx"
+      },
+      {
+        "title": "Diaporama entretien moteur — ZT Plus (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx"
+      },
+      {
+        "title": "Diaporama entretien moteur — ZT Plus (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx"
+      },
+      {
+        "title": "Diaporama entretien motoculteur (EN)",
+        "lang": "EN",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx"
+      },
+      {
+        "title": "Diaporama entretien motoculteur (TH)",
+        "lang": "TH",
+        "type": "pptx",
+        "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx"
+      },
+      {
+        "title": "Vidéo — Contrôle préalable du moteur (ZT Plus)",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4"
+      },
+      {
+        "title": "Vidéo — Méthode de démarrage correcte du moteur",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4"
+      },
+      {
+        "title": "Vidéo — Entretien du filtre à air",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Entretien du système de carburant",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Entretien de l'huile moteur / lubrification",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Entretien du système de refroidissement (radiateur)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Entretien du système de ventilation",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Contrôle de l'huile de transmission (motoculteur)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Contrôle du levier de direction (motoculteur)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Contrôle du jeu d'embrayage (motoculteur)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Contrôle du jeu de frein (motoculteur)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      },
+      {
+        "title": "Vidéo — Contrôle de la courroie d'entraînement (motoculteur)",
+        "lang": "EN",
+        "type": "video",
+        "note": "Pas encore hébergée — décision d'hébergement vidéo en attente"
+      }
     ],
     "videosTitle": "Vidéos",
     "downloadsTitle": "Téléchargements",
@@ -580,12 +1352,28 @@
         "route": "crops",
         "anchor": "crop-group-rice",
         "children": [
-          { "label": "Rizière sèche", "route": "crops", "anchor": "crop-dry-paddy" },
-          { "label": "Rizière inondée", "route": "crops", "anchor": "crop-wet-paddy" }
+          {
+            "label": "Rizière sèche",
+            "route": "crops",
+            "anchor": "crop-dry-paddy"
+          },
+          {
+            "label": "Rizière inondée",
+            "route": "crops",
+            "anchor": "crop-wet-paddy"
+          }
         ]
       },
-      { "label": "2. Solution de culture du maïs", "route": "crops", "anchor": "crop-corn" },
-      { "label": "3. Solution de culture du manioc", "route": "crops", "anchor": "crop-cassava" }
+      {
+        "label": "2. Solution de culture du maïs",
+        "route": "crops",
+        "anchor": "crop-corn"
+      },
+      {
+        "label": "3. Solution de culture du manioc",
+        "route": "crops",
+        "anchor": "crop-cassava"
+      }
     ],
     "solutions": [
       {
@@ -594,7 +1382,11 @@
         "groupId": "crop-group-rice",
         "name": "Rizière inondée",
         "desc": "Pour les rizières boueuses et inondées cultivées plus d'une fois par an. Utiliser le NC Plus X Special avec des roues à cage de 880 mm ou 980 mm et le système de virage à insert d'engrenage pour les travaux intensifs en boue. Associer à un moteur KUBOTA ZT Plus de 14-15,5 ch pour disposer de suffisamment de puissance en boue profonde.",
-        "video": { "title": "Rizière inondée", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+        "video": {
+          "title": "Rizière inondée",
+          "lang": "EN",
+          "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4"
+        }
       },
       {
         "id": "crop-dry-paddy",
@@ -602,19 +1394,31 @@
         "groupId": "crop-group-rice",
         "name": "Rizière sèche",
         "desc": "Pour les sols limoneux ou sableux non boueux, y compris les rizières de saison sèche, la canne à sucre, le manioc, les légumineuses et les parcelles de légumes. Le NC Plus X avec des roues à cage de 800 mm convient parfaitement — plus léger, plus maniable, et capable de courts déplacements sur ses roues à cage.",
-        "video": { "title": "Rizière sèche", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+        "video": {
+          "title": "Rizière sèche",
+          "lang": "EN",
+          "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4"
+        }
       },
       {
         "id": "crop-cassava",
         "name": "Champ de manioc",
         "desc": "Pour les parcelles de manioc en zone de plateau, sur sol limoneux ou sableux. Le NC Plus X avec des roues à cage de 800 mm convient parfaitement — assez léger et maniable pour travailler entre les rangs sans endommager les buttes de manioc, et capable de courts déplacements entre les champs sur ses roues à cage.",
-        "video": { "title": "Champ de manioc", "lang": "TH / EN", "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,3 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente" }
+        "video": {
+          "title": "Champ de manioc",
+          "lang": "TH / EN",
+          "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,3 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente"
+        }
       },
       {
         "id": "crop-corn",
         "name": "Champ de maïs",
         "desc": "Pour les parcelles de maïs en zone de plateau, sur sol limoneux ou sableux, avec un profil similaire au manioc et à la rizière de saison sèche. Le NC Plus X avec des roues à cage de 800 mm gère bien l'espacement des rangs et les courts déplacements entre les champs.",
-        "video": { "title": "Champ de maïs", "lang": "TH / EN", "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,2 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente" }
+        "video": {
+          "title": "Champ de maïs",
+          "lang": "TH / EN",
+          "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,2 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente"
+        }
       }
     ],
     "note": "Cette page couvre désormais quatre types de champs issus des vidéos de solutions agricoles de l'équipe marketing : rizière inondée, rizière sèche, manioc et maïs. Les vidéos de rizière inondée et sèche sont intégrées et se lisent localement ; les vidéos maîtresses du manioc et du maïs (TH + EN, ~2,2-2,4 Go chacune) existent dans le dossier Drive source mais n'ont pas été intégrées à cette version — voir Handoff.md pour l'état de l'hébergement."
@@ -623,56 +1427,145 @@
     "title": "Activités marketing",
     "intro": "Quatre formats d'activités standards pour les concessionnaires, permettant de renforcer la notoriété des produits, de démontrer leurs performances réelles, d'assurer le service après-vente et de remercier les clients existants — directement issus des manuels officiels KUBOTA Activity Standard.",
     "quickSelectTitle": "Sélection rapide d'activité",
-    "labels": { "minParticipants": "Participants minimum", "target": "Clients ciblés", "duration": "Durée suggérée", "venue": "Lieu adapté", "basic": "Activités de base (obligatoires)", "optional": "Activités optionnelles", "schedule": "Programme suggéré", "checklist": "Liste de contrôle avant le début de l'événement" },
+    "labels": {
+      "minParticipants": "Participants minimum",
+      "target": "Clients ciblés",
+      "duration": "Durée suggérée",
+      "venue": "Lieu adapté",
+      "basic": "Activités de base (obligatoires)",
+      "optional": "Activités optionnelles",
+      "schedule": "Programme suggéré",
+      "checklist": "Liste de contrôle avant le début de l'événement"
+    },
     "activityComparison": {
       "title": "Comparatif des standards d'activité",
       "criteria": [
-        { "key": "objective", "icon": "🎯", "label": "Objectif" },
-        { "key": "target", "icon": "👥", "label": "Clients ciblés" },
-        { "key": "venue", "icon": "📍", "label": "Lieu adapté" },
-        { "key": "basic", "icon": "✅", "label": "Activités de base requises" },
-        { "key": "optional", "icon": "✨", "label": "Activités optionnelles (le cas échéant)" },
-        { "key": "duration", "icon": "⏱️", "label": "Durée suggérée" }
+        {
+          "key": "objective",
+          "icon": "🎯",
+          "label": "Objectif"
+        },
+        {
+          "key": "target",
+          "icon": "👥",
+          "label": "Clients ciblés"
+        },
+        {
+          "key": "venue",
+          "icon": "📍",
+          "label": "Lieu adapté"
+        },
+        {
+          "key": "basic",
+          "icon": "✅",
+          "label": "Activités de base requises"
+        },
+        {
+          "key": "optional",
+          "icon": "✨",
+          "label": "Activités optionnelles (le cas échéant)"
+        },
+        {
+          "key": "duration",
+          "icon": "⏱️",
+          "label": "Durée suggérée"
+        }
       ],
       "activities": [
         {
           "icon": "🎪",
           "name": "KUBOTA Family Day (KFD)",
           "objective": "Présenter les produits, renforcer la notoriété et donner au concessionnaire l'occasion de rencontrer de nouveaux clients dans la région.",
-          "target": ["Agriculteurs utilisant déjà un moteur diesel ou un motoculteur", "Agriculteurs ne possédant pas encore les produits mais susceptibles d'acheter à l'avenir"],
+          "target": [
+            "Agriculteurs utilisant déjà un moteur diesel ou un motoculteur",
+            "Agriculteurs ne possédant pas encore les produits mais susceptibles d'acheter à l'avenir"
+          ],
           "venue": "Un lieu communautaire proche des clients, facile d'accès, avec un espace d'exposition des produits, des places assises et un parking.",
-          "basic": ["Inscription et accueil des clients", "Exposition du moteur diesel et du motoculteur KUBOTA", "Présentation du concessionnaire et du service après-vente", "Présentation des principaux atouts des produits", "Questions-réponses avec les clients", "Prévoir des collations et de l'eau potable"],
-          "optional": ["Les clients partagent leur expérience", "Programme de facilités de paiement ou promotion", "Quiz avec lots à gagner", "Tirage au sort ou souvenirs"],
+          "basic": [
+            "Inscription et accueil des clients",
+            "Exposition du moteur diesel et du motoculteur KUBOTA",
+            "Présentation du concessionnaire et du service après-vente",
+            "Présentation des principaux atouts des produits",
+            "Questions-réponses avec les clients",
+            "Prévoir des collations et de l'eau potable"
+          ],
+          "optional": [
+            "Les clients partagent leur expérience",
+            "Programme de facilités de paiement ou promotion",
+            "Quiz avec lots à gagner",
+            "Tirage au sort ou souvenirs"
+          ],
           "duration": "2 à 3 heures"
         },
         {
           "icon": "🚜",
           "name": "Activité de démonstration (démo motoculteur NC)",
           "objective": "Démontrer le fonctionnement réel sur le terrain, montrer la bonne utilisation et laisser les clients essayer le produit.",
-          "target": ["Agriculteurs envisageant l'achat d'un motoculteur", "Clients souhaitant constater les performances réelles avant de se décider"],
+          "target": [
+            "Agriculteurs envisageant l'achat d'un motoculteur",
+            "Clients souhaitant constater les performances réelles avant de se décider"
+          ],
           "venue": "Une rizière réelle préparée à l'avance, avec une zone d'inscription, un point de présentation, une tente d'observation pour les clients, un parcours de démonstration et une zone d'essai.",
-          "basic": ["Présenter le motoculteur et le moteur diesel KUBOTA vendus sur ce marché", "Démontrer la conduite et l'utilisation des accessoires sur un terrain réel", "Montrer une conduite maîtrisée par un démonstrateur KUBOTA", "Laisser les clients essayer de conduire avec le soutien du personnel", "Prévoir une collation ou de l'eau potable"],
-          "optional": ["Test de vitesse de travail", "Test de consommation de carburant", "Comparaison avec un concurrent ou un moteur de puissance similaire", "Promotion ou prise de commande"],
+          "basic": [
+            "Présenter le motoculteur et le moteur diesel KUBOTA vendus sur ce marché",
+            "Démontrer la conduite et l'utilisation des accessoires sur un terrain réel",
+            "Montrer une conduite maîtrisée par un démonstrateur KUBOTA",
+            "Laisser les clients essayer de conduire avec le soutien du personnel",
+            "Prévoir une collation ou de l'eau potable"
+          ],
+          "optional": [
+            "Test de vitesse de travail",
+            "Test de consommation de carburant",
+            "Comparaison avec un concurrent ou un moteur de puissance similaire",
+            "Promotion ou prise de commande"
+          ],
           "duration": "Environ 3 heures"
         },
         {
           "icon": "🔧",
           "name": "Service mobile",
           "objective": "Renforcer le service après-vente en envoyant des techniciens inspecter les produits et donner des conseils directement chez le client.",
-          "target": ["Clients possédant un moteur KUBOTA", "Clients possédant un motoculteur KUBOTA"],
+          "target": [
+            "Clients possédant un moteur KUBOTA",
+            "Clients possédant un motoculteur KUBOTA"
+          ],
           "venue": "Un lieu proche des clients avec suffisamment d'espace pour le dépôt des produits, l'inscription, l'attente, l'inspection et un stand de pièces détachées.",
-          "basic": ["Inscription et réception du produit", "Inspection de base du moteur et du motoculteur", "Expliquer la bonne utilisation et l'entretien", "Recommander et remplacer les pièces si nécessaire", "Restituer le produit au client", "Installer un stand de vente de pièces détachées"],
-          "optional": ["Aucune (de l'eau ou des collations peuvent être prévues pour les clients en attente)"],
+          "basic": [
+            "Inscription et réception du produit",
+            "Inspection de base du moteur et du motoculteur",
+            "Expliquer la bonne utilisation et l'entretien",
+            "Recommander et remplacer les pièces si nécessaire",
+            "Restituer le produit au client",
+            "Installer un stand de vente de pièces détachées"
+          ],
+          "optional": [
+            "Aucune (de l'eau ou des collations peuvent être prévues pour les clients en attente)"
+          ],
           "duration": "Environ 3 heures, dont 120 minutes pour l'inspection principale"
         },
         {
           "icon": "🎁",
           "name": "Activité de remerciement client",
           "objective": "Remercier les clients existants, créer une bonne impression et renforcer leur relation avec le concessionnaire et la marque KUBOTA.",
-          "target": ["Propriétaires d'un moteur diesel ou d'un motoculteur KUBOTA", "Clients réguliers que le concessionnaire souhaite fidéliser", "Clients susceptibles de recommander le produit à d'autres"],
+          "target": [
+            "Propriétaires d'un moteur diesel ou d'un motoculteur KUBOTA",
+            "Clients réguliers que le concessionnaire souhaite fidéliser",
+            "Clients susceptibles de recommander le produit à d'autres"
+          ],
           "venue": "Un espace événementiel, le magasin du concessionnaire, une salle de réception ou un lieu communautaire pouvant accueillir une scène, des tables, une exposition de produits, un coin photo et un parking.",
-          "basic": ["Inscription, accueil et remise de souvenirs", "Décorer le lieu aux couleurs orange et blanc de KUBOTA", "Installer des tables et des chaises", "Exposition de produits et coin photo", "Remercier les clients et partager des connaissances sur les produits", "Repas, animations, jeux et tirage au sort"],
-          "optional": ["Service mobile pour les grands événements", "Parrainage (Friend Get Friend)", "Présentation de nouveaux produits ou promotions"],
+          "basic": [
+            "Inscription, accueil et remise de souvenirs",
+            "Décorer le lieu aux couleurs orange et blanc de KUBOTA",
+            "Installer des tables et des chaises",
+            "Exposition de produits et coin photo",
+            "Remercier les clients et partager des connaissances sur les produits",
+            "Repas, animations, jeux et tirage au sort"
+          ],
+          "optional": [
+            "Service mobile pour les grands événements",
+            "Parrainage (Friend Get Friend)",
+            "Présentation de nouveaux produits ou promotions"
+          ],
           "duration": "Environ 3 h 30"
         }
       ]
@@ -682,105 +1575,333 @@
         "name": "1. KUBOTA Family Day (KFD)",
         "purpose": "Renforcer la notoriété des produits KUBOTA et présenter le concessionnaire local aux clients de la région.",
         "minParticipants": "30 personnes",
-        "target": ["Agriculteurs utilisant déjà un moteur diesel ou un motoculteur", "Agriculteurs ne possédant pas encore les produits mais susceptibles d'acheter à l'avenir", "Clients potentiels dans une zone où le concessionnaire souhaite renforcer la notoriété des produits"],
+        "target": [
+          "Agriculteurs utilisant déjà un moteur diesel ou un motoculteur",
+          "Agriculteurs ne possédant pas encore les produits mais susceptibles d'acheter à l'avenir",
+          "Clients potentiels dans une zone où le concessionnaire souhaite renforcer la notoriété des produits"
+        ],
         "duration": "2-3 heures",
         "venue": "Un lieu communautaire proche des clients ciblés, facile d'accès, avec des places assises pour les clients, un espace d'exposition des produits, un parking, et une protection contre le soleil ou la pluie si nécessaire.",
-        "basicActivities": ["Inscription et accueil des clients", "Exposition du moteur diesel KUBOTA ZT plus", "Exposition du motoculteur KUBOTA", "Présentation des principaux avantages des produits", "Questions et échanges avec les clients", "Collation légère et eau potable"],
-        "optionalActivities": ["Quiz produit", "Tirage au sort", "Promotion de l'événement", "Collecte de prospects clients"],
-        "schedule": [
-          { "time": "09h00-09h30", "activity": "Inscription, accueil et visite des produits" },
-          { "time": "09h30-09h40", "activity": "Mot de bienvenue et présentation du concessionnaire" },
-          { "time": "09h40-10h10", "activity": "Présentation du moteur diesel KUBOTA ZT plus" },
-          { "time": "10h10-10h40", "activity": "Présentation du motoculteur KUBOTA" },
-          { "time": "10h40-11h00", "activity": "Questions et échanges avec les clients" },
-          { "time": "11h00-11h20", "activity": "Jeu ou tirage au sort, si retenu" },
-          { "time": "11h20-11h30", "activity": "Remerciements aux clients et photo de groupe" }
+        "basicActivities": [
+          "Inscription et accueil des clients",
+          "Exposition du moteur diesel KUBOTA ZT plus",
+          "Exposition du motoculteur KUBOTA",
+          "Présentation des principaux avantages des produits",
+          "Questions et échanges avec les clients",
+          "Collation légère et eau potable"
         ],
-        "checklist": ["Au moins 30 clients sont confirmés.", "Le moteur diesel KUBOTA ZT plus est propre et prêt pour l'exposition.", "Le motoculteur KUBOTA est propre et prêt pour l'exposition.", "Les zones d'inscription, d'exposition des produits, d'assises et de parking sont prêtes.", "Les panneaux de l'événement, le matériel produit et la sonorisation sont prêts.", "Les présentateurs ont revu les informations produit.", "Les collations et l'eau potable sont en quantité suffisante.", "Tous les membres de l'équipe comprennent leurs responsabilités."],
+        "optionalActivities": [
+          "Quiz produit",
+          "Tirage au sort",
+          "Promotion de l'événement",
+          "Collecte de prospects clients"
+        ],
+        "schedule": [
+          {
+            "time": "09h00-09h30",
+            "activity": "Inscription, accueil et visite des produits"
+          },
+          {
+            "time": "09h30-09h40",
+            "activity": "Mot de bienvenue et présentation du concessionnaire"
+          },
+          {
+            "time": "09h40-10h10",
+            "activity": "Présentation du moteur diesel KUBOTA ZT plus"
+          },
+          {
+            "time": "10h10-10h40",
+            "activity": "Présentation du motoculteur KUBOTA"
+          },
+          {
+            "time": "10h40-11h00",
+            "activity": "Questions et échanges avec les clients"
+          },
+          {
+            "time": "11h00-11h20",
+            "activity": "Jeu ou tirage au sort, si retenu"
+          },
+          {
+            "time": "11h20-11h30",
+            "activity": "Remerciements aux clients et photo de groupe"
+          }
+        ],
+        "checklist": [
+          "Au moins 30 clients sont confirmés.",
+          "Le moteur diesel KUBOTA ZT plus est propre et prêt pour l'exposition.",
+          "Le motoculteur KUBOTA est propre et prêt pour l'exposition.",
+          "Les zones d'inscription, d'exposition des produits, d'assises et de parking sont prêtes.",
+          "Les panneaux de l'événement, le matériel produit et la sonorisation sont prêts.",
+          "Les présentateurs ont revu les informations produit.",
+          "Les collations et l'eau potable sont en quantité suffisante.",
+          "Tous les membres de l'équipe comprennent leurs responsabilités."
+        ],
         "tip": "Une activité de présentation produit de base. Les clients voient les produits réels et reçoivent une présentation, mais aucune démonstration sur le terrain n'est requise.",
         "resources": [
-          { "title": "Manuel d'activité KFD (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
-          { "title": "Manuel d'activité KFD (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
+          {
+            "title": "Manuel d'activité KFD (EN)",
+            "lang": "EN",
+            "type": "docx",
+            "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view"
+          },
+          {
+            "title": "Manuel d'activité KFD (TH)",
+            "lang": "TH",
+            "type": "docx",
+            "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view"
+          }
         ]
       },
       {
         "name": "2. Activité de démonstration",
         "purpose": "Démontrer le motoculteur KUBOTA dans une rizière réelle, expliquer son fonctionnement correct, et laisser les clients l'essayer avec le soutien du personnel.",
         "minParticipants": "30 personnes",
-        "target": ["Agriculteurs envisageant l'achat d'un motoculteur", "Clients souhaitant constater les performances réelles avant de se décider", "Agriculteurs souhaitant apprendre la bonne méthode d'utilisation du produit"],
+        "target": [
+          "Agriculteurs envisageant l'achat d'un motoculteur",
+          "Clients souhaitant constater les performances réelles avant de se décider",
+          "Agriculteurs souhaitant apprendre la bonne méthode d'utilisation du produit"
+        ],
         "duration": "2-3 heures",
         "venue": "Une rizière ou une zone de travail réelle préparée à l'avance, avec un parcours de démonstration clairement balisé, un point d'observation pour les clients, et une zone d'essai séparée si nécessaire.",
-        "basicActivities": ["Inscription et présentation de l'activité", "Présentation du motoculteur KUBOTA et consignes d'utilisation", "Démonstration de conduite et de travail réel dans une rizière", "Essai client supervisé", "Questions et conseils d'entretien de base"],
-        "optionalActivities": ["Test de vitesse de travail", "Test de consommation de carburant", "Comparaison avec la concurrence dans les mêmes conditions de test", "Prise de rendez-vous ou promotion de l'événement"],
-        "schedule": [
-          { "time": "09h00-09h30", "activity": "Inscription et visite des produits" },
-          { "time": "09h30-09h40", "activity": "Mot de bienvenue et présentation de la démonstration" },
-          { "time": "09h40-10h00", "activity": "Présentation du motoculteur KUBOTA et consignes d'utilisation" },
-          { "time": "10h00-10h30", "activity": "Démonstration de conduite et de travail réel dans la rizière" },
-          { "time": "10h30-11h15", "activity": "Essai client supervisé" },
-          { "time": "11h15-11h35", "activity": "Questions, conseils d'entretien et échanges sur le produit" },
-          { "time": "11h35-11h45", "activity": "Bilan et clôture de l'activité" }
+        "basicActivities": [
+          "Inscription et présentation de l'activité",
+          "Présentation du motoculteur KUBOTA et consignes d'utilisation",
+          "Démonstration de conduite et de travail réel dans une rizière",
+          "Essai client supervisé",
+          "Questions et conseils d'entretien de base"
         ],
-        "checklist": ["La rizière ou la zone de travail est prête.", "Le motoculteur KUBOTA et son équipement sont prêts à fonctionner.", "Le parcours de démonstration, le point d'observation et la zone d'essai sont clairement séparés.", "Le conducteur de démonstration a testé le parcours.", "Le personnel peut expliquer les commandes et la méthode d'utilisation correcte.", "La zone d'essai client et l'équipement de sécurité sont prêts.", "Si un test de vitesse ou de consommation est retenu, le matériel de mesure et la méthode de test sont prêts."],
+        "optionalActivities": [
+          "Test de vitesse de travail",
+          "Test de consommation de carburant",
+          "Comparaison avec la concurrence dans les mêmes conditions de test",
+          "Prise de rendez-vous ou promotion de l'événement"
+        ],
+        "schedule": [
+          {
+            "time": "09h00-09h30",
+            "activity": "Inscription et visite des produits"
+          },
+          {
+            "time": "09h30-09h40",
+            "activity": "Mot de bienvenue et présentation de la démonstration"
+          },
+          {
+            "time": "09h40-10h00",
+            "activity": "Présentation du motoculteur KUBOTA et consignes d'utilisation"
+          },
+          {
+            "time": "10h00-10h30",
+            "activity": "Démonstration de conduite et de travail réel dans la rizière"
+          },
+          {
+            "time": "10h30-11h15",
+            "activity": "Essai client supervisé"
+          },
+          {
+            "time": "11h15-11h35",
+            "activity": "Questions, conseils d'entretien et échanges sur le produit"
+          },
+          {
+            "time": "11h35-11h45",
+            "activity": "Bilan et clôture de l'activité"
+          }
+        ],
+        "checklist": [
+          "La rizière ou la zone de travail est prête.",
+          "Le motoculteur KUBOTA et son équipement sont prêts à fonctionner.",
+          "Le parcours de démonstration, le point d'observation et la zone d'essai sont clairement séparés.",
+          "Le conducteur de démonstration a testé le parcours.",
+          "Le personnel peut expliquer les commandes et la méthode d'utilisation correcte.",
+          "La zone d'essai client et l'équipement de sécurité sont prêts.",
+          "Si un test de vitesse ou de consommation est retenu, le matériel de mesure et la méthode de test sont prêts."
+        ],
         "tip": "Le produit doit être démontré sur un champ réel et les clients doivent bénéficier d'un essai supervisé. Les tests de vitesse et de consommation sont optionnels.",
         "resources": [
-          { "title": "Manuel d'activité de démonstration (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
-          { "title": "Manuel d'activité de démonstration (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
+          {
+            "title": "Manuel d'activité de démonstration (EN)",
+            "lang": "EN",
+            "type": "docx",
+            "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx"
+          },
+          {
+            "title": "Manuel d'activité de démonstration (TH)",
+            "lang": "TH",
+            "type": "docx",
+            "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view"
+          }
         ]
       },
       {
         "name": "3. Service mobile",
         "purpose": "Renforcer le service après-vente en rapprochant les techniciens et le support de service des clients.",
         "minParticipants": "20 clients",
-        "target": ["Clients existants utilisant des produits KUBOTA", "Zones comptant un nombre raisonnable d'utilisateurs KUBOTA", "Clients vivant loin du concessionnaire ou ayant un accès limité au service"],
+        "target": [
+          "Clients existants utilisant des produits KUBOTA",
+          "Zones comptant un nombre raisonnable d'utilisateurs KUBOTA",
+          "Clients vivant loin du concessionnaire ou ayant un accès limité au service"
+        ],
         "duration": "Environ 3 heures",
         "venue": "Un lieu proche des clients, facile d'accès pour les produits, avec des zones séparées pour la réception, l'attente, l'inspection, la vente de pièces détachées et la remise du produit, ainsi qu'une tente ou un espace couvert pour les techniciens.",
-        "basicActivities": ["Inscription des clients et réception des produits", "Inspection de base en cinq points (filtre à air, système de carburant, huile moteur, radiateur/refroidissement, courroie de ventilateur)", "Explication du résultat de l'inspection", "Conseils d'utilisation et d'entretien", "Vente ou remplacement de pièces détachées si nécessaire", "Restitution du produit au client"],
-        "optionalActivities": ["Courte session d'entretien collective", "Eau et collations légères pour les clients en attente"],
-        "schedule": [
-          { "time": "08h30-09h00", "activity": "Préparation de la zone de service, des outils, des pièces détachées et des rôles de l'équipe" },
-          { "time": "09h00-09h30", "activity": "Inscription des clients, réception des produits et pose des numéros de suivi" },
-          { "time": "09h30-11h30", "activity": "Inspection en cinq points, explication des résultats et remplacement de pièces si nécessaire" },
-          { "time": "11h30-11h50", "activity": "Courte session collective sur l'utilisation et l'entretien corrects" },
-          { "time": "11h50-12h00", "activity": "Remise finale des produits et clôture de l'activité" }
+        "basicActivities": [
+          "Inscription des clients et réception des produits",
+          "Inspection de base en cinq points (filtre à air, système de carburant, huile moteur, radiateur/refroidissement, courroie de ventilateur)",
+          "Explication du résultat de l'inspection",
+          "Conseils d'utilisation et d'entretien",
+          "Vente ou remplacement de pièces détachées si nécessaire",
+          "Restitution du produit au client"
         ],
-        "checklist": ["Au moins 20 clients et leurs types de produits sont confirmés.", "Les zones de réception, d'attente, d'inspection et de remise sont prêtes.", "Les techniciens et les outils de base sont prêts.", "Les fiches d'inspection et les étiquettes de numéro de produit sont prêtes.", "Les pièces détachées fréquemment remplacées sont disponibles.", "L'équipe comprend le processus réception-inspection-explication-remise.", "Les places assises pour les clients, l'eau potable et les accès aux produits sont prêts."],
+        "optionalActivities": [
+          "Courte session d'entretien collective",
+          "Eau et collations légères pour les clients en attente"
+        ],
+        "schedule": [
+          {
+            "time": "08h30-09h00",
+            "activity": "Préparation de la zone de service, des outils, des pièces détachées et des rôles de l'équipe"
+          },
+          {
+            "time": "09h00-09h30",
+            "activity": "Inscription des clients, réception des produits et pose des numéros de suivi"
+          },
+          {
+            "time": "09h30-11h30",
+            "activity": "Inspection en cinq points, explication des résultats et remplacement de pièces si nécessaire"
+          },
+          {
+            "time": "11h30-11h50",
+            "activity": "Courte session collective sur l'utilisation et l'entretien corrects"
+          },
+          {
+            "time": "11h50-12h00",
+            "activity": "Remise finale des produits et clôture de l'activité"
+          }
+        ],
+        "checklist": [
+          "Au moins 20 clients et leurs types de produits sont confirmés.",
+          "Les zones de réception, d'attente, d'inspection et de remise sont prêtes.",
+          "Les techniciens et les outils de base sont prêts.",
+          "Les fiches d'inspection et les étiquettes de numéro de produit sont prêtes.",
+          "Les pièces détachées fréquemment remplacées sont disponibles.",
+          "L'équipe comprend le processus réception-inspection-explication-remise.",
+          "Les places assises pour les clients, l'eau potable et les accès aux produits sont prêts."
+        ],
         "tip": "L'objectif principal est d'apporter le service après-vente directement chez les clients. La vente ou la présentation de produits n'est pas l'objectif principal.",
         "resources": [
-          { "title": "Manuel du service mobile (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
-          { "title": "Manuel du service mobile (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
+          {
+            "title": "Manuel du service mobile (EN)",
+            "lang": "EN",
+            "type": "docx",
+            "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view"
+          },
+          {
+            "title": "Manuel du service mobile (TH)",
+            "lang": "TH",
+            "type": "docx",
+            "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view"
+          }
         ]
       },
       {
         "name": "4. Activité de remerciement client",
         "purpose": "Remercier les clients existants d'avoir choisi KUBOTA et renforcer la relation entre les clients, le concessionnaire et la marque KUBOTA.",
         "minParticipants": "50 personnes",
-        "target": ["Utilisateurs existants du moteur diesel KUBOTA ZT plus ou du motoculteur KUBOTA", "Zones comptant un grand nombre de clients KUBOTA", "Clients avec lesquels le concessionnaire souhaite bâtir une relation à long terme"],
+        "target": [
+          "Utilisateurs existants du moteur diesel KUBOTA ZT plus ou du motoculteur KUBOTA",
+          "Zones comptant un grand nombre de clients KUBOTA",
+          "Clients avec lesquels le concessionnaire souhaite bâtir une relation à long terme"
+        ],
         "duration": "Environ 3 heures",
         "venue": "Un espace événementiel, le site du concessionnaire, une salle de réception ou un lieu communautaire pouvant accueillir au moins 50 clients, avec de l'espace pour l'inscription, la restauration, les animations, l'exposition de produits, un espace photo et le parking.",
-        "basicActivities": ["Accueillir les clients et transmettre clairement le message de remerciement", "Décorer le lieu aux couleurs de KUBOTA", "Préparer un espace d'exposition de produits et un espace photo", "Fournir un repas et des boissons", "Offrir un souvenir aux clients", "Prévoir un divertissement, des jeux ou un tirage au sort"],
-        "optionalActivities": ["Zone de service mobile", "Courte présentation de nouveaux produits", "Offre spéciale", "Parrainage (Friend Get Friend)", "Divertissement ou chants"],
-        "schedule": [
-          { "time": "16h00-16h30", "activity": "Inscription, remise de souvenirs, visite des produits et photos" },
-          { "time": "16h30-16h40", "activity": "Accueil et message de remerciement" },
-          { "time": "16h40-17h00", "activity": "Courte actualité, présentation de nouveau produit ou offre spéciale, si retenue" },
-          { "time": "17h00-17h30", "activity": "Jeux et participation des clients" },
-          { "time": "17h30-18h30", "activity": "Repas et divertissement" },
-          { "time": "18h30-19h00", "activity": "Tirage au sort" },
-          { "time": "19h00-19h10", "activity": "Remerciements finaux et photo de groupe" }
+        "basicActivities": [
+          "Accueillir les clients et transmettre clairement le message de remerciement",
+          "Décorer le lieu aux couleurs de KUBOTA",
+          "Préparer un espace d'exposition de produits et un espace photo",
+          "Fournir un repas et des boissons",
+          "Offrir un souvenir aux clients",
+          "Prévoir un divertissement, des jeux ou un tirage au sort"
         ],
-        "checklist": ["Au moins 50 clients sont confirmés.", "Les zones d'inscription, d'assises, de restauration, d'animation et de parking sont prêtes.", "Le fond de scène, l'espace photo et l'exposition de produits sont prêts.", "La nourriture et les boissons sont en quantité suffisante.", "Les souvenirs et les lots sont prêts.", "L'animateur et l'équipe comprennent le déroulement de l'activité.", "Si le service mobile est inclus, sa zone, ses techniciens, ses outils et ses pièces détachées sont prêts."],
+        "optionalActivities": [
+          "Zone de service mobile",
+          "Courte présentation de nouveaux produits",
+          "Offre spéciale",
+          "Parrainage (Friend Get Friend)",
+          "Divertissement ou chants"
+        ],
+        "schedule": [
+          {
+            "time": "16h00-16h30",
+            "activity": "Inscription, remise de souvenirs, visite des produits et photos"
+          },
+          {
+            "time": "16h30-16h40",
+            "activity": "Accueil et message de remerciement"
+          },
+          {
+            "time": "16h40-17h00",
+            "activity": "Courte actualité, présentation de nouveau produit ou offre spéciale, si retenue"
+          },
+          {
+            "time": "17h00-17h30",
+            "activity": "Jeux et participation des clients"
+          },
+          {
+            "time": "17h30-18h30",
+            "activity": "Repas et divertissement"
+          },
+          {
+            "time": "18h30-19h00",
+            "activity": "Tirage au sort"
+          },
+          {
+            "time": "19h00-19h10",
+            "activity": "Remerciements finaux et photo de groupe"
+          }
+        ],
+        "checklist": [
+          "Au moins 50 clients sont confirmés.",
+          "Les zones d'inscription, d'assises, de restauration, d'animation et de parking sont prêtes.",
+          "Le fond de scène, l'espace photo et l'exposition de produits sont prêts.",
+          "La nourriture et les boissons sont en quantité suffisante.",
+          "Les souvenirs et les lots sont prêts.",
+          "L'animateur et l'équipe comprennent le déroulement de l'activité.",
+          "Si le service mobile est inclus, sa zone, ses techniciens, ses outils et ses pièces détachées sont prêts."
+        ],
         "tip": "Une activité de reconnaissance et de relation client. L'ambiance doit être chaleureuse et agréable, sans trop insister sur la vente.",
         "resources": [
-          { "title": "Manuel de l'activité de remerciement client (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
-          { "title": "Manuel de l'activité de remerciement client (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
+          {
+            "title": "Manuel de l'activité de remerciement client (EN)",
+            "lang": "EN",
+            "type": "docx",
+            "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view"
+          },
+          {
+            "title": "Manuel de l'activité de remerciement client (TH)",
+            "lang": "TH",
+            "type": "docx",
+            "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view"
+          }
         ]
       }
     ],
     "resources": [
-      { "title": "KUBOTA Activity Standard — tableau comparatif des 4 activités (EN, tableur)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
-      { "title": "KUBOTA Activity Standard — tableau comparatif des 4 activités (TH, tableur)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
-      { "title": "Vidéo phare des événements Kubota", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      {
+        "title": "KUBOTA Activity Standard — tableau comparatif des 4 activités (EN, tableur)",
+        "lang": "EN",
+        "type": "xlsx",
+        "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view"
+      },
+      {
+        "title": "KUBOTA Activity Standard — tableau comparatif des 4 activités (TH, tableur)",
+        "lang": "TH",
+        "type": "xlsx",
+        "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view"
+      },
+      {
+        "title": "Vidéo phare des événements Kubota",
+        "lang": "EN",
+        "type": "video",
+        "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4"
+      }
     ],
     "videosTitle": "Vidéos",
     "downloadsTitle": "Téléchargements",
@@ -789,7 +1910,10 @@
   "materials": {
     "title": "Supports marketing",
     "intro": "Ressources marketing pour les concessionnaires — supports prêts à l'emploi fournis par l'entreprise, et un outil pour créer les vôtres en quelques clics.",
-    "tabs": { "company": "Supports fournis par l'entreprise", "custom": "Créez les vôtres, en un clic" },
+    "tabs": {
+      "company": "Supports fournis par l'entreprise",
+      "custom": "Créez les vôtres, en un clic"
+    },
     "company": {
       "title": "Supports fournis par l'entreprise",
       "intro": "Fichiers graphiques, bannières, affiches et supports prêts à l'emploi de KUBOTA que les concessionnaires peuvent utiliser immédiatement.",
@@ -799,8 +1923,22 @@
           "title": "Supports de connaissance produit",
           "intro": "Brochures et fiches techniques pour les clients qui veulent approfondir leur connaissance des produits.",
           "items": [
-            { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Dépliant ZT Plus Afrique, page 1 — tableaux de spécifications du moteur et du motoculteur, avec un agriculteur tenant le badge No.1 Global Brand" }, "title": "Dépliant ZT Plus Afrique (page 1)", "format": "Dépliant A4" },
-            { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Dépliant ZT Plus Afrique, page 2 — photo du moteur avec ses points forts et un tableau de puissance par modèle" }, "title": "Dépliant ZT Plus Afrique (page 2)", "format": "Dépliant A4" }
+            {
+              "image": {
+                "src": "assets/img/materials/leaflet-01.jpg",
+                "alt": "Dépliant ZT Plus Afrique, page 1 — tableaux de spécifications du moteur et du motoculteur, avec un agriculteur tenant le badge No.1 Global Brand"
+              },
+              "title": "Dépliant ZT Plus Afrique (page 1)",
+              "format": "Dépliant A4"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/leaflet-02.jpg",
+                "alt": "Dépliant ZT Plus Afrique, page 2 — photo du moteur avec ses points forts et un tableau de puissance par modèle"
+              },
+              "title": "Dépliant ZT Plus Afrique (page 2)",
+              "format": "Dépliant A4"
+            }
           ]
         },
         {
@@ -808,10 +1946,38 @@
           "title": "Supports pour l'organisation d'événements",
           "intro": "Kakémonos, fanions et banderoles pour décorer un point de vente ou un espace événementiel.",
           "items": [
-            { "image": { "src": "assets/img/materials/rollup-company.jpg", "alt": "Kakémono de présentation de Siam Kubota, avec une carte du monde et les avantages pour les concessionnaires" }, "title": "Kakémono de présentation de l'entreprise", "format": "Kakémono 85×200 cm" },
-            { "image": { "src": "assets/img/materials/rollup-product.jpg", "alt": "Kakémono mettant en avant les points forts du moteur diesel et du motoculteur KUBOTA" }, "title": "Kakémono des points forts produit", "format": "Kakémono 85×200 cm" },
-            { "image": { "src": "assets/img/materials/bunting-thankyou.jpg", "alt": "Bande de 6 fanions triangulaires pour un événement Thank You Day en Tanzanie" }, "title": "Fanions pour le Thank You Day", "format": "Fanions 30×30 cm" },
-            { "image": { "src": "assets/img/materials/banner-thankyou.jpg", "alt": "Banderole pour un événement Thank You Day en Tanzanie, avec un agriculteur et le motoculteur" }, "title": "Banderole pour le Thank You Day", "format": "Banderole 2×4 m" }
+            {
+              "image": {
+                "src": "assets/img/materials/rollup-company.jpg",
+                "alt": "Kakémono de présentation de Siam Kubota, avec une carte du monde et les avantages pour les concessionnaires"
+              },
+              "title": "Kakémono de présentation de l'entreprise",
+              "format": "Kakémono 85×200 cm"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/rollup-product.jpg",
+                "alt": "Kakémono mettant en avant les points forts du moteur diesel et du motoculteur KUBOTA"
+              },
+              "title": "Kakémono des points forts produit",
+              "format": "Kakémono 85×200 cm"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/bunting-thankyou.jpg",
+                "alt": "Bande de 6 fanions triangulaires pour un événement Thank You Day en Tanzanie"
+              },
+              "title": "Fanions pour le Thank You Day",
+              "format": "Fanions 30×30 cm"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/banner-thankyou.jpg",
+                "alt": "Banderole pour un événement Thank You Day en Tanzanie, avec un agriculteur et le motoculteur"
+              },
+              "title": "Banderole pour le Thank You Day",
+              "format": "Banderole 2×4 m"
+            }
           ]
         },
         {
@@ -819,8 +1985,22 @@
           "title": "Autres supports marketing",
           "intro": "Chevalets de comptoir pour le point de vente, présentant l'ensemble de la gamme de produits.",
           "items": [
-            { "image": { "src": "assets/img/materials/tentcard-01.jpg", "alt": "Chevalet présentant l'ensemble de la gamme de produits, page 1 — photo du moteur et logo No.1 Global Brand" }, "title": "Chevalet de gamme de produits (page 1)", "format": "Chevalet A4" },
-            { "image": { "src": "assets/img/materials/tentcard-02.jpg", "alt": "Chevalet présentant l'ensemble de la gamme de produits, page 2 — motoculteurs TRA CHANG NC Plus X et NC Plus X Special" }, "title": "Chevalet de gamme de produits (page 2)", "format": "Chevalet A4" }
+            {
+              "image": {
+                "src": "assets/img/materials/tentcard-01.jpg",
+                "alt": "Chevalet présentant l'ensemble de la gamme de produits, page 1 — photo du moteur et logo No.1 Global Brand"
+              },
+              "title": "Chevalet de gamme de produits (page 1)",
+              "format": "Chevalet A4"
+            },
+            {
+              "image": {
+                "src": "assets/img/materials/tentcard-02.jpg",
+                "alt": "Chevalet présentant l'ensemble de la gamme de produits, page 2 — motoculteurs TRA CHANG NC Plus X et NC Plus X Special"
+              },
+              "title": "Chevalet de gamme de produits (page 2)",
+              "format": "Chevalet A4"
+            }
           ]
         }
       ],
@@ -832,11 +2012,22 @@
     "intro": "Concevez vous-même votre banderole et votre kakémono de point de vente. Renseignez les informations de votre point de vente et téléchargez un fichier haute résolution prêt à imprimer instantanément — sans attendre un graphiste.",
     "formTitle": "Détails de conception",
     "sizeLabel": "Taille du support",
-    "sizes": { "banner": "Banderole (3 m de large x 1 m de haut)", "standee": "Kakémono (160 cm de haut x 80 cm de large)" },
+    "sizes": {
+      "banner": "Banderole (3 m de large x 1 m de haut)",
+      "standee": "Kakémono (160 cm de haut x 80 cm de large)"
+    },
     "bgStyleLabel": "Style de fond",
-    "bgStyles": { "diagonal": "Diagonale orange", "dark": "Sombre et premium", "frame": "Cadre classique" },
+    "bgStyles": {
+      "diagonal": "Diagonale orange",
+      "dark": "Sombre et premium",
+      "frame": "Cadre classique"
+    },
     "productLabel": "Produit à mettre en avant",
-    "products": { "engine": "Moteur diesel ZT Plus", "tiller": "Motoculteur TRA CHANG NC Plus X", "both": "Les deux produits" },
+    "products": {
+      "engine": "Moteur diesel ZT Plus",
+      "tiller": "Motoculteur TRA CHANG NC Plus X",
+      "both": "Les deux produits"
+    },
     "shopNameLabel": "Nom du point de vente / concessionnaire",
     "shopNamePlaceholder": "ex. Boutique Agri S.",
     "contactLabel": "Adresse / Téléphone / WhatsApp",
@@ -848,14 +2039,25 @@
     "bodyLabel": "Texte de détail (le plus petit)",
     "bodyPlaceholder": "ex. Conditions générales applicables. Contactez-nous pour plus de détails.",
     "textStyleLabel": "Couleur du texte du titre",
-    "textStyles": { "orange": "Orange-or brillant", "chrome": "Chrome argenté", "red": "Rouge intense" },
+    "textStyles": {
+      "orange": "Orange-or brillant",
+      "chrome": "Chrome argenté",
+      "red": "Rouge intense"
+    },
     "textPositionLabel": "Ajuster la position/taille du titre",
     "textOffsetXLabel": "Décaler gauche-droite",
     "textOffsetYLabel": "Décaler haut-bas",
     "textScaleLabel": "Taille du texte",
     "textRotationLabel": "Rotation/Inclinaison du texte",
     "dragHint": "Oui, c'est modifiable ! Faites glisser le logo, le texte ou l'image du produit directement dans l'aperçu avec la souris ou le doigt pour le repositionner (double-cliquez pour réinitialiser).",
-    "decorations": { "label": "Logos décoratifs supplémentaires (facultatif)", "man": "Agriculteur souriant qui encourage", "manAlt": "Agriculteur souriant faisant un pouce levé, autocollant décoratif pour le support", "no1": "Badge \"No.1 Global Brand\"", "no1Alt": "Badge \"No.1 Global Brand with 3.5 Million Units Sold\"", "sizeLabel": "Taille" },
+    "decorations": {
+      "label": "Logos décoratifs supplémentaires (facultatif)",
+      "man": "Agriculteur souriant qui encourage",
+      "manAlt": "Agriculteur souriant faisant un pouce levé, autocollant décoratif pour le support",
+      "no1": "Badge \"No.1 Global Brand\"",
+      "no1Alt": "Badge \"No.1 Global Brand with 3.5 Million Units Sold\"",
+      "sizeLabel": "Taille"
+    },
     "previewTitle": "Aperçu",
     "downloadButton": "Télécharger le fichier prêt à imprimer",
     "downloadingLabel": "Génération du fichier...",
@@ -865,7 +2067,11 @@
   "order": {
     "title": "Commander produits et pièces",
     "intro": "Parcourez les moteurs Kubota, les motoculteurs Tra Chang et les pièces détachées recommandées, ajoutez-les à votre panier, puis générez un bon de commande (PO) et une facture proforma (PI) — un prototype fonctionnel du parcours de commande.",
-    "tabs": { "catalog": "Catalogue et panier", "checkout": "Paiement et documents", "tracking": "Suivi de l'expédition" },
+    "tabs": {
+      "catalog": "Catalogue et panier",
+      "checkout": "Paiement et documents",
+      "tracking": "Suivi de l'expédition"
+    },
     "catalog": {
       "modelLabel": "Choisir un modèle",
       "productHeading": "Produit",
@@ -877,7 +2083,13 @@
       "fullCatalogHeading": "Catalogue complet des pièces",
       "fullCatalogIntro": "Toutes les pièces pour ce modèle, regroupées selon leur fréquence d'utilisation. Filtrez ou recherchez par référence / nom.",
       "groupAll": "Tous les groupes",
-      "groupLabels": { "X": "Périodique", "S": "Consommable", "A": "Réparation fréquente", "B": "Réparation rare", "C": "Sous garantie" },
+      "groupLabels": {
+        "X": "Périodique",
+        "S": "Consommable",
+        "A": "Réparation fréquente",
+        "B": "Réparation rare",
+        "C": "Sous garantie"
+      },
       "searchPlaceholder": "Rechercher une référence ou un nom...",
       "colPartNo": "Référence",
       "colName": "Nom",
@@ -896,7 +2108,14 @@
       "emptyBody": "Ajoutez d'abord un produit ou des pièces depuis l'onglet Catalogue.",
       "backToCatalog": "Retour au catalogue",
       "step1Title": "1. Informations acheteur",
-      "fields": { "company": "Nom de la société", "address": "Adresse de livraison", "contact": "Nom du contact", "email": "E-mail", "phone": "Téléphone / WhatsApp", "destination": "Destination finale (pays/port)" },
+      "fields": {
+        "company": "Nom de la société",
+        "address": "Adresse de livraison",
+        "contact": "Nom du contact",
+        "email": "E-mail",
+        "phone": "Téléphone / WhatsApp",
+        "destination": "Destination finale (pays/port)"
+      },
       "step2Title": "2. Vérifier la commande",
       "colQty": "Qté",
       "colUnitPrice": "Prix unitaire (USD)",
@@ -928,7 +2147,14 @@
       "lookupBtn": "Suivre",
       "recentHeading": "Vos commandes de démonstration récentes",
       "notFoundNote": "Numéro introuvable parmi les commandes de démonstration de ce navigateur — affichage d'un exemple de suivi à la place.",
-      "stages": { "orderConfirmed": "Commande confirmée", "paymentReceived": "Paiement reçu", "production": "Production", "shipped": "Expédié", "customs": "Dédouanement", "delivered": "Livré" },
+      "stages": {
+        "orderConfirmed": "Commande confirmée",
+        "paymentReceived": "Paiement reçu",
+        "production": "Production",
+        "shipped": "Expédié",
+        "customs": "Dédouanement",
+        "delivered": "Livré"
+      },
       "disclaimer": "Suivi de démonstration uniquement — les étapes avancent automatiquement en quelques minutes pour simuler le processus réel de 1 à 2 mois. Aucune donnée logistique en direct n'est connectée."
     }
   },
