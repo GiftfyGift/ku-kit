@@ -246,7 +246,7 @@ function renderPreDeliveryBlock(pd, id) {
     <div class="category-block" id="${id}">
       <h3 class="category-heading">${pd.title}</h3>
       <p class="section-intro">${pd.intro}</p>
-      <div class="check-points">
+      <div class="check-points ${pd.points.length === 5 ? 'check-points--five' : ''}">
         ${pd.points.map(pt => `
           <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
             ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
