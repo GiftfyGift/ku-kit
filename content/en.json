@@ -14,7 +14,7 @@
       { "icon": "🔧", "title": "Parts", "desc": "How to find and order genuine parts, with recommended stock lists by model.", "target": "parts" },
       { "icon": "🛠️", "title": "Service", "desc": "Maintenance steps for the engine and power tiller, plus after-sales service.", "target": "service" },
       { "icon": "🌾", "title": "Crop Solutions", "desc": "How to match the right power tiller setup to wet paddy, dry paddy, cassava, and corn fields.", "target": "crops" },
-      { "icon": "📣", "title": "Events", "desc": "Four standard KUBOTA activity formats, plus the upcoming Dealer training and marketing events calendar.", "target": "marketing" },
+      { "icon": "📣", "title": "Events", "desc": "Four standard KUBOTA activity formats, with manuals and recommended items for each event.", "target": "marketing" },
       { "icon": "🖼️", "title": "Marketing Materials", "desc": "Design your own storefront banner and standee. Fill in your shop details and download a print-ready file instantly.", "target": "materials-custom" }
     ]
   },
@@ -925,17 +925,7 @@
     ],
     "videosTitle": "Videos",
     "downloadsTitle": "Downloads",
-    "upcomingEvents": {
-      "title": "Upcoming Events Calendar",
-      "intro": "Calendar of Dealer and Distributor events, plus highlights from past activities.",
-      "items": [
-        { "date": "Sample: Q3", "name": "Dealer Onboarding Training", "location": "Online / Hybrid", "desc": "Basic training on products, parts, and service for new Dealers." },
-        { "date": "Sample: Q4", "name": "Regional Roadshow", "location": "By region", "desc": "Product demos and market feedback collection." },
-        { "date": "Sample: Annual", "name": "Annual Distributor Meeting", "location": "Thailand", "desc": "Yearly performance review and next-year business plan." }
-      ],
-      "note": "The events above are a sample structure. Please replace with the real events calendar."
-    },
-    "note": "This page is based on the latest KUBOTA Activity Standard manuals. All four activities include downloadable Thai and English manuals, while the summary tables link to the latest files in Google Drive."
+    "note": "Activity manuals and summary documents follow the language selected on the website. Thai, English, and Swahili editions are currently available."
   },
   "materials": {
     "title": "Marketing Materials",
