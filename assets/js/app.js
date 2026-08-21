@@ -278,6 +278,22 @@ function renderStartProcedureBlock(sp, id) {
 
 function renderApplicationExamples(app, id) {
   if (!app) return '';
+  const applicationVideoTitle = ({
+    th: 'VDO ภาพการใช้งานกับ Application ต่างๆ',
+    en: 'Videos of Different Application Uses',
+    fr: "Vidéos d’utilisation pour différentes applications",
+    sw: 'Video za Matumizi katika Application Mbalimbali',
+    tl: 'Mga Video ng Iba’t Ibang Application'
+  })[state.lang] || 'Videos of Different Application Uses';
+  const applicationVideo = id === 'engine-application'
+    ? (app.video || { title: applicationVideoTitle, type: 'youtube', youtubeId: 'CuETaLudUGg' })
+    : app.video;
+  const applicationVideoBlock = applicationVideo ? `
+    <div class="application-video-section">
+      <h3 class="application-video-heading">${applicationVideoTitle}</h3>
+      <div class="video-grid application-video-grid">${renderYouTubeEmbed(applicationVideo)}</div>
+    </div>
+  ` : '';
   // Preview branch: load the latest Application images directly from the
   // team's shared Drive folder so reviewers always see the newest uploads.
   if (app.categories && id === 'engine-application') {
@@ -344,7 +360,7 @@ function renderApplicationExamples(app, id) {
         data-application-panel="${categoryIdx}"${categoryIdx === 0 ? '' : ' hidden'}>
         <div class="application-picture-frame-heading">
           <span>Applications of Kubota Diesel Engines</span>
-          <strong>ZT <em>PLUS</em></strong>
+          <img src="https://drive.google.com/thumbnail?id=1CBjOziL8SgTOTQd-H-g_4SqkFWrE1AHt&sz=w1000" alt="ZT Plus" class="application-zt-plus-logo">
         </div>
         <div class="application-carousel-frame">
           <div class="application-carousel-track">
@@ -378,7 +394,7 @@ function renderApplicationExamples(app, id) {
           <div class="application-category-tabs" role="tablist" aria-label="${escapeHtml(ui.categoryLabel)}">${categoryTabs}</div>
           ${categoryPanels}
         </div>
-        ${app.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(app.video)}</div>` : ''}
+        ${applicationVideoBlock}
       </div>
     `;
   }
@@ -392,7 +408,7 @@ function renderApplicationExamples(app, id) {
       <h3 class="category-heading">${app.title}</h3>
       ${app.intro ? `<p class="section-intro">${app.intro}</p>` : ''}
       <div class="application-gallery">${images}</div>
-      ${app.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(app.video)}</div>` : ''}
+      ${applicationVideoBlock}
     </div>
   `;
 }
