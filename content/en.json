@@ -66,6 +66,7 @@
           { "title": "LED headlamp", "desc": "Bright LED headlamp for safe night-time operation; the PRO model adds turn signals and a USB charging port.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Close-up of the bright LED headlamp on the ZT Plus engine" } }
         ],
         "media": {
+          "video": { "title": "New ZT Plus !", "type": "youtube", "youtubeId": "j6E9DlfWZNg" },
           "files": [
             { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view" }
           ]
