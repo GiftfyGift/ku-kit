@@ -278,6 +278,58 @@ function renderStartProcedureBlock(sp, id) {
 
 function renderApplicationExamples(app, id) {
   if (!app) return '';
+  if (app.categories && app.categories.length) {
+    const ui = Object.assign({
+      categoryLabel: 'Select application category',
+      previous: 'Previous image',
+      next: 'Next image',
+      openImage: 'Open image'
+    }, app.ui || {});
+    const categoryTabs = app.categories.map((category, categoryIdx) => `
+      <button type="button" class="application-category-tab${categoryIdx === 0 ? ' active' : ''}"
+        role="tab" aria-selected="${categoryIdx === 0}" aria-controls="application-panel-${id}-${categoryIdx}"
+        id="application-tab-${id}-${categoryIdx}" data-application-tab="${categoryIdx}">${category.title}</button>
+    `).join('');
+    const categoryPanels = app.categories.map((category, categoryIdx) => `
+      <section class="application-carousel-panel" id="application-panel-${id}-${categoryIdx}"
+        role="tabpanel" aria-labelledby="application-tab-${id}-${categoryIdx}"
+        data-application-panel="${categoryIdx}"${categoryIdx === 0 ? '' : ' hidden'}>
+        <div class="application-carousel-frame">
+          <div class="application-carousel-track">
+            ${category.items.map((item, itemIdx) => `
+              <button type="button" class="application-carousel-slide" data-application-slide
+                data-title="${escapeHtml(item.title)}" data-lightbox-src="${item.src}"
+                data-lightbox-alt="${escapeHtml(item.alt || item.title)}" data-lightbox-caption="${escapeHtml(item.title)}"
+                aria-label="${escapeHtml(ui.openImage)}: ${escapeHtml(item.title)}">
+                <span class="application-slide-backdrop" style="background-image:url('${item.src}')" aria-hidden="true"></span>
+                <img src="${item.src}" alt="${escapeHtml(item.alt || item.title)}" loading="${categoryIdx === 0 && itemIdx === 0 ? 'eager' : 'lazy'}">
+              </button>
+            `).join('')}
+          </div>
+          <button type="button" class="application-carousel-arrow application-carousel-arrow--prev" data-application-prev aria-label="${escapeHtml(ui.previous)}">‹</button>
+          <button type="button" class="application-carousel-arrow application-carousel-arrow--next" data-application-next aria-label="${escapeHtml(ui.next)}">›</button>
+          <span class="application-carousel-count" data-application-count>01 / ${String(category.items.length).padStart(2, '0')}</span>
+        </div>
+        <div class="application-carousel-meta">
+          <h4 data-application-caption>${category.items[0]?.title || ''}</h4>
+          <div class="application-carousel-dots" role="group" aria-label="${escapeHtml(category.title)}">
+            ${category.items.map((item, itemIdx) => `<button type="button" class="application-carousel-dot${itemIdx === 0 ? ' active' : ''}" data-application-dot="${itemIdx}" aria-label="${itemIdx + 1}: ${escapeHtml(item.title)}"></button>`).join('')}
+          </div>
+        </div>
+      </section>
+    `).join('');
+    return `
+      <div class="category-block"${id ? ` id="${id}"` : ''}>
+        <h3 class="category-heading">${app.title}</h3>
+        ${app.intro ? `<p class="section-intro">${app.intro}</p>` : ''}
+        <div class="application-showcase" data-application-showcase>
+          <div class="application-category-tabs" role="tablist" aria-label="${escapeHtml(ui.categoryLabel)}">${categoryTabs}</div>
+          ${categoryPanels}
+        </div>
+        ${app.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(app.video)}</div>` : ''}
+      </div>
+    `;
+  }
   const images = app.images.map(img => `
     <figure class="application-photo">
       <img src="${img.src}" alt="${img.alt}">
@@ -291,6 +343,63 @@ function renderApplicationExamples(app, id) {
       ${app.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(app.video)}</div>` : ''}
     </div>
   `;
+}
+
+let applicationCarouselTimers = [];
+
+function initApplicationCarousels() {
+  applicationCarouselTimers.forEach(clearInterval);
+  applicationCarouselTimers = [];
+
+  app.querySelectorAll('[data-application-showcase]').forEach(showcase => {
+    const tabs = Array.from(showcase.querySelectorAll('[data-application-tab]'));
+    const panels = Array.from(showcase.querySelectorAll('[data-application-panel]'));
+
+    panels.forEach(panel => {
+      const track = panel.querySelector('.application-carousel-track');
+      const slides = Array.from(panel.querySelectorAll('[data-application-slide]'));
+      const dots = Array.from(panel.querySelectorAll('[data-application-dot]'));
+      const caption = panel.querySelector('[data-application-caption]');
+      const count = panel.querySelector('[data-application-count]');
+      let current = 0;
+      let touchStartX = 0;
+
+      const showSlide = index => {
+        current = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${current * 100}%)`;
+        dots.forEach((dot, dotIdx) => dot.classList.toggle('active', dotIdx === current));
+        caption.textContent = slides[current]?.dataset.title || '';
+        count.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+      };
+
+      panel.querySelector('[data-application-prev]')?.addEventListener('click', () => showSlide(current - 1));
+      panel.querySelector('[data-application-next]')?.addEventListener('click', () => showSlide(current + 1));
+      dots.forEach(dot => dot.addEventListener('click', () => showSlide(Number(dot.dataset.applicationDot))));
+      panel.addEventListener('touchstart', event => { touchStartX = event.changedTouches[0].clientX; }, { passive: true });
+      panel.addEventListener('touchend', event => {
+        const delta = event.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(delta) > 45) showSlide(current + (delta < 0 ? 1 : -1));
+      }, { passive: true });
+
+      if (slides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const timer = setInterval(() => {
+          if (!panel.hidden && !document.hidden) showSlide(current + 1);
+        }, 4800);
+        applicationCarouselTimers.push(timer);
+      }
+    });
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const selected = Number(tab.dataset.applicationTab);
+        tabs.forEach((item, idx) => {
+          item.classList.toggle('active', idx === selected);
+          item.setAttribute('aria-selected', String(idx === selected));
+        });
+        panels.forEach((panel, idx) => { panel.hidden = idx !== selected; });
+      });
+    });
+  });
 }
 
 function renderAuthenticityBlock(auth, id) {
@@ -2904,6 +3013,7 @@ function render() {
   });
 
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
+  if (state.route === 'product' || state.route === 'product-engine') initApplicationCarousels();
   if (state.route === 'marketing') initActivityCards(c);
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
   if (state.route === 'order-checkout') initOrderCheckoutPage(c);
