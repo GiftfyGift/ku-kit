@@ -119,12 +119,12 @@
             "items": [
               {
                 "title": "การเตรียมดิน",
-                "src": "assets/img/product/application/carousel/power-tiller-soil-preparation.png",
+                "src": "assets/img/product/application/power-tiller-soil-preparation.png",
                 "alt": "การเตรียมดิน — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "การขนส่งด้วยรถไถเดินตาม",
-                "src": "assets/img/product/application/carousel/power-tiller-transportation.png",
+                "src": "assets/img/product/application/power-tiller-transportation.png",
                 "alt": "การขนส่งด้วยรถไถเดินตาม — KUBOTA ZT Plus engine application"
               }
             ]
@@ -135,27 +135,27 @@
             "items": [
               {
                 "title": "รถขนส่งทางการเกษตร",
-                "src": "assets/img/product/application/carousel/transport-agricultural-hauler.png",
+                "src": "assets/img/product/application/transport-agricultural-hauler.png",
                 "alt": "รถขนส่งทางการเกษตร — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถบรรทุกดัดแปลง",
-                "src": "assets/img/product/application/carousel/transport-decorated-cargo-truck.png",
+                "src": "assets/img/product/application/transport-decorated-cargo-truck.png",
                 "alt": "รถบรรทุกดัดแปลง — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถดัมพ์ขนาดเล็ก",
-                "src": "assets/img/product/application/carousel/transport-mini-dump-truck.png",
+                "src": "assets/img/product/application/transport-mini-dump-truck.png",
                 "alt": "รถดัมพ์ขนาดเล็ก — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถอเนกประสงค์สำหรับขนส่ง",
-                "src": "assets/img/product/application/carousel/transport-utility-vehicle.png",
+                "src": "assets/img/product/application/transport-utility-vehicle.png",
                 "alt": "รถอเนกประสงค์สำหรับขนส่ง — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถพ่วงขนส่งทางการเกษตร",
-                "src": "assets/img/product/application/carousel/transport-farm-trailer.png",
+                "src": "assets/img/product/application/transport-farm-trailer.png",
                 "alt": "รถพ่วงขนส่งทางการเกษตร — KUBOTA ZT Plus engine application"
               }
             ]
@@ -166,22 +166,22 @@
             "items": [
               {
                 "title": "ปั๊มน้ำเคลื่อนที่",
-                "src": "assets/img/product/application/carousel/water-pump-mobile.png",
+                "src": "assets/img/product/application/water-pump-mobile.png",
                 "alt": "ปั๊มน้ำเคลื่อนที่ — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "ปั๊มน้ำระบบสายพาน",
-                "src": "assets/img/product/application/carousel/water-pump-belt-driven.png",
+                "src": "assets/img/product/application/water-pump-belt-driven.png",
                 "alt": "ปั๊มน้ำระบบสายพาน — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "ปั๊มน้ำเคลื่อนที่เพื่อการชลประทาน",
-                "src": "assets/img/product/application/carousel/water-pump-irrigation.png",
+                "src": "assets/img/product/application/water-pump-irrigation.png",
                 "alt": "ปั๊มน้ำเคลื่อนที่เพื่อการชลประทาน — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "ปั๊มน้ำติดตั้งบนรถพ่วง",
-                "src": "assets/img/product/application/carousel/water-pump-trailer-mounted.png",
+                "src": "assets/img/product/application/water-pump-trailer-mounted.png",
                 "alt": "ปั๊มน้ำติดตั้งบนรถพ่วง — KUBOTA ZT Plus engine application"
               }
             ]
@@ -192,17 +192,17 @@
             "items": [
               {
                 "title": "มินิแทรกเตอร์ดัดแปลงพร้อมอุปกรณ์การเกษตร",
-                "src": "assets/img/product/application/carousel/mini-tractor-implements.png",
+                "src": "assets/img/product/application/mini-tractor-implements.png",
                 "alt": "มินิแทรกเตอร์ดัดแปลงพร้อมอุปกรณ์การเกษตร — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "มินิแทรกเตอร์ดัดแปลง 4 ล้อ",
-                "src": "assets/img/product/application/carousel/mini-tractor-four-wheel.png",
+                "src": "assets/img/product/application/mini-tractor-four-wheel.png",
                 "alt": "มินิแทรกเตอร์ดัดแปลง 4 ล้อ — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "มินิแทรกเตอร์ดัดแปลง 3 ล้อ",
-                "src": "assets/img/product/application/carousel/mini-tractor-three-wheel.png",
+                "src": "assets/img/product/application/mini-tractor-three-wheel.png",
                 "alt": "มินิแทรกเตอร์ดัดแปลง 3 ล้อ — KUBOTA ZT Plus engine application"
               }
             ]
@@ -213,32 +213,32 @@
             "items": [
               {
                 "title": "เครื่องตอกเสาเข็มไมโครไพล์",
-                "src": "assets/img/product/application/carousel/construction-micropile-machine.png",
+                "src": "assets/img/product/application/construction-micropile-machine.png",
                 "alt": "เครื่องตอกเสาเข็มไมโครไพล์ — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถดัมพ์ แบบที่ 1",
-                "src": "assets/img/product/application/carousel/construction-dumper-1.png",
+                "src": "assets/img/product/application/construction-dumper-1.png",
                 "alt": "รถดัมพ์ แบบที่ 1 — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถดัมพ์ แบบที่ 2",
-                "src": "assets/img/product/application/carousel/construction-dumper-2.png",
+                "src": "assets/img/product/application/construction-dumper-2.png",
                 "alt": "รถดัมพ์ แบบที่ 2 — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถผสมคอนกรีต แบบที่ 1",
-                "src": "assets/img/product/application/carousel/construction-concrete-mixer-1.png",
+                "src": "assets/img/product/application/construction-concrete-mixer-1.png",
                 "alt": "รถผสมคอนกรีต แบบที่ 1 — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถผสมคอนกรีต แบบที่ 2",
-                "src": "assets/img/product/application/carousel/construction-concrete-mixer-2.png",
+                "src": "assets/img/product/application/construction-concrete-mixer-2.png",
                 "alt": "รถผสมคอนกรีต แบบที่ 2 — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องพ่นคอนกรีต",
-                "src": "assets/img/product/application/carousel/construction-concrete-sprayer.png",
+                "src": "assets/img/product/application/construction-concrete-sprayer.png",
                 "alt": "เครื่องพ่นคอนกรีต — KUBOTA ZT Plus engine application"
               }
             ]
@@ -249,12 +249,12 @@
             "items": [
               {
                 "title": "พัดลม EVAP สำหรับระบบทำความเย็น",
-                "src": "assets/img/product/application/carousel/livestock-evap-fan.png",
+                "src": "assets/img/product/application/livestock-evap-fan.png",
                 "alt": "พัดลม EVAP สำหรับระบบทำความเย็น — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องเติมอากาศในฟาร์มกุ้ง",
-                "src": "assets/img/product/application/carousel/livestock-shrimp-aerator.png",
+                "src": "assets/img/product/application/livestock-shrimp-aerator.png",
                 "alt": "เครื่องเติมอากาศในฟาร์มกุ้ง — KUBOTA ZT Plus engine application"
               }
             ]
@@ -265,42 +265,42 @@
             "items": [
               {
                 "title": "รถตัดหญ้าแบบนั่งขับ",
-                "src": "assets/img/product/application/carousel/other-riding-grass-mower.png",
+                "src": "assets/img/product/application/other-riding-grass-mower.png",
                 "alt": "รถตัดหญ้าแบบนั่งขับ — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องอัดฟาง",
-                "src": "assets/img/product/application/carousel/other-straw-baler.png",
+                "src": "assets/img/product/application/other-straw-baler.png",
                 "alt": "เครื่องอัดฟาง — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องนวดข้าว",
-                "src": "assets/img/product/application/carousel/other-rice-thresher.png",
+                "src": "assets/img/product/application/other-rice-thresher.png",
                 "alt": "เครื่องนวดข้าว — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องกำเนิดไฟฟ้าสำหรับชาร์จโดรน",
-                "src": "assets/img/product/application/carousel/other-generator-drone-charger.png",
+                "src": "assets/img/product/application/other-generator-drone-charger.png",
                 "alt": "เครื่องกำเนิดไฟฟ้าสำหรับชาร์จโดรน — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องผสมอาหารสัตว์",
-                "src": "assets/img/product/application/carousel/other-animal-feed-mixer.png",
+                "src": "assets/img/product/application/other-animal-feed-mixer.png",
                 "alt": "เครื่องผสมอาหารสัตว์ — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องตัดหญ้า",
-                "src": "assets/img/product/application/carousel/other-lawn-mower.png",
+                "src": "assets/img/product/application/other-lawn-mower.png",
                 "alt": "เครื่องตัดหญ้า — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "รถอเนกประสงค์",
-                "src": "assets/img/product/application/carousel/other-multi-purpose-vehicle.png",
+                "src": "assets/img/product/application/other-multi-purpose-vehicle.png",
                 "alt": "รถอเนกประสงค์ — KUBOTA ZT Plus engine application"
               },
               {
                 "title": "เครื่องสับมันสำปะหลัง",
-                "src": "assets/img/product/application/carousel/other-cassava-chopper.jpg",
+                "src": "assets/img/product/application/other-cassava-chopper.jpg",
                 "alt": "เครื่องสับมันสำปะหลัง — KUBOTA ZT Plus engine application"
               }
             ]
