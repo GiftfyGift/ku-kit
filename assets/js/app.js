@@ -314,6 +314,17 @@ function renderApplicationExamples(app, id) {
         ['Produce Hauling Truck', '1DyK82k73jrwG2Io3UGADWmvyWyXkrn57'],
         ['Farm Utility Truck', '1O-pl5IbL96-tu88CXqtglO3wXsRDHbr3']
       ],
+      'water-pump': [
+        ['Mobile Water Pump', '1Z7d1YBZGtKxcjHB-mQKwxfYbwCiCXYoy'],
+        ['Belt-Driven Water Pump', '1xsKrPXEZCU8ZmX1a8_KhCNJOZfZMU-9J'],
+        ['Mobile Irrigation Pump', '1-UHEQjSlR8JbNZ8zn_rRy4eSO1Mdel_y'],
+        ['Trailer-Mounted Water Pump', '1182081tivPg3ljSVFDiwNV6X9a_boCM6']
+      ],
+      'mini-tractor': [
+        ['Modified Mini Tractor with Agricultural Implements', '1k96uroo8gVe5vag1OcEJgK0IpFd4jF7K'],
+        ['Four-Wheel Modified Mini Tractor', '1hWFm6gqiSZL66_PYWBOEojxiuW2cpuf1'],
+        ['Three-Wheel Modified Mini Tractor', '1HjzQbEitwkjdl8RePop_e8nEDTKbazdN']
+      ],
       construction: [
         ['Micropile Machine', '1dooxmQ9TS2hnHlR58jPno38bLYVV4Udq'],
         ['Dumper 1', '11ghPhxghwfLED2VEerfE1OtnXEhcIXWs'],
@@ -321,6 +332,10 @@ function renderApplicationExamples(app, id) {
         ['Concrete Mixer Truck 1', '1Hn0ui95lAtpFawXixmlgmeGxlExHt3YY'],
         ['Concrete Mixer Truck 2', '1YaSQ12PL02GcNYf43YQPSDYXWW062n0N'],
         ['Concrete Sprayer', '1E_b3JZj8w6Xdf8pxNpYxlS5EX7SEHxrZ']
+      ],
+      livestock: [
+        ['EVAP Fan (Evaporative Cooling Fan)', '14shGqImHz9U4IkWXjj9WXwe8Nnr4Gla5'],
+        ['Shrimp Farm Aerator', '1SGyiz6GMYZ1Lo4QKnXtGHHcbEstnbBlK']
       ],
       'other-agricultural': [
         ['Riding Grass Mower', '1svMx-n_u33BimwuWLjwYfYA_63KMN4qv'],
