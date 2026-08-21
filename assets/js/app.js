@@ -507,6 +507,7 @@ function renderService(c) {
         <h4>${pt.title}</h4>
         <p class="desc">${pt.desc}</p>
         <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
+        ${pt.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(pt.video)}</div>` : ''}
       </div>
     </div>
   `).join('');
