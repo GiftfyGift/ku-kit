@@ -103,9 +103,205 @@
       "applicationExamples": {
         "title": "Mga Halimbawa ng Application",
         "intro": "Ang KUBOTA ZT Plus diesel engine ay maaaring i-install sa iba't ibang kagamitan — mula sa paghahanda ng lupa, transportasyon, at pagsasalok ng tubig hanggang sa gawaing konstruksyon, mga sakahan ng hayop, at iba pang kagamitang pang-agrikultura o pang-hardin.",
-        "images": [
-          { "src": "assets/img/product/application/engine-application-en-01.jpg", "alt": "Mga halimbawa ng application ng ZT Plus engine — pagkabit sa power tiller, transportasyong pang-agrikultura, water pump, multi-purpose/modified na traktora, at sasakyang pang-konstruksyon" },
-          { "src": "assets/img/product/application/engine-application-en-02.jpg", "alt": "Mga halimbawa ng application ng ZT Plus engine — gamit sa sakahan ng hayop, at iba pang kagamitang pang-agrikultura/pang-hardin" }
+        "ui": {
+          "categoryLabel": "Pumili ng kategorya ng application",
+          "previous": "Nakaraang larawan",
+          "next": "Susunod na larawan",
+          "openImage": "Palakihin ang larawan"
+        },
+        "categories": [
+          {
+            "id": "power-tiller",
+            "title": "Mga Gamit ng Power Tiller",
+            "items": [
+              {
+                "title": "Soil Preparation",
+                "src": "assets/img/product/application/carousel/power-tiller-soil-preparation.png",
+                "alt": "Soil Preparation — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Transportation with a Power Tiller",
+                "src": "assets/img/product/application/carousel/power-tiller-transportation.png",
+                "alt": "Transportation with a Power Tiller — KUBOTA ZT Plus engine application"
+              }
+            ]
+          },
+          {
+            "id": "transport",
+            "title": "Mga Sasakyang Pang-transport na Mataas ang Lakas",
+            "items": [
+              {
+                "title": "Agricultural Transport Vehicle",
+                "src": "assets/img/product/application/carousel/transport-agricultural-hauler.png",
+                "alt": "Agricultural Transport Vehicle — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Decorated Cargo Truck",
+                "src": "assets/img/product/application/carousel/transport-decorated-cargo-truck.png",
+                "alt": "Decorated Cargo Truck — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Mini Dump Truck",
+                "src": "assets/img/product/application/carousel/transport-mini-dump-truck.png",
+                "alt": "Mini Dump Truck — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Utility Transport Vehicle",
+                "src": "assets/img/product/application/carousel/transport-utility-vehicle.png",
+                "alt": "Utility Transport Vehicle — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Agricultural Transport Trailer",
+                "src": "assets/img/product/application/carousel/transport-farm-trailer.png",
+                "alt": "Agricultural Transport Trailer — KUBOTA ZT Plus engine application"
+              }
+            ]
+          },
+          {
+            "id": "water-pump",
+            "title": "Mga Gamit ng Water Pump",
+            "items": [
+              {
+                "title": "Mobile Water Pump",
+                "src": "assets/img/product/application/carousel/water-pump-mobile.png",
+                "alt": "Mobile Water Pump — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Belt-Driven Water Pump",
+                "src": "assets/img/product/application/carousel/water-pump-belt-driven.png",
+                "alt": "Belt-Driven Water Pump — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Mobile Irrigation Pump",
+                "src": "assets/img/product/application/carousel/water-pump-irrigation.png",
+                "alt": "Mobile Irrigation Pump — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Trailer-Mounted Water Pump",
+                "src": "assets/img/product/application/carousel/water-pump-trailer-mounted.png",
+                "alt": "Trailer-Mounted Water Pump — KUBOTA ZT Plus engine application"
+              }
+            ]
+          },
+          {
+            "id": "mini-tractor",
+            "title": "Modified / Mini Tractors",
+            "items": [
+              {
+                "title": "Modified Mini Tractor with Agricultural Implements",
+                "src": "assets/img/product/application/carousel/mini-tractor-implements.png",
+                "alt": "Modified Mini Tractor with Agricultural Implements — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Four-Wheel Modified Mini Tractor",
+                "src": "assets/img/product/application/carousel/mini-tractor-four-wheel.png",
+                "alt": "Four-Wheel Modified Mini Tractor — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Three-Wheel Modified Mini Tractor",
+                "src": "assets/img/product/application/carousel/mini-tractor-three-wheel.png",
+                "alt": "Three-Wheel Modified Mini Tractor — KUBOTA ZT Plus engine application"
+              }
+            ]
+          },
+          {
+            "id": "construction",
+            "title": "Mga Gamit sa Konstruksyon",
+            "items": [
+              {
+                "title": "Micropile Machine",
+                "src": "assets/img/product/application/carousel/construction-micropile-machine.png",
+                "alt": "Micropile Machine — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Dumper — Type 1",
+                "src": "assets/img/product/application/carousel/construction-dumper-1.png",
+                "alt": "Dumper — Type 1 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Dumper — Type 2",
+                "src": "assets/img/product/application/carousel/construction-dumper-2.png",
+                "alt": "Dumper — Type 2 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Concrete Mixer Truck — Type 1",
+                "src": "assets/img/product/application/carousel/construction-concrete-mixer-1.png",
+                "alt": "Concrete Mixer Truck — Type 1 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Concrete Mixer Truck — Type 2",
+                "src": "assets/img/product/application/carousel/construction-concrete-mixer-2.png",
+                "alt": "Concrete Mixer Truck — Type 2 — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Concrete Sprayer",
+                "src": "assets/img/product/application/carousel/construction-concrete-sprayer.png",
+                "alt": "Concrete Sprayer — KUBOTA ZT Plus engine application"
+              }
+            ]
+          },
+          {
+            "id": "livestock",
+            "title": "Livestock at Aquaculture",
+            "items": [
+              {
+                "title": "EVAP Fan (Evaporative Cooling Fan)",
+                "src": "assets/img/product/application/carousel/livestock-evap-fan.png",
+                "alt": "EVAP Fan (Evaporative Cooling Fan) — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Shrimp Farm Aerator",
+                "src": "assets/img/product/application/carousel/livestock-shrimp-aerator.png",
+                "alt": "Shrimp Farm Aerator — KUBOTA ZT Plus engine application"
+              }
+            ]
+          },
+          {
+            "id": "other-agricultural",
+            "title": "Iba Pang Kagamitang Pang-agrikultura",
+            "items": [
+              {
+                "title": "Riding Grass Mower",
+                "src": "assets/img/product/application/carousel/other-riding-grass-mower.png",
+                "alt": "Riding Grass Mower — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Straw Baler",
+                "src": "assets/img/product/application/carousel/other-straw-baler.png",
+                "alt": "Straw Baler — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Rice Thresher",
+                "src": "assets/img/product/application/carousel/other-rice-thresher.png",
+                "alt": "Rice Thresher — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Generator for Drone Charger",
+                "src": "assets/img/product/application/carousel/other-generator-drone-charger.png",
+                "alt": "Generator for Drone Charger — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Animal Feed Mixer",
+                "src": "assets/img/product/application/carousel/other-animal-feed-mixer.png",
+                "alt": "Animal Feed Mixer — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Lawn Mower",
+                "src": "assets/img/product/application/carousel/other-lawn-mower.png",
+                "alt": "Lawn Mower — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Multi-Purpose Vehicle",
+                "src": "assets/img/product/application/carousel/other-multi-purpose-vehicle.png",
+                "alt": "Multi-Purpose Vehicle — KUBOTA ZT Plus engine application"
+              },
+              {
+                "title": "Cassava Chopper",
+                "src": "assets/img/product/application/carousel/other-cassava-chopper.jpg",
+                "alt": "Cassava Chopper — KUBOTA ZT Plus engine application"
+              }
+            ]
+          }
         ]
       },
       "authenticity": {
