@@ -1821,6 +1821,13 @@ ol.check-list li::before {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  /* Override the base .check-points rule's align-items:start (needed there
+     so the grid variant's cards don't stretch to a taller neighbour) — here
+     it has the opposite problem: each row would shrink to fit its own
+     content instead of the full section width, and a floated video inside
+     the text makes that shrink-to-fit width different per row. Stretch
+     keeps every row the same width regardless of its own content. */
+  align-items: stretch;
 }
 
 .check-points--stacked .check-point-card--photo {
