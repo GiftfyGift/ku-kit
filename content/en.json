@@ -1,6 +1,6 @@
 {
   "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Language", "sampleBadge": "Sample data" },
-  "nav": { "home": "Home", "product": "Product", "parts": "Parts", "service": "Service", "crops": "Crop Solutions", "marketing": "Events", "artwork": "Marketing Materials", "order": "Order" },
+  "nav": { "home": "Home", "product": "Product", "parts": "Parts", "service": "Service", "crops": "Crop Solutions", "marketing": "Events", "artwork": "Marketing Materials", "order": "Order", "poRequest": "Purchase Order" },
   "hero": {
     "title": "Welcome to KU-KIT",
     "subtitle": "Everything you need — product, parts, service, and event information — just one click away. Built for new Dealers and Distributors, anytime, anywhere.",
@@ -1073,6 +1073,70 @@
       "stages": { "orderConfirmed": "Order Confirmed", "paymentReceived": "Payment Received", "production": "Production", "shipped": "Shipped", "customs": "Customs Clearance", "delivered": "Delivered" },
       "disclaimer": "Demo tracking only — stages advance automatically over a few minutes to simulate the real 1-2 month process. No live logistics data is connected."
     }
+  },
+  "poRequest": {
+    "title": "Purchase Order Request",
+    "intro": "A standardized form for dealers and distributors to submit an international purchase order for Kubota diesel engines and Tra Chang power tillers — using the same fields Siam Kubota uses to issue a real PO and Proforma Invoice.",
+    "disclaimer": "Right now this form generates a downloadable PO file immediately. Automatic email notification to the sales team will go live once the backend approach is agreed — in the meantime, please send the generated PO directly to your sales contact.",
+    "customer": {
+      "heading": "1. Buyer information",
+      "selectLabel": "Select an existing customer (if any)",
+      "newCustomerOption": "New customer / enter details manually",
+      "autoFillNote": "Selecting an existing customer fills in the fields below — edit any field if the details have changed.",
+      "knownCustomers": [
+        { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
+        { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" }
+      ],
+      "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)" }
+    },
+    "items": {
+      "heading": "2. Order items",
+      "modelLabel": "Select model",
+      "qtyLabel": "Qty",
+      "addLine": "+ Add line",
+      "removeLine": "Remove",
+      "colModel": "Model",
+      "colQty": "Qty",
+      "colUnitPrice": "Unit price (USD)",
+      "colAmount": "Amount (USD)",
+      "subtotal": "Sub-Total",
+      "loading": "Loading product list…"
+    },
+    "terms": {
+      "heading": "3. Order terms",
+      "incotermLabel": "Incoterm / place of delivery",
+      "incoterms": [
+        { "id": "fob_bkk", "label": "FOB Bangkok, Thailand" },
+        { "id": "cif", "label": "CIF destination port (specify below)" },
+        { "id": "other", "label": "Other (specify in notes)" }
+      ],
+      "portLabel": "Destination port (for CIF)",
+      "paymentLabel": "Terms of payment",
+      "shippingLabel": "Shipping method",
+      "shippingMethods": [
+        { "id": "sea_lcl", "label": "By sea — LCL" },
+        { "id": "sea_fcl", "label": "By sea — FCL (full container)" },
+        { "id": "air", "label": "By air" }
+      ],
+      "deliveryDateLabel": "Requested delivery date"
+    },
+    "pi": {
+      "heading": "4. Proforma Invoice (PI)",
+      "question": "Do you need a Proforma Invoice for this order?",
+      "yes": "Yes",
+      "no": "No",
+      "helpText": "Some countries require a PI to process a bank transfer or import declaration — for example, where cross-border USD transfers need supporting documentation. If you select &ldquo;Yes&rdquo;, the issuing team will draft the PI from this PO once your sales contact confirms the order."
+    },
+    "notesLabel": "Additional notes",
+    "notesPlaceholder": "Any special conditions — a discount request, a required document date, etc.",
+    "submitBtn": "Generate Purchase Order (PO)",
+    "requireItemsNote": "Please add at least one order item.",
+    "requireFieldsNote": "Please enter the company name and contact email before generating the PO.",
+    "confirmedTitle": "Purchase order generated",
+    "confirmedBody": "Your PO number is",
+    "downloadAgainBtn": "Download PO again",
+    "nextStepsNote": "Download the PDF and send it to your sales contact for review and confirmation — if you selected &ldquo;Yes&rdquo; for the PI, they'll route it to the issuing team once the order is confirmed.",
+    "newRequestBtn": "Start a new request"
   },
   "footer": {
     "contact": "Contact the Dealer Support Team",

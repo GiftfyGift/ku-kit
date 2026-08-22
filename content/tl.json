@@ -1,6 +1,6 @@
 {
   "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Wika", "sampleBadge": "Sample na datos" },
-  "nav": { "home": "Home", "product": "Produkto", "parts": "Parts", "service": "Serbisyo", "crops": "Crop Solutions", "marketing": "Mga Event", "artwork": "Marketing Materials", "order": "Mag-order" },
+  "nav": { "home": "Home", "product": "Produkto", "parts": "Parts", "service": "Serbisyo", "crops": "Crop Solutions", "marketing": "Mga Event", "artwork": "Marketing Materials", "order": "Mag-order", "poRequest": "Purchase Order" },
   "hero": {
     "title": "Maligayang pagdating sa KU-KIT",
     "subtitle": "Lahat ng kailangan mo — produkto, parts, serbisyo, at mga event — isang click na lang ang layo. Ginawa para sa mga bagong Dealer at Distributor, anumang oras, kahit saan.",
@@ -735,6 +735,70 @@
       "stages": { "orderConfirmed": "Nakumpirma ang Order", "paymentReceived": "Natanggap ang Bayad", "production": "Ginagawa", "shipped": "Naipadala na", "customs": "Customs Clearance", "delivered": "Naihatid na" },
       "disclaimer": "Demo tracking lamang — awtomatikong umuusad ang mga yugto sa loob ng ilang minuto para gayahin ang tunay na prosesong 1-2 buwan. Walang live na logistics data na naka-konekta."
     }
+  },
+  "poRequest": {
+    "title": "Kahilingan sa Purchase Order",
+    "intro": "Standard na form para sa mga dealer at distributor para magsumite ng international purchase order para sa mga Kubota diesel engine at Tra Chang power tiller — gamit ang parehong mga field na ginagamit ng Siam Kubota para maglabas ng tunay na PO at Proforma Invoice.",
+    "disclaimer": "Sa ngayon, agad na gumagawa ang form na ito ng PO file na madadownload. Ang automatic na email notification sa sales team ay ma-a-activate kapag napagkasunduan na ang backend approach — samantala, ipadala na lang nang direkta sa iyong sales contact ang nagawang PO.",
+    "customer": {
+      "heading": "1. Impormasyon ng bumibili",
+      "selectLabel": "Pumili ng dati nang customer (kung mayroon)",
+      "newCustomerOption": "Bagong customer / manu-manong ilagay ang impormasyon",
+      "autoFillNote": "Kapag pumili ka ng dati nang customer, mapupunan ang mga field sa ibaba — puwede mo pa ring i-edit ang anumang field kung nagbago na ang impormasyon.",
+      "knownCustomers": [
+        { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
+        { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" }
+      ],
+      "fields": { "company": "Pangalan ng kompanya", "address": "Address ng padala", "country": "Bansang destinasyon", "contact": "Pangalan ng contact", "email": "Email", "phone": "Telepono / WhatsApp", "customerRef": "PO reference number ng bumibili (kung mayroon)" }
+    },
+    "items": {
+      "heading": "2. Mga item ng order",
+      "modelLabel": "Pumili ng model",
+      "qtyLabel": "Dami",
+      "addLine": "+ Magdagdag ng linya",
+      "removeLine": "Alisin",
+      "colModel": "Model",
+      "colQty": "Dami",
+      "colUnitPrice": "Presyo bawat isa (USD)",
+      "colAmount": "Halaga (USD)",
+      "subtotal": "Kabuuan",
+      "loading": "Nilo-load ang listahan ng produkto…"
+    },
+    "terms": {
+      "heading": "3. Mga termino ng order",
+      "incotermLabel": "Incoterm / lugar ng paghahatid",
+      "incoterms": [
+        { "id": "fob_bkk", "label": "FOB Bangkok, Thailand" },
+        { "id": "cif", "label": "CIF destination port (tukuyin sa ibaba)" },
+        { "id": "other", "label": "Iba pa (tukuyin sa notes)" }
+      ],
+      "portLabel": "Destination port (para sa CIF)",
+      "paymentLabel": "Termino ng bayad",
+      "shippingLabel": "Paraan ng padala",
+      "shippingMethods": [
+        { "id": "sea_lcl", "label": "Sa dagat — LCL" },
+        { "id": "sea_fcl", "label": "Sa dagat — FCL (buong container)" },
+        { "id": "air", "label": "Sa himpapawid" }
+      ],
+      "deliveryDateLabel": "Petsang gusto ng pagtanggap"
+    },
+    "pi": {
+      "heading": "4. Proforma Invoice (PI)",
+      "question": "Kailangan mo ba ng Proforma Invoice para sa order na ito?",
+      "yes": "Oo",
+      "no": "Hindi",
+      "helpText": "May mga bansang nangangailangan ng PI para makapagproseso ng bank transfer o import declaration — halimbawa, kapag kailangan ng supporting document ang cross-border na paglipat ng USD. Kapag pinili mo ang &ldquo;Oo&rdquo;, gagawa ang issuing team ng PI mula sa PO na ito kapag nakumpirma na ng iyong sales contact ang order."
+    },
+    "notesLabel": "Karagdagang notes",
+    "notesPlaceholder": "Anumang espesyal na kondisyon — kahilingan ng diskwento, kailangang petsa ng dokumento, atbp.",
+    "submitBtn": "Gumawa ng Purchase Order (PO)",
+    "requireItemsNote": "Magdagdag muna ng kahit isang item sa order.",
+    "requireFieldsNote": "Ilagay muna ang pangalan ng kompanya at email ng contact bago gumawa ng PO.",
+    "confirmedTitle": "Nagawa na ang purchase order",
+    "confirmedBody": "Ang PO number mo ay",
+    "downloadAgainBtn": "I-download muli ang PO",
+    "nextStepsNote": "I-download ang PDF at ipadala sa iyong sales contact para suriin at kumpirmahin ang order — kung pinili mong &ldquo;Oo&rdquo; para sa PI, ipapasa niya ito sa issuing team kapag nakumpirma na ang order.",
+    "newRequestBtn": "Simulan ang bagong kahilingan"
   },
   "footer": {
     "contact": "Makipag-ugnayan sa Dealer Support Team",

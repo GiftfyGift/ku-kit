@@ -1,6 +1,6 @@
 {
   "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "ภาษา", "sampleBadge": "ข้อมูลตัวอย่าง" },
-  "nav": { "home": "หน้าหลัก", "product": "สินค้า", "parts": "อะไหล่", "service": "บริการ", "crops": "โซลูชันพืชผล", "marketing": "กิจกรรม", "artwork": "สื่อการตลาด", "order": "สั่งซื้อ" },
+  "nav": { "home": "หน้าหลัก", "product": "สินค้า", "parts": "อะไหล่", "service": "บริการ", "crops": "โซลูชันพืชผล", "marketing": "กิจกรรม", "artwork": "สื่อการตลาด", "order": "สั่งซื้อ", "poRequest": "ยื่นคำสั่งซื้อ (PO)" },
   "hero": {
     "title": "ยินดีต้อนรับสู่ KU-KIT",
     "subtitle": "ศูนย์รวมข้อมูลผลิตภัณฑ์ อะไหล่ บริการ และกิจกรรม พร้อมให้คุณเพียงคลิกเดียว สำหรับ Dealer และ Distributor รายใหม่ เรียนรู้ได้ทุกที่ทุกเวลา",
@@ -1078,6 +1078,70 @@
       "stages": { "orderConfirmed": "ยืนยันคำสั่งซื้อ", "paymentReceived": "ได้รับการชำระเงิน", "production": "อยู่ระหว่างผลิต", "shipped": "จัดส่งแล้ว", "customs": "ผ่านพิธีการศุลกากร", "delivered": "จัดส่งถึงปลายทาง" },
       "disclaimer": "หน้าติดตามนี้เป็นการสาธิตเท่านั้น สถานะจะขยับอัตโนมัติในไม่กี่นาทีเพื่อจำลองกระบวนการจริงที่ใช้เวลา 1-2 เดือน ไม่ได้เชื่อมต่อข้อมูล logistics จริง"
     }
+  },
+  "poRequest": {
+    "title": "ยื่นคำสั่งซื้อ (Purchase Order)",
+    "intro": "ฟอร์มมาตรฐานสำหรับ Dealer / Distributor ยื่นคำสั่งซื้อเครื่องยนต์ดีเซลคูโบต้าและรถไถเดินตามตราช้างระหว่างประเทศ — ใช้ฟิลด์เดียวกับที่สยามคูโบต้าใช้ออกใบสั่งซื้อและใบแจ้งหนี้ล่วงหน้าจริง",
+    "disclaimer": "ตอนนี้ฟอร์มนี้สร้างไฟล์ PO ให้ดาวน์โหลดได้ทันที ส่วนการแจ้งเตือนทีมขายอัตโนมัติทางอีเมลจะเปิดใช้งานเมื่อทีมงานตกลงระบบหลังบ้านร่วมกันแล้ว — ระหว่างนี้กรุณาส่งไฟล์ PO ที่ได้ให้เซลที่ดูแลคุณโดยตรง",
+    "customer": {
+      "heading": "1. ข้อมูลผู้ซื้อ",
+      "selectLabel": "เลือกลูกค้าเดิม (ถ้ามี)",
+      "newCustomerOption": "ลูกค้าใหม่ / กรอกข้อมูลเอง",
+      "autoFillNote": "เลือกลูกค้าเดิมเพื่อเติมข้อมูลให้อัตโนมัติ — แก้ไขฟิลด์ไหนก็ได้ถ้าข้อมูลเปลี่ยนไปแล้ว",
+      "knownCustomers": [
+        { "id": "vilco", "label": "VILCO INTERNATIONAL SA — ปานามา", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
+        { "id": "sfh", "label": "Sun Fu Hang — ไต้หวัน", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" }
+      ],
+      "fields": { "company": "ชื่อบริษัท", "address": "ที่อยู่จัดส่ง", "country": "ประเทศปลายทาง", "contact": "ชื่อผู้ติดต่อ", "email": "อีเมล", "phone": "เบอร์โทร / WhatsApp", "customerRef": "เลข PO อ้างอิงของลูกค้า (ถ้ามี)" }
+    },
+    "items": {
+      "heading": "2. รายการสินค้า",
+      "modelLabel": "เลือกรุ่นสินค้า",
+      "qtyLabel": "จำนวน",
+      "addLine": "+ เพิ่มรายการ",
+      "removeLine": "ลบ",
+      "colModel": "รุ่นสินค้า",
+      "colQty": "จำนวน",
+      "colUnitPrice": "ราคาต่อหน่วย (USD)",
+      "colAmount": "จำนวนเงิน (USD)",
+      "subtotal": "ยอดรวม",
+      "loading": "กำลังโหลดรายการสินค้า..."
+    },
+    "terms": {
+      "heading": "3. เงื่อนไขการสั่งซื้อ",
+      "incotermLabel": "Incoterm / สถานที่ส่งมอบ",
+      "incoterms": [
+        { "id": "fob_bkk", "label": "FOB Bangkok, Thailand" },
+        { "id": "cif", "label": "CIF ท่าเรือปลายทาง (ระบุด้านล่าง)" },
+        { "id": "other", "label": "อื่นๆ (ระบุในหมายเหตุ)" }
+      ],
+      "portLabel": "ท่าเรือปลายทาง (กรณีเลือก CIF)",
+      "paymentLabel": "เงื่อนไขการชำระเงิน",
+      "shippingLabel": "วิธีขนส่ง",
+      "shippingMethods": [
+        { "id": "sea_lcl", "label": "ทางเรือ — LCL" },
+        { "id": "sea_fcl", "label": "ทางเรือ — FCL (เต็มตู้)" },
+        { "id": "air", "label": "ทางอากาศ" }
+      ],
+      "deliveryDateLabel": "วันที่ต้องการรับสินค้า"
+    },
+    "pi": {
+      "heading": "4. เอกสาร Proforma Invoice (PI)",
+      "question": "ต้องการเอกสาร PI ประกอบการสั่งซื้อนี้หรือไม่",
+      "yes": "ต้องการ",
+      "no": "ไม่ต้องการ",
+      "helpText": "บางประเทศต้องใช้ PI ประกอบการโอนเงินหรือ declare นำเข้า เช่น ประเทศที่มีข้อจำกัดเรื่องการโอนเงินสกุล USD ข้ามชาติ — ถ้าเลือก &ldquo;ต้องการ&rdquo; ทีมออกเอกสารจะดึงข้อมูลจาก PO นี้ไปร่าง PI ให้หลังจากเซลยืนยันคำสั่งซื้อแล้ว"
+    },
+    "notesLabel": "หมายเหตุเพิ่มเติม",
+    "notesPlaceholder": "เงื่อนไขพิเศษอื่นๆ เช่น ขอส่วนลด, กำหนดวันที่ต้องได้รับเอกสาร ฯลฯ",
+    "submitBtn": "สร้างใบสั่งซื้อ (PO)",
+    "requireItemsNote": "กรุณาเพิ่มรายการสินค้าอย่างน้อย 1 รายการ",
+    "requireFieldsNote": "กรุณากรอกชื่อบริษัทและอีเมลผู้ติดต่อก่อนสร้าง PO",
+    "confirmedTitle": "สร้างใบสั่งซื้อแล้ว",
+    "confirmedBody": "เลขที่ PO ของคุณคือ",
+    "downloadAgainBtn": "ดาวน์โหลด PO อีกครั้ง",
+    "nextStepsNote": "ดาวน์โหลดไฟล์ PDF แล้วส่งให้เซลที่ดูแลคุณเพื่อตรวจสอบและยืนยันคำสั่งซื้อ — ถ้าเลือก &ldquo;ต้องการ PI&rdquo; ไว้ เซลจะประสานทีมออกเอกสารให้ต่อหลังยืนยันคำสั่งซื้อแล้ว",
+    "newRequestBtn": "ยื่นคำสั่งซื้อใหม่"
   },
   "footer": {
     "contact": "ติดต่อทีมสนับสนุน Dealer",

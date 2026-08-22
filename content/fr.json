@@ -1,6 +1,6 @@
 {
   "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Langue", "sampleBadge": "Données d'exemple" },
-  "nav": { "home": "Accueil", "product": "Produits", "parts": "Pièces", "service": "Service", "crops": "Solutions agricoles", "marketing": "Événements", "artwork": "Supports marketing", "order": "Commander" },
+  "nav": { "home": "Accueil", "product": "Produits", "parts": "Pièces", "service": "Service", "crops": "Solutions agricoles", "marketing": "Événements", "artwork": "Supports marketing", "order": "Commander", "poRequest": "Bon de commande" },
   "hero": {
     "title": "Bienvenue sur KU-KIT",
     "subtitle": "Tout ce dont vous avez besoin — produits, pièces, service et événements — à portée d'un seul clic. Conçu pour les nouveaux concessionnaires et distributeurs, accessible à tout moment, où que vous soyez.",
@@ -735,6 +735,70 @@
       "stages": { "orderConfirmed": "Commande confirmée", "paymentReceived": "Paiement reçu", "production": "Production", "shipped": "Expédié", "customs": "Dédouanement", "delivered": "Livré" },
       "disclaimer": "Suivi de démonstration uniquement — les étapes avancent automatiquement en quelques minutes pour simuler le processus réel de 1 à 2 mois. Aucune donnée logistique en direct n'est connectée."
     }
+  },
+  "poRequest": {
+    "title": "Demande de bon de commande",
+    "intro": "Formulaire standardisé permettant aux concessionnaires et distributeurs de soumettre un bon de commande international pour les moteurs diesel Kubota et les motoculteurs Tra Chang — avec les mêmes champs que ceux utilisés par Siam Kubota pour émettre un PO et une facture proforma réels.",
+    "disclaimer": "Pour l'instant, ce formulaire génère immédiatement un fichier PO téléchargeable. La notification automatique par e-mail à l'équipe commerciale sera activée une fois l'architecture back-end validée — en attendant, veuillez envoyer le PO généré directement à votre contact commercial.",
+    "customer": {
+      "heading": "1. Informations acheteur",
+      "selectLabel": "Sélectionner un client existant (le cas échéant)",
+      "newCustomerOption": "Nouveau client / saisir les informations manuellement",
+      "autoFillNote": "Sélectionner un client existant remplit les champs ci-dessous — modifiez n'importe quel champ si les informations ont changé.",
+      "knownCustomers": [
+        { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
+        { "id": "sfh", "label": "Sun Fu Hang — Taïwan", "company": "Sun Fu Hang", "address": "", "country": "Taïwan", "contact": "", "email": "", "phone": "" }
+      ],
+      "fields": { "company": "Nom de la société", "address": "Adresse de livraison", "country": "Pays de destination", "contact": "Nom du contact", "email": "E-mail", "phone": "Téléphone / WhatsApp", "customerRef": "N° de référence PO de l'acheteur (le cas échéant)" }
+    },
+    "items": {
+      "heading": "2. Articles de la commande",
+      "modelLabel": "Sélectionner un modèle",
+      "qtyLabel": "Qté",
+      "addLine": "+ Ajouter une ligne",
+      "removeLine": "Retirer",
+      "colModel": "Modèle",
+      "colQty": "Qté",
+      "colUnitPrice": "Prix unitaire (USD)",
+      "colAmount": "Montant (USD)",
+      "subtotal": "Sous-total",
+      "loading": "Chargement de la liste des produits…"
+    },
+    "terms": {
+      "heading": "3. Conditions de la commande",
+      "incotermLabel": "Incoterm / lieu de livraison",
+      "incoterms": [
+        { "id": "fob_bkk", "label": "FOB Bangkok, Thaïlande" },
+        { "id": "cif", "label": "CIF port de destination (précisez ci-dessous)" },
+        { "id": "other", "label": "Autre (précisez dans les notes)" }
+      ],
+      "portLabel": "Port de destination (pour CIF)",
+      "paymentLabel": "Conditions de paiement",
+      "shippingLabel": "Mode d'expédition",
+      "shippingMethods": [
+        { "id": "sea_lcl", "label": "Par mer — LCL" },
+        { "id": "sea_fcl", "label": "Par mer — FCL (conteneur complet)" },
+        { "id": "air", "label": "Par avion" }
+      ],
+      "deliveryDateLabel": "Date de livraison souhaitée"
+    },
+    "pi": {
+      "heading": "4. Facture proforma (PI)",
+      "question": "Avez-vous besoin d'une facture proforma pour cette commande ?",
+      "yes": "Oui",
+      "no": "Non",
+      "helpText": "Certains pays exigent une PI pour effectuer un virement bancaire ou une déclaration d'importation — par exemple lorsque les virements transfrontaliers en USD nécessitent un justificatif. Si vous sélectionnez &ldquo;Oui&rdquo;, l'équipe chargée de l'émission rédigera la PI à partir de ce PO une fois votre contact commercial l'ayant confirmé."
+    },
+    "notesLabel": "Notes complémentaires",
+    "notesPlaceholder": "Toute condition particulière — demande de remise, date d'obtention requise pour un document, etc.",
+    "submitBtn": "Générer le bon de commande (PO)",
+    "requireItemsNote": "Veuillez ajouter au moins un article à la commande.",
+    "requireFieldsNote": "Veuillez saisir le nom de la société et l'e-mail de contact avant de générer le PO.",
+    "confirmedTitle": "Bon de commande généré",
+    "confirmedBody": "Votre numéro de PO est",
+    "downloadAgainBtn": "Retélécharger le PO",
+    "nextStepsNote": "Téléchargez le PDF et envoyez-le à votre contact commercial pour vérification et confirmation — si vous avez sélectionné &ldquo;Oui&rdquo; pour la PI, il la transmettra à l'équipe chargée de l'émission une fois la commande confirmée.",
+    "newRequestBtn": "Nouvelle demande"
   },
   "footer": {
     "contact": "Contactez l'équipe de support concessionnaires",

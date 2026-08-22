@@ -944,6 +944,22 @@ function renderMaterialsCustom(c) {
 /* ---------- Order: cart + catalog data ---------- */
 
 const ORDER_CART_KEY = 'kukit_cart';
+// Set this to the deployed Google Apps Script Web App URL (Option A backend)
+// to start notifying sales reps on PO submission. Left empty, submitPoWebhook()
+// is a silent no-op — migrating to Option B later is just swapping this URL.
+const PO_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbydrktlXuRtS5Ja1BmEb0j47XV7xDLxck_nCANFRVLPdOwPkWIPw1y0Lw6fh4G_5RSvUw/exec';
+
+function submitPoWebhook(payload) {
+  if (!PO_WEBHOOK_URL) return;
+  // text/plain avoids a CORS preflight that Apps Script Web Apps don't handle;
+  // the payload is still valid JSON and is parsed as such server-side.
+  fetch(PO_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  }).catch(err => console.error('PO webhook failed', err));
+}
+
 const ORDER_LIST_KEY = 'kukit_orders';
 const ORDER_BUYER_KEY = 'kukit_buyer';
 const ORDER_TRACKING_STAGE_KEYS = ['orderConfirmed', 'paymentReceived', 'production', 'shipped', 'customs', 'delivered'];
@@ -1821,6 +1837,381 @@ function initOrderTrackingPage(c) {
     input.value = prefill;
     lookup();
   }
+}
+
+/* ---------- PO Request (standardized dealer/distributor purchase order) ---------- */
+
+function renderPoRequest(c) {
+  const pr = c.poRequest;
+  return `
+    <section>
+      <h2 class="section-title">${pr.title}</h2>
+      <p class="section-intro">${pr.intro}</p>
+      <div class="note-callout">${pr.disclaimer}</div>
+      <div id="po-request-body" class="po-request-body"></div>
+    </section>
+  `;
+}
+
+function poReqFmtUsd(n) { return orderFmtUsd(n); }
+
+function initPoRequestPage(c) {
+  const pr = c.poRequest;
+  const body = document.getElementById('po-request-body');
+
+  let catalogModels = [];
+  let paymentTerms = [];
+  let items = [{ modelId: '', qty: 1 }];
+  let selectedTermId = null;
+  let piWanted = null;
+
+  function customerFieldsHtml() {
+    const cust = pr.customer;
+    const known = cust.knownCustomers || [];
+    const saved = orderLoadBuyer();
+    return `
+      <label class="po-req-field">
+        <span>${cust.selectLabel}</span>
+        <select id="po-req-known-customer">
+          <option value="">${cust.newCustomerOption}</option>
+          ${known.map(k => `<option value="${k.id}">${k.label}</option>`).join('')}
+        </select>
+      </label>
+      <p class="po-req-hint">${cust.autoFillNote}</p>
+      <div class="po-req-field-grid">
+        <label class="po-req-field"><span>${cust.fields.company}</span><input type="text" id="po-req-company" value="${(saved.company || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field"><span>${cust.fields.country}</span><input type="text" id="po-req-country" value="${(saved.country || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field po-req-field--wide"><span>${cust.fields.address}</span><input type="text" id="po-req-address" value="${(saved.address || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field"><span>${cust.fields.contact}</span><input type="text" id="po-req-contact" value="${(saved.contact || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field"><span>${cust.fields.email}</span><input type="email" id="po-req-email" value="${(saved.email || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field"><span>${cust.fields.phone}</span><input type="text" id="po-req-phone" value="${(saved.phone || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field"><span>${cust.fields.customerRef}</span><input type="text" id="po-req-customer-ref" value="${(saved.customerRef || '').replace(/"/g, '&quot;')}"></label>
+      </div>
+    `;
+  }
+
+  function wireCustomerFields() {
+    const keys = ['company', 'address', 'country', 'contact', 'email', 'phone', 'customerRef'];
+    keys.forEach(key => {
+      const el = document.getElementById(`po-req-${key === 'customerRef' ? 'customer-ref' : key}`);
+      el.addEventListener('input', () => {
+        const b = orderLoadBuyer();
+        b[key] = el.value;
+        orderSaveBuyer(b);
+      });
+    });
+    document.getElementById('po-req-known-customer').addEventListener('change', (e) => {
+      const known = (pr.customer.knownCustomers || []).find(k => k.id === e.target.value);
+      if (!known) return;
+      const map = { company: known.company, address: known.address, country: known.country, contact: known.contact, email: known.email, phone: known.phone };
+      const b = orderLoadBuyer();
+      Object.keys(map).forEach(key => {
+        document.getElementById(`po-req-${key}`).value = map[key] || '';
+        b[key] = map[key] || '';
+      });
+      orderSaveBuyer(b);
+    });
+  }
+
+  function currentBuyer() {
+    return {
+      company: document.getElementById('po-req-company').value,
+      address: document.getElementById('po-req-address').value,
+      country: document.getElementById('po-req-country').value,
+      contact: document.getElementById('po-req-contact').value,
+      email: document.getElementById('po-req-email').value,
+      phone: document.getElementById('po-req-phone').value,
+      customerRef: document.getElementById('po-req-customer-ref').value
+    };
+  }
+
+  function modelPrice(modelId) {
+    const m = catalogModels.find(x => x.id === modelId);
+    return m ? m.basePrice : 0;
+  }
+
+  function termPremium() {
+    const term = paymentTerms.find(t => t.id === selectedTermId);
+    return term ? term.premium : 1;
+  }
+
+  function itemsTableHtml() {
+    const it = pr.items;
+    const premium = termPremium();
+    const rows = items.map((row, i) => {
+      const unit = modelPrice(row.modelId) * premium;
+      const amount = unit * (row.qty || 0);
+      return `
+        <tr>
+          <td>
+            <select data-item-model="${i}">
+              <option value="">${it.modelLabel}</option>
+              ${catalogModels.map(m => `<option value="${m.id}" ${m.id === row.modelId ? 'selected' : ''}>${m.label}</option>`).join('')}
+            </select>
+          </td>
+          <td class="order-num-col"><input type="number" min="1" value="${row.qty}" class="order-qty-input order-qty-input-sm" data-item-qty="${i}"></td>
+          <td class="order-num-col">${row.modelId ? poReqFmtUsd(unit) : '—'}</td>
+          <td class="order-num-col">${row.modelId ? poReqFmtUsd(amount) : '—'}</td>
+          <td><button type="button" class="order-remove-btn" data-item-remove="${i}">${it.removeLine}</button></td>
+        </tr>
+      `;
+    }).join('');
+    const subtotal = items.reduce((s, row) => s + modelPrice(row.modelId) * premium * (row.qty || 0), 0);
+    return `
+      <div class="order-table-scroll">
+        <table class="kubota-table order-cart-table">
+          <thead><tr><th>${it.colModel}</th><th>${it.colQty}</th><th>${it.colUnitPrice}</th><th>${it.colAmount}</th><th></th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+      <button type="button" class="order-btn order-btn--ghost" id="po-req-add-line">${it.addLine}</button>
+      <div class="order-cart-subtotal">${it.subtotal}: <strong>${poReqFmtUsd(subtotal)}</strong></div>
+    `;
+  }
+
+  function refreshItemsTable() {
+    document.getElementById('po-req-items-wrap').innerHTML = itemsTableHtml();
+    wireItemsTable();
+  }
+
+  function wireItemsTable() {
+    const wrap = document.getElementById('po-req-items-wrap');
+    wrap.querySelectorAll('[data-item-model]').forEach(sel => {
+      sel.addEventListener('change', () => { items[Number(sel.dataset.itemModel)].modelId = sel.value; refreshItemsTable(); });
+    });
+    wrap.querySelectorAll('[data-item-qty]').forEach(input => {
+      input.addEventListener('change', () => { items[Number(input.dataset.itemQty)].qty = Math.max(1, parseInt(input.value, 10) || 1); refreshItemsTable(); });
+    });
+    wrap.querySelectorAll('[data-item-remove]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.itemRemove);
+        if (items.length === 1) { items = [{ modelId: '', qty: 1 }]; } else { items.splice(idx, 1); }
+        refreshItemsTable();
+      });
+    });
+    const addBtn = document.getElementById('po-req-add-line');
+    if (addBtn) addBtn.addEventListener('click', () => { items.push({ modelId: '', qty: 1 }); refreshItemsTable(); });
+  }
+
+  function termsHtml() {
+    const t = pr.terms;
+    return `
+      <div class="po-req-field-grid">
+        <label class="po-req-field">
+          <span>${t.incotermLabel}</span>
+          <select id="po-req-incoterm">${t.incoterms.map(i => `<option value="${i.id}">${i.label}</option>`).join('')}</select>
+        </label>
+        <label class="po-req-field"><span>${t.portLabel}</span><input type="text" id="po-req-port"></label>
+        <label class="po-req-field">
+          <span>${t.paymentLabel}</span>
+          <select id="po-req-payment">${paymentTerms.map(term => `<option value="${term.id}">${term.label}</option>`).join('')}</select>
+        </label>
+        <label class="po-req-field">
+          <span>${t.shippingLabel}</span>
+          <select id="po-req-shipping">${t.shippingMethods.map(s => `<option value="${s.id}">${s.label}</option>`).join('')}</select>
+        </label>
+        <label class="po-req-field"><span>${t.deliveryDateLabel}</span><input type="date" id="po-req-delivery-date"></label>
+      </div>
+    `;
+  }
+
+  function piHtml() {
+    const pi = pr.pi;
+    return `
+      <div class="po-req-pi-toggle" role="radiogroup">
+        <label><input type="radio" name="po-req-pi" value="yes"> ${pi.yes}</label>
+        <label><input type="radio" name="po-req-pi" value="no"> ${pi.no}</label>
+      </div>
+      <p class="po-req-hint">${pi.helpText}</p>
+    `;
+  }
+
+  function renderForm() {
+    body.innerHTML = `
+      <div class="order-step-card">
+        <h3 class="order-step-title">${pr.customer.heading}</h3>
+        ${customerFieldsHtml()}
+      </div>
+      <div class="order-step-card">
+        <h3 class="order-step-title">${pr.items.heading}</h3>
+        <div id="po-req-items-wrap">${itemsTableHtml()}</div>
+      </div>
+      <div class="order-step-card">
+        <h3 class="order-step-title">${pr.terms.heading}</h3>
+        ${termsHtml()}
+      </div>
+      <div class="order-step-card">
+        <h3 class="order-step-title">${pr.pi.heading}</h3>
+        ${piHtml()}
+      </div>
+      <div class="order-step-card">
+        <h3 class="order-step-title">${pr.notesLabel}</h3>
+        <textarea id="po-req-notes" class="po-req-notes" placeholder="${pr.notesPlaceholder}"></textarea>
+      </div>
+      <button type="button" class="order-btn order-confirm-btn" id="po-req-submit-btn">${pr.submitBtn}</button>
+    `;
+
+    wireCustomerFields();
+    wireItemsTable();
+
+    document.getElementById('po-req-payment').addEventListener('change', (e) => { selectedTermId = e.target.value; refreshItemsTable(); });
+    document.getElementById('po-req-incoterm').addEventListener('change', (e) => {
+      document.getElementById('po-req-port').closest('.po-req-field').style.display = e.target.value === 'cif' ? '' : 'none';
+    });
+    document.getElementById('po-req-port').closest('.po-req-field').style.display = 'none';
+
+    body.querySelectorAll('input[name="po-req-pi"]').forEach(radio => {
+      radio.addEventListener('change', () => { piWanted = radio.value; });
+    });
+
+    document.getElementById('po-req-submit-btn').addEventListener('click', onSubmit);
+  }
+
+  function onSubmit() {
+    const buyer = currentBuyer();
+    if (!buyer.company || !buyer.email) { alert(pr.requireFieldsNote); return; }
+    const validItems = items.filter(row => row.modelId && row.qty > 0);
+    if (!validItems.length) { alert(pr.requireItemsNote); return; }
+
+    const premium = termPremium();
+    const pdfItems = validItems.map(row => {
+      const m = catalogModels.find(x => x.id === row.modelId);
+      return { name: m.label, price: m.basePrice * premium, qty: row.qty };
+    });
+
+    const poNumber = orderGenNumber('PO');
+    const incoterm = pr.terms.incoterms.find(i => i.id === document.getElementById('po-req-incoterm').value);
+    const shipping = pr.terms.shippingMethods.find(s => s.id === document.getElementById('po-req-shipping').value);
+    const term = paymentTerms.find(t => t.id === selectedTermId) || paymentTerms[0];
+
+    const order = {
+      poNumber,
+      date: new Date().toLocaleDateString('en-GB'),
+      buyer,
+      items: pdfItems,
+      paymentTermLabel: term ? term.label : '',
+      incotermLabel: incoterm ? incoterm.label : '',
+      port: document.getElementById('po-req-port').value,
+      shippingLabel: shipping ? shipping.label : '',
+      deliveryDate: document.getElementById('po-req-delivery-date').value,
+      piWanted: piWanted === 'yes',
+      piWantedSet: piWanted !== null,
+      notes: document.getElementById('po-req-notes').value
+    };
+    lastPoRequestOrder = order;
+    generatePoRequestPdf(order, pr);
+    submitPoWebhook(order);
+
+    body.innerHTML = `
+      <div class="order-confirmed-card">
+        <h3>${pr.confirmedTitle}</h3>
+        <p>${pr.confirmedBody} <strong>${poNumber}</strong></p>
+        <p class="po-req-hint">${pr.nextStepsNote}</p>
+        <div class="po-req-confirmed-actions">
+          <button type="button" class="order-btn" id="po-req-download-again-btn">${pr.downloadAgainBtn}</button>
+          <button type="button" class="order-btn order-btn--ghost" id="po-req-new-btn">${pr.newRequestBtn}</button>
+        </div>
+      </div>
+    `;
+    document.getElementById('po-req-download-again-btn').addEventListener('click', () => generatePoRequestPdf(lastPoRequestOrder, pr));
+    document.getElementById('po-req-new-btn').addEventListener('click', () => { items = [{ modelId: '', qty: 1 }]; piWanted = null; renderForm(); });
+  }
+
+  body.innerHTML = `<div class="order-loading">${pr.items.loading}</div>`;
+  orderLoadCatalogData().then(data => {
+    if (state.route !== 'po-request') return;
+    catalogModels = [...data.products.engines, ...data.products.tillers, ...data.products.implements];
+    paymentTerms = data.products.paymentTerms;
+    selectedTermId = paymentTerms[0].id;
+    renderForm();
+  });
+}
+
+let lastPoRequestOrder = null;
+
+function generatePoRequestPdf(order, pr) {
+  if (!window.jspdf) { alert('PDF library failed to load.'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const pageW = doc.internal.pageSize.getWidth();
+  const marginX = 42;
+  let y = 50;
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(16);
+  doc.text('PURCHASE ORDER', pageW / 2, y, { align: 'center' });
+  y += 26;
+
+  doc.setFontSize(10);
+  doc.text(`PO No.: ${order.poNumber}`, marginX, y);
+  doc.text(`Date: ${order.date}`, pageW - marginX, y, { align: 'right' });
+  y += 22;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text('Buyer:', marginX, y);
+  doc.setFont('helvetica', 'normal');
+  doc.text(order.buyer.company || '-', marginX + 90, y);
+  y += 14;
+  doc.text(doc.splitTextToSize(order.buyer.address || '-', pageW - marginX * 2 - 90), marginX + 90, y);
+  y += 14;
+  doc.text(`Country: ${order.buyer.country || '-'}`, marginX + 90, y);
+  y += 14;
+  doc.text(`Contact: ${order.buyer.contact || '-'}   Email: ${order.buyer.email || '-'}`, marginX + 90, y);
+  y += 14;
+  doc.text(`Tel / WhatsApp: ${order.buyer.phone || '-'}`, marginX + 90, y);
+  y += 14;
+  if (order.buyer.customerRef) { doc.text(`Buyer's Order No.: ${order.buyer.customerRef}`, marginX + 90, y); y += 14; }
+  y += 8;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text('Supplier:', marginX, y);
+  doc.setFont('helvetica', 'normal');
+  doc.text('Siam Kubota Corporation Co., Ltd.', marginX + 90, y);
+  y += 14;
+  doc.text('700/867 Amatanakorn Industrial Estate, Chonburi, Thailand', marginX + 90, y);
+  y += 22;
+
+  doc.text(`Terms of Payment: ${order.paymentTermLabel || '-'}`, marginX, y);
+  y += 14;
+  doc.text(`Incoterm: ${order.incotermLabel || '-'}${order.port ? ` (${order.port})` : ''}`, marginX, y);
+  y += 14;
+  doc.text(`Shipping Method: ${order.shippingLabel || '-'}`, marginX, y);
+  y += 14;
+  doc.text(`Requested Delivery Date: ${order.deliveryDate || '-'}`, marginX, y);
+  y += 14;
+  doc.text(`Proforma Invoice Requested: ${order.piWantedSet ? (order.piWanted ? 'Yes' : 'No') : '-'}`, marginX, y);
+  y += 22;
+
+  const { y: afterTable, total } = pdfItemsTable(doc, order.items, y, marginX, pageW);
+  y = afterTable;
+
+  doc.setFont('helvetica', 'bold');
+  doc.text('Grand Total (USD):', pageW - marginX - 170, y);
+  doc.text(pdfMoney(total), pageW - marginX, y, { align: 'right' });
+  y += 26;
+
+  if (order.notes) {
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9);
+    doc.text('Notes:', marginX, y);
+    y += 13;
+    doc.setFont('helvetica', 'normal');
+    doc.text(doc.splitTextToSize(order.notes, pageW - marginX * 2), marginX, y);
+    y += 24;
+  }
+
+  y += 10;
+  doc.text('Prepared by: ___________________________', marginX, y);
+  doc.text('Date: ___________________________', pageW - marginX - 160, y);
+
+  y += 40;
+  doc.setFontSize(8);
+  doc.setTextColor(150);
+  doc.text('Generated by the KU-KIT PO request form. Confirm all details with your Siam Kubota sales contact', marginX, y);
+  y += 11;
+  doc.text('before proceeding — automatic sales-team notification is not yet connected to this form.', marginX, y);
+
+  doc.save(`${order.poNumber}.pdf`);
 }
 
 function renderArtworkBody(c) {
@@ -2858,7 +3249,8 @@ const RENDERERS = {
   'materials-custom': renderMaterialsCustom,
   'order-catalog': renderOrderCatalog,
   'order-checkout': renderOrderCheckout,
-  'order-tracking': renderOrderTracking
+  'order-tracking': renderOrderTracking,
+  'po-request': renderPoRequest
 };
 
 function applyStaticText(c) {
@@ -2913,6 +3305,7 @@ function render() {
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
   if (state.route === 'order-checkout') initOrderCheckoutPage(c);
   if (state.route === 'order-tracking') initOrderTrackingPage(c);
+  if (state.route === 'po-request') initPoRequestPage(c);
 }
 
 async function setLang(lang) {

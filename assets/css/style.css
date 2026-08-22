@@ -2992,6 +2992,61 @@ table.parts-table td.code-col {
 .order-confirmed-card h3 { color: var(--kubota-navy); font-family: 'Prompt', sans-serif; }
 .order-confirmed-card p { margin: 10px 0 20px; }
 
+.order-btn--ghost {
+  background: none;
+  color: var(--kubota-orange);
+  border: 1px solid var(--kubota-orange);
+}
+.order-btn--ghost:hover { background: rgba(255,106,61,0.08); color: var(--kubota-light-orange); border-color: var(--kubota-light-orange); }
+
+/* ---------- PO request form ---------- */
+
+.po-request-body { display: flex; flex-direction: column; gap: 24px; margin-top: 16px; }
+
+.po-req-field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.po-req-field { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: var(--kubota-mid-gray); }
+.po-req-field--wide { grid-column: span 2; }
+@media (max-width: 560px) { .po-req-field--wide { grid-column: span 1; } }
+
+.po-req-field input,
+.po-req-field select {
+  background: var(--kubota-light-gray);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  color: var(--kubota-dark);
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  width: 100%;
+}
+
+#po-req-known-customer { max-width: 420px; }
+
+.po-req-hint { font-size: 12px; color: var(--kubota-mid-gray); margin: 6px 0 14px; }
+
+.po-req-pi-toggle { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
+.po-req-pi-toggle label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+
+.po-req-notes {
+  width: 100%;
+  min-height: 90px;
+  background: var(--kubota-light-gray);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  color: var(--kubota-dark);
+  padding: 10px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.po-req-confirmed-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
 /* ---------- Order: tracking ---------- */
 
 .order-tracking-search { margin-bottom: 20px; }

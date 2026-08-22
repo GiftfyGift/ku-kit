@@ -1,6 +1,6 @@
 {
   "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Lugha", "sampleBadge": "Data ya mfano" },
-  "nav": { "home": "Nyumbani", "product": "Bidhaa", "parts": "Vipuri", "service": "Huduma", "crops": "Suluhisho za Mazao", "marketing": "Matukio", "artwork": "Vifaa vya Masoko", "order": "Agiza" },
+  "nav": { "home": "Nyumbani", "product": "Bidhaa", "parts": "Vipuri", "service": "Huduma", "crops": "Suluhisho za Mazao", "marketing": "Matukio", "artwork": "Vifaa vya Masoko", "order": "Agiza", "poRequest": "Agizo la Ununuzi (PO)" },
   "hero": {
     "title": "Karibu KU-KIT",
     "subtitle": "Kila unachohitaji — bidhaa, vipuri, huduma, na matukio — kwa mbofyo mmoja tu. Kimeundwa kwa ajili ya Wauzaji na Wasambazaji wapya, wakati wowote, mahali popote.",
@@ -740,6 +740,70 @@
       "stages": { "orderConfirmed": "Agizo Limethibitishwa", "paymentReceived": "Malipo Yamepokelewa", "production": "Uzalishaji", "shipped": "Imesafirishwa", "customs": "Uhakiki wa Forodha", "delivered": "Imefikishwa" },
       "disclaimer": "Ufuatiliaji wa mfano tu — hatua zinasonga mbele kiotomatiki ndani ya dakika chache kuiga mchakato halisi wa miezi 1-2. Hakuna data ya usafirishaji ya moja kwa moja iliyounganishwa."
     }
+  },
+  "poRequest": {
+    "title": "Ombi la Agizo la Ununuzi (PO)",
+    "intro": "Fomu ya kawaida kwa wauzaji na wasambazaji kuwasilisha agizo la ununuzi la kimataifa kwa injini za dizeli za Kubota na matrekta ya kutembea ya Tra Chang — ikitumia sehemu zile zile ambazo Siam Kubota hutumia kutoa PO na Ankara ya Awali halisi.",
+    "disclaimer": "Kwa sasa, fomu hii hutengeneza faili la PO la kupakua mara moja. Arifa ya kiotomatiki ya barua pepe kwa timu ya mauzo itaanza kufanya kazi baada ya mfumo wa nyuma kukubaliwa — wakati huu, tafadhali tuma PO iliyotengenezwa moja kwa moja kwa muuzaji anayekuhudumia.",
+    "customer": {
+      "heading": "1. Taarifa za mnunuzi",
+      "selectLabel": "Chagua mteja wa zamani (kama yupo)",
+      "newCustomerOption": "Mteja mpya / jaza taarifa mwenyewe",
+      "autoFillNote": "Kuchagua mteja wa zamani hujaza sehemu zilizo hapa chini — badilisha sehemu yoyote kama taarifa zimebadilika.",
+      "knownCustomers": [
+        { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
+        { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" }
+      ],
+      "fields": { "company": "Jina la kampuni", "address": "Anwani ya kuletewa", "country": "Nchi ya marudio", "contact": "Jina la mawasiliano", "email": "Barua pepe", "phone": "Simu / WhatsApp", "customerRef": "Nambari ya PO ya mnunuzi (kama ipo)" }
+    },
+    "items": {
+      "heading": "2. Bidhaa za agizo",
+      "modelLabel": "Chagua mfano",
+      "qtyLabel": "Idadi",
+      "addLine": "+ Ongeza mstari",
+      "removeLine": "Ondoa",
+      "colModel": "Mfano",
+      "colQty": "Idadi",
+      "colUnitPrice": "Bei kwa kila kimoja (USD)",
+      "colAmount": "Jumla (USD)",
+      "subtotal": "Jumla ndogo",
+      "loading": "Inapakia orodha ya bidhaa…"
+    },
+    "terms": {
+      "heading": "3. Masharti ya agizo",
+      "incotermLabel": "Incoterm / mahali pa kuletewa",
+      "incoterms": [
+        { "id": "fob_bkk", "label": "FOB Bangkok, Thailand" },
+        { "id": "cif", "label": "CIF bandari ya marudio (taja hapa chini)" },
+        { "id": "other", "label": "Nyingine (taja kwenye maelezo)" }
+      ],
+      "portLabel": "Bandari ya marudio (kwa CIF)",
+      "paymentLabel": "Masharti ya malipo",
+      "shippingLabel": "Njia ya usafirishaji",
+      "shippingMethods": [
+        { "id": "sea_lcl", "label": "Kwa meli — LCL" },
+        { "id": "sea_fcl", "label": "Kwa meli — FCL (kontena kamili)" },
+        { "id": "air", "label": "Kwa ndege" }
+      ],
+      "deliveryDateLabel": "Tarehe unayohitaji upokee bidhaa"
+    },
+    "pi": {
+      "heading": "4. Ankara ya Awali (PI)",
+      "question": "Je, unahitaji Ankara ya Awali kwa agizo hili?",
+      "yes": "Ndiyo",
+      "no": "Hapana",
+      "helpText": "Baadhi ya nchi zinahitaji PI kufanikisha uhamisho wa benki au tamko la uagizaji bidhaa — kwa mfano, ambapo uhamisho wa fedha za USD wa kuvuka mipaka unahitaji nyaraka za kuunga mkono. Ukichagua &ldquo;Ndiyo&rdquo;, timu inayotoa nyaraka itaandaa PI kutoka kwa PO hii mara muuzaji wako atakapothibitisha agizo."
+    },
+    "notesLabel": "Maelezo ya ziada",
+    "notesPlaceholder": "Masharti mengine maalum — ombi la punguzo, tarehe ya nyaraka inayohitajika, n.k.",
+    "submitBtn": "Tengeneza Agizo la Ununuzi (PO)",
+    "requireItemsNote": "Tafadhali ongeza angalau bidhaa moja kwenye agizo.",
+    "requireFieldsNote": "Tafadhali jaza jina la kampuni na barua pepe ya mawasiliano kabla ya kutengeneza PO.",
+    "confirmedTitle": "Agizo la ununuzi limetengenezwa",
+    "confirmedBody": "Nambari yako ya PO ni",
+    "downloadAgainBtn": "Pakua PO tena",
+    "nextStepsNote": "Pakua faili la PDF kisha ulitume kwa muuzaji anayekuhudumia ili akague na athibitishe agizo — ukichagua &ldquo;Ndiyo&rdquo; kwa PI, ataielekeza kwa timu inayotoa nyaraka baada ya agizo kuthibitishwa.",
+    "newRequestBtn": "Anza ombi jipya"
   },
   "footer": {
     "contact": "Wasiliana na Timu ya Msaada kwa Wauzaji",
