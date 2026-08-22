@@ -562,9 +562,7 @@
       { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx" },
       { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx" },
       { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx" },
-      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" },
-      { "title": "วิดีโอ — การตรวจเช็คเบื้องต้นก่อนใช้งานเครื่องยนต์ ZT Plus", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การตรวจเช็คเบื้องต้น เครื่องยนต์ ZT PLUS Final ENG sub.mp4" },
-      { "title": "วิดีโอ — วิธีสตาร์ทเครื่องยนต์ที่ถูกต้อง", "lang": "EN", "type": "video", "href": "/media/1. Product/VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี Final ENG sub.mp4" }
+      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" }
     ],
     "videosTitle": "วิดีโอ",
     "downloadsTitle": "เอกสารดาวน์โหลด",
