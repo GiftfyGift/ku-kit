@@ -1826,13 +1826,24 @@ ol.check-list li::before {
 .check-points--stacked .check-point-card--photo {
   flex-direction: row;
   align-items: stretch;
+  position: relative;
+  padding-left: 180px;
+  min-height: 150px;
 }
 
 .check-points--stacked .check-point-photo {
+  /* A plain flex child won't stretch to match its row's height here — as a
+     replaced element with its own intrinsic ratio, it sizes itself from
+     that ratio and ignores align-items:stretch. Absolutely positioning it
+     against the row (padding-left above reserves its width) is what
+     actually fills the row's full height, cropped via object-fit. */
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 180px;
-  flex: 0 0 180px;
-  height: auto;
+  height: 100%;
   aspect-ratio: auto;
+  object-fit: cover;
 }
 
 .check-points--stacked .check-point-card--photo .check-point-card-body {
@@ -1856,9 +1867,13 @@ ol.check-list li::before {
 @media (max-width: 720px) {
   .check-points--stacked .check-point-card--photo {
     flex-direction: column;
+    padding-left: 0;
+    min-height: 0;
   }
   .check-points--stacked .check-point-photo {
+    position: static;
     width: 100%;
+    height: auto;
     flex: none;
     aspect-ratio: 4 / 3;
   }
