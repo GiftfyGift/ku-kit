@@ -242,35 +242,63 @@ function renderCheckPhotoList(points) {
 
 function renderPreDeliveryBlock(pd, id) {
   if (!pd) return '';
+  const labels = getEngineGuideLabels();
   return `
-    <div class="category-block" id="${id}">
+    <div class="category-block engine-guide-section" id="${id}">
       <h3 class="category-heading">${pd.title}</h3>
       <p class="section-intro">${pd.intro}</p>
-      <div class="check-points ${pd.points.length === 5 ? 'check-points--five' : ''}">
-        ${pd.points.map(pt => `
-          <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
-            ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
-            <div class="check-point-card-body">
-              <h4>${pt.title}</h4>
-              <p class="desc">${pt.desc}</p>
-              <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
-            </div>
+      <div class="engine-guide-panel engine-guide-panel--pre-delivery">
+        ${pd.video ? `<section class="engine-guide-group engine-guide-group--video">
+          <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
+          <div class="video-grid engine-guide-video">${renderYouTubeEmbed(pd.video)}</div>
+        </section>` : ''}
+        <section class="engine-guide-group engine-guide-group--manual">
+          <h4 class="engine-guide-label"><span>✓</span>${labels.manual}</h4>
+          <div class="check-points ${pd.points.length === 5 ? 'check-points--five' : ''}">
+            ${pd.points.map(pt => `
+              <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
+                ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
+                <div class="check-point-card-body">
+                  <h4>${pt.title}</h4>
+                  <p class="desc">${pt.desc}</p>
+                  <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
+                </div>
+              </div>
+            `).join('')}
           </div>
-        `).join('')}
+        </section>
       </div>
-      ${pd.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(pd.video)}</div>` : ''}
     </div>
   `;
 }
 
+function getEngineGuideLabels() {
+  return ({
+    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบ', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์' },
+    en: { video: 'Pre-delivery Check Video', manual: '5-Point Pre-delivery Manual', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video' },
+    fr: { video: 'Vidéo de contrôle avant livraison', manual: 'Guide de contrôle en 5 points', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit' },
+    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', manual: 'Mwongozo wa ukaguzi wa hatua 5', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa' },
+    tl: { video: 'Video ng pre-delivery check', manual: '5-point na gabay sa pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto' }
+  })[state.lang] || { video: 'Video', manual: 'Manual', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video' };
+}
+
 function renderStartProcedureBlock(sp, id) {
   if (!sp) return '';
+  const labels = getEngineGuideLabels();
   return `
-    <div class="category-block" id="${id}">
+    <div class="category-block engine-guide-section" id="${id}">
       <h3 class="category-heading">${sp.title}</h3>
-      <ol class="check-list">${sp.steps.map(st => `<li>${st}</li>`).join('')}</ol>
-      <div class="note-callout">${sp.caution.join(' ')}</div>
-      ${sp.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(sp.video)}</div>` : ''}
+      <div class="engine-guide-panel start-guide-layout">
+        ${sp.video ? `<section class="engine-guide-group start-guide-video">
+          <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
+          <div class="video-grid">${renderYouTubeEmbed(sp.video)}</div>
+        </section>` : ''}
+        <section class="engine-guide-group start-guide-steps">
+          <h4 class="engine-guide-label"><span>1–7</span>${labels.steps}</h4>
+          <ol class="check-list check-list--single">${sp.steps.map(st => `<li>${st}</li>`).join('')}</ol>
+        </section>
+        <div class="note-callout start-guide-caution">${sp.caution.join(' ')}</div>
+      </div>
       ${sp.moreFile ? `<div class="file-pill-row">${renderFilePill(sp.moreFile)}</div>` : ''}
     </div>
   `;
@@ -522,7 +550,11 @@ function renderYouTubeEmbed(v) {
 
 function renderSellingPointsMedia(media) {
   if (!media) return '';
-  const videoHtml = media.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(media.video)}</div>` : '';
+  const labels = getEngineGuideLabels();
+  const videoHtml = media.video ? `<section class="selling-media-video">
+    <h4 class="engine-guide-label"><span>▶</span>${labels.sellingVideo}</h4>
+    <div class="video-grid selling-video-grid">${renderYouTubeEmbed(media.video)}</div>
+  </section>` : '';
   const filesHtml = (media.files && media.files.length) ? `<div class="file-pill-row">${media.files.map(renderFilePill).join('')}</div>` : '';
   return `${videoHtml}${filesHtml}`;
 }
@@ -552,20 +584,25 @@ function renderProductEngine(c) {
   const e = p.engine;
 
   const sellingPoints = e.sellingPoints ? `
-    <div class="category-block">
+    <div class="category-block selling-points-section">
       <h3 class="category-heading">${e.sellingPoints.title}</h3>
-      <div class="highlight-grid">
-        ${e.sellingPoints.items.map(i => `
-          <div class="highlight-card ${i.image ? 'highlight-card--photo' : ''}">
-            ${i.image ? `<img src="${i.image.src}" alt="${i.image.alt}">` : ''}
-            <div class="highlight-card-body">
-              <h4>${i.title}</h4>
-              <p>${i.desc}</p>
-            </div>
+      <div class="engine-guide-panel selling-points-panel">
+        <section class="selling-points-list">
+          <h4 class="engine-guide-label"><span>★</span>${getEngineGuideLabels().selling}</h4>
+          <div class="highlight-grid">
+            ${e.sellingPoints.items.map(i => `
+              <div class="highlight-card ${i.image ? 'highlight-card--photo' : ''}">
+                ${i.image ? `<img src="${i.image.src}" alt="${i.image.alt}">` : ''}
+                <div class="highlight-card-body">
+                  <h4>${i.title}</h4>
+                  <p>${i.desc}</p>
+                </div>
+              </div>
+            `).join('')}
           </div>
-        `).join('')}
+        </section>
+        ${renderSellingPointsMedia(e.sellingPoints.media)}
       </div>
-      ${renderSellingPointsMedia(e.sellingPoints.media)}
     </div>
   ` : '';
 
