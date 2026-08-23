@@ -68,7 +68,7 @@
         "media": {
           "video": { "title": "New ZT Plus !", "type": "youtube", "youtubeId": "2TyKkvsv-3I" },
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1zJjWM80jsJXmi9c8Yyp9ApYuaRrLzsNC" }
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "TH", "type": "pdf", "href": "assets/docs/engine/epb-product-knowledge-zt-plus-th.pdf" }
           ]
         }
       },
@@ -101,7 +101,7 @@
           "ถ้าเครื่องยนต์ตีกลับ ให้ถอดชุดไส้กรองออกมาตรวจสอบ ถ้ามีเขม่าให้ทำความสะอาด หรือเปลี่ยนไส้กรองใหม่หากชำรุด"
         ],
         "video": { "title": "VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี", "type": "youtube", "youtubeId": "MB2sObwUZFQ" },
-        "moreFile": { "title": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ท เครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1jFlG2gXaiFqKhqAP12gxheOUn4MUEHDy" }
+        "moreFile": { "title": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ท เครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pdf", "href": "assets/docs/engine/pre-delivery-start-procedure-zt-plus-th.pdf" }
       },
       "applicationExamples": {
         "title": "ตัวอย่างภาพการใช้งานใน Application ต่างๆ",
@@ -330,7 +330,7 @@
         "moreFile": { "title": "Check list - รวมจุดสังเกตเครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
       },
       "resources": [
-        { "title": "คู่มือการใช้งาน ZT Plus (Operation Manual)", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1aPbwicEpQteKY4WmcDmJI-CWBAPMMPFL" }
+        { "title": "คู่มือการใช้งาน ZT Plus (Operation Manual)", "lang": "TH", "type": "pdf", "href": "assets/docs/engine/zt-plus-opm-th.pdf" }
       ],
       "videosTitle": "วิดีโอ",
       "downloadsTitle": "เอกสารดาวน์โหลด",

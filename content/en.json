@@ -67,7 +67,7 @@
         ],
         "media": {
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/1zJjWM80jsJXmi9c8Yyp9ApYuaRrLzsNC" }
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pdf", "href": "assets/docs/engine/epb-product-knowledge-zt-plus-en.pdf" }
           ]
         }
       },
@@ -98,7 +98,7 @@
           "Don't release the valve lever and stop cranking mid-way — this can cause the engine to kick back (smoke from the air filter) and spin in reverse.",
           "If the engine kicks back, remove the air filter and check it — clean off any soot, or replace the filter if it's damaged."
         ],
-        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/1jFlG2gXaiFqKhqAP12gxheOUn4MUEHDy" }
+        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pdf", "href": "assets/docs/engine/pre-delivery-start-procedure-zt-plus-en.pdf" }
       },
       "applicationExamples": {
         "title": "Application Examples",
@@ -322,7 +322,7 @@
         "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
       },
       "resources": [
-        { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/198W5asAG5Fx5h_urrgtghuJ6P_SSOTkz" }
+        { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/engine/zt-plus-opm-en.pdf" }
       ],
       "videosTitle": "Videos",
       "downloadsTitle": "Downloads",

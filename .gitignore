@@ -2,6 +2,8 @@
 assets/docs/*
 !assets/docs/marketing/
 !assets/docs/marketing/*.docx
+!assets/docs/engine/
+!assets/docs/engine/*.pdf
 
 # Regenerable build output — rebuild via the artifact build script when needed
 artifact/

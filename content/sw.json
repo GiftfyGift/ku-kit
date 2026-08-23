@@ -67,7 +67,7 @@
         ],
         "media": {
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1zJjWM80jsJXmi9c8Yyp9ApYuaRrLzsNC" }
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "SWA", "type": "pdf", "href": "assets/docs/engine/epb-product-knowledge-zt-plus-swa.pdf" }
           ]
         }
       },
@@ -98,7 +98,7 @@
           "Usiachie lever ya valve na kuacha kuzungusha katikati — hii inaweza kusababisha injini kurudisha mlio (moshi utatoka kwenye kichujio cha hewa) na kuzunguka kinyume.",
           "Ikiwa injini itarudisha mlio, ondoa kichujio cha hewa na kikague — safisha masizi au badilisha kichujio kikiwa kimeharibika."
         ],
-        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1jFlG2gXaiFqKhqAP12gxheOUn4MUEHDy" }
+        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "SWA", "type": "pdf", "href": "assets/docs/engine/pre-delivery-start-procedure-zt-plus-swa.pdf" }
       },
       "applicationExamples": {
         "title": "Mifano ya Matumizi",
@@ -322,7 +322,7 @@
         "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
       },
       "resources": [
-        { "title": "Mwongozo wa Uendeshaji wa ZT Plus (OPM)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1q3-Gdhuw6sIuTgh_ZyQjmNHGLXAI6Yso" }
+        { "title": "Mwongozo wa Uendeshaji wa ZT Plus (OPM)", "lang": "SWA", "type": "pdf", "href": "assets/docs/engine/zt-plus-opm-swa.pdf" }
       ],
       "videosTitle": "Video",
       "downloadsTitle": "Vipakuliwa",
