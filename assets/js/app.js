@@ -1,5 +1,8 @@
+const previewLang = new URLSearchParams(location.search).get('lang');
+const supportedLangs = ['th', 'en', 'fr', 'sw', 'tl'];
+
 const state = {
-  lang: localStorage.getItem('kukit_lang') || 'en',
+  lang: supportedLangs.includes(previewLang) ? previewLang : (localStorage.getItem('kukit_lang') || 'en'),
   route: (location.hash || '#home').replace('#', ''),
   content: null,
   searchIndex: []
@@ -121,16 +124,36 @@ function splitResources(resources) {
   return { videos, docs };
 }
 
-function localizedActivityDocs(resources) {
+function localizedDocsWithFallback(resources) {
   const docs = (resources || []).filter(r => r.type !== 'video');
-  const preferredLang = ({ th: 'TH', en: 'EN', sw: 'SWA', fr: 'FR', tl: 'TL' })[state.lang] || 'EN';
-  const preferredDocs = docs.filter(r => (r.lang || '').toUpperCase() === preferredLang);
-  if (preferredDocs.length) return preferredDocs;
+  const preferredLangs = ({ th: ['TH'], en: ['EN'], sw: ['SW', 'SWA'], fr: ['FR'], tl: ['TL'] })[state.lang] || ['EN'];
+  const familyKey = resource => {
+    if (resource.docKey) return resource.docKey;
+    const titleKey = (resource.title || '')
+      .replace(/\s*\((?:TH|EN|SW|SWA|FR|TL)(?:\s*,[^)]*)?\)\s*$/i, '')
+      .trim()
+      .toLowerCase();
+    const hrefKey = (resource.href || '')
+      .replace(/[-_](?:TH|EN|SW|SWA|FR|TL)(?=\.[a-z0-9]+(?:[?#].*)?$)/i, '')
+      .toLowerCase();
+    return titleKey || hrefKey;
+  };
 
-  // Until a French or Filipino manual is supplied, use the English edition.
-  const englishDocs = docs.filter(r => (r.lang || '').toUpperCase() === 'EN');
-  return englishDocs.length ? englishDocs : docs;
+  const families = new Map();
+  docs.forEach(doc => {
+    const key = familyKey(doc);
+    if (!families.has(key)) families.set(key, []);
+    families.get(key).push(doc);
+  });
+
+  return [...families.values()].map(group => {
+    const preferred = group.find(doc => preferredLangs.includes((doc.lang || '').toUpperCase()));
+    const english = group.find(doc => (doc.lang || '').toUpperCase() === 'EN');
+    return preferred || english || group[0];
+  });
 }
+
+const localizedActivityDocs = localizedDocsWithFallback;
 
 function renderResourceList(resources) {
   if (!resources || !resources.length) return '';
@@ -242,35 +265,70 @@ function renderCheckPhotoList(points) {
 
 function renderPreDeliveryBlock(pd, id) {
   if (!pd) return '';
+  const labels = getEngineGuideLabels();
+  const video = pd.video || { title: labels.preDeliveryVideoTitle, type: 'youtube', youtubeId: 'VjNgK_Ycirc' };
   return `
-    <div class="category-block" id="${id}">
+    <div class="category-block engine-guide-section" id="${id}">
       <h3 class="category-heading">${pd.title}</h3>
       <p class="section-intro">${pd.intro}</p>
-      <div class="check-points ${pd.points.length === 5 ? 'check-points--five' : ''}">
-        ${pd.points.map(pt => `
-          <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
-            ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
-            <div class="check-point-card-body">
-              <h4>${pt.title}</h4>
-              <p class="desc">${pt.desc}</p>
-              <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
-            </div>
+      <div class="engine-guide-panel engine-guide-panel--pre-delivery">
+        <section class="engine-guide-group engine-guide-group--video">
+          <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
+          <div class="video-grid engine-guide-video">${renderYouTubeEmbed(video)}</div>
+        </section>
+        <section class="engine-guide-group engine-guide-group--manual">
+          <h4 class="engine-guide-label"><span>✓</span>${labels.manual}</h4>
+          <div class="check-points ${pd.points.length === 5 ? 'check-points--five' : ''}">
+            ${pd.points.map(pt => `
+              <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
+                ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
+                <div class="check-point-card-body">
+                  <h4>${pt.title}</h4>
+                  <details class="check-point-details">
+                    <summary>${labels.details}</summary>
+                    <div class="check-point-details-body">
+                      <p class="desc">${pt.desc}</p>
+                      <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            `).join('')}
           </div>
-        `).join('')}
+        </section>
       </div>
-      ${pd.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(pd.video)}</div>` : ''}
     </div>
   `;
 }
 
+function getEngineGuideLabels() {
+  return ({
+    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า', details: 'รายละเอียดขั้นตอนตรวจเช็ก', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์', preDeliveryVideoTitle: 'VDO การตรวจเช็กเบื้องต้น เครื่องยนต์ ZT Plus', startVideoTitle: 'VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี', sellingVideoTitle: 'New ZT Plus !' },
+    en: { video: 'Pre-delivery Check Video', manual: '5-Point Kubota Diesel Engine Pre-delivery Manual', details: 'View inspection details', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'ZT Plus Preliminary Inspection Video', startVideoTitle: 'Correct Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' },
+    fr: { video: 'Vidéo de contrôle avant livraison', manual: 'Guide de livraison du moteur diesel Kubota en 5 points', details: 'Voir les détails du contrôle', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit', preDeliveryVideoTitle: 'Contrôle préliminaire du moteur ZT Plus', startVideoTitle: 'Démarrage correct du moteur', sellingVideoTitle: 'Nouveau ZT Plus !' },
+    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', manual: 'Mwongozo wa hatua 5 wa kukabidhi injini ya dizeli ya Kubota', details: 'Tazama maelezo ya ukaguzi', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa', preDeliveryVideoTitle: 'Ukaguzi wa awali wa injini ya ZT Plus', startVideoTitle: 'Namna sahihi ya kuwasha injini', sellingVideoTitle: 'ZT Plus Mpya!' },
+    tl: { video: 'Video ng pre-delivery check', manual: '5-point na gabay sa pag-deliver ng Kubota diesel engine', details: 'Tingnan ang detalye ng pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto', preDeliveryVideoTitle: 'Paunang pagsusuri ng ZT Plus engine', startVideoTitle: 'Tamang paraan ng pag-start ng engine', sellingVideoTitle: 'Bagong ZT Plus!' }
+  })[state.lang] || { video: 'Video', manual: 'Manual', details: 'View details', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'Pre-delivery Check Video', startVideoTitle: 'Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' };
+}
+
 function renderStartProcedureBlock(sp, id) {
   if (!sp) return '';
+  const labels = getEngineGuideLabels();
+  const video = sp.video || { title: labels.startVideoTitle, type: 'youtube', youtubeId: 'MB2sObwUZFQ' };
   return `
-    <div class="category-block" id="${id}">
+    <div class="category-block engine-guide-section" id="${id}">
       <h3 class="category-heading">${sp.title}</h3>
-      <ol class="check-list">${sp.steps.map(st => `<li>${st}</li>`).join('')}</ol>
-      <div class="note-callout">${sp.caution.join(' ')}</div>
-      ${sp.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(sp.video)}</div>` : ''}
+      <div class="engine-guide-panel start-guide-layout">
+        <section class="engine-guide-group start-guide-video">
+          <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
+          <div class="video-grid">${renderYouTubeEmbed(video)}</div>
+        </section>
+        <section class="engine-guide-group start-guide-steps">
+          <h4 class="engine-guide-label"><span>1–7</span>${labels.steps}</h4>
+          <ol class="check-list check-list--single">${sp.steps.map(st => `<li>${st}</li>`).join('')}</ol>
+        </section>
+        <div class="note-callout start-guide-caution">${sp.caution.join(' ')}</div>
+      </div>
       ${sp.moreFile ? `<div class="file-pill-row">${renderFilePill(sp.moreFile)}</div>` : ''}
     </div>
   `;
@@ -521,14 +579,20 @@ function renderYouTubeEmbed(v) {
 }
 
 function renderSellingPointsMedia(media) {
-  if (!media) return '';
-  const videoHtml = media.video ? `<div class="video-grid video-grid--compact">${renderYouTubeEmbed(media.video)}</div>` : '';
-  const filesHtml = (media.files && media.files.length) ? `<div class="file-pill-row">${media.files.map(renderFilePill).join('')}</div>` : '';
+  const labels = getEngineGuideLabels();
+  const resolvedMedia = media || {};
+  const resolvedVideo = resolvedMedia.video || { title: labels.sellingVideoTitle, type: 'youtube', youtubeId: '2TyKkvsv-3I' };
+  const videoHtml = `<section class="selling-media-video">
+    <h4 class="engine-guide-label"><span>▶</span>${labels.sellingVideo}</h4>
+    <div class="video-grid selling-video-grid">${renderYouTubeEmbed(resolvedVideo)}</div>
+  </section>`;
+  const filesHtml = (resolvedMedia.files && resolvedMedia.files.length) ? `<div class="file-pill-row">${resolvedMedia.files.map(renderFilePill).join('')}</div>` : '';
   return `${videoHtml}${filesHtml}`;
 }
 
 function renderProductResources(p, downloadsId, usePillStyle) {
-  const { videos, docs } = splitResources(p.resources);
+  const { videos } = splitResources(p.resources);
+  const docs = localizedDocsWithFallback(p.resources);
   const videoBlock = videos.length ? `
     <div class="category-block">
       <h3 class="category-heading">${p.videosTitle}</h3>
@@ -552,20 +616,25 @@ function renderProductEngine(c) {
   const e = p.engine;
 
   const sellingPoints = e.sellingPoints ? `
-    <div class="category-block">
+    <div class="category-block selling-points-section">
       <h3 class="category-heading">${e.sellingPoints.title}</h3>
-      <div class="highlight-grid">
-        ${e.sellingPoints.items.map(i => `
-          <div class="highlight-card ${i.image ? 'highlight-card--photo' : ''}">
-            ${i.image ? `<img src="${i.image.src}" alt="${i.image.alt}">` : ''}
-            <div class="highlight-card-body">
-              <h4>${i.title}</h4>
-              <p>${i.desc}</p>
-            </div>
+      <div class="engine-guide-panel selling-points-panel">
+        <section class="selling-points-list">
+          <h4 class="engine-guide-label"><span>★</span>${getEngineGuideLabels().selling}</h4>
+          <div class="highlight-grid">
+            ${e.sellingPoints.items.map(i => `
+              <div class="highlight-card ${i.image ? 'highlight-card--photo' : ''}">
+                ${i.image ? `<img src="${i.image.src}" alt="${i.image.alt}">` : ''}
+                <div class="highlight-card-body">
+                  <h4>${i.title}</h4>
+                  <p>${i.desc}</p>
+                </div>
+              </div>
+            `).join('')}
           </div>
-        `).join('')}
+        </section>
+        ${renderSellingPointsMedia(e.sellingPoints.media)}
       </div>
-      ${renderSellingPointsMedia(e.sellingPoints.media)}
     </div>
   ` : '';
 
@@ -669,10 +738,11 @@ function renderParts(c) {
     </div>
   `).join('');
 
-  const resources = pt.resources ? `
+  const partsDocs = localizedDocsWithFallback(pt.resources);
+  const resources = partsDocs.length ? `
     <div class="category-block">
       <h3 class="category-heading">${pt.downloadsTitle}</h3>
-      ${renderResourceList(pt.resources)}
+      ${renderResourceList(partsDocs)}
     </div>
   ` : '';
 
@@ -692,30 +762,52 @@ function renderParts(c) {
 function renderService(c) {
   const s = c.service;
 
-  const renderMaintenancePoints = (pts, idPrefix) => pts.map((pt, idx) => `
+  const maintenanceVideoLabel = ({
+    th: 'VDO บำรุงรักษา',
+    en: 'Maintenance Video',
+    fr: "Vidéo d’entretien",
+    sw: 'Video ya matengenezo',
+    tl: 'Video ng maintenance'
+  })[state.lang] || 'Maintenance Video';
+
+  const maintenanceVideoIds = {
+    engine: ['RDNMRAZHSXs', 'qkdKWM3PbtM', '2Nykx-mqYuc', '1cQynIA1uc8', 'cSfK8SUGUlw'],
+    tiller: ['xLyFjtY72I0', 'FqEE3gZRTqQ', 'sjAyoYBSHSw', 'toW72zz74xE', '9GMf1rZ5DZ4']
+  };
+
+  const resolveMaintenanceVideo = (pt, idx, productType) => pt.video || {
+    title: `${maintenanceVideoLabel}: ${pt.title.replace(/^\d+\.\s*/, '')}`,
+    type: 'youtube',
+    youtubeId: maintenanceVideoIds[productType][idx]
+  };
+
+  const renderMaintenancePoints = (pts, idPrefix, productType) => pts.map((pt, idx) => {
+    const video = resolveMaintenanceVideo(pt, idx, productType);
+    return `
     <div class="check-point-item" id="${idPrefix}-${idx}">
       <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
         ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
         <div class="check-point-card-body">
           <h4>${pt.title}</h4>
-          ${pt.video ? `<div class="video-grid check-point-video-float">${renderYouTubeEmbed(pt.video)}</div>` : ''}
+          <div class="video-grid check-point-video-float">${renderYouTubeEmbed(video)}</div>
           <p class="desc">${pt.desc}</p>
           <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
         </div>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
-  const pointsGridClass = pts => 'check-points' + (pts.some(pt => pt.video) ? ' check-points--stacked' : '');
+  const pointsGridClass = () => 'check-points check-points--stacked';
 
   const maintenance = s.maintenance ? `
     <div class="category-block">
       <h3 class="category-heading">${s.maintenance.title}</h3>
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
-      <div class="${pointsGridClass(s.maintenance.engine.points)}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine')}</div>
+      <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine', 'engine')}</div>
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
-      <div class="${pointsGridClass(s.maintenance.tiller.points)}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller')}</div>
+      <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller', 'tiller')}</div>
     </div>
   ` : '';
 
@@ -726,13 +818,7 @@ function renderService(c) {
     </div>
   `).join('');
 
-  const { videos, docs } = splitResources(s.resources);
-  const videoBlock = videos.length ? `
-    <div class="category-block">
-      <h3 class="category-heading">${s.videosTitle}</h3>
-      ${renderVideoGrid(videos)}
-    </div>
-  ` : '';
+  const docs = localizedDocsWithFallback(s.resources);
   const resources = docs.length ? `
     <div class="category-block">
       <h3 class="category-heading">${s.downloadsTitle}</h3>
@@ -746,7 +832,6 @@ function renderService(c) {
       <p class="section-intro">${s.intro}</p>
       ${renderQuickLinksColumns(s.quickLinks)}
       ${maintenance}
-      ${videoBlock}
       <div class="category-block">
         <h3 class="category-heading">${s.programsTitle} ${c.meta.sampleBadge ? `<span class="sample-badge">${c.meta.sampleBadge}</span>` : ''}</h3>
         <div class="program-grid">${programs}</div>

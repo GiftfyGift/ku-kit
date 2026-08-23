@@ -73,8 +73,8 @@
         }
       },
       "preDelivery": {
-        "title": "5 จุดสำคัญที่ต้องตรวจเช็กก่อนใช้งานเครื่องยนต์",
-        "intro": "ตรวจเช็กครบทั้ง 5 จุดนี้ก่อนส่งมอบเครื่องยนต์ให้ลูกค้า หรือก่อนสตาร์ทเครื่องเป็นครั้งแรก",
+        "title": "5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า",
+        "intro": "ตรวจเช็กเครื่องยนต์ทั้ง 5 จุดก่อนส่งมอบให้ลูกค้า เพื่อยืนยันความพร้อมใช้งานและลดความเสี่ยงจากปัญหาหลังการขาย",
         "points": [
           { "title": "1. ระบบกรองอากาศ (Air Filter)", "desc": "ทำหน้าที่กรองและดักฝุ่นที่ปนมากับอากาศ ไม่ให้เข้าไปในเครื่องยนต์ ป้องกันชิ้นส่วนภายในสึกหรอ", "steps": ["เติมน้ำมันเครื่องลงไปในหม้อกรอง (ใช้น้ำมันเครื่องที่เหลือจากเติมเครื่องยนต์)", "สังเกตเครื่องหมายบอกระดับของน้ำมันเครื่อง", "ใส่กรองอากาศ ระวังอย่าให้ลูกยางขาด", "หยอดน้ำมันเครื่องลงบนกรองอากาศเพื่อช่วยดักจับฝุ่น"], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "หยอดน้ำมันเครื่องลงบนกรองอากาศจริงของเครื่องยนต์ ZT Plus" } },
           { "title": "2. ระบบน้ำมันเชื้อเพลิง", "desc": "เครื่องยนต์ทำงานได้ต้องอาศัยน้ำมันเชื้อเพลิงผสมกับอากาศในพื้นที่จำกัด และความร้อนจากการอัดของลูกสูบจนเกิดการระเบิด", "steps": ["เลือกใช้น้ำมันที่สะอาด ไม่ต้องถอดไส้กรองถังออกขณะเติมน้ำมัน", "ตรวจเช็กการรั่วซึมรอบกรอง ต้องไม่มีน้ำและสิ่งสกปรกผสมอยู่ในน้ำมัน"], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "กระปุกกรองน้ำมันเชื้อเพลิงจริงของเครื่องยนต์ ZT Plus" } },
@@ -557,12 +557,12 @@
       { "name": "การฝึกอบรมช่างเทคนิค (ตัวอย่าง)", "desc": "หลักสูตรอบรมซ่อมบำรุงสำหรับช่างของ Dealer ทั้งภาคทฤษฎีและปฏิบัติ" }
     ],
     "resources": [
-      { "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-EN.pptx" },
-      { "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/pre-delivery/Pre-Delivery-Check-And-Start-TH.pptx" },
-      { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-EN.pptx" },
-      { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/Engine-Maintenance-TH.pptx" },
-      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-EN.pptx" },
-      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/maintenance/PowerTiller-Maintenance-TH.pptx" }
+{ "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
+      { "title": "สไลด์ขั้นตอนตรวจเช็กก่อนส่งมอบและวิธีสตาร์ท (TH)", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/18X2kaej-2VgTz-hjcsr2Jq09qEI-maVK/view" },
+      { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/1ybWdLs__PklG4uZ1Z5Oi6mgyC3TSYd4M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
+      { "title": "สไลด์การบำรุงรักษาเครื่องยนต์ ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "https://docs.google.com/presentation/d/1efpJq94Jh72ve4nIzgTi1FA1OGIUgg_M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
+      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/12Chfl313KS_XVCiRjcn3P_kD4IjhW1q3/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
+      { "title": "สไลด์การบำรุงรักษารถไถเดินตาม (TH)", "lang": "TH", "type": "pptx", "href": "https://docs.google.com/presentation/d/13jfjWuofM-phGlDGPBsDdNC7yra7tw_D/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" }
     ],
     "videosTitle": "วิดีโอ",
     "downloadsTitle": "เอกสารดาวน์โหลด",
