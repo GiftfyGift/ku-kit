@@ -243,15 +243,16 @@ function renderCheckPhotoList(points) {
 function renderPreDeliveryBlock(pd, id) {
   if (!pd) return '';
   const labels = getEngineGuideLabels();
+  const video = pd.video || { title: labels.preDeliveryVideoTitle, type: 'youtube', youtubeId: 'VjNgK_Ycirc' };
   return `
     <div class="category-block engine-guide-section" id="${id}">
       <h3 class="category-heading">${pd.title}</h3>
       <p class="section-intro">${pd.intro}</p>
       <div class="engine-guide-panel engine-guide-panel--pre-delivery">
-        ${pd.video ? `<section class="engine-guide-group engine-guide-group--video">
+        <section class="engine-guide-group engine-guide-group--video">
           <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
-          <div class="video-grid engine-guide-video">${renderYouTubeEmbed(pd.video)}</div>
-        </section>` : ''}
+          <div class="video-grid engine-guide-video">${renderYouTubeEmbed(video)}</div>
+        </section>
         <section class="engine-guide-group engine-guide-group--manual">
           <h4 class="engine-guide-label"><span>✓</span>${labels.manual}</h4>
           <div class="check-points ${pd.points.length === 5 ? 'check-points--five' : ''}">
@@ -260,8 +261,13 @@ function renderPreDeliveryBlock(pd, id) {
                 ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
                 <div class="check-point-card-body">
                   <h4>${pt.title}</h4>
-                  <p class="desc">${pt.desc}</p>
-                  <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
+                  <details class="check-point-details">
+                    <summary>${labels.details}</summary>
+                    <div class="check-point-details-body">
+                      <p class="desc">${pt.desc}</p>
+                      <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
+                    </div>
+                  </details>
                 </div>
               </div>
             `).join('')}
@@ -274,25 +280,26 @@ function renderPreDeliveryBlock(pd, id) {
 
 function getEngineGuideLabels() {
   return ({
-    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบ', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์' },
-    en: { video: 'Pre-delivery Check Video', manual: '5-Point Pre-delivery Manual', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video' },
-    fr: { video: 'Vidéo de contrôle avant livraison', manual: 'Guide de contrôle en 5 points', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit' },
-    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', manual: 'Mwongozo wa ukaguzi wa hatua 5', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa' },
-    tl: { video: 'Video ng pre-delivery check', manual: '5-point na gabay sa pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto' }
-  })[state.lang] || { video: 'Video', manual: 'Manual', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video' };
+    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า', details: 'รายละเอียดขั้นตอนตรวจเช็ก', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์', preDeliveryVideoTitle: 'VDO การตรวจเช็กเบื้องต้น เครื่องยนต์ ZT Plus', startVideoTitle: 'VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี', sellingVideoTitle: 'New ZT Plus !' },
+    en: { video: 'Pre-delivery Check Video', manual: '5-Point Kubota Diesel Engine Pre-delivery Manual', details: 'View inspection details', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'ZT Plus Preliminary Inspection Video', startVideoTitle: 'Correct Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' },
+    fr: { video: 'Vidéo de contrôle avant livraison', manual: 'Guide de livraison du moteur diesel Kubota en 5 points', details: 'Voir les détails du contrôle', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit', preDeliveryVideoTitle: 'Contrôle préliminaire du moteur ZT Plus', startVideoTitle: 'Démarrage correct du moteur', sellingVideoTitle: 'Nouveau ZT Plus !' },
+    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', manual: 'Mwongozo wa hatua 5 wa kukabidhi injini ya dizeli ya Kubota', details: 'Tazama maelezo ya ukaguzi', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa', preDeliveryVideoTitle: 'Ukaguzi wa awali wa injini ya ZT Plus', startVideoTitle: 'Namna sahihi ya kuwasha injini', sellingVideoTitle: 'ZT Plus Mpya!' },
+    tl: { video: 'Video ng pre-delivery check', manual: '5-point na gabay sa pag-deliver ng Kubota diesel engine', details: 'Tingnan ang detalye ng pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto', preDeliveryVideoTitle: 'Paunang pagsusuri ng ZT Plus engine', startVideoTitle: 'Tamang paraan ng pag-start ng engine', sellingVideoTitle: 'Bagong ZT Plus!' }
+  })[state.lang] || { video: 'Video', manual: 'Manual', details: 'View details', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'Pre-delivery Check Video', startVideoTitle: 'Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' };
 }
 
 function renderStartProcedureBlock(sp, id) {
   if (!sp) return '';
   const labels = getEngineGuideLabels();
+  const video = sp.video || { title: labels.startVideoTitle, type: 'youtube', youtubeId: 'MB2sObwUZFQ' };
   return `
     <div class="category-block engine-guide-section" id="${id}">
       <h3 class="category-heading">${sp.title}</h3>
       <div class="engine-guide-panel start-guide-layout">
-        ${sp.video ? `<section class="engine-guide-group start-guide-video">
+        <section class="engine-guide-group start-guide-video">
           <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
-          <div class="video-grid">${renderYouTubeEmbed(sp.video)}</div>
-        </section>` : ''}
+          <div class="video-grid">${renderYouTubeEmbed(video)}</div>
+        </section>
         <section class="engine-guide-group start-guide-steps">
           <h4 class="engine-guide-label"><span>1–7</span>${labels.steps}</h4>
           <ol class="check-list check-list--single">${sp.steps.map(st => `<li>${st}</li>`).join('')}</ol>
@@ -549,13 +556,13 @@ function renderYouTubeEmbed(v) {
 }
 
 function renderSellingPointsMedia(media) {
-  if (!media) return '';
   const labels = getEngineGuideLabels();
-  const videoHtml = media.video ? `<section class="selling-media-video">
+  const resolvedMedia = media || { video: { title: labels.sellingVideoTitle, type: 'youtube', youtubeId: '2TyKkvsv-3I' } };
+  const videoHtml = resolvedMedia.video ? `<section class="selling-media-video">
     <h4 class="engine-guide-label"><span>▶</span>${labels.sellingVideo}</h4>
-    <div class="video-grid selling-video-grid">${renderYouTubeEmbed(media.video)}</div>
+    <div class="video-grid selling-video-grid">${renderYouTubeEmbed(resolvedMedia.video)}</div>
   </section>` : '';
-  const filesHtml = (media.files && media.files.length) ? `<div class="file-pill-row">${media.files.map(renderFilePill).join('')}</div>` : '';
+  const filesHtml = (resolvedMedia.files && resolvedMedia.files.length) ? `<div class="file-pill-row">${resolvedMedia.files.map(renderFilePill).join('')}</div>` : '';
   return `${videoHtml}${filesHtml}`;
 }
 
