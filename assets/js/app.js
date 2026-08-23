@@ -1,5 +1,8 @@
+const previewLang = new URLSearchParams(location.search).get('lang');
+const supportedLangs = ['th', 'en', 'fr', 'sw', 'tl'];
+
 const state = {
-  lang: localStorage.getItem('kukit_lang') || 'en',
+  lang: supportedLangs.includes(previewLang) ? previewLang : (localStorage.getItem('kukit_lang') || 'en'),
   route: (location.hash || '#home').replace('#', ''),
   content: null,
   searchIndex: []
