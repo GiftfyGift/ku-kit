@@ -319,7 +319,7 @@
           { "text": "A TIS (Thai Industrial Standard) sticker with a scannable QR code confirming manufacture by Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "TIS sticker with scannable QR code" } },
           { "text": "The model and 6-digit serial number engraved on the engine; scan the QR code on the side gear cover — a genuine unit shows \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Model and 6-digit serial number engraved on the engine" } }
         ],
-        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
+        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pdf", "href": "assets/docs/engine/authenticity-checklist-zt-plus-en.pdf" }
       },
       "resources": [
         { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/engine/zt-plus-opm-en.pdf" }

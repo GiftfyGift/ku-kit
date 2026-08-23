@@ -319,7 +319,7 @@
           { "text": "Kuna kibandiko cha TIS (Kiwango cha Viwanda cha Thailand) chenye msimbo wa QR unaoweza kusomwa kuthibitisha utengenezaji na Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "Kibandiko cha TIS chenye msimbo wa QR" } },
           { "text": "Mfano na nambari ya serial ya tarakimu 6 zimechongwa kwenye injini; changanua msimbo wa QR kwenye kifuniko cha gia cha ubavuni — kifaa halisi kitaonyesha \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Mfano na nambari ya serial ya tarakimu 6 zilizochongwa kwenye injini" } }
         ],
-        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
+        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "SWA", "type": "pdf", "href": "assets/docs/engine/authenticity-checklist-zt-plus-swa.pdf" }
       },
       "resources": [
         { "title": "Mwongozo wa Uendeshaji wa ZT Plus (OPM)", "lang": "SWA", "type": "pdf", "href": "assets/docs/engine/zt-plus-opm-swa.pdf" }
