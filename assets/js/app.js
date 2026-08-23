@@ -736,30 +736,52 @@ function renderParts(c) {
 function renderService(c) {
   const s = c.service;
 
-  const renderMaintenancePoints = (pts, idPrefix) => pts.map((pt, idx) => `
+  const maintenanceVideoLabel = ({
+    th: 'VDO บำรุงรักษา',
+    en: 'Maintenance Video',
+    fr: "Vidéo d’entretien",
+    sw: 'Video ya matengenezo',
+    tl: 'Video ng maintenance'
+  })[state.lang] || 'Maintenance Video';
+
+  const maintenanceVideoIds = {
+    engine: ['RDNMRAZHSXs', 'qkdKWM3PbtM', '2Nykx-mqYuc', '1cQynIA1uc8', 'cSfK8SUGUlw'],
+    tiller: ['xLyFjtY72I0', 'FqEE3gZRTqQ', 'sjAyoYBSHSw', 'toW72zz74xE', '9GMf1rZ5DZ4']
+  };
+
+  const resolveMaintenanceVideo = (pt, idx, productType) => pt.video || {
+    title: `${maintenanceVideoLabel}: ${pt.title.replace(/^\d+\.\s*/, '')}`,
+    type: 'youtube',
+    youtubeId: maintenanceVideoIds[productType][idx]
+  };
+
+  const renderMaintenancePoints = (pts, idPrefix, productType) => pts.map((pt, idx) => {
+    const video = resolveMaintenanceVideo(pt, idx, productType);
+    return `
     <div class="check-point-item" id="${idPrefix}-${idx}">
       <div class="check-point-card ${pt.image ? 'check-point-card--photo' : ''}">
         ${pt.image ? `<img class="check-point-photo" src="${pt.image.src}" alt="${pt.image.alt}">` : ''}
         <div class="check-point-card-body">
           <h4>${pt.title}</h4>
-          ${pt.video ? `<div class="video-grid check-point-video-float">${renderYouTubeEmbed(pt.video)}</div>` : ''}
+          <div class="video-grid check-point-video-float">${renderYouTubeEmbed(video)}</div>
           <p class="desc">${pt.desc}</p>
           <ul>${pt.steps.map(st => `<li>${st}</li>`).join('')}</ul>
         </div>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
-  const pointsGridClass = pts => 'check-points' + (pts.some(pt => pt.video) ? ' check-points--stacked' : '');
+  const pointsGridClass = () => 'check-points check-points--stacked';
 
   const maintenance = s.maintenance ? `
     <div class="category-block">
       <h3 class="category-heading">${s.maintenance.title}</h3>
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
-      <div class="${pointsGridClass(s.maintenance.engine.points)}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine')}</div>
+      <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine', 'engine')}</div>
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
-      <div class="${pointsGridClass(s.maintenance.tiller.points)}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller')}</div>
+      <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller', 'tiller')}</div>
     </div>
   ` : '';
 
