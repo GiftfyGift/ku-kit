@@ -100,6 +100,9 @@ function renderProductSelector(c, active) {
 function renderVideoGrid(videos) {
   if (!videos || !videos.length) return '';
   const items = videos.map(v => {
+    if (v.type === 'youtube') {
+      return renderYouTubeEmbed(v);
+    }
     if (!v.href) {
       return `
         <div class="video-card">
@@ -119,13 +122,13 @@ function renderVideoGrid(videos) {
 }
 
 function splitResources(resources) {
-  const videos = (resources || []).filter(r => r.type === 'video');
-  const docs = (resources || []).filter(r => r.type !== 'video');
+  const videos = (resources || []).filter(r => r.type === 'video' || r.type === 'youtube');
+  const docs = (resources || []).filter(r => r.type !== 'video' && r.type !== 'youtube');
   return { videos, docs };
 }
 
 function localizedDocsWithFallback(resources) {
-  const docs = (resources || []).filter(r => r.type !== 'video');
+  const docs = (resources || []).filter(r => r.type !== 'video' && r.type !== 'youtube');
   const preferredLangs = ({ th: ['TH'], en: ['EN'], sw: ['SW', 'SWA'], fr: ['FR'], tl: ['TL'] })[state.lang] || ['EN'];
   const familyKey = resource => {
     if (resource.docKey) return resource.docKey;

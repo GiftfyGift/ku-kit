@@ -67,7 +67,7 @@
         ],
         "media": {
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view" }
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/1zJjWM80jsJXmi9c8Yyp9ApYuaRrLzsNC" }
           ]
         }
       },
@@ -98,7 +98,7 @@
           "Don't release the valve lever and stop cranking mid-way — this can cause the engine to kick back (smoke from the air filter) and spin in reverse.",
           "If the engine kicks back, remove the air filter and check it — clean off any soot, or replace the filter if it's damaged."
         ],
-        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view" }
+        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/1jFlG2gXaiFqKhqAP12gxheOUn4MUEHDy" }
       },
       "applicationExamples": {
         "title": "Application Examples",
@@ -319,10 +319,10 @@
           { "text": "A TIS (Thai Industrial Standard) sticker with a scannable QR code confirming manufacture by Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "TIS sticker with scannable QR code" } },
           { "text": "The model and 6-digit serial number engraved on the engine; scan the QR code on the side gear cover — a genuine unit shows \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Model and 6-digit serial number engraved on the engine" } }
         ],
-        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view" }
+        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
       },
       "resources": [
-        { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view" }
+        { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/drive/folders/198W5asAG5Fx5h_urrgtghuJ6P_SSOTkz" }
       ],
       "videosTitle": "Videos",
       "downloadsTitle": "Downloads",
@@ -1105,7 +1105,7 @@
     "resources": [
       { "title": "KUBOTA Activity Standard — 4-activity comparison table (EN, spreadsheet)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1adX7TPO4CyUZtWO-NFN99yX5KETA8aiq/view" },
       { "title": "KUBOTA Activity Standard — 4-activity comparison table (TH, spreadsheet)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/17Xc4MFJIMNhMoZSEQJff8EAzRYfxRbSQ/view" },
-      { "title": "Kubota Event highlight video", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      { "title": "Activity Preparation & Procedure Video", "lang": "EN", "type": "youtube", "youtubeId": "bc2eSpD9kkg" }
     ],
     "videosTitle": "Videos",
     "downloadsTitle": "Downloads",

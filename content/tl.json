@@ -768,7 +768,7 @@
     "resources": [
       { "title": "KUBOTA Activity Standard — talahanayan ng paghahambing ng 4 activity (EN, spreadsheet)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
       { "title": "KUBOTA Activity Standard — talahanayan ng paghahambing ng 4 activity (TH, spreadsheet)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
-      { "title": "Kubota Event highlight video", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      { "title": "Video ng mga Hakbang at Paghahanda sa Aktibidad", "lang": "EN", "type": "youtube", "youtubeId": "bc2eSpD9kkg" }
     ],
     "videosTitle": "Mga Video",
     "downloadsTitle": "Mga Download",

@@ -67,7 +67,7 @@
         ],
         "media": {
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1L_KE4cgdKfc63Fv4uofo5XbHUZ7X7CbQ/view" }
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1zJjWM80jsJXmi9c8Yyp9ApYuaRrLzsNC" }
           ]
         }
       },
@@ -98,7 +98,7 @@
           "Usiachie lever ya valve na kuacha kuzungusha katikati — hii inaweza kusababisha injini kurudisha mlio (moshi utatoka kwenye kichujio cha hewa) na kuzunguka kinyume.",
           "Ikiwa injini itarudisha mlio, ondoa kichujio cha hewa na kikague — safisha masizi au badilisha kichujio kikiwa kimeharibika."
         ],
-        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/view" }
+        "moreFile": { "title": "Pre-Delivery Check & Correct Starting Procedure — KUBOTA Engine ZT Plus", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1jFlG2gXaiFqKhqAP12gxheOUn4MUEHDy" }
       },
       "applicationExamples": {
         "title": "Mifano ya Matumizi",
@@ -319,10 +319,10 @@
           { "text": "Kuna kibandiko cha TIS (Kiwango cha Viwanda cha Thailand) chenye msimbo wa QR unaoweza kusomwa kuthibitisha utengenezaji na Siam Kubota.", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "Kibandiko cha TIS chenye msimbo wa QR" } },
           { "text": "Mfano na nambari ya serial ya tarakimu 6 zimechongwa kwenye injini; changanua msimbo wa QR kwenye kifuniko cha gia cha ubavuni — kifaa halisi kitaonyesha \"Genuine product from Siam Kubota\".", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "Mfano na nambari ya serial ya tarakimu 6 zilizochongwa kwenye injini" } }
         ],
-        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "EN", "type": "pptx", "href": "https://drive.google.com/file/d/1-STOuziPi3QB2qRMCk-X5VUzDu9-weBh/view" }
+        "moreFile": { "title": "Check list - The genuine Kubota Engine ZT Plus", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
       },
       "resources": [
-        { "title": "Mwongozo wa Uendeshaji wa ZT Plus (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view" }
+        { "title": "Mwongozo wa Uendeshaji wa ZT Plus (OPM)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/drive/folders/1q3-Gdhuw6sIuTgh_ZyQjmNHGLXAI6Yso" }
       ],
       "videosTitle": "Video",
       "downloadsTitle": "Vipakuliwa",
@@ -774,7 +774,7 @@
       { "title": "KUBOTA Activity Standard — muhtasari wa shughuli 4 (SWA, PDF)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/file/d/1ixyvY1jwz3KcBD-Y2-aBAxSnCj0Bi8fR/view" },
       { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (EN, lahajedwali)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
       { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (TH, lahajedwali)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
-      { "title": "Video ya muhtasari wa Kubota Event", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      { "title": "Video ya hatua na maandalizi ya shughuli", "lang": "EN", "type": "youtube", "youtubeId": "bc2eSpD9kkg" }
     ],
     "videosTitle": "Video",
     "downloadsTitle": "Vipakuliwa",

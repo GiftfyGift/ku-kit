@@ -68,7 +68,7 @@
         "media": {
           "video": { "title": "New ZT Plus !", "type": "youtube", "youtubeId": "2TyKkvsv-3I" },
           "files": [
-            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/1i1dcLN-jQnwJ4C_3tNwxHQoVmH6XzSCp/view" }
+            { "title": "EPB_Product Knowledge_ZT Plus", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1zJjWM80jsJXmi9c8Yyp9ApYuaRrLzsNC" }
           ]
         }
       },
@@ -101,7 +101,7 @@
           "ถ้าเครื่องยนต์ตีกลับ ให้ถอดชุดไส้กรองออกมาตรวจสอบ ถ้ามีเขม่าให้ทำความสะอาด หรือเปลี่ยนไส้กรองใหม่หากชำรุด"
         ],
         "video": { "title": "VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี", "type": "youtube", "youtubeId": "MB2sObwUZFQ" },
-        "moreFile": { "title": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ท เครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/18X2kaej-2VgTz-hjcsr2Jq09qEI-maVK/view" }
+        "moreFile": { "title": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ท เครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1jFlG2gXaiFqKhqAP12gxheOUn4MUEHDy" }
       },
       "applicationExamples": {
         "title": "ตัวอย่างภาพการใช้งานใน Application ต่างๆ",
@@ -327,10 +327,10 @@
           { "text": "มีสติกเกอร์ มอก. (TIS) พร้อม QR Code สแกนตรวจสอบว่าผลิตโดยสยามคูโบต้า", "image": { "src": "assets/img/product/authenticity/engine-08-tis-qr.png", "alt": "สติกเกอร์ มอก. พร้อม QR Code" } },
           { "text": "มีการสลักรุ่นและหมายเลขซีเรียล 6 หลักบนตัวเครื่อง สแกน QR Code ที่ฝาครอบเกียร์เพื่อตรวจสอบ สินค้าแท้จะแสดงข้อความ \"Genuine product from Siam Kubota\"", "image": { "src": "assets/img/product/authenticity/engine-09-serial-number.png", "alt": "รุ่นและหมายเลขซีเรียล 6 หลักที่สลักบนตัวเครื่อง" } }
         ],
-        "moreFile": { "title": "Check list - รวมจุดสังเกตเครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/1Gjo4kgHKKRF2ZMiGRERZ6h78AiyZLqaA/view" }
+        "moreFile": { "title": "Check list - รวมจุดสังเกตเครื่องยนต์คูโบต้า ZT Plus", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1_lnmqkwKaMu5WurInKDnlA-7aGNT0lBv" }
       },
       "resources": [
-        { "title": "คู่มือการใช้งาน ZT Plus (Operation Manual)", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/file/d/1YknIVJcKdMFyVmISognvHzteahHibfF6/view" }
+        { "title": "คู่มือการใช้งาน ZT Plus (Operation Manual)", "lang": "TH", "type": "pdf", "href": "https://drive.google.com/drive/folders/1aPbwicEpQteKY4WmcDmJI-CWBAPMMPFL" }
       ],
       "videosTitle": "วิดีโอ",
       "downloadsTitle": "เอกสารดาวน์โหลด",
@@ -1115,7 +1115,7 @@
     "resources": [
       { "title": "ตารางเปรียบเทียบ 4 กิจกรรมหลัก KUBOTA Activity Standard (TH, Excel)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/17Xc4MFJIMNhMoZSEQJff8EAzRYfxRbSQ/view" },
       { "title": "ตารางเปรียบเทียบ 4 กิจกรรมหลัก KUBOTA Activity Standard (EN, Excel)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1adX7TPO4CyUZtWO-NFN99yX5KETA8aiq/view" },
-      { "title": "วิดีโอไฮไลต์ Kubota Event", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      { "title": "วิดีโอขั้นตอนและการเตรียมจัดกิจกรรม", "lang": "TH", "type": "youtube", "youtubeId": "bc2eSpD9kkg" }
     ],
     "videosTitle": "วิดีโอ",
     "downloadsTitle": "เอกสารดาวน์โหลด",

@@ -768,7 +768,7 @@
     "resources": [
       { "title": "KUBOTA Activity Standard — tableau comparatif des 4 activités (EN, tableur)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
       { "title": "KUBOTA Activity Standard — tableau comparatif des 4 activités (TH, tableur)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
-      { "title": "Vidéo phare des événements Kubota", "lang": "EN", "type": "video", "href": "/media/4. Marketing/(KFD) Activity preparation/Kubota Event ENG Subtitle.mp4" }
+      { "title": "Vidéo des étapes et de la préparation des événements", "lang": "EN", "type": "youtube", "youtubeId": "bc2eSpD9kkg" }
     ],
     "videosTitle": "Vidéos",
     "downloadsTitle": "Téléchargements",
