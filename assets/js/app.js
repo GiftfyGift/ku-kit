@@ -580,11 +580,12 @@ function renderYouTubeEmbed(v) {
 
 function renderSellingPointsMedia(media) {
   const labels = getEngineGuideLabels();
-  const resolvedMedia = media || { video: { title: labels.sellingVideoTitle, type: 'youtube', youtubeId: '2TyKkvsv-3I' } };
-  const videoHtml = resolvedMedia.video ? `<section class="selling-media-video">
+  const resolvedMedia = media || {};
+  const resolvedVideo = resolvedMedia.video || { title: labels.sellingVideoTitle, type: 'youtube', youtubeId: '2TyKkvsv-3I' };
+  const videoHtml = `<section class="selling-media-video">
     <h4 class="engine-guide-label"><span>▶</span>${labels.sellingVideo}</h4>
-    <div class="video-grid selling-video-grid">${renderYouTubeEmbed(resolvedMedia.video)}</div>
-  </section>` : '';
+    <div class="video-grid selling-video-grid">${renderYouTubeEmbed(resolvedVideo)}</div>
+  </section>`;
   const filesHtml = (resolvedMedia.files && resolvedMedia.files.length) ? `<div class="file-pill-row">${resolvedMedia.files.map(renderFilePill).join('')}</div>` : '';
   return `${videoHtml}${filesHtml}`;
 }
