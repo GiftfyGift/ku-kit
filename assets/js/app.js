@@ -124,16 +124,36 @@ function splitResources(resources) {
   return { videos, docs };
 }
 
-function localizedActivityDocs(resources) {
+function localizedDocsWithFallback(resources) {
   const docs = (resources || []).filter(r => r.type !== 'video');
-  const preferredLang = ({ th: 'TH', en: 'EN', sw: 'SWA', fr: 'FR', tl: 'TL' })[state.lang] || 'EN';
-  const preferredDocs = docs.filter(r => (r.lang || '').toUpperCase() === preferredLang);
-  if (preferredDocs.length) return preferredDocs;
+  const preferredLangs = ({ th: ['TH'], en: ['EN'], sw: ['SW', 'SWA'], fr: ['FR'], tl: ['TL'] })[state.lang] || ['EN'];
+  const familyKey = resource => {
+    if (resource.docKey) return resource.docKey;
+    const titleKey = (resource.title || '')
+      .replace(/\s*\((?:TH|EN|SW|SWA|FR|TL)(?:\s*,[^)]*)?\)\s*$/i, '')
+      .trim()
+      .toLowerCase();
+    const hrefKey = (resource.href || '')
+      .replace(/[-_](?:TH|EN|SW|SWA|FR|TL)(?=\.[a-z0-9]+(?:[?#].*)?$)/i, '')
+      .toLowerCase();
+    return titleKey || hrefKey;
+  };
 
-  // Until a French or Filipino manual is supplied, use the English edition.
-  const englishDocs = docs.filter(r => (r.lang || '').toUpperCase() === 'EN');
-  return englishDocs.length ? englishDocs : docs;
+  const families = new Map();
+  docs.forEach(doc => {
+    const key = familyKey(doc);
+    if (!families.has(key)) families.set(key, []);
+    families.get(key).push(doc);
+  });
+
+  return [...families.values()].map(group => {
+    const preferred = group.find(doc => preferredLangs.includes((doc.lang || '').toUpperCase()));
+    const english = group.find(doc => (doc.lang || '').toUpperCase() === 'EN');
+    return preferred || english || group[0];
+  });
 }
+
+const localizedActivityDocs = localizedDocsWithFallback;
 
 function renderResourceList(resources) {
   if (!resources || !resources.length) return '';
@@ -570,7 +590,8 @@ function renderSellingPointsMedia(media) {
 }
 
 function renderProductResources(p, downloadsId, usePillStyle) {
-  const { videos, docs } = splitResources(p.resources);
+  const { videos } = splitResources(p.resources);
+  const docs = localizedDocsWithFallback(p.resources);
   const videoBlock = videos.length ? `
     <div class="category-block">
       <h3 class="category-heading">${p.videosTitle}</h3>
@@ -716,10 +737,11 @@ function renderParts(c) {
     </div>
   `).join('');
 
-  const resources = pt.resources ? `
+  const partsDocs = localizedDocsWithFallback(pt.resources);
+  const resources = partsDocs.length ? `
     <div class="category-block">
       <h3 class="category-heading">${pt.downloadsTitle}</h3>
-      ${renderResourceList(pt.resources)}
+      ${renderResourceList(partsDocs)}
     </div>
   ` : '';
 
@@ -795,7 +817,7 @@ function renderService(c) {
     </div>
   `).join('');
 
-  const { docs } = splitResources(s.resources);
+  const docs = localizedDocsWithFallback(s.resources);
   const resources = docs.length ? `
     <div class="category-block">
       <h3 class="category-heading">${s.downloadsTitle}</h3>
