@@ -687,7 +687,7 @@
         "checklist": ["Nakumpirma ang hindi bababa sa 30 customer.", "Malinis at handa nang i-display ang KUBOTA Diesel engine ZT plus.", "Malinis at handa nang i-display ang KUBOTA Power Tiller.", "Handa na ang rehistro, product display, upuan, at parking area.", "Handa na ang event signs, product materials, at sound system.", "Nasuri na ng mga presenter ang product information.", "Sapat ang meryenda at inuming tubig.", "Naiintindihan ng lahat ng miyembro ng team ang kanilang responsibilidad."],
         "tip": "Isang batayang product-introduction activity. Nakikita ng customer ang aktuwal na produkto at natatanggap ang presentasyon, pero hindi na kailangan ng field demonstration.",
         "resources": [
-          { "title": "KFD Activity manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
+          { "title": "KFD Activity manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-EN.pdf" },
           { "title": "KFD Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
         ]
       },
@@ -712,7 +712,7 @@
         "checklist": ["Handa na ang palayan o working area.", "Handa nang i-opereyt ang KUBOTA Power Tiller at implement.", "Malinaw na hiwalay ang demonstration route, viewing point, at trial area.", "Nasubukan na ng demonstration driver ang ruta.", "Kayang ipaliwanag ng staff ang mga control at tamang paraan ng pag-oopereyt.", "Handa na ang trial area at safety equipment ng customer.", "Kung pinili ang speed o fuel-consumption test, handa na ang measuring equipment at test method."],
         "tip": "Kailangang ma-demonstrate ang produkto sa tunay na field at magkaroon ng supervised trial ang customer. Opsyonal ang speed at fuel-consumption test.",
         "resources": [
-          { "title": "Demonstration Activity manual (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
+          { "title": "Demonstration Activity manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.pdf" },
           { "title": "Demonstration Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
         ]
       },
@@ -735,7 +735,7 @@
         "checklist": ["Nakumpirma ang hindi bababa sa 20 customer at ang uri ng kanilang produkto.", "Handa na ang mga area para sa pagtanggap, paghihintay, inspeksyon, at handover.", "Handa na ang mga technician at batayang tools.", "Handa na ang inspection sheets at product number tags.", "Available ang madalas na napapalitang spare parts.", "Naiintindihan ng team ang proseso ng receive-inspect-explain-handover.", "Handa na ang upuan ng customer, inuming tubig, at access route ng produkto."],
         "tip": "Ang pangunahing layunin ay dalhin ang after-sales service sa lugar ng customer. Hindi ito pangunahing tungkol sa pagbebenta o pagpapakilala ng produkto.",
         "resources": [
-          { "title": "Mobile Service manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
+          { "title": "Mobile Service manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-EN.pdf" },
           { "title": "Mobile Service manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
         ]
       },
@@ -760,7 +760,7 @@
         "checklist": ["Nakumpirma ang hindi bababa sa 50 customer.", "Handa na ang rehistro, upuan, pagkain, stage, at parking area.", "Handa na ang event backdrop, photo area, at product display.", "Sapat ang pagkain at inumin.", "Handa na ang mga souvenir at premyo.", "Naiintindihan ng MC at team ang pagkakasunud-sunod ng activity.", "Kung may Mobile Service, handa na ang area, technician, tools, at spare parts nito."],
         "tip": "Isang customer-appreciation at relationship activity. Dapat mainit at masaya ang atmospera nang hindi masyadong nakatuon sa pagbebenta.",
         "resources": [
-          { "title": "Thank You Customer Activity manual (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
+          { "title": "Thank You Customer Activity manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-EN.pdf" },
           { "title": "Thank You Customer Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
         ]
       }

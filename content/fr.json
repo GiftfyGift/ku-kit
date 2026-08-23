@@ -687,7 +687,7 @@
         "checklist": ["Au moins 30 clients sont confirmés.", "Le moteur diesel KUBOTA ZT plus est propre et prêt pour l'exposition.", "Le motoculteur KUBOTA est propre et prêt pour l'exposition.", "Les zones d'inscription, d'exposition des produits, d'assises et de parking sont prêtes.", "Les panneaux de l'événement, le matériel produit et la sonorisation sont prêts.", "Les présentateurs ont revu les informations produit.", "Les collations et l'eau potable sont en quantité suffisante.", "Tous les membres de l'équipe comprennent leurs responsabilités."],
         "tip": "Une activité de présentation produit de base. Les clients voient les produits réels et reçoivent une présentation, mais aucune démonstration sur le terrain n'est requise.",
         "resources": [
-          { "title": "Manuel d'activité KFD (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
+          { "title": "Manuel d'activité KFD (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-EN.pdf" },
           { "title": "Manuel d'activité KFD (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
         ]
       },
@@ -712,7 +712,7 @@
         "checklist": ["La rizière ou la zone de travail est prête.", "Le motoculteur KUBOTA et son équipement sont prêts à fonctionner.", "Le parcours de démonstration, le point d'observation et la zone d'essai sont clairement séparés.", "Le conducteur de démonstration a testé le parcours.", "Le personnel peut expliquer les commandes et la méthode d'utilisation correcte.", "La zone d'essai client et l'équipement de sécurité sont prêts.", "Si un test de vitesse ou de consommation est retenu, le matériel de mesure et la méthode de test sont prêts."],
         "tip": "Le produit doit être démontré sur un champ réel et les clients doivent bénéficier d'un essai supervisé. Les tests de vitesse et de consommation sont optionnels.",
         "resources": [
-          { "title": "Manuel d'activité de démonstration (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
+          { "title": "Manuel d'activité de démonstration (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.pdf" },
           { "title": "Manuel d'activité de démonstration (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
         ]
       },
@@ -735,7 +735,7 @@
         "checklist": ["Au moins 20 clients et leurs types de produits sont confirmés.", "Les zones de réception, d'attente, d'inspection et de remise sont prêtes.", "Les techniciens et les outils de base sont prêts.", "Les fiches d'inspection et les étiquettes de numéro de produit sont prêtes.", "Les pièces détachées fréquemment remplacées sont disponibles.", "L'équipe comprend le processus réception-inspection-explication-remise.", "Les places assises pour les clients, l'eau potable et les accès aux produits sont prêts."],
         "tip": "L'objectif principal est d'apporter le service après-vente directement chez les clients. La vente ou la présentation de produits n'est pas l'objectif principal.",
         "resources": [
-          { "title": "Manuel du service mobile (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
+          { "title": "Manuel du service mobile (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-EN.pdf" },
           { "title": "Manuel du service mobile (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
         ]
       },
@@ -760,7 +760,7 @@
         "checklist": ["Au moins 50 clients sont confirmés.", "Les zones d'inscription, d'assises, de restauration, d'animation et de parking sont prêtes.", "Le fond de scène, l'espace photo et l'exposition de produits sont prêts.", "La nourriture et les boissons sont en quantité suffisante.", "Les souvenirs et les lots sont prêts.", "L'animateur et l'équipe comprennent le déroulement de l'activité.", "Si le service mobile est inclus, sa zone, ses techniciens, ses outils et ses pièces détachées sont prêts."],
         "tip": "Une activité de reconnaissance et de relation client. L'ambiance doit être chaleureuse et agréable, sans trop insister sur la vente.",
         "resources": [
-          { "title": "Manuel de l'activité de remerciement client (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
+          { "title": "Manuel de l'activité de remerciement client (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-EN.pdf" },
           { "title": "Manuel de l'activité de remerciement client (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
         ]
       }

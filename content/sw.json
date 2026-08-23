@@ -689,7 +689,7 @@
         "tip": "Shughuli ya msingi ya kuanzisha bidhaa. Wateja huona bidhaa halisi na kupokea uwasilishaji, lakini onyesho la shambani halihitajiki.",
         "resources": [
           { "title": "Mwongozo wa shughuli za KFD (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-SWA.pdf" },
-          { "title": "Mwongozo wa shughuli za KFD (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1bnsXOP8sAQ6uw6gaxe6BO4k_GrJwnTdP/view" },
+          { "title": "Mwongozo wa shughuli za KFD (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-EN.pdf" },
           { "title": "Mwongozo wa shughuli za KFD (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
         ]
       },
@@ -715,7 +715,7 @@
         "tip": "Bidhaa lazima ionyeshwe kwenye shamba halisi na wateja lazima wapate jaribio lililosimamiwa. Majaribio ya kasi na matumizi ya mafuta ni ya hiari.",
         "resources": [
           { "title": "Mwongozo wa Demonstration Activity (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-SWA.pdf" },
-          { "title": "Mwongozo wa Demonstration Activity (EN)", "lang": "EN", "type": "docx", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.docx" },
+          { "title": "Mwongozo wa Demonstration Activity (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.pdf" },
           { "title": "Mwongozo wa Demonstration Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
         ]
       },
@@ -739,7 +739,7 @@
         "tip": "Lengo kuu ni kuleta huduma baada ya mauzo katika eneo la wateja. Mauzo ya bidhaa au uanzishaji wa bidhaa si lengo kuu.",
         "resources": [
           { "title": "Mwongozo wa Mobile Service (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-SWA.pdf" },
-          { "title": "Mwongozo wa Mobile Service (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/13JKriNtSEq--jAJH9UDDfMl4gaEJ4QJn/view" },
+          { "title": "Mwongozo wa Mobile Service (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-EN.pdf" },
           { "title": "Mwongozo wa Mobile Service (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
         ]
       },
@@ -765,7 +765,7 @@
         "tip": "Shughuli ya kuthamini wateja na kujenga uhusiano. Mazingira yanapaswa kuwa ya joto na ya kufurahisha bila kulenga sana kuuza.",
         "resources": [
           { "title": "Mwongozo wa Thank You Customer Activity (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-SWA.pdf" },
-          { "title": "Mwongozo wa Thank You Customer Activity (EN)", "lang": "EN", "type": "docx", "href": "https://drive.google.com/file/d/1srtORMZWUbYGM-InadaC4uE_GapcRaYh/view" },
+          { "title": "Mwongozo wa Thank You Customer Activity (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-EN.pdf" },
           { "title": "Mwongozo wa Thank You Customer Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
         ]
       }
