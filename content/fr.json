@@ -582,7 +582,7 @@
         "groupId": "crop-group-rice",
         "name": "Rizière inondée",
         "desc": "Pour les rizières boueuses et inondées cultivées plus d'une fois par an. Utiliser le NC Plus X Special avec des roues à cage de 880 mm ou 980 mm et le système de virage à insert d'engrenage pour les travaux intensifs en boue. Associer à un moteur KUBOTA ZT Plus de 14-15,5 ch pour disposer de suffisamment de puissance en boue profonde.",
-        "video": { "title": "Rizière inondée", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+        "video": { "title": "Rizière inondée", "type": "youtube", "youtubeId": "SEjCDbnZxy8" }
       },
       {
         "id": "crop-dry-paddy",
@@ -590,22 +590,22 @@
         "groupId": "crop-group-rice",
         "name": "Rizière sèche",
         "desc": "Pour les sols limoneux ou sableux non boueux, y compris les rizières de saison sèche, la canne à sucre, le manioc, les légumineuses et les parcelles de légumes. Le NC Plus X avec des roues à cage de 800 mm convient parfaitement — plus léger, plus maniable, et capable de courts déplacements sur ses roues à cage.",
-        "video": { "title": "Rizière sèche", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+        "video": { "title": "Rizière sèche", "type": "youtube", "youtubeId": "eelM3zUxIIw" }
       },
       {
         "id": "crop-cassava",
         "name": "Champ de manioc",
         "desc": "Pour les parcelles de manioc en zone de plateau, sur sol limoneux ou sableux. Le NC Plus X avec des roues à cage de 800 mm convient parfaitement — assez léger et maniable pour travailler entre les rangs sans endommager les buttes de manioc, et capable de courts déplacements entre les champs sur ses roues à cage.",
-        "video": { "title": "Champ de manioc", "lang": "TH / EN", "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,3 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente" }
+        "video": { "title": "Champ de manioc", "type": "youtube", "youtubeId": "1noG94yQk2s" }
       },
       {
         "id": "crop-corn",
         "name": "Champ de maïs",
         "desc": "Pour les parcelles de maïs en zone de plateau, sur sol limoneux ou sableux, avec un profil similaire au manioc et à la rizière de saison sèche. Le NC Plus X avec des roues à cage de 800 mm gère bien l'espacement des rangs et les courts déplacements entre les champs.",
-        "video": { "title": "Champ de maïs", "lang": "TH / EN", "note": "La vidéo maîtresse existe dans le dossier Drive source (~2,2 Go, versions TH et EN) — non intégrée à cette version, décision d'hébergement vidéo en attente" }
+        "video": { "title": "Champ de maïs", "type": "youtube", "youtubeId": "yVKh1GeIXuU" }
       }
     ],
-    "note": "Cette page couvre désormais quatre types de champs issus des vidéos de solutions agricoles de l'équipe marketing : rizière inondée, rizière sèche, manioc et maïs. Les vidéos de rizière inondée et sèche sont intégrées et se lisent localement ; les vidéos maîtresses du manioc et du maïs (TH + EN, ~2,2-2,4 Go chacune) existent dans le dossier Drive source mais n'ont pas été intégrées à cette version — voir Handoff.md pour l'état de l'hébergement."
+    "note": "Cette page couvre désormais quatre types de champs issus des vidéos de solutions agricoles de l'équipe marketing : rizière inondée, rizière sèche, manioc et maïs — chacun dispose désormais d'une vidéo de démonstration."
   },
   "marketing": {
     "title": "Activités marketing",

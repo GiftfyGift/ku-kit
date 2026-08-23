@@ -761,9 +761,11 @@ function renderCrops(c) {
   const cr = c.crops;
 
   const renderSolutionCard = sol => {
-    const videoHtml = sol.video && sol.video.href
-      ? `<video class="kk-video" controls preload="metadata" src="${encodeURI(sol.video.href)}"></video>`
-      : `<div class="video-note">🎬 ${sol.video ? sol.video.title : ''}${sol.video && sol.video.note ? ' — ' + sol.video.note : ''}</div>`;
+    const videoHtml = sol.video && sol.video.type === 'youtube'
+      ? renderYouTubeEmbed(sol.video)
+      : sol.video && sol.video.href
+        ? `<video class="kk-video" controls preload="metadata" src="${encodeURI(sol.video.href)}"></video>`
+        : `<div class="video-note">🎬 ${sol.video ? sol.video.title : ''}${sol.video && sol.video.note ? ' — ' + sol.video.note : ''}</div>`;
     return `
       <div class="product-card"${sol.id ? ` id="${sol.id}"` : ''}>
         <div class="product-card-header"><h4>${sol.name}</h4></div>

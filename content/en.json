@@ -582,7 +582,7 @@
         "groupId": "crop-group-rice",
         "name": "Wet Paddy Field",
         "desc": "For puddled, flooded paddy fields planted more than once a year. Use the NC Plus X Special with 880 mm or 980 mm cage wheels and the Gear Insert turning system for heavy-duty puddle work. Pair with a KUBOTA ZT Plus 14-15.5 HP engine for enough power in deep mud.",
-        "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+        "video": { "title": "Wet Paddy Field", "type": "youtube", "youtubeId": "SEjCDbnZxy8" }
       },
       {
         "id": "crop-dry-paddy",
@@ -590,22 +590,22 @@
         "groupId": "crop-group-rice",
         "name": "Dry Paddy Field",
         "desc": "For loamy or sandy soil that isn't puddled, including dry-season paddy, sugarcane, cassava, beans, and vegetable plots. The NC Plus X with 800 mm cage wheels is the right fit — lighter, more agile, and able to travel short distances on its cage wheels.",
-        "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+        "video": { "title": "Dry Paddy Field", "type": "youtube", "youtubeId": "eelM3zUxIIw" }
       },
       {
         "id": "crop-cassava",
         "name": "Cassava Field",
         "desc": "For upland cassava plots on loamy or sandy soil. The NC Plus X with 800 mm cage wheels is the right fit — light and agile enough to work between planting rows without damaging cassava mounds, and able to travel short distances on its cage wheels between fields.",
-        "video": { "title": "Cassava field", "lang": "TH / EN", "note": "Master video exists in the source Drive folder (~2.3GB, TH and EN cuts) — not bundled into this build, pending video hosting decision" }
+        "video": { "title": "Cassava Field", "type": "youtube", "youtubeId": "1noG94yQk2s" }
       },
       {
         "id": "crop-corn",
         "name": "Corn (Maize) Field",
         "desc": "For upland maize plots on loamy or sandy soil, similar in profile to cassava and dry-season paddy. The NC Plus X with 800 mm cage wheels handles row spacing and short-distance travel between fields well.",
-        "video": { "title": "Corn field", "lang": "TH / EN", "note": "Master video exists in the source Drive folder (~2.2GB, TH and EN cuts) — not bundled into this build, pending video hosting decision" }
+        "video": { "title": "Corn Field", "type": "youtube", "youtubeId": "yVKh1GeIXuU" }
       }
     ],
-    "note": "This page now covers four field types from the marketing team's crop-solution videos: wet paddy, dry paddy, cassava, and corn. The wet- and dry-paddy videos are bundled and play locally; the cassava and corn master videos (TH + EN, ~2.2-2.4GB each) exist in the source Drive folder but were not bundled into this build — see Handoff.md for hosting status."
+    "note": "This page now covers four field types from the marketing team's crop-solution videos: wet paddy, dry paddy, cassava, and corn — every one now has a demo video available."
   },
   "marketing": {
     "title": "Marketing Activities",

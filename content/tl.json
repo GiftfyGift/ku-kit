@@ -582,7 +582,7 @@
         "groupId": "crop-group-rice",
         "name": "Basang Palayan (Wet Paddy Field)",
         "desc": "Para sa mala-putik, binabahang palayan na tinatamnan nang higit sa isang beses sa isang taon. Gamitin ang NC Plus X Special na may 880 mm o 980 mm na cage wheel at Gear Insert turning system para sa mabigat na putikan. Isamang gamitin ang KUBOTA ZT Plus 14-15.5 HP engine para sapat ang lakas sa malalim na putik.",
-        "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+        "video": { "title": "Wet Paddy Field", "type": "youtube", "youtubeId": "SEjCDbnZxy8" }
       },
       {
         "id": "crop-dry-paddy",
@@ -590,22 +590,22 @@
         "groupId": "crop-group-rice",
         "name": "Tuyong Palayan (Dry Paddy Field)",
         "desc": "Para sa lupang mabuhangin o hindi masyadong malagkit na hindi puno ng putik, kasama ang tuyong-panahon na palayan, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Angkop ang NC Plus X na may 800 mm cage wheel — mas magaan, mas agile, at kayang maglakbay ng maikling distansya gamit ang cage wheel.",
-        "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+        "video": { "title": "Dry Paddy Field", "type": "youtube", "youtubeId": "eelM3zUxIIw" }
       },
       {
         "id": "crop-cassava",
         "name": "Taniman ng Kamoteng-kahoy",
         "desc": "Para sa taniman ng kamoteng-kahoy sa lupang mabuhangin o hindi masyadong malagkit. Angkop ang NC Plus X na may 800 mm cage wheel — magaan at agile na sapat para gumana sa pagitan ng mga hilera ng tanim nang hindi nasisira ang mga bunton ng kamoteng-kahoy, at kayang maglakbay ng maikling distansya sa pagitan ng mga bukid gamit ang cage wheel.",
-        "video": { "title": "Cassava field", "lang": "TH / EN", "note": "May master video sa source Drive folder (~2.3GB, TH at EN) — hindi isinama sa build na ito, hinihintay ang desisyon sa video hosting" }
+        "video": { "title": "Cassava Field", "type": "youtube", "youtubeId": "1noG94yQk2s" }
       },
       {
         "id": "crop-corn",
         "name": "Taniman ng Mais",
         "desc": "Para sa taniman ng mais sa lupang mabuhangin o hindi masyadong malagkit, halos katulad ng kamoteng-kahoy at tuyong palayan. Kayang hawakan ng NC Plus X na may 800 mm cage wheel ang spacing ng hilera at maikling paglalakbay sa pagitan ng mga bukid.",
-        "video": { "title": "Corn field", "lang": "TH / EN", "note": "May master video sa source Drive folder (~2.2GB, TH at EN) — hindi isinama sa build na ito, hinihintay ang desisyon sa video hosting" }
+        "video": { "title": "Corn Field", "type": "youtube", "youtubeId": "yVKh1GeIXuU" }
       }
     ],
-    "note": "Sinasaklaw na ngayon ng page na ito ang apat na uri ng bukid mula sa mga crop-solution video ng marketing team: basang palayan, tuyong palayan, kamoteng-kahoy, at mais. Naka-bundle at gumagana lokal ang mga video ng basa/tuyong palayan; ang mga master video ng kamoteng-kahoy at mais (TH+EN, ~2.2-2.4GB bawat isa) ay umiiral sa source Drive folder pero hindi isinama sa build na ito — tingnan ang Handoff.md para sa status ng hosting."
+    "note": "Sinasaklaw na ngayon ng page na ito ang apat na uri ng bukid mula sa mga crop-solution video ng marketing team: basang palayan, tuyong palayan, kamoteng-kahoy, at mais — mayroon nang demo video ang bawat isa."
   },
   "marketing": {
     "title": "Marketing Activities",

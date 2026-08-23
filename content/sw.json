@@ -582,7 +582,7 @@
         "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga wenye Maji (Wet Paddy Field)",
         "desc": "Kwa mashamba ya mpunga yenye tope na maji, yanayopandwa zaidi ya mara moja kwa mwaka. Tumia NC Plus X Special yenye magurudumu ya kizimba ya 880 mm au 980 mm na mfumo wa Gear Insert wa kugeuza kwa kazi nzito za tope. Tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP ili kupata nguvu ya kutosha kwenye tope refu.",
-        "video": { "title": "Wet paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาน้ำ - Done/Wet paddy field_ENG.mp4" }
+        "video": { "title": "Wet Paddy Field", "type": "youtube", "youtubeId": "SEjCDbnZxy8" }
       },
       {
         "id": "crop-dry-paddy",
@@ -590,22 +590,22 @@
         "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga Mkavu (Dry Paddy Field)",
         "desc": "Kwa udongo wa mfinyanzi au mchanga usio na tope, ikiwa ni pamoja na mpunga wa msimu mkavu, miwa, muhogo, maharage, na mboga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi zaidi, rahisi kuendesha, na inaweza kusafiri umbali mfupi kwa magurudumu yake ya kizimba.",
-        "video": { "title": "Dry paddy field", "lang": "EN", "href": "/media/5. Crops Solution/นาแห้ง - Done/ENG/Dry paddy field_ENG.mp4" }
+        "video": { "title": "Dry Paddy Field", "type": "youtube", "youtubeId": "eelM3zUxIIw" }
       },
       {
         "id": "crop-cassava",
         "name": "Shamba la Muhogo",
         "desc": "Kwa mashamba ya muhogo ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi na rahisi kutosha kufanya kazi kati ya mistari ya kupanda bila kuharibu vilima vya muhogo, na inaweza kusafiri umbali mfupi kati ya mashamba kwa magurudumu yake ya kizimba.",
-        "video": { "title": "Cassava field", "lang": "TH / EN", "note": "Video kuu ipo kwenye folda ya Drive ya chanzo (~2.3GB, TH na EN) — haikuwekwa kwenye build hii, inasubiri uamuzi wa mahali pa kuhifadhi video" }
+        "video": { "title": "Cassava Field", "type": "youtube", "youtubeId": "1noG94yQk2s" }
       },
       {
         "id": "crop-corn",
         "name": "Shamba la Mahindi",
         "desc": "Kwa mashamba ya mahindi ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga, yanayofanana na muhogo na mpunga wa msimu mkavu. NC Plus X yenye magurudumu ya kizimba ya 800 mm hushughulikia vizuri nafasi ya mistari na safari fupi kati ya mashamba.",
-        "video": { "title": "Corn field", "lang": "TH / EN", "note": "Video kuu ipo kwenye folda ya Drive ya chanzo (~2.2GB, TH na EN) — haikuwekwa kwenye build hii, inasubiri uamuzi wa mahali pa kuhifadhi video" }
+        "video": { "title": "Corn Field", "type": "youtube", "youtubeId": "yVKh1GeIXuU" }
       }
     ],
-    "note": "Ukurasa huu sasa unashughulikia aina nne za mashamba kutoka kwenye video za suluhisho za mazao za timu ya masoko: mpunga wenye maji, mpunga mkavu, muhogo, na mahindi. Video za mpunga wenye maji na mkavu zimewekwa na zinacheza kwenye kompyuta ya ndani; video kuu za muhogo na mahindi (TH+EN, ~2.2-2.4GB kila moja) zipo kwenye folda ya Drive ya chanzo lakini hazikuwekwa kwenye build hii — angalia Handoff.md kwa hali ya uhifadhi."
+    "note": "Ukurasa huu sasa unashughulikia aina nne za mashamba kutoka kwenye video za suluhisho za mazao za timu ya masoko: mpunga wenye maji, mpunga mkavu, muhogo, na mahindi — kila moja sasa ina video ya maonyesho."
   },
   "marketing": {
     "title": "Shughuli za Masoko",
