@@ -1929,6 +1929,50 @@ ol.check-list li::before {
 .check-point-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
 .check-point-card--photo .check-point-card-body { padding: 14px 18px 18px; }
 
+.check-point-details {
+  margin-top: 10px;
+  border-top: 1px solid var(--kubota-border);
+}
+
+.check-point-details summary {
+  position: relative;
+  padding: 12px 30px 4px 0;
+  list-style: none;
+  cursor: pointer;
+  color: var(--kubota-orange);
+  font: 700 12px/1.45 'Prompt', sans-serif;
+}
+
+.check-point-details summary::-webkit-details-marker { display: none; }
+
+.check-point-details summary::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 13px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 180ms ease, top 180ms ease;
+}
+
+.check-point-details[open] summary::after {
+  top: 18px;
+  transform: rotate(225deg);
+}
+
+.check-point-details summary:focus-visible {
+  outline: 2px solid var(--kubota-orange);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.check-point-details-body {
+  padding-top: 10px;
+}
+
 /* Product-engine learning blocks: keep video and supporting content inside
    one visual story while preserving a clear distinction between them. */
 .engine-guide-panel {
