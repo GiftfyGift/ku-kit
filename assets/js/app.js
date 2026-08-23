@@ -1084,17 +1084,10 @@ function renderMarketing(c) {
   }).join('');
 
   const { videos } = splitResources(m.resources);
-  const docs = localizedActivityDocs(m.resources);
   const videoBlock = videos.length ? `
     <div class="category-block">
       <h3 class="category-heading">${m.videosTitle}</h3>
       ${renderVideoGrid(videos)}
-    </div>
-  ` : '';
-  const resources = docs.length ? `
-    <div class="category-block">
-      <h3 class="category-heading">${m.downloadsTitle}</h3>
-      ${renderResourceList(docs)}
     </div>
   ` : '';
 
@@ -1112,7 +1105,6 @@ function renderMarketing(c) {
       <div class="activity-guides-heading"><span>${m.fullDetailsTitle || m.title}</span></div>
       ${activities}
       ${videoBlock}
-      ${resources}
       <div class="note-callout">${m.note}</div>
     </section>
   `;

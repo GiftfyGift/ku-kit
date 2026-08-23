@@ -2,6 +2,7 @@
 assets/docs/*
 !assets/docs/marketing/
 !assets/docs/marketing/*.docx
+!assets/docs/marketing/*.pdf
 !assets/docs/engine/
 !assets/docs/engine/*.pdf
 
