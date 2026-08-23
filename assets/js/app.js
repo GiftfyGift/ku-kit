@@ -795,13 +795,7 @@ function renderService(c) {
     </div>
   `).join('');
 
-  const { videos, docs } = splitResources(s.resources);
-  const videoBlock = videos.length ? `
-    <div class="category-block">
-      <h3 class="category-heading">${s.videosTitle}</h3>
-      ${renderVideoGrid(videos)}
-    </div>
-  ` : '';
+  const { docs } = splitResources(s.resources);
   const resources = docs.length ? `
     <div class="category-block">
       <h3 class="category-heading">${s.downloadsTitle}</h3>
@@ -815,7 +809,6 @@ function renderService(c) {
       <p class="section-intro">${s.intro}</p>
       ${renderQuickLinksColumns(s.quickLinks)}
       ${maintenance}
-      ${videoBlock}
       <div class="category-block">
         <h3 class="category-heading">${s.programsTitle} ${c.meta.sampleBadge ? `<span class="sample-badge">${c.meta.sampleBadge}</span>` : ''}</h3>
         <div class="program-grid">${programs}</div>
