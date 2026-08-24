@@ -13,7 +13,7 @@
       { "icon": "⚙️", "title": "Taarifa za Bidhaa", "desc": "Vipimo vya injini ya dizeli ya ZT Plus na trekta la kutembea la NC Plus X, jinsi ya kuthibitisha bidhaa halisi, na mwongozo wa kuunganisha.", "target": "product-engine" },
       { "icon": "🔧", "title": "Vipuri", "desc": "Jinsi ya kutafuta na kuagiza vipuri halisi, na orodha ya hisa inayopendekezwa kwa kila mfano.", "target": "parts" },
       { "icon": "🛠️", "title": "Huduma", "desc": "Hatua za matengenezo ya injini na trekta la kutembea, pamoja na huduma baada ya mauzo.", "target": "service" },
-      { "icon": "🌾", "title": "Suluhisho za Mazao", "desc": "Jinsi ya kuchagua mpangilio sahihi wa trekta la kutembea kwa mashamba ya mpunga yenye maji, makavu, muhogo, na mahindi.", "target": "crops" },
+      { "icon": "🌾", "title": "Suluhisho za Mazao", "desc": "Maudhui ya kielimu kwa wakulima yenye mawazo ya kutumika katika kilimo halisi.", "target": "crops" },
       { "icon": "📣", "title": "Matukio", "desc": "Mifumo minne ya kawaida ya shughuli za KUBOTA, pamoja na miongozo na vitu vinavyopendekezwa kwa kila tukio.", "target": "marketing" },
       { "icon": "🖼️", "title": "Vifaa vya Masoko", "desc": "Buni bango na standee yako mwenyewe kwa duka. Jaza taarifa za duka lako kisha upakue faili tayari kwa uchapishaji papo hapo.", "target": "materials-custom" }
     ]

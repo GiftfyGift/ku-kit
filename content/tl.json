@@ -13,7 +13,7 @@
       { "icon": "⚙️", "title": "Impormasyon ng Produkto", "desc": "Detalye ng ZT Plus diesel engine at NC Plus X power tiller, paano tiyakin ang orihinal na produkto, at gabay sa pag-assemble.", "target": "product-engine" },
       { "icon": "🔧", "title": "Parts", "desc": "Paano hanapin at mag-order ng orihinal na parts, may rekomendadong listahan ng stock kada modelo.", "target": "parts" },
       { "icon": "🛠️", "title": "Serbisyo", "desc": "Mga hakbang sa maintenance ng engine at power tiller, kasama ang after-sales na serbisyo.", "target": "service" },
-      { "icon": "🌾", "title": "Crop Solutions", "desc": "Paano pumili ng tamang setup ng power tiller para sa basa, tuyong palayan, kamoteng-kahoy, at mais.", "target": "crops" },
+      { "icon": "🌾", "title": "Crop Solutions", "desc": "Nilalaman na pang-edukasyon para sa mga magsasaka, na nagbibigay ideya para sa aktwal na pagsasagawa sa agrikultura.", "target": "crops" },
       { "icon": "📣", "title": "Mga Event", "desc": "Apat na standard na KUBOTA activity format, kasama ang mga manual at rekomendadong kailangan para sa bawat event.", "target": "marketing" },
       { "icon": "🖼️", "title": "Marketing Materials", "desc": "I-design ang sarili mong banner at standee para sa tindahan. Ilagay ang detalye ng iyong tindahan at mag-download agad ng print-ready na file.", "target": "materials-custom" }
     ]

@@ -13,7 +13,7 @@
       { "icon": "⚙️", "title": "Informations produit", "desc": "Caractéristiques du moteur diesel ZT Plus et du motoculteur NC Plus X, contrôles d'authenticité et guide de montage.", "target": "product-engine" },
       { "icon": "🔧", "title": "Pièces", "desc": "Comment trouver et commander des pièces d'origine, avec les listes de stock recommandées par modèle.", "target": "parts" },
       { "icon": "🛠️", "title": "Service", "desc": "Étapes d'entretien du moteur et du motoculteur, plus le service après-vente.", "target": "service" },
-      { "icon": "🌾", "title": "Solutions agricoles", "desc": "Comment adapter le motoculteur aux rizières inondées, aux rizières sèches, au manioc et au maïs.", "target": "crops" },
+      { "icon": "🌾", "title": "Solutions agricoles", "desc": "Contenu éducatif pour les agriculteurs, source d'idées pour une mise en œuvre agricole concrète.", "target": "crops" },
       { "icon": "📣", "title": "Événements", "desc": "Quatre formats d'activités standards KUBOTA, avec des manuels et des recommandations pour chaque événement.", "target": "marketing" },
       { "icon": "🖼️", "title": "Supports marketing", "desc": "Concevez vous-même votre banderole et votre kakémono. Renseignez les informations de votre point de vente et téléchargez un fichier prêt à imprimer.", "target": "materials-custom" }
     ]

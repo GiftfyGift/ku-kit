@@ -13,7 +13,7 @@
       { "icon": "⚙️", "title": "Product Info", "desc": "ZT Plus diesel engine and NC Plus X power tiller specs, genuine-product checks, and assembly guide.", "target": "product-engine" },
       { "icon": "🔧", "title": "Parts", "desc": "How to find and order genuine parts, with recommended stock lists by model.", "target": "parts" },
       { "icon": "🛠️", "title": "Service", "desc": "Maintenance steps for the engine and power tiller, plus after-sales service.", "target": "service" },
-      { "icon": "🌾", "title": "Crop Solutions", "desc": "How to match the right power tiller setup to wet paddy, dry paddy, cassava, and corn fields.", "target": "crops" },
+      { "icon": "🌾", "title": "Crop Solutions", "desc": "Educational content for farmers to inspire ideas for agricultural implementation.", "target": "crops" },
       { "icon": "📣", "title": "Events", "desc": "Four standard KUBOTA activity formats, with manuals and recommended items for each event.", "target": "marketing" },
       { "icon": "🖼️", "title": "Marketing Materials", "desc": "Design your own storefront banner and standee. Fill in your shop details and download a print-ready file instantly.", "target": "materials-custom" }
     ]
