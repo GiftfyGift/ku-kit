@@ -2594,6 +2594,8 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal active" data-value="diagonal" aria-pressed="true" title="${a.bgStyles.diagonal}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-dark" data-value="dark" aria-pressed="false" title="${a.bgStyles.dark}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-frame" data-value="frame" aria-pressed="false" title="${a.bgStyles.frame}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-photo-rainbow" data-value="photo-rainbow" aria-pressed="false" title="${a.bgStyles.photoRainbow}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-photo-sky" data-value="photo-sky" aria-pressed="false" title="${a.bgStyles.photoSky}"></button>
             </div>
           </div>
           <label class="artwork-field">
@@ -2867,7 +2869,36 @@ function awDrawImpactText(ctx, lines, cx, startY, lineHeight, fontSize, theme, s
   });
 }
 
-function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH) {
+const AW_PHOTO_BACKGROUNDS = {
+  'photo-rainbow': 'assets/img/artwork/backgrounds/bg-rice-field-rainbow.jpg',
+  'photo-sky': 'assets/img/artwork/backgrounds/bg-farm-field-sky.jpg'
+};
+
+function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, photoImg) {
+  if (photoImg) {
+    const scale = Math.max(pxW / photoImg.width, pxH / photoImg.height);
+    const dw = photoImg.width * scale;
+    const dh = photoImg.height * scale;
+    const dx = (pxW - dw) / 2;
+    const dy = (pxH - dh) / 2;
+    ctx.drawImage(photoImg, dx, dy, dw, dh);
+
+    // Dark gradients top and bottom so the logo band and headline/contact
+    // text stay legible over whatever the photo looks like underneath.
+    const gradTop = ctx.createLinearGradient(0, 0, 0, pxH * 0.28);
+    gradTop.addColorStop(0, 'rgba(8,20,22,0.55)');
+    gradTop.addColorStop(1, 'rgba(8,20,22,0)');
+    ctx.fillStyle = gradTop;
+    ctx.fillRect(0, 0, pxW, pxH * 0.28);
+
+    const gradBottom = ctx.createLinearGradient(0, pxH * 0.45, 0, pxH);
+    gradBottom.addColorStop(0, 'rgba(8,20,22,0)');
+    gradBottom.addColorStop(1, 'rgba(8,20,22,0.8)');
+    ctx.fillStyle = gradBottom;
+    ctx.fillRect(0, pxH * 0.45, pxW, pxH * 0.55);
+    return;
+  }
+
   if (bgStyle === 'dark') {
     ctx.fillStyle = (() => {
       const g = ctx.createLinearGradient(0, 0, isLandscape ? pxW : 0, isLandscape ? 0 : pxH);
@@ -2973,7 +3004,8 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     logoH = logoW / kubotaAspect;
   }
 
-  awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH);
+  const photoBg = AW_PHOTO_BACKGROUNDS[bgStyle] ? await loadArtworkImage(AW_PHOTO_BACKGROUNDS[bgStyle]) : null;
+  awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, photoBg);
 
   const productImgs = [];
   if (st.product === 'engine' || st.product === 'both') {
@@ -3152,7 +3184,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // it readable even sitting over the product photo). The only thing this block
   // still dodges is the farmer decoration, since that's opaque artwork drawn in
   // the same area, not a background photo the text can float over.
-  const textOnDark = bgStyle === 'dark';
+  const textOnDark = bgStyle === 'dark' || !!AW_PHOTO_BACKGROUNDS[bgStyle];
   const manGap = manW ? pxW * 0.03 : 0;
   const farmerRightEdge = manW ? pad + manW + manGap : pad;
   const headlineMaxW = isLandscape ? pxW * 0.62 : pxW * 0.86;

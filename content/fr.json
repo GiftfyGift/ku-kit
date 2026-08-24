@@ -825,7 +825,7 @@
     "heightLabel": "Hauteur (cm)",
     "sizeHint": "La taille se remplit automatiquement selon le type de support choisi — modifiez les chiffres selon vos besoins réels.",
     "bgStyleLabel": "Style de fond",
-    "bgStyles": { "diagonal": "Diagonale orange", "dark": "Sombre et premium", "frame": "Cadre classique" },
+    "bgStyles": { "diagonal": "Diagonale orange", "dark": "Sombre et premium", "frame": "Cadre classique", "photoRainbow": "Rizière dorée (arc-en-ciel)", "photoSky": "Ferme sous ciel bleu" },
     "productLabel": "Produit à mettre en avant",
     "products": { "engine": "Moteur diesel ZT Plus", "tiller": "Motoculteur TRA CHANG NC Plus X", "both": "Les deux produits" },
     "shopNameLabel": "Nom du point de vente / concessionnaire",
