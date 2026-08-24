@@ -2594,6 +2594,7 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal active" data-value="diagonal" aria-pressed="true" title="${a.bgStyles.diagonal}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-dark" data-value="dark" aria-pressed="false" title="${a.bgStyles.dark}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-frame" data-value="frame" aria-pressed="false" title="${a.bgStyles.frame}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-corners" data-value="corners" aria-pressed="false" title="${a.bgStyles.corners}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-photo-rainbow" data-value="photo-rainbow" aria-pressed="false" title="${a.bgStyles.photoRainbow}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-photo-sky" data-value="photo-sky" aria-pressed="false" title="${a.bgStyles.photoSky}"></button>
             </div>
@@ -2926,6 +2927,68 @@ function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, phot
     }
     ctx.closePath();
     ctx.fill();
+    return;
+  }
+
+  if (bgStyle === 'corners') {
+    ctx.fillStyle = (() => {
+      const g = ctx.createLinearGradient(0, 0, 0, pxH);
+      g.addColorStop(0, '#FF6A3D');
+      g.addColorStop(0.55, '#F7F5F0');
+      g.addColorStop(1, '#FFFFFF');
+      return g;
+    })();
+    ctx.fillRect(0, 0, pxW, pxH);
+
+    // Dark angular corner wedges with orange accent stripes, echoing the
+    // event-backdrop reference (logos/text from that reference are not
+    // reproduced here — this is background decoration only).
+    const wedgeW = pxW * 0.16;
+    const wedgeH = pxH * 0.16;
+    const drawCorner = (flipX, flipY) => {
+      ctx.save();
+      ctx.translate(flipX ? pxW : 0, flipY ? pxH : 0);
+      ctx.scale(flipX ? -1 : 1, flipY ? -1 : 1);
+
+      ctx.fillStyle = '#081416';
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(wedgeW, 0);
+      ctx.lineTo(wedgeW * 0.55, wedgeH * 0.4);
+      ctx.lineTo(0, wedgeH);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(wedgeW, 0);
+      ctx.lineTo(wedgeW * 0.55, wedgeH * 0.4);
+      ctx.lineTo(0, wedgeH);
+      ctx.closePath();
+      ctx.clip();
+      const stripeGrad = ctx.createLinearGradient(0, 0, wedgeW, 0);
+      stripeGrad.addColorStop(0, '#FF6A3D');
+      stripeGrad.addColorStop(1, '#FFB35C');
+      ctx.fillStyle = stripeGrad;
+      const stripeW = wedgeW * 0.09;
+      for (let i = 0; i < 3; i++) {
+        const sx = wedgeW * 0.22 + i * stripeW * 2.1;
+        ctx.beginPath();
+        ctx.moveTo(sx, -wedgeH * 0.3);
+        ctx.lineTo(sx + stripeW, -wedgeH * 0.3);
+        ctx.lineTo(sx - wedgeW * 0.18, wedgeH * 1.1);
+        ctx.lineTo(sx - wedgeW * 0.18 - stripeW, wedgeH * 1.1);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+      ctx.restore();
+    };
+    drawCorner(false, false);
+    drawCorner(true, false);
+    drawCorner(false, true);
+    drawCorner(true, true);
     return;
   }
 
