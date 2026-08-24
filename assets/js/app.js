@@ -2572,8 +2572,22 @@ function renderArtworkBody(c) {
             <select id="aw-size">
               <option value="banner">${a.sizes.banner}</option>
               <option value="standee">${a.sizes.standee}</option>
+              <option value="beachflag">${a.sizes.beachflag}</option>
+              <option value="rollup">${a.sizes.rollup}</option>
+              <option value="aframe">${a.sizes.aframe}</option>
             </select>
           </label>
+          <div class="artwork-field artwork-size-inputs">
+            <label class="artwork-field artwork-field--inline">
+              <span>${a.widthLabel}</span>
+              <input type="number" id="aw-width-cm" min="10" max="1000" step="1">
+            </label>
+            <label class="artwork-field artwork-field--inline">
+              <span>${a.heightLabel}</span>
+              <input type="number" id="aw-height-cm" min="10" max="1000" step="1">
+            </label>
+          </div>
+          <p class="po-req-hint">${a.sizeHint}</p>
           <div class="artwork-field">
             <span>${a.bgStyleLabel}</span>
             <div class="artwork-swatch-group" id="aw-bgstyle-group" role="radiogroup">
@@ -2691,7 +2705,10 @@ function renderArtwork(c) {
 
 const ARTWORK_SIZES = {
   banner: { wCm: 300, hCm: 100 },
-  standee: { wCm: 80, hCm: 160 }
+  standee: { wCm: 80, hCm: 160 },
+  beachflag: { wCm: 65, hCm: 250 },
+  rollup: { wCm: 80, hCm: 200 },
+  aframe: { wCm: 60, hCm: 80 }
 };
 
 const artworkImageCache = {};
@@ -3290,6 +3307,8 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 function initArtworkPage(c) {
   const a = c.artwork;
   const sizeSel = document.getElementById('aw-size');
+  const widthInput = document.getElementById('aw-width-cm');
+  const heightInput = document.getElementById('aw-height-cm');
   const bgStyleGroup = document.getElementById('aw-bgstyle-group');
   const productSel = document.getElementById('aw-product');
   const shopInput = document.getElementById('aw-shopname');
@@ -3326,6 +3345,20 @@ function initArtworkPage(c) {
       });
     });
   }
+
+  function currentSpec() {
+    const preset = ARTWORK_SIZES[sizeSel.value] || ARTWORK_SIZES.banner;
+    const wCm = Math.max(10, Number(widthInput.value) || preset.wCm);
+    const hCm = Math.max(10, Number(heightInput.value) || preset.hCm);
+    return { wCm, hCm };
+  }
+
+  function applyPresetSize() {
+    const preset = ARTWORK_SIZES[sizeSel.value] || ARTWORK_SIZES.banner;
+    widthInput.value = preset.wCm;
+    heightInput.value = preset.hCm;
+  }
+  applyPresetSize();
 
   function currentState() {
     return {
@@ -3376,7 +3409,7 @@ function initArtworkPage(c) {
     // the canvas blank if that call errors (a flaky image load) partway through.
     const myGen = ++previewGeneration;
     const st = currentState();
-    const spec = ARTWORK_SIZES[st.size];
+    const spec = currentSpec();
     const { pxW, pxH } = computePreviewPixels(spec.wCm, spec.hCm);
     const offscreen = document.createElement('canvas');
     offscreen.width = pxW;
@@ -3522,7 +3555,9 @@ function initArtworkPage(c) {
   }, { passive: false });
   canvas.addEventListener('touchend', pointerUp);
 
-  sizeSel.addEventListener('change', schedulePreview);
+  sizeSel.addEventListener('change', () => { applyPresetSize(); schedulePreview(); });
+  widthInput.addEventListener('input', schedulePreview);
+  heightInput.addEventListener('input', schedulePreview);
   wireSwatchGroup(bgStyleGroup, schedulePreview);
   productSel.addEventListener('change', schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
@@ -3543,14 +3578,14 @@ function initArtworkPage(c) {
     downloadBtn.textContent = a.downloadingLabel;
     try {
       const st = currentState();
-      const spec = ARTWORK_SIZES[st.size];
+      const spec = currentSpec();
       const { pxW, pxH, dpi } = computePrintPixels(spec.wCm, spec.hCm);
       const off = document.createElement('canvas');
       off.width = pxW;
       off.height = pxH;
       const ctx = off.getContext('2d');
       await drawArtwork(ctx, pxW, pxH, spec, st, c);
-      const sizeLabel = st.size === 'banner'
+      const sizeLabel = spec.wCm >= spec.hCm
         ? `${spec.wCm}×${spec.hCm} cm`
         : `${spec.hCm}×${spec.wCm} cm`;
       resNote.textContent = a.resolutionNote
