@@ -803,6 +803,43 @@ function renderService(c) {
 
   const pointsGridClass = () => 'check-points check-points--stacked';
 
+  const maintenanceSchedule = s.maintenanceSchedule ? `
+    <div class="category-block">
+      <h3 class="category-heading">${s.maintenanceSchedule.title}</h3>
+      <p class="section-intro">${s.maintenanceSchedule.intro}</p>
+      <div class="maint-sched-filters" role="group">
+        <button type="button" class="maint-sched-chip is-active" data-maint-type="all">${s.maintenanceSchedule.allLabel}</button>
+        ${s.maintenanceSchedule.types.map(t => `<button type="button" class="maint-sched-chip" data-maint-type="${t.id}">${t.label}</button>`).join('')}
+      </div>
+      <div class="maint-sched-table-scroll">
+        <table class="kubota-table maint-sched-table">
+          <thead><tr>
+            <th>${s.maintenanceSchedule.columns.item}</th>
+            <th>${s.maintenanceSchedule.columns.code}</th>
+            <th>${s.maintenanceSchedule.columns.interval}</th>
+            <th>${s.maintenanceSchedule.columns.models}</th>
+          </tr></thead>
+          <tbody>
+            ${s.maintenanceSchedule.items.map(item => `
+              <tr data-maint-row-type="${item.type}">
+                <td>${item.name}</td>
+                <td class="maint-sched-code">${item.code}</td>
+                <td>${item.interval}</td>
+                <td>
+                  <div class="maint-sched-models-cell">
+                    ${item.allModels
+                      ? `<span class="maint-sched-model-tag maint-sched-model-tag--all">${s.maintenanceSchedule.allModelsLabel}</span>`
+                      : item.models.map(m => `<span class="maint-sched-model-tag">${m}</span>`).join('')}
+                  </div>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  ` : '';
+
   const maintenance = s.maintenance ? `
     <div class="category-block">
       <h3 class="category-heading">${s.maintenance.title}</h3>
@@ -835,6 +872,7 @@ function renderService(c) {
       <p class="section-intro">${s.intro}</p>
       ${renderQuickLinksColumns(s.quickLinks)}
       ${maintenance}
+      ${maintenanceSchedule}
       <div class="category-block">
         <h3 class="category-heading">${s.programsTitle} ${c.meta.sampleBadge ? `<span class="sample-badge">${c.meta.sampleBadge}</span>` : ''}</h3>
         <div class="program-grid">${programs}</div>
@@ -843,6 +881,23 @@ function renderService(c) {
       <div class="note-callout">${s.note}</div>
     </section>
   `;
+}
+
+function initMaintenanceSchedule() {
+  const filters = document.querySelector('.maint-sched-filters');
+  if (!filters) return;
+  const chips = filters.querySelectorAll('[data-maint-type]');
+  const rows = document.querySelectorAll('[data-maint-row-type]');
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('is-active'));
+      chip.classList.add('is-active');
+      const type = chip.dataset.maintType;
+      rows.forEach(row => {
+        row.style.display = (type === 'all' || row.dataset.maintRowType === type) ? '' : 'none';
+      });
+    });
+  });
 }
 
 function renderCrops(c) {
@@ -3595,6 +3650,7 @@ function render() {
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
   if (state.route === 'product' || state.route === 'product-engine') initApplicationCarousels();
   if (state.route === 'marketing') initActivityCards(c);
+  if (state.route === 'service') initMaintenanceSchedule();
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
   if (state.route === 'order-checkout') initOrderCheckoutPage(c);
   if (state.route === 'order-tracking') initOrderTrackingPage(c);

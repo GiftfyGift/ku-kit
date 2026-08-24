@@ -1515,6 +1515,71 @@ table.kubota-table tr:nth-child(even) td {
 
 table.kubota-table tr:last-child td { border-bottom: none; }
 
+/* ---------- Maintenance schedule (filterable parts table) ---------- */
+
+.maint-sched-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+.maint-sched-chip {
+  background: var(--kubota-light-gray);
+  border: 1px solid var(--kubota-border);
+  color: var(--kubota-dark);
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.maint-sched-chip:hover { border-color: var(--kubota-orange); transform: translateY(-1px); }
+
+.maint-sched-chip.is-active {
+  background: linear-gradient(135deg, var(--kubota-orange), var(--kubota-light-orange));
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 14px rgba(255,106,61,0.4);
+}
+
+.maint-sched-table-scroll { overflow-x: auto; }
+
+.maint-sched-table { min-width: 640px; }
+
+.maint-sched-code {
+  font-family: 'Courier New', monospace;
+  font-size: 12.5px;
+  color: var(--kubota-steel-blue);
+  white-space: nowrap;
+}
+
+.maint-sched-models-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.maint-sched-model-tag {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--kubota-dark);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--kubota-border);
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.maint-sched-model-tag--all {
+  color: var(--kubota-orange);
+  background: rgba(255,106,61,0.15);
+  border-color: rgba(255,106,61,0.35);
+}
+
 /* Steps (parts how-to-order) */
 .steps {
   display: grid;
