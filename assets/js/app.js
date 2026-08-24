@@ -2246,6 +2246,15 @@ function initPoRequestPage(c) {
   function refreshItemsTable() {
     document.getElementById('po-req-items-wrap').innerHTML = itemsTableHtml();
     wireItemsTable();
+    updateItemCount();
+  }
+
+  function updateItemCount() {
+    const badge = document.getElementById('po-req-item-count');
+    if (!badge) return;
+    const count = items.filter(row => row.modelId).length;
+    badge.textContent = count ? `+${count}` : '';
+    badge.classList.toggle('is-visible', count > 0);
   }
 
   function wireItemsTable() {
@@ -2302,31 +2311,39 @@ function initPoRequestPage(c) {
 
   function renderForm() {
     body.innerHTML = `
-      <div class="order-step-card">
-        <h3 class="order-step-title">${pr.customer.heading}</h3>
+      <div class="po-req-progress">
+        <div class="po-req-progress-dot po-req-progress-dot--1"><span>1</span></div>
+        <div class="po-req-progress-dot po-req-progress-dot--2"><span>2</span></div>
+        <div class="po-req-progress-dot po-req-progress-dot--3"><span>3</span></div>
+        <div class="po-req-progress-dot po-req-progress-dot--4"><span>4</span></div>
+        <div class="po-req-progress-dot po-req-progress-dot--5"><span>5</span></div>
+      </div>
+      <div class="order-step-card po-req-step po-req-step--1">
+        <h3 class="order-step-title"><span class="po-req-step-badge">1</span><span class="po-req-step-icon">🏢</span>${pr.customer.heading}</h3>
         ${customerFieldsHtml()}
       </div>
-      <div class="order-step-card">
-        <h3 class="order-step-title">${pr.items.heading}</h3>
+      <div class="order-step-card po-req-step po-req-step--2">
+        <h3 class="order-step-title"><span class="po-req-step-badge">2</span><span class="po-req-step-icon">📦</span>${pr.items.heading}<span class="po-req-item-count" id="po-req-item-count"></span></h3>
         <div id="po-req-items-wrap">${itemsTableHtml()}</div>
       </div>
-      <div class="order-step-card">
-        <h3 class="order-step-title">${pr.terms.heading}</h3>
+      <div class="order-step-card po-req-step po-req-step--3">
+        <h3 class="order-step-title"><span class="po-req-step-badge">3</span><span class="po-req-step-icon">🚢</span>${pr.terms.heading}</h3>
         ${termsHtml()}
       </div>
-      <div class="order-step-card">
-        <h3 class="order-step-title">${pr.pi.heading}</h3>
+      <div class="order-step-card po-req-step po-req-step--4">
+        <h3 class="order-step-title"><span class="po-req-step-badge">4</span><span class="po-req-step-icon">📄</span>${pr.pi.heading}</h3>
         ${piHtml()}
       </div>
-      <div class="order-step-card">
-        <h3 class="order-step-title">${pr.notesLabel}</h3>
+      <div class="order-step-card po-req-step po-req-step--5">
+        <h3 class="order-step-title"><span class="po-req-step-badge">5</span><span class="po-req-step-icon">📝</span>${pr.notesLabel}</h3>
         <textarea id="po-req-notes" class="po-req-notes" placeholder="${pr.notesPlaceholder}"></textarea>
       </div>
-      <button type="button" class="order-btn order-confirm-btn" id="po-req-submit-btn">${pr.submitBtn}</button>
+      <button type="button" class="order-btn order-confirm-btn po-req-submit-btn" id="po-req-submit-btn"><span>🚀</span>${pr.submitBtn}</button>
     `;
 
     wireCustomerFields();
     wireItemsTable();
+    updateItemCount();
 
     document.getElementById('po-req-payment').addEventListener('change', (e) => { selectedTermId = e.target.value; refreshItemsTable(); });
     document.getElementById('po-req-incoterm').addEventListener('change', (e) => {
@@ -2377,7 +2394,8 @@ function initPoRequestPage(c) {
     submitPoWebhook(order);
 
     body.innerHTML = `
-      <div class="order-confirmed-card">
+      <div class="order-confirmed-card po-req-confirmed">
+        <div class="po-req-confirmed-check"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M14 27l7 7 17-17"/></svg></div>
         <h3>${pr.confirmedTitle}</h3>
         <p>${pr.confirmedBody} <strong>${poNumber}</strong></p>
         <p class="po-req-hint">${pr.nextStepsNote}</p>
