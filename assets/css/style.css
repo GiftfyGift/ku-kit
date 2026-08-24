@@ -1517,6 +1517,8 @@ table.kubota-table tr:last-child td { border-bottom: none; }
 
 /* ---------- Maintenance schedule (filterable parts table) ---------- */
 
+.maint-sched-block { margin-bottom: 12px; }
+
 .maint-sched-filters {
   display: flex;
   flex-wrap: wrap;

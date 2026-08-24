@@ -804,8 +804,8 @@ function renderService(c) {
   const pointsGridClass = () => 'check-points check-points--stacked';
 
   const maintenanceSchedule = s.maintenanceSchedule ? `
-    <div class="category-block">
-      <h3 class="category-heading">${s.maintenanceSchedule.title}</h3>
+    <div class="maint-sched-block">
+      <h4 class="subsection-title">${s.maintenanceSchedule.title}</h4>
       <p class="section-intro">${s.maintenanceSchedule.intro}</p>
       <div class="maint-sched-filters" role="group">
         <button type="button" class="maint-sched-chip is-active" data-maint-type="all">${s.maintenanceSchedule.allLabel}</button>
@@ -846,6 +846,7 @@ function renderService(c) {
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
       <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine', 'engine')}</div>
+      ${maintenanceSchedule}
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
       <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller', 'tiller')}</div>
     </div>
@@ -872,7 +873,6 @@ function renderService(c) {
       <p class="section-intro">${s.intro}</p>
       ${renderQuickLinksColumns(s.quickLinks)}
       ${maintenance}
-      ${maintenanceSchedule}
       <div class="category-block">
         <h3 class="category-heading">${s.programsTitle} ${c.meta.sampleBadge ? `<span class="sample-badge">${c.meta.sampleBadge}</span>` : ''}</h3>
         <div class="program-grid">${programs}</div>
