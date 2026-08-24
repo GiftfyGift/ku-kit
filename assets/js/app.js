@@ -812,11 +812,11 @@ function renderService(c) {
         ${s.maintenanceSchedule.types.map(t => `<button type="button" class="maint-sched-chip" data-maint-type="${t.id}">${t.label}</button>`).join('')}
       </div>
       <div class="maint-sched-table-scroll">
-        <table class="kubota-table maint-sched-table">
+        <table class="kubota-table maint-sched-table maint-sched-table--matrix">
           <thead><tr>
             <th>${s.maintenanceSchedule.columns.item}</th>
             <th>${s.maintenanceSchedule.columns.code}</th>
-            <th>${s.maintenanceSchedule.columns.interval}</th>
+            ${s.maintenanceSchedule.intervalCols.map(col => `<th class="maint-sched-interval-head">${col.label}</th>`).join('')}
             <th>${s.maintenanceSchedule.columns.models}</th>
           </tr></thead>
           <tbody>
@@ -824,7 +824,7 @@ function renderService(c) {
               <tr data-maint-row-type="${item.type}">
                 <td>${item.name}</td>
                 <td class="maint-sched-code">${item.code}</td>
-                <td>${item.interval}</td>
+                ${s.maintenanceSchedule.intervalCols.map(col => `<td class="maint-sched-dot-cell">${item.intervals.includes(col.id) ? '<span class="maint-sched-dot">●</span>' : ''}</td>`).join('')}
                 <td>
                   <div class="maint-sched-models-cell">
                     ${item.allModels
