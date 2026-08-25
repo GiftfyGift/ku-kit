@@ -1406,7 +1406,23 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .category-photo img { animation: none; }
+  .category-photo img, .section-header-photo { animation: none; }
+}
+
+.section-header-photo-wrap { position: relative; }
+
+.section-header-photo {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  width: 260px;
+  max-width: 30vw;
+  pointer-events: none;
+  animation: category-photo-float 5s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .section-header-photo { display: none; }
 }
 
 .category-photo figcaption {

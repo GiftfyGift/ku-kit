@@ -738,8 +738,11 @@ function renderParts(c) {
 
   return `
     <section>
-      <h2 class="section-title">${pt.title}</h2>
-      <p class="section-intro">${pt.intro}</p>
+      <div class="section-header-photo-wrap">
+        <h2 class="section-title">${pt.title}</h2>
+        <p class="section-intro">${pt.intro}</p>
+        <img class="section-header-photo" src="assets/img/parts/parts-lineup.png" alt="${pt.title}">
+      </div>
       ${modelCatalog}
       ${resources}
       <div class="note-callout">${pt.note}</div>
