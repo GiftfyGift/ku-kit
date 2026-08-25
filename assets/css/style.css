@@ -1439,6 +1439,7 @@ main {
 }
 
 .product-card {
+  position: relative;
   border: 1px solid var(--kubota-border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1447,10 +1448,24 @@ main {
 }
 
 .product-card-header {
+  position: relative;
   background: rgba(255,255,255,0.05);
   border-bottom: 1px solid var(--kubota-border);
   padding: 16px 20px;
 }
+
+.solution-card-icons {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.solution-card-icon { width: 26px; height: 26px; display: block; }
+
+.product-card-header:has(.solution-card-icons) h4 { padding-right: 72px; }
 
 .product-card-header h4 {
   margin: 0 0 4px;

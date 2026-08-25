@@ -1038,6 +1038,16 @@ function initMaintenanceSchedule() {
   });
 }
 
+const CROP_SOLUTION_ICONS = {
+  'crop-wet-paddy': ['rice', 'water'],
+  'crop-dry-paddy': ['rice', 'sand']
+};
+const CROP_ICON_SRC = {
+  rice: 'assets/img/crops/icons/rice.svg',
+  water: 'assets/img/crops/icons/water.svg',
+  sand: 'assets/img/crops/icons/sand.svg'
+};
+
 function renderCrops(c) {
   const cr = c.crops;
 
@@ -1047,9 +1057,15 @@ function renderCrops(c) {
       : sol.video && sol.video.href
         ? `<video class="kk-video" controls preload="metadata" src="${encodeURI(sol.video.href)}"></video>`
         : `<div class="video-note">🎬 ${sol.video ? sol.video.title : ''}${sol.video && sol.video.note ? ' — ' + sol.video.note : ''}</div>`;
+    const iconKeys = CROP_SOLUTION_ICONS[sol.id];
+    const iconsHtml = iconKeys ? `
+      <div class="solution-card-icons" aria-hidden="true">
+        ${iconKeys.map(k => `<img src="${CROP_ICON_SRC[k]}" alt="" class="solution-card-icon">`).join('')}
+      </div>
+    ` : '';
     return `
       <div class="product-card"${sol.id ? ` id="${sol.id}"` : ''}>
-        <div class="product-card-header"><h4>${sol.name}</h4></div>
+        <div class="product-card-header">${iconsHtml}<h4>${sol.name}</h4></div>
         <div class="product-card-body">
           <p class="desc">${sol.desc}</p>
           ${videoHtml}
