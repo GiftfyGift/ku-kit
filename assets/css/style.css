@@ -3421,6 +3421,24 @@ table.parts-table td.code-col {
 
 .order-firstlot-code { font-family: monospace; color: var(--kubota-steel-blue); }
 .order-firstlot-price { color: var(--kubota-light-orange); font-weight: 700; }
+.order-firstlot-qty { font-size: 12px; color: var(--kubota-mid-gray); font-weight: 600; }
+
+.pmc-tabs { display: flex; gap: 24px; border-bottom: 2px solid var(--kubota-border); margin-bottom: 18px; }
+
+.pmc-tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--kubota-mid-gray);
+  font-family: 'Prompt', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 6px;
+  margin-bottom: -2px;
+  cursor: pointer;
+}
+
+.pmc-tab.is-active { color: var(--kubota-orange); border-bottom-color: var(--kubota-orange); }
 
 .order-group-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
 

@@ -711,6 +711,7 @@ function renderProductAssembly(c) {
 
 function renderParts(c) {
   const pt = c.parts;
+  const oc = c.order.catalog;
 
   const steps = pt.howToOrder.map(s => `
     <div class="step-card">
@@ -720,19 +721,22 @@ function renderParts(c) {
     </div>
   `).join('');
 
-  const recommended = (pt.recommended || []).map(model => `
+  const modelCatalog = `
     <div class="category-block">
-      <h3 class="category-heading">${model.model}</h3>
-      ${model.groups.map(g => `
-        <h4 class="subsection-title">${g.label}</h4>
-        <table class="kubota-table parts-table">
-          <tbody>
-            ${g.items.map(i => `<tr><td class="code-col">${i.code}</td><td>${i.name}</td></tr>`).join('')}
-          </tbody>
-        </table>
-      `).join('')}
+      <div class="order-model-picker">
+        <label class="order-model-label" for="parts-model-select">${oc.modelLabel}</label>
+        <select id="parts-model-select" class="order-model-select"></select>
+      </div>
+      <div class="pmc-tabs" role="tablist">
+        <button type="button" class="pmc-tab is-active" data-pmc-tab="firstlot" role="tab" aria-selected="true">${oc.firstLotHeading}</button>
+        <button type="button" class="pmc-tab" data-pmc-tab="catalog" role="tab" aria-selected="false">${oc.fullCatalogHeading}</button>
+      </div>
+      <div id="parts-model-catalog-body" class="order-catalog-body">
+        <div class="order-loading">${oc.loading}</div>
+      </div>
+      <div class="note-callout">${oc.priceNote}</div>
     </div>
-  `).join('');
+  `;
 
   const cats = pt.categories.map(cat => `
     <div class="item">
@@ -754,12 +758,143 @@ function renderParts(c) {
       <h2 class="section-title">${pt.title}</h2>
       <p class="section-intro">${pt.intro}</p>
       <div class="steps">${steps}</div>
-      ${recommended}
+      ${modelCatalog}
       <div class="simple-list">${cats}</div>
       ${resources}
       <div class="note-callout">${pt.note}</div>
     </section>
   `;
+}
+
+let partsCatalogDataCache = null;
+async function loadPartsCatalogData() {
+  if (partsCatalogDataCache) return partsCatalogDataCache;
+  partsCatalogDataCache = await fetch('assets/data/parts-catalog.json', { cache: 'no-store' }).then(r => r.json());
+  return partsCatalogDataCache;
+}
+
+async function initPartsModelCatalog(c) {
+  const oc = c.order.catalog;
+  const select = document.getElementById('parts-model-select');
+  const body = document.getElementById('parts-model-catalog-body');
+  const tabs = document.querySelectorAll('.pmc-tab');
+  if (!select || !body) return;
+
+  let data;
+  try {
+    data = await loadPartsCatalogData();
+  } catch (e) {
+    body.innerHTML = `<div class="order-loading">Failed to load parts data.</div>`;
+    return;
+  }
+  if (state.route !== 'parts') return;
+
+  select.innerHTML = data.models.map(m => `<option value="${m.id}">${m.label}</option>`).join('');
+
+  let activeTab = 'firstlot';
+  let currentGroupFilter = 'ALL';
+  let currentSearch = '';
+  const GROUP_ORDER = ['X', 'S', 'A', 'B', 'C'];
+
+  function renderBody() {
+    const modelId = select.value;
+    const model = data.models.find(m => m.id === modelId);
+    if (!model) { body.innerHTML = ''; return; }
+
+    if (activeTab === 'firstlot') {
+      const total = model.firstLot.reduce((sum, item) => sum + (item.amount || 0), 0);
+      body.innerHTML = `
+        <p class="section-intro">${oc.firstLotIntro}</p>
+        <div class="order-firstlot-grid">
+          ${model.firstLot.map(item => `
+            <div class="order-firstlot-card">
+              <div class="order-firstlot-name">${item.name}</div>
+              <div class="order-firstlot-fn">${item.fn}</div>
+              <div class="order-firstlot-meta">
+                <span class="order-firstlot-code">${item.partNo}</span>
+                <span class="order-firstlot-price">${orderFmtUsd(item.price)}</span>
+              </div>
+              <div class="order-firstlot-qty">${oc.qtyLabel}: ${item.suggestQty || '—'}</div>
+            </div>
+          `).join('')}
+        </div>
+        ${model.firstLot.length ? `<div class="note-callout">${oc.firstLotTotalLabel}: ${orderFmtUsd(total)}</div>` : ''}
+      `;
+    } else {
+      const groupChips = `
+        <button type="button" class="order-group-chip ${currentGroupFilter === 'ALL' ? 'active' : ''}" data-group-filter="ALL">${oc.groupAll}</button>
+        ${GROUP_ORDER.map(g => `<button type="button" class="order-group-chip ${currentGroupFilter === g ? 'active' : ''}" data-group-filter="${g}">${oc.groupLabels[g] || g}</button>`).join('')}
+      `;
+
+      const filteredCatalog = model.catalog.filter(item => {
+        if (item.group === 'D') return currentGroupFilter === 'D';
+        if (currentGroupFilter !== 'ALL' && item.group !== currentGroupFilter) return false;
+        if (currentSearch) {
+          const q = currentSearch.toLowerCase();
+          if (!item.partNo.toLowerCase().includes(q) && !item.name.toLowerCase().includes(q)) return false;
+        }
+        return true;
+      });
+
+      const catalogRows = filteredCatalog.map(item => `
+        <tr>
+          <td class="code-col">${item.partNo}</td>
+          <td>${item.name}</td>
+          <td>${oc.groupLabels[item.group] || item.group}</td>
+          <td>${orderFmtUsd(item.price)}</td>
+        </tr>
+      `).join('');
+
+      body.innerHTML = `
+        <p class="section-intro">${oc.fullCatalogIntro}</p>
+        <div class="order-group-filters">${groupChips}</div>
+        <input type="text" class="order-search-input" id="parts-search-input" placeholder="${oc.searchPlaceholder}" value="${currentSearch.replace(/"/g, '&quot;')}">
+        <div class="order-table-scroll">
+          <table class="kubota-table order-parts-table">
+            <thead>
+              <tr>
+                <th>${oc.colPartNo}</th>
+                <th>${oc.colName}</th>
+                <th>${oc.colGroup}</th>
+                <th>${oc.colPrice}</th>
+              </tr>
+            </thead>
+            <tbody>${catalogRows || `<tr><td colspan="4" class="order-empty-row">—</td></tr>`}</tbody>
+          </table>
+        </div>
+      `;
+
+      body.querySelectorAll('[data-group-filter]').forEach(btn => {
+        btn.addEventListener('click', () => { currentGroupFilter = btn.dataset.groupFilter; renderBody(); });
+      });
+
+      const searchInput = document.getElementById('parts-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', () => {
+          currentSearch = searchInput.value;
+          const selStart = searchInput.selectionStart;
+          renderBody();
+          const newInput = document.getElementById('parts-search-input');
+          if (newInput) { newInput.focus(); newInput.setSelectionRange(selStart, selStart); }
+        });
+      }
+    }
+  }
+
+  select.addEventListener('change', () => { currentGroupFilter = 'ALL'; currentSearch = ''; renderBody(); });
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activeTab = tab.dataset.pmcTab;
+      tabs.forEach(t => {
+        t.classList.toggle('is-active', t === tab);
+        t.setAttribute('aria-selected', String(t === tab));
+      });
+      renderBody();
+    });
+  });
+
+  renderBody();
 }
 
 function renderService(c) {
@@ -3781,6 +3916,7 @@ function render() {
   if (state.route === 'product' || state.route === 'product-engine') initApplicationCarousels();
   if (state.route === 'marketing') initActivityCards(c);
   if (state.route === 'service') initMaintenanceSchedule();
+  if (state.route === 'parts') initPartsModelCatalog(c);
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
   if (state.route === 'order-checkout') initOrderCheckoutPage(c);
   if (state.route === 'order-tracking') initOrderTrackingPage(c);

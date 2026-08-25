@@ -429,55 +429,6 @@
       { "step": "3", "title": "Soumettre la commande via le canal désigné", "desc": "Contactez votre équipe régionale de support pièces." },
       { "step": "4", "title": "Suivre l'état de l'expédition", "desc": "Suivez votre commande via le système de suivi de l'entreprise." }
     ],
-    "recommended": [
-      {
-        "model": "Moteur diesel ZT140 — pièces de stock recommandées",
-        "groups": [
-          {
-            "label": "Périodiques (remplacement programmé)",
-            "items": [
-              { "code": "1T051-11220", "name": "Ensemble élément de filtre à air" },
-              { "code": "1W071-99261", "name": "Huile moteur CF 3 L x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "Ensemble filtre à carburant" },
-              { "code": "1TA21-35750", "name": "Joint de filtre à huile" }
-            ]
-          },
-          {
-            "label": "Consommables (pièces d'usure)",
-            "items": [
-              { "code": "14371-51051", "name": "Ensemble piston de pompe (plunger)" },
-              { "code": "1T071-98511", "name": "Jeu de segments de piston (140)" },
-              { "code": "1T057-97010", "name": "Courroie de ventilateur" },
-              { "code": "1T071-90161", "name": "Jeu de joints de culasse" },
-              { "code": "1T021-61110", "name": "Manivelle de démarrage" },
-              { "code": "11010-04380", "name": "Joint de vilebrequin" }
-            ]
-          }
-        ]
-      },
-      {
-        "model": "Motoculteur NC — pièces de stock recommandées",
-        "groups": [
-          {
-            "label": "Périodiques (remplacement programmé)",
-            "items": [
-              { "code": "62735-99091-E", "name": "Huile de transmission, Gear90, 3 L x 8" }
-            ]
-          },
-          {
-            "label": "Consommables (pièces d'usure)",
-            "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Engrenages de transmission (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "Courroie trapézoïdale, TRA CHANG (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "Câble d'embrayage principal" },
-              { "code": "62735-42480", "name": "Câble d'embrayage de direction" },
-              { "code": "09500-25388", "name": "Joint d'étanchéité d'huile" },
-              { "code": "62735-22132-1", "name": "Mâchoire de frein (2 pièces)" }
-            ]
-          }
-        ]
-      }
-    ],
     "categories": [
       { "name": "Pièces moteur", "desc": "Pistons, segments de piston, pompes d'injection, filtres à carburant." },
       { "name": "Pièces de transmission", "desc": "Engrenages, embrayages, arbres de transmission." },
@@ -490,7 +441,7 @@
       { "title": "Motoculteur — liste de pièces recommandées (tableur)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
     ],
     "downloadsTitle": "Téléchargements",
-    "note": "Les tableaux ci-dessus présentent, à titre d'exemple, les pièces de stock les plus courantes pour le moteur ZT140 et le motoculteur NC. Le tableur complet ci-dessous couvre chaque cylindrée (de ZT100 à ZT180) avec les références de pièces — téléchargez-le pour planifier le stock d'un autre modèle."
+    "note": "Choisissez un modèle ci-dessus pour voir les pièces recommandées pour le First Lot et le catalogue complet de ce modèle. Les prix affichés sont des exemples — confirmez-les avec Siam Kubota avant de commander. Les tableurs ci-dessous contiennent les données complètes à télécharger."
   },
   "service": {
     "title": "Service",
@@ -875,6 +826,7 @@
       "colGroup": "Groupe",
       "colPrice": "Prix (USD)",
       "colAction": "",
+      "firstLotTotalLabel": "Total estimé du First Lot",
       "cartHeading": "Panier",
       "cartEmpty": "Votre panier est vide. Ajoutez un produit ou des pièces ci-dessus.",
       "goCheckout": "Passer au paiement",

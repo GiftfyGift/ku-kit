@@ -429,55 +429,6 @@
       { "step": "3", "title": "Peleka agizo kupitia njia iliyopangwa", "desc": "Wasiliana na timu ya usaidizi wa vipuri ya eneo lako." },
       { "step": "4", "title": "Fuatilia hali ya usafirishaji", "desc": "Fuatilia agizo lako kupitia mfumo wa ufuatiliaji wa kampuni." }
     ],
-    "recommended": [
-      {
-        "model": "Injini ya dizeli ZT140 — vipuri vinavyopendekezwa kuwekwa hisa",
-        "groups": [
-          {
-            "label": "Periodical (kubadilishwa mara kwa mara)",
-            "items": [
-              { "code": "1T051-11220", "name": "Kifaa cha kichujio cha hewa" },
-              { "code": "1W071-99261", "name": "Mafuta ya injini CF lita 3 x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "Kifaa cha kichujio cha mafuta" },
-              { "code": "1TA21-35750", "name": "Pete ya kichujio cha mafuta" }
-            ]
-          },
-          {
-            "label": "Consumptive (vipuri vinavyochakaa)",
-            "items": [
-              { "code": "14371-51051", "name": "Kifaa cha plunger" },
-              { "code": "1T071-98511", "name": "Kifaa cha pete za pistoni (140)" },
-              { "code": "1T057-97010", "name": "Mkanda wa feni" },
-              { "code": "1T071-90161", "name": "Seti ya muhuri wa kichwa cha silinda" },
-              { "code": "1T021-61110", "name": "Mkono wa kuwasha" },
-              { "code": "11010-04380", "name": "Muhuri wa crankshaft" }
-            ]
-          }
-        ]
-      },
-      {
-        "model": "Trekta la kutembea la NC — vipuri vinavyopendekezwa kuwekwa hisa",
-        "groups": [
-          {
-            "label": "Periodical (kubadilishwa mara kwa mara)",
-            "items": [
-              { "code": "62735-99091-E", "name": "Mafuta ya gia, Gear90, lita 3 x 8" }
-            ]
-          },
-          {
-            "label": "Consumptive (vipuri vinavyochakaa)",
-            "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Gia za usambazaji (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "Mkanda wa V, TRA CHANG (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "Kebo ya klachi kuu" },
-              { "code": "62735-42480", "name": "Kebo ya klachi ya kugeuza" },
-              { "code": "09500-25388", "name": "Muhuri wa mafuta" },
-              { "code": "62735-22132-1", "name": "Kiatu cha breki (vipande 2)" }
-            ]
-          }
-        ]
-      }
-    ],
     "categories": [
       { "name": "Vipuri vya injini", "desc": "Pistoni, pete za pistoni, pampu za sindano, vichujio vya mafuta." },
       { "name": "Vipuri vya usambazaji nguvu", "desc": "Gia, klachi, mishale ya kuendesha." },
@@ -490,7 +441,7 @@
       { "title": "Trekta la kutembea — orodha ya vipuri vinavyopendekezwa (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
     ],
     "downloadsTitle": "Vipakuliwa",
-    "note": "Majedwali hapo juu yanaonyesha vipuri vya kawaida zaidi vya kuwekwa hisa kwa injini ya ZT140 na trekta la kutembea la NC kama mfano. Lahajedwali kamili hapa chini inashughulikia kila ukubwa wa injini (ZT100 hadi ZT180) pamoja na nambari za vipuri, hivyo ipakue ukihitaji kupanga hisa kwa mfano mwingine."
+    "note": "Chagua modeli hapo juu ili kuona vipuri vinavyopendekezwa kwa First Lot na katalogi kamili ya vipuri vya modeli hiyo. Bei zinazoonyeshwa ni data ya mfano — thibitisha na Siam Kubota kabla ya kuagiza. Lahajedwali hapa chini zina data kamili za kupakua."
   },
   "service": {
     "title": "Huduma",
@@ -881,6 +832,7 @@
       "colGroup": "Kundi",
       "colPrice": "Bei (USD)",
       "colAction": "",
+      "firstLotTotalLabel": "Jumla inayokadiriwa ya First Lot",
       "cartHeading": "Kikapu",
       "cartEmpty": "Kikapu chako bado hakina kitu. Ongeza bidhaa au vipuri hapo juu.",
       "goCheckout": "Nenda kwenye Malipo",

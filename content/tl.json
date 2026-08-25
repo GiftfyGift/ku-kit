@@ -429,55 +429,6 @@
       { "step": "3", "title": "Ipadala ang order sa itinakdang channel", "desc": "Makipag-ugnayan sa regional parts support team." },
       { "step": "4", "title": "Subaybayan ang status ng padala", "desc": "I-follow up ang order sa tracking system ng kompanya." }
     ],
-    "recommended": [
-      {
-        "model": "ZT140 diesel engine — rekomendadong parts na istak",
-        "groups": [
-          {
-            "label": "Periodical (regular na palitan)",
-            "items": [
-              { "code": "1T051-11220", "name": "Air cleaner element assy" },
-              { "code": "1W071-99261", "name": "Engine oil CF 3L x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "Fuel filter assy" },
-              { "code": "1TA21-35750", "name": "Oil filter ring" }
-            ]
-          },
-          {
-            "label": "Consumptive (mabilis maluma)",
-            "items": [
-              { "code": "14371-51051", "name": "Plunger assy" },
-              { "code": "1T071-98511", "name": "Piston ring assy (140)" },
-              { "code": "1T057-97010", "name": "Fan belt" },
-              { "code": "1T071-90161", "name": "Cylinder head seal set" },
-              { "code": "1T021-61110", "name": "Start handle" },
-              { "code": "11010-04380", "name": "Crankshaft seal" }
-            ]
-          }
-        ]
-      },
-      {
-        "model": "NC power tiller — rekomendadong parts na istak",
-        "groups": [
-          {
-            "label": "Periodical (regular na palitan)",
-            "items": [
-              { "code": "62735-99091-E", "name": "Gear oil, Gear90, 3L x 8" }
-            ]
-          },
-          {
-            "label": "Consumptive (mabilis maluma)",
-            "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Transmission gear (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "V-belt, TRA CHANG (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "Main clutch wire" },
-              { "code": "62735-42480", "name": "Steering clutch wire" },
-              { "code": "09500-25388", "name": "Oil seal" },
-              { "code": "62735-22132-1", "name": "Brake shoe (2 pcs)" }
-            ]
-          }
-        ]
-      }
-    ],
     "categories": [
       { "name": "Parts ng Engine", "desc": "Piston, piston ring, injection pump, fuel filter." },
       { "name": "Parts ng Transmission", "desc": "Gear, clutch, drive shaft." },
@@ -490,7 +441,7 @@
       { "title": "Power tiller — listahan ng rekomendadong parts (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
     ],
     "downloadsTitle": "Mga Download",
-    "note": "Ipinapakita ng mga talahanayan sa itaas ang pinakakaraniwang parts na dapat istakin para sa ZT140 engine at NC power tiller bilang halimbawa. Ang buong spreadsheet sa ibaba ay sumasaklaw sa bawat laki ng engine (ZT100 hanggang ZT180) kasama ang part number, kaya i-download ito kung magpaplano ng stock para sa ibang modelo."
+    "note": "Pumili ng modelo sa itaas para makita ang mga inirerekomendang First Lot parts at ang buong parts catalog para sa modelong iyon. Ang presyong ipinapakita ay sample data lang — kumpirmahin sa Siam Kubota bago mag-order. Ang mga spreadsheet sa ibaba ay may kumpletong data na puwedeng i-download."
   },
   "service": {
     "title": "Serbisyo",
@@ -875,6 +826,7 @@
       "colGroup": "Grupo",
       "colPrice": "Presyo (USD)",
       "colAction": "",
+      "firstLotTotalLabel": "Tinatayang kabuuan ng First Lot",
       "cartHeading": "Cart",
       "cartEmpty": "Wala pang laman ang cart mo. Magdagdag ng produkto o parts sa itaas.",
       "goCheckout": "Pumunta sa Checkout",
