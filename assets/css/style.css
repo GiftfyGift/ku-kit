@@ -1463,9 +1463,9 @@ main {
   gap: 8px;
 }
 
-.solution-card-icon { width: 26px; height: 26px; display: block; }
+.solution-card-icon { height: 26px; width: auto; max-width: 40px; display: block; }
 
-.product-card-header:has(.solution-card-icons) h4 { padding-right: 72px; }
+.product-card-header:has(.solution-card-icons) h4 { padding-right: 90px; }
 
 .product-card-header h4 {
   margin: 0 0 4px;

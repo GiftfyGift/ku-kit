@@ -1040,12 +1040,16 @@ function initMaintenanceSchedule() {
 
 const CROP_SOLUTION_ICONS = {
   'crop-wet-paddy': ['rice', 'water'],
-  'crop-dry-paddy': ['rice', 'sand']
+  'crop-dry-paddy': ['rice', 'sand'],
+  'crop-cassava': ['cassava'],
+  'crop-corn': ['corn']
 };
 const CROP_ICON_SRC = {
   rice: 'assets/img/crops/icons/rice.svg',
   water: 'assets/img/crops/icons/water.svg',
-  sand: 'assets/img/crops/icons/sand.svg'
+  sand: 'assets/img/crops/icons/sand.svg',
+  cassava: 'assets/img/crops/icons/cassava.svg',
+  corn: 'assets/img/crops/icons/corn.svg'
 };
 
 function renderCrops(c) {
