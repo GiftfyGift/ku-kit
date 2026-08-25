@@ -1064,7 +1064,11 @@ function renderCrops(c) {
     const iconKeys = CROP_SOLUTION_ICONS[sol.id];
     const iconsHtml = iconKeys ? `
       <div class="solution-card-icons" aria-hidden="true">
-        ${iconKeys.map(k => `<img src="${CROP_ICON_SRC[k]}" alt="" class="solution-card-icon">`).join('')}
+        ${iconKeys.map(k => `
+          <span class="solution-card-icon-badge">
+            <img src="${CROP_ICON_SRC[k]}" alt="" class="solution-card-icon">
+          </span>
+        `).join('')}
       </div>
     ` : '';
     return `
