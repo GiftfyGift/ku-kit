@@ -1473,12 +1473,41 @@ main {
   justify-content: center;
 }
 
-.solution-card-icon-badge::before {
+.badge-glow {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(87,214,255,0.55), rgba(47,91,255,0.25) 55%, transparent 75%);
+  filter: blur(5px);
+  animation: badge-glow-pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.badge-ring {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../img/crops/icons/ring-frame.svg') center / contain no-repeat;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #2f5bff, #57d6ff, #33e6e0, #57d6ff, #2f5bff);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 6px));
+  filter: drop-shadow(0 0 5px rgba(51,214,255,0.6));
+  animation: badge-ring-spin 8s linear infinite;
   pointer-events: none;
+}
+
+@keyframes badge-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes badge-glow-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-ring, .badge-glow { animation: none; }
 }
 
 .solution-card-icon { position: relative; height: 28.6px; width: auto; max-width: 40px; display: block; }

@@ -1066,6 +1066,8 @@ function renderCrops(c) {
       <div class="solution-card-icons" aria-hidden="true">
         ${iconKeys.map(k => `
           <span class="solution-card-icon-badge">
+            <span class="badge-glow"></span>
+            <span class="badge-ring"></span>
             <img src="${CROP_ICON_SRC[k]}" alt="" class="solution-card-icon">
           </span>
         `).join('')}
