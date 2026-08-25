@@ -715,10 +715,8 @@ function renderParts(c) {
 
   const modelCatalog = `
     <div class="category-block">
-      <div class="order-model-picker">
-        <label class="order-model-label" for="parts-model-select">${oc.modelLabel}</label>
-        <select id="parts-model-select" class="order-model-select"></select>
-      </div>
+      <div class="order-model-label">${oc.modelLabel}</div>
+      <div class="product-selector" id="parts-model-selector"></div>
       <div class="pmc-tabs" role="tablist">
         <button type="button" class="pmc-tab is-active" data-pmc-tab="firstlot" role="tab" aria-selected="true">${oc.firstLotHeading}</button>
         <button type="button" class="pmc-tab" data-pmc-tab="catalog" role="tab" aria-selected="false">${oc.fullCatalogHeading}</button>
@@ -758,10 +756,10 @@ async function loadPartsCatalogData() {
 
 async function initPartsModelCatalog(c) {
   const oc = c.order.catalog;
-  const select = document.getElementById('parts-model-select');
+  const selector = document.getElementById('parts-model-selector');
   const body = document.getElementById('parts-model-catalog-body');
   const tabs = document.querySelectorAll('.pmc-tab');
-  if (!select || !body) return;
+  if (!selector || !body) return;
 
   let data;
   try {
@@ -772,7 +770,29 @@ async function initPartsModelCatalog(c) {
   }
   if (state.route !== 'parts') return;
 
-  select.innerHTML = data.models.map(m => `<option value="${m.id}">${m.label}</option>`).join('');
+  const isTillerModel = (id) => id.startsWith('NC') || id.startsWith('PEM');
+  let selectedModelId = data.models[0] ? data.models[0].id : null;
+
+  selector.innerHTML = data.models.map(m => {
+    const img = isTillerModel(m.id) ? c.product.tiller.image : c.product.engine.image;
+    return `
+      <button type="button" class="product-select-card ${m.id === selectedModelId ? 'active' : ''}" data-parts-model="${m.id}">
+        <span class="product-select-icon"><img src="${img.src}" alt="${img.alt}"></span>
+        <span class="product-select-label">${m.label}</span>
+        <span class="product-select-check" aria-hidden="true">✓</span>
+      </button>
+    `;
+  }).join('');
+
+  selector.querySelectorAll('[data-parts-model]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedModelId = btn.dataset.partsModel;
+      selector.querySelectorAll('[data-parts-model]').forEach(b => b.classList.toggle('active', b === btn));
+      currentGroupFilter = 'ALL';
+      currentSearch = '';
+      renderBody();
+    });
+  });
 
   let activeTab = 'firstlot';
   let currentGroupFilter = 'ALL';
@@ -780,8 +800,7 @@ async function initPartsModelCatalog(c) {
   const GROUP_ORDER = ['X', 'S', 'A', 'B', 'C'];
 
   function renderBody() {
-    const modelId = select.value;
-    const model = data.models.find(m => m.id === modelId);
+    const model = data.models.find(m => m.id === selectedModelId);
     if (!model) { body.innerHTML = ''; return; }
 
     if (activeTab === 'firstlot') {
@@ -863,8 +882,6 @@ async function initPartsModelCatalog(c) {
       }
     }
   }
-
-  select.addEventListener('change', () => { currentGroupFilter = 'ALL'; currentSearch = ''; renderBody(); });
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {

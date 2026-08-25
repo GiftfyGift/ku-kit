@@ -3340,7 +3340,7 @@ table.parts-table td.code-col {
   flex-wrap: wrap;
 }
 
-.order-model-label { font-size: 14px; color: var(--kubota-mid-gray); font-weight: 600; }
+.order-model-label { font-size: 14px; color: var(--kubota-mid-gray); font-weight: 600; margin-bottom: 8px; }
 
 .order-model-select,
 .order-qty-input,
