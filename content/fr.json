@@ -422,13 +422,7 @@
   },
   "parts": {
     "title": "Pièces",
-    "intro": "Comment les nouveaux concessionnaires et distributeurs peuvent trouver et commander des pièces d'origine, avec une liste de stock de départ pour les modèles les plus courants.",
-    "howToOrder": [
-      { "step": "1", "title": "Identifier le modèle et le numéro de série", "desc": "Vérifiez la plaque signalétique sur l'appareil ou le manuel du modèle." },
-      { "step": "2", "title": "Rechercher le code de la pièce", "desc": "Utilisez le catalogue de pièces pour confirmer le bon code." },
-      { "step": "3", "title": "Soumettre la commande via le canal désigné", "desc": "Contactez votre équipe régionale de support pièces." },
-      { "step": "4", "title": "Suivre l'état de l'expédition", "desc": "Suivez votre commande via le système de suivi de l'entreprise." }
-    ],
+    "intro": "Choisissez un modèle pour voir les pièces recommandées pour le First Lot et le catalogue complet de ce modèle — conçu pour les nouveaux concessionnaires et distributeurs.",
     "resources": [
       { "title": "Catalogue de pièces — ZT140 (catalogue illustré complet, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Moteur diesel — liste de pièces recommandées, tous modèles ZT100-ZT180 (tableur)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },

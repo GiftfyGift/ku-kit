@@ -422,13 +422,7 @@
   },
   "parts": {
     "title": "Vipuri",
-    "intro": "Jinsi Wauzaji na Wasambazaji wapya wanavyoweza kutafuta na kuagiza vipuri halisi, pamoja na orodha ya awali ya hisa kwa mifano ya kawaida zaidi.",
-    "howToOrder": [
-      { "step": "1", "title": "Tambua mfano na nambari ya serial", "desc": "Angalia bamba la jina kwenye kifaa au mwongozo wa mfano husika." },
-      { "step": "2", "title": "Tafuta nambari ya kipuri", "desc": "Tumia Katalogi ya Vipuri kuthibitisha nambari sahihi." },
-      { "step": "3", "title": "Peleka agizo kupitia njia iliyopangwa", "desc": "Wasiliana na timu ya usaidizi wa vipuri ya eneo lako." },
-      { "step": "4", "title": "Fuatilia hali ya usafirishaji", "desc": "Fuatilia agizo lako kupitia mfumo wa ufuatiliaji wa kampuni." }
-    ],
+    "intro": "Chagua modeli ili kuona vipuri vinavyopendekezwa kwa First Lot na katalogi kamili ya vipuri vya modeli hiyo — imeundwa kwa ajili ya Wauzaji na Wasambazaji wapya.",
     "resources": [
       { "title": "Parts Book — ZT140 (katalogi kamili yenye michoro, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Injini ya dizeli — orodha ya vipuri vinavyopendekezwa, mifano yote ZT100-ZT180 (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },

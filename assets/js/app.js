@@ -713,14 +713,6 @@ function renderParts(c) {
   const pt = c.parts;
   const oc = c.order.catalog;
 
-  const steps = pt.howToOrder.map(s => `
-    <div class="step-card">
-      <div class="step-number">${s.step}</div>
-      <h4>${s.title}</h4>
-      <p>${s.desc}</p>
-    </div>
-  `).join('');
-
   const modelCatalog = `
     <div class="category-block">
       <div class="order-model-picker">
@@ -750,7 +742,6 @@ function renderParts(c) {
     <section>
       <h2 class="section-title">${pt.title}</h2>
       <p class="section-intro">${pt.intro}</p>
-      <div class="steps">${steps}</div>
       ${modelCatalog}
       ${resources}
       <div class="note-callout">${pt.note}</div>
@@ -3991,15 +3982,7 @@ function buildSearchIndex(c) {
 
   // Parts
   const p = c.parts;
-  (p.howToOrder || []).forEach(s => pushEntry(idx, 'parts', s.title, s.desc));
-  (p.recommended || []).forEach(model => {
-    (model.groups || []).forEach(g => {
-      pushEntry(idx, 'parts', `${model.model} — ${g.label}`,
-        (g.items || []).map(i => i.name).join(', '),
-        (g.items || []).map(i => i.code).join(' '));
-    });
-  });
-  (p.categories || []).forEach(cat => pushEntry(idx, 'parts', cat.name, cat.desc));
+  pushEntry(idx, 'parts', p.title, p.intro);
 
   // Service
   const s = c.service;
