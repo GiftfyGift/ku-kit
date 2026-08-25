@@ -429,12 +429,6 @@
       { "step": "3", "title": "Submit the order through the designated channel", "desc": "Contact your regional parts support team." },
       { "step": "4", "title": "Track shipment status", "desc": "Follow up on your order through the company's tracking system." }
     ],
-    "categories": [
-      { "name": "Engine parts", "desc": "Pistons, piston rings, injection pumps, fuel filters." },
-      { "name": "Transmission parts", "desc": "Gears, clutches, drive shafts." },
-      { "name": "Tillage parts", "desc": "Tiller blades, discs, bearings." },
-      { "name": "Consumables", "desc": "Engine oil, air filters, belts." }
-    ],
     "resources": [
       { "title": "Parts Book — ZT140 (full illustrated catalog, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Diesel engine — recommended parts list, all models ZT100-ZT180 (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },

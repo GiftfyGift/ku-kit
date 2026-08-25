@@ -738,13 +738,6 @@ function renderParts(c) {
     </div>
   `;
 
-  const cats = pt.categories.map(cat => `
-    <div class="item">
-      <h4>${cat.name}</h4>
-      <p>${cat.desc}</p>
-    </div>
-  `).join('');
-
   const partsDocs = localizedDocsWithFallback(pt.resources);
   const resources = partsDocs.length ? `
     <div class="category-block">
@@ -759,7 +752,6 @@ function renderParts(c) {
       <p class="section-intro">${pt.intro}</p>
       <div class="steps">${steps}</div>
       ${modelCatalog}
-      <div class="simple-list">${cats}</div>
       ${resources}
       <div class="note-callout">${pt.note}</div>
     </section>

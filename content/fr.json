@@ -429,12 +429,6 @@
       { "step": "3", "title": "Soumettre la commande via le canal désigné", "desc": "Contactez votre équipe régionale de support pièces." },
       { "step": "4", "title": "Suivre l'état de l'expédition", "desc": "Suivez votre commande via le système de suivi de l'entreprise." }
     ],
-    "categories": [
-      { "name": "Pièces moteur", "desc": "Pistons, segments de piston, pompes d'injection, filtres à carburant." },
-      { "name": "Pièces de transmission", "desc": "Engrenages, embrayages, arbres de transmission." },
-      { "name": "Pièces de travail du sol", "desc": "Lames de motoculteur, disques, roulements." },
-      { "name": "Consommables", "desc": "Huile moteur, filtres à air, courroies." }
-    ],
     "resources": [
       { "title": "Catalogue de pièces — ZT140 (catalogue illustré complet, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Moteur diesel — liste de pièces recommandées, tous modèles ZT100-ZT180 (tableur)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },

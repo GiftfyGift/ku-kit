@@ -429,12 +429,6 @@
       { "step": "3", "title": "Peleka agizo kupitia njia iliyopangwa", "desc": "Wasiliana na timu ya usaidizi wa vipuri ya eneo lako." },
       { "step": "4", "title": "Fuatilia hali ya usafirishaji", "desc": "Fuatilia agizo lako kupitia mfumo wa ufuatiliaji wa kampuni." }
     ],
-    "categories": [
-      { "name": "Vipuri vya injini", "desc": "Pistoni, pete za pistoni, pampu za sindano, vichujio vya mafuta." },
-      { "name": "Vipuri vya usambazaji nguvu", "desc": "Gia, klachi, mishale ya kuendesha." },
-      { "name": "Vipuri vya kulimia", "desc": "Vile vya trekta, diski, beringi." },
-      { "name": "Vitu vinavyotumika mara moja", "desc": "Mafuta ya injini, vichujio vya hewa, mikanda." }
-    ],
     "resources": [
       { "title": "Parts Book — ZT140 (katalogi kamili yenye michoro, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Injini ya dizeli — orodha ya vipuri vinavyopendekezwa, mifano yote ZT100-ZT180 (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
