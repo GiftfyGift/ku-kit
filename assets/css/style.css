@@ -1433,22 +1433,22 @@ main {
   max-width: 22vw;
 }
 
-.section-header-photo-wrap:has(.section-header-photo--person) {
-  min-height: 360px;
-}
-
 .section-header-photo-wrap:has(.section-header-photo--person) .section-title,
 .section-header-photo-wrap:has(.section-header-photo--person) .section-intro {
   padding-left: 200px;
 }
 
-@media (max-width: 900px) {
-  .section-header-photo-wrap:has(.section-header-photo--person) {
-    min-height: 0;
-  }
+.section-header-photo-wrap:has(.section-header-photo--person) + .quick-links-columns {
+  padding-left: 200px;
+}
 
+@media (max-width: 900px) {
   .section-header-photo-wrap:has(.section-header-photo--person) .section-title,
   .section-header-photo-wrap:has(.section-header-photo--person) .section-intro {
+    padding-left: 0;
+  }
+
+  .section-header-photo-wrap:has(.section-header-photo--person) + .quick-links-columns {
     padding-left: 0;
   }
 }
