@@ -1007,8 +1007,11 @@ function renderService(c) {
 
   return `
     <section>
-      <h2 class="section-title">${s.title}</h2>
-      <p class="section-intro">${s.intro}</p>
+      <div class="section-header-photo-wrap">
+        <h2 class="section-title">${s.title}</h2>
+        <p class="section-intro">${s.intro}</p>
+        <img class="section-header-photo section-header-photo--person" src="assets/img/service/service-technician.png" alt="${s.title}">
+      </div>
       ${renderQuickLinksColumns(s.quickLinks)}
       ${maintenance}
       <div class="category-block">

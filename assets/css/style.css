@@ -1425,6 +1425,34 @@ main {
   .section-header-photo { display: none; }
 }
 
+.section-header-photo--person {
+  left: 0;
+  right: auto;
+  top: -14px;
+  width: 190px;
+  max-width: 22vw;
+}
+
+.section-header-photo-wrap:has(.section-header-photo--person) {
+  min-height: 360px;
+}
+
+.section-header-photo-wrap:has(.section-header-photo--person) .section-title,
+.section-header-photo-wrap:has(.section-header-photo--person) .section-intro {
+  padding-left: 200px;
+}
+
+@media (max-width: 900px) {
+  .section-header-photo-wrap:has(.section-header-photo--person) {
+    min-height: 0;
+  }
+
+  .section-header-photo-wrap:has(.section-header-photo--person) .section-title,
+  .section-header-photo-wrap:has(.section-header-photo--person) .section-intro {
+    padding-left: 0;
+  }
+}
+
 .category-photo figcaption {
   padding: 8px 14px 0;
   font-size: 12px;
