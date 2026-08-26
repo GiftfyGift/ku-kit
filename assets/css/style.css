@@ -1441,6 +1441,7 @@ main {
 
 .section-header-photo-wrap:has(.section-header-photo--person) + .quick-links-columns {
   padding-left: 280px;
+  margin-bottom: 128px;
 }
 
 @media (max-width: 900px) {
@@ -1450,6 +1451,7 @@ main {
   }
 
   .section-header-photo-wrap:has(.section-header-photo--person) + .quick-links-columns {
+    margin-bottom: 28px;
     padding-left: 0;
   }
 }
