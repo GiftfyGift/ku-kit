@@ -813,6 +813,7 @@ async function initPartsModelCatalog(c) {
         <div class="order-firstlot-grid">
           ${model.firstLot.map(item => `
             <div class="order-firstlot-card">
+              ${item.image ? `<div class="order-firstlot-img-wrap"><img class="order-firstlot-img" src="${item.image}" alt="${item.name}"></div>` : ''}
               <div class="order-firstlot-name">${item.name}</div>
               <div class="order-firstlot-fn">${item.fn}</div>
               <div class="order-firstlot-meta">
@@ -1879,6 +1880,7 @@ async function initOrderCatalogPage(c) {
             const q = orderCartQtyFor(`part:${modelId}:${item.partNo}`);
             return `
             <div class="order-firstlot-card">
+              ${item.image ? `<div class="order-firstlot-img-wrap"><img class="order-firstlot-img" src="${item.image}" alt="${item.name}"></div>` : ''}
               <div class="order-firstlot-name">${item.name}</div>
               <div class="order-firstlot-fn">${item.fn}</div>
               <div class="order-firstlot-meta">

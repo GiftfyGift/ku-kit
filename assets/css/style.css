@@ -3515,6 +3515,23 @@ table.parts-table td.code-col {
   border-top: 3px solid var(--kubota-light-orange);
   border-radius: var(--radius-md);
   padding: 16px 18px;
+  overflow: hidden;
+}
+
+.order-firstlot-img-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  margin: -16px -18px 12px;
+  padding: 8px;
+  background: #fff;
+}
+
+.order-firstlot-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .order-firstlot-name { font-weight: 700; color: var(--kubota-navy); font-family: 'Prompt', sans-serif; margin-bottom: 4px; }
