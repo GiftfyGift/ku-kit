@@ -918,24 +918,30 @@ main {
   .activity-pick-grid { grid-template-columns: 1fr; }
 }
 
-/* Marketing page hero banner — real dealer activity photo, gentle irregular horizontal drift */
-.marketing-hero-banner {
+/* Marketing page hero row — the 4 dealer activity photos side by side, gentle irregular horizontal drift */
+.marketing-hero-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 8px 0 32px;
+}
+
+.marketing-hero-row-item {
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-md);
   border: 1px solid var(--kubota-border);
-  height: 260px;
-  margin: 8px 0 32px;
+  height: 200px;
 }
 
-.marketing-hero-banner img {
+.marketing-hero-row-item img {
   position: absolute;
   top: 0;
-  left: -4%;
-  width: 108%;
+  left: -6%;
+  width: 112%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center 30%;
   animation: marketing-banner-jitter 7s ease-in-out infinite;
 }
 
@@ -955,7 +961,16 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .marketing-hero-banner img { animation: none; }
+  .marketing-hero-row-item img { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .marketing-hero-row { grid-template-columns: repeat(2, 1fr); }
+  .marketing-hero-row-item { height: 160px; }
+}
+
+@media (max-width: 480px) {
+  .marketing-hero-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
