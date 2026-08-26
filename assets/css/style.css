@@ -3523,9 +3523,7 @@ table.parts-table td.code-col {
   align-items: center;
   justify-content: center;
   height: 132px;
-  margin: -16px -18px 12px;
-  padding: 8px;
-  background: var(--kubota-navy-deep);
+  margin: 0 0 12px;
 }
 
 .order-firstlot-img {
