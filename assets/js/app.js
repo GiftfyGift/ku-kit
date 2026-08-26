@@ -1318,6 +1318,9 @@ function renderMarketing(c) {
     <section>
       <h2 class="section-title">${m.title}</h2>
       <p class="section-intro">${m.intro}</p>
+      <div class="marketing-hero-banner">
+        <img src="assets/img/marketing/activity-banner.jpg" alt="${m.title}">
+      </div>
       <div class="activity-overview">
         <div class="activity-overview-heading">
           <span class="activity-overview-eyebrow">KUBOTA ACTIVITY STANDARD</span>

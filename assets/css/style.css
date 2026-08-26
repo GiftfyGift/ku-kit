@@ -918,6 +918,50 @@ main {
   .activity-pick-grid { grid-template-columns: 1fr; }
 }
 
+/* Marketing page hero banner — real dealer activity photo, gentle irregular horizontal drift */
+.marketing-hero-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--kubota-border);
+  height: 260px;
+  margin: 8px 0 32px;
+}
+
+.marketing-hero-banner img {
+  position: absolute;
+  top: 0;
+  left: -4%;
+  width: 108%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  animation: marketing-banner-jitter 7s ease-in-out infinite;
+}
+
+@keyframes marketing-banner-jitter {
+  0%   { transform: translateX(0); }
+  8%   { transform: translateX(-6px); }
+  17%  { transform: translateX(9px); }
+  24%  { transform: translateX(-3px); }
+  33%  { transform: translateX(12px); }
+  42%  { transform: translateX(-9px); }
+  51%  { transform: translateX(4px); }
+  60%  { transform: translateX(-12px); }
+  69%  { transform: translateX(7px); }
+  78%  { transform: translateX(-4px); }
+  87%  { transform: translateX(10px); }
+  100% { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketing-hero-banner img { animation: none; }
+}
+
+@media (max-width: 560px) {
+  .marketing-hero-banner { height: 160px; }
+}
+
 /* Activity overview — professional dealer-facing cards */
 .activity-overview {
   margin: 28px 0 44px;
