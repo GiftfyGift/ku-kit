@@ -1478,7 +1478,7 @@ main {
   position: absolute;
   inset: -8px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(87,214,255,0.55), rgba(47,91,255,0.25) 55%, transparent 75%);
+  background: radial-gradient(circle, rgba(87,214,255,0.495), rgba(47,91,255,0.225) 55%, transparent 75%);
   filter: blur(5px);
   animation: badge-glow-pulse 4s ease-in-out infinite;
   pointer-events: none;
@@ -1490,9 +1490,9 @@ main {
   inset: 0;
   border-radius: 50%;
   background: conic-gradient(from 0deg, #2f5bff, #57d6ff, #33e6e0, #57d6ff, #2f5bff);
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5.4px), #000 calc(100% - 5.4px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 5.4px), #000 calc(100% - 5.4px));
-  filter: drop-shadow(0 0 5px rgba(51,214,255,0.6));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4.32px), #000 calc(100% - 4.32px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 4.32px), #000 calc(100% - 4.32px));
+  filter: drop-shadow(0 0 5px rgba(51,214,255,0.54));
   animation: badge-ring-spin 8s linear infinite;
   pointer-events: none;
 }
@@ -1502,8 +1502,8 @@ main {
 }
 
 @keyframes badge-glow-pulse {
-  0%, 100% { opacity: 0.55; transform: scale(0.92); }
-  50% { opacity: 1; transform: scale(1.08); }
+  0%, 100% { opacity: 0.495; transform: scale(0.92); }
+  50% { opacity: 0.9; transform: scale(1.08); }
 }
 
 @media (prefers-reduced-motion: reduce) {
