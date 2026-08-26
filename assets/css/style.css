@@ -1366,6 +1366,7 @@ main {
 }
 
 .quick-links-box .quick-links-sub {
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -1428,18 +1429,18 @@ main {
 .section-header-photo--person {
   left: 0;
   right: auto;
-  top: -14px;
-  width: 190px;
-  max-width: 22vw;
+  top: -55px;
+  width: 260px;
+  max-width: 28vw;
 }
 
 .section-header-photo-wrap:has(.section-header-photo--person) .section-title,
 .section-header-photo-wrap:has(.section-header-photo--person) .section-intro {
-  padding-left: 200px;
+  padding-left: 280px;
 }
 
 .section-header-photo-wrap:has(.section-header-photo--person) + .quick-links-columns {
-  padding-left: 200px;
+  padding-left: 280px;
 }
 
 @media (max-width: 900px) {
