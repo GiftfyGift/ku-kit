@@ -1600,7 +1600,7 @@ main {
   .badge-ring, .badge-glow { animation: none; }
 }
 
-.solution-card-icon { position: relative; height: 28.6px; width: auto; max-width: 40px; display: block; }
+.solution-card-icon { position: relative; width: 26px; height: 26px; object-fit: contain; display: block; }
 
 .product-card-header:has(.solution-card-icons) h4 { padding-right: 108px; }
 
