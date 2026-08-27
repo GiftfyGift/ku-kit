@@ -1319,11 +1319,18 @@ function renderMarketing(c) {
       <h2 class="section-title">${m.title}</h2>
       <p class="section-intro">${m.intro}</p>
       <div class="marketing-hero-row">
-        ${['activity-row-1', 'activity-row-2', 'activity-row-3', 'activity-row-4'].map((name, i) => `
-          <div class="marketing-hero-row-item">
-            <img src="assets/img/marketing/${name}.jpg" alt="${m.title} ${i + 1}" style="animation-delay: ${i * 1.4}s">
-          </div>
-        `).join('')}
+        <div class="marketing-hero-track">
+          ${['activity-row-1', 'activity-row-2', 'activity-row-3', 'activity-row-4'].map((name, i) => `
+            <div class="marketing-hero-row-item">
+              <img src="assets/img/marketing/${name}.jpg" alt="${m.title} ${i + 1}">
+            </div>
+          `).join('')}
+          ${['activity-row-1', 'activity-row-2', 'activity-row-3', 'activity-row-4'].map((name, i) => `
+            <div class="marketing-hero-row-item" aria-hidden="true">
+              <img src="assets/img/marketing/${name}.jpg" alt="">
+            </div>
+          `).join('')}
+        </div>
       </div>
       <div class="activity-overview">
         <div class="activity-overview-heading">
