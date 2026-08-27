@@ -517,7 +517,7 @@
     "solutions": [
       {
         "id": "crop-wet-paddy",
-        "group": "Rice",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Wet Paddy Field",
         "desc": "For puddled, flooded paddy fields planted more than once a year. Use the NC Plus X Special with 880 mm or 980 mm cage wheels and the Gear Insert turning system for heavy-duty puddle work. Pair with a KUBOTA ZT Plus 14-15.5 HP engine for enough power in deep mud.",
@@ -525,7 +525,7 @@
       },
       {
         "id": "crop-dry-paddy",
-        "group": "Rice",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Dry Paddy Field",
         "desc": "For loamy or sandy soil that isn't puddled, including dry-season paddy, sugarcane, cassava, beans, and vegetable plots. The NC Plus X with 800 mm cage wheels is the right fit — lighter, more agile, and able to travel short distances on its cage wheels.",

@@ -517,7 +517,7 @@
     "solutions": [
       {
         "id": "crop-wet-paddy",
-        "group": "Palay",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Basang Palayan (Wet Paddy Field)",
         "desc": "Para sa mala-putik, binabahang palayan na tinatamnan nang higit sa isang beses sa isang taon. Gamitin ang NC Plus X Special na may 880 mm o 980 mm na cage wheel at Gear Insert turning system para sa mabigat na putikan. Isamang gamitin ang KUBOTA ZT Plus 14-15.5 HP engine para sapat ang lakas sa malalim na putik.",
@@ -525,7 +525,7 @@
       },
       {
         "id": "crop-dry-paddy",
-        "group": "Palay",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Tuyong Palayan (Dry Paddy Field)",
         "desc": "Para sa lupang mabuhangin o hindi masyadong malagkit na hindi puno ng putik, kasama ang tuyong-panahon na palayan, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Angkop ang NC Plus X na may 800 mm cage wheel — mas magaan, mas agile, at kayang maglakbay ng maikling distansya gamit ang cage wheel.",

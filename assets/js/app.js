@@ -1105,7 +1105,7 @@ function renderCrops(c) {
 
   const groupBlocks = groups.map(g => `
     <div class="category-block" id="${g.id}">
-      <h3 class="category-heading">${g.name}</h3>
+      ${g.name ? `<h3 class="category-heading">${g.name}</h3>` : ''}
       <div class="product-grid">${g.items.map(renderSolutionCard).join('')}</div>
     </div>
   `).join('');

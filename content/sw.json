@@ -518,7 +518,7 @@
     "solutions": [
       {
         "id": "crop-wet-paddy",
-        "group": "Mpunga",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga wenye Maji (Wet Paddy Field)",
         "desc": "Kwa mashamba ya mpunga yenye tope na maji, yanayopandwa zaidi ya mara moja kwa mwaka. Tumia NC Plus X Special yenye magurudumu ya kizimba ya 880 mm au 980 mm na mfumo wa Gear Insert wa kugeuza kwa kazi nzito za tope. Tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP ili kupata nguvu ya kutosha kwenye tope refu.",
@@ -526,7 +526,7 @@
       },
       {
         "id": "crop-dry-paddy",
-        "group": "Mpunga",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga Mkavu (Dry Paddy Field)",
         "desc": "Kwa udongo wa mfinyanzi au mchanga usio na tope, ikiwa ni pamoja na mpunga wa msimu mkavu, miwa, muhogo, maharage, na mboga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi zaidi, rahisi kuendesha, na inaweza kusafiri umbali mfupi kwa magurudumu yake ya kizimba.",

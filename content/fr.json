@@ -517,7 +517,7 @@
     "solutions": [
       {
         "id": "crop-wet-paddy",
-        "group": "Riz",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Rizière inondée",
         "desc": "Pour les rizières boueuses et inondées cultivées plus d'une fois par an. Utiliser le NC Plus X Special avec des roues à cage de 880 mm ou 980 mm et le système de virage à insert d'engrenage pour les travaux intensifs en boue. Associer à un moteur KUBOTA ZT Plus de 14-15,5 ch pour disposer de suffisamment de puissance en boue profonde.",
@@ -525,7 +525,7 @@
       },
       {
         "id": "crop-dry-paddy",
-        "group": "Riz",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Rizière sèche",
         "desc": "Pour les sols limoneux ou sableux non boueux, y compris les rizières de saison sèche, la canne à sucre, le manioc, les légumineuses et les parcelles de légumes. Le NC Plus X avec des roues à cage de 800 mm convient parfaitement — plus léger, plus maniable, et capable de courts déplacements sur ses roues à cage.",
