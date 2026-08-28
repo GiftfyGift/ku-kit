@@ -530,7 +530,7 @@
         "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga Mkavu (Dry Paddy Field)",
         "desc": "Kwa udongo wa mfinyanzi au mchanga usio na tope, ikiwa ni pamoja na mpunga wa msimu mkavu, miwa, muhogo, maharage, na mboga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi zaidi, rahisi kuendesha, na inaweza kusafiri umbali mfupi kwa magurudumu yake ya kizimba.",
-        "video": { "title": "Dry Paddy Field", "type": "youtube", "youtubeId": "eelM3zUxIIw" }
+        "video": { "title": "Dry Paddy Field", "type": "youtube", "youtubeId": "UkVklT0LxKQ" }
       },
       {
         "id": "crop-cassava",
@@ -542,7 +542,7 @@
         "id": "crop-corn",
         "name": "Shamba la Mahindi",
         "desc": "Kwa mashamba ya mahindi ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga, yanayofanana na muhogo na mpunga wa msimu mkavu. NC Plus X yenye magurudumu ya kizimba ya 800 mm hushughulikia vizuri nafasi ya mistari na safari fupi kati ya mashamba.",
-        "video": { "title": "Corn Field", "type": "youtube", "youtubeId": "yVKh1GeIXuU" }
+        "video": { "title": "Corn Field", "type": "youtube", "youtubeId": "hkXfsI-78J4" }
       }
     ],
     "note": "Ukurasa huu sasa unashughulikia aina nne za mashamba kutoka kwenye video za suluhisho za mazao za timu ya masoko: mpunga wenye maji, mpunga mkavu, muhogo, na mahindi — kila moja sasa ina video ya maonyesho."
