@@ -20,7 +20,7 @@
   },
   "product": {
     "title": "Impormasyon ng Produkto",
-    "intro": "Lahat ng dapat malaman ng bagong Dealer tungkol sa dalawang pangunahing linya ng produkto — ang KUBOTA ZT Plus diesel engine at ang TRA CHANG NC Plus X power tiller.",
+    "intro": "Mahahalagang impormasyon tungkol sa dalawang pangunahing pangkat ng produkto: mga KUBOTA diesel engine at mga TRA CHANG power tiller.",
     "tabs": { "engine": "Engine", "tiller": "Power Tiller", "assembly": "Gabay sa Pag-assemble" },
     "engine": {
       "title": "KUBOTA Diesel Engine — ZT Plus",

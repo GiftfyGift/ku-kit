@@ -20,7 +20,7 @@
   },
   "product": {
     "title": "Informations produit",
-    "intro": "Tout ce qu'un nouveau concessionnaire doit savoir sur nos deux gammes de produits principales — le moteur diesel KUBOTA ZT Plus et le motoculteur TRA CHANG NC Plus X.",
+    "intro": "Informations essentielles sur les deux principales catégories de produits : les moteurs diesel KUBOTA et les motoculteurs TRA CHANG.",
     "tabs": { "engine": "Moteur", "tiller": "Motoculteur", "assembly": "Guide de montage" },
     "engine": {
       "title": "Moteur diesel KUBOTA — ZT Plus",
