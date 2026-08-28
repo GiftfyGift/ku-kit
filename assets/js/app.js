@@ -2744,8 +2744,76 @@ function generatePoRequestPdf(order, pr) {
   doc.save(`${order.poNumber}.pdf`);
 }
 
+function getArtworkEditorLabels() {
+  const labels = {
+    th: {
+      body: 'ข้อความรายละเอียด', uploadLogo: 'เพิ่มโลโก้ร้านค้า', replaceLogo: 'เปลี่ยนโลโก้ร้านค้า',
+      uploadHint: 'รองรับ PNG, JPG และ WebP (พื้นหลังโปร่งใสจะสวยที่สุด)', layers: 'เลือกสิ่งที่ต้องการแก้บนแบบ',
+      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', shopLogo: 'โลโก้ร้าน',
+      selected: 'กำลังแก้ไข', selectHint: 'คลิกสิ่งที่ต้องการบนภาพ หรือเลือกจากปุ่มด้านล่าง',
+      smaller: 'เล็กลง', larger: 'ใหญ่ขึ้น', rotateLeft: 'หมุนซ้าย', rotateRight: 'หมุนขวา',
+      reset: 'คืนตำแหน่ง', remove: 'ลบออก', restore: 'นำกลับมา', hidden: 'ซ่อนอยู่',
+      size: 'ขนาด', directHint: 'ลากเพื่อย้าย • ลากจุดมุมขวาล่างเพื่อย่อ–ขยาย • กด Delete เพื่อลบ',
+      invalidLogo: 'กรุณาเลือกไฟล์รูป PNG, JPG หรือ WebP ขนาดไม่เกิน 8 MB'
+    },
+    en: {
+      body: 'Body text', uploadLogo: 'Insert shop logo', replaceLogo: 'Replace shop logo',
+      uploadHint: 'PNG, JPG or WebP (a transparent background works best)', layers: 'Select an element to edit',
+      text: 'Text', product: 'Product image', brand: 'Brand logo', shopLogo: 'Shop logo',
+      selected: 'Editing', selectHint: 'Click an element on the artwork or choose it below',
+      smaller: 'Smaller', larger: 'Larger', rotateLeft: 'Rotate left', rotateRight: 'Rotate right',
+      reset: 'Reset position', remove: 'Remove', restore: 'Restore', hidden: 'Hidden',
+      size: 'Size', directHint: 'Drag to move • drag the bottom-right handle to resize • press Delete to remove',
+      invalidLogo: 'Choose a PNG, JPG or WebP image no larger than 8 MB.'
+    },
+    sw: {
+      body: 'Maandishi ya maelezo', uploadLogo: 'Weka nembo ya duka', replaceLogo: 'Badilisha nembo ya duka',
+      uploadHint: 'PNG, JPG au WebP (mandharinyuma wazi yanafaa zaidi)', layers: 'Chagua kipengele cha kuhariri',
+      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', shopLogo: 'Nembo ya duka',
+      selected: 'Unahariri', selectHint: 'Bofya kipengele kwenye mchoro au ukichague hapa chini',
+      smaller: 'Punguza', larger: 'Ongeza', rotateLeft: 'Zungusha kushoto', rotateRight: 'Zungusha kulia',
+      reset: 'Rudisha nafasi', remove: 'Ondoa', restore: 'Rudisha', hidden: 'Imefichwa',
+      size: 'Ukubwa', directHint: 'Buruta kuhamisha • buruta kishikio cha chini kulia kubadili ukubwa • bonyeza Delete kuondoa',
+      invalidLogo: 'Chagua picha ya PNG, JPG au WebP isiyozidi MB 8.'
+    },
+    fr: {
+      body: 'Corps du texte', uploadLogo: 'Insérer le logo du magasin', replaceLogo: 'Remplacer le logo',
+      uploadHint: 'PNG, JPG ou WebP (fond transparent recommandé)', layers: 'Sélectionnez un élément à modifier',
+      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', shopLogo: 'Logo magasin',
+      selected: 'Modification', selectHint: "Cliquez sur un élément de l’affiche ou choisissez-le ci-dessous",
+      smaller: 'Réduire', larger: 'Agrandir', rotateLeft: 'Tourner à gauche', rotateRight: 'Tourner à droite',
+      reset: 'Réinitialiser', remove: 'Supprimer', restore: 'Restaurer', hidden: 'Masqué',
+      size: 'Taille', directHint: 'Glissez pour déplacer • tirez la poignée en bas à droite pour redimensionner • Suppr pour retirer',
+      invalidLogo: 'Choisissez une image PNG, JPG ou WebP de 8 Mo maximum.'
+    },
+    tl: {
+      body: 'Detalye ng teksto', uploadLogo: 'Ilagay ang logo ng tindahan', replaceLogo: 'Palitan ang logo',
+      uploadHint: 'PNG, JPG o WebP (pinakamaganda ang transparent na background)', layers: 'Pumili ng elementong ie-edit',
+      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', shopLogo: 'Logo ng tindahan',
+      selected: 'Ine-edit', selectHint: 'I-click ang elemento sa artwork o piliin ito sa ibaba',
+      smaller: 'Liitan', larger: 'Lakihan', rotateLeft: 'Ikutin pakaliwa', rotateRight: 'Ikutin pakanan',
+      reset: 'I-reset ang posisyon', remove: 'Alisin', restore: 'Ibalik', hidden: 'Nakatago',
+      size: 'Laki', directHint: 'I-drag para ilipat • i-drag ang handle sa ibabang kanan para baguhin ang laki • Delete para alisin',
+      invalidLogo: 'Pumili ng PNG, JPG o WebP na hindi lalampas sa 8 MB.'
+    }
+  };
+  return labels[state.lang] || labels.en;
+}
+
+function renderArtworkStepper(id, label, value, min, max, step) {
+  return `
+    <div class="artwork-stepper" data-aw-stepper="${id}">
+      <span class="artwork-stepper-label">${label}</span>
+      <button type="button" data-aw-step="-${step}" aria-label="− ${label}">−</button>
+      <output id="${id}-output">${value}%</output>
+      <button type="button" data-aw-step="${step}" aria-label="+ ${label}">+</button>
+      <input type="hidden" id="${id}" value="${value}" data-min="${min}" data-max="${max}">
+    </div>`;
+}
+
 function renderArtworkBody(c) {
   const a = c.artwork;
+  const ui = getArtworkEditorLabels();
   return `
       <div class="artwork-layout">
         <div class="artwork-form">
@@ -2790,6 +2858,11 @@ function renderArtworkBody(c) {
               <option value="both">${a.products.both}</option>
             </select>
           </label>
+          <div class="artwork-field artwork-upload-field">
+            <button type="button" id="aw-logo-upload" class="artwork-upload-btn"><span aria-hidden="true">＋</span><span id="aw-logo-upload-label">${ui.uploadLogo}</span></button>
+            <input type="file" id="aw-logo-file" accept="image/png,image/jpeg,image/webp" hidden>
+            <small>${ui.uploadHint}</small>
+          </div>
           <label class="artwork-field">
             <span>${a.shopNameLabel}</span>
             <input type="text" id="aw-shopname" placeholder="${a.shopNamePlaceholder}" maxlength="60">
@@ -2801,10 +2874,17 @@ function renderArtworkBody(c) {
           <label class="artwork-field">
             <span>${a.headlineLabel}</span>
             <input type="text" id="aw-headline" placeholder="${a.headlinePlaceholder}" maxlength="60">
+            ${renderArtworkStepper('aw-headline-scale', a.textScaleLabel, 100, 50, 200, 5)}
           </label>
           <label class="artwork-field">
             <span>${a.subheadlineLabel}</span>
             <input type="text" id="aw-subheadline" placeholder="${a.subheadlinePlaceholder}" maxlength="80">
+            ${renderArtworkStepper('aw-subheadline-scale', a.textScaleLabel, 100, 50, 200, 5)}
+          </label>
+          <label class="artwork-field">
+            <span>${a.bodyLabel || ui.body}</span>
+            <textarea id="aw-body" rows="2" placeholder="${a.bodyPlaceholder || ''}" maxlength="180"></textarea>
+            ${renderArtworkStepper('aw-body-scale', a.textScaleLabel, 100, 50, 200, 5)}
           </label>
           <div class="artwork-field">
             <span>${a.textStyleLabel}</span>
@@ -2814,27 +2894,10 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--text-red" data-value="red" aria-pressed="false" title="${a.textStyles.red}"></button>
             </div>
           </div>
-          <div class="artwork-field">
-            <span>${a.textPositionLabel}</span>
-            <div class="artwork-slider-group">
-              <label class="artwork-slider-row">
-                <span>${a.textOffsetXLabel}</span>
-                <input type="range" id="aw-text-offset-x" min="-100" max="100" value="0" step="5">
-              </label>
-              <label class="artwork-slider-row">
-                <span>${a.textOffsetYLabel}</span>
-                <input type="range" id="aw-text-offset-y" min="-100" max="100" value="0" step="5">
-              </label>
-              <label class="artwork-slider-row">
-                <span>${a.textScaleLabel}</span>
-                <input type="range" id="aw-text-scale" min="70" max="160" value="100" step="5">
-              </label>
-              <label class="artwork-slider-row">
-                <span>${a.textRotationLabel}</span>
-                <input type="range" id="aw-text-rotation" min="-30" max="30" value="0" step="1">
-              </label>
-            </div>
-          </div>
+          <input type="hidden" id="aw-text-offset-x" value="0">
+          <input type="hidden" id="aw-text-offset-y" value="0">
+          <input type="hidden" id="aw-text-scale" value="100">
+          <input type="hidden" id="aw-text-rotation" value="0">
           <div class="artwork-field">
             <span>${a.decorations.label}</span>
             <div class="artwork-decor-grid">
@@ -2850,14 +2913,8 @@ function renderArtworkBody(c) {
               </button>
             </div>
             <div class="artwork-decor-sizes">
-              <label class="artwork-decor-size-row">
-                <span>${a.decorations.man} — ${a.decorations.sizeLabel}</span>
-                <input type="range" id="aw-decor-man-size" min="60" max="160" value="100" step="5">
-              </label>
-              <label class="artwork-decor-size-row">
-                <span>${a.decorations.no1} — ${a.decorations.sizeLabel}</span>
-                <input type="range" id="aw-decor-no1-size" min="60" max="160" value="100" step="5">
-              </label>
+              ${renderArtworkStepper('aw-decor-man-size', `${a.decorations.man} — ${a.decorations.sizeLabel}`, 100, 40, 220, 10)}
+              ${renderArtworkStepper('aw-decor-no1-size', `${a.decorations.no1} — ${a.decorations.sizeLabel}`, 100, 40, 220, 10)}
             </div>
           </div>
           <button type="button" id="aw-download" class="file-pill artwork-download-btn">${a.downloadButton}</button>
@@ -2867,7 +2924,29 @@ function renderArtworkBody(c) {
           <h3>${a.previewTitle}</h3>
           <div class="artwork-canvas-hint">
             <span class="artwork-canvas-hint-icon" aria-hidden="true">✋</span>
-            <span>${a.dragHint}</span>
+            <span>${ui.directHint}</span>
+          </div>
+          <div class="artwork-layer-panel">
+            <div class="artwork-layer-panel-head"><strong>${ui.layers}</strong><span>${ui.selectHint}</span></div>
+            <div class="artwork-layer-list" id="aw-layer-list">
+              <button type="button" data-aw-layer="headline"><span>✎</span>${ui.text}</button>
+              <button type="button" data-aw-layer="photo"><span>▣</span>${ui.product}</button>
+              <button type="button" data-aw-layer="logo"><span>Ⓚ</span>${ui.brand}</button>
+              <button type="button" data-aw-layer="customLogo"><span>＋</span>${ui.shopLogo}</button>
+            </div>
+            <div class="artwork-element-toolbar" id="aw-element-toolbar">
+              <div class="artwork-element-title"><small>${ui.selected}</small><strong id="aw-selected-label">${ui.text}</strong><span id="aw-selected-state"></span></div>
+              <div class="artwork-element-actions">
+                <button type="button" id="aw-smaller" title="${ui.smaller}" aria-label="${ui.smaller}">−</button>
+                <output id="aw-selected-scale">100%</output>
+                <button type="button" id="aw-larger" title="${ui.larger}" aria-label="${ui.larger}">+</button>
+                <span class="artwork-toolbar-divider"></span>
+                <button type="button" id="aw-rotate-left" title="${ui.rotateLeft}" aria-label="${ui.rotateLeft}">↶</button>
+                <button type="button" id="aw-rotate-right" title="${ui.rotateRight}" aria-label="${ui.rotateRight}">↷</button>
+                <button type="button" id="aw-reset-element" class="artwork-action-text">${ui.reset}</button>
+                <button type="button" id="aw-remove-element" class="artwork-action-text artwork-action-danger">${ui.remove}</button>
+              </div>
+            </div>
           </div>
           <div class="artwork-canvas-wrap">
             <canvas id="aw-canvas"></canvas>
@@ -3236,10 +3315,18 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const logoOffsetYpx = (st.logoOffsetYFrac || 0) * pxH;
   const photoOffsetXpx = (st.photoOffsetXFrac || 0) * pxW;
   const photoOffsetYpx = (st.photoOffsetYFrac || 0) * pxH;
+  const customLogoOffsetXpx = (st.customLogoOffsetXFrac || 0) * pxW;
+  const customLogoOffsetYpx = (st.customLogoOffsetYFrac || 0) * pxH;
+  const logoScale = st.logoScale || 1;
+  const photoScale = st.photoScale || 1;
+  const customLogoScale = st.customLogoScale || 1;
+  const logoVisible = st.logoVisible !== false;
+  const photoVisible = st.photoVisible !== false;
+  const textVisible = st.textVisible !== false;
   const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
   const kubotaAspect = kubotaImg.width / kubotaImg.height;
 
-  let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2;
+  let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2 * logoScale;
   let logoW = logoH * kubotaAspect;
   // The cropped wordmark is quite wide relative to its height; on the narrower
   // portrait canvas a height-based size can overflow both edges, so cap it to
@@ -3269,11 +3356,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
-  if (bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
-  ctx.drawImage(kubotaImg, logoX, logoY, logoW, logoH);
+  if (logoVisible && bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
+  if (logoVisible) ctx.drawImage(kubotaImg, logoX, logoY, logoW, logoH);
   ctx.filter = 'none';
 
-  const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2;
+  const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2 * logoScale;
   const wmGap = wmHBase * 1.3;
   const maxWmW = isLandscape ? pxW * 0.4 : pxW * 0.7;
   // The "frame" style's orange band already holds the Kubota logo; when there's
@@ -3282,12 +3369,12 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // decoration and promo text.
   const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
-  let wmStartY;
+  let wmStartY = logoY + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
   let wmBelowCount = productImgs.length;
   // Collected so the logo + wordmark(s) can be treated as one draggable group —
   // the drag hit box below is the union of all their rects.
   const wmRects = [];
-  if (inlineWm) {
+  if (logoVisible && inlineWm) {
     wmStartY = logoY + logoH + pxH * 0.015;
     wmBelowCount = 0;
     const areaX = logoX + logoW + pad * 0.6;
@@ -3305,7 +3392,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       ctx.drawImage(p.wordmark, areaX, wmY, wmW, wmH);
       wmRects.push({ x: areaX, y: wmY, w: wmW, h: wmH });
     });
-  } else {
+  } else if (logoVisible) {
     // Only the "frame" style needs the wide gap (in `pad` units, so it scales the
     // same way as that style's band height) to clear the top color band — on the
     // other 2 styles there's no band to avoid, so keep the logo and wordmark close.
@@ -3330,8 +3417,9 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // only the drawn logo/wordmark(s) actually move.
   const wmStartYForLayout = wmStartY - logoOffsetYpx;
 
-  let logoBounds = { x: logoX, y: logoY, w: logoW, h: logoH };
+  let logoBounds = logoVisible ? { x: logoX, y: logoY, w: logoW, h: logoH } : null;
   wmRects.forEach(r => {
+    if (!logoBounds) logoBounds = { ...r };
     const x2 = Math.max(logoBounds.x + logoBounds.w, r.x + r.w);
     const y2 = Math.max(logoBounds.y + logoBounds.h, r.y + r.h);
     logoBounds.x = Math.min(logoBounds.x, r.x);
@@ -3371,6 +3459,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // the headline block — same reasoning as wmStartYForLayout above.
   let photoBoxBottom = 0;
   let photoBounds = null;
+  const scaledPhotoBox = (x, y, w, h) => {
+    const sw = w * photoScale;
+    const sh = h * photoScale;
+    return { x: x + (w - sw) / 2, y: y + (h - sh) / 2, w: sw, h: sh };
+  };
   if (isLandscape) {
     const photoBoxXBase = pxW * 0.62;
     const photoBoxW = pxW - pad - photoBoxXBase;
@@ -3382,12 +3475,12 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     photoBoxBottom = photoBoxYBase + photoBoxH;
     const photoBoxX = photoBoxXBase + photoOffsetXpx;
     const photoBoxY = photoBoxYBase + photoOffsetYpx;
-    photoBounds = { x: photoBoxX, y: photoBoxY, w: photoBoxW, h: photoBoxH };
-    if (productImgs.length === 1) {
-      awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, photoBoxH);
-    } else if (productImgs.length === 2) {
-      awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, photoBoxH * 0.48);
-      awDrawImageContain(ctx, productImgs[1].photo, photoBoxX, photoBoxY + photoBoxH * 0.52, photoBoxW, photoBoxH * 0.48);
+    photoBounds = scaledPhotoBox(photoBoxX, photoBoxY, photoBoxW, photoBoxH);
+    if (photoVisible && productImgs.length === 1) {
+      awDrawImageContain(ctx, productImgs[0].photo, photoBounds.x, photoBounds.y, photoBounds.w, photoBounds.h);
+    } else if (photoVisible && productImgs.length === 2) {
+      awDrawImageContain(ctx, productImgs[0].photo, photoBounds.x, photoBounds.y, photoBounds.w, photoBounds.h * 0.48);
+      awDrawImageContain(ctx, productImgs[1].photo, photoBounds.x, photoBounds.y + photoBounds.h * 0.52, photoBounds.w, photoBounds.h * 0.48);
     }
   } else {
     const photoBoxW = pxW * 0.86;
@@ -3397,16 +3490,29 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     const photoBoxY = photoBoxYBase + photoOffsetYpx;
     if (productImgs.length === 1) {
       photoBoxBottom = photoBoxYBase + pxH * 0.34;
-      photoBounds = { x: photoBoxX, y: photoBoxY, w: photoBoxW, h: pxH * 0.34 };
-      awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, pxH * 0.34);
+      photoBounds = scaledPhotoBox(photoBoxX, photoBoxY, photoBoxW, pxH * 0.34);
+      if (photoVisible) awDrawImageContain(ctx, productImgs[0].photo, photoBounds.x, photoBounds.y, photoBounds.w, photoBounds.h);
     } else if (productImgs.length === 2) {
       photoBoxBottom = photoBoxYBase + pxH * 0.35;
-      photoBounds = { x: photoBoxX, y: photoBoxY, w: photoBoxW, h: pxH * 0.35 };
-      awDrawImageContain(ctx, productImgs[0].photo, photoBoxX, photoBoxY, photoBoxW, pxH * 0.17);
-      awDrawImageContain(ctx, productImgs[1].photo, photoBoxX, photoBoxY + pxH * 0.18, photoBoxW, pxH * 0.17);
+      photoBounds = scaledPhotoBox(photoBoxX, photoBoxY, photoBoxW, pxH * 0.35);
+      if (photoVisible) {
+        awDrawImageContain(ctx, productImgs[0].photo, photoBounds.x, photoBounds.y, photoBounds.w, photoBounds.h * 0.48);
+        awDrawImageContain(ctx, productImgs[1].photo, photoBounds.x, photoBounds.y + photoBounds.h * 0.52, photoBounds.w, photoBounds.h * 0.48);
+      }
     } else {
       photoBoxBottom = photoBoxYBase;
     }
+  }
+
+  let customLogoBounds = null;
+  if (st.customLogoDataUrl && st.customLogoVisible !== false) {
+    const customLogoImg = await loadArtworkImage(st.customLogoDataUrl);
+    const boxW = pxW * (isLandscape ? 0.18 : 0.28) * customLogoScale;
+    const boxH = pxH * (isLandscape ? 0.16 : 0.10) * customLogoScale;
+    const boxX = pxW - pad - boxW + customLogoOffsetXpx;
+    const boxY = pad + customLogoOffsetYpx;
+    customLogoBounds = { x: boxX, y: boxY, w: boxW, h: boxH };
+    awDrawImageContain(ctx, customLogoImg, boxX, boxY, boxW, boxH);
   }
 
   if (st.decorNo1) {
@@ -3445,11 +3551,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   // Measure every filled block first so the whole stack can be positioned to fit
   // between the logo/photo area and the info panel, instead of a fixed Y that can overflow.
-  const rawBlocks = [
-    { key: 'headline', text: st.headline, ratio: 1.1, weight: 800 },
-    { key: 'subheadline', text: st.subheadline, ratio: 0.62, weight: 600 },
-    { key: 'body', text: st.body, ratio: 0.42, weight: 400 }
-  ]
+  const rawBlocks = (textVisible ? [
+    { key: 'headline', text: st.headline, ratio: 1.1 * (st.headlineScale || 1), weight: 800 },
+    { key: 'subheadline', text: st.subheadline, ratio: 0.62 * (st.subheadlineScale || 1), weight: 600 },
+    { key: 'body', text: st.body, ratio: 0.42 * (st.bodyScale || 1), weight: 400 }
+  ] : [])
     .map(b => ({ ...b, text: b.text && b.text.trim() }))
     .filter(b => b.text);
 
@@ -3552,7 +3658,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   ctx.font = `500 ${Math.round(contactFontSize)}px 'Noto Sans Thai', sans-serif`;
   const contactMaxW = contactLines.reduce((m, l) => Math.max(m, ctx.measureText(l).width), 0);
   const panelLeftoverW = panelW - innerPad * 3 - Math.max(shopMaxW, contactMaxW);
-  if (panelLeftoverW > panelH * 0.85 && productImgs.length) {
+  if (panelLeftoverW > panelH * 0.85 && productImgs.length && photoVisible) {
     const fillAreaH = panelH - innerPad * 1.4;
     const fillAreaW = Math.min(panelLeftoverW - innerPad, fillAreaH * 1.15);
     const fillAreaX = panelX + panelW - innerPad - fillAreaW;
@@ -3578,7 +3684,8 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       ? { x: headlineX - headlineMaxW / 2, y: textBlockStartY, w: headlineMaxW, h: totalTextH, rotationDeg: textRotationDeg, pivotX: headlineX, pivotY }
       : null,
     logoBounds,
-    photoBounds: productImgs.length ? photoBounds : null
+    photoBounds: productImgs.length && photoVisible ? photoBounds : null,
+    customLogoBounds
   };
 }
 
@@ -3593,6 +3700,10 @@ function initArtworkPage(c) {
   const contactInput = document.getElementById('aw-contact');
   const headlineInput = document.getElementById('aw-headline');
   const subheadlineInput = document.getElementById('aw-subheadline');
+  const bodyInput = document.getElementById('aw-body');
+  const headlineScaleInput = document.getElementById('aw-headline-scale');
+  const subheadlineScaleInput = document.getElementById('aw-subheadline-scale');
+  const bodyScaleInput = document.getElementById('aw-body-scale');
   const textStyleGroup = document.getElementById('aw-text-style-group');
   const textOffsetX = document.getElementById('aw-text-offset-x');
   const textOffsetY = document.getElementById('aw-text-offset-y');
@@ -3606,6 +3717,28 @@ function initArtworkPage(c) {
   const downloadBtn = document.getElementById('aw-download');
   const resNote = document.getElementById('aw-resolution-note');
   if (!canvas) return;
+  const ui = getArtworkEditorLabels();
+  const logoUploadBtn = document.getElementById('aw-logo-upload');
+  const logoUploadLabel = document.getElementById('aw-logo-upload-label');
+  const logoFileInput = document.getElementById('aw-logo-file');
+  const selectedLabel = document.getElementById('aw-selected-label');
+  const selectedState = document.getElementById('aw-selected-state');
+  const selectedScaleOutput = document.getElementById('aw-selected-scale');
+  const smallerBtn = document.getElementById('aw-smaller');
+  const largerBtn = document.getElementById('aw-larger');
+  const rotateLeftBtn = document.getElementById('aw-rotate-left');
+  const rotateRightBtn = document.getElementById('aw-rotate-right');
+  const resetElementBtn = document.getElementById('aw-reset-element');
+  const removeElementBtn = document.getElementById('aw-remove-element');
+  const layerButtons = Array.from(document.querySelectorAll('[data-aw-layer]'));
+
+  let selectedGroup = 'headline';
+  let logoOffsetXFrac = 0, logoOffsetYFrac = 0;
+  let photoOffsetXFrac = 0, photoOffsetYFrac = 0;
+  let customLogoOffsetXFrac = 0, customLogoOffsetYFrac = 0;
+  let logoScale = 1, photoScale = 1, customLogoScale = 1;
+  let logoVisible = true, photoVisible = true, textVisible = true, customLogoVisible = true;
+  let customLogoDataUrl = '';
 
   function swatchValue(group, fallback) {
     const active = group.querySelector('.artwork-swatch.active');
@@ -3647,6 +3780,10 @@ function initArtworkPage(c) {
       contact: contactInput.value,
       headline: headlineInput.value,
       subheadline: subheadlineInput.value,
+      body: bodyInput.value,
+      headlineScale: Number(headlineScaleInput.value) / 100,
+      subheadlineScale: Number(subheadlineScaleInput.value) / 100,
+      bodyScale: Number(bodyScaleInput.value) / 100,
       textStyle: swatchValue(textStyleGroup, 'orange'),
       textOffsetX: Number(textOffsetX.value),
       textOffsetY: Number(textOffsetY.value),
@@ -3656,6 +3793,16 @@ function initArtworkPage(c) {
       logoOffsetYFrac,
       photoOffsetXFrac,
       photoOffsetYFrac,
+      customLogoOffsetXFrac,
+      customLogoOffsetYFrac,
+      logoScale,
+      photoScale,
+      customLogoScale,
+      logoVisible,
+      photoVisible,
+      textVisible,
+      customLogoVisible,
+      customLogoDataUrl,
       decorMan: decorManBtn.classList.contains('active'),
       decorNo1: decorNo1Btn.classList.contains('active'),
       decorManScale: Number(decorManSize.value) / 100,
@@ -3672,10 +3819,154 @@ function initArtworkPage(c) {
   decorManBtn.addEventListener('click', () => toggleDecor(decorManBtn));
   decorNo1Btn.addEventListener('click', () => toggleDecor(decorNo1Btn));
 
+  document.querySelectorAll('[data-aw-stepper]').forEach(stepper => {
+    const input = document.getElementById(stepper.dataset.awStepper);
+    const output = document.getElementById(`${stepper.dataset.awStepper}-output`);
+    if (!input || !output) return;
+    stepper.querySelectorAll('[data-aw-step]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const min = Number(input.dataset.min);
+        const max = Number(input.dataset.max);
+        input.value = clamp(Number(input.value) + Number(btn.dataset.awStep), min, max);
+        output.textContent = `${input.value}%`;
+        schedulePreview();
+      });
+    });
+  });
+
+  const layerLabels = { headline: ui.text, photo: ui.product, logo: ui.brand, customLogo: ui.shopLogo };
+
+  function groupVisible(group) {
+    if (group === 'headline') return textVisible;
+    if (group === 'photo') return photoVisible;
+    if (group === 'logo') return logoVisible;
+    return !!customLogoDataUrl && customLogoVisible;
+  }
+
+  function groupScale(group) {
+    if (group === 'headline') return Number(textScale.value) / 100;
+    if (group === 'logo') return logoScale;
+    if (group === 'photo') return photoScale;
+    return customLogoScale;
+  }
+
+  function setGroupScale(group, scale) {
+    const next = clamp(scale, 0.3, 2.5);
+    if (group === 'headline') textScale.value = Math.round(next * 100);
+    else if (group === 'logo') logoScale = next;
+    else if (group === 'photo') photoScale = next;
+    else customLogoScale = next;
+  }
+
+  function setGroupVisible(group, visible) {
+    if (group === 'headline') textVisible = visible;
+    else if (group === 'photo') photoVisible = visible;
+    else if (group === 'logo') logoVisible = visible;
+    else customLogoVisible = visible;
+  }
+
+  function updateEditorUi() {
+    layerButtons.forEach(btn => {
+      const group = btn.dataset.awLayer;
+      const available = group !== 'customLogo' || !!customLogoDataUrl;
+      const visible = groupVisible(group);
+      btn.classList.toggle('active', group === selectedGroup);
+      btn.classList.toggle('is-hidden', available && !visible);
+      btn.classList.toggle('is-empty', !available);
+      btn.setAttribute('aria-pressed', String(group === selectedGroup));
+    });
+    const hasCustomLogo = !!customLogoDataUrl;
+    logoUploadLabel.textContent = hasCustomLogo ? ui.replaceLogo : ui.uploadLogo;
+    selectedLabel.textContent = layerLabels[selectedGroup] || ui.text;
+    const visible = groupVisible(selectedGroup);
+    selectedState.textContent = visible ? '' : ui.hidden;
+    selectedScaleOutput.textContent = `${Math.round(groupScale(selectedGroup) * 100)}%`;
+    const canTransform = selectedGroup !== 'customLogo' || hasCustomLogo;
+    [smallerBtn, largerBtn, resetElementBtn, removeElementBtn].forEach(btn => { btn.disabled = !canTransform; });
+    rotateLeftBtn.disabled = selectedGroup !== 'headline' || !canTransform;
+    rotateRightBtn.disabled = selectedGroup !== 'headline' || !canTransform;
+    removeElementBtn.textContent = visible ? ui.remove : ui.restore;
+    removeElementBtn.classList.toggle('artwork-action-danger', visible);
+  }
+
+  function selectGroup(group) {
+    if (group === 'customLogo' && !customLogoDataUrl) {
+      logoFileInput.click();
+      return;
+    }
+    selectedGroup = group;
+    updateEditorUi();
+    schedulePreview(0);
+  }
+
+  layerButtons.forEach(btn => btn.addEventListener('click', () => selectGroup(btn.dataset.awLayer)));
+
+  function adjustSelectedScale(delta) {
+    if (selectedGroup === 'customLogo' && !customLogoDataUrl) return;
+    setGroupScale(selectedGroup, groupScale(selectedGroup) + delta);
+    updateEditorUi();
+    schedulePreview(0);
+  }
+  smallerBtn.addEventListener('click', () => adjustSelectedScale(-0.1));
+  largerBtn.addEventListener('click', () => adjustSelectedScale(0.1));
+  rotateLeftBtn.addEventListener('click', () => {
+    textRotation.value = clamp(Number(textRotation.value) - 5, -45, 45);
+    schedulePreview(0);
+  });
+  rotateRightBtn.addEventListener('click', () => {
+    textRotation.value = clamp(Number(textRotation.value) + 5, -45, 45);
+    schedulePreview(0);
+  });
+
+  function resetGroup(group) {
+    if (group === 'headline') {
+      textOffsetX.value = 0; textOffsetY.value = 0; textScale.value = 100; textRotation.value = 0;
+    } else if (group === 'logo') {
+      logoOffsetXFrac = 0; logoOffsetYFrac = 0; logoScale = 1;
+    } else if (group === 'photo') {
+      photoOffsetXFrac = 0; photoOffsetYFrac = 0; photoScale = 1;
+    } else {
+      customLogoOffsetXFrac = 0; customLogoOffsetYFrac = 0; customLogoScale = 1;
+    }
+    setGroupVisible(group, true);
+    updateEditorUi();
+    schedulePreview(0);
+  }
+  resetElementBtn.addEventListener('click', () => resetGroup(selectedGroup));
+  removeElementBtn.addEventListener('click', () => {
+    if (selectedGroup === 'customLogo' && !customLogoDataUrl) return;
+    setGroupVisible(selectedGroup, !groupVisible(selectedGroup));
+    updateEditorUi();
+    schedulePreview(0);
+  });
+
+  logoUploadBtn.addEventListener('click', () => logoFileInput.click());
+  logoFileInput.addEventListener('change', () => {
+    const file = logoFileInput.files && logoFileInput.files[0];
+    if (!file) return;
+    if (!/^image\/(png|jpeg|webp)$/.test(file.type) || file.size > 8 * 1024 * 1024) {
+      window.alert(ui.invalidLogo);
+      logoFileInput.value = '';
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      customLogoDataUrl = String(reader.result || '');
+      customLogoVisible = true;
+      customLogoOffsetXFrac = 0;
+      customLogoOffsetYFrac = 0;
+      customLogoScale = 1;
+      selectedGroup = 'customLogo';
+      updateEditorUi();
+      schedulePreview(0);
+    };
+    reader.readAsDataURL(file);
+  });
+
   let redrawTimer = null;
-  function schedulePreview() {
+  function schedulePreview(delay = 35) {
     clearTimeout(redrawTimer);
-    redrawTimer = setTimeout(updatePreview, 120);
+    redrawTimer = setTimeout(updatePreview, delay);
   }
 
   let previewGeneration = 0;
@@ -3707,20 +3998,67 @@ function initArtworkPage(c) {
     // Remembered so the drag handlers below can hit-test each draggable group
     // and convert a pointer delta into the same px→percent scale drawArtwork
     // used to place it.
-    lastBounds = result ? { headline: result.headlineBounds, logo: result.logoBounds, photo: result.photoBounds } : { headline: null, logo: null, photo: null };
+    lastBounds = result ? {
+      headline: result.headlineBounds,
+      logo: result.logoBounds,
+      photo: result.photoBounds,
+      customLogo: result.customLogoBounds
+    } : { headline: null, logo: null, photo: null, customLogo: null };
     lastPxW = pxW;
     lastPxH = pxH;
+    drawSelectionOverlay();
+    updateEditorUi();
   }
 
   // --- Drag the headline block, the logo/wordmark(s), or the packshot photo
   // directly on the canvas — three independently movable groups sharing one
   // pointer handler, distinguished by which group's bounding box was hit.
-  let lastBounds = { headline: null, logo: null, photo: null };
+  let lastBounds = { headline: null, logo: null, photo: null, customLogo: null };
   let lastPxW = 0;
   let lastPxH = 0;
   let dragState = null;
-  let logoOffsetXFrac = 0, logoOffsetYFrac = 0;
-  let photoOffsetXFrac = 0, photoOffsetYFrac = 0;
+
+  function handleRadius() {
+    return Math.max(9, Math.min(canvas.width, canvas.height) * 0.022);
+  }
+
+  function resizeHandle(group) {
+    const b = lastBounds[group];
+    return b ? { x: b.x + b.w, y: b.y + b.h, r: handleRadius() } : null;
+  }
+
+  function drawSelectionOverlay() {
+    const b = lastBounds[selectedGroup];
+    if (!b || !groupVisible(selectedGroup)) return;
+    const ctx = canvas.getContext('2d');
+    const line = Math.max(2, Math.min(canvas.width, canvas.height) * 0.004);
+    const h = resizeHandle(selectedGroup);
+    ctx.save();
+    ctx.strokeStyle = '#FF6A3D';
+    ctx.lineWidth = line;
+    ctx.setLineDash([line * 3, line * 2]);
+    ctx.strokeRect(b.x, b.y, b.w, b.h);
+    ctx.setLineDash([]);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.strokeStyle = '#FF6A3D';
+    ctx.lineWidth = line;
+    ctx.beginPath();
+    ctx.arc(h.x, h.y, h.r, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = '#FF6A3D';
+    ctx.font = `700 ${Math.round(h.r * 1.25)}px sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('↘', h.x, h.y);
+    ctx.restore();
+  }
+
+  function hitResizeHandle(pt) {
+    const h = resizeHandle(selectedGroup);
+    if (!h || !groupVisible(selectedGroup)) return false;
+    return Math.hypot(pt.x - h.x, pt.y - h.y) <= h.r * 1.7;
+  }
 
   function canvasPoint(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
@@ -3746,6 +4084,7 @@ function initArtworkPage(c) {
   }
 
   function hitGroup(pt) {
+    if (hitBounds(lastBounds.customLogo, pt)) return 'customLogo';
     if (hitBounds(lastBounds.headline, pt)) return 'headline';
     if (hitBounds(lastBounds.photo, pt)) return 'photo';
     if (hitBounds(lastBounds.logo, pt)) return 'logo';
@@ -3757,28 +4096,48 @@ function initArtworkPage(c) {
   function groupOffset(group) {
     if (group === 'headline') return { x: Number(textOffsetX.value), y: Number(textOffsetY.value) };
     if (group === 'logo') return { x: logoOffsetXFrac, y: logoOffsetYFrac };
-    return { x: photoOffsetXFrac, y: photoOffsetYFrac };
+    if (group === 'photo') return { x: photoOffsetXFrac, y: photoOffsetYFrac };
+    return { x: customLogoOffsetXFrac, y: customLogoOffsetYFrac };
   }
 
   function pointerDown(clientX, clientY) {
     const pt = canvasPoint(clientX, clientY);
+    if (hitResizeHandle(pt)) {
+      dragState = {
+        group: selectedGroup,
+        mode: 'resize',
+        startX: pt.x,
+        startY: pt.y,
+        startScale: groupScale(selectedGroup)
+      };
+      canvas.classList.add('is-dragging');
+      return true;
+    }
     const group = hitGroup(pt);
     if (!group) return false;
+    selectedGroup = group;
+    updateEditorUi();
     const start = groupOffset(group);
-    dragState = { group, startX: pt.x, startY: pt.y, startOffsetX: start.x, startOffsetY: start.y };
+    dragState = { group, mode: 'move', startX: pt.x, startY: pt.y, startOffsetX: start.x, startOffsetY: start.y };
     canvas.classList.add('is-dragging');
     return true;
   }
 
   function pointerMove(clientX, clientY) {
     if (!dragState) {
-      canvas.classList.toggle('is-draggable', !!hitGroup(canvasPoint(clientX, clientY)));
+      const pt = canvasPoint(clientX, clientY);
+      canvas.classList.toggle('is-resizable', hitResizeHandle(pt));
+      canvas.classList.toggle('is-draggable', !hitResizeHandle(pt) && !!hitGroup(pt));
       return;
     }
     const pt = canvasPoint(clientX, clientY);
     const dx = pt.x - dragState.startX;
     const dy = pt.y - dragState.startY;
-    if (dragState.group === 'headline') {
+    if (dragState.mode === 'resize') {
+      const basis = Math.max(80, Math.min(lastPxW, lastPxH) * 0.45);
+      setGroupScale(dragState.group, dragState.startScale + (dx + dy) / basis);
+      updateEditorUi();
+    } else if (dragState.group === 'headline') {
       // Same px↔percent mapping drawArtwork uses for textOffsetXpx/textOffsetYpx,
       // inverted here so a drag of N canvas pixels moves the text by exactly
       // that many pixels rather than some slider-scaled amount.
@@ -3795,24 +4154,24 @@ function initArtworkPage(c) {
       const newX = clamp(dragState.startOffsetX + dxFrac, -0.35, 0.35);
       const newY = clamp(dragState.startOffsetY + dyFrac, -0.35, 0.35);
       if (dragState.group === 'logo') { logoOffsetXFrac = newX; logoOffsetYFrac = newY; }
-      else { photoOffsetXFrac = newX; photoOffsetYFrac = newY; }
+      else if (dragState.group === 'photo') { photoOffsetXFrac = newX; photoOffsetYFrac = newY; }
+      else { customLogoOffsetXFrac = newX; customLogoOffsetYFrac = newY; }
     }
-    schedulePreview();
+    schedulePreview(16);
   }
 
   function pointerUp() {
     if (!dragState) return;
     dragState = null;
     canvas.classList.remove('is-dragging');
+    canvas.classList.remove('is-resizable');
   }
 
   function pointerReset(clientX, clientY) {
     const group = hitGroup(canvasPoint(clientX, clientY));
     if (!group) return;
-    if (group === 'headline') { textOffsetX.value = 0; textOffsetY.value = 0; }
-    else if (group === 'logo') { logoOffsetXFrac = 0; logoOffsetYFrac = 0; }
-    else { photoOffsetXFrac = 0; photoOffsetYFrac = 0; }
-    schedulePreview();
+    selectedGroup = group;
+    resetGroup(group);
   }
 
   canvas.addEventListener('mousedown', e => { if (pointerDown(e.clientX, e.clientY)) e.preventDefault(); });
@@ -3837,11 +4196,12 @@ function initArtworkPage(c) {
   widthInput.addEventListener('input', schedulePreview);
   heightInput.addEventListener('input', schedulePreview);
   wireSwatchGroup(bgStyleGroup, schedulePreview);
-  productSel.addEventListener('change', schedulePreview);
+  productSel.addEventListener('change', () => { photoVisible = true; schedulePreview(); });
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
   headlineInput.addEventListener('input', schedulePreview);
   subheadlineInput.addEventListener('input', schedulePreview);
+  bodyInput.addEventListener('input', schedulePreview);
   wireSwatchGroup(textStyleGroup, schedulePreview);
   textOffsetX.addEventListener('input', schedulePreview);
   textOffsetY.addEventListener('input', schedulePreview);
@@ -3849,6 +4209,17 @@ function initArtworkPage(c) {
   textRotation.addEventListener('input', schedulePreview);
   decorManSize.addEventListener('input', schedulePreview);
   decorNo1Size.addEventListener('input', schedulePreview);
+
+  window.addEventListener('keydown', e => {
+    const tag = document.activeElement && document.activeElement.tagName;
+    if ((e.key === 'Delete' || e.key === 'Backspace') && !['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) {
+      if (selectedGroup === 'customLogo' && !customLogoDataUrl) return;
+      setGroupVisible(selectedGroup, false);
+      updateEditorUi();
+      schedulePreview(0);
+      e.preventDefault();
+    }
+  });
 
   downloadBtn.addEventListener('click', async () => {
     downloadBtn.disabled = true;
@@ -3887,6 +4258,7 @@ function initArtworkPage(c) {
     }
   });
 
+  updateEditorUi();
   if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(updatePreview);
   } else {
