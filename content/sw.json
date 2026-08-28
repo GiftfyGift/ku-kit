@@ -422,7 +422,7 @@
   },
   "parts": {
     "title": "Vipuri",
-    "intro": "Chagua modeli ili kuona vipuri vinavyopendekezwa kwa First Lot na katalogi kamili ya vipuri vya modeli hiyo — imeundwa kwa ajili ya Wauzaji na Wasambazaji wapya.",
+    "intro": "Chagua modeli ya bidhaa ili kuona vipuri vinavyopendekezwa kuagizwa pamoja na First Lot na orodha kamili ya vipuri vya modeli hiyo, kwa Wauzaji na Wasambazaji wapya.",
     "resources": [
       { "title": "Parts Book — ZT140 (katalogi kamili yenye michoro, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Injini ya dizeli — orodha ya vipuri vinavyopendekezwa, mifano yote ZT100-ZT180 (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },

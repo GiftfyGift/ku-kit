@@ -422,7 +422,7 @@
   },
   "parts": {
     "title": "Parts",
-    "intro": "Pumili ng modelo para makita ang mga inirerekomendang First Lot parts at ang buong parts catalog para sa modelong iyon — ginawa para sa mga bagong Dealer at Distributor.",
+    "intro": "Pumili ng modelo ng produkto upang makita ang mga inirerekomendang piyesang isasabay sa First Lot at ang kumpletong listahan ng piyesa para sa modelong iyon, para sa mga bagong Dealer at Distributor.",
     "resources": [
       { "title": "Parts Book — ZT140 (kumpletong illustrated catalog, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Diesel engine — listahan ng rekomendadong parts, lahat ng modelo ZT100-ZT180 (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },

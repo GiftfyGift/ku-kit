@@ -422,7 +422,7 @@
   },
   "parts": {
     "title": "Pièces",
-    "intro": "Choisissez un modèle pour voir les pièces recommandées pour le First Lot et le catalogue complet de ce modèle — conçu pour les nouveaux concessionnaires et distributeurs.",
+    "intro": "Sélectionnez un modèle de produit pour consulter les pièces recommandées à commander avec le First Lot ainsi que la liste complète des pièces de ce modèle, pour les nouveaux concessionnaires et distributeurs.",
     "resources": [
       { "title": "Catalogue de pièces — ZT140 (catalogue illustré complet, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Moteur diesel — liste de pièces recommandées, tous modèles ZT100-ZT180 (tableur)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
