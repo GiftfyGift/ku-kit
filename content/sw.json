@@ -494,7 +494,6 @@
         "Unganisha kebo ya kiongeza mwendo kwenye lever ya kiongeza mwendo na kaza nati."
       ],
       "resources": [
-        { "title": "Mwongozo wa kuunganisha injini + trekta la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
         { "title": "Video ya mwongozo wa kuunganisha — injini ya ZT Plus + trekta la NC Plus X", "type": "youtube", "youtubeId": "7_xAb8HLC1I" }
       ],
       "videosTitle": "Video",

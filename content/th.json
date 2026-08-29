@@ -502,7 +502,6 @@
         "ต่อสายคันเร่งเข้ากับคันเร่งแล้วขันน็อตให้แน่น"
       ],
       "resources": [
-        { "title": "คู่มือวิธีการประกอบเครื่องยนต์กับรถไถเดินตาม (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
         { "title": "วิดีโอสาธิตการประกอบเครื่องยนต์ ZT Plus + รถไถเดินตาม NC Plus X", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "วิดีโอ",

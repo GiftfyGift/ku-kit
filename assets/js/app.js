@@ -709,9 +709,9 @@ function renderProductEngine(c) {
       ${renderPreDeliveryBlock(e.preDelivery, 'engine-pre-delivery')}
       ${renderStartProcedureBlock(e.startProcedure, 'engine-start-procedure')}
       ${renderAssemblyBlock(p.assembly)}
-      ${renderProductResources(e, 'engine-downloads', true)}
       ${renderAuthenticityBlock(e.authenticity, 'engine-authenticity')}
       ${renderApplicationExamples(e.applicationExamples, 'engine-application')}
+      ${renderProductResources(e, 'engine-downloads', true)}
       <div class="note-callout">${e.note}</div>
     </section>
   `;

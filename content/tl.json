@@ -494,7 +494,6 @@
         "Ikabit ang accelerator cable sa accelerator lever at higpitan ang nut."
       ],
       "resources": [
-        { "title": "Gabay sa pag-assemble ng engine + power tiller (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
         { "title": "Video ng pag-assemble — ZT Plus engine + NC Plus X power tiller", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Mga Video",

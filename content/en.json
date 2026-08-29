@@ -494,7 +494,6 @@
         "Attach the accelerator cable to the accelerator lever and tighten the nut."
       ],
       "resources": [
-        { "title": "Engine + power tiller assembly guide (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
         { "title": "Assembly walkthrough — ZT Plus engine + NC Plus X power tiller", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Videos",

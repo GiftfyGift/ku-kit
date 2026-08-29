@@ -494,7 +494,6 @@
         "Fixer le câble d'accélérateur sur le levier d'accélérateur et serrer l'écrou."
       ],
       "resources": [
-        { "title": "Guide de montage moteur + motoculteur (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
         { "title": "Démonstration de montage — moteur ZT Plus + motoculteur NC Plus X", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Vidéos",
