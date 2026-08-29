@@ -432,12 +432,12 @@ function renderApplicationExamples(app, id) {
     `).join('');
     const frameHeadingText = id === 'tiller-application'
       ? ({
-          th: 'อุปกรณ์ต่อพ่วงรถไถเดินตามตราช้าง NC Plus X',
-          en: 'Implements for the TRA CHANG NC Plus X Power Tiller',
-          fr: 'Accessoires pour le motoculteur TRA CHANG NC Plus X',
-          sw: 'Vifaa vya Trekta la Kutembea la TRA CHANG NC Plus X',
-          tl: 'Mga Implement para sa TRA CHANG NC Plus X Power Tiller'
-        })[state.lang] || 'Implements for the TRA CHANG NC Plus X Power Tiller'
+          th: 'อุปกรณ์ต่อพ่วงรถไถเดินตามตราช้าง',
+          en: 'Implements for the TRA CHANG Power Tiller',
+          fr: 'Accessoires pour le motoculteur TRA CHANG',
+          sw: 'Vifaa vya Trekta la Kutembea la TRA CHANG',
+          tl: 'Mga Implement para sa TRA CHANG Power Tiller'
+        })[state.lang] || 'Implements for the TRA CHANG Power Tiller'
       : 'Applications of Kubota Diesel Engines';
     const frameHeadingLogo = id === 'tiller-application' ? '' :
       `<img src="https://drive.google.com/thumbnail?id=1CBjOziL8SgTOTQd-H-g_4SqkFWrE1AHt&sz=w1000" alt="ZT Plus" class="application-zt-plus-logo">`;
