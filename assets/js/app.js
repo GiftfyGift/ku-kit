@@ -466,8 +466,10 @@ function renderApplicationExamples(app, id) {
           <span class="application-carousel-count" data-application-count>01 / ${String(category.items.length).padStart(2, '0')}</span>
         </div>
         <div class="application-carousel-meta">
-          <h4 data-application-caption>${category.items[0]?.title || ''}</h4>
-          ${category.items.some(item => item.desc) ? `<p class="section-intro" data-application-desc>${category.items[0]?.desc || ''}</p>` : ''}
+          <div class="application-carousel-text">
+            <h4 data-application-caption>${category.items[0]?.title || ''}</h4>
+            ${category.items.some(item => item.desc) ? `<p class="application-carousel-desc" data-application-desc>${category.items[0]?.desc || ''}</p>` : ''}
+          </div>
           <div class="application-carousel-dots" role="group" aria-label="${escapeHtml(category.title)}">
             ${category.items.map((item, itemIdx) => `<button type="button" class="application-carousel-dot${itemIdx === 0 ? ' active' : ''}" data-application-dot="${itemIdx}" aria-label="${itemIdx + 1}: ${escapeHtml(item.title)}"></button>`).join('')}
           </div>

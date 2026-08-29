@@ -2594,11 +2594,25 @@ table.parts-table td.code-col {
   background: linear-gradient(90deg, rgba(0,38,38,0.96), rgba(4,15,17,0.96));
 }
 
+.application-carousel-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
 .application-carousel-meta h4 {
   margin: 0;
   color: #fff;
   font-family: 'Prompt', 'Noto Sans Thai', sans-serif;
   font-size: 15px;
+  line-height: 1.4;
+}
+
+.application-carousel-desc {
+  margin: 0;
+  color: var(--kubota-mid-gray);
+  font-size: 12.5px;
   line-height: 1.4;
 }
 
