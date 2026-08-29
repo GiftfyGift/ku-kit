@@ -219,9 +219,9 @@ function renderHome(c) {
 
 function renderProductCategory(cat, id, showHeroImage = true) {
   const items = cat.items.map(item => {
-    const isMultiPhoto = item.images && item.images.length > 1;
+    const specs = item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
     const heading = item.logo
-      ? `<img class="product-card-logo${isMultiPhoto ? ' product-card-logo--large' : ''}" src="${item.logo.src}" alt="${item.logo.alt}">`
+      ? `<img class="product-card-logo" src="${item.logo.src}" alt="${item.logo.alt}">`
       : `<h4>${item.name}</h4>`;
     const photos = item.images && item.images.length ? `
       <div class="product-card-photos">
@@ -233,38 +233,6 @@ function renderProductCategory(cat, id, showHeroImage = true) {
         `).join('')}
       </div>
     ` : '';
-    const hasCompare = item.wheelOptions && item.exterior && item.interior;
-    const body = hasCompare ? `
-      <div class="product-card-body product-card-body--compare">
-        <div class="wheel-badge-row">
-          ${item.wheelOptions.map(w => `
-            <div class="wheel-badge">
-              <span>${w.line1}</span>
-              <span>${w.line2}</span>
-            </div>
-          `).join('')}
-        </div>
-        <div class="compare-section">
-          <h5 class="compare-heading">${cat.exteriorLabel}</h5>
-          <ul class="compare-bullets">${item.exterior.map(t => `<li>${t}</li>`).join('')}</ul>
-        </div>
-        <div class="compare-section">
-          <h5 class="compare-heading">${cat.interiorLabel}</h5>
-          ${item.interior.map(group => `
-            <div class="compare-subgroup">
-              <p class="compare-subheading">${group.heading}</p>
-              <ul class="compare-bullets compare-bullets--dash">${group.bullets.map(t => `<li>${t}</li>`).join('')}</ul>
-            </div>
-          `).join('')}
-        </div>
-        ${item.compatNote ? `<p class="compare-note">${item.compatNote}</p>` : ''}
-      </div>
-    ` : `
-      <div class="product-card-body">
-        <p class="desc">${item.desc}</p>
-        <table class="spec-table"><tbody>${item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('')}</tbody></table>
-      </div>
-    `;
     return `
       <div class="product-card-group">
         ${photos}
@@ -272,11 +240,15 @@ function renderProductCategory(cat, id, showHeroImage = true) {
           <div class="product-card-header">
             ${heading}
           </div>
-          ${body}
+          <div class="product-card-body">
+            <p class="desc">${item.desc}</p>
+            <table class="spec-table"><tbody>${specs}</tbody></table>
+          </div>
         </div>
       </div>
     `;
   }).join('');
+  const catNote = cat.note ? `<div class="note-callout">${cat.note}</div>` : '';
   const catImage = (showHeroImage && cat.image) ? `
     <figure class="category-photo">
       <img src="${cat.image.src}" alt="${cat.image.alt}">
@@ -287,6 +259,7 @@ function renderProductCategory(cat, id, showHeroImage = true) {
     <div class="category-block"${id ? ` id="${id}"` : ''}>
       ${catImage}
       <div class="product-grid">${items}</div>
+      ${catNote}
     </div>
   `;
 }
@@ -349,12 +322,12 @@ function renderPreDeliveryBlock(pd, id) {
 
 function getEngineGuideLabels() {
   return ({
-    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า', details: 'รายละเอียดขั้นตอนตรวจเช็ก', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์', preDeliveryVideoTitle: 'VDO การตรวจเช็กเบื้องต้น เครื่องยนต์ ZT Plus', startVideoTitle: 'VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี', sellingVideoTitle: 'New ZT Plus !' },
-    en: { video: 'Pre-delivery Check Video', manual: '5-Point Kubota Diesel Engine Pre-delivery Manual', details: 'View inspection details', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'ZT Plus Preliminary Inspection Video', startVideoTitle: 'Correct Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' },
-    fr: { video: 'Vidéo de contrôle avant livraison', manual: 'Guide de livraison du moteur diesel Kubota en 5 points', details: 'Voir les détails du contrôle', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit', preDeliveryVideoTitle: 'Contrôle préliminaire du moteur ZT Plus', startVideoTitle: 'Démarrage correct du moteur', sellingVideoTitle: 'Nouveau ZT Plus !' },
-    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', manual: 'Mwongozo wa hatua 5 wa kukabidhi injini ya dizeli ya Kubota', details: 'Tazama maelezo ya ukaguzi', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa', preDeliveryVideoTitle: 'Ukaguzi wa awali wa injini ya ZT Plus', startVideoTitle: 'Namna sahihi ya kuwasha injini', sellingVideoTitle: 'ZT Plus Mpya!' },
-    tl: { video: 'Video ng pre-delivery check', manual: '5-point na gabay sa pag-deliver ng Kubota diesel engine', details: 'Tingnan ang detalye ng pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto', preDeliveryVideoTitle: 'Paunang pagsusuri ng ZT Plus engine', startVideoTitle: 'Tamang paraan ng pag-start ng engine', sellingVideoTitle: 'Bagong ZT Plus!' }
-  })[state.lang] || { video: 'Video', manual: 'Manual', details: 'View details', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'Pre-delivery Check Video', startVideoTitle: 'Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' };
+    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', startVideo: 'VDO ภาพขั้นตอนการสตาร์ทเครื่องยนต์', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า', details: 'รายละเอียดขั้นตอนตรวจเช็ก', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์', preDeliveryVideoTitle: 'VDO การตรวจเช็กเบื้องต้น เครื่องยนต์ ZT Plus', startVideoTitle: 'VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี', sellingVideoTitle: 'New ZT Plus !' },
+    en: { video: 'Pre-delivery Check Video', startVideo: 'Engine Starting Procedure Video', manual: '5-Point Kubota Diesel Engine Pre-delivery Manual', details: 'View inspection details', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'ZT Plus Preliminary Inspection Video', startVideoTitle: 'Correct Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' },
+    fr: { video: 'Vidéo de contrôle avant livraison', startVideo: 'Vidéo des étapes de démarrage du moteur', manual: 'Guide de livraison du moteur diesel Kubota en 5 points', details: 'Voir les détails du contrôle', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit', preDeliveryVideoTitle: 'Contrôle préliminaire du moteur ZT Plus', startVideoTitle: 'Démarrage correct du moteur', sellingVideoTitle: 'Nouveau ZT Plus !' },
+    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', startVideo: 'Video ya hatua za kuwasha injini', manual: 'Mwongozo wa hatua 5 wa kukabidhi injini ya dizeli ya Kubota', details: 'Tazama maelezo ya ukaguzi', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa', preDeliveryVideoTitle: 'Ukaguzi wa awali wa injini ya ZT Plus', startVideoTitle: 'Namna sahihi ya kuwasha injini', sellingVideoTitle: 'ZT Plus Mpya!' },
+    tl: { video: 'Video ng pre-delivery check', startVideo: 'Video ng mga hakbang sa pag-start ng engine', manual: '5-point na gabay sa pag-deliver ng Kubota diesel engine', details: 'Tingnan ang detalye ng pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto', preDeliveryVideoTitle: 'Paunang pagsusuri ng ZT Plus engine', startVideoTitle: 'Tamang paraan ng pag-start ng engine', sellingVideoTitle: 'Bagong ZT Plus!' }
+  })[state.lang] || { video: 'Video', startVideo: 'Engine Starting Procedure Video', manual: 'Manual', details: 'View details', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'Pre-delivery Check Video', startVideoTitle: 'Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' };
 }
 
 function renderStartProcedureBlock(sp, id) {
@@ -366,7 +339,7 @@ function renderStartProcedureBlock(sp, id) {
       <h3 class="category-heading">${sp.title}</h3>
       <div class="engine-guide-panel start-guide-layout">
         <section class="engine-guide-group start-guide-video">
-          <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
+          <h4 class="engine-guide-label"><span>▶</span>${labels.startVideo}</h4>
           <div class="video-grid">${renderYouTubeEmbed(video)}</div>
         </section>
         <section class="engine-guide-group start-guide-steps">
@@ -652,18 +625,17 @@ function renderSellingPointsMedia(media) {
   return `${videoHtml}${filesHtml}`;
 }
 
-function renderEngineDifferences(section, opts = {}) {
+function renderEngineDifferences(section) {
   if (!section || !section.items || !section.items.length) return '';
-  const gridClass = opts.containMedia ? 'engine-differences-grid engine-differences-grid--contain-media' : 'engine-differences-grid';
   return `
     <div class="category-block engine-differences-section">
-      ${opts.hideTitle ? '' : `<h3 class="category-heading">${section.title}</h3>`}
-      <div class="${gridClass}">
+      <h3 class="category-heading">${section.title}</h3>
+      <div class="engine-differences-grid">
         ${section.items.map((item, index) => `
           <article class="engine-difference-card">
             <figure class="engine-difference-media">
               <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy" decoding="async">
-              ${opts.hideNumber ? '' : `<span class="engine-difference-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>`}
+              <span class="engine-difference-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
             </figure>
             <div class="engine-difference-body">
               <h4>${item.title}</h4>
@@ -738,10 +710,10 @@ function renderProductEngine(c) {
       ${renderPreDeliveryBlock(e.preDelivery, 'engine-pre-delivery')}
       ${renderStartProcedureBlock(e.startProcedure, 'engine-start-procedure')}
       ${renderAssemblyBlock(p.assembly)}
+      ${renderProductResources(e, 'engine-downloads', true)}
       ${renderAuthenticityBlock(e.authenticity, 'engine-authenticity')}
       ${renderApplicationExamples(e.applicationExamples, 'engine-application')}
-      ${renderProductResources(e, 'engine-downloads', true)}
-      ${e.note ? `<div class="note-callout">${e.note}</div>` : ''}
+      <div class="note-callout">${e.note}</div>
     </section>
   `;
 }
@@ -790,10 +762,9 @@ function renderAssemblyBlock(a) {
           <ol class="check-list">${a.engineSteps.map(s => `<li>${s}</li>`).join('')}</ol>
         </div>
       </div>
-      ${a.guideDoc ? `<div class="file-pill-row">${renderFilePill(a.guideDoc)}</div>` : ''}
     </div>
     ${renderProductResources(a)}
-    ${a.note ? `<div class="note-callout">${a.note}</div>` : ''}
+    <div class="note-callout">${a.note}</div>
   `;
 }
 
@@ -809,12 +780,10 @@ function renderProductTiller(c) {
       ${renderQuickLinks(t.quickLinks)}
       <h3 class="category-heading">${t.title}</h3>
       ${renderProductCategory(t, 'tiller-product-info', false)}
-      ${t.productKnowledgeDoc ? `<div class="file-pill-row">${renderFilePill(t.productKnowledgeDoc)}</div>` : ''}
-      ${renderEngineDifferences(t.highlights, { hideTitle: true, containMedia: true, hideNumber: true })}
       ${renderAssemblyBlock(p.assembly)}
+      ${renderProductResources(t, 'tiller-downloads')}
       ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
       ${renderApplicationExamples(t.applicationExamples, 'tiller-application')}
-      ${renderProductResources(t, 'tiller-downloads', true)}
       <div class="note-callout">${t.note}</div>
     </section>
   `;
@@ -1122,11 +1091,9 @@ function renderService(c) {
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
       <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine', 'engine')}</div>
-      ${s.maintenance.engine.guideDoc ? `<div class="file-pill-row">${renderFilePill(s.maintenance.engine.guideDoc)}</div>` : ''}
       ${maintenanceSchedule}
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
       <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller', 'tiller')}</div>
-      ${s.maintenance.tiller.guideDoc ? `<div class="file-pill-row">${renderFilePill(s.maintenance.tiller.guideDoc)}</div>` : ''}
     </div>
   ` : '';
 
@@ -1541,18 +1508,15 @@ function renderMaterialsSelector(c, active) {
   `;
 }
 
-function renderMaterialsGroup(group, downloadLabel) {
+function renderMaterialsGroup(group) {
   const cards = group.items.map(item => `
-    <div class="materials-card">
-      <button type="button" class="materials-card-open" data-lightbox-src="${item.image.src}" data-lightbox-alt="${item.image.alt}" data-lightbox-caption="${item.title}">
-        <span class="materials-card-img-wrap">
-          <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy">
-        </span>
-        <span class="materials-card-title">${item.title}</span>
-        <span class="materials-card-tag">${item.format}</span>
-      </button>
-      ${group.downloadable ? `<a class="materials-card-download" href="${item.image.src}" download><span aria-hidden="true">⬇</span>${downloadLabel}</a>` : ''}
-    </div>
+    <button type="button" class="materials-card" data-lightbox-src="${item.image.src}" data-lightbox-alt="${item.image.alt}" data-lightbox-caption="${item.title}">
+      <span class="materials-card-img-wrap">
+        <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy">
+      </span>
+      <span class="materials-card-title">${item.title}</span>
+      <span class="materials-card-tag">${item.format}</span>
+    </button>
   `).join('');
   return `
     <div class="category-block">
@@ -1569,7 +1533,7 @@ function renderMaterialsGroup(group, downloadLabel) {
 function renderMaterialsCompany(c) {
   const m = c.materials;
   const mc = m.company;
-  const groups = (mc.groups || []).map(g => renderMaterialsGroup(g, mc.downloadLabel)).join('');
+  const groups = (mc.groups || []).map(renderMaterialsGroup).join('');
   return `
     <section>
       <h2 class="section-title">${m.title}</h2>
@@ -2629,7 +2593,7 @@ function initPoRequestPage(c) {
       return `
         <tr>
           <td>
-            <select class="order-model-inline-select" data-item-model="${i}">
+            <select data-item-model="${i}">
               <option value="">${it.modelLabel}</option>
               ${catalogModels.map(m => `<option value="${m.id}" ${m.id === row.modelId ? 'selected' : ''}>${m.label}</option>`).join('')}
             </select>
@@ -2689,7 +2653,6 @@ function initPoRequestPage(c) {
 
   function termsHtml() {
     const t = pr.terms;
-    const todayIso = new Date().toISOString().slice(0, 10);
     return `
       <div class="po-req-field-grid">
         <label class="po-req-field">
@@ -2706,7 +2669,7 @@ function initPoRequestPage(c) {
           <span>${t.shippingLabel}</span>
           <select id="po-req-shipping">${t.shippingMethods.map(s => `<option value="${s.id}">${s.label}</option>`).join('')}</select>
         </label>
-        <label class="po-req-field"><span>${t.deliveryDateLabel}</span><input type="date" id="po-req-delivery-date" min="${todayIso}"></label>
+        <label class="po-req-field"><span>${t.deliveryDateLabel}</span><input type="date" id="po-req-delivery-date"></label>
       </div>
     `;
   }
@@ -2783,11 +2746,6 @@ function initPoRequestPage(c) {
     if (!buyer.company || !buyer.email) { alert(pr.requireFieldsNote); return; }
     const validItems = items.filter(row => row.modelId && row.qty > 0);
     if (!validItems.length) { alert(pr.requireItemsNote); return; }
-    const deliveryDateValue = document.getElementById('po-req-delivery-date').value;
-    if (deliveryDateValue && deliveryDateValue < new Date().toISOString().slice(0, 10)) {
-      alert(pr.invalidDeliveryDateNote);
-      return;
-    }
 
     const premium = termPremium();
     const pdfItems = validItems.map(row => {
@@ -3047,8 +3005,6 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--bg-corners" data-value="corners" aria-pressed="false" title="${a.bgStyles.corners}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-photo-rainbow" data-value="photo-rainbow" aria-pressed="false" title="${a.bgStyles.photoRainbow}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-photo-sky" data-value="photo-sky" aria-pressed="false" title="${a.bgStyles.photoSky}"></button>
-              <button type="button" class="artwork-swatch artwork-swatch--bg-spotlight" data-value="spotlight" aria-pressed="false" title="${a.bgStyles.spotlight}"></button>
-              <button type="button" class="artwork-swatch artwork-swatch--bg-sunset-glow" data-value="sunset-glow" aria-pressed="false" title="${a.bgStyles.sunsetGlow}"></button>
             </div>
           </div>
           <label class="artwork-field">
@@ -3057,13 +3013,6 @@ function renderArtworkBody(c) {
               <option value="engine">${a.products.engine}</option>
               <option value="tiller">${a.products.tiller}</option>
               <option value="both">${a.products.both}</option>
-            </select>
-          </label>
-          <label class="artwork-field" id="aw-logo-choice-field" hidden>
-            <span>${a.logoChoiceLabel}</span>
-            <select id="aw-logo-choice">
-              <option value="kubota">${a.logoChoices.kubota}</option>
-              <option value="traChang">${a.logoChoices.traChang}</option>
             </select>
           </label>
           <div class="artwork-field artwork-upload-field">
@@ -3481,125 +3430,6 @@ function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, phot
     return;
   }
 
-  if (bgStyle === 'spotlight') {
-    // Bright studio backdrop with a soft top-center glow, cooling toward the
-    // edges — the premium product-launch "podium" mood from the reference,
-    // redrawn with plain gradients/shapes only (no logos or text copied).
-    const base = ctx.createRadialGradient(pxW * 0.5, pxH * 0.38, pxH * 0.05, pxW * 0.5, pxH * 0.55, pxH * 0.85);
-    base.addColorStop(0, '#FFFFFF');
-    base.addColorStop(0.45, '#E7E9EC');
-    base.addColorStop(1, '#AEB4BD');
-    ctx.fillStyle = base;
-    ctx.fillRect(0, 0, pxW, pxH);
-
-    // Faint diagonal light sweep bands.
-    ctx.save();
-    ctx.globalAlpha = 0.35;
-    ctx.fillStyle = '#FFFFFF';
-    const sweep = (cx, w) => {
-      ctx.beginPath();
-      ctx.moveTo(cx, 0);
-      ctx.lineTo(cx + w, 0);
-      ctx.lineTo(cx + w - pxH * 0.35, pxH);
-      ctx.lineTo(cx - pxH * 0.35, pxH);
-      ctx.closePath();
-      ctx.fill();
-    };
-    sweep(pxW * 0.08, pxW * 0.05);
-    sweep(pxW * 0.22, pxW * 0.03);
-    ctx.restore();
-
-    // Soft circular "stage" shadow + thin ring accent near the bottom, where
-    // the product photo sits.
-    const stageY = pxH * 0.86;
-    const stageRX = pxW * (isLandscape ? 0.24 : 0.36);
-    const stageRY = stageRX * 0.16;
-    const stage = ctx.createRadialGradient(pxW * 0.5, stageY, 0, pxW * 0.5, stageY, stageRX);
-    stage.addColorStop(0, 'rgba(20,26,32,0.28)');
-    stage.addColorStop(1, 'rgba(20,26,32,0)');
-    ctx.fillStyle = stage;
-    ctx.beginPath();
-    ctx.ellipse(pxW * 0.5, stageY, stageRX, stageRY, 0, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(255,106,61,0.4)';
-    ctx.lineWidth = Math.max(1, pxW * 0.0025);
-    ctx.beginPath();
-    ctx.ellipse(pxW * 0.5, stageY, stageRX * 0.62, stageRY * 0.9, 0, 0, Math.PI * 2);
-    ctx.stroke();
-
-    // A few small particle dots in a top corner, echoing the digital-showcase
-    // feel of the reference without copying any of its artwork.
-    const cx = pxW * (isLandscape ? 0.9 : 0.86);
-    const cy = pxH * (isLandscape ? 0.14 : 0.1);
-    ctx.fillStyle = 'rgba(255,106,61,0.55)';
-    for (let i = 0; i < 5; i++) {
-      const r = Math.max(1.5, pxW * 0.0022) * (1 + (i % 3) * 0.4);
-      const ang = i * 1.35;
-      const dist = pxW * 0.018 * i;
-      ctx.beginPath();
-      ctx.arc(cx + Math.cos(ang) * dist, cy + Math.sin(ang) * dist * 0.6, r, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    return;
-  }
-
-  if (bgStyle === 'sunset-glow') {
-    // Night-to-sunset vertical gradient with a warm sunburst near the horizon
-    // — the mood from the financing-banner references, redrawn from scratch
-    // with gradients/rays/sparkles only (no logos or headline text copied).
-    const sky = ctx.createLinearGradient(0, 0, 0, pxH);
-    sky.addColorStop(0, '#0a1220');
-    sky.addColorStop(0.55, '#1c2740');
-    sky.addColorStop(0.82, '#7a3a22');
-    sky.addColorStop(1, '#FF8A3D');
-    ctx.fillStyle = sky;
-    ctx.fillRect(0, 0, pxW, pxH);
-
-    const glowX = pxW * (isLandscape ? 0.28 : 0.5);
-    const glowY = pxH * 0.86;
-    ctx.save();
-    ctx.globalCompositeOperation = 'lighter';
-    const glow = ctx.createRadialGradient(glowX, glowY, 0, glowX, glowY, pxH * 0.55);
-    glow.addColorStop(0, 'rgba(255,200,120,0.85)');
-    glow.addColorStop(0.35, 'rgba(255,138,61,0.4)');
-    glow.addColorStop(1, 'rgba(255,138,61,0)');
-    ctx.fillStyle = glow;
-    ctx.fillRect(0, 0, pxW, pxH);
-
-    ctx.strokeStyle = 'rgba(255,210,150,0.22)';
-    ctx.lineWidth = Math.max(1, pxW * 0.0018);
-    const rayLen = pxH * 0.62;
-    for (let i = 0; i < 14; i++) {
-      const ang = (Math.PI * 2 * i) / 14;
-      ctx.beginPath();
-      ctx.moveTo(glowX, glowY);
-      ctx.lineTo(glowX + Math.cos(ang) * rayLen, glowY + Math.sin(ang) * rayLen);
-      ctx.stroke();
-    }
-    ctx.restore();
-
-    const sparkle = (x, y, r) => {
-      ctx.save();
-      ctx.translate(x, y);
-      ctx.fillStyle = 'rgba(255,255,255,0.75)';
-      ctx.beginPath();
-      ctx.moveTo(0, -r); ctx.lineTo(r * 0.22, -r * 0.22);
-      ctx.lineTo(r, 0); ctx.lineTo(r * 0.22, r * 0.22);
-      ctx.lineTo(0, r); ctx.lineTo(-r * 0.22, r * 0.22);
-      ctx.lineTo(-r, 0); ctx.lineTo(-r * 0.22, -r * 0.22);
-      ctx.closePath();
-      ctx.fill();
-      ctx.restore();
-    };
-    sparkle(pxW * 0.14, pxH * 0.2, pxW * 0.012);
-    sparkle(pxW * 0.86, pxH * 0.3, pxW * 0.009);
-    sparkle(pxW * 0.72, pxH * 0.14, pxW * 0.007);
-
-    ctx.fillStyle = '#FF6A3D';
-    ctx.fillRect(0, pxH * 0.985, pxW, pxH * 0.015);
-    return;
-  }
-
   // 'diagonal' (default)
   ctx.fillStyle = '#F7F5F0';
   ctx.fillRect(0, 0, pxW, pxH);
@@ -3655,40 +3485,18 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const wordmarkVisible = st.wordmarkVisible !== false;
   const photoVisible = st.photoVisible !== false;
   const textVisible = st.textVisible !== false;
-  // The brand mark + its product-category text ("Diesel Engine" /
-  // "Power Tiller") used to be one baked-in "Kubota ... " image that never
-  // updated when the product changed. The mark itself now tracks the
-  // selected product too: Kubota for the engine, TRA CHANG for the tiller
-  // (the wordmark already used below the product photo). When both products
-  // are shown there's no single correct logo, so that case uses the
-  // separate aw-logo-choice picker (defaults to Kubota).
-  const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-logo-only.png');
-  const traChangImg = await loadArtworkImage('assets/img/artwork/tra-chang-wordmark.png');
-  const brandChoice = st.product === 'engine' ? 'kubota'
-    : st.product === 'tiller' ? 'traChang'
-    : (st.logoChoice === 'traChang' ? 'traChang' : 'kubota');
-  const brandImg = brandChoice === 'traChang' ? traChangImg : kubotaImg;
-  const brandAspect = brandImg.width / brandImg.height;
-  const categoryText = st.product === 'engine' ? 'Diesel Engine'
-    : st.product === 'tiller' ? 'Power Tiller'
-    : 'Diesel Engine & Power Tiller';
+  const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
+  const kubotaAspect = kubotaImg.width / kubotaImg.height;
 
   let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2 * logoScale;
-  let logoImgW = logoH * brandAspect;
-  const categoryFontPx = () => Math.round(logoH * 0.42);
-  const categoryGap = () => logoH * 0.16;
-  ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
-  let logoW = logoImgW + categoryGap() + ctx.measureText(categoryText).width;
+  let logoW = logoH * kubotaAspect;
   // The cropped wordmark is quite wide relative to its height; on the narrower
   // portrait canvas a height-based size can overflow both edges, so cap it to
   // a safe share of the width there and derive the height from that instead.
   const maxLogoW = isLandscape ? pxW * 0.5 : pxW * 0.74;
   if (logoW > maxLogoW) {
-    const shrink = maxLogoW / logoW;
-    logoH *= shrink;
-    logoImgW = logoH * brandAspect;
-    ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
-    logoW = logoImgW + categoryGap() + ctx.measureText(categoryText).width;
+    logoW = maxLogoW;
+    logoH = logoW / kubotaAspect;
   }
 
   const photoBg = AW_PHOTO_BACKGROUNDS[bgStyle] ? await loadArtworkImage(AW_PHOTO_BACKGROUNDS[bgStyle]) : null;
@@ -3710,22 +3518,9 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
-  const brandTextOnDark = bgStyle !== 'diagonal' && bgStyle !== 'spotlight';
-  // Kubota's mark is pure black, so inverting it to white on a dark
-  // background is safe; TRA CHANG's mark carries its own brand colors
-  // (red/tan) and would come out wrong inverted, so it's always drawn
-  // as-is — its transparent background and white highlights already read
-  // fine on every background style.
-  const invertBrandImg = brandTextOnDark && brandChoice === 'kubota';
-  if (logoVisible) {
-    if (invertBrandImg) ctx.filter = 'invert(1)';
-    ctx.drawImage(brandImg, logoX, logoY, logoImgW, logoH);
-    if (invertBrandImg) ctx.filter = 'none';
-    ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
-    ctx.fillStyle = brandTextOnDark ? '#fff' : '#000';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(categoryText, logoX + logoImgW + categoryGap(), logoY + logoH / 2);
-  }
+  if (logoVisible && bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
+  if (logoVisible) ctx.drawImage(kubotaImg, logoX, logoY, logoW, logoH);
+  ctx.filter = 'none';
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2 * wordmarkScale;
   const wmGap = wmHBase * 1.3;
@@ -3736,17 +3531,12 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // decoration and promo text.
   const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
-  // Whenever TRA CHANG is the top brand logo (tiller-only, or "both" with
-  // TRA CHANG picked), the tiller's own wordmark below would just repeat
-  // the same mark — drop it from this row only (the product photo still
-  // comes from the untouched productImgs).
-  const wordmarkImgs = brandChoice === 'traChang' ? productImgs.filter(p => p.wordmark !== traChangImg) : productImgs;
   // Base position (no drag offsets applied) — used for the text-layout math
   // below so dragging the logo or the wordmark doesn't reshuffle where the
   // headline block is allowed to sit; only the drawn elements actually move.
   const wmBaseY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
   let wmStartY = wmBaseY + wordmarkOffsetYpx;
-  let wmBelowCount = wordmarkImgs.length;
+  let wmBelowCount = productImgs.length;
   // The logo and wordmark(s) are now independently draggable groups, each
   // with its own bounding box (no longer merged into one).
   const wmRects = [];
@@ -3755,8 +3545,8 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     const areaX = logoX + logoW + pad * 0.6 + wordmarkOffsetXpx;
     const areaY = pad + wordmarkOffsetYpx;
     const rowGap = logoH * 0.12;
-    const rowH = (logoH - rowGap * (wordmarkImgs.length - 1)) / wordmarkImgs.length;
-    wordmarkImgs.forEach((p, i) => {
+    const rowH = (logoH - rowGap * (productImgs.length - 1)) / productImgs.length;
+    productImgs.forEach((p, i) => {
       const wmAspect = p.wordmark.width / p.wordmark.height;
       let wmH = rowH;
       let wmW = wmH * wmAspect;
@@ -3769,7 +3559,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       wmRects.push({ x: areaX, y: wmY, w: wmW, h: wmH });
     });
   } else if (wordmarkVisible) {
-    wordmarkImgs.forEach((p, i) => {
+    productImgs.forEach((p, i) => {
       const wmAspect = p.wordmark.width / p.wordmark.height;
       let wmH = wmHBase;
       let wmW = wmH * wmAspect;
@@ -3906,7 +3696,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // it readable even sitting over the product photo). The only thing this block
   // still dodges is the farmer decoration, since that's opaque artwork drawn in
   // the same area, not a background photo the text can float over.
-  const textOnDark = bgStyle === 'dark' || bgStyle === 'sunset-glow' || !!AW_PHOTO_BACKGROUNDS[bgStyle];
+  const textOnDark = bgStyle === 'dark' || !!AW_PHOTO_BACKGROUNDS[bgStyle];
   const manGap = manW ? pxW * 0.03 : 0;
   const farmerRightEdge = manW ? pad + manW + manGap : pad;
   const headlineMaxW = isLandscape ? pxW * 0.62 : pxW * 0.86;
@@ -4067,8 +3857,6 @@ function initArtworkPage(c) {
   const heightInput = document.getElementById('aw-height-cm');
   const bgStyleGroup = document.getElementById('aw-bgstyle-group');
   const productSel = document.getElementById('aw-product');
-  const logoChoiceField = document.getElementById('aw-logo-choice-field');
-  const logoChoiceSel = document.getElementById('aw-logo-choice');
   const shopInput = document.getElementById('aw-shopname');
   const contactInput = document.getElementById('aw-contact');
   const headlineInput = document.getElementById('aw-headline');
@@ -4150,7 +3938,6 @@ function initArtworkPage(c) {
       size: sizeSel.value,
       bgStyle: swatchValue(bgStyleGroup, 'diagonal'),
       product: productSel.value,
-      logoChoice: logoChoiceSel.value,
       shopName: shopInput.value,
       contact: contactInput.value,
       headline: headlineInput.value,
@@ -4585,12 +4372,7 @@ function initArtworkPage(c) {
   widthInput.addEventListener('input', schedulePreview);
   heightInput.addEventListener('input', schedulePreview);
   wireSwatchGroup(bgStyleGroup, schedulePreview);
-  function updateLogoChoiceVisibility() {
-    logoChoiceField.hidden = productSel.value !== 'both';
-  }
-  updateLogoChoiceVisibility();
-  productSel.addEventListener('change', () => { photoVisible = true; updateLogoChoiceVisibility(); schedulePreview(); });
-  logoChoiceSel.addEventListener('change', schedulePreview);
+  productSel.addEventListener('change', () => { photoVisible = true; schedulePreview(); });
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
   headlineInput.addEventListener('input', schedulePreview);
@@ -4746,7 +4528,6 @@ async function setLang(lang) {
   state.searchIndex = buildSearchIndex(state.content);
   render();
   applyAssistantText(state.content);
-  applyBackToTopText(state.content);
   kaResetConversation(state.content);
 }
 
@@ -4894,10 +4675,6 @@ function applyAssistantText(c) {
   document.getElementById('ka-input').setAttribute('placeholder', a.placeholder);
 }
 
-function applyBackToTopText(c) {
-  document.getElementById('back-to-top').setAttribute('aria-label', c.meta.backToTopLabel);
-}
-
 function kaAddMessage(role, html) {
   const wrap = document.createElement('div');
   wrap.className = `ka-msg ka-msg--${role}`;
@@ -5000,22 +4777,6 @@ lightbox.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !lightbox.hasAttribute('hidden')) closeLightbox();
-});
-
-/* ---------- Back-to-top button: wiring ---------- */
-// One global button (outside #app) that works the same on every route,
-// so long pages don't need their own scroll-back control.
-
-const backToTopBtn = document.getElementById('back-to-top');
-
-function updateBackToTopVisibility() {
-  backToTopBtn.classList.toggle('is-visible', window.scrollY > 480);
-}
-
-window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
-
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 });
 
 /* ---------- KU-KIT Assistant: wiring ---------- */

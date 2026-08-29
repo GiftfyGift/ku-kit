@@ -94,6 +94,7 @@
       "preDelivery": {
         "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
         "intro": "Kamilisha ukaguzi huu tano kabla ya kumkabidhi mteja injini au kabla ya kuiwasha kwa mara ya kwanza.",
+        "video": { "title": "Ukaguzi wa awali wa injini ya ZT Plus", "type": "youtube", "youtubeId": "9iHaIeHm1Bw" },
         "points": [
           { "title": "1. Kichujio cha hewa", "desc": "Huchuja vumbi kutoka kwenye hewa inayoingia ili kulinda sehemu za ndani dhidi ya kuchakaa.", "steps": ["Jaza mafuta ya injini kwenye chungu cha kichujio.", "Jaza hadi alama ya kiwango iliyoonyeshwa kwenye chungu.", "Weka kichujio cha hewa kwa uangalifu ili muhuri wa mpira usichanike.", "Ongeza mafuta kidogo juu ya kichujio kusaidia kunasa vumbi."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Kuongeza mafuta kwenye kichujio halisi cha hewa cha injini ya ZT Plus" } },
           { "title": "2. Mfumo wa mafuta", "desc": "Mafuta huchanganyika na hewa na kuwaka kutokana na joto la mgandamizo ili kuendesha injini.", "steps": ["Tumia mafuta safi; hakuna haja ya kuondoa kichujio wakati wa kuongeza mafuta.", "Angalia uvujaji karibu na kichujio — hakuna maji au uchafu unapaswa kuchanganyika na mafuta."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Kikombe halisi cha kichujio cha mafuta kwenye injini ya ZT Plus" } },
@@ -104,6 +105,7 @@
       },
       "startProcedure": {
         "title": "Jinsi ya Kuwasha Injini ya Dizeli ya KUBOTA kwa Usahihi",
+        "video": { "title": "Namna sahihi ya kuwasha injini", "type": "youtube", "youtubeId": "OvUyMXZhLd4" },
         "steps": [
           "Sogeza kiongeza mwendo kwenye nafasi ya kuwasha.",
           "Unganisha kivunjio cha mkono kwenye mhimili wa kuwasha wa injini.",
@@ -345,7 +347,8 @@
         { "title": "Mwongozo wa Uendeshaji wa ZT Plus (OPM)", "lang": "SWA", "type": "pdf", "href": "assets/docs/engine/zt-plus-opm-swa.pdf" }
       ],
       "videosTitle": "Video",
-      "downloadsTitle": "Vipakuliwa"
+      "downloadsTitle": "Vipakuliwa",
+      "note": "Vipimo hapo juu vinatoka kwenye slaidi halisi za Product Knowledge za ZT Plus zilizotolewa na timu. Ukubwa mwingine wa injini (ZT100/110/120/125/155/180) una muundo unaofanana — omba slaidi kutoka kwa timu ya bidhaa ukihitaji kuongeza. Picha ya packshot imeunganishwa moja kwa moja na Drive (13MB) — zaidi ya kikomo cha 10MB ambacho kiunganishi cha Drive cha kipindi hiki kinaweza kupakua, hivyo haikuwekwa kwa ndani."
     },
     "tiller": {
       "title": "Trekta la Kutembea la TRA CHANG",
