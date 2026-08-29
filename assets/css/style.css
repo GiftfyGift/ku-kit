@@ -3764,8 +3764,8 @@ table.parts-table td.code-col {
 
 .back-to-top {
   position: fixed;
-  left: 20px;
-  bottom: 20px;
+  right: 20px;
+  bottom: 90px;
   z-index: 200;
   width: 48px;
   height: 48px;
@@ -3773,7 +3773,8 @@ table.parts-table td.code-col {
   border: none;
   background: rgba(8,20,22,0.85);
   color: white;
-  font-size: 20px;
+  font-size: 26px;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
   display: flex;
@@ -3799,7 +3800,7 @@ table.parts-table td.code-col {
 }
 
 @media (max-width: 640px) {
-  .back-to-top { left: 14px; bottom: 14px; width: 42px; height: 42px; font-size: 18px; }
+  .back-to-top { right: 14px; bottom: 82px; width: 42px; height: 42px; font-size: 22px; }
 }
 
 .ka-toggle {

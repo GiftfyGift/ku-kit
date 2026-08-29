@@ -344,8 +344,7 @@
         { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/engine/zt-plus-opm-en.pdf" }
       ],
       "videosTitle": "Videos",
-      "downloadsTitle": "Downloads",
-      "note": "Specs above come from the actual ZT Plus product knowledge deck provided by the team. Other engine sizes (ZT100/110/120/125/155/180) follow the same structure — ask the product team for their decks if you need to add them. The packshot photo links directly to Drive (13MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally."
+      "downloadsTitle": "Downloads"
     },
     "tiller": {
       "title": "TRA CHANG Power Tiller",

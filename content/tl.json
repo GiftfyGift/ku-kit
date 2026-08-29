@@ -344,8 +344,7 @@
         { "title": "ZT Plus Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "https://drive.google.com/file/d/17a52JoOUF3A0cfTDUWxgEHkcxQfOw6IM/view" }
       ],
       "videosTitle": "Mga Video",
-      "downloadsTitle": "Mga Download",
-      "note": "Ang mga detalye sa itaas ay mula mismo sa aktuwal na Product Knowledge deck ng ZT Plus na ibinigay ng team. Ang ibang laki ng engine (ZT100/110/120/125/155/180) ay may parehong istruktura — humingi ng deck sa product team kung kailangan idagdag. Direktang naka-link sa Drive ang packshot photo (13MB) — lampas sa 10MB na limit na kayang i-download ng Drive connector ng session na ito, kaya hindi ito na-bundle nang lokal."
+      "downloadsTitle": "Mga Download"
     },
     "tiller": {
       "title": "TRA CHANG Power Tiller",

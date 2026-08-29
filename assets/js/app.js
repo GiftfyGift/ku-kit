@@ -741,7 +741,7 @@ function renderProductEngine(c) {
       ${renderAuthenticityBlock(e.authenticity, 'engine-authenticity')}
       ${renderApplicationExamples(e.applicationExamples, 'engine-application')}
       ${renderProductResources(e, 'engine-downloads', true)}
-      <div class="note-callout">${e.note}</div>
+      ${e.note ? `<div class="note-callout">${e.note}</div>` : ''}
     </section>
   `;
 }
