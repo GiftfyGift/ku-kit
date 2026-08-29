@@ -621,6 +621,7 @@ main {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 16px;
+  margin-bottom: 24px;
 }
 
 .file-pill {
@@ -2463,6 +2464,13 @@ ol.check-list li::before {
 /* Multilingual educational cards below the engine selling points. */
 .engine-differences-section {
   margin-top: -8px;
+}
+
+/* Reused for the tiller's key-highlights grid, which sits right after a
+   file-pill-row instead — the negative pull above is tuned for the engine
+   layout and crowds the heading against the pill here, so cancel it out. */
+.file-pill-row + .engine-differences-section {
+  margin-top: 16px;
 }
 
 .engine-differences-grid {
