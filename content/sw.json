@@ -946,7 +946,7 @@
     "heightLabel": "Urefu (sm)",
     "sizeHint": "Ukubwa hujaza kiotomatiki kulingana na aina ya media uliyochagua — unaweza kubadilisha namba kulingana na hali halisi.",
     "bgStyleLabel": "Mtindo wa mandharinyuma",
-    "bgStyles": { "diagonal": "Mstari wa Machungwa", "dark": "Giza na Kifahari", "frame": "Fremu ya Kawaida", "corners": "Fremu ya Pembe Aina ya Backdrop", "photoRainbow": "Shamba la Mpunga (Upinde wa Mvua)", "photoSky": "Shamba chini ya Anga la Bluu" },
+    "bgStyles": { "diagonal": "Mstari wa Machungwa", "dark": "Giza na Kifahari", "frame": "Fremu ya Kawaida", "corners": "Fremu ya Pembe Aina ya Backdrop", "photoRainbow": "Shamba la Mpunga (Upinde wa Mvua)", "photoSky": "Shamba chini ya Anga la Bluu", "spotlight": "Mwanga wa Studio", "sunsetGlow": "Mng'ao wa Machweo" },
     "productLabel": "Bidhaa ya kuonyesha",
     "products": { "engine": "Injini ya dizeli ya ZT Plus", "tiller": "Trekta la kutembea la TRA CHANG NC Plus X", "both": "Bidhaa zote mbili" },
     "shopNameLabel": "Jina la duka / Muuzaji",

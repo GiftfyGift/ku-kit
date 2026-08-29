@@ -940,7 +940,7 @@
     "heightLabel": "Taas (cm)",
     "sizeHint": "Awtomatikong pupunan ang sukat batay sa napiling uri ng media — puwede mong baguhin ang mga numero ayon sa aktwal na kailangan.",
     "bgStyleLabel": "Istilo ng background",
-    "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame", "corners": "Backdrop Corner Frame", "photoRainbow": "Ginintuang Palayan (Bahaghari)", "photoSky": "Sakahan sa Ilalim ng Asul na Langit" },
+    "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame", "corners": "Backdrop Corner Frame", "photoRainbow": "Ginintuang Palayan (Bahaghari)", "photoSky": "Sakahan sa Ilalim ng Asul na Langit", "spotlight": "Spotlight ng Studio", "sunsetGlow": "Ningning ng Paglubog ng Araw" },
     "productLabel": "Produktong ipapakita",
     "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Parehong produkto" },
     "shopNameLabel": "Pangalan ng tindahan / Dealer",

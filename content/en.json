@@ -1275,7 +1275,7 @@
     "heightLabel": "Height (cm)",
     "sizeHint": "Size auto-fills based on the media type you pick — edit the numbers to match your actual event setup.",
     "bgStyleLabel": "Background style",
-    "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame", "corners": "Backdrop Corner Frame", "photoRainbow": "Golden Paddy Field (Rainbow)", "photoSky": "Blue-Sky Farmland" },
+    "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame", "corners": "Backdrop Corner Frame", "photoRainbow": "Golden Paddy Field (Rainbow)", "photoSky": "Blue-Sky Farmland", "spotlight": "Studio Spotlight", "sunsetGlow": "Sunset Glow" },
     "productLabel": "Product to feature",
     "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Both products" },
     "shopNameLabel": "Shop / Dealer name",

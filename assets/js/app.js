@@ -3046,6 +3046,8 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--bg-corners" data-value="corners" aria-pressed="false" title="${a.bgStyles.corners}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-photo-rainbow" data-value="photo-rainbow" aria-pressed="false" title="${a.bgStyles.photoRainbow}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-photo-sky" data-value="photo-sky" aria-pressed="false" title="${a.bgStyles.photoSky}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-spotlight" data-value="spotlight" aria-pressed="false" title="${a.bgStyles.spotlight}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-sunset-glow" data-value="sunset-glow" aria-pressed="false" title="${a.bgStyles.sunsetGlow}"></button>
             </div>
           </div>
           <label class="artwork-field">
@@ -3471,6 +3473,125 @@ function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, phot
     return;
   }
 
+  if (bgStyle === 'spotlight') {
+    // Bright studio backdrop with a soft top-center glow, cooling toward the
+    // edges — the premium product-launch "podium" mood from the reference,
+    // redrawn with plain gradients/shapes only (no logos or text copied).
+    const base = ctx.createRadialGradient(pxW * 0.5, pxH * 0.38, pxH * 0.05, pxW * 0.5, pxH * 0.55, pxH * 0.85);
+    base.addColorStop(0, '#FFFFFF');
+    base.addColorStop(0.45, '#E7E9EC');
+    base.addColorStop(1, '#AEB4BD');
+    ctx.fillStyle = base;
+    ctx.fillRect(0, 0, pxW, pxH);
+
+    // Faint diagonal light sweep bands.
+    ctx.save();
+    ctx.globalAlpha = 0.35;
+    ctx.fillStyle = '#FFFFFF';
+    const sweep = (cx, w) => {
+      ctx.beginPath();
+      ctx.moveTo(cx, 0);
+      ctx.lineTo(cx + w, 0);
+      ctx.lineTo(cx + w - pxH * 0.35, pxH);
+      ctx.lineTo(cx - pxH * 0.35, pxH);
+      ctx.closePath();
+      ctx.fill();
+    };
+    sweep(pxW * 0.08, pxW * 0.05);
+    sweep(pxW * 0.22, pxW * 0.03);
+    ctx.restore();
+
+    // Soft circular "stage" shadow + thin ring accent near the bottom, where
+    // the product photo sits.
+    const stageY = pxH * 0.86;
+    const stageRX = pxW * (isLandscape ? 0.24 : 0.36);
+    const stageRY = stageRX * 0.16;
+    const stage = ctx.createRadialGradient(pxW * 0.5, stageY, 0, pxW * 0.5, stageY, stageRX);
+    stage.addColorStop(0, 'rgba(20,26,32,0.28)');
+    stage.addColorStop(1, 'rgba(20,26,32,0)');
+    ctx.fillStyle = stage;
+    ctx.beginPath();
+    ctx.ellipse(pxW * 0.5, stageY, stageRX, stageRY, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,106,61,0.4)';
+    ctx.lineWidth = Math.max(1, pxW * 0.0025);
+    ctx.beginPath();
+    ctx.ellipse(pxW * 0.5, stageY, stageRX * 0.62, stageRY * 0.9, 0, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // A few small particle dots in a top corner, echoing the digital-showcase
+    // feel of the reference without copying any of its artwork.
+    const cx = pxW * (isLandscape ? 0.9 : 0.86);
+    const cy = pxH * (isLandscape ? 0.14 : 0.1);
+    ctx.fillStyle = 'rgba(255,106,61,0.55)';
+    for (let i = 0; i < 5; i++) {
+      const r = Math.max(1.5, pxW * 0.0022) * (1 + (i % 3) * 0.4);
+      const ang = i * 1.35;
+      const dist = pxW * 0.018 * i;
+      ctx.beginPath();
+      ctx.arc(cx + Math.cos(ang) * dist, cy + Math.sin(ang) * dist * 0.6, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    return;
+  }
+
+  if (bgStyle === 'sunset-glow') {
+    // Night-to-sunset vertical gradient with a warm sunburst near the horizon
+    // — the mood from the financing-banner references, redrawn from scratch
+    // with gradients/rays/sparkles only (no logos or headline text copied).
+    const sky = ctx.createLinearGradient(0, 0, 0, pxH);
+    sky.addColorStop(0, '#0a1220');
+    sky.addColorStop(0.55, '#1c2740');
+    sky.addColorStop(0.82, '#7a3a22');
+    sky.addColorStop(1, '#FF8A3D');
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, pxW, pxH);
+
+    const glowX = pxW * (isLandscape ? 0.28 : 0.5);
+    const glowY = pxH * 0.86;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    const glow = ctx.createRadialGradient(glowX, glowY, 0, glowX, glowY, pxH * 0.55);
+    glow.addColorStop(0, 'rgba(255,200,120,0.85)');
+    glow.addColorStop(0.35, 'rgba(255,138,61,0.4)');
+    glow.addColorStop(1, 'rgba(255,138,61,0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, pxW, pxH);
+
+    ctx.strokeStyle = 'rgba(255,210,150,0.22)';
+    ctx.lineWidth = Math.max(1, pxW * 0.0018);
+    const rayLen = pxH * 0.62;
+    for (let i = 0; i < 14; i++) {
+      const ang = (Math.PI * 2 * i) / 14;
+      ctx.beginPath();
+      ctx.moveTo(glowX, glowY);
+      ctx.lineTo(glowX + Math.cos(ang) * rayLen, glowY + Math.sin(ang) * rayLen);
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    const sparkle = (x, y, r) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.fillStyle = 'rgba(255,255,255,0.75)';
+      ctx.beginPath();
+      ctx.moveTo(0, -r); ctx.lineTo(r * 0.22, -r * 0.22);
+      ctx.lineTo(r, 0); ctx.lineTo(r * 0.22, r * 0.22);
+      ctx.lineTo(0, r); ctx.lineTo(-r * 0.22, r * 0.22);
+      ctx.lineTo(-r, 0); ctx.lineTo(-r * 0.22, -r * 0.22);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    };
+    sparkle(pxW * 0.14, pxH * 0.2, pxW * 0.012);
+    sparkle(pxW * 0.86, pxH * 0.3, pxW * 0.009);
+    sparkle(pxW * 0.72, pxH * 0.14, pxW * 0.007);
+
+    ctx.fillStyle = '#FF6A3D';
+    ctx.fillRect(0, pxH * 0.985, pxW, pxH * 0.015);
+    return;
+  }
+
   // 'diagonal' (default)
   ctx.fillStyle = '#F7F5F0';
   ctx.fillRect(0, 0, pxW, pxH);
@@ -3575,7 +3696,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
-  if (logoVisible && bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
+  if (logoVisible && bgStyle !== 'diagonal' && bgStyle !== 'spotlight') ctx.filter = 'invert(1)';
   if (logoVisible) {
     ctx.drawImage(kubotaImg, logoX, logoY, logoImgW, logoH);
     ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
@@ -3759,7 +3880,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // it readable even sitting over the product photo). The only thing this block
   // still dodges is the farmer decoration, since that's opaque artwork drawn in
   // the same area, not a background photo the text can float over.
-  const textOnDark = bgStyle === 'dark' || !!AW_PHOTO_BACKGROUNDS[bgStyle];
+  const textOnDark = bgStyle === 'dark' || bgStyle === 'sunset-glow' || !!AW_PHOTO_BACKGROUNDS[bgStyle];
   const manGap = manW ? pxW * 0.03 : 0;
   const farmerRightEdge = manW ? pad + manW + manGap : pad;
   const headlineMaxW = isLandscape ? pxW * 0.62 : pxW * 0.86;

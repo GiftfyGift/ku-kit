@@ -3505,6 +3505,10 @@ table.parts-table td.code-col {
 .artwork-swatch--bg-corners.active { box-shadow: inset 0 0 0 3px #081416, 0 0 0 2px rgba(255,106,61,0.4); }
 .artwork-swatch--bg-photo-rainbow { background: url('../img/artwork/backgrounds/bg-rice-field-rainbow.jpg') center/cover; }
 .artwork-swatch--bg-photo-sky { background: url('../img/artwork/backgrounds/bg-farm-field-sky.jpg') center/cover; }
+.artwork-swatch--bg-spotlight { background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, #E7E9EC 45%, #AEB4BD 100%); box-shadow: inset 0 0 0 2px rgba(255,106,61,0.35); }
+.artwork-swatch--bg-spotlight.active { box-shadow: inset 0 0 0 2px rgba(255,106,61,0.35), 0 0 0 2px rgba(255,106,61,0.4); }
+.artwork-swatch--bg-spotlight.active::after { color: #FF6A3D; text-shadow: none; }
+.artwork-swatch--bg-sunset-glow { background: radial-gradient(circle at 50% 80%, #FFC878 0%, #FF8A3D 30%, #2b3350 62%, #0a1220 100%); }
 
 .artwork-swatch--text-orange { background: linear-gradient(180deg, #FFEAB0, #FF6A3D 60%, #9C2E0B); }
 .artwork-swatch--text-chrome { background: linear-gradient(180deg, #FFFFFF, #8B98A1 60%, #20262a); }
