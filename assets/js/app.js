@@ -706,6 +706,7 @@ function renderProductEngine(c) {
       ${renderProductCategory(e, 'engine-product-info')}
       ${sellingPoints}
       ${renderEngineDifferences(e.differences)}
+      ${renderStarterSystems(e.starterSystems)}
       ${renderPreDeliveryBlock(e.preDelivery, 'engine-pre-delivery')}
       ${renderStartProcedureBlock(e.startProcedure, 'engine-start-procedure')}
       ${renderAssemblyBlock(p.assembly)}
@@ -714,6 +715,34 @@ function renderProductEngine(c) {
       ${renderProductResources(e, 'engine-downloads', true)}
       <div class="note-callout">${e.note}</div>
     </section>
+  `;
+}
+
+function renderStarterSystems(starterSystems) {
+  if (!starterSystems?.items?.length) return '';
+  return `
+    <div class="category-block starter-systems-section" id="engine-starter-systems">
+      <div class="starter-systems-heading">
+        <h3>${starterSystems.title}</h3>
+        ${starterSystems.intro ? `<p>${starterSystems.intro}</p>` : ''}
+      </div>
+      <div class="starter-systems-grid">
+        ${starterSystems.items.map((item, index) => `
+          <article class="starter-system-card starter-system-card--${item.code.toLowerCase()}">
+            <div class="starter-system-visual">
+              <img src="${item.image?.src || 'assets/img/product/zt155-engine-cutout.png'}" alt="${item.image?.alt || item.title}">
+              <span class="starter-system-focus" aria-hidden="true"></span>
+            </div>
+            <div class="starter-system-body">
+              <span class="starter-system-number">${index + 1}</span>
+              <h4>${item.title}</h4>
+              <p>${item.desc}</p>
+            </div>
+          </article>
+        `).join('')}
+      </div>
+      ${starterSystems.note ? `<p class="starter-systems-note">${starterSystems.note}</p>` : ''}
+    </div>
   `;
 }
 
@@ -4539,6 +4568,7 @@ function buildSearchIndex(c) {
     (item.specs || []).map(s => `${s.label} ${s.value}`).join(' ')));
   if (e.sellingPoints) (e.sellingPoints.items || []).forEach(i => pushEntry(idx, 'product-engine', i.title, i.desc));
   if (e.differences) (e.differences.items || []).forEach(i => pushEntry(idx, 'product-engine', i.title, i.desc));
+  if (e.starterSystems) (e.starterSystems.items || []).forEach(i => pushEntry(idx, 'product-engine', i.title, i.desc, e.starterSystems.title));
   if (e.authenticity) (e.authenticity.points || []).forEach((pt, i) => {
     const text = typeof pt === 'string' ? pt : pt.text;
     pushEntry(idx, 'product-engine', `${e.authenticity.title} #${i + 1}`, text);
