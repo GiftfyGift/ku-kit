@@ -1356,7 +1356,8 @@
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — ปานามา", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — ไต้หวัน", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" },
-        { "id": "jazetwe", "label": "JAZETWE Company Limited — แทนซาเนีย", "company": "JAZETWE Company Limited", "address": "PO.Box 532, Plot No 39, Block No.103, Mbinga, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" }
+        { "id": "jazetwe", "label": "JAZETWE Company Limited — แทนซาเนีย", "company": "JAZETWE Company Limited", "address": "PO.Box 532, Plot No 39, Block No.103, Mbinga, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" },
+        { "id": "zanabora", "label": "ZANA BORA LIMITED — แทนซาเนีย", "company": "ZANA BORA LIMITED", "address": "P.O.BOX 2740, Dar Es Salaam, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" }
       ],
       "fields": { "company": "ชื่อบริษัท", "address": "ที่อยู่จัดส่ง", "country": "ประเทศปลายทาง", "contact": "ชื่อผู้ติดต่อ", "email": "อีเมล", "phone": "เบอร์โทร / WhatsApp", "customerRef": "เลข PO อ้างอิงของลูกค้า (ถ้ามี)" }
     },

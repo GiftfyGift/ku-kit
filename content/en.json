@@ -1347,7 +1347,8 @@
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" },
-        { "id": "jazetwe", "label": "JAZETWE Company Limited — Tanzania", "company": "JAZETWE Company Limited", "address": "PO.Box 532, Plot No 39, Block No.103, Mbinga, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" }
+        { "id": "jazetwe", "label": "JAZETWE Company Limited — Tanzania", "company": "JAZETWE Company Limited", "address": "PO.Box 532, Plot No 39, Block No.103, Mbinga, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" },
+        { "id": "zanabora", "label": "ZANA BORA LIMITED — Tanzania", "company": "ZANA BORA LIMITED", "address": "P.O.BOX 2740, Dar Es Salaam, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" }
       ],
       "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)" }
     },
