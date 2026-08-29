@@ -220,8 +220,9 @@ function renderHome(c) {
 function renderProductCategory(cat, id, showHeroImage = true) {
   const items = cat.items.map(item => {
     const specs = item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
+    const isMultiPhoto = item.images && item.images.length > 1;
     const heading = item.logo
-      ? `<img class="product-card-logo" src="${item.logo.src}" alt="${item.logo.alt}">`
+      ? `<img class="product-card-logo${isMultiPhoto ? ' product-card-logo--large' : ''}" src="${item.logo.src}" alt="${item.logo.alt}">`
       : `<h4>${item.name}</h4>`;
     const photos = item.images && item.images.length ? `
       <div class="product-card-photos">

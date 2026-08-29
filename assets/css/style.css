@@ -1641,6 +1641,10 @@ main {
   object-fit: contain;
 }
 
+.product-card-logo--large {
+  height: 78px;
+}
+
 .product-card-group {
   display: flex;
   flex-direction: column;
@@ -1655,7 +1659,8 @@ main {
 }
 
 .product-card-photo {
-  flex: 0 0 150px;
+  flex: 0 1 225px;
+  min-width: 0;
   margin: 0;
   text-align: center;
 }
