@@ -663,7 +663,7 @@ function renderEngineDifferences(section, opts = {}) {
           <article class="engine-difference-card">
             <figure class="engine-difference-media">
               <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy" decoding="async">
-              <span class="engine-difference-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+              ${opts.hideNumber ? '' : `<span class="engine-difference-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>`}
             </figure>
             <div class="engine-difference-body">
               <h4>${item.title}</h4>
@@ -810,7 +810,7 @@ function renderProductTiller(c) {
       <h3 class="category-heading">${t.title}</h3>
       ${renderProductCategory(t, 'tiller-product-info', false)}
       ${t.productKnowledgeDoc ? `<div class="file-pill-row">${renderFilePill(t.productKnowledgeDoc)}</div>` : ''}
-      ${renderEngineDifferences(t.highlights, { hideTitle: true, containMedia: true })}
+      ${renderEngineDifferences(t.highlights, { hideTitle: true, containMedia: true, hideNumber: true })}
       ${renderAssemblyBlock(p.assembly)}
       ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
       ${renderApplicationExamples(t.applicationExamples, 'tiller-application')}

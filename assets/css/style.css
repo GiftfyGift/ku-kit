@@ -2453,6 +2453,19 @@ ol.check-list li::before {
 .start-guide-caution {
   grid-column: 1 / -1;
   margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(107,182,255,0.12);
+  border-left-color: var(--kubota-steel-blue);
+  color: #D6EAFF;
+}
+
+.start-guide-caution::before {
+  content: "💡";
+  flex: 0 0 auto;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .selling-points-panel .highlight-grid {
