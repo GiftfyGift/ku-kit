@@ -3057,6 +3057,13 @@ function renderArtworkBody(c) {
               <option value="both">${a.products.both}</option>
             </select>
           </label>
+          <label class="artwork-field" id="aw-logo-choice-field" hidden>
+            <span>${a.logoChoiceLabel}</span>
+            <select id="aw-logo-choice">
+              <option value="kubota">${a.logoChoices.kubota}</option>
+              <option value="traChang">${a.logoChoices.traChang}</option>
+            </select>
+          </label>
           <div class="artwork-field artwork-upload-field">
             <button type="button" id="aw-logo-upload" class="artwork-upload-btn"><span aria-hidden="true">＋</span><span id="aw-logo-upload-label">${ui.uploadLogo}</span></button>
             <input type="file" id="aw-logo-file" accept="image/png,image/jpeg,image/webp" hidden>
@@ -3646,20 +3653,26 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const wordmarkVisible = st.wordmarkVisible !== false;
   const photoVisible = st.photoVisible !== false;
   const textVisible = st.textVisible !== false;
-  // The "Kubota" mark and its product-category text ("Diesel Engine" /
-  // "Power Tiller") used to be one baked-in image, so switching the product
-  // never updated the category word. Draw the Kubota mark from a cropped
-  // logo-only asset and the category word as real text instead, so it can
-  // track the selected product; both share the same canvas font so they
-  // always match regardless of which word is showing.
+  // The brand mark + its product-category text ("Diesel Engine" /
+  // "Power Tiller") used to be one baked-in "Kubota ... " image that never
+  // updated when the product changed. The mark itself now tracks the
+  // selected product too: Kubota for the engine, TRA CHANG for the tiller
+  // (the wordmark already used below the product photo). When both products
+  // are shown there's no single correct logo, so that case uses the
+  // separate aw-logo-choice picker (defaults to Kubota).
   const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-logo-only.png');
-  const kubotaAspect = kubotaImg.width / kubotaImg.height;
+  const traChangImg = await loadArtworkImage('assets/img/artwork/tra-chang-wordmark.png');
+  const brandChoice = st.product === 'engine' ? 'kubota'
+    : st.product === 'tiller' ? 'traChang'
+    : (st.logoChoice === 'traChang' ? 'traChang' : 'kubota');
+  const brandImg = brandChoice === 'traChang' ? traChangImg : kubotaImg;
+  const brandAspect = brandImg.width / brandImg.height;
   const categoryText = st.product === 'engine' ? 'Diesel Engine'
     : st.product === 'tiller' ? 'Power Tiller'
     : 'Diesel Engine & Power Tiller';
 
   let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2 * logoScale;
-  let logoImgW = logoH * kubotaAspect;
+  let logoImgW = logoH * brandAspect;
   const categoryFontPx = () => Math.round(logoH * 0.42);
   const categoryGap = () => logoH * 0.16;
   ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
@@ -3671,7 +3684,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   if (logoW > maxLogoW) {
     const shrink = maxLogoW / logoW;
     logoH *= shrink;
-    logoImgW = logoH * kubotaAspect;
+    logoImgW = logoH * brandAspect;
     ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
     logoW = logoImgW + categoryGap() + ctx.measureText(categoryText).width;
   }
@@ -3695,15 +3708,22 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
-  if (logoVisible && bgStyle !== 'diagonal' && bgStyle !== 'spotlight') ctx.filter = 'invert(1)';
+  const brandTextOnDark = bgStyle !== 'diagonal' && bgStyle !== 'spotlight';
+  // Kubota's mark is pure black, so inverting it to white on a dark
+  // background is safe; TRA CHANG's mark carries its own brand colors
+  // (red/tan) and would come out wrong inverted, so it's always drawn
+  // as-is — its transparent background and white highlights already read
+  // fine on every background style.
+  const invertBrandImg = brandTextOnDark && brandChoice === 'kubota';
   if (logoVisible) {
-    ctx.drawImage(kubotaImg, logoX, logoY, logoImgW, logoH);
+    if (invertBrandImg) ctx.filter = 'invert(1)';
+    ctx.drawImage(brandImg, logoX, logoY, logoImgW, logoH);
+    if (invertBrandImg) ctx.filter = 'none';
     ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = brandTextOnDark ? '#fff' : '#000';
     ctx.textBaseline = 'middle';
     ctx.fillText(categoryText, logoX + logoImgW + categoryGap(), logoY + logoH / 2);
   }
-  ctx.filter = 'none';
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2 * wordmarkScale;
   const wmGap = wmHBase * 1.3;
@@ -3714,12 +3734,17 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // decoration and promo text.
   const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
+  // Whenever TRA CHANG is the top brand logo (tiller-only, or "both" with
+  // TRA CHANG picked), the tiller's own wordmark below would just repeat
+  // the same mark — drop it from this row only (the product photo still
+  // comes from the untouched productImgs).
+  const wordmarkImgs = brandChoice === 'traChang' ? productImgs.filter(p => p.wordmark !== traChangImg) : productImgs;
   // Base position (no drag offsets applied) — used for the text-layout math
   // below so dragging the logo or the wordmark doesn't reshuffle where the
   // headline block is allowed to sit; only the drawn elements actually move.
   const wmBaseY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
   let wmStartY = wmBaseY + wordmarkOffsetYpx;
-  let wmBelowCount = productImgs.length;
+  let wmBelowCount = wordmarkImgs.length;
   // The logo and wordmark(s) are now independently draggable groups, each
   // with its own bounding box (no longer merged into one).
   const wmRects = [];
@@ -3728,8 +3753,8 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     const areaX = logoX + logoW + pad * 0.6 + wordmarkOffsetXpx;
     const areaY = pad + wordmarkOffsetYpx;
     const rowGap = logoH * 0.12;
-    const rowH = (logoH - rowGap * (productImgs.length - 1)) / productImgs.length;
-    productImgs.forEach((p, i) => {
+    const rowH = (logoH - rowGap * (wordmarkImgs.length - 1)) / wordmarkImgs.length;
+    wordmarkImgs.forEach((p, i) => {
       const wmAspect = p.wordmark.width / p.wordmark.height;
       let wmH = rowH;
       let wmW = wmH * wmAspect;
@@ -3742,7 +3767,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       wmRects.push({ x: areaX, y: wmY, w: wmW, h: wmH });
     });
   } else if (wordmarkVisible) {
-    productImgs.forEach((p, i) => {
+    wordmarkImgs.forEach((p, i) => {
       const wmAspect = p.wordmark.width / p.wordmark.height;
       let wmH = wmHBase;
       let wmW = wmH * wmAspect;
@@ -4040,6 +4065,8 @@ function initArtworkPage(c) {
   const heightInput = document.getElementById('aw-height-cm');
   const bgStyleGroup = document.getElementById('aw-bgstyle-group');
   const productSel = document.getElementById('aw-product');
+  const logoChoiceField = document.getElementById('aw-logo-choice-field');
+  const logoChoiceSel = document.getElementById('aw-logo-choice');
   const shopInput = document.getElementById('aw-shopname');
   const contactInput = document.getElementById('aw-contact');
   const headlineInput = document.getElementById('aw-headline');
@@ -4121,6 +4148,7 @@ function initArtworkPage(c) {
       size: sizeSel.value,
       bgStyle: swatchValue(bgStyleGroup, 'diagonal'),
       product: productSel.value,
+      logoChoice: logoChoiceSel.value,
       shopName: shopInput.value,
       contact: contactInput.value,
       headline: headlineInput.value,
@@ -4555,7 +4583,12 @@ function initArtworkPage(c) {
   widthInput.addEventListener('input', schedulePreview);
   heightInput.addEventListener('input', schedulePreview);
   wireSwatchGroup(bgStyleGroup, schedulePreview);
-  productSel.addEventListener('change', () => { photoVisible = true; schedulePreview(); });
+  function updateLogoChoiceVisibility() {
+    logoChoiceField.hidden = productSel.value !== 'both';
+  }
+  updateLogoChoiceVisibility();
+  productSel.addEventListener('change', () => { photoVisible = true; updateLogoChoiceVisibility(); schedulePreview(); });
+  logoChoiceSel.addEventListener('change', schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
   headlineInput.addEventListener('input', schedulePreview);
