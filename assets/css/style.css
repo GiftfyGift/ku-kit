@@ -565,9 +565,31 @@ main {
 .product-select-icon-emoji { font-size: 28px; line-height: 1; }
 
 .product-select-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.product-select-label-line1 {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--kubota-mid-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-select-label-line2 {
   font-size: 16px;
   font-weight: 700;
   color: var(--kubota-navy);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-select-check {

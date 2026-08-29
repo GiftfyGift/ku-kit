@@ -822,6 +822,14 @@ async function loadPartsCatalogData() {
   return partsCatalogDataCache;
 }
 
+function splitModelLabel(label) {
+  const prefixes = ['Kubota Diesel Engine ', 'Tra Chang Power Tiller '];
+  for (const p of prefixes) {
+    if (label.startsWith(p)) return [p.trim(), label.slice(p.length)];
+  }
+  return ['', label];
+}
+
 async function initPartsModelCatalog(c) {
   const oc = c.order.catalog;
   const selector = document.getElementById('parts-model-selector');
@@ -843,10 +851,14 @@ async function initPartsModelCatalog(c) {
 
   selector.innerHTML = data.models.map(m => {
     const img = isTillerModel(m.id) ? c.product.tiller.image : c.product.engine.image;
+    const [labelLine1, labelLine2] = splitModelLabel(m.label);
     return `
       <button type="button" class="product-select-card ${m.id === selectedModelId ? 'active' : ''}" data-parts-model="${m.id}">
         <span class="product-select-icon"><img src="${img.src}" alt="${img.alt}"></span>
-        <span class="product-select-label">${m.label}</span>
+        <span class="product-select-label">
+          ${labelLine1 ? `<span class="product-select-label-line1">${labelLine1}</span>` : ''}
+          <span class="product-select-label-line2">${labelLine2}</span>
+        </span>
         <span class="product-select-check" aria-hidden="true">✓</span>
       </button>
     `;
