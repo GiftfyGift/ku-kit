@@ -4011,6 +4011,13 @@ table.parts-table td.code-col {
   color: var(--kubota-mid-gray);
 }
 
+.ka-result-source {
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--kubota-steel-blue);
+}
+
 .ka-form {
   display: flex;
   gap: 8px;

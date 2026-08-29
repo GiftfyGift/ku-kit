@@ -4836,8 +4836,44 @@ function pushEntry(index, route, title, snippet, extraText) {
     route,
     title,
     snippet: snippet.length > 160 ? snippet.slice(0, 157) + '…' : snippet,
-    text: `${title} ${snippet} ${extraText || ''}`.toLowerCase()
+    text: normalizeAssistantText(`${title} ${snippet} ${extraText || ''}`)
   });
+}
+
+function normalizeAssistantText(value) {
+  return String(value || '').normalize('NFKC').toLocaleLowerCase();
+}
+
+function addFullPageIndex(index, route, root, pageTitle) {
+  const skipKeys = new Set(['href', 'src', 'alt', 'id', 'type', 'lang', 'youtubeId', 'image', 'video']);
+  const titleKeys = ['title', 'name', 'label', 'heading', 'question', 'code'];
+
+  function walk(value, inheritedTitle, depth = 0) {
+    if (depth > 12 || value == null) return;
+    if (Array.isArray(value)) {
+      const primitiveText = value.filter(v => typeof v === 'string' || typeof v === 'number').join(' ');
+      if (primitiveText.length >= 12) pushEntry(index, route, inheritedTitle || pageTitle, primitiveText, pageTitle);
+      value.filter(v => v && typeof v === 'object').forEach(v => walk(v, inheritedTitle, depth + 1));
+      return;
+    }
+    if (typeof value !== 'object') return;
+
+    const titleKey = titleKeys.find(k => typeof value[k] === 'string' && value[k].trim());
+    const title = titleKey ? value[titleKey] : inheritedTitle || pageTitle;
+    const ownText = Object.entries(value)
+      .filter(([key, v]) => !skipKeys.has(key) && key !== titleKey && (typeof v === 'string' || typeof v === 'number'))
+      .map(([, v]) => String(v))
+      .join(' ')
+      .trim();
+    if (ownText.length >= 12) pushEntry(index, route, title, ownText, pageTitle);
+
+    Object.entries(value).forEach(([key, child]) => {
+      if (skipKeys.has(key) || key === titleKey || child == null || typeof child !== 'object') return;
+      walk(child, title, depth + 1);
+    });
+  }
+
+  walk(root, pageTitle);
 }
 
 function buildSearchIndex(c) {
@@ -4909,34 +4945,57 @@ function buildSearchIndex(c) {
     pushEntry(idx, 'order-tracking', c.order.tabs.tracking, c.order.tracking.disclaimer);
   }
 
-  return idx;
+  // Index every meaningful text field on every page as a safety net. Newly
+  // added specs, notes, steps and localized copy become searchable without a
+  // matching JavaScript change.
+  [
+    ['home', c.home, c.nav.home],
+    ['product-engine', c.product && c.product.engine, c.product && c.product.tabs && c.product.tabs.engine],
+    ['product-tiller', c.product && c.product.tiller, c.product && c.product.tabs && c.product.tabs.tiller],
+    ['product-assembly', c.product && c.product.assembly, c.product && c.product.tabs && c.product.tabs.assembly],
+    ['parts', c.parts, c.nav.parts],
+    ['service', c.service, c.nav.service],
+    ['crops', c.crops, c.nav.crops],
+    ['marketing', c.marketing, c.nav.marketing],
+    ['materials-company', c.materials && c.materials.company, c.nav.artwork],
+    ['materials-custom', c.artwork, c.nav.artwork],
+    ['order-catalog', c.order, c.nav.order]
+  ].forEach(([route, value, title]) => {
+    if (value) addFullPageIndex(idx, route, value, title || route);
+  });
+
+  const seen = new Set();
+  return idx.filter(entry => {
+    const key = `${entry.route}|${normalizeAssistantText(entry.title)}|${normalizeAssistantText(entry.snippet)}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function searchContent(query, c) {
-  const q = query.trim().toLowerCase();
+  const q = normalizeAssistantText(query.trim());
   if (!q) return [];
-  const tokens = q.split(/\s+/).filter(t => t.length >= 2);
-  const bigrams = [];
-  for (let i = 0; i < q.length - 1; i++) bigrams.push(q.slice(i, i + 2));
+  const tokens = (q.match(/[\p{L}\p{N}]+/gu) || []).filter(t => t.length >= 2);
+  const compact = q.replace(/\s+/g, '');
+  const bigrams = [...new Set(Array.from({ length: Math.max(0, compact.length - 1) }, (_, i) => compact.slice(i, i + 2)))];
 
   const scored = state.searchIndex.map(entry => {
     let score = 0;
-    if (entry.title.toLowerCase().includes(q)) score += 15;
+    if (normalizeAssistantText(entry.title).includes(q)) score += 15;
     if (entry.text.includes(q)) score += 8;
     tokens.forEach(tok => {
-      if (entry.title.toLowerCase().includes(tok)) score += 3;
+      if (normalizeAssistantText(entry.title).includes(tok)) score += 3;
       if (entry.text.includes(tok)) score += 1;
     });
-    if (tokens.length === 0) {
-      bigrams.forEach(bg => { if (entry.text.includes(bg)) score += 0.5; });
-    }
+    bigrams.forEach(bg => { if (entry.text.includes(bg)) score += 0.22; });
     return { entry, score };
   });
 
   return scored
     .filter(r => r.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 5)
+    .slice(0, 6)
     .map(r => r.entry);
 }
 
@@ -4985,6 +5044,7 @@ function kaRenderResults(results, c) {
       <div class="ka-result-tag">${escapeHtml(routeLabel(r.route, c))}</div>
       <div class="ka-result-title">${escapeHtml(r.title)}</div>
       <div class="ka-result-snippet">${escapeHtml(r.snippet)}</div>
+      <div class="ka-result-source">${escapeHtml(({ th: 'แหล่งข้อมูล', en: 'Source', fr: 'Source', sw: 'Chanzo', tl: 'Pinagmulan' })[state.lang] || 'Source')}: ${escapeHtml(routeLabel(r.route, c))}</div>
     </button>
   `).join('');
   return `<div>${escapeHtml(c.assistant.resultsIntro)}</div><div class="ka-results">${items}</div>`;
