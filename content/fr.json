@@ -342,6 +342,9 @@
         {
           "name": "NC Plus X",
           "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "Logo NC Plus X" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Motoculteur TRA CHANG NC Plus X 800", "caption": "800 mm" }
+          ],
           "desc": "Roue à cage de 800 mm de diamètre, pales de roue de 3 pouces (16 pièces). Convient aux sols limoneux ou sableux, aux rizières comme aux champs secs, ainsi qu'aux parcelles de canne à sucre, manioc, légumineuses et légumes. Les roues à cage permettent de courts déplacements. Non recommandé pour les champs très boueux (submergés en profondeur).",
           "specs": [
             { "label": "Diamètre de la roue à cage", "value": "800 mm" },
@@ -991,7 +994,7 @@
   "poRequest": {
     "title": "Demande de bon de commande",
     "intro": "Formulaire standardisé permettant aux concessionnaires et distributeurs de soumettre un bon de commande international pour les moteurs diesel Kubota et les motoculteurs Tra Chang — avec les mêmes champs que ceux utilisés par Siam Kubota pour émettre un PO et une facture proforma réels.",
-    "disclaimer": "Pour l'instant, ce formulaire génère immédiatement un fichier PO téléchargeable. La notification automatique par e-mail à l'équipe commerciale sera activée une fois l'architecture back-end validée — en attendant, veuillez envoyer le PO généré directement à votre contact commercial.",
+    "disclaimer": "Pour l'instant, ce formulaire génère immédiatement un fichier PO téléchargeable (et un fichier PI au format réel de Siam Kubota, si demandé). La notification automatique par e-mail à l'équipe commerciale sera activée une fois l'architecture back-end validée — en attendant, veuillez envoyer les fichiers générés directement à votre contact commercial.",
     "customer": {
       "heading": "1. Informations acheteur",
       "selectLabel": "Sélectionner un client existant (le cas échéant)",
@@ -1024,6 +1027,7 @@
         { "id": "cif", "label": "CIF port de destination (précisez ci-dessous)" },
         { "id": "other", "label": "Autre (précisez dans les notes)" }
       ],
+      "portOfLoadingLabel": "Port de chargement",
       "portLabel": "Port de destination (pour CIF)",
       "paymentLabel": "Conditions de paiement",
       "shippingLabel": "Mode d'expédition",
@@ -1039,7 +1043,10 @@
       "question": "Avez-vous besoin d'une facture proforma pour cette commande ?",
       "yes": "Oui",
       "no": "Non",
-      "helpText": "Certains pays exigent une PI pour effectuer un virement bancaire ou une déclaration d'importation — par exemple lorsque les virements transfrontaliers en USD nécessitent un justificatif. Si vous sélectionnez &ldquo;Oui&rdquo;, l'équipe chargée de l'émission rédigera la PI à partir de ce PO une fois votre contact commercial l'ayant confirmé."
+      "helpText": "Certains pays exigent une PI pour effectuer un virement bancaire ou une déclaration d'importation — par exemple lorsque les virements transfrontaliers en USD nécessitent un justificatif. Si vous sélectionnez &ldquo;Oui&rdquo;, le système génère immédiatement un fichier PI au format réel de Siam Kubota, téléchargeable avec le PO — le numéro officiel de confirmation de vente (Sales Confirmation No.) sera délivré une fois votre contact commercial ayant confirmé la commande.",
+      "consigneeLabel": "Destinataire (Consignee) — si différent de l'acheteur",
+      "consigneePlaceholder": "Laissez vide si le destinataire est la même société que l'acheteur",
+      "downloadPiBtn": "Retélécharger la PI"
     },
     "notesLabel": "Notes complémentaires",
     "notesPlaceholder": "Toute condition particulière — demande de remise, date d'obtention requise pour un document, etc.",

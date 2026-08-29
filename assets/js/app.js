@@ -217,7 +217,7 @@ function renderHome(c) {
   `;
 }
 
-function renderProductCategory(cat, id) {
+function renderProductCategory(cat, id, showHeroImage = true) {
   const items = cat.items.map(item => {
     const specs = item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
     const heading = item.logo
@@ -247,7 +247,7 @@ function renderProductCategory(cat, id) {
     `;
   }).join('');
   const catNote = cat.note ? `<div class="note-callout">${cat.note}</div>` : '';
-  const catImage = cat.image ? `
+  const catImage = (showHeroImage && cat.image) ? `
     <figure class="category-photo">
       <img src="${cat.image.src}" alt="${cat.image.alt}">
       <figcaption>${cat.image.alt}</figcaption>
@@ -724,7 +724,7 @@ function renderProductTiller(c) {
       ${renderProductSelector(c, 'tiller')}
       ${renderQuickLinks(t.quickLinks)}
       <h3 class="category-heading">${t.title}</h3>
-      ${renderProductCategory(t, 'tiller-product-info')}
+      ${renderProductCategory(t, 'tiller-product-info', false)}
       ${renderAssemblyBlock(p.assembly)}
       ${renderProductResources(t, 'tiller-downloads')}
       ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
@@ -1720,6 +1720,9 @@ function generatePiPdf(order) {
   const doc = new jsPDF({ unit: 'pt', format: 'a4' });
   const pageW = doc.internal.pageSize.getWidth();
   const marginX = 42;
+  const buyer = order.buyer || {};
+  const destination = buyer.country || buyer.destination || '-';
+  const consignee = order.consignee ? order.consignee : null;
   let y = 50;
 
   doc.setFont('helvetica', 'bold');
@@ -1727,41 +1730,69 @@ function generatePiPdf(order) {
   doc.text('PROFORMA INVOICE', pageW / 2, y, { align: 'center' });
   y += 26;
 
+  // Follows the real Siam Kubota PI field layout (Invoice No. / Consigned to /
+  // Buyer / Sales Confirmation No. / Buyer's Order No. / Shipped Per / On or
+  // About / Port of Loading / Port of Discharge / Terms of Payment / Place of
+  // Delivery / Country of Origin) so the fields match what customs and banks
+  // expect to see, even though this is still a KU-KIT prototype output.
   doc.setFontSize(10);
   doc.text(`Invoice No.: ${order.piNumber}`, marginX, y);
   doc.text(`Date: ${order.date}`, pageW - marginX, y, { align: 'right' });
-  y += 22;
-
-  doc.setFont('helvetica', 'bold');
-  doc.text('Consigned to / Buyer:', marginX, y);
-  doc.setFont('helvetica', 'normal');
-  y += 14;
-  doc.text(order.buyer.company || '-', marginX, y);
-  y += 14;
-  doc.text(doc.splitTextToSize(order.buyer.address || '-', pageW - marginX * 2), marginX, y);
+  y += 16;
+  doc.text('Sales Confirmation No.: (issued after order confirmation)', marginX, y);
+  y += 16;
+  doc.text(`Buyer's Order No.: ${buyer.customerRef || '-'}`, marginX, y);
   y += 20;
 
-  doc.text(`Shipped Per: By Sea      Port of Discharge: ${order.buyer.destination || '-'}`, marginX, y);
+  doc.setFont('helvetica', 'bold');
+  doc.text('Consigned to Messrs.:', marginX, y);
+  doc.text('Buyer:', pageW / 2 + 6, y);
+  doc.setFont('helvetica', 'normal');
   y += 14;
-  doc.text(`Terms of Payment: ${order.paymentTermLabel}`, marginX, y);
+  const colW = pageW / 2 - marginX - 10;
+  doc.text(doc.splitTextToSize(consignee || buyer.company || '-', colW), marginX, y);
+  doc.text(doc.splitTextToSize(buyer.company || '-', colW), pageW / 2 + 6, y);
   y += 14;
-  doc.text('Country of Origin: Thailand', marginX, y);
+  doc.text(doc.splitTextToSize(buyer.address || '-', colW), pageW / 2 + 6, y);
+  y += 30;
+
+  doc.text(`Shipping Marks & Nos.: ${buyer.company || '-'} / DIESEL ENGINE / POWER TILLER AND IMPLEMENTS`, marginX, y);
+  y += 18;
+
+  doc.text(`Shipped Per: ${order.shippedPer || 'By Sea'}`, marginX, y);
+  doc.text(`On or About: ${order.deliveryDate || '-'}`, pageW / 2 + 6, y);
+  y += 14;
+  doc.text(`Port of Loading: ${order.portOfLoading || 'Any port'}`, marginX, y);
+  doc.text(`Port of Discharge: ${order.port || destination}`, pageW / 2 + 6, y);
+  y += 14;
+  doc.text(`Place of Delivery: ${destination}`, marginX, y);
+  doc.text('Country of Origin: Thailand', pageW / 2 + 6, y);
+  y += 14;
+  doc.text(`Terms of Payment: ${order.paymentTermLabel || '-'}`, marginX, y);
   y += 22;
 
   const { y: afterTable, total } = pdfItemsTable(doc, order.items, y, marginX, pageW);
   y = afterTable;
 
   doc.setFont('helvetica', 'bold');
-  doc.text(`*** TOTAL CIF ${order.buyer.destination || '-'} ***`, marginX, y);
+  doc.text(`*** TOTAL ${order.incotermCode || 'CIF'} ${order.port || destination} ***`, marginX, y);
   doc.text(pdfMoney(total), pageW - marginX, y, { align: 'right' });
   y += 30;
 
-  doc.setFont('helvetica', 'normal');
+  doc.setFont('helvetica', 'bold');
   doc.setFontSize(9);
-  doc.text('Bank Detail: MIZUHO BANK, LTD.   Swift Code: MHCBTHBKXXX', marginX, y);
+  doc.text('Packing List: Per Carton', marginX, y);
+  doc.text('Bank Detail:', pageW / 2 + 6, y);
   y += 13;
-  doc.text('Account No.: F15-764-917686   A/C Name: Siam Kubota Corporation Co., Ltd.', marginX, y);
-  y += 30;
+  doc.setFont('helvetica', 'normal');
+  doc.text('N.W. ___ KGS.   G.W. ___ KGS.', marginX, y);
+  doc.text('MIZUHO BANK, LTD.', pageW / 2 + 6, y);
+  y += 13;
+  doc.text('Dimension ___ CMS.   Total ___ Cartons', marginX, y);
+  doc.text('Account No.: F15-764-917686   Swift: MHCBTHBKXXX', pageW / 2 + 6, y);
+  y += 13;
+  doc.text('A/C Name: Siam Kubota Corporation Co., Ltd.', pageW / 2 + 6, y);
+  y += 26;
 
   doc.text('E. & O.E.                                                    Origin of Thailand', marginX, y);
   y += 30;
@@ -2561,6 +2592,7 @@ function initPoRequestPage(c) {
           <span>${t.incotermLabel}</span>
           <select id="po-req-incoterm">${t.incoterms.map(i => `<option value="${i.id}">${i.label}</option>`).join('')}</select>
         </label>
+        <label class="po-req-field"><span>${t.portOfLoadingLabel}</span><input type="text" id="po-req-port-of-loading"></label>
         <label class="po-req-field"><span>${t.portLabel}</span><input type="text" id="po-req-port"></label>
         <label class="po-req-field">
           <span>${t.paymentLabel}</span>
@@ -2583,6 +2615,10 @@ function initPoRequestPage(c) {
         <label><input type="radio" name="po-req-pi" value="no"> ${pi.no}</label>
       </div>
       <p class="po-req-hint">${pi.helpText}</p>
+      <label class="po-req-field po-req-field--wide" id="po-req-consignee-field" hidden>
+        <span>${pi.consigneeLabel}</span>
+        <textarea id="po-req-consignee" rows="2" placeholder="${pi.consigneePlaceholder}"></textarea>
+      </label>
     `;
   }
 
@@ -2629,7 +2665,10 @@ function initPoRequestPage(c) {
     document.getElementById('po-req-port').closest('.po-req-field').style.display = 'none';
 
     body.querySelectorAll('input[name="po-req-pi"]').forEach(radio => {
-      radio.addEventListener('change', () => { piWanted = radio.value; });
+      radio.addEventListener('change', () => {
+        piWanted = radio.value;
+        document.getElementById('po-req-consignee-field').hidden = piWanted !== 'yes';
+      });
     });
 
     document.getElementById('po-req-submit-btn').addEventListener('click', onSubmit);
@@ -2649,7 +2688,8 @@ function initPoRequestPage(c) {
 
     const poNumber = orderGenNumber('PO');
     const incoterm = pr.terms.incoterms.find(i => i.id === document.getElementById('po-req-incoterm').value);
-    const shipping = pr.terms.shippingMethods.find(s => s.id === document.getElementById('po-req-shipping').value);
+    const shippingId = document.getElementById('po-req-shipping').value;
+    const shipping = pr.terms.shippingMethods.find(s => s.id === shippingId);
     const term = paymentTerms.find(t => t.id === selectedTermId) || paymentTerms[0];
 
     const order = {
@@ -2659,15 +2699,23 @@ function initPoRequestPage(c) {
       items: pdfItems,
       paymentTermLabel: term ? term.label : '',
       incotermLabel: incoterm ? incoterm.label : '',
+      incotermCode: incoterm && incoterm.id === 'fob_bkk' ? 'FOB' : incoterm && incoterm.id === 'cif' ? 'CIF' : '',
+      portOfLoading: document.getElementById('po-req-port-of-loading').value,
       port: document.getElementById('po-req-port').value,
+      shippedPer: shippingId.startsWith('air') ? 'By Air' : 'By Sea',
       shippingLabel: shipping ? shipping.label : '',
       deliveryDate: document.getElementById('po-req-delivery-date').value,
+      consignee: document.getElementById('po-req-consignee').value,
       piWanted: piWanted === 'yes',
       piWantedSet: piWanted !== null,
       notes: document.getElementById('po-req-notes').value
     };
     lastPoRequestOrder = order;
     generatePoRequestPdf(order, pr);
+    if (order.piWanted) {
+      order.piNumber = orderGenNumber('PI');
+      generatePiPdf(order);
+    }
     submitPoWebhook(order);
 
     body.innerHTML = `
@@ -2678,11 +2726,14 @@ function initPoRequestPage(c) {
         <p class="po-req-hint">${pr.nextStepsNote}</p>
         <div class="po-req-confirmed-actions">
           <button type="button" class="order-btn" id="po-req-download-again-btn">${pr.downloadAgainBtn}</button>
+          ${order.piWanted ? `<button type="button" class="order-btn" id="po-req-download-pi-again-btn">${pr.pi.downloadPiBtn}</button>` : ''}
           <button type="button" class="order-btn order-btn--ghost" id="po-req-new-btn">${pr.newRequestBtn}</button>
         </div>
       </div>
     `;
     document.getElementById('po-req-download-again-btn').addEventListener('click', () => generatePoRequestPdf(lastPoRequestOrder, pr));
+    const downloadPiAgainBtn = document.getElementById('po-req-download-pi-again-btn');
+    if (downloadPiAgainBtn) downloadPiAgainBtn.addEventListener('click', () => generatePiPdf(lastPoRequestOrder));
     document.getElementById('po-req-new-btn').addEventListener('click', () => { items = [{ modelId: '', qty: 1 }]; piWanted = null; renderForm(); });
   }
 

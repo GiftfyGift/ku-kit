@@ -342,6 +342,9 @@
         {
           "name": "NC Plus X",
           "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "Nembo ya NC Plus X" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800", "caption": "800 mm" }
+          ],
           "desc": "Kipenyo cha gurudumu la kizimba 800 mm, vile vya gurudumu inchi 3 (vipande 16). Inafaa kwa udongo wa mfinyanzi au mchanga, mashamba ya mpunga na makavu, mashamba ya miwa, muhogo, maharage, na mboga. Gurudumu la kizimba linaweza kutumika kwa safari fupi. Haifai kwa mashamba yenye tope kubwa.",
           "specs": [
             { "label": "Kipenyo cha gurudumu la kizimba", "value": "800 mm" },
@@ -997,7 +1000,7 @@
   "poRequest": {
     "title": "Ombi la Agizo la Ununuzi (PO)",
     "intro": "Fomu ya kawaida kwa wauzaji na wasambazaji kuwasilisha agizo la ununuzi la kimataifa kwa injini za dizeli za Kubota na matrekta ya kutembea ya Tra Chang — ikitumia sehemu zile zile ambazo Siam Kubota hutumia kutoa PO na Ankara ya Awali halisi.",
-    "disclaimer": "Kwa sasa, fomu hii hutengeneza faili la PO la kupakua mara moja. Arifa ya kiotomatiki ya barua pepe kwa timu ya mauzo itaanza kufanya kazi baada ya mfumo wa nyuma kukubaliwa — wakati huu, tafadhali tuma PO iliyotengenezwa moja kwa moja kwa muuzaji anayekuhudumia.",
+    "disclaimer": "Kwa sasa, fomu hii hutengeneza faili la PO (na faili la PI kwa muundo halisi wa Siam Kubota, ikiwa umeliomba) la kupakua mara moja. Arifa ya kiotomatiki ya barua pepe kwa timu ya mauzo itaanza kufanya kazi baada ya mfumo wa nyuma kukubaliwa — wakati huu, tafadhali tuma faili zilizotengenezwa moja kwa moja kwa muuzaji anayekuhudumia.",
     "customer": {
       "heading": "1. Taarifa za mnunuzi",
       "selectLabel": "Chagua mteja wa zamani (kama yupo)",
@@ -1030,6 +1033,7 @@
         { "id": "cif", "label": "CIF bandari ya marudio (taja hapa chini)" },
         { "id": "other", "label": "Nyingine (taja kwenye maelezo)" }
       ],
+      "portOfLoadingLabel": "Bandari ya kupakia",
       "portLabel": "Bandari ya marudio (kwa CIF)",
       "paymentLabel": "Masharti ya malipo",
       "shippingLabel": "Njia ya usafirishaji",
@@ -1045,7 +1049,10 @@
       "question": "Je, unahitaji Ankara ya Awali kwa agizo hili?",
       "yes": "Ndiyo",
       "no": "Hapana",
-      "helpText": "Baadhi ya nchi zinahitaji PI kufanikisha uhamisho wa benki au tamko la uagizaji bidhaa — kwa mfano, ambapo uhamisho wa fedha za USD wa kuvuka mipaka unahitaji nyaraka za kuunga mkono. Ukichagua &ldquo;Ndiyo&rdquo;, timu inayotoa nyaraka itaandaa PI kutoka kwa PO hii mara muuzaji wako atakapothibitisha agizo."
+      "helpText": "Baadhi ya nchi zinahitaji PI kufanikisha uhamisho wa benki au tamko la uagizaji bidhaa — kwa mfano, ambapo uhamisho wa fedha za USD wa kuvuka mipaka unahitaji nyaraka za kuunga mkono. Ukichagua &ldquo;Ndiyo&rdquo;, mfumo utatengeneza faili la PI kwa muundo halisi wa Siam Kubota kwa kupakua pamoja na PO mara moja — Nambari rasmi ya Sales Confirmation itatolewa baada ya muuzaji wako kuthibitisha agizo.",
+      "consigneeLabel": "Mpokeaji wa mzigo (Consignee) — ikiwa tofauti na mnunuzi",
+      "consigneePlaceholder": "Acha wazi ikiwa mpokeaji wa mzigo ni kampuni ile ile ya mnunuzi",
+      "downloadPiBtn": "Pakua PI tena"
     },
     "notesLabel": "Maelezo ya ziada",
     "notesPlaceholder": "Masharti mengine maalum — ombi la punguzo, tarehe ya nyaraka inayohitajika, n.k.",

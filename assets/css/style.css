@@ -1448,10 +1448,6 @@ main {
   max-width: 560px;
 }
 
-#tiller-product-info .category-photo {
-  margin-left: 0;
-  margin-right: auto;
-}
 
 .category-photo img {
   display: block;
@@ -1613,7 +1609,7 @@ main {
 
 .product-card-logo {
   display: block;
-  height: 28px;
+  height: 42px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -1621,13 +1617,13 @@ main {
 
 .product-card-photos {
   display: flex;
+  justify-content: center;
   gap: 12px;
   padding: 16px 20px 0;
 }
 
 .product-card-photo {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 110px;
   margin: 0;
   text-align: center;
 }
@@ -3999,7 +3995,8 @@ table.parts-table td.code-col {
 @media (max-width: 560px) { .po-req-field--wide { grid-column: span 1; } }
 
 .po-req-field input,
-.po-req-field select {
+.po-req-field select,
+.po-req-field textarea {
   background: var(--kubota-light-gray);
   border: 1px solid var(--kubota-border);
   border-radius: var(--radius-md);
@@ -4008,6 +4005,7 @@ table.parts-table td.code-col {
   font-size: 14px;
   font-family: inherit;
   width: 100%;
+  resize: vertical;
 }
 
 #po-req-known-customer { max-width: 420px; }

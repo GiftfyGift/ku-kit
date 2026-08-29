@@ -342,6 +342,9 @@
         {
           "name": "NC Plus X",
           "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "Logo ng NC Plus X" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller", "caption": "800 mm" }
+          ],
           "desc": "Cage wheel na 800 mm ang diameter, 3-pulgadang wheel blade (16 piraso). Angkop para sa lupang mabuhangin o hindi masyadong malagkit, parehong basa at tuyong bukid, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Puwedeng gamitin ang cage wheel para sa maikling biyahe. Hindi angkop sa napakalalim na putikan.",
           "specs": [
             { "label": "Diameter ng cage wheel", "value": "800 mm" },
@@ -991,7 +994,7 @@
   "poRequest": {
     "title": "Kahilingan sa Purchase Order",
     "intro": "Standard na form para sa mga dealer at distributor para magsumite ng international purchase order para sa mga Kubota diesel engine at Tra Chang power tiller — gamit ang parehong mga field na ginagamit ng Siam Kubota para maglabas ng tunay na PO at Proforma Invoice.",
-    "disclaimer": "Sa ngayon, agad na gumagawa ang form na ito ng PO file na madadownload. Ang automatic na email notification sa sales team ay ma-a-activate kapag napagkasunduan na ang backend approach — samantala, ipadala na lang nang direkta sa iyong sales contact ang nagawang PO.",
+    "disclaimer": "Sa ngayon, agad na gumagawa ang form na ito ng PO file (at PI file sa tunay na format ng Siam Kubota, kung hiniling) na madadownload. Ang automatic na email notification sa sales team ay ma-a-activate kapag napagkasunduan na ang backend approach — samantala, ipadala na lang nang direkta sa iyong sales contact ang mga nagawang file.",
     "customer": {
       "heading": "1. Impormasyon ng bumibili",
       "selectLabel": "Pumili ng dati nang customer (kung mayroon)",
@@ -1024,6 +1027,7 @@
         { "id": "cif", "label": "CIF destination port (tukuyin sa ibaba)" },
         { "id": "other", "label": "Iba pa (tukuyin sa notes)" }
       ],
+      "portOfLoadingLabel": "Port of loading",
       "portLabel": "Destination port (para sa CIF)",
       "paymentLabel": "Termino ng bayad",
       "shippingLabel": "Paraan ng padala",
@@ -1039,7 +1043,10 @@
       "question": "Kailangan mo ba ng Proforma Invoice para sa order na ito?",
       "yes": "Oo",
       "no": "Hindi",
-      "helpText": "May mga bansang nangangailangan ng PI para makapagproseso ng bank transfer o import declaration — halimbawa, kapag kailangan ng supporting document ang cross-border na paglipat ng USD. Kapag pinili mo ang &ldquo;Oo&rdquo;, gagawa ang issuing team ng PI mula sa PO na ito kapag nakumpirma na ng iyong sales contact ang order."
+      "helpText": "May mga bansang nangangailangan ng PI para makapagproseso ng bank transfer o import declaration — halimbawa, kapag kailangan ng supporting document ang cross-border na paglipat ng USD. Kapag pinili mo ang &ldquo;Oo&rdquo;, agad na gagawa ang system ng PI file sa tunay na format ng Siam Kubota na madadownload kasabay ng PO — ang opisyal na Sales Confirmation No. ay ibibigay kapag nakumpirma na ng iyong sales contact ang order.",
+      "consigneeLabel": "Consignee — kung iba sa bumibili",
+      "consigneePlaceholder": "Iwanang blangko kung ang consignee ay parehong kompanya ng bumibili",
+      "downloadPiBtn": "I-download muli ang PI"
     },
     "notesLabel": "Karagdagang notes",
     "notesPlaceholder": "Anumang espesyal na kondisyon — kahilingan ng diskwento, kailangang petsa ng dokumento, atbp.",

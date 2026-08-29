@@ -342,6 +342,9 @@
         {
           "name": "NC Plus X",
           "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "NC Plus X logo" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller", "caption": "800 mm" }
+          ],
           "desc": "Cage wheel diameter 800 mm, 3-inch wheel blades (16 pieces). Suitable for loamy or sandy soil, both paddy and dry fields, sugarcane/cassava/bean/vegetable plots. Cage wheels can travel short distances. Not recommended for puddled (deep-mud) fields.",
           "specs": [
             { "label": "Cage wheel diameter", "value": "800 mm" },
@@ -1326,7 +1329,7 @@
   "poRequest": {
     "title": "Purchase Order Request",
     "intro": "A standardized form for dealers and distributors to submit an international purchase order for Kubota diesel engines and Tra Chang power tillers — using the same fields Siam Kubota uses to issue a real PO and Proforma Invoice.",
-    "disclaimer": "Right now this form generates a downloadable PO file immediately. Automatic email notification to the sales team will go live once the backend approach is agreed — in the meantime, please send the generated PO directly to your sales contact.",
+    "disclaimer": "Right now this form generates a downloadable PO file (and a PI file in Siam Kubota's real format, if requested) immediately. Automatic email notification to the sales team will go live once the backend approach is agreed — in the meantime, please send the generated file(s) directly to your sales contact.",
     "customer": {
       "heading": "1. Buyer information",
       "selectLabel": "Select an existing customer (if any)",
@@ -1359,6 +1362,7 @@
         { "id": "cif", "label": "CIF destination port (specify below)" },
         { "id": "other", "label": "Other (specify in notes)" }
       ],
+      "portOfLoadingLabel": "Port of loading",
       "portLabel": "Destination port (for CIF)",
       "paymentLabel": "Terms of payment",
       "shippingLabel": "Shipping method",
@@ -1374,7 +1378,10 @@
       "question": "Do you need a Proforma Invoice for this order?",
       "yes": "Yes",
       "no": "No",
-      "helpText": "Some countries require a PI to process a bank transfer or import declaration — for example, where cross-border USD transfers need supporting documentation. If you select &ldquo;Yes&rdquo;, the issuing team will draft the PI from this PO once your sales contact confirms the order."
+      "helpText": "Some countries require a PI to process a bank transfer or import declaration — for example, where cross-border USD transfers need supporting documentation. If you select &ldquo;Yes&rdquo;, the system generates a PI file in Siam Kubota's real format to download alongside the PO immediately — the official Sales Confirmation No. is issued once your sales contact confirms the order.",
+      "consigneeLabel": "Consignee — if different from the buyer",
+      "consigneePlaceholder": "Leave blank if the consignee is the same company as the buyer",
+      "downloadPiBtn": "Download PI again"
     },
     "notesLabel": "Additional notes",
     "notesPlaceholder": "Any special conditions — a discount request, a required document date, etc.",
