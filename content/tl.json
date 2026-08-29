@@ -501,7 +501,8 @@
           { "text": "May natatanging PT frame number — \"NC-XXXXXX\" (letra + 5 numero) — malalim at malinaw na naka-stamp at madaling makita.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Naka-stamp na PT frame number sa tiller" } },
           { "text": "Ang simbolong elepante sa itaas na takip ng frame ay nakaharap sa kaliwa, nakataas ang kaliwang harapang paa, nasa loob ng hugis-gear.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Simbolong elepante sa itaas na takip ng frame" } },
           { "text": "Ganoon din sa gear shift lever — nakaharap sa kaliwa at nakataas ang kaliwang harapang paa, nasa loob ng hugis-gear.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Simbolong elepante sa gear shift lever" } }
-        ]
+        ],
+        "moreFile": { "title": "Check list - The genuine TRA CHANG Power Tiller", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/authenticity-checklist-tra-chang-en.pdf" }
       },
       "resources": [
         { "title": "NC131 Power Tiller Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }

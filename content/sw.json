@@ -501,7 +501,8 @@
           { "text": "Nambari ya kipekee ya fremu ya PT — \"NC-XXXXXX\" (herufi + tarakimu 5) — iliyochapwa kwa undani na wazi na kuonekana kwa urahisi.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Nambari ya fremu iliyochapwa kwenye trekta la kutembea" } },
           { "text": "Alama ya tembo kwenye kifuniko cha juu cha fremu inaelekea kushoto na mguu wa mbele wa kushoto umeinuliwa, ndani ya umbo la gia.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Alama ya tembo kwenye kifuniko cha juu cha fremu" } },
           { "text": "Alama ya tembo kwenye lever ya kubadilisha gia pia inaelekea kushoto na mguu wa mbele wa kushoto umeinuliwa, ndani ya umbo la gia.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Alama ya tembo kwenye lever ya kubadilisha gia" } }
-        ]
+        ],
+        "moreFile": { "title": "Check list - The genuine TRA CHANG Power Tiller", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/authenticity-checklist-tra-chang-swa.pdf" }
       },
       "resources": [
         { "title": "Mwongozo wa Uendeshaji wa Trekta la Kutembea la NC131 (OPM)", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-swa.pdf" }

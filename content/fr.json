@@ -501,7 +501,8 @@
           { "text": "Un numéro de châssis unique — « NC-XXXXXX » (lettres + 5 chiffres) — profondément et clairement estampé, facile à repérer.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Numéro de châssis estampé sur le motoculteur" } },
           { "text": "Le symbole de l'éléphant sur le carter supérieur du châssis est tourné vers la gauche, patte avant gauche levée, à l'intérieur de la forme d'engrenage.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Symbole de l'éléphant sur le carter supérieur du châssis" } },
           { "text": "Le symbole de l'éléphant sur le levier de vitesses est également tourné vers la gauche, patte avant gauche levée, à l'intérieur de la forme d'engrenage.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Symbole de l'éléphant sur le levier de vitesses" } }
-        ]
+        ],
+        "moreFile": { "title": "Check list - The genuine TRA CHANG Power Tiller", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/authenticity-checklist-tra-chang-en.pdf" }
       },
       "resources": [
         { "title": "Manuel d'utilisation du motoculteur NC131 (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }

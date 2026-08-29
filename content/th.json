@@ -509,7 +509,8 @@
           { "text": "หมายเลขเฟรมเฉพาะตัว รูปแบบ \"NC-XXXXXX\" (ตัวอักษรตามด้วยเลข 5 หลัก) ตอกลึกและชัดเจน มองเห็นง่าย", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "หมายเลขเฟรมที่ตอกบนตัวรถไถเดินตาม" } },
           { "text": "สัญลักษณ์ช้างที่ฝาครอบด้านบนของเฟรม หันหน้าซ้ายและยกเท้าหน้าซ้าย อยู่ภายในรูปเฟือง", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "สัญลักษณ์ช้างที่ฝาครอบด้านบนของเฟรม" } },
           { "text": "สัญลักษณ์ช้างที่คันเกียร์ก็หันหน้าซ้ายและยกเท้าหน้าซ้ายเช่นกัน อยู่ภายในรูปเฟือง", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "สัญลักษณ์ช้างที่คันเกียร์" } }
-        ]
+        ],
+        "moreFile": { "title": "Check list - รวมจุดสังเกตรถไถเดินตามตราช้างของแท้", "lang": "TH", "type": "pdf", "href": "assets/docs/tiller/authenticity-checklist-tra-chang-th.pdf" }
       },
       "resources": [
         { "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (Operation Manual)", "lang": "TH", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-th.pdf" }

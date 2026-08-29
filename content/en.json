@@ -501,7 +501,8 @@
           { "text": "A unique PT frame number — \"NC-XXXXXX\" (letters + 5 digits) — deeply and clearly stamped and easy to see.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Stamped PT frame number on the tiller" } },
           { "text": "The elephant symbol on the frame's top cover faces left with its left front foot raised, inside the gear shape.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Elephant symbol on the frame's top cover" } },
           { "text": "The elephant symbol on the gear shift lever also faces left with its left front foot raised, inside the gear shape.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Elephant symbol on the gear shift lever" } }
-        ]
+        ],
+        "moreFile": { "title": "Check list - The genuine TRA CHANG Power Tiller", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/authenticity-checklist-tra-chang-en.pdf" }
       },
       "resources": [
         { "title": "NC131 Power Tiller Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }
