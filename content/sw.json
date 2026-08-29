@@ -508,8 +508,7 @@
         { "title": "Mwongozo wa Uendeshaji wa Trekta la Kutembea la NC131 (OPM)", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-swa.pdf" }
       ],
       "videosTitle": "Video",
-      "downloadsTitle": "Vipakuliwa",
-      "note": "Vipimo hapo juu vinatoka kwenye slaidi halisi za Product Knowledge za NC Plus X zilizotolewa na timu. Picha ya packshot imeunganishwa moja kwa moja na Drive (14MB) — zaidi ya kikomo cha 10MB ambacho kiunganishi cha Drive cha kipindi hiki kinaweza kupakua, hivyo haikuwekwa kwa ndani."
+      "downloadsTitle": "Vipakuliwa"
     },
     "assembly": {
       "title": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea",
@@ -536,8 +535,7 @@
         { "title": "Video ya mwongozo wa kuunganisha — injini ya ZT Plus + trekta la NC Plus X", "type": "youtube", "youtubeId": "7_xAb8HLC1I" }
       ],
       "videosTitle": "Video",
-      "downloadsTitle": "Vipakuliwa",
-      "note": "Hatua hapo juu zinatoka kwenye slaidi rasmi ya mwongozo wa kuunganisha. Kamilisha kuunganisha trekta la kutembea kwanza, kisha shikanisha injini."
+      "downloadsTitle": "Vipakuliwa"
     }
   },
   "parts": {

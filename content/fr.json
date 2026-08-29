@@ -508,8 +508,7 @@
         { "title": "Manuel d'utilisation du motoculteur NC131 (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }
       ],
       "videosTitle": "Vidéos",
-      "downloadsTitle": "Téléchargements",
-      "note": "Les caractéristiques ci-dessus proviennent du diaporama de connaissance produit NC Plus X fourni par l'équipe. La photo produit pointe directement vers Drive (14 Mo) — au-delà de la limite de 10 Mo du connecteur Drive de cette session, elle n'a donc pas été intégrée localement."
+      "downloadsTitle": "Téléchargements"
     },
     "assembly": {
       "title": "Comment assembler le moteur diesel avec le motoculteur",
@@ -536,8 +535,7 @@
         { "title": "Démonstration de montage — moteur ZT Plus + motoculteur NC Plus X", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Vidéos",
-      "downloadsTitle": "Téléchargements",
-      "note": "Ces étapes proviennent du diaporama officiel de guide de montage. Assemblez d'abord le motoculteur, puis fixez le moteur."
+      "downloadsTitle": "Téléchargements"
     }
   },
   "parts": {

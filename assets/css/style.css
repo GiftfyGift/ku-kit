@@ -738,7 +738,7 @@ main {
 
 .authenticity-artwork img {
   width: 100%;
-  max-width: 728px;
+  max-width: 874px;
   display: block;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
@@ -1739,19 +1739,20 @@ table.spec-table td:last-child {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 8px 14px;
+  gap: 3px;
+  padding: 12px 16px;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, var(--kubota-orange), var(--kubota-light-orange));
   color: #fff;
   text-align: center;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.3;
+  text-shadow: -1px -1px 0 rgba(0,0,0,0.55), 1px -1px 0 rgba(0,0,0,0.55), -1px 1px 0 rgba(0,0,0,0.55), 1px 1px 0 rgba(0,0,0,0.55);
 }
 
-.wheel-badge span:first-child { font-size: 15px; }
-.wheel-badge span:last-child { font-weight: 500; opacity: 0.92; font-size: 12px; }
+.wheel-badge span:first-child { font-size: 18px; }
+.wheel-badge span:last-child { font-weight: 600; opacity: 0.96; font-size: 14px; }
 
 .compare-section + .compare-section {
   margin-top: 14px;
@@ -2509,6 +2510,22 @@ ol.check-list li::before {
   object-fit: cover;
   object-position: center;
   text-shadow: none;
+}
+
+/* Tiller highlights: the source photos are already framed as angled-cut
+   graphics with a transparent surround, so show them whole instead of
+   cropping to fill the box. */
+.engine-differences-grid--contain-media .engine-difference-media {
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.engine-differences-grid--contain-media .engine-difference-media img {
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
 }
 
 .engine-difference-number {

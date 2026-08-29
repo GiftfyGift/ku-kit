@@ -508,8 +508,7 @@
         { "title": "NC131 Power Tiller Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }
       ],
       "videosTitle": "Mga Video",
-      "downloadsTitle": "Mga Download",
-      "note": "Ang mga detalye sa itaas ay mula mismo sa aktuwal na Product Knowledge deck ng NC Plus X na ibinigay ng team. Direktang naka-link sa Drive ang packshot photo (14MB) — lampas sa 10MB na limit na kayang i-download ng Drive connector ng session na ito, kaya hindi ito na-bundle nang lokal."
+      "downloadsTitle": "Mga Download"
     },
     "assembly": {
       "title": "Paano I-assemble ang Diesel Engine sa Power Tiller",
@@ -536,8 +535,7 @@
         { "title": "Video ng pag-assemble — ZT Plus engine + NC Plus X power tiller", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Mga Video",
-      "downloadsTitle": "Mga Download",
-      "note": "Ang mga hakbang sa itaas ay mula sa opisyal na assembly guide deck. Kumpletuhin muna ang pag-assemble ng power tiller, saka ikabit ang engine."
+      "downloadsTitle": "Mga Download"
     }
   },
   "parts": {

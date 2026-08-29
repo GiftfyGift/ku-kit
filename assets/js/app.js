@@ -277,7 +277,6 @@ function renderProductCategory(cat, id, showHeroImage = true) {
       </div>
     `;
   }).join('');
-  const catNote = cat.note ? `<div class="note-callout">${cat.note}</div>` : '';
   const catImage = (showHeroImage && cat.image) ? `
     <figure class="category-photo">
       <img src="${cat.image.src}" alt="${cat.image.alt}">
@@ -288,7 +287,6 @@ function renderProductCategory(cat, id, showHeroImage = true) {
     <div class="category-block"${id ? ` id="${id}"` : ''}>
       ${catImage}
       <div class="product-grid">${items}</div>
-      ${catNote}
     </div>
   `;
 }
@@ -654,12 +652,13 @@ function renderSellingPointsMedia(media) {
   return `${videoHtml}${filesHtml}`;
 }
 
-function renderEngineDifferences(section) {
+function renderEngineDifferences(section, opts = {}) {
   if (!section || !section.items || !section.items.length) return '';
+  const gridClass = opts.containMedia ? 'engine-differences-grid engine-differences-grid--contain-media' : 'engine-differences-grid';
   return `
     <div class="category-block engine-differences-section">
-      <h3 class="category-heading">${section.title}</h3>
-      <div class="engine-differences-grid">
+      ${opts.hideTitle ? '' : `<h3 class="category-heading">${section.title}</h3>`}
+      <div class="${gridClass}">
         ${section.items.map((item, index) => `
           <article class="engine-difference-card">
             <figure class="engine-difference-media">
@@ -794,7 +793,7 @@ function renderAssemblyBlock(a) {
       ${a.guideDoc ? `<div class="file-pill-row">${renderFilePill(a.guideDoc)}</div>` : ''}
     </div>
     ${renderProductResources(a)}
-    <div class="note-callout">${a.note}</div>
+    ${a.note ? `<div class="note-callout">${a.note}</div>` : ''}
   `;
 }
 
@@ -811,7 +810,7 @@ function renderProductTiller(c) {
       <h3 class="category-heading">${t.title}</h3>
       ${renderProductCategory(t, 'tiller-product-info', false)}
       ${t.productKnowledgeDoc ? `<div class="file-pill-row">${renderFilePill(t.productKnowledgeDoc)}</div>` : ''}
-      ${renderEngineDifferences(t.highlights)}
+      ${renderEngineDifferences(t.highlights, { hideTitle: true, containMedia: true })}
       ${renderAssemblyBlock(p.assembly)}
       ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
       ${renderApplicationExamples(t.applicationExamples, 'tiller-application')}

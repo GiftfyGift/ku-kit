@@ -508,8 +508,7 @@
         { "title": "NC131 Power Tiller Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }
       ],
       "videosTitle": "Videos",
-      "downloadsTitle": "Downloads",
-      "note": "Specs above come from the actual NC Plus X product knowledge deck provided by the team. The packshot photo links directly to Drive (14MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally."
+      "downloadsTitle": "Downloads"
     },
     "assembly": {
       "title": "How to Assemble the Diesel Engine with the Power Tiller",
@@ -536,8 +535,7 @@
         { "title": "Assembly walkthrough — ZT Plus engine + NC Plus X power tiller", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Videos",
-      "downloadsTitle": "Downloads",
-      "note": "These steps are sourced from the official assembly guide deck. Follow the power tiller assembly first, then attach the engine."
+      "downloadsTitle": "Downloads"
     }
   },
   "parts": {
