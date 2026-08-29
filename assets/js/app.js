@@ -219,7 +219,6 @@ function renderHome(c) {
 
 function renderProductCategory(cat, id, showHeroImage = true) {
   const items = cat.items.map(item => {
-    const specs = item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
     const isMultiPhoto = item.images && item.images.length > 1;
     const heading = item.logo
       ? `<img class="product-card-logo${isMultiPhoto ? ' product-card-logo--large' : ''}" src="${item.logo.src}" alt="${item.logo.alt}">`
@@ -234,6 +233,38 @@ function renderProductCategory(cat, id, showHeroImage = true) {
         `).join('')}
       </div>
     ` : '';
+    const hasCompare = item.wheelOptions && item.exterior && item.interior;
+    const body = hasCompare ? `
+      <div class="product-card-body product-card-body--compare">
+        <div class="wheel-badge-row">
+          ${item.wheelOptions.map(w => `
+            <div class="wheel-badge">
+              <span>${w.diameterMm} มม.</span>
+              <span>+ ใบล้อ ${w.bladeInch}" × ${w.bladeCount} ใบ</span>
+            </div>
+          `).join('')}
+        </div>
+        <div class="compare-section">
+          <h5 class="compare-heading">ภายนอก</h5>
+          <ul class="compare-bullets">${item.exterior.map(t => `<li>${t}</li>`).join('')}</ul>
+        </div>
+        <div class="compare-section">
+          <h5 class="compare-heading">ภายใน</h5>
+          ${item.interior.map(group => `
+            <div class="compare-subgroup">
+              <p class="compare-subheading">${group.heading}</p>
+              <ul class="compare-bullets compare-bullets--dash">${group.bullets.map(t => `<li>${t}</li>`).join('')}</ul>
+            </div>
+          `).join('')}
+        </div>
+        ${item.compatNote ? `<p class="compare-note">${item.compatNote}</p>` : ''}
+      </div>
+    ` : `
+      <div class="product-card-body">
+        <p class="desc">${item.desc}</p>
+        <table class="spec-table"><tbody>${item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('')}</tbody></table>
+      </div>
+    `;
     return `
       <div class="product-card-group">
         ${photos}
@@ -241,10 +272,7 @@ function renderProductCategory(cat, id, showHeroImage = true) {
           <div class="product-card-header">
             ${heading}
           </div>
-          <div class="product-card-body">
-            <p class="desc">${item.desc}</p>
-            <table class="spec-table"><tbody>${specs}</tbody></table>
-          </div>
+          ${body}
         </div>
       </div>
     `;

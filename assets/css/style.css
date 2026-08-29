@@ -1724,6 +1724,93 @@ table.spec-table td:last-child {
   font-weight: 600;
 }
 
+/* Tiller model comparison card body (wheel size / exterior / interior) */
+.wheel-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.wheel-badge {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--kubota-orange), var(--kubota-light-orange));
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.wheel-badge span:first-child { font-size: 15px; }
+.wheel-badge span:last-child { font-weight: 500; opacity: 0.92; font-size: 12px; }
+
+.compare-section + .compare-section {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--kubota-border);
+}
+
+.compare-heading {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--kubota-orange);
+  display: inline-block;
+  color: var(--kubota-navy);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.compare-bullets {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--kubota-mid-gray);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.compare-subgroup { margin-top: 10px; }
+.compare-subgroup:first-of-type { margin-top: 0; }
+
+.compare-subheading {
+  margin: 0 0 2px;
+  color: var(--kubota-dark);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.compare-bullets--dash {
+  list-style: none;
+  padding-left: 4px;
+}
+
+.compare-bullets--dash li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.compare-bullets--dash li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--kubota-light-orange);
+}
+
+.compare-note {
+  margin: 14px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--kubota-border);
+  color: var(--kubota-light-orange);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 /* Generic table (maintenance, kubota-table) */
 table.kubota-table {
   width: 100%;
