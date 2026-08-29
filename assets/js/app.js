@@ -3492,18 +3492,34 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const wordmarkVisible = st.wordmarkVisible !== false;
   const photoVisible = st.photoVisible !== false;
   const textVisible = st.textVisible !== false;
-  const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
+  // The "Kubota" mark and its product-category text ("Diesel Engine" /
+  // "Power Tiller") used to be one baked-in image, so switching the product
+  // never updated the category word. Draw the Kubota mark from a cropped
+  // logo-only asset and the category word as real text instead, so it can
+  // track the selected product; both share the same canvas font so they
+  // always match regardless of which word is showing.
+  const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-logo-only.png');
   const kubotaAspect = kubotaImg.width / kubotaImg.height;
+  const categoryText = st.product === 'engine' ? 'Diesel Engine'
+    : st.product === 'tiller' ? 'Power Tiller'
+    : 'Diesel Engine & Power Tiller';
 
   let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2 * logoScale;
-  let logoW = logoH * kubotaAspect;
+  let logoImgW = logoH * kubotaAspect;
+  const categoryFontPx = () => Math.round(logoH * 0.42);
+  const categoryGap = () => logoH * 0.16;
+  ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
+  let logoW = logoImgW + categoryGap() + ctx.measureText(categoryText).width;
   // The cropped wordmark is quite wide relative to its height; on the narrower
   // portrait canvas a height-based size can overflow both edges, so cap it to
   // a safe share of the width there and derive the height from that instead.
   const maxLogoW = isLandscape ? pxW * 0.5 : pxW * 0.74;
   if (logoW > maxLogoW) {
-    logoW = maxLogoW;
-    logoH = logoW / kubotaAspect;
+    const shrink = maxLogoW / logoW;
+    logoH *= shrink;
+    logoImgW = logoH * kubotaAspect;
+    ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
+    logoW = logoImgW + categoryGap() + ctx.measureText(categoryText).width;
   }
 
   const photoBg = AW_PHOTO_BACKGROUNDS[bgStyle] ? await loadArtworkImage(AW_PHOTO_BACKGROUNDS[bgStyle]) : null;
@@ -3526,7 +3542,13 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
   if (logoVisible && bgStyle !== 'diagonal') ctx.filter = 'invert(1)';
-  if (logoVisible) ctx.drawImage(kubotaImg, logoX, logoY, logoW, logoH);
+  if (logoVisible) {
+    ctx.drawImage(kubotaImg, logoX, logoY, logoImgW, logoH);
+    ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
+    ctx.fillStyle = '#000';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(categoryText, logoX + logoImgW + categoryGap(), logoY + logoH / 2);
+  }
   ctx.filter = 'none';
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2 * wordmarkScale;
