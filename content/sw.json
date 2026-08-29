@@ -94,6 +94,7 @@
       "preDelivery": {
         "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
         "intro": "Kamilisha ukaguzi huu tano kabla ya kumkabidhi mteja injini au kabla ya kuiwasha kwa mara ya kwanza.",
+        "video": { "title": "Ukaguzi wa awali wa injini ya ZT Plus", "type": "youtube", "youtubeId": "9iHaIeHm1Bw" },
         "points": [
           { "title": "1. Kichujio cha hewa", "desc": "Huchuja vumbi kutoka kwenye hewa inayoingia ili kulinda sehemu za ndani dhidi ya kuchakaa.", "steps": ["Jaza mafuta ya injini kwenye chungu cha kichujio.", "Jaza hadi alama ya kiwango iliyoonyeshwa kwenye chungu.", "Weka kichujio cha hewa kwa uangalifu ili muhuri wa mpira usichanike.", "Ongeza mafuta kidogo juu ya kichujio kusaidia kunasa vumbi."], "image": { "src": "assets/img/service/check-air-filter.jpg", "alt": "Kuongeza mafuta kwenye kichujio halisi cha hewa cha injini ya ZT Plus" } },
           { "title": "2. Mfumo wa mafuta", "desc": "Mafuta huchanganyika na hewa na kuwaka kutokana na joto la mgandamizo ili kuendesha injini.", "steps": ["Tumia mafuta safi; hakuna haja ya kuondoa kichujio wakati wa kuongeza mafuta.", "Angalia uvujaji karibu na kichujio — hakuna maji au uchafu unapaswa kuchanganyika na mafuta."], "image": { "src": "assets/img/service/check-fuel-system.jpg", "alt": "Kikombe halisi cha kichujio cha mafuta kwenye injini ya ZT Plus" } },
@@ -104,6 +105,7 @@
       },
       "startProcedure": {
         "title": "Jinsi ya Kuwasha Injini ya Dizeli ya KUBOTA kwa Usahihi",
+        "video": { "title": "Namna sahihi ya kuwasha injini", "type": "youtube", "youtubeId": "OvUyMXZhLd4" },
         "steps": [
           "Sogeza kiongeza mwendo kwenye nafasi ya kuwasha.",
           "Unganisha kivunjio cha mkono kwenye mhimili wa kuwasha wa injini.",
