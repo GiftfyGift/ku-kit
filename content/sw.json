@@ -71,6 +71,15 @@
           ]
         }
       },
+      "differences": {
+        "title": "Vipengele Vinavyotofautisha Injini za Dizeli za KUBOTA na Chapa Nyingine",
+        "items": [
+          { "title": "Ustahimilivu bora dhidi ya mshtuko", "desc": "Viti vya vali vya chuma cha pua hustahimili uchakavu na vinaweza kubadilishwa.", "image": { "src": "assets/img/product/education/engine-impact-resistance.webp", "alt": "Muundo wa viti vya vali vya chuma cha pua na maeneo ya mshtuko yaliyoangaziwa" } },
+          { "title": "Ustahimilivu mkubwa zaidi wa joto", "desc": "Kiini cha radiator na mapezi ya kupooza vimetengenezwa kwa shaba.", "image": { "src": "assets/img/product/education/engine-heat-resistance.webp", "alt": "Kiini cha radiator na mapezi ya kupooza ya shaba" } },
+          { "title": "Imeundwa kwa kazi nzito", "desc": "Sehemu ya crankshaft inayoungana na connecting rod imefanyiwa ugumu maalum.", "image": { "src": "assets/img/product/education/engine-heavy-duty.webp", "alt": "Sehemu ya crankshaft inayoungana na connecting rod iliyofanyiwa ugumu maalum" } },
+          { "title": "Mwitikio bora wa kuongeza kasi", "desc": "Governor ya mikono miwili yenye springi nne hutoa mwitikio wa haraka zaidi wa kuongeza kasi.", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "Mfumo wa governor wa mikono miwili wenye springi nne" } }
+        ]
+      },
       "preDelivery": {
         "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
         "intro": "Kamilisha ukaguzi huu tano kabla ya kumkabidhi mteja injini au kabla ya kuiwasha kwa mara ya kwanza.",
