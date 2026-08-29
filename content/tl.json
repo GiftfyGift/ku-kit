@@ -1,5 +1,5 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Wika", "sampleBadge": "Sample na datos" },
+  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Wika", "sampleBadge": "Sample na datos", "backToTopLabel": "Bumalik sa itaas" },
   "nav": { "home": "Home", "product": "Produkto", "parts": "Parts", "service": "Serbisyo", "crops": "Crop Solutions", "marketing": "Mga Event", "artwork": "Marketing Materials", "order": "Mag-order", "poRequest": "Purchase Order" },
   "hero": {
     "title": "Maligayang pagdating sa KU-KIT",

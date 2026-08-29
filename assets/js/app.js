@@ -4744,6 +4744,7 @@ async function setLang(lang) {
   state.searchIndex = buildSearchIndex(state.content);
   render();
   applyAssistantText(state.content);
+  applyBackToTopText(state.content);
   kaResetConversation(state.content);
 }
 
@@ -4891,6 +4892,10 @@ function applyAssistantText(c) {
   document.getElementById('ka-input').setAttribute('placeholder', a.placeholder);
 }
 
+function applyBackToTopText(c) {
+  document.getElementById('back-to-top').setAttribute('aria-label', c.meta.backToTopLabel);
+}
+
 function kaAddMessage(role, html) {
   const wrap = document.createElement('div');
   wrap.className = `ka-msg ka-msg--${role}`;
@@ -4993,6 +4998,22 @@ lightbox.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !lightbox.hasAttribute('hidden')) closeLightbox();
+});
+
+/* ---------- Back-to-top button: wiring ---------- */
+// One global button (outside #app) that works the same on every route,
+// so long pages don't need their own scroll-back control.
+
+const backToTopBtn = document.getElementById('back-to-top');
+
+function updateBackToTopVisibility() {
+  backToTopBtn.classList.toggle('is-visible', window.scrollY > 480);
+}
+
+window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 });
 
 /* ---------- KU-KIT Assistant: wiring ---------- */

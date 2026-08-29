@@ -1,5 +1,5 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "ภาษา", "sampleBadge": "ข้อมูลตัวอย่าง" },
+  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "ภาษา", "sampleBadge": "ข้อมูลตัวอย่าง", "backToTopLabel": "เลื่อนขึ้นด้านบน" },
   "nav": { "home": "หน้าหลัก", "product": "สินค้า", "parts": "อะไหล่", "service": "บริการ", "crops": "โซลูชันพืชผล", "marketing": "กิจกรรม", "artwork": "สื่อการตลาด", "order": "สั่งซื้อ", "poRequest": "ยื่นคำสั่งซื้อ (PO)" },
   "hero": {
     "title": "ยินดีต้อนรับสู่ KU-KIT",
