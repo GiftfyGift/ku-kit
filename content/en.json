@@ -362,9 +362,71 @@
       "note": "Tell NC Plus X and NC Plus X Special apart: (1) chassis code on the warranty card — \"NC131\" has no \"S\" suffix (Plus X) vs \"NC131S\" (Special); (2) a punched \"S\" mark on the gear case only on the Special. All three TRA CHANG power tiller models can switch to rubber wheels for hauling crops or general transport.",
       "applicationExamples": {
         "title": "Usage Examples & Attachments for the Power Tiller",
-        "intro": "The TRA CHANG power tiller can be fitted with a wide range of attachments — from plowing, seed sowing, and rice harvesting to transport, threshing, hay baling, and weed control in cassava/sugarcane fields.",
-        "images": [
-          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Attachments that can be used with the TRA CHANG power tiller — plow, seed drill, rice harvester, transport, rice thresher, hay baler, and weed control in cassava/sugarcane fields" }
+        "intro": "The TRA CHANG power tiller can be fitted with a wide range of attachments — browse real field examples by usage category.",
+        "ui": {
+          "categoryLabel": "Select application category",
+          "previous": "Previous image",
+          "next": "Next image",
+          "openImage": "Open image"
+        },
+        "categories": [
+          {
+            "id": "dry-paddy",
+            "title": "Dry Paddy Soil Preparation",
+            "items": [
+              { "title": "Moldboard Plow", "desc": "Ideal for fields with heavy grass and stubble", "src": "https://drive.google.com/thumbnail?id=1ZbDX85DLC5tdQXHQnjK03WR6IjB2XoaI&sz=w2000", "alt": "Moldboard plow, dry paddy soil preparation — ideal for fields with heavy grass and stubble" },
+              { "title": "Moldboard Plow", "desc": "Ideal for fields with heavy grass and stubble", "src": "https://drive.google.com/thumbnail?id=1l9YN9slXu1EtOWSsBqn35Xzqm2NQ6soE&sz=w2000", "alt": "Moldboard plow, dry paddy soil preparation — ideal for fields with heavy grass and stubble" },
+              { "title": "2-Disc Plow", "desc": "Ideal for loamy or sandy soil, and fields with little grass or stubble", "src": "https://drive.google.com/thumbnail?id=1HDYW3veCyse2tUi328-44gyyAjg3Wwhy&sz=w2000", "alt": "2-disc plow, dry paddy soil preparation — ideal for loamy or sandy soil with little grass or stubble" },
+              { "title": "2-Disc Plow", "desc": "Ideal for loamy or sandy soil, and fields with little grass or stubble", "src": "https://drive.google.com/thumbnail?id=1SOXEJ4rG3LuokTrhyEooglgpBa-FkjF7&sz=w2000", "alt": "2-disc plow, dry paddy soil preparation — ideal for loamy or sandy soil with little grass or stubble" },
+              { "title": "Harrow", "desc": "Breaks down soil into a fine texture", "src": "https://drive.google.com/thumbnail?id=1Vke5QIMMpGBNa1hRf_4Q0VBEhAuy_90G&sz=w2000", "alt": "Harrow, dry paddy soil preparation — breaks down soil into a fine texture" }
+            ]
+          },
+          {
+            "id": "wet-paddy",
+            "title": "Wet Paddy Soil Preparation",
+            "items": [
+              { "title": "Moldboard Plow", "desc": "Ideal for fields with heavy grass and stubble", "src": "https://drive.google.com/thumbnail?id=1KsKPoyKCh-53tWc3AOzDPyqKTO6GqcOV&sz=w2000", "alt": "Moldboard plow, wet paddy soil preparation — ideal for fields with heavy grass and stubble" },
+              { "title": "Moldboard Plow", "desc": "Ideal for fields with heavy grass and stubble", "src": "https://drive.google.com/thumbnail?id=1XjKhkwzohZYfwgZWXt4BRNP4NYDZlcp6&sz=w2000", "alt": "Moldboard plow, wet paddy soil preparation — ideal for fields with heavy grass and stubble" },
+              { "title": "2-Disc Plow", "desc": "Ideal for loamy or sandy soil, and fields with little grass or stubble", "src": "https://drive.google.com/thumbnail?id=1Qo9AxEGkcXeipU3MBHYZO5dv4JbtugGv&sz=w2000", "alt": "2-disc plow, wet paddy soil preparation — ideal for loamy or sandy soil with little grass or stubble" },
+              { "title": "2-Disc Plow", "desc": "Ideal for loamy or sandy soil, and fields with little grass or stubble", "src": "https://drive.google.com/thumbnail?id=1IuUJZ5V-uq4pKc2Q3soWXxrCFg8ING5_&sz=w2000", "alt": "2-disc plow, wet paddy soil preparation — ideal for loamy or sandy soil with little grass or stubble" },
+              { "title": "Roller", "desc": "Presses down weed residue and refines the soil", "src": "https://drive.google.com/thumbnail?id=1jsMxJ9tQwRecef-0iSjYMfvu-NIUfukJ&sz=w2000", "alt": "Roller, wet paddy soil preparation — presses down weed residue and refines the soil" },
+              { "title": "Roller", "desc": "Presses down weed residue and refines the soil", "src": "https://drive.google.com/thumbnail?id=1Fr2tQP9qdQs3LswJE6aGJZipJN1vvDmF&sz=w2000", "alt": "Roller, wet paddy soil preparation — presses down weed residue and refines the soil" },
+              { "title": "Leveling Board + Furrow Plow", "desc": "Levels the field for easier planting and keeps water levels even", "src": "https://drive.google.com/thumbnail?id=1aPrsOebzaqOnUurJzTaJKE757nxq5Twg&sz=w2000", "alt": "Leveling board and furrow plow, wet paddy soil preparation — levels the field and keeps water levels even" },
+              { "title": "Leveling Board + Furrow Plow", "desc": "Levels the field for easier planting and keeps water levels even", "src": "https://drive.google.com/thumbnail?id=1mPXERhRIBpsf8lEmNr2HpZiMJr_czXUm&sz=w2000", "alt": "Leveling board and furrow plow, wet paddy soil preparation — levels the field and keeps water levels even" }
+            ]
+          },
+          {
+            "id": "planting",
+            "title": "Planting",
+            "items": [
+              { "title": "Rice Seeder", "desc": "Ensures even seed spacing in straight rows, making weeding and row maintenance easier", "src": "assets/img/product/application/carousel/tiller-planting-seeder-1.jpg", "alt": "Rice seeder, planting — ensures even seed spacing in straight rows" },
+              { "title": "Rice Seeder", "desc": "Ensures even seed spacing in straight rows, making weeding and row maintenance easier", "src": "assets/img/product/application/carousel/tiller-planting-seeder-2.jpg", "alt": "Rice seeder, planting — ensures even seed spacing in straight rows" }
+            ]
+          },
+          {
+            "id": "maintenance",
+            "title": "Maintenance",
+            "items": [
+              { "title": "Weeder", "desc": "Used to remove weeds in cassava fields", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-1.jpg", "alt": "Weeder, maintenance — used to remove weeds in cassava fields" },
+              { "title": "Weeder", "desc": "Used to remove weeds in cassava fields", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-2.jpg", "alt": "Weeder, maintenance — used to remove weeds in cassava fields" }
+            ]
+          },
+          {
+            "id": "harvest",
+            "title": "Harvesting",
+            "items": [
+              { "title": "Harvesting Attachment", "src": "assets/img/product/application/carousel/tiller-harvest-1.jpg", "alt": "Harvesting attachment — KUBOTA NC Plus X power tiller application" },
+              { "title": "Harvesting Attachment", "src": "assets/img/product/application/carousel/tiller-harvest-2.jpg", "alt": "Harvesting attachment — KUBOTA NC Plus X power tiller application" }
+            ]
+          },
+          {
+            "id": "transport",
+            "title": "Trailer Attachment & Produce Transport",
+            "items": [
+              { "title": "Produce Transport", "src": "assets/img/product/application/carousel/tiller-transport-1.jpg", "alt": "Trailer attachment and produce transport — KUBOTA NC Plus X power tiller application" },
+              { "title": "Produce Transport", "src": "assets/img/product/application/carousel/tiller-transport-2.jpg", "alt": "Trailer attachment and produce transport — KUBOTA NC Plus X power tiller application" }
+            ]
+          }
         ]
       },
       "authenticity": {

@@ -362,9 +362,71 @@
       "note": "Paano makilala ang NC Plus X sa NC Plus X Special: (1) chassis code sa warranty card — walang \"S\" sa dulo ang \"NC131\" (Plus X) samantalang may \"S\" ang \"NC131S\" (Special); (2) may markang \"S\" na naka-punch sa gear case sa Special lamang. Lahat ng 3 modelo ng TRA CHANG power tiller ay maaaring lagyan ng rubber wheel para sa pagdadala ng ani o pangkalahatang transportasyon.",
       "applicationExamples": {
         "title": "Mga Halimbawa ng Paggamit at Attachment para sa Power Tiller",
-        "intro": "Ang TRA CHANG power tiller ay maaaring lagyan ng iba't ibang attachment — mula sa pag-araro, pagtatanim ng binhi, at pag-ani ng palay hanggang sa transportasyon, paggiik, pagbalot ng dayami, at pagkontrol ng damo sa mga taniman ng kamoteng-kahoy/tubo.",
-        "images": [
-          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Mga attachment na magagamit sa TRA CHANG power tiller — araro, tagatanim ng binhi, tagagapas ng palay, transportasyon, panggiik ng palay, tagabalot ng dayami, at pagkontrol ng damo sa taniman ng kamoteng-kahoy/tubo" }
+        "intro": "Ang TRA CHANG power tiller ay maaaring lagyan ng iba't ibang attachment — tingnan ang mga aktwal na halimbawa sa bukid ayon sa kategorya ng paggamit.",
+        "ui": {
+          "categoryLabel": "Pumili ng kategorya ng application",
+          "previous": "Nakaraang larawan",
+          "next": "Susunod na larawan",
+          "openImage": "Palakihin ang larawan"
+        },
+        "categories": [
+          {
+            "id": "dry-paddy",
+            "title": "Paghahanda ng Lupa — Tuyong Palayan",
+            "items": [
+              { "title": "Moldboard Plow", "desc": "Angkop para sa mga bukid na maraming damo at tuod", "src": "https://drive.google.com/thumbnail?id=1ZbDX85DLC5tdQXHQnjK03WR6IjB2XoaI&sz=w2000", "alt": "Moldboard plow, paghahanda ng lupa sa tuyong palayan — angkop para sa mga bukid na maraming damo at tuod" },
+              { "title": "Moldboard Plow", "desc": "Angkop para sa mga bukid na maraming damo at tuod", "src": "https://drive.google.com/thumbnail?id=1l9YN9slXu1EtOWSsBqn35Xzqm2NQ6soE&sz=w2000", "alt": "Moldboard plow, paghahanda ng lupa sa tuyong palayan — angkop para sa mga bukid na maraming damo at tuod" },
+              { "title": "2-Disc Plow", "desc": "Angkop para sa maluwag o mabuhanging lupa, at mga bukid na kaunti lang ang damo o tuod", "src": "https://drive.google.com/thumbnail?id=1HDYW3veCyse2tUi328-44gyyAjg3Wwhy&sz=w2000", "alt": "2-disc plow, paghahanda ng lupa sa tuyong palayan — angkop para sa maluwag o mabuhanging lupa" },
+              { "title": "2-Disc Plow", "desc": "Angkop para sa maluwag o mabuhanging lupa, at mga bukid na kaunti lang ang damo o tuod", "src": "https://drive.google.com/thumbnail?id=1SOXEJ4rG3LuokTrhyEooglgpBa-FkjF7&sz=w2000", "alt": "2-disc plow, paghahanda ng lupa sa tuyong palayan — angkop para sa maluwag o mabuhanging lupa" },
+              { "title": "Harrow", "desc": "Ginagawang pino ang texture ng lupa", "src": "https://drive.google.com/thumbnail?id=1Vke5QIMMpGBNa1hRf_4Q0VBEhAuy_90G&sz=w2000", "alt": "Harrow, paghahanda ng lupa sa tuyong palayan — ginagawang pino ang texture ng lupa" }
+            ]
+          },
+          {
+            "id": "wet-paddy",
+            "title": "Paghahanda ng Lupa — Basang Palayan",
+            "items": [
+              { "title": "Moldboard Plow", "desc": "Angkop para sa mga bukid na maraming damo at tuod", "src": "https://drive.google.com/thumbnail?id=1KsKPoyKCh-53tWc3AOzDPyqKTO6GqcOV&sz=w2000", "alt": "Moldboard plow, paghahanda ng lupa sa basang palayan — angkop para sa mga bukid na maraming damo at tuod" },
+              { "title": "Moldboard Plow", "desc": "Angkop para sa mga bukid na maraming damo at tuod", "src": "https://drive.google.com/thumbnail?id=1XjKhkwzohZYfwgZWXt4BRNP4NYDZlcp6&sz=w2000", "alt": "Moldboard plow, paghahanda ng lupa sa basang palayan — angkop para sa mga bukid na maraming damo at tuod" },
+              { "title": "2-Disc Plow", "desc": "Angkop para sa maluwag o mabuhanging lupa, at mga bukid na kaunti lang ang damo o tuod", "src": "https://drive.google.com/thumbnail?id=1Qo9AxEGkcXeipU3MBHYZO5dv4JbtugGv&sz=w2000", "alt": "2-disc plow, paghahanda ng lupa sa basang palayan — angkop para sa maluwag o mabuhanging lupa" },
+              { "title": "2-Disc Plow", "desc": "Angkop para sa maluwag o mabuhanging lupa, at mga bukid na kaunti lang ang damo o tuod", "src": "https://drive.google.com/thumbnail?id=1IuUJZ5V-uq4pKc2Q3soWXxrCFg8ING5_&sz=w2000", "alt": "2-disc plow, paghahanda ng lupa sa basang palayan — angkop para sa maluwag o mabuhanging lupa" },
+              { "title": "Roller", "desc": "Pinipiga ang mga labi ng damo at ginagawang pino ang lupa", "src": "https://drive.google.com/thumbnail?id=1jsMxJ9tQwRecef-0iSjYMfvu-NIUfukJ&sz=w2000", "alt": "Roller, paghahanda ng lupa sa basang palayan — pinipiga ang mga labi ng damo at ginagawang pino ang lupa" },
+              { "title": "Roller", "desc": "Pinipiga ang mga labi ng damo at ginagawang pino ang lupa", "src": "https://drive.google.com/thumbnail?id=1Fr2tQP9qdQs3LswJE6aGJZipJN1vvDmF&sz=w2000", "alt": "Roller, paghahanda ng lupa sa basang palayan — pinipiga ang mga labi ng damo at ginagawang pino ang lupa" },
+              { "title": "Leveling Board + Furrow Plow", "desc": "Pinapantay ang bukid para sa mas madaling pagtatanim at pantay na antas ng tubig", "src": "https://drive.google.com/thumbnail?id=1aPrsOebzaqOnUurJzTaJKE757nxq5Twg&sz=w2000", "alt": "Leveling board at furrow plow, paghahanda ng lupa sa basang palayan — pinapantay ang bukid at pantay na antas ng tubig" },
+              { "title": "Leveling Board + Furrow Plow", "desc": "Pinapantay ang bukid para sa mas madaling pagtatanim at pantay na antas ng tubig", "src": "https://drive.google.com/thumbnail?id=1mPXERhRIBpsf8lEmNr2HpZiMJr_czXUm&sz=w2000", "alt": "Leveling board at furrow plow, paghahanda ng lupa sa basang palayan — pinapantay ang bukid at pantay na antas ng tubig" }
+            ]
+          },
+          {
+            "id": "planting",
+            "title": "Pagtatanim",
+            "items": [
+              { "title": "Rice Seeder", "desc": "Tinitiyak ang pantay na agwat ng binhi sa tuwid na hanay, mas madali ang pagbubunot ng damo at pag-aalaga", "src": "assets/img/product/application/carousel/tiller-planting-seeder-1.jpg", "alt": "Rice seeder, pagtatanim — tinitiyak ang pantay na agwat ng binhi sa tuwid na hanay" },
+              { "title": "Rice Seeder", "desc": "Tinitiyak ang pantay na agwat ng binhi sa tuwid na hanay, mas madali ang pagbubunot ng damo at pag-aalaga", "src": "assets/img/product/application/carousel/tiller-planting-seeder-2.jpg", "alt": "Rice seeder, pagtatanim — tinitiyak ang pantay na agwat ng binhi sa tuwid na hanay" }
+            ]
+          },
+          {
+            "id": "maintenance",
+            "title": "Pagpapanatili",
+            "items": [
+              { "title": "Weeder", "desc": "Ginagamit para alisin ang damo sa mga bukid ng kamoteng-kahoy", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-1.jpg", "alt": "Weeder, pagpapanatili — ginagamit para alisin ang damo sa mga bukid ng kamoteng-kahoy" },
+              { "title": "Weeder", "desc": "Ginagamit para alisin ang damo sa mga bukid ng kamoteng-kahoy", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-2.jpg", "alt": "Weeder, pagpapanatili — ginagamit para alisin ang damo sa mga bukid ng kamoteng-kahoy" }
+            ]
+          },
+          {
+            "id": "harvest",
+            "title": "Pag-aani",
+            "items": [
+              { "title": "Harvesting Attachment", "src": "assets/img/product/application/carousel/tiller-harvest-1.jpg", "alt": "Harvesting attachment — application ng KUBOTA NC Plus X power tiller" },
+              { "title": "Harvesting Attachment", "src": "assets/img/product/application/carousel/tiller-harvest-2.jpg", "alt": "Harvesting attachment — application ng KUBOTA NC Plus X power tiller" }
+            ]
+          },
+          {
+            "id": "transport",
+            "title": "Trailer Attachment at Transport ng Ani",
+            "items": [
+              { "title": "Transport ng Ani", "src": "assets/img/product/application/carousel/tiller-transport-1.jpg", "alt": "Trailer attachment at transport ng ani — application ng KUBOTA NC Plus X power tiller" },
+              { "title": "Transport ng Ani", "src": "assets/img/product/application/carousel/tiller-transport-2.jpg", "alt": "Trailer attachment at transport ng ani — application ng KUBOTA NC Plus X power tiller" }
+            ]
+          }
         ]
       },
       "authenticity": {

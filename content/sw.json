@@ -362,9 +362,71 @@
       "note": "Jinsi ya kutofautisha NC Plus X na NC Plus X Special: (1) msimbo wa chasi kwenye kadi ya udhamini — \"NC131\" haina \"S\" mwishoni (Plus X) wakati \"NC131S\" ina \"S\" mwishoni (Special); (2) alama ya \"S\" iliyochomwa kwenye sanduku la gia kwa Special pekee. Mifano yote 3 ya trekta la kutembea la TRA CHANG inaweza kubadilishwa kuwa magurudumu ya mpira kwa ajili ya kubeba mazao au usafirishaji wa jumla.",
       "applicationExamples": {
         "title": "Mifano ya Matumizi na Vifaa vya Kuongeza kwa Trekta la Kutembea",
-        "intro": "Trekta la kutembea la TRA CHANG linaweza kuwekwa vifaa mbalimbali — kutoka kulima, kupanda mbegu, na kuvuna mpunga hadi usafirishaji, kupura, kufunga nyasi, na kudhibiti magugu katika mashamba ya muhogo/miwa.",
-        "images": [
-          { "src": "assets/img/product/application/tiller-application-en-01.jpg", "alt": "Vifaa vinavyoweza kutumika na trekta la kutembea la TRA CHANG — jembe, mpanzi wa mbegu, mvunaji wa mpunga, usafirishaji, mpuraji wa mpunga, mfungaji wa nyasi, na kudhibiti magugu katika mashamba ya muhogo/miwa" }
+        "intro": "Trekta la kutembea la TRA CHANG linaweza kuwekwa vifaa mbalimbali — angalia mifano halisi ya shambani kulingana na aina ya matumizi.",
+        "ui": {
+          "categoryLabel": "Chagua aina ya matumizi",
+          "previous": "Picha iliyotangulia",
+          "next": "Picha inayofuata",
+          "openImage": "Fungua picha"
+        },
+        "categories": [
+          {
+            "id": "dry-paddy",
+            "title": "Maandalizi ya Udongo — Shamba Kavu",
+            "items": [
+              { "title": "Jembe la Moldboard", "desc": "Inafaa kwa mashamba yenye nyasi na mabua mengi", "src": "https://drive.google.com/thumbnail?id=1ZbDX85DLC5tdQXHQnjK03WR6IjB2XoaI&sz=w2000", "alt": "Jembe la Moldboard, maandalizi ya udongo shamba kavu — inafaa kwa mashamba yenye nyasi na mabua mengi" },
+              { "title": "Jembe la Moldboard", "desc": "Inafaa kwa mashamba yenye nyasi na mabua mengi", "src": "https://drive.google.com/thumbnail?id=1l9YN9slXu1EtOWSsBqn35Xzqm2NQ6soE&sz=w2000", "alt": "Jembe la Moldboard, maandalizi ya udongo shamba kavu — inafaa kwa mashamba yenye nyasi na mabua mengi" },
+              { "title": "Jembe la Disk 2", "desc": "Inafaa kwa udongo wa mfinyanzi au mchanga, na mashamba yenye nyasi au mabua kidogo", "src": "https://drive.google.com/thumbnail?id=1HDYW3veCyse2tUi328-44gyyAjg3Wwhy&sz=w2000", "alt": "Jembe la disk 2, maandalizi ya udongo shamba kavu — inafaa kwa udongo wa mfinyanzi au mchanga" },
+              { "title": "Jembe la Disk 2", "desc": "Inafaa kwa udongo wa mfinyanzi au mchanga, na mashamba yenye nyasi au mabua kidogo", "src": "https://drive.google.com/thumbnail?id=1SOXEJ4rG3LuokTrhyEooglgpBa-FkjF7&sz=w2000", "alt": "Jembe la disk 2, maandalizi ya udongo shamba kavu — inafaa kwa udongo wa mfinyanzi au mchanga" },
+              { "title": "Grabu", "desc": "Hulainisha udongo", "src": "https://drive.google.com/thumbnail?id=1Vke5QIMMpGBNa1hRf_4Q0VBEhAuy_90G&sz=w2000", "alt": "Grabu, maandalizi ya udongo shamba kavu — hulainisha udongo" }
+            ]
+          },
+          {
+            "id": "wet-paddy",
+            "title": "Maandalizi ya Udongo — Shamba la Maji",
+            "items": [
+              { "title": "Jembe la Moldboard", "desc": "Inafaa kwa mashamba yenye nyasi na mabua mengi", "src": "https://drive.google.com/thumbnail?id=1KsKPoyKCh-53tWc3AOzDPyqKTO6GqcOV&sz=w2000", "alt": "Jembe la Moldboard, maandalizi ya udongo shamba la maji — inafaa kwa mashamba yenye nyasi na mabua mengi" },
+              { "title": "Jembe la Moldboard", "desc": "Inafaa kwa mashamba yenye nyasi na mabua mengi", "src": "https://drive.google.com/thumbnail?id=1XjKhkwzohZYfwgZWXt4BRNP4NYDZlcp6&sz=w2000", "alt": "Jembe la Moldboard, maandalizi ya udongo shamba la maji — inafaa kwa mashamba yenye nyasi na mabua mengi" },
+              { "title": "Jembe la Disk 2", "desc": "Inafaa kwa udongo wa mfinyanzi au mchanga, na mashamba yenye nyasi au mabua kidogo", "src": "https://drive.google.com/thumbnail?id=1Qo9AxEGkcXeipU3MBHYZO5dv4JbtugGv&sz=w2000", "alt": "Jembe la disk 2, maandalizi ya udongo shamba la maji — inafaa kwa udongo wa mfinyanzi au mchanga" },
+              { "title": "Jembe la Disk 2", "desc": "Inafaa kwa udongo wa mfinyanzi au mchanga, na mashamba yenye nyasi au mabua kidogo", "src": "https://drive.google.com/thumbnail?id=1IuUJZ5V-uq4pKc2Q3soWXxrCFg8ING5_&sz=w2000", "alt": "Jembe la disk 2, maandalizi ya udongo shamba la maji — inafaa kwa udongo wa mfinyanzi au mchanga" },
+              { "title": "Rola", "desc": "Hubonyeza mabaki ya magugu na kulainisha udongo", "src": "https://drive.google.com/thumbnail?id=1jsMxJ9tQwRecef-0iSjYMfvu-NIUfukJ&sz=w2000", "alt": "Rola, maandalizi ya udongo shamba la maji — hubonyeza mabaki ya magugu na kulainisha udongo" },
+              { "title": "Rola", "desc": "Hubonyeza mabaki ya magugu na kulainisha udongo", "src": "https://drive.google.com/thumbnail?id=1Fr2tQP9qdQs3LswJE6aGJZipJN1vvDmF&sz=w2000", "alt": "Rola, maandalizi ya udongo shamba la maji — hubonyeza mabaki ya magugu na kulainisha udongo" },
+              { "title": "Ubao wa Kusawazisha + Jembe la Mfereji", "desc": "Husawazisha shamba kwa upandaji rahisi na kudumisha kiwango sawa cha maji", "src": "https://drive.google.com/thumbnail?id=1aPrsOebzaqOnUurJzTaJKE757nxq5Twg&sz=w2000", "alt": "Ubao wa kusawazisha na jembe la mfereji, maandalizi ya udongo shamba la maji — husawazisha shamba na kudumisha kiwango sawa cha maji" },
+              { "title": "Ubao wa Kusawazisha + Jembe la Mfereji", "desc": "Husawazisha shamba kwa upandaji rahisi na kudumisha kiwango sawa cha maji", "src": "https://drive.google.com/thumbnail?id=1mPXERhRIBpsf8lEmNr2HpZiMJr_czXUm&sz=w2000", "alt": "Ubao wa kusawazisha na jembe la mfereji, maandalizi ya udongo shamba la maji — husawazisha shamba na kudumisha kiwango sawa cha maji" }
+            ]
+          },
+          {
+            "id": "planting",
+            "title": "Kupanda",
+            "items": [
+              { "title": "Mpandaji wa Mpunga", "desc": "Huhakikisha nafasi sawa ya mbegu katika mistari iliyonyooka, hurahisisha kuondoa magugu na matunzo", "src": "assets/img/product/application/carousel/tiller-planting-seeder-1.jpg", "alt": "Mpandaji wa mpunga, kupanda — huhakikisha nafasi sawa ya mbegu katika mistari iliyonyooka" },
+              { "title": "Mpandaji wa Mpunga", "desc": "Huhakikisha nafasi sawa ya mbegu katika mistari iliyonyooka, hurahisisha kuondoa magugu na matunzo", "src": "assets/img/product/application/carousel/tiller-planting-seeder-2.jpg", "alt": "Mpandaji wa mpunga, kupanda — huhakikisha nafasi sawa ya mbegu katika mistari iliyonyooka" }
+            ]
+          },
+          {
+            "id": "maintenance",
+            "title": "Matengenezo",
+            "items": [
+              { "title": "Mashine ya Kuondoa Magugu", "desc": "Hutumika kuondoa magugu katika mashamba ya muhogo", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-1.jpg", "alt": "Mashine ya kuondoa magugu, matengenezo — hutumika kuondoa magugu katika mashamba ya muhogo" },
+              { "title": "Mashine ya Kuondoa Magugu", "desc": "Hutumika kuondoa magugu katika mashamba ya muhogo", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-2.jpg", "alt": "Mashine ya kuondoa magugu, matengenezo — hutumika kuondoa magugu katika mashamba ya muhogo" }
+            ]
+          },
+          {
+            "id": "harvest",
+            "title": "Uvunaji",
+            "items": [
+              { "title": "Kiambatisho cha Kuvuna", "src": "assets/img/product/application/carousel/tiller-harvest-1.jpg", "alt": "Kiambatisho cha kuvuna — matumizi ya trekta la kutembea la KUBOTA NC Plus X" },
+              { "title": "Kiambatisho cha Kuvuna", "src": "assets/img/product/application/carousel/tiller-harvest-2.jpg", "alt": "Kiambatisho cha kuvuna — matumizi ya trekta la kutembea la KUBOTA NC Plus X" }
+            ]
+          },
+          {
+            "id": "transport",
+            "title": "Kiambatisho cha Trela na Usafirishaji wa Mazao",
+            "items": [
+              { "title": "Usafirishaji wa Mazao", "src": "assets/img/product/application/carousel/tiller-transport-1.jpg", "alt": "Kiambatisho cha trela na usafirishaji wa mazao — matumizi ya trekta la kutembea la KUBOTA NC Plus X" },
+              { "title": "Usafirishaji wa Mazao", "src": "assets/img/product/application/carousel/tiller-transport-2.jpg", "alt": "Kiambatisho cha trela na usafirishaji wa mazao — matumizi ya trekta la kutembea la KUBOTA NC Plus X" }
+            ]
+          }
         ]
       },
       "authenticity": {
