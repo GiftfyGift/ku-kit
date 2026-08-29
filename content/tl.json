@@ -411,6 +411,15 @@
         }
       ],
       "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-en.pdf" },
+      "highlights": {
+        "title": "Iba Pang Mahahalagang Highlight ng Power Tiller",
+        "items": [
+          { "title": "Gear case na Special Cast Iron (SCI)", "desc": "Gawa sa espesyal na ductile SCI (Special Cast Iron) — matibay at matatag", "image": { "src": "assets/img/product/highlight-gear-case-sci.png", "alt": "Gear case ng TRA CHANG power tiller na gawa sa espesyal na SCI cast iron" } },
+          { "title": "4-gear system", "desc": "3 forward gear, 1 reverse gear — maliksi at angkop sa lahat ng uri ng trabaho", "image": { "src": "assets/img/product/highlight-4-gear-system.png", "alt": "4-gear shift lever ng TRA CHANG power tiller" } },
+          { "title": "Madali at magaan ang pag-steer", "desc": "Steering system na magaan gamitin, maliksi at madaling kontrolin", "image": { "src": "assets/img/product/highlight-steering-ease.png", "alt": "Steering handle ng TRA CHANG power tiller" } },
+          { "title": "Gear Insert system", "desc": "Nagdaragdag ng liksi at tibay ng gear (available lamang sa NC Plus X Special)", "image": { "src": "assets/img/product/highlight-gear-insert.png", "alt": "Gear Insert system ng TRA CHANG NC Plus X Special power tiller" } }
+        ]
+      },
       "note": "Paano makilala ang NC Plus X sa NC Plus X Special: (1) chassis code sa warranty card — walang \"S\" sa dulo ang \"NC131\" (Plus X) samantalang may \"S\" ang \"NC131S\" (Special); (2) may markang \"S\" na naka-punch sa gear case sa Special lamang. Lahat ng 3 modelo ng TRA CHANG power tiller ay maaaring lagyan ng rubber wheel para sa pagdadala ng ani o pangkalahatang transportasyon.",
       "applicationExamples": {
         "title": "Mga Halimbawa ng Paggamit at Attachment para sa Power Tiller",
@@ -495,12 +504,7 @@
         ]
       },
       "resources": [
-        { "title": "NC Plus X — Product Knowledge deck (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
-        { "title": "NC Plus X — Product Knowledge deck (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
-        { "title": "Checklist ng orihinal na power tiller (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
-        { "title": "Operation manual ng NC131 power tiller (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
-        { "title": "Operation manual ng NC131 power tiller (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
-        { "title": "High-res na packshot — NC Plus X 800 power tiller", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+        { "title": "NC131 Power Tiller Operation Manual (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }
       ],
       "videosTitle": "Mga Video",
       "downloadsTitle": "Mga Download",

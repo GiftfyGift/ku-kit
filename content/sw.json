@@ -411,6 +411,15 @@
         }
       ],
       "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-swa.pdf" },
+      "highlights": {
+        "title": "Vipengele Vingine Muhimu vya Trekta la Kutembea",
+        "items": [
+          { "title": "Sanduku la gia la Special Cast Iron (SCI)", "desc": "Limetengenezwa kwa chuma maalum cha SCI (Special Cast Iron) — imara na ya kudumu", "image": { "src": "assets/img/product/highlight-gear-case-sci.png", "alt": "Sanduku la gia la trekta la TRA CHANG lililotengenezwa kwa chuma maalum cha SCI" } },
+          { "title": "Mfumo wa gia 4", "desc": "Gia 3 za mbele, gia 1 ya nyuma — inayonyumbulika na inayofaa kwa kila aina ya kazi", "image": { "src": "assets/img/product/highlight-4-gear-system.png", "alt": "Mkono wa kubadilisha gia 4 kwenye trekta la TRA CHANG" } },
+          { "title": "Kugeuza kwa urahisi na kwa uzito mwepesi", "desc": "Mfumo wa kugeuza wenye nguvu ndogo, unaonyumbulika na rahisi kudhibiti", "image": { "src": "assets/img/product/highlight-steering-ease.png", "alt": "Mpini wa kugeuza kwenye trekta la TRA CHANG" } },
+          { "title": "Mfumo wa Gear Insert", "desc": "Huongeza unyumbulifu na uimara wa gia (inapatikana kwenye NC Plus X Special pekee)", "image": { "src": "assets/img/product/highlight-gear-insert.png", "alt": "Mfumo wa Gear Insert kwenye trekta la TRA CHANG NC Plus X Special" } }
+        ]
+      },
       "note": "Jinsi ya kutofautisha NC Plus X na NC Plus X Special: (1) msimbo wa chasi kwenye kadi ya udhamini — \"NC131\" haina \"S\" mwishoni (Plus X) wakati \"NC131S\" ina \"S\" mwishoni (Special); (2) alama ya \"S\" iliyochomwa kwenye sanduku la gia kwa Special pekee. Mifano yote 3 ya trekta la kutembea la TRA CHANG inaweza kubadilishwa kuwa magurudumu ya mpira kwa ajili ya kubeba mazao au usafirishaji wa jumla.",
       "applicationExamples": {
         "title": "Mifano ya Matumizi na Vifaa vya Kuongeza kwa Trekta la Kutembea",
@@ -495,12 +504,7 @@
         ]
       },
       "resources": [
-        { "title": "NC Plus X — Slaidi za Maarifa ya Bidhaa (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
-        { "title": "NC Plus X — Slaidi za Maarifa ya Bidhaa (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
-        { "title": "Orodha ya ukaguzi wa trekta halisi la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
-        { "title": "Mwongozo wa uendeshaji wa trekta la kutembea la NC131 (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
-        { "title": "Mwongozo wa uendeshaji wa trekta la kutembea la NC131 (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
-        { "title": "Picha ya ubora wa juu — trekta la kutembea NC Plus X 800", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+        { "title": "Mwongozo wa Uendeshaji wa Trekta la Kutembea la NC131 (OPM)", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-swa.pdf" }
       ],
       "videosTitle": "Video",
       "downloadsTitle": "Vipakuliwa",

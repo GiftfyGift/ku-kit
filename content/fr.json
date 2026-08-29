@@ -411,6 +411,15 @@
         }
       ],
       "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-en.pdf" },
+      "highlights": {
+        "title": "Autres points forts du motoculteur",
+        "items": [
+          { "title": "Carter de transmission en Special Cast Iron (SCI)", "desc": "Fabriqué en fonte ductile spéciale SCI (Special Cast Iron) — solide et durable", "image": { "src": "assets/img/product/highlight-gear-case-sci.png", "alt": "Carter de transmission du motoculteur TRA CHANG en fonte spéciale SCI" } },
+          { "title": "Système à 4 vitesses", "desc": "3 vitesses avant, 1 vitesse arrière — agile et adapté à tous les types de travaux", "image": { "src": "assets/img/product/highlight-4-gear-system.png", "alt": "Levier de vitesses à 4 rapports du motoculteur TRA CHANG" } },
+          { "title": "Direction facile et légère", "desc": "Un système de direction à effort réduit, agile et facile à contrôler", "image": { "src": "assets/img/product/highlight-steering-ease.png", "alt": "Guidon de direction du motoculteur TRA CHANG" } },
+          { "title": "Système à insert d'engrenage (Gear Insert)", "desc": "Ajoute de l'agilité et renforce la solidité de l'engrenage (disponible uniquement sur NC Plus X Special)", "image": { "src": "assets/img/product/highlight-gear-insert.png", "alt": "Système à insert d'engrenage du motoculteur TRA CHANG NC Plus X Special" } }
+        ]
+      },
       "note": "Distinguer le NC Plus X du NC Plus X Special : (1) le code châssis sur la carte de garantie — « NC131 » sans suffixe « S » (Plus X) contre « NC131S » (Special) ; (2) un marquage « S » poinçonné sur le carter d'engrenage, présent uniquement sur le Special. Les trois modèles de motoculteur TRA CHANG peuvent passer aux roues en caoutchouc pour le transport de récoltes ou usage général.",
       "applicationExamples": {
         "title": "Exemples d'utilisation et accessoires pour le motoculteur",
@@ -495,12 +504,7 @@
         ]
       },
       "resources": [
-        { "title": "Diaporama de connaissance produit — NC Plus X (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
-        { "title": "Diaporama de connaissance produit — NC Plus X (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
-        { "title": "Liste de contrôle d'authenticité du motoculteur (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
-        { "title": "Manuel d'utilisation du motoculteur NC131 (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
-        { "title": "Manuel d'utilisation du motoculteur NC131 (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
-        { "title": "Photo produit haute résolution — motoculteur NC Plus X 800", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+        { "title": "Manuel d'utilisation du motoculteur NC131 (OPM)", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-en.pdf" }
       ],
       "videosTitle": "Vidéos",
       "downloadsTitle": "Téléchargements",

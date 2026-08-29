@@ -811,10 +811,11 @@ function renderProductTiller(c) {
       <h3 class="category-heading">${t.title}</h3>
       ${renderProductCategory(t, 'tiller-product-info', false)}
       ${t.productKnowledgeDoc ? `<div class="file-pill-row">${renderFilePill(t.productKnowledgeDoc)}</div>` : ''}
+      ${renderEngineDifferences(t.highlights)}
       ${renderAssemblyBlock(p.assembly)}
-      ${renderProductResources(t, 'tiller-downloads')}
       ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
       ${renderApplicationExamples(t.applicationExamples, 'tiller-application')}
+      ${renderProductResources(t, 'tiller-downloads', true)}
       <div class="note-callout">${t.note}</div>
     </section>
   `;

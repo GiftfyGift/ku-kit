@@ -419,6 +419,15 @@
         }
       ],
       "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "TH", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-th.pdf" },
+      "highlights": {
+        "title": "จุดเด่นสำคัญของรถไถเดินตามเพิ่มเติม",
+        "items": [
+          { "title": "เสื้อเกียร์ Special Cast Iron (SCI)", "desc": "ทำจากเหล็กหล่อเหนียวพิเศษ SCI (Special Cast Iron) แข็งแรง ทนทาน", "image": { "src": "assets/img/product/highlight-gear-case-sci.png", "alt": "เสื้อเกียร์รถไถเดินตามตราช้าง ทำจากเหล็กหล่อเหนียวพิเศษ SCI" } },
+          { "title": "ระบบ 4 เกียร์", "desc": "3 เกียร์เดินหน้า 1 เกียร์ถอยหลัง คล่องตัว เหมาะกับการใช้งานทุกประเภท", "image": { "src": "assets/img/product/highlight-4-gear-system.png", "alt": "คันเกียร์ระบบ 4 เกียร์ของรถไถเดินตามตราช้าง" } },
+          { "title": "บังคับเลี้ยวง่าย เบาแรง", "desc": "ระบบบังคับเลี้ยวที่เบาแรง คล่องตัว ควบคุมทิศทางการเลี้ยวได้ง่าย", "image": { "src": "assets/img/product/highlight-steering-ease.png", "alt": "ด้ามจับบังคับเลี้ยวของรถไถเดินตามตราช้าง" } },
+          { "title": "ระบบเกียร์อินเสิร์ท (Gear Insert)", "desc": "เพิ่มความคล่องตัวและความแข็งแรงของเกียร์ (มีเฉพาะใน NC Plus X Special เท่านั้น)", "image": { "src": "assets/img/product/highlight-gear-insert.png", "alt": "ระบบเกียร์อินเสิร์ทของรถไถเดินตามตราช้าง NC Plus X Special" } }
+        ]
+      },
       "note": "วิธีแยก NC Plus X กับ NC Plus X Special: (1) รหัส Chassis บนบัตรรับประกัน — \"NC131\" ไม่มีตัว S ต่อท้าย (Plus X) ส่วน \"NC131S\" มีตัว S ต่อท้าย (Special) (2) มีการตอกสัญลักษณ์ตัว S ที่ Case Gear เฉพาะรุ่น Special เท่านั้น รถไถเดินตามตราช้างทั้ง 3 รุ่นสามารถเปลี่ยนเป็นล้อยางเพื่อใช้บรรทุกผลผลิตหรือขนส่งได้",
       "applicationExamples": {
         "title": "ตัวอย่างภาพการใช้งาน และอุปกรณ์ต่อพ่วงที่ใช้กับรถไถเดินตาม",
@@ -503,12 +512,7 @@
         ]
       },
       "resources": [
-        { "title": "สไลด์ความรู้ผลิตภัณฑ์ NC Plus X (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
-        { "title": "สไลด์ความรู้ผลิตภัณฑ์ NC Plus X (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
-        { "title": "จุดสังเกตรถไถเดินตามแท้ (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
-        { "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
-        { "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
-        { "title": "รูปสินค้าคุณภาพสูง — รถไถเดินตาม NC Plus X 800", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
+        { "title": "คู่มือการใช้งานรถไถเดินตาม NC131 (Operation Manual)", "lang": "TH", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-th.pdf" }
       ],
       "videosTitle": "วิดีโอ",
       "downloadsTitle": "เอกสารดาวน์โหลด",
