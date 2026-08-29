@@ -1609,21 +1609,27 @@ main {
 
 .product-card-logo {
   display: block;
-  height: 42px;
+  height: 60px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
 }
 
+.product-card-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
 .product-card-photos {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  padding: 16px 20px 0;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .product-card-photo {
-  flex: 0 0 110px;
+  flex: 0 0 150px;
   margin: 0;
   text-align: center;
 }

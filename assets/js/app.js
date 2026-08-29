@@ -234,14 +234,16 @@ function renderProductCategory(cat, id, showHeroImage = true) {
       </div>
     ` : '';
     return `
-      <div class="product-card">
+      <div class="product-card-group">
         ${photos}
-        <div class="product-card-header">
-          ${heading}
-        </div>
-        <div class="product-card-body">
-          <p class="desc">${item.desc}</p>
-          <table class="spec-table"><tbody>${specs}</tbody></table>
+        <div class="product-card">
+          <div class="product-card-header">
+            ${heading}
+          </div>
+          <div class="product-card-body">
+            <p class="desc">${item.desc}</p>
+            <table class="spec-table"><tbody>${specs}</tbody></table>
+          </div>
         </div>
       </div>
     `;
