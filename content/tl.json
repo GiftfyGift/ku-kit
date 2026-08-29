@@ -1072,6 +1072,7 @@
     "notesPlaceholder": "Anumang espesyal na kondisyon — kahilingan ng diskwento, kailangang petsa ng dokumento, atbp.",
     "submitBtn": "Gumawa ng Purchase Order (PO)",
     "requireItemsNote": "Magdagdag muna ng kahit isang item sa order.",
+    "invalidDeliveryDateNote": "Hindi puwedeng mas maaga sa ngayon ang petsang gusto ng pagtanggap.",
     "requireFieldsNote": "Ilagay muna ang pangalan ng kompanya at email ng contact bago gumawa ng PO.",
     "confirmedTitle": "Nagawa na ang purchase order",
     "confirmedBody": "Ang PO number mo ay",

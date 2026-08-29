@@ -1407,6 +1407,7 @@
     "notesPlaceholder": "Any special conditions — a discount request, a required document date, etc.",
     "submitBtn": "Generate Purchase Order (PO)",
     "requireItemsNote": "Please add at least one order item.",
+    "invalidDeliveryDateNote": "The requested delivery date can't be earlier than today.",
     "requireFieldsNote": "Please enter the company name and contact email before generating the PO.",
     "confirmedTitle": "Purchase order generated",
     "confirmedBody": "Your PO number is",

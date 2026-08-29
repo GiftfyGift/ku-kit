@@ -2594,7 +2594,7 @@ function initPoRequestPage(c) {
       return `
         <tr>
           <td>
-            <select data-item-model="${i}">
+            <select class="order-model-inline-select" data-item-model="${i}">
               <option value="">${it.modelLabel}</option>
               ${catalogModels.map(m => `<option value="${m.id}" ${m.id === row.modelId ? 'selected' : ''}>${m.label}</option>`).join('')}
             </select>
@@ -2654,6 +2654,7 @@ function initPoRequestPage(c) {
 
   function termsHtml() {
     const t = pr.terms;
+    const todayIso = new Date().toISOString().slice(0, 10);
     return `
       <div class="po-req-field-grid">
         <label class="po-req-field">
@@ -2670,7 +2671,7 @@ function initPoRequestPage(c) {
           <span>${t.shippingLabel}</span>
           <select id="po-req-shipping">${t.shippingMethods.map(s => `<option value="${s.id}">${s.label}</option>`).join('')}</select>
         </label>
-        <label class="po-req-field"><span>${t.deliveryDateLabel}</span><input type="date" id="po-req-delivery-date"></label>
+        <label class="po-req-field"><span>${t.deliveryDateLabel}</span><input type="date" id="po-req-delivery-date" min="${todayIso}"></label>
       </div>
     `;
   }
@@ -2747,6 +2748,11 @@ function initPoRequestPage(c) {
     if (!buyer.company || !buyer.email) { alert(pr.requireFieldsNote); return; }
     const validItems = items.filter(row => row.modelId && row.qty > 0);
     if (!validItems.length) { alert(pr.requireItemsNote); return; }
+    const deliveryDateValue = document.getElementById('po-req-delivery-date').value;
+    if (deliveryDateValue && deliveryDateValue < new Date().toISOString().slice(0, 10)) {
+      alert(pr.invalidDeliveryDateNote);
+      return;
+    }
 
     const premium = termPremium();
     const pdfItems = validItems.map(row => {

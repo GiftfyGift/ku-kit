@@ -1072,6 +1072,7 @@
     "notesPlaceholder": "Toute condition particulière — demande de remise, date d'obtention requise pour un document, etc.",
     "submitBtn": "Générer le bon de commande (PO)",
     "requireItemsNote": "Veuillez ajouter au moins un article à la commande.",
+    "invalidDeliveryDateNote": "La date de livraison souhaitée ne peut pas être antérieure à aujourd'hui.",
     "requireFieldsNote": "Veuillez saisir le nom de la société et l'e-mail de contact avant de générer le PO.",
     "confirmedTitle": "Bon de commande généré",
     "confirmedBody": "Votre numéro de PO est",

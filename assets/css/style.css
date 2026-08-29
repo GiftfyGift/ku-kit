@@ -4083,6 +4083,28 @@ table.parts-table td.code-col {
 .order-qty-input { width: 70px; }
 .order-qty-input-sm { width: 56px; padding: 6px 8px; }
 
+.order-model-inline-select {
+  background-color: var(--kubota-light-gray);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23aab0bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  color: var(--kubota-dark);
+  padding: 9px 32px 9px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  min-width: 200px;
+  max-width: 100%;
+  cursor: pointer;
+}
+
+.order-model-inline-select:hover { border-color: rgba(255,106,61,0.5); }
+.order-model-inline-select:focus { outline: 2px solid var(--kubota-orange); outline-offset: 1px; }
+
 .order-loading { padding: 24px 0; color: var(--kubota-mid-gray); font-size: 14px; }
 
 .order-product-card,
