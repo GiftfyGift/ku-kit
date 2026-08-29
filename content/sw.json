@@ -20,7 +20,7 @@
   },
   "product": {
     "title": "Taarifa za Bidhaa",
-    "intro": "Kila kitu ambacho Muuzaji mpya anahitaji kujua kuhusu aina zetu mbili kuu za bidhaa — injini ya dizeli ya KUBOTA ZT Plus na trekta la kutembea la TRA CHANG NC Plus X.",
+    "intro": "Taarifa muhimu kuhusu makundi mawili makuu ya bidhaa: injini za dizeli za KUBOTA na matrekta ya kutembea ya TRA CHANG.",
     "tabs": { "engine": "Injini", "tiller": "Trekta la Kutembea", "assembly": "Mwongozo wa Kuunganisha" },
     "engine": {
       "title": "Injini ya Dizeli ya KUBOTA — ZT Plus",
@@ -422,75 +422,14 @@
   },
   "parts": {
     "title": "Vipuri",
-    "intro": "Jinsi Wauzaji na Wasambazaji wapya wanavyoweza kutafuta na kuagiza vipuri halisi, pamoja na orodha ya awali ya hisa kwa mifano ya kawaida zaidi.",
-    "howToOrder": [
-      { "step": "1", "title": "Tambua mfano na nambari ya serial", "desc": "Angalia bamba la jina kwenye kifaa au mwongozo wa mfano husika." },
-      { "step": "2", "title": "Tafuta nambari ya kipuri", "desc": "Tumia Katalogi ya Vipuri kuthibitisha nambari sahihi." },
-      { "step": "3", "title": "Peleka agizo kupitia njia iliyopangwa", "desc": "Wasiliana na timu ya usaidizi wa vipuri ya eneo lako." },
-      { "step": "4", "title": "Fuatilia hali ya usafirishaji", "desc": "Fuatilia agizo lako kupitia mfumo wa ufuatiliaji wa kampuni." }
-    ],
-    "recommended": [
-      {
-        "model": "Injini ya dizeli ZT140 — vipuri vinavyopendekezwa kuwekwa hisa",
-        "groups": [
-          {
-            "label": "Periodical (kubadilishwa mara kwa mara)",
-            "items": [
-              { "code": "1T051-11220", "name": "Kifaa cha kichujio cha hewa" },
-              { "code": "1W071-99261", "name": "Mafuta ya injini CF lita 3 x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "Kifaa cha kichujio cha mafuta" },
-              { "code": "1TA21-35750", "name": "Pete ya kichujio cha mafuta" }
-            ]
-          },
-          {
-            "label": "Consumptive (vipuri vinavyochakaa)",
-            "items": [
-              { "code": "14371-51051", "name": "Kifaa cha plunger" },
-              { "code": "1T071-98511", "name": "Kifaa cha pete za pistoni (140)" },
-              { "code": "1T057-97010", "name": "Mkanda wa feni" },
-              { "code": "1T071-90161", "name": "Seti ya muhuri wa kichwa cha silinda" },
-              { "code": "1T021-61110", "name": "Mkono wa kuwasha" },
-              { "code": "11010-04380", "name": "Muhuri wa crankshaft" }
-            ]
-          }
-        ]
-      },
-      {
-        "model": "Trekta la kutembea la NC — vipuri vinavyopendekezwa kuwekwa hisa",
-        "groups": [
-          {
-            "label": "Periodical (kubadilishwa mara kwa mara)",
-            "items": [
-              { "code": "62735-99091-E", "name": "Mafuta ya gia, Gear90, lita 3 x 8" }
-            ]
-          },
-          {
-            "label": "Consumptive (vipuri vinavyochakaa)",
-            "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Gia za usambazaji (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "Mkanda wa V, TRA CHANG (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "Kebo ya klachi kuu" },
-              { "code": "62735-42480", "name": "Kebo ya klachi ya kugeuza" },
-              { "code": "09500-25388", "name": "Muhuri wa mafuta" },
-              { "code": "62735-22132-1", "name": "Kiatu cha breki (vipande 2)" }
-            ]
-          }
-        ]
-      }
-    ],
-    "categories": [
-      { "name": "Vipuri vya injini", "desc": "Pistoni, pete za pistoni, pampu za sindano, vichujio vya mafuta." },
-      { "name": "Vipuri vya usambazaji nguvu", "desc": "Gia, klachi, mishale ya kuendesha." },
-      { "name": "Vipuri vya kulimia", "desc": "Vile vya trekta, diski, beringi." },
-      { "name": "Vitu vinavyotumika mara moja", "desc": "Mafuta ya injini, vichujio vya hewa, mikanda." }
-    ],
+    "intro": "Chagua modeli ya bidhaa ili kuona vipuri vinavyopendekezwa kuagizwa pamoja na First Lot na orodha kamili ya vipuri vya modeli hiyo, kwa Wauzaji na Wasambazaji wapya.",
     "resources": [
       { "title": "Parts Book — ZT140 (katalogi kamili yenye michoro, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Injini ya dizeli — orodha ya vipuri vinavyopendekezwa, mifano yote ZT100-ZT180 (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
       { "title": "Trekta la kutembea — orodha ya vipuri vinavyopendekezwa (lahajedwali)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
     ],
     "downloadsTitle": "Vipakuliwa",
-    "note": "Majedwali hapo juu yanaonyesha vipuri vya kawaida zaidi vya kuwekwa hisa kwa injini ya ZT140 na trekta la kutembea la NC kama mfano. Lahajedwali kamili hapa chini inashughulikia kila ukubwa wa injini (ZT100 hadi ZT180) pamoja na nambari za vipuri, hivyo ipakue ukihitaji kupanga hisa kwa mfano mwingine."
+    "note": "Chagua modeli hapo juu ili kuona vipuri vinavyopendekezwa kwa First Lot na katalogi kamili ya vipuri vya modeli hiyo. Bei zinazoonyeshwa ni data ya mfano — thibitisha na Siam Kubota kabla ya kuagiza. Lahajedwali hapa chini zina data kamili za kupakua."
   },
   "service": {
     "title": "Huduma",
@@ -579,7 +518,7 @@
     "solutions": [
       {
         "id": "crop-wet-paddy",
-        "group": "Mpunga",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga wenye Maji (Wet Paddy Field)",
         "desc": "Kwa mashamba ya mpunga yenye tope na maji, yanayopandwa zaidi ya mara moja kwa mwaka. Tumia NC Plus X Special yenye magurudumu ya kizimba ya 880 mm au 980 mm na mfumo wa Gear Insert wa kugeuza kwa kazi nzito za tope. Tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP ili kupata nguvu ya kutosha kwenye tope refu.",
@@ -587,11 +526,11 @@
       },
       {
         "id": "crop-dry-paddy",
-        "group": "Mpunga",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Shamba la Mpunga Mkavu (Dry Paddy Field)",
         "desc": "Kwa udongo wa mfinyanzi au mchanga usio na tope, ikiwa ni pamoja na mpunga wa msimu mkavu, miwa, muhogo, maharage, na mboga. NC Plus X yenye magurudumu ya kizimba ya 800 mm ndiyo inayofaa — nyepesi zaidi, rahisi kuendesha, na inaweza kusafiri umbali mfupi kwa magurudumu yake ya kizimba.",
-        "video": { "title": "Dry Paddy Field", "type": "youtube", "youtubeId": "eelM3zUxIIw" }
+        "video": { "title": "Dry Paddy Field", "type": "youtube", "youtubeId": "UkVklT0LxKQ" }
       },
       {
         "id": "crop-cassava",
@@ -603,7 +542,7 @@
         "id": "crop-corn",
         "name": "Shamba la Mahindi",
         "desc": "Kwa mashamba ya mahindi ya nyanda za juu kwenye udongo wa mfinyanzi au mchanga, yanayofanana na muhogo na mpunga wa msimu mkavu. NC Plus X yenye magurudumu ya kizimba ya 800 mm hushughulikia vizuri nafasi ya mistari na safari fupi kati ya mashamba.",
-        "video": { "title": "Corn Field", "type": "youtube", "youtubeId": "yVKh1GeIXuU" }
+        "video": { "title": "Corn Field", "type": "youtube", "youtubeId": "hkXfsI-78J4" }
       }
     ],
     "note": "Ukurasa huu sasa unashughulikia aina nne za mashamba kutoka kwenye video za suluhisho za mazao za timu ya masoko: mpunga wenye maji, mpunga mkavu, muhogo, na mahindi — kila moja sasa ina video ya maonyesho."
@@ -774,7 +713,7 @@
       { "title": "KUBOTA Activity Standard — muhtasari wa shughuli 4 (SWA, PDF)", "lang": "SWA", "type": "pdf", "href": "https://drive.google.com/file/d/1ixyvY1jwz3KcBD-Y2-aBAxSnCj0Bi8fR/view" },
       { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (EN, lahajedwali)", "lang": "EN", "type": "xlsx", "href": "https://drive.google.com/file/d/1yFuF24NOSSg7vVkpNGizeeHQ_FJPzl_j/view" },
       { "title": "KUBOTA Activity Standard — jedwali la kulinganisha shughuli 4 (TH, lahajedwali)", "lang": "TH", "type": "xlsx", "href": "https://drive.google.com/file/d/1cvWjqAukTi4yRD7FTu8ouibgsDCsR5I_/view" },
-      { "title": "Video ya hatua na maandalizi ya shughuli", "lang": "EN", "type": "youtube", "youtubeId": "bc2eSpD9kkg" }
+      { "title": "Video ya hatua na maandalizi ya shughuli", "lang": "SWA", "type": "youtube", "youtubeId": "rX5RqH4E-eY" }
     ],
     "videosTitle": "Video",
     "downloadsTitle": "Vipakuliwa",
@@ -881,6 +820,7 @@
       "colGroup": "Kundi",
       "colPrice": "Bei (USD)",
       "colAction": "",
+      "firstLotTotalLabel": "Jumla inayokadiriwa ya First Lot",
       "cartHeading": "Kikapu",
       "cartEmpty": "Kikapu chako bado hakina kitu. Ongeza bidhaa au vipuri hapo juu.",
       "goCheckout": "Nenda kwenye Malipo",

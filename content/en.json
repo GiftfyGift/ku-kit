@@ -20,7 +20,7 @@
   },
   "product": {
     "title": "Product Information",
-    "intro": "Everything a new Dealer needs to know about our two core product lines — the KUBOTA ZT Plus diesel engine and the TRA CHANG NC Plus X power tiller.",
+    "intro": "Essential product information for the two main product groups: KUBOTA diesel engines and TRA CHANG power tillers.",
     "tabs": { "engine": "Engine", "tiller": "Power Tiller", "assembly": "Assembly Guide" },
     "engine": {
       "title": "KUBOTA Diesel Engine — ZT Plus",
@@ -422,75 +422,14 @@
   },
   "parts": {
     "title": "Parts",
-    "intro": "How new Dealers and Distributors can find and order genuine parts, plus a starter stock list for the most common models.",
-    "howToOrder": [
-      { "step": "1", "title": "Identify the model and serial number", "desc": "Check the nameplate on the unit or the model's manual." },
-      { "step": "2", "title": "Look up the part code", "desc": "Use the Parts Catalog to confirm the correct part code." },
-      { "step": "3", "title": "Submit the order through the designated channel", "desc": "Contact your regional parts support team." },
-      { "step": "4", "title": "Track shipment status", "desc": "Follow up on your order through the company's tracking system." }
-    ],
-    "recommended": [
-      {
-        "model": "ZT140 diesel engine — recommended stock parts",
-        "groups": [
-          {
-            "label": "Periodical (scheduled replacement)",
-            "items": [
-              { "code": "1T051-11220", "name": "Air cleaner element assy" },
-              { "code": "1W071-99261", "name": "Engine oil CF 3L x 8" },
-              { "code": "1W071-43010 / 1W071-43015", "name": "Fuel filter assy" },
-              { "code": "1TA21-35750", "name": "Oil filter ring" }
-            ]
-          },
-          {
-            "label": "Consumptive (wear parts)",
-            "items": [
-              { "code": "14371-51051", "name": "Plunger assy" },
-              { "code": "1T071-98511", "name": "Piston ring assy (140)" },
-              { "code": "1T057-97010", "name": "Fan belt" },
-              { "code": "1T071-90161", "name": "Cylinder head seal set" },
-              { "code": "1T021-61110", "name": "Start handle" },
-              { "code": "11010-04380", "name": "Crankshaft seal" }
-            ]
-          }
-        ]
-      },
-      {
-        "model": "NC power tiller — recommended stock parts",
-        "groups": [
-          {
-            "label": "Periodical (scheduled replacement)",
-            "items": [
-              { "code": "62735-99091-E", "name": "Gear oil, Gear90, 3L x 8" }
-            ]
-          },
-          {
-            "label": "Consumptive (wear parts)",
-            "items": [
-              { "code": "62735-14140 / 62735-14230 / 62735-14120-1", "name": "Transmission gears (14 / 18 / 18-1)" },
-              { "code": "69211-00722 / 69211-00732", "name": "V-belt, TRA CHANG (B-72 / B-73)" },
-              { "code": "62735-42110", "name": "Main clutch wire" },
-              { "code": "62735-42480", "name": "Steering clutch wire" },
-              { "code": "09500-25388", "name": "Oil seal" },
-              { "code": "62735-22132-1", "name": "Brake shoe (2 pcs)" }
-            ]
-          }
-        ]
-      }
-    ],
-    "categories": [
-      { "name": "Engine parts", "desc": "Pistons, piston rings, injection pumps, fuel filters." },
-      { "name": "Transmission parts", "desc": "Gears, clutches, drive shafts." },
-      { "name": "Tillage parts", "desc": "Tiller blades, discs, bearings." },
-      { "name": "Consumables", "desc": "Engine oil, air filters, belts." }
-    ],
+    "intro": "Select a product model to view the recommended parts to order with the First Lot and the complete parts list for that model, for new Dealers and Distributors.",
     "resources": [
       { "title": "Parts Book — ZT140 (full illustrated catalog, EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/parts/Parts-Book-ZT140.pdf" },
       { "title": "Diesel engine — recommended parts list, all models ZT100-ZT180 (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Diesel-Engine-Recommend-Parts.xlsx" },
       { "title": "Power tiller — recommended parts list (spreadsheet)", "lang": "EN", "type": "xlsx", "href": "assets/docs/parts/Power-Tiller-Recommend-Parts.xlsx" }
     ],
     "downloadsTitle": "Downloads",
-    "note": "The tables above show the most common stock items for the ZT140 engine and the NC power tiller as an example. The full spreadsheet below covers every engine size (ZT100 through ZT180) with part numbers, so download it to plan stock for a different model."
+    "note": "Pick a model above to see the recommended First Lot parts and the full parts catalog for that model. Prices shown are sample data — confirm with Siam Kubota before ordering. The spreadsheets below have the complete reference data to download."
   },
   "service": {
     "title": "Service",
@@ -578,7 +517,7 @@
     "solutions": [
       {
         "id": "crop-wet-paddy",
-        "group": "Rice",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Wet Paddy Field",
         "desc": "For puddled, flooded paddy fields planted more than once a year. Use the NC Plus X Special with 880 mm or 980 mm cage wheels and the Gear Insert turning system for heavy-duty puddle work. Pair with a KUBOTA ZT Plus 14-15.5 HP engine for enough power in deep mud.",
@@ -586,7 +525,7 @@
       },
       {
         "id": "crop-dry-paddy",
-        "group": "Rice",
+        "group": "",
         "groupId": "crop-group-rice",
         "name": "Dry Paddy Field",
         "desc": "For loamy or sandy soil that isn't puddled, including dry-season paddy, sugarcane, cassava, beans, and vegetable plots. The NC Plus X with 800 mm cage wheels is the right fit — lighter, more agile, and able to travel short distances on its cage wheels.",
@@ -1212,6 +1151,7 @@
       "colGroup": "Group",
       "colPrice": "Price (USD)",
       "colAction": "",
+      "firstLotTotalLabel": "Estimated First Lot total",
       "cartHeading": "Cart",
       "cartEmpty": "Your cart is empty. Add a product or parts above.",
       "goCheckout": "Go to Checkout",
