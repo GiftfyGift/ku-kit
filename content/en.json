@@ -545,6 +545,61 @@
         ]
       }
     },
+    "maintenanceSchedule": {
+      "title": "Maintenance Hours & Parts Replacement Schedule",
+      "intro": "Reference table for maintenance intervals and K-Pad part codes by engine model — tap a task type below to filter the list.",
+      "allLabel": "All",
+      "allModelsLabel": "All models",
+      "types": [
+        { "id": "replace", "label": "Replace" },
+        { "id": "inspect", "label": "Inspect" },
+        { "id": "inspect-adjust", "label": "Inspect/Adjust" }
+      ],
+      "columns": { "item": "Item", "code": "K-Pad Code", "models": "Applicable Models" },
+      "intervalCols": [
+        { "id": "preuse", "label": "Before every use" },
+        { "id": "50h", "label": "First 50 hours" },
+        { "id": "100h", "label": "Every 100 hrs / 1 month" },
+        { "id": "300h", "label": "Every 300 hrs / 3 months" },
+        { "id": "400h", "label": "Every 400 hrs / 4 months" }
+      ],
+      "items": [
+        { "type": "replace", "name": "Radiator Coolant (1 liter)", "code": "LC000-01151", "intervals": ["300h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Radiator Coolant (3 liters)", "code": "LC000-01161", "intervals": ["300h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Fuel Filter", "code": "46100-01100", "intervals": ["400h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Engine Oil CF (3 liters)", "code": "1W071-99261", "intervals": ["50h", "100h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect", "name": "Wet-Type Air Cleaner Assembly", "code": "1TA21-11010", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect-adjust", "name": "Fan Belt", "code": "1T027-97011", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect", "name": "Fuel Tank", "code": "1TA21-41010", "intervals": ["300h"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect-adjust", "name": "Intake & Exhaust Valve", "code": "11010-90011", "intervals": ["100h"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect", "name": "Radiator Screen", "code": "1T021-72250", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "replace", "name": "Engine Oil CF (6 liters)", "code": "1W071-99271", "intervals": ["50h", "100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Wet-Type Air Cleaner Assembly", "code": "1WAB1-11013", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Fan Belt", "code": "1WAB1-97010", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Fuel Tank", "code": "1WAB1-41020", "intervals": ["300h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Intake Valve", "code": "1WAB1-13110", "intervals": ["100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Exhaust Valve", "code": "1WAB1-13120", "intervals": ["100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen", "code": "1WAB1-72650", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Wet-Type Air Cleaner Assembly", "code": "1W071-11010", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Fan Belt", "code": "1T057-97010", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Intake Valve", "code": "1T073-11310", "intervals": ["100h"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Exhaust Valve", "code": "1T073-11320", "intervals": ["100h"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Radiator Screen, Engine No. ≤116656", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≥116657", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≤125601", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT140 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≥125602", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT140 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≤100860", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT125 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≥100861", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT125 Plus"] },
+        { "type": "inspect-adjust", "name": "Intake Valve", "code": "1T051-13110", "intervals": ["100h"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect-adjust", "name": "Exhaust Valve", "code": "11030-13120", "intervals": ["100h"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≤109368", "code": "1W071-72675", "intervals": ["preuse"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≥109369", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≤100112", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT110 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≥100113", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT110 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≤100117", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] },
+        { "type": "inspect", "name": "Radiator Screen, Engine No. ≥100118", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] }
+      ]
+    },
     "programsTitle": "After-Sales Programs",
     "programs": [
       { "name": "Warranty Program (sample)", "desc": "Coverage for the main structure and key components for a set period." },

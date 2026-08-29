@@ -545,6 +545,61 @@
         ]
       }
     },
+    "maintenanceSchedule": {
+      "title": "Tableau des heures d'entretien et de remplacement des pièces",
+      "intro": "Tableau de référence des intervalles d'entretien et des codes de pièces K-Pad par modèle de moteur — appuyez sur un type de tâche ci-dessous pour filtrer la liste.",
+      "allLabel": "Tout",
+      "allModelsLabel": "Tous les modèles",
+      "types": [
+        { "id": "replace", "label": "Remplacer" },
+        { "id": "inspect", "label": "Vérifier" },
+        { "id": "inspect-adjust", "label": "Vérifier/Régler" }
+      ],
+      "columns": { "item": "Article", "code": "Code K-Pad", "models": "Modèles applicables" },
+      "intervalCols": [
+        { "id": "preuse", "label": "Avant chaque utilisation" },
+        { "id": "50h", "label": "50 premières heures" },
+        { "id": "100h", "label": "Toutes les 100 h / 1 mois" },
+        { "id": "300h", "label": "Toutes les 300 h / 3 mois" },
+        { "id": "400h", "label": "Toutes les 400 h / 4 mois" }
+      ],
+      "items": [
+        { "type": "replace", "name": "Liquide de refroidissement du radiateur (1 litre)", "code": "LC000-01151", "intervals": ["300h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Liquide de refroidissement du radiateur (3 litres)", "code": "LC000-01161", "intervals": ["300h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Filtre à carburant", "code": "46100-01100", "intervals": ["400h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Huile moteur CF (3 litres)", "code": "1W071-99261", "intervals": ["50h", "100h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect", "name": "Ensemble filtre à air de type humide", "code": "1TA21-11010", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect-adjust", "name": "Courroie de ventilateur", "code": "1T027-97011", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect", "name": "Réservoir de carburant", "code": "1TA21-41010", "intervals": ["300h"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect-adjust", "name": "Soupape d'admission et d'échappement", "code": "11010-90011", "intervals": ["100h"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect", "name": "Grille du radiateur", "code": "1T021-72250", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "replace", "name": "Huile moteur CF (6 litres)", "code": "1W071-99271", "intervals": ["50h", "100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Ensemble filtre à air de type humide", "code": "1WAB1-11013", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Courroie de ventilateur", "code": "1WAB1-97010", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Réservoir de carburant", "code": "1WAB1-41020", "intervals": ["300h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Soupape d'admission", "code": "1WAB1-13110", "intervals": ["100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Soupape d'échappement", "code": "1WAB1-13120", "intervals": ["100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur", "code": "1WAB1-72650", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Ensemble filtre à air de type humide", "code": "1W071-11010", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Courroie de ventilateur", "code": "1T057-97010", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Soupape d'admission", "code": "1T073-11310", "intervals": ["100h"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Soupape d'échappement", "code": "1T073-11320", "intervals": ["100h"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Grille du radiateur, n° moteur ≤116656", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≥116657", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≤125601", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT140 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≥125602", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT140 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≤100860", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT125 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≥100861", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT125 Plus"] },
+        { "type": "inspect-adjust", "name": "Soupape d'admission", "code": "1T051-13110", "intervals": ["100h"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect-adjust", "name": "Soupape d'échappement", "code": "11030-13120", "intervals": ["100h"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≤109368", "code": "1W071-72675", "intervals": ["preuse"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≥109369", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≤100112", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT110 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≥100113", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT110 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≤100117", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] },
+        { "type": "inspect", "name": "Grille du radiateur, n° moteur ≥100118", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] }
+      ]
+    },
     "programsTitle": "Programmes après-vente",
     "programs": [
       { "name": "Programme de garantie (exemple)", "desc": "Couverture de la structure principale et des composants clés pendant une période déterminée." },

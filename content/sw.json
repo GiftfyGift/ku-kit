@@ -545,6 +545,61 @@
         ]
       }
     },
+    "maintenanceSchedule": {
+      "title": "Jedwali la Saa za Matengenezo na Ratiba ya Kubadilisha Vipuri",
+      "intro": "Jedwali la marejeleo la vipindi vya matengenezo na misimbo ya vipuri vya K-Pad kwa kila mfano wa injini — bofya aina ya kazi hapa chini ili kuchuja orodha.",
+      "allLabel": "Zote",
+      "allModelsLabel": "Miundo yote",
+      "types": [
+        { "id": "replace", "label": "Badilisha" },
+        { "id": "inspect", "label": "Kagua" },
+        { "id": "inspect-adjust", "label": "Kagua/Rekebisha" }
+      ],
+      "columns": { "item": "Kipengele", "code": "Msimbo wa K-Pad", "models": "Miundo Inayotumika" },
+      "intervalCols": [
+        { "id": "preuse", "label": "Kabla ya kila matumizi" },
+        { "id": "50h", "label": "Saa 50 za kwanza" },
+        { "id": "100h", "label": "Kila saa 100 / mwezi 1" },
+        { "id": "300h", "label": "Kila saa 300 / miezi 3" },
+        { "id": "400h", "label": "Kila saa 400 / miezi 4" }
+      ],
+      "items": [
+        { "type": "replace", "name": "Kiowevu cha Kupoeza cha Radiator (lita 1)", "code": "LC000-01151", "intervals": ["300h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Kiowevu cha Kupoeza cha Radiator (lita 3)", "code": "LC000-01161", "intervals": ["300h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Kichujio cha Mafuta", "code": "46100-01100", "intervals": ["400h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "replace", "name": "Mafuta ya Injini CF (lita 3)", "code": "1W071-99261", "intervals": ["50h", "100h"], "allModels": true, "models": ["RT90", "ZT180 Plus", "ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect", "name": "Kifaa cha Kichujio cha Hewa cha Aina ya Mvua", "code": "1TA21-11010", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect-adjust", "name": "Mkanda wa Feni", "code": "1T027-97011", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect", "name": "Tangi la Mafuta", "code": "1TA21-41010", "intervals": ["300h"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect-adjust", "name": "Vali ya Kuingiza Hewa na Kutolea Moshi", "code": "11010-90011", "intervals": ["100h"], "allModels": false, "models": ["RT90"] },
+        { "type": "inspect", "name": "Skrini ya Radiator", "code": "1T021-72250", "intervals": ["preuse"], "allModels": false, "models": ["RT90"] },
+        { "type": "replace", "name": "Mafuta ya Injini CF (lita 6)", "code": "1W071-99271", "intervals": ["50h", "100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Kifaa cha Kichujio cha Hewa cha Aina ya Mvua", "code": "1WAB1-11013", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Mkanda wa Feni", "code": "1WAB1-97010", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Tangi la Mafuta", "code": "1WAB1-41020", "intervals": ["300h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Vali ya Kuingiza Hewa", "code": "1WAB1-13110", "intervals": ["100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect-adjust", "name": "Vali ya Kutolea Moshi", "code": "1WAB1-13120", "intervals": ["100h"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator", "code": "1WAB1-72650", "intervals": ["preuse"], "allModels": false, "models": ["ZT180 Plus"] },
+        { "type": "inspect", "name": "Kifaa cha Kichujio cha Hewa cha Aina ya Mvua", "code": "1W071-11010", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Mkanda wa Feni", "code": "1T057-97010", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT120 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Vali ya Kuingiza Hewa", "code": "1T073-11310", "intervals": ["100h"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Vali ya Kutolea Moshi", "code": "1T073-11320", "intervals": ["100h"], "allModels": false, "models": ["ZT155 Plus", "ZT140 Plus", "ZT125 Plus", "ZT110 Plus", "ZT100 Plus"] },
+        { "type": "inspect-adjust", "name": "Skrini ya Radiator, Namba ya Injini ≤116656", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≥116657", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT155 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≤125601", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT140 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≥125602", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT140 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≤100860", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT125 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≥100861", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT125 Plus"] },
+        { "type": "inspect-adjust", "name": "Vali ya Kuingiza Hewa", "code": "1T051-13110", "intervals": ["100h"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect-adjust", "name": "Vali ya Kutolea Moshi", "code": "11030-13120", "intervals": ["100h"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≤109368", "code": "1W071-72675", "intervals": ["preuse"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≥109369", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT120 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≤100112", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT110 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≥100113", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT110 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≤100117", "code": "1W071-72653", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] },
+        { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≥100118", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] }
+      ]
+    },
     "programsTitle": "Mipango ya Baada ya Mauzo",
     "programs": [
       { "name": "Mpango wa Udhamini (mfano)", "desc": "Unahusu muundo mkuu na sehemu muhimu kwa kipindi kilichowekwa." },
