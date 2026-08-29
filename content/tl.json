@@ -550,8 +550,6 @@
       { "name": "Training para sa Technician (sample)", "desc": "Kurso sa maintenance training para sa mga technician ng Dealer, teorya at praktikal." }
     ],
     "resources": [
-{ "title": "Deck ng pre-delivery check at tamang pag-start (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
-      { "title": "Deck ng pre-delivery check at tamang pag-start (TH)", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/18X2kaej-2VgTz-hjcsr2Jq09qEI-maVK/view" },
       { "title": "Deck ng engine maintenance — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/1ybWdLs__PklG4uZ1Z5Oi6mgyC3TSYd4M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
       { "title": "Deck ng engine maintenance — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "https://docs.google.com/presentation/d/1efpJq94Jh72ve4nIzgTi1FA1OGIUgg_M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
       { "title": "Deck ng power tiller maintenance (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/12Chfl313KS_XVCiRjcn3P_kD4IjhW1q3/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },

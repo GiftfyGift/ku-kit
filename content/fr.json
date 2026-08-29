@@ -550,8 +550,6 @@
       { "name": "Formation technicien (exemple)", "desc": "Cours de formation à l'entretien pour les techniciens du concessionnaire, alliant théorie et pratique." }
     ],
     "resources": [
-{ "title": "Diaporama contrôle avant livraison et procédure de démarrage (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/13xTUAKaH8cWuFz1tUuQXRdeSQ-nR6fDM/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
-      { "title": "Diaporama contrôle avant livraison et procédure de démarrage (TH)", "lang": "TH", "type": "pptx", "href": "https://drive.google.com/file/d/18X2kaej-2VgTz-hjcsr2Jq09qEI-maVK/view" },
       { "title": "Diaporama entretien moteur — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/1ybWdLs__PklG4uZ1Z5Oi6mgyC3TSYd4M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
       { "title": "Diaporama entretien moteur — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "https://docs.google.com/presentation/d/1efpJq94Jh72ve4nIzgTi1FA1OGIUgg_M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
       { "title": "Diaporama entretien motoculteur (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/12Chfl313KS_XVCiRjcn3P_kD4IjhW1q3/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
