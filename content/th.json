@@ -340,7 +340,7 @@
       "title": "รถไถเดินตามตราช้าง NC Plus X",
       "quickLinks": [
         { "label": "ความรู้เกี่ยวกับสินค้า", "route": "product-tiller", "anchor": "tiller-product-info" },
-        { "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "เอกสาร OPM (Operation manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "จุดสังเกตุและวิธีเช็กสินค้าของแท้", "route": "product-tiller", "anchor": "tiller-authenticity" },
         { "label": "อุปกรณ์ต่อพ่วงที่สามารถใช้กับรถไถเดินตาม", "route": "product-tiller", "anchor": "tiller-application" }
@@ -464,7 +464,7 @@
       "note": "ข้อมูลสเปคด้านบนดึงมาจากสไลด์ Product Knowledge ของ NC Plus X ที่ทีมส่งมาจริง รูป Packshot ลิงก์ไปที่ Drive โดยตรง (14MB) เพราะเกินขีดจำกัด 10MB ที่ตัวเชื่อมต่อ Drive ในเซสชันนี้ดาวน์โหลดได้ จึงไม่ได้แนบไฟล์ไว้ในเครื่อง"
     },
     "assembly": {
-      "title": "วิธีการประกอบ",
+      "title": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม",
       "intro": "ขั้นตอนการประกอบรถไถเดินตามตราช้าง และการติดตั้งเครื่องยนต์ดีเซลคูโบต้าเข้ากับตัวรถ",
       "tillerTitle": "การประกอบรถไถเดินตาม",
       "engineTitle": "การติดตั้งเครื่องยนต์เข้ากับรถไถเดินตาม",
@@ -485,7 +485,7 @@
       ],
       "resources": [
         { "title": "คู่มือวิธีการประกอบเครื่องยนต์กับรถไถเดินตาม (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
-        { "title": "วิดีโอสาธิตการประกอบเครื่องยนต์ ZT Plus + รถไถเดินตาม NC Plus X", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+        { "title": "วิดีโอสาธิตการประกอบเครื่องยนต์ ZT Plus + รถไถเดินตาม NC Plus X", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "วิดีโอ",
       "downloadsTitle": "เอกสารดาวน์โหลด",

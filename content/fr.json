@@ -331,7 +331,7 @@
     "tiller": {
       "title": "Motoculteur TRA CHANG — NC Plus X",
       "quickLinks": [
-        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "OPM (Manuel d'utilisation)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "Points de contrôle d'authenticité", "route": "product-tiller", "anchor": "tiller-authenticity" },
         { "label": "Accessoires pour le motoculteur", "route": "product-tiller", "anchor": "tiller-application" }
@@ -455,7 +455,7 @@
       "note": "Les caractéristiques ci-dessus proviennent du diaporama de connaissance produit NC Plus X fourni par l'équipe. La photo produit pointe directement vers Drive (14 Mo) — au-delà de la limite de 10 Mo du connecteur Drive de cette session, elle n'a donc pas été intégrée localement."
     },
     "assembly": {
-      "title": "Guide de montage",
+      "title": "Comment assembler le moteur diesel avec le motoculteur",
       "intro": "Étapes pour assembler le motoculteur TRA CHANG et y fixer le moteur diesel KUBOTA.",
       "tillerTitle": "Assemblage du motoculteur",
       "engineTitle": "Fixation du moteur sur le motoculteur",
@@ -476,7 +476,7 @@
       ],
       "resources": [
         { "title": "Guide de montage moteur + motoculteur (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
-        { "title": "Démonstration de montage — moteur ZT Plus + motoculteur NC Plus X", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+        { "title": "Démonstration de montage — moteur ZT Plus + motoculteur NC Plus X", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Vidéos",
       "downloadsTitle": "Téléchargements",

@@ -676,6 +676,28 @@ function renderProductEngine(c) {
   `;
 }
 
+function renderAssemblyBlock(a) {
+  if (!a) return '';
+  return `
+    <div class="category-block">
+      <h3 class="category-heading">${a.title}</h3>
+      <p class="section-intro">${a.intro}</p>
+      <div class="genuine-grid">
+        <div class="genuine-card" id="assembly-tiller">
+          <h4>1. ${a.tillerTitle}</h4>
+          <ol class="check-list">${a.tillerSteps.map(s => `<li>${s}</li>`).join('')}</ol>
+        </div>
+        <div class="genuine-card" id="assembly-engine">
+          <h4>2. ${a.engineTitle}</h4>
+          <ol class="check-list">${a.engineSteps.map(s => `<li>${s}</li>`).join('')}</ol>
+        </div>
+      </div>
+    </div>
+    ${renderProductResources(a)}
+    <div class="note-callout">${a.note}</div>
+  `;
+}
+
 function renderProductTiller(c) {
   const p = c.product;
   const t = p.tiller;
@@ -688,9 +710,10 @@ function renderProductTiller(c) {
       ${renderQuickLinks(t.quickLinks)}
       <h3 class="category-heading">${t.title}</h3>
       ${renderProductCategory(t, 'tiller-product-info')}
-      ${renderApplicationExamples(t.applicationExamples, 'tiller-application')}
-      ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
+      ${renderAssemblyBlock(p.assembly)}
       ${renderProductResources(t, 'tiller-downloads')}
+      ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}
+      ${renderApplicationExamples(t.applicationExamples, 'tiller-application')}
       <div class="note-callout">${t.note}</div>
     </section>
   `;
@@ -705,22 +728,7 @@ function renderProductAssembly(c) {
       <h2 class="section-title">${p.title}</h2>
       <p class="section-intro">${p.intro}</p>
       ${renderProductSelector(c, null)}
-      <div class="category-block">
-        <h3 class="category-heading">${a.title}</h3>
-        <p class="section-intro">${a.intro}</p>
-        <div class="genuine-grid">
-          <div class="genuine-card" id="assembly-tiller">
-            <h4>1. ${a.tillerTitle}</h4>
-            <ol class="check-list">${a.tillerSteps.map(s => `<li>${s}</li>`).join('')}</ol>
-          </div>
-          <div class="genuine-card" id="assembly-engine">
-            <h4>2. ${a.engineTitle}</h4>
-            <ol class="check-list">${a.engineSteps.map(s => `<li>${s}</li>`).join('')}</ol>
-          </div>
-        </div>
-      </div>
-      ${renderProductResources(a)}
-      <div class="note-callout">${a.note}</div>
+      ${renderAssemblyBlock(a)}
     </section>
   `;
 }

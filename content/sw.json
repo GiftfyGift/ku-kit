@@ -331,7 +331,7 @@
     "tiller": {
       "title": "Trekta la Kutembea la TRA CHANG — NC Plus X",
       "quickLinks": [
-        { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "OPM (Mwongozo wa Uendeshaji)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "Vipengele vya Ukaguzi wa Uhalisi", "route": "product-tiller", "anchor": "tiller-authenticity" },
         { "label": "Vifaa vya Kuongeza kwa Trekta la Kutembea", "route": "product-tiller", "anchor": "tiller-application" }
@@ -455,7 +455,7 @@
       "note": "Vipimo hapo juu vinatoka kwenye slaidi halisi za Product Knowledge za NC Plus X zilizotolewa na timu. Picha ya packshot imeunganishwa moja kwa moja na Drive (14MB) — zaidi ya kikomo cha 10MB ambacho kiunganishi cha Drive cha kipindi hiki kinaweza kupakua, hivyo haikuwekwa kwa ndani."
     },
     "assembly": {
-      "title": "Mwongozo wa Kuunganisha",
+      "title": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea",
       "intro": "Hatua za kuunganisha trekta la kutembea la TRA CHANG na kushikanisha injini ya dizeli ya KUBOTA nalo.",
       "tillerTitle": "Kuunganisha Trekta la Kutembea",
       "engineTitle": "Kushikanisha Injini kwenye Trekta la Kutembea",
@@ -476,7 +476,7 @@
       ],
       "resources": [
         { "title": "Mwongozo wa kuunganisha injini + trekta la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
-        { "title": "Video ya mwongozo wa kuunganisha — injini ya ZT Plus + trekta la NC Plus X", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+        { "title": "Video ya mwongozo wa kuunganisha — injini ya ZT Plus + trekta la NC Plus X", "type": "youtube", "youtubeId": "7_xAb8HLC1I" }
       ],
       "videosTitle": "Video",
       "downloadsTitle": "Vipakuliwa",

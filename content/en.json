@@ -331,7 +331,7 @@
     "tiller": {
       "title": "TRA CHANG Power Tiller — NC Plus X",
       "quickLinks": [
-        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-assembly", "anchor": "assembly-tiller" },
+        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "OPM (Operation Manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "Authenticity Checkpoints", "route": "product-tiller", "anchor": "tiller-authenticity" },
         { "label": "Attachments for the Power Tiller", "route": "product-tiller", "anchor": "tiller-application" }
@@ -455,7 +455,7 @@
       "note": "Specs above come from the actual NC Plus X product knowledge deck provided by the team. The packshot photo links directly to Drive (14MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally."
     },
     "assembly": {
-      "title": "Assembly Guide",
+      "title": "How to Assemble the Diesel Engine with the Power Tiller",
       "intro": "Steps for assembling the TRA CHANG power tiller and attaching the KUBOTA diesel engine to it.",
       "tillerTitle": "Assembling the Power Tiller",
       "engineTitle": "Attaching the Engine to the Power Tiller",
@@ -476,7 +476,7 @@
       ],
       "resources": [
         { "title": "Engine + power tiller assembly guide (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
-        { "title": "Assembly walkthrough — ZT Plus engine + NC Plus X power tiller", "lang": "EN", "type": "video", "href": "/media/1. Product/วิธีการประกอบ DE & PT-20260814T115436Z-1-001/วิธีการประกอบ DE & PT/VDO - การประกอบ ZT PLUS เข้ากับ NC PLUS X Final ENG sub.mp4" }
+        { "title": "Assembly walkthrough — ZT Plus engine + NC Plus X power tiller", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],
       "videosTitle": "Videos",
       "downloadsTitle": "Downloads",
