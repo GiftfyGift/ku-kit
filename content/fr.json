@@ -329,7 +329,7 @@
       "note": "Les caractéristiques ci-dessus proviennent du diaporama de connaissance produit ZT Plus fourni par l'équipe. Les autres cylindrées (ZT100/110/120/125/155/180) suivent la même structure — demandez les diaporamas correspondants à l'équipe produit si nécessaire. La photo produit pointe directement vers Drive (13 Mo) — au-delà de la limite de 10 Mo du connecteur Drive de cette session, elle n'a donc pas été intégrée localement."
     },
     "tiller": {
-      "title": "Motoculteur TRA CHANG — NC Plus X",
+      "title": "Motoculteur TRA CHANG",
       "quickLinks": [
         { "label": "Connaissance du produit", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-tiller", "anchor": "assembly-tiller" },
@@ -341,6 +341,7 @@
       "items": [
         {
           "name": "NC Plus X",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "Logo NC Plus X" },
           "desc": "Roue à cage de 800 mm de diamètre, pales de roue de 3 pouces (16 pièces). Convient aux sols limoneux ou sableux, aux rizières comme aux champs secs, ainsi qu'aux parcelles de canne à sucre, manioc, légumineuses et légumes. Les roues à cage permettent de courts déplacements. Non recommandé pour les champs très boueux (submergés en profondeur).",
           "specs": [
             { "label": "Diamètre de la roue à cage", "value": "800 mm" },
@@ -351,6 +352,11 @@
         },
         {
           "name": "NC Plus X Special",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x-special.png", "alt": "Logo NC Plus X Special" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "Motoculteur TRA CHANG NC Plus X Special — 880", "caption": "880 mm" },
+            { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "Motoculteur TRA CHANG NC Plus X Special — 980", "caption": "980 mm" }
+          ],
           "desc": "Roue à cage de 880 mm ou 980 mm de diamètre, avec système de virage à insert d'engrenage pour les travaux intensifs en rizière boueuse et les rizières cultivées plus de deux fois par an. Pour le déplacer, passez aux roues en caoutchouc ou utilisez une remorque ; pour le travail en boue profonde, associez-le à un moteur KUBOTA ZT Plus de 14 à 15,5 ch.",
           "specs": [
             { "label": "Diamètre de la roue à cage", "value": "880 mm / 980 mm" },

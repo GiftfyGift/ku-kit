@@ -329,7 +329,7 @@
       "note": "Vipimo hapo juu vinatoka kwenye slaidi halisi za Product Knowledge za ZT Plus zilizotolewa na timu. Ukubwa mwingine wa injini (ZT100/110/120/125/155/180) una muundo unaofanana — omba slaidi kutoka kwa timu ya bidhaa ukihitaji kuongeza. Picha ya packshot imeunganishwa moja kwa moja na Drive (13MB) — zaidi ya kikomo cha 10MB ambacho kiunganishi cha Drive cha kipindi hiki kinaweza kupakua, hivyo haikuwekwa kwa ndani."
     },
     "tiller": {
-      "title": "Trekta la Kutembea la TRA CHANG — NC Plus X",
+      "title": "Trekta la Kutembea la TRA CHANG",
       "quickLinks": [
         { "label": "Maarifa ya Bidhaa", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-tiller", "anchor": "assembly-tiller" },
@@ -341,6 +341,7 @@
       "items": [
         {
           "name": "NC Plus X",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "Nembo ya NC Plus X" },
           "desc": "Kipenyo cha gurudumu la kizimba 800 mm, vile vya gurudumu inchi 3 (vipande 16). Inafaa kwa udongo wa mfinyanzi au mchanga, mashamba ya mpunga na makavu, mashamba ya miwa, muhogo, maharage, na mboga. Gurudumu la kizimba linaweza kutumika kwa safari fupi. Haifai kwa mashamba yenye tope kubwa.",
           "specs": [
             { "label": "Kipenyo cha gurudumu la kizimba", "value": "800 mm" },
@@ -351,6 +352,11 @@
         },
         {
           "name": "NC Plus X Special",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x-special.png", "alt": "Nembo ya NC Plus X Special" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 880", "caption": "880 mm" },
+            { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 980", "caption": "980 mm" }
+          ],
           "desc": "Kipenyo cha gurudumu la kizimba 880 mm au 980 mm, na mfumo wa Gear Insert wa kugeuza kwa ajili ya kazi nzito za tope na mpunga unaopandwa zaidi ya mara mbili kwa mwaka. Kubadilisha eneo, badilisha kwa magurudumu ya mpira au tumia trela; kwa kazi za tope, tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP.",
           "specs": [
             { "label": "Kipenyo cha gurudumu la kizimba", "value": "880 mm / 980 mm" },

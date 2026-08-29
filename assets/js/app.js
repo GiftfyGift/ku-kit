@@ -220,10 +220,24 @@ function renderHome(c) {
 function renderProductCategory(cat, id) {
   const items = cat.items.map(item => {
     const specs = item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('');
+    const heading = item.logo
+      ? `<img class="product-card-logo" src="${item.logo.src}" alt="${item.logo.alt}">`
+      : `<h4>${item.name}</h4>`;
+    const photos = item.images && item.images.length ? `
+      <div class="product-card-photos">
+        ${item.images.map(img => `
+          <figure class="product-card-photo">
+            <img src="${img.src}" alt="${img.alt}">
+            ${img.caption ? `<figcaption>${img.caption}</figcaption>` : ''}
+          </figure>
+        `).join('')}
+      </div>
+    ` : '';
     return `
       <div class="product-card">
+        ${photos}
         <div class="product-card-header">
-          <h4>${item.name}</h4>
+          ${heading}
         </div>
         <div class="product-card-body">
           <p class="desc">${item.desc}</p>

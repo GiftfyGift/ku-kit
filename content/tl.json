@@ -329,7 +329,7 @@
       "note": "Ang mga detalye sa itaas ay mula mismo sa aktuwal na Product Knowledge deck ng ZT Plus na ibinigay ng team. Ang ibang laki ng engine (ZT100/110/120/125/155/180) ay may parehong istruktura — humingi ng deck sa product team kung kailangan idagdag. Direktang naka-link sa Drive ang packshot photo (13MB) — lampas sa 10MB na limit na kayang i-download ng Drive connector ng session na ito, kaya hindi ito na-bundle nang lokal."
     },
     "tiller": {
-      "title": "TRA CHANG Power Tiller — NC Plus X",
+      "title": "TRA CHANG Power Tiller",
       "quickLinks": [
         { "label": "Kaalaman sa Produkto", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "Paano I-assemble ang Diesel Engine sa Power Tiller", "route": "product-tiller", "anchor": "assembly-tiller" },
@@ -341,6 +341,7 @@
       "items": [
         {
           "name": "NC Plus X",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "Logo ng NC Plus X" },
           "desc": "Cage wheel na 800 mm ang diameter, 3-pulgadang wheel blade (16 piraso). Angkop para sa lupang mabuhangin o hindi masyadong malagkit, parehong basa at tuyong bukid, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Puwedeng gamitin ang cage wheel para sa maikling biyahe. Hindi angkop sa napakalalim na putikan.",
           "specs": [
             { "label": "Diameter ng cage wheel", "value": "800 mm" },
@@ -351,6 +352,11 @@
         },
         {
           "name": "NC Plus X Special",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x-special.png", "alt": "Logo ng NC Plus X Special" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "TRA CHANG NC Plus X Special power tiller — 880", "caption": "880 mm" },
+            { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "TRA CHANG NC Plus X Special power tiller — 980", "caption": "980 mm" }
+          ],
           "desc": "Cage wheel na 880 mm o 980 mm ang diameter, may Gear Insert turning system para sa mabigat na putikan at palayang tinatamnan nang higit sa dalawang beses sa isang taon. Kung ililipat, palitan ng rubber wheel o gumamit ng trailer; para sa putikan, isamang gamitin ang KUBOTA ZT Plus 14-15.5 HP engine.",
           "specs": [
             { "label": "Diameter ng cage wheel", "value": "880 mm / 980 mm" },

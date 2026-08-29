@@ -329,7 +329,7 @@
       "note": "Specs above come from the actual ZT Plus product knowledge deck provided by the team. Other engine sizes (ZT100/110/120/125/155/180) follow the same structure — ask the product team for their decks if you need to add them. The packshot photo links directly to Drive (13MB) — over the 10MB limit this session's Drive connector can download, so it was not bundled locally."
     },
     "tiller": {
-      "title": "TRA CHANG Power Tiller — NC Plus X",
+      "title": "TRA CHANG Power Tiller",
       "quickLinks": [
         { "label": "Product Knowledge", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-tiller", "anchor": "assembly-tiller" },
@@ -341,6 +341,7 @@
       "items": [
         {
           "name": "NC Plus X",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "NC Plus X logo" },
           "desc": "Cage wheel diameter 800 mm, 3-inch wheel blades (16 pieces). Suitable for loamy or sandy soil, both paddy and dry fields, sugarcane/cassava/bean/vegetable plots. Cage wheels can travel short distances. Not recommended for puddled (deep-mud) fields.",
           "specs": [
             { "label": "Cage wheel diameter", "value": "800 mm" },
@@ -351,6 +352,11 @@
         },
         {
           "name": "NC Plus X Special",
+          "logo": { "src": "assets/img/product/logo-nc-plus-x-special.png", "alt": "NC Plus X Special logo" },
+          "images": [
+            { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "TRA CHANG NC Plus X Special power tiller — 880", "caption": "880 mm" },
+            { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "TRA CHANG NC Plus X Special power tiller — 980", "caption": "980 mm" }
+          ],
           "desc": "Cage wheel diameter 880 mm or 980 mm, with the Gear Insert turning system for heavy-duty puddled fields and paddy planted more than twice a year. To relocate it, switch to rubber wheels or use a trailer; for puddle work, pair with a KUBOTA ZT Plus 14-15.5 HP engine.",
           "specs": [
             { "label": "Cage wheel diameter", "value": "880 mm / 980 mm" },

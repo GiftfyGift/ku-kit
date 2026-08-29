@@ -1448,6 +1448,11 @@ main {
   max-width: 560px;
 }
 
+#tiller-product-info .category-photo {
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .category-photo img {
   display: block;
   width: 100%;
@@ -1604,6 +1609,41 @@ main {
   margin: 0 0 4px;
   color: var(--kubota-navy);
   font-family: 'Prompt', sans-serif;
+}
+
+.product-card-logo {
+  display: block;
+  height: 28px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-card-photos {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px 0;
+}
+
+.product-card-photo {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.product-card-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.product-card-photo figcaption {
+  padding-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--kubota-mid-gray);
 }
 
 .sample-badge {
