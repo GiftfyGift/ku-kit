@@ -416,6 +416,7 @@
           ]
         }
       ],
+      "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "TH", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-th.pdf" },
       "note": "วิธีแยก NC Plus X กับ NC Plus X Special: (1) รหัส Chassis บนบัตรรับประกัน — \"NC131\" ไม่มีตัว S ต่อท้าย (Plus X) ส่วน \"NC131S\" มีตัว S ต่อท้าย (Special) (2) มีการตอกสัญลักษณ์ตัว S ที่ Case Gear เฉพาะรุ่น Special เท่านั้น รถไถเดินตามตราช้างทั้ง 3 รุ่นสามารถเปลี่ยนเป็นล้อยางเพื่อใช้บรรทุกผลผลิตหรือขนส่งได้",
       "applicationExamples": {
         "title": "ตัวอย่างภาพการใช้งาน และอุปกรณ์ต่อพ่วงที่ใช้กับรถไถเดินตาม",
@@ -531,6 +532,7 @@
         "คลายน็อต 2 ตัวที่คันเร่งเพื่อให้คันเร่งขยับได้อิสระ แล้วขันกลับให้แน่น",
         "ต่อสายคันเร่งเข้ากับคันเร่งแล้วขันน็อตให้แน่น"
       ],
+      "guideDoc": { "title": "การประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม", "lang": "TH", "type": "pdf", "href": "assets/docs/assembly/assembly-guide-th.pdf" },
       "resources": [
         { "title": "วิดีโอสาธิตการประกอบเครื่องยนต์ ZT Plus + รถไถเดินตาม NC Plus X", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],

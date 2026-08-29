@@ -388,6 +388,7 @@
           ]
         }
       ],
+      "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-en.pdf" },
       "note": "Distinguer le NC Plus X du NC Plus X Special : (1) le code châssis sur la carte de garantie — « NC131 » sans suffixe « S » (Plus X) contre « NC131S » (Special) ; (2) un marquage « S » poinçonné sur le carter d'engrenage, présent uniquement sur le Special. Les trois modèles de motoculteur TRA CHANG peuvent passer aux roues en caoutchouc pour le transport de récoltes ou usage général.",
       "applicationExamples": {
         "title": "Exemples d'utilisation et accessoires pour le motoculteur",
@@ -503,6 +504,7 @@
         "Desserrer les 2 écrous de l'accélérateur pour que le levier bouge librement, puis resserrer.",
         "Fixer le câble d'accélérateur sur le levier d'accélérateur et serrer l'écrou."
       ],
+      "guideDoc": { "title": "Assemblage du moteur diesel KUBOTA avec le motoculteur", "lang": "EN", "type": "pdf", "href": "assets/docs/assembly/assembly-guide-en.pdf" },
       "resources": [
         { "title": "Démonstration de montage — moteur ZT Plus + motoculteur NC Plus X", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],

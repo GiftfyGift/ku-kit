@@ -239,17 +239,17 @@ function renderProductCategory(cat, id, showHeroImage = true) {
         <div class="wheel-badge-row">
           ${item.wheelOptions.map(w => `
             <div class="wheel-badge">
-              <span>${w.diameterMm} มม.</span>
-              <span>+ ใบล้อ ${w.bladeInch}" × ${w.bladeCount} ใบ</span>
+              <span>${w.line1}</span>
+              <span>${w.line2}</span>
             </div>
           `).join('')}
         </div>
         <div class="compare-section">
-          <h5 class="compare-heading">ภายนอก</h5>
+          <h5 class="compare-heading">${cat.exteriorLabel}</h5>
           <ul class="compare-bullets">${item.exterior.map(t => `<li>${t}</li>`).join('')}</ul>
         </div>
         <div class="compare-section">
-          <h5 class="compare-heading">ภายใน</h5>
+          <h5 class="compare-heading">${cat.interiorLabel}</h5>
           ${item.interior.map(group => `
             <div class="compare-subgroup">
               <p class="compare-subheading">${group.heading}</p>
@@ -791,6 +791,7 @@ function renderAssemblyBlock(a) {
           <ol class="check-list">${a.engineSteps.map(s => `<li>${s}</li>`).join('')}</ol>
         </div>
       </div>
+      ${a.guideDoc ? `<div class="file-pill-row">${renderFilePill(a.guideDoc)}</div>` : ''}
     </div>
     ${renderProductResources(a)}
     <div class="note-callout">${a.note}</div>
@@ -809,6 +810,7 @@ function renderProductTiller(c) {
       ${renderQuickLinks(t.quickLinks)}
       <h3 class="category-heading">${t.title}</h3>
       ${renderProductCategory(t, 'tiller-product-info', false)}
+      ${t.productKnowledgeDoc ? `<div class="file-pill-row">${renderFilePill(t.productKnowledgeDoc)}</div>` : ''}
       ${renderAssemblyBlock(p.assembly)}
       ${renderProductResources(t, 'tiller-downloads')}
       ${renderAuthenticityBlock(t.authenticity, 'tiller-authenticity')}

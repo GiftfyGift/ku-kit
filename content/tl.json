@@ -388,6 +388,7 @@
           ]
         }
       ],
+      "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-en.pdf" },
       "note": "Paano makilala ang NC Plus X sa NC Plus X Special: (1) chassis code sa warranty card — walang \"S\" sa dulo ang \"NC131\" (Plus X) samantalang may \"S\" ang \"NC131S\" (Special); (2) may markang \"S\" na naka-punch sa gear case sa Special lamang. Lahat ng 3 modelo ng TRA CHANG power tiller ay maaaring lagyan ng rubber wheel para sa pagdadala ng ani o pangkalahatang transportasyon.",
       "applicationExamples": {
         "title": "Mga Halimbawa ng Paggamit at Attachment para sa Power Tiller",
@@ -503,6 +504,7 @@
         "Luwagan ang 2 nut sa accelerator para makagalaw nang malaya ang lever, pagkatapos ay higpitan muli.",
         "Ikabit ang accelerator cable sa accelerator lever at higpitan ang nut."
       ],
+      "guideDoc": { "title": "Pag-assemble ng KUBOTA Diesel Engine sa Power Tiller", "lang": "EN", "type": "pdf", "href": "assets/docs/assembly/assembly-guide-en.pdf" },
       "resources": [
         { "title": "Video ng pag-assemble — ZT Plus engine + NC Plus X power tiller", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],

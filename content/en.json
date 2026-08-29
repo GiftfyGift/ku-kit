@@ -388,6 +388,7 @@
           ]
         }
       ],
+      "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "EN", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-en.pdf" },
       "note": "Tell NC Plus X and NC Plus X Special apart: (1) chassis code on the warranty card — \"NC131\" has no \"S\" suffix (Plus X) vs \"NC131S\" (Special); (2) a punched \"S\" mark on the gear case only on the Special. All three TRA CHANG power tiller models can switch to rubber wheels for hauling crops or general transport.",
       "applicationExamples": {
         "title": "Usage Examples & Attachments for the Power Tiller",
@@ -503,6 +504,7 @@
         "Loosen the 2 nuts at the accelerator so the lever moves freely, then re-tighten.",
         "Attach the accelerator cable to the accelerator lever and tighten the nut."
       ],
+      "guideDoc": { "title": "Assembling the KUBOTA Diesel Engine with the Power Tiller", "lang": "EN", "type": "pdf", "href": "assets/docs/assembly/assembly-guide-en.pdf" },
       "resources": [
         { "title": "Assembly walkthrough — ZT Plus engine + NC Plus X power tiller", "type": "youtube", "youtubeId": "8vLraYhIHPI" }
       ],

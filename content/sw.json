@@ -388,6 +388,7 @@
           ]
         }
       ],
+      "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-swa.pdf" },
       "note": "Jinsi ya kutofautisha NC Plus X na NC Plus X Special: (1) msimbo wa chasi kwenye kadi ya udhamini — \"NC131\" haina \"S\" mwishoni (Plus X) wakati \"NC131S\" ina \"S\" mwishoni (Special); (2) alama ya \"S\" iliyochomwa kwenye sanduku la gia kwa Special pekee. Mifano yote 3 ya trekta la kutembea la TRA CHANG inaweza kubadilishwa kuwa magurudumu ya mpira kwa ajili ya kubeba mazao au usafirishaji wa jumla.",
       "applicationExamples": {
         "title": "Mifano ya Matumizi na Vifaa vya Kuongeza kwa Trekta la Kutembea",
@@ -503,6 +504,7 @@
         "Legeza nati 2 kwenye kiongeza mwendo ili lever isogee kwa uhuru, kisha kaza tena.",
         "Unganisha kebo ya kiongeza mwendo kwenye lever ya kiongeza mwendo na kaza nati."
       ],
+      "guideDoc": { "title": "Kuunganisha Injini ya Dizeli ya KUBOTA na Trekta la Kutembea", "lang": "SWA", "type": "pdf", "href": "assets/docs/assembly/assembly-guide-swa.pdf" },
       "resources": [
         { "title": "Video ya mwongozo wa kuunganisha — injini ya ZT Plus + trekta la NC Plus X", "type": "youtube", "youtubeId": "7_xAb8HLC1I" }
       ],

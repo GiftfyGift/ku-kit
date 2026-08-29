@@ -5,6 +5,10 @@ assets/docs/*
 !assets/docs/marketing/*.pdf
 !assets/docs/engine/
 !assets/docs/engine/*.pdf
+!assets/docs/tiller/
+!assets/docs/tiller/*.pdf
+!assets/docs/assembly/
+!assets/docs/assembly/*.pdf
 
 # Regenerable build output — rebuild via the artifact build script when needed
 artifact/
