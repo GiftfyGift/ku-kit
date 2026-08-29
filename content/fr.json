@@ -71,6 +71,15 @@
           ]
         }
       },
+      "differences": {
+        "title": "Ce qui distingue les moteurs diesel KUBOTA des autres marques",
+        "items": [
+          { "title": "Meilleure résistance aux chocs", "desc": "Les sièges de soupape en acier inoxydable résistent à l'usure et peuvent être remplacés.", "image": { "src": "assets/img/product/education/engine-impact-resistance.webp", "alt": "Structure des sièges de soupape en acier inoxydable avec les zones d'impact mises en évidence" } },
+          { "title": "Résistance accrue à la chaleur", "desc": "Le faisceau du radiateur et les ailettes de refroidissement sont en laiton.", "image": { "src": "assets/img/product/education/engine-heat-resistance.webp", "alt": "Faisceau de radiateur et ailettes de refroidissement en laiton" } },
+          { "title": "Conçu pour les travaux intensifs", "desc": "La portée du vilebrequin reliée à la bielle bénéficie d'un traitement spécial de durcissement.", "image": { "src": "assets/img/product/education/engine-heavy-duty.webp", "alt": "Portée de vilebrequin reliée à la bielle avec durcissement spécial" } },
+          { "title": "Réponse d'accélération améliorée", "desc": "Un régulateur à deux bras et quatre ressorts améliore la réactivité à l'accélération.", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "Mécanisme de régulateur à deux bras avec quatre ressorts" } }
+        ]
+      },
       "preDelivery": {
         "title": "5 contrôles essentiels avant de faire fonctionner le moteur",
         "intro": "Effectuez ces cinq contrôles avant de remettre le moteur à un client ou de le démarrer pour la première fois.",

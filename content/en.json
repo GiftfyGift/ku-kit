@@ -71,6 +71,15 @@
           ]
         }
       },
+      "differences": {
+        "title": "What Sets KUBOTA Diesel Engines Apart from Other Brands",
+        "items": [
+          { "title": "Better impact resistance", "desc": "Replaceable stainless-steel valve seats resist wear and help withstand repeated impact.", "image": { "src": "assets/img/product/education/engine-impact-resistance.webp", "alt": "Stainless-steel valve-seat structure with impact areas highlighted" } },
+          { "title": "Higher heat resistance", "desc": "The radiator core and cooling fins are made of brass for reliable heat resistance.", "image": { "src": "assets/img/product/education/engine-heat-resistance.webp", "alt": "Brass radiator core and cooling fins on the diesel engine" } },
+          { "title": "Built for heavy-duty work", "desc": "The crankshaft's connecting-rod journal is specially hardened to handle demanding loads.", "image": { "src": "assets/img/product/education/engine-heavy-duty.webp", "alt": "Specially hardened crankshaft connecting-rod journal" } },
+          { "title": "Improved acceleration response", "desc": "A two-arm governor with four springs provides quicker, more responsive acceleration.", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "Two-arm governor mechanism with four springs" } }
+        ]
+      },
       "preDelivery": {
         "title": "5 Key Checks Before Operating the Engine",
         "intro": "Complete these five checks before handing the engine over to a customer or starting it for the first time.",

@@ -623,6 +623,29 @@ function renderSellingPointsMedia(media) {
   return `${videoHtml}${filesHtml}`;
 }
 
+function renderEngineDifferences(section) {
+  if (!section || !section.items || !section.items.length) return '';
+  return `
+    <div class="category-block engine-differences-section">
+      <h3 class="category-heading">${section.title}</h3>
+      <div class="engine-differences-grid">
+        ${section.items.map((item, index) => `
+          <article class="engine-difference-card">
+            <figure class="engine-difference-media">
+              <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy" decoding="async">
+              <span class="engine-difference-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>
+            </figure>
+            <div class="engine-difference-body">
+              <h4>${item.title}</h4>
+              <p>${item.desc}</p>
+            </div>
+          </article>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
 function renderProductResources(p, downloadsId, usePillStyle) {
   const { videos } = splitResources(p.resources);
   const docs = localizedDocsWithFallback(p.resources);
@@ -680,6 +703,7 @@ function renderProductEngine(c) {
       <h3 class="category-heading">${e.title}</h3>
       ${renderProductCategory(e, 'engine-product-info')}
       ${sellingPoints}
+      ${renderEngineDifferences(e.differences)}
       ${renderPreDeliveryBlock(e.preDelivery, 'engine-pre-delivery')}
       ${renderStartProcedureBlock(e.startProcedure, 'engine-start-procedure')}
       ${renderAssemblyBlock(p.assembly)}
@@ -4500,6 +4524,7 @@ function buildSearchIndex(c) {
   (e.items || []).forEach(item => pushEntry(idx, 'product-engine', item.name, item.desc,
     (item.specs || []).map(s => `${s.label} ${s.value}`).join(' ')));
   if (e.sellingPoints) (e.sellingPoints.items || []).forEach(i => pushEntry(idx, 'product-engine', i.title, i.desc));
+  if (e.differences) (e.differences.items || []).forEach(i => pushEntry(idx, 'product-engine', i.title, i.desc));
   if (e.authenticity) (e.authenticity.points || []).forEach((pt, i) => {
     const text = typeof pt === 'string' ? pt : pt.text;
     pushEntry(idx, 'product-engine', `${e.authenticity.title} #${i + 1}`, text);
