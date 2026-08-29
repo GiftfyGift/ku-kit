@@ -9,6 +9,8 @@ assets/docs/*
 !assets/docs/tiller/*.pdf
 !assets/docs/assembly/
 !assets/docs/assembly/*.pdf
+!assets/docs/service/
+!assets/docs/service/*.pdf
 
 # Regenerable build output — rebuild via the artifact build script when needed
 artifact/

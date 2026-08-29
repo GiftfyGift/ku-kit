@@ -1122,9 +1122,11 @@ function renderService(c) {
       <p class="section-intro">${s.maintenance.intro}</p>
       <h4 class="subsection-title">${s.maintenance.engine.title}</h4>
       <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.engine.points, 'maintenance-engine', 'engine')}</div>
+      ${s.maintenance.engine.guideDoc ? `<div class="file-pill-row">${renderFilePill(s.maintenance.engine.guideDoc)}</div>` : ''}
       ${maintenanceSchedule}
       <h4 class="subsection-title">${s.maintenance.tiller.title}</h4>
       <div class="${pointsGridClass()}">${renderMaintenancePoints(s.maintenance.tiller.points, 'maintenance-tiller', 'tiller')}</div>
+      ${s.maintenance.tiller.guideDoc ? `<div class="file-pill-row">${renderFilePill(s.maintenance.tiller.guideDoc)}</div>` : ''}
     </div>
   ` : '';
 
