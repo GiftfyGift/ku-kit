@@ -80,6 +80,16 @@
           { "title": "Mas mabilis na tugon sa acceleration", "desc": "Ang two-arm governor na may apat na spring ay nagbibigay ng mas mabilis na tugon sa acceleration.", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "Two-arm governor mechanism na may apat na spring" } }
         ]
       },
+      "starterSystems": {
+        "title": "Mga Starter System ng KUBOTA Diesel Engine",
+        "intro": "Pumili sa tatlong configuration ayon sa paggagamitan.",
+        "items": [
+          { "code": "Standard", "title": "Standard Model", "desc": "Manu-manong hand-crank start", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "KUBOTA diesel engine Standard model na may manu-manong hand-crank start" } },
+          { "code": "ES", "title": "ES Model (Electric Start)", "desc": "Electric starter motor", "image": { "src": "assets/img/product/starter-es.webp", "alt": "KUBOTA diesel engine ES model na may electric starter motor" } },
+          { "code": "SW", "title": "SW Model (Switch Start)", "desc": "Key-switch start", "image": { "src": "assets/img/product/starter-sw.webp", "alt": "KUBOTA diesel engine SW model na may key-switch start" } }
+        ],
+        "note": "Tandaan: Maaaring magkaiba ang mga modelong ibinebenta sa bawat bansa."
+      },
       "preDelivery": {
         "title": "5 Mahalagang Beripikasyon Bago Patakbuhin ang Engine",
         "intro": "Kumpletuhin ang limang beripikasyong ito bago ibigay ang engine sa customer o bago ito i-start sa unang pagkakataon.",

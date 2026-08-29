@@ -80,6 +80,16 @@
           { "title": "Mwitikio bora wa kuongeza kasi", "desc": "Governor ya mikono miwili yenye springi nne hutoa mwitikio wa haraka zaidi wa kuongeza kasi.", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "Mfumo wa governor wa mikono miwili wenye springi nne" } }
         ]
       },
+      "starterSystems": {
+        "title": "Mifumo ya Kuwasha Injini za Dizeli za KUBOTA",
+        "intro": "Chagua kati ya aina tatu kulingana na matumizi.",
+        "items": [
+          { "code": "Standard", "title": "Aina ya Standard", "desc": "Kuwasha kwa mkono kwa mpini", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "Injini ya dizeli ya KUBOTA aina ya Standard inayowashwa kwa mkono" } },
+          { "code": "ES", "title": "Aina ya ES (Electric Start)", "desc": "Kuwasha kwa mota ya starter", "image": { "src": "assets/img/product/starter-es.webp", "alt": "Injini ya dizeli ya KUBOTA aina ya ES yenye mota ya starter" } },
+          { "code": "SW", "title": "Aina ya SW (Switch Start)", "desc": "Kuwasha kwa ufunguo", "image": { "src": "assets/img/product/starter-sw.webp", "alt": "Injini ya dizeli ya KUBOTA aina ya SW inayowashwa kwa ufunguo" } }
+        ],
+        "note": "Kumbuka: Aina zinazouzwa zinaweza kutofautiana katika kila nchi."
+      },
       "preDelivery": {
         "title": "Ukaguzi 5 Muhimu Kabla ya Kuendesha Injini",
         "intro": "Kamilisha ukaguzi huu tano kabla ya kumkabidhi mteja injini au kabla ya kuiwasha kwa mara ya kwanza.",

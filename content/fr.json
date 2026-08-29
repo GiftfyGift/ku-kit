@@ -80,6 +80,16 @@
           { "title": "Réponse d'accélération améliorée", "desc": "Un régulateur à deux bras et quatre ressorts améliore la réactivité à l'accélération.", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "Mécanisme de régulateur à deux bras avec quatre ressorts" } }
         ]
       },
+      "starterSystems": {
+        "title": "Systèmes de démarrage des moteurs diesel KUBOTA",
+        "intro": "Trois configurations au choix selon l'utilisation.",
+        "items": [
+          { "code": "Standard", "title": "Modèle Standard", "desc": "Démarrage manuel à la manivelle", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "Moteur diesel KUBOTA Standard à démarrage manuel par manivelle" } },
+          { "code": "ES", "title": "Modèle ES (Electric Start)", "desc": "Démarrage électrique par démarreur", "image": { "src": "assets/img/product/starter-es.webp", "alt": "Moteur diesel KUBOTA ES avec démarreur électrique" } },
+          { "code": "SW", "title": "Modèle SW (Switch Start)", "desc": "Démarrage par contacteur à clé", "image": { "src": "assets/img/product/starter-sw.webp", "alt": "Moteur diesel KUBOTA SW avec démarrage par contacteur à clé" } }
+        ],
+        "note": "Remarque : les modèles commercialisés peuvent varier selon les pays."
+      },
       "preDelivery": {
         "title": "5 contrôles essentiels avant de faire fonctionner le moteur",
         "intro": "Effectuez ces cinq contrôles avant de remettre le moteur à un client ou de le démarrer pour la première fois.",

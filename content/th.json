@@ -81,6 +81,16 @@
           { "title": "ตอบสนองอัตราเร่งได้ดียิ่งขึ้น", "desc": "ด้วยกาวานาแบบ 2 แขนและสปริง 4 ตัว", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "ภาพกาวานาแบบ 2 แขนและสปริง 4 ตัว" } }
         ]
       },
+      "starterSystems": {
+        "title": "ระบบสตาร์ทของเครื่องยนต์ดีเซลคูโบต้า",
+        "intro": "เลือกได้ 3 รูปแบบให้เหมาะกับลักษณะการใช้งาน",
+        "items": [
+          { "code": "Standard", "title": "รุ่น Standard", "desc": "แบบมือหมุนสตาร์ท", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "เครื่องยนต์ดีเซลคูโบต้ารุ่น Standard แบบมือหมุนสตาร์ท" } },
+          { "code": "ES", "title": "รุ่น ES (Electric Start)", "desc": "แบบมอเตอร์สตาร์ท", "image": { "src": "assets/img/product/starter-es.webp", "alt": "เครื่องยนต์ดีเซลคูโบต้ารุ่น ES แบบมอเตอร์สตาร์ท" } },
+          { "code": "SW", "title": "รุ่น SW (Switch Start)", "desc": "แบบกุญแจสตาร์ท", "image": { "src": "assets/img/product/starter-sw.webp", "alt": "เครื่องยนต์ดีเซลคูโบต้ารุ่น SW แบบกุญแจสตาร์ท" } }
+        ],
+        "note": "หมายเหตุ: รุ่นที่จำหน่ายในแต่ละประเทศอาจมีความแตกต่างกัน"
+      },
       "preDelivery": {
         "title": "5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า",
         "intro": "ตรวจเช็กเครื่องยนต์ทั้ง 5 จุดก่อนส่งมอบให้ลูกค้า เพื่อยืนยันความพร้อมใช้งานและลดความเสี่ยงจากปัญหาหลังการขาย",

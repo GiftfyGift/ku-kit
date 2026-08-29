@@ -80,6 +80,16 @@
           { "title": "Improved acceleration response", "desc": "A two-arm governor with four springs provides quicker, more responsive acceleration.", "image": { "src": "assets/img/product/education/engine-acceleration-response.webp", "alt": "Two-arm governor mechanism with four springs" } }
         ]
       },
+      "starterSystems": {
+        "title": "KUBOTA Diesel Engine Starter Systems",
+        "intro": "Choose from three configurations to suit the application.",
+        "items": [
+          { "code": "Standard", "title": "Standard Model", "desc": "Manual hand-crank start", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "KUBOTA diesel engine Standard model with manual hand-crank start" } },
+          { "code": "ES", "title": "ES Model (Electric Start)", "desc": "Electric starter motor", "image": { "src": "assets/img/product/starter-es.webp", "alt": "KUBOTA diesel engine ES model with electric starter motor" } },
+          { "code": "SW", "title": "SW Model (Switch Start)", "desc": "Key-switch start", "image": { "src": "assets/img/product/starter-sw.webp", "alt": "KUBOTA diesel engine SW model with key-switch start" } }
+        ],
+        "note": "Note: Models available may vary by country."
+      },
       "preDelivery": {
         "title": "5 Key Checks Before Operating the Engine",
         "intro": "Complete these five checks before handing the engine over to a customer or starting it for the first time.",
