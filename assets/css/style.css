@@ -3978,6 +3978,11 @@ table.parts-table td.code-col {
 
 .ka-results { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
 
+.ka-result-wrap {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
 .ka-result {
   display: block;
   width: 100%;
@@ -4017,6 +4022,18 @@ table.parts-table td.code-col {
   font-weight: 600;
   color: var(--kubota-steel-blue);
 }
+
+.ka-source-link {
+  display: block;
+  padding: 5px 10px 7px 13px;
+  background: var(--kubota-light-gray);
+  color: var(--kubota-steel-blue);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ka-source-link:hover { color: var(--kubota-orange); }
 
 .ka-form {
   display: flex;

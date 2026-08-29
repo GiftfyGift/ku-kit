@@ -8,6 +8,8 @@ const state = {
   searchIndex: []
 };
 
+let productKnowledgeCache = null;
+
 const app = document.getElementById('app');
 const langToggle = document.getElementById('lang-toggle');
 const langMenu = document.getElementById('lang-menu');
@@ -25,6 +27,27 @@ async function loadContent(lang) {
   const res = await fetch(`content/${lang}.json`, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load content/${lang}.json`);
   return res.json();
+}
+
+async function loadProductKnowledge(lang) {
+  if (!productKnowledgeCache) {
+    const res = await fetch('content/product-knowledge.json', { cache: 'no-store' });
+    if (!res.ok) return [];
+    productKnowledgeCache = await res.json();
+  }
+  const documentLang = lang === 'th' || lang === 'sw' ? lang : 'en';
+  return (productKnowledgeCache.chunks || [])
+    .filter(chunk => chunk.lang === documentLang)
+    .map(chunk => ({
+      route: chunk.route,
+      title: chunk.title,
+      snippet: chunk.text.length > 160 ? `${chunk.text.slice(0, 157)}…` : chunk.text,
+      text: normalizeAssistantText(`${chunk.title} ${chunk.text}`),
+      sourceTitle: chunk.title,
+      sourceUrl: chunk.sourceUrl,
+      chunkNumber: chunk.chunkNumber,
+      isDocument: true
+    }));
 }
 
 function setActiveNav(route) {
@@ -4806,6 +4829,7 @@ async function setLang(lang) {
   document.documentElement.lang = lang;
   state.content = await loadContent(lang);
   state.searchIndex = buildSearchIndex(state.content);
+  state.searchIndex.push(...await loadProductKnowledge(lang));
   render();
   applyAssistantText(state.content);
   applyBackToTopText(state.content);
@@ -5039,14 +5063,23 @@ function kaRenderResults(results, c) {
   if (!results.length) {
     return `<div>${escapeHtml(c.assistant.noResults)}</div>`;
   }
-  const items = results.map(r => `
-    <button type="button" class="ka-result" data-ka-route="${r.route}">
-      <div class="ka-result-tag">${escapeHtml(routeLabel(r.route, c))}</div>
-      <div class="ka-result-title">${escapeHtml(r.title)}</div>
-      <div class="ka-result-snippet">${escapeHtml(r.snippet)}</div>
-      <div class="ka-result-source">${escapeHtml(({ th: 'แหล่งข้อมูล', en: 'Source', fr: 'Source', sw: 'Chanzo', tl: 'Pinagmulan' })[state.lang] || 'Source')}: ${escapeHtml(routeLabel(r.route, c))}</div>
-    </button>
-  `).join('');
+  const sourceLabel = ({ th: 'แหล่งข้อมูล', en: 'Source', fr: 'Source', sw: 'Chanzo', tl: 'Pinagmulan' })[state.lang] || 'Source';
+  const sectionLabel = ({ th: 'ส่วน', en: 'Section', fr: 'Section', sw: 'Sehemu', tl: 'Seksyon' })[state.lang] || 'Section';
+  const openLabel = ({ th: 'เปิดเอกสารต้นฉบับ ↗', en: 'Open source document ↗', fr: 'Ouvrir le document source ↗', sw: 'Fungua hati chanzo ↗', tl: 'Buksan ang source document ↗' })[state.lang] || 'Open source document ↗';
+  const items = results.map(r => {
+    const source = r.sourceTitle ? `${r.sourceTitle} — ${sectionLabel} ${r.chunkNumber}` : routeLabel(r.route, c);
+    return `
+      <div class="ka-result-wrap">
+        <button type="button" class="ka-result" data-ka-route="${r.route}">
+          <div class="ka-result-tag">${escapeHtml(routeLabel(r.route, c))}</div>
+          <div class="ka-result-title">${escapeHtml(r.title)}</div>
+          <div class="ka-result-snippet">${escapeHtml(r.snippet)}</div>
+          <div class="ka-result-source">${escapeHtml(sourceLabel)}: ${escapeHtml(source)}</div>
+        </button>
+        ${r.sourceUrl ? `<a class="ka-source-link" href="${escapeHtml(r.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(openLabel)}</a>` : ''}
+      </div>
+    `;
+  }).join('');
   return `<div>${escapeHtml(c.assistant.resultsIntro)}</div><div class="ka-results">${items}</div>`;
 }
 
