@@ -331,6 +331,7 @@
     "tiller": {
       "title": "TRA CHANG Power Tiller — NC Plus X",
       "quickLinks": [
+        { "label": "Product Knowledge", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "OPM (Operation Manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "Authenticity Checkpoints", "route": "product-tiller", "anchor": "tiller-authenticity" },

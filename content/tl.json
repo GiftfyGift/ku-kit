@@ -331,6 +331,7 @@
     "tiller": {
       "title": "TRA CHANG Power Tiller — NC Plus X",
       "quickLinks": [
+        { "label": "Kaalaman sa Produkto", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "Paano I-assemble ang Diesel Engine sa Power Tiller", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "OPM (Operation Manual)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "Mga Checkpoint ng Orihinalidad", "route": "product-tiller", "anchor": "tiller-authenticity" },
@@ -610,8 +611,10 @@
   "marketing": {
     "title": "Marketing Activities",
     "intro": "Apat na standard na activity format para sa Dealer para bumuo ng awareness ng produkto, magpakita ng aktuwal na performance, magbigay ng after-sales service, at magpasalamat sa mga umiiral na customer — mula mismo sa opisyal na KUBOTA Activity Standard manuals.",
+    "fullDetailsTitle": "Buong Detalye ng Activity",
+    "cardLabels": { "overviewTitle": "Activity Standards", "objective": "Layunin", "target": "Target na customer", "venue": "Inirerekomendang Venue", "readMore": "Magbasa pa", "showLess": "Ipakita nang kaunti", "openGuide": "Pumunta sa buong detalye ng activity" },
     "quickSelectTitle": "Mabilisang Pagpili ng Activity",
-    "labels": { "minParticipants": "Pinakamababang bilang ng kalahok", "target": "Target na customer", "duration": "Rekomendadong tagal", "venue": "Angkop na venue", "basic": "Batayang activities (kailangan)", "optional": "Opsyonal na activities", "schedule": "Iminumungkahing schedule", "checklist": "Checklist bago simulan ang event" },
+    "labels": { "minParticipants": "Pinakamababang bilang ng kalahok", "target": "Target na customer", "duration": "Rekomendadong tagal", "venue": "Angkop na venue", "basic": "Batayang activities (kailangan)", "optional": "Opsyonal na activities", "schedule": "Iminumungkahing schedule", "recommendedItems": "Checklist bago simulan ang event" },
     "activityComparison": {
       "title": "Paghahambing ng Activity Standards",
       "criteria": [

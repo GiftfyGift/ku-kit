@@ -331,6 +331,7 @@
     "tiller": {
       "title": "Trekta la Kutembea la TRA CHANG — NC Plus X",
       "quickLinks": [
+        { "label": "Maarifa ya Bidhaa", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "OPM (Mwongozo wa Uendeshaji)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "Vipengele vya Ukaguzi wa Uhalisi", "route": "product-tiller", "anchor": "tiller-authenticity" },
@@ -611,8 +612,10 @@
   "marketing": {
     "title": "Shughuli za Masoko",
     "intro": "Mifumo minne ya kawaida ya shughuli za Muuzaji kwa ajili ya kujenga uelewa wa bidhaa, kuonyesha utendaji halisi, kutoa huduma baada ya mauzo, na kuwashukuru wateja waliopo — moja kwa moja kutoka kwenye miongozo rasmi ya KUBOTA Activity Standard.",
+    "fullDetailsTitle": "Maelezo Kamili ya Shughuli",
+    "cardLabels": { "overviewTitle": "Viwango vya Shughuli", "objective": "Lengo", "target": "Wateja walengwa", "venue": "Mahali panapopendekezwa", "readMore": "Soma zaidi", "showLess": "Onyesha kidogo", "openGuide": "Nenda kwenye maelezo kamili ya shughuli" },
     "quickSelectTitle": "Uchaguzi wa Haraka wa Shughuli",
-    "labels": { "minParticipants": "Idadi ya chini ya washiriki", "target": "Wateja walengwa", "duration": "Muda unaopendekezwa", "venue": "Mahali panapofaa", "basic": "Shughuli za msingi (zinazohitajika)", "optional": "Shughuli za hiari", "schedule": "Ratiba inayopendekezwa", "checklist": "Orodha ya ukaguzi kabla ya tukio kuanza" },
+    "labels": { "minParticipants": "Idadi ya chini ya washiriki", "target": "Wateja walengwa", "duration": "Muda unaopendekezwa", "venue": "Mahali panapofaa", "basic": "Shughuli za msingi (zinazohitajika)", "optional": "Shughuli za hiari", "schedule": "Ratiba inayopendekezwa", "recommendedItems": "Orodha ya ukaguzi kabla ya tukio kuanza" },
     "activityComparison": {
       "title": "Ulinganisho wa Viwango vya Shughuli",
       "criteria": [

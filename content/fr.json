@@ -331,6 +331,7 @@
     "tiller": {
       "title": "Motoculteur TRA CHANG — NC Plus X",
       "quickLinks": [
+        { "label": "Connaissance du produit", "route": "product-tiller", "anchor": "tiller-product-info" },
         { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-tiller", "anchor": "assembly-tiller" },
         { "label": "OPM (Manuel d'utilisation)", "route": "product-tiller", "anchor": "tiller-downloads" },
         { "label": "Points de contrôle d'authenticité", "route": "product-tiller", "anchor": "tiller-authenticity" },
@@ -610,8 +611,10 @@
   "marketing": {
     "title": "Activités marketing",
     "intro": "Quatre formats d'activités standards pour les concessionnaires, permettant de renforcer la notoriété des produits, de démontrer leurs performances réelles, d'assurer le service après-vente et de remercier les clients existants — directement issus des manuels officiels KUBOTA Activity Standard.",
+    "fullDetailsTitle": "Détails complets de l'activité",
+    "cardLabels": { "overviewTitle": "Normes d'activité", "objective": "Objectif", "target": "Clients ciblés", "venue": "Lieu recommandé", "readMore": "Lire la suite", "showLess": "Réduire", "openGuide": "Voir tous les détails de l'activité" },
     "quickSelectTitle": "Sélection rapide d'activité",
-    "labels": { "minParticipants": "Participants minimum", "target": "Clients ciblés", "duration": "Durée suggérée", "venue": "Lieu adapté", "basic": "Activités de base (obligatoires)", "optional": "Activités optionnelles", "schedule": "Programme suggéré", "checklist": "Liste de contrôle avant le début de l'événement" },
+    "labels": { "minParticipants": "Participants minimum", "target": "Clients ciblés", "duration": "Durée suggérée", "venue": "Lieu adapté", "basic": "Activités de base (obligatoires)", "optional": "Activités optionnelles", "schedule": "Programme suggéré", "recommendedItems": "Liste de contrôle avant le début de l'événement" },
     "activityComparison": {
       "title": "Comparatif des standards d'activité",
       "criteria": [
