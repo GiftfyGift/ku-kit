@@ -357,6 +357,8 @@
         { "label": "Mga Attachment para sa Power Tiller", "route": "product-tiller", "anchor": "tiller-application" }
       ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller" },
+      "exteriorLabel": "Panlabas",
+      "interiorLabel": "Panloob",
       "items": [
         {
           "name": "NC Plus X",
@@ -364,6 +366,16 @@
           "images": [
             { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller", "caption": "800 mm" }
           ],
+          "wheelOptions": [
+            { "line1": "800 mm", "line2": "+ 3\" wheel blade, 16 piraso" }
+          ],
+          "exterior": ["Maikling plow shaft", "Wheel hub na walang stud bolt", "Hindi puwedeng lagyan ng fender"],
+          "interior": [
+            { "heading": "Standard turning system", "bullets": ["Angkop sa pangkalahatang gamit"] },
+            { "heading": "Standard clutch set", "bullets": ["Angkop sa pangkalahatang gamit"] },
+            { "heading": "Standard bearing", "bullets": ["Ball bearing", "Matibay at matatag"] }
+          ],
+          "compatNote": "*** Hindi puwedeng gamitin kasama ng 880 mm / 980 mm na steel wheel — masisira ang turning gear system at clutch set",
           "desc": "Cage wheel na 800 mm ang diameter, 3-pulgadang wheel blade (16 piraso). Angkop para sa lupang mabuhangin o hindi masyadong malagkit, parehong basa at tuyong bukid, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Puwedeng gamitin ang cage wheel para sa maikling biyahe. Hindi angkop sa napakalalim na putikan.",
           "specs": [
             { "label": "Diameter ng cage wheel", "value": "800 mm" },
@@ -378,6 +390,16 @@
           "images": [
             { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "TRA CHANG NC Plus X Special power tiller — 880", "caption": "880 mm" },
             { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "TRA CHANG NC Plus X Special power tiller — 980", "caption": "980 mm" }
+          ],
+          "wheelOptions": [
+            { "line1": "880 mm", "line2": "+ 4\" wheel blade, 16 piraso" },
+            { "line1": "980 mm", "line2": "+ 5\" wheel blade, 16 piraso" }
+          ],
+          "exterior": ["Mahabang plow shaft", "Wheel hub na may stud bolt", "Puwedeng lagyan ng fender"],
+          "interior": [
+            { "heading": "Gear Insert turning system", "bullets": ["Matibay, gawa para sa mabibigat na trabaho, mababaligtad kapag naluma", "May safety bolt para mabawasan ang pinsala sa gear teeth", "Madali at magaan ang pag-steer"] },
+            { "heading": "Special clutch set na may mas matigas na spring", "bullets": ["Mahusay na paghawak at paghatid ng lakas, angkop sa mabibigat na trabaho"] },
+            { "heading": "Special bearing", "bullets": ["Ball bearing", "May seal na bearing (shaft 3, 4, 5) — matibay at matatag", "Nagpoprotekta sa gear teeth kapag nasira ang bearing"] }
           ],
           "desc": "Cage wheel na 880 mm o 980 mm ang diameter, may Gear Insert turning system para sa mabigat na putikan at palayang tinatamnan nang higit sa dalawang beses sa isang taon. Kung ililipat, palitan ng rubber wheel o gumamit ng trailer; para sa putikan, isamang gamitin ang KUBOTA ZT Plus 14-15.5 HP engine.",
           "specs": [

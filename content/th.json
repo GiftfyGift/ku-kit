@@ -365,6 +365,8 @@
         { "label": "อุปกรณ์ต่อพ่วงที่สามารถใช้กับรถไถเดินตาม", "route": "product-tiller", "anchor": "tiller-application" }
       ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "รถไถเดินตามตราช้าง NC Plus X 800" },
+      "exteriorLabel": "ภายนอก",
+      "interiorLabel": "ภายใน",
       "items": [
         {
           "name": "NC Plus X",
@@ -373,7 +375,7 @@
             { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "รถไถเดินตามตราช้าง NC Plus X 800", "caption": "800 มม." }
           ],
           "wheelOptions": [
-            { "diameterMm": "800", "bladeInch": "3", "bladeCount": "16" }
+            { "line1": "800 มม.", "line2": "+ ใบล้อขนาด 3\" จำนวน 16 ใบ" }
           ],
           "exterior": ["ซองผานแบบสั้น", "ประกับล้อแบบไม่มี Stud Bolt", "ใส่บังโคลนไม่ได้"],
           "interior": [
@@ -398,8 +400,8 @@
             { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "รถไถเดินตามตราช้าง NC Plus X Special 980", "caption": "980 มม." }
           ],
           "wheelOptions": [
-            { "diameterMm": "880", "bladeInch": "4", "bladeCount": "16" },
-            { "diameterMm": "980", "bladeInch": "5", "bladeCount": "16" }
+            { "line1": "880 มม.", "line2": "+ ใบล้อขนาด 4\" จำนวน 16 ใบ" },
+            { "line1": "980 มม.", "line2": "+ ใบล้อขนาด 5\" จำนวน 16 ใบ" }
           ],
           "exterior": ["ซองผานแบบยาว", "ประกับล้อแบบมี Stud Bolt", "ใส่บังโคลนได้"],
           "interior": [
@@ -554,7 +556,7 @@
   },
   "service": {
     "title": "บริการ",
-    "intro": "คำแนะนำการบำรุงรักษาและดูแลเครื่องยนต์ดีเซลคูโบต้าและรถไถเดินตามตราช้างอย่างถูกวิธี<br>เพื่อยืดอายุการใช้งานและช่วยให้สินค้าพร้อมทำงานได้อย่างเต็มประสิทธิภาพ",
+    "intro": "คำแนะนำการบำรุงรักษาและดูแลเครื่องยนต์ดีเซลคูโบต้าและรถไถเดินตามตราช้างอย่างถูกวิธี เพื่อยืดอายุการใช้งานและช่วยให้สินค้าพร้อมทำงานได้อย่างเต็มประสิทธิภาพ",
     "quickLinks": [
       {
         "label": "ขั้นตอนการบำรุงรักษาเครื่องยนต์",

@@ -357,6 +357,8 @@
         { "label": "Vifaa vya Kuongeza kwa Trekta la Kutembea", "route": "product-tiller", "anchor": "tiller-application" }
       ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800" },
+      "exteriorLabel": "Nje",
+      "interiorLabel": "Ndani",
       "items": [
         {
           "name": "NC Plus X",
@@ -364,6 +366,16 @@
           "images": [
             { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800", "caption": "800 mm" }
           ],
+          "wheelOptions": [
+            { "line1": "800 mm", "line2": "+ vile vya gurudumu inchi 3, vipande 16" }
+          ],
+          "exterior": ["Fremu fupi ya jembe", "Kitovu cha gurudumu bila stud bolt", "Haiwezi kuwekewa fenda"],
+          "interior": [
+            { "heading": "Mfumo wa kawaida wa kugeuza", "bullets": ["Inafaa kwa matumizi ya kawaida"] },
+            { "heading": "Klachi ya kawaida", "bullets": ["Inafaa kwa matumizi ya kawaida"] },
+            { "heading": "Beringi ya kawaida", "bullets": ["Beringi ya mpira", "Imara na ya kudumu"] }
+          ],
+          "compatNote": "*** Haiwezi kutumika na magurudumu ya chuma ya 880 mm / 980 mm — hii itaharibu mfumo wa kugeuza na klachi",
           "desc": "Kipenyo cha gurudumu la kizimba 800 mm, vile vya gurudumu inchi 3 (vipande 16). Inafaa kwa udongo wa mfinyanzi au mchanga, mashamba ya mpunga na makavu, mashamba ya miwa, muhogo, maharage, na mboga. Gurudumu la kizimba linaweza kutumika kwa safari fupi. Haifai kwa mashamba yenye tope kubwa.",
           "specs": [
             { "label": "Kipenyo cha gurudumu la kizimba", "value": "800 mm" },
@@ -378,6 +390,16 @@
           "images": [
             { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 880", "caption": "880 mm" },
             { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 980", "caption": "980 mm" }
+          ],
+          "wheelOptions": [
+            { "line1": "880 mm", "line2": "+ vile vya gurudumu inchi 4, vipande 16" },
+            { "line1": "980 mm", "line2": "+ vile vya gurudumu inchi 5, vipande 16" }
+          ],
+          "exterior": ["Fremu ndefu ya jembe", "Kitovu cha gurudumu na stud bolt", "Inaweza kuwekewa fenda"],
+          "interior": [
+            { "heading": "Mfumo wa Gear Insert wa kugeuza", "bullets": ["Imara, iliyoundwa kwa kazi nzito, inaweza kugeuzwa ukichakaa", "Ina safety bolt kupunguza uharibifu kwa meno ya gia", "Kugeuza kwa urahisi na kwa uzito mwepesi"] },
+            { "heading": "Klachi maalum yenye springi ngumu zaidi", "bullets": ["Inashika na kupitisha nguvu vizuri, inafaa kwa kazi nzito"] },
+            { "heading": "Beringi maalum", "bullets": ["Beringi ya mpira", "Beringi yenye seal (mihimili 3, 4, 5) — imara na ya kudumu", "Inalinda meno ya gia dhidi ya uharibifu iwapo beringi itashindwa"] }
           ],
           "desc": "Kipenyo cha gurudumu la kizimba 880 mm au 980 mm, na mfumo wa Gear Insert wa kugeuza kwa ajili ya kazi nzito za tope na mpunga unaopandwa zaidi ya mara mbili kwa mwaka. Kubadilisha eneo, badilisha kwa magurudumu ya mpira au tumia trela; kwa kazi za tope, tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP.",
           "specs": [

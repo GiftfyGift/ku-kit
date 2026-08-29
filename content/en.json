@@ -357,6 +357,8 @@
         { "label": "Attachments for the Power Tiller", "route": "product-tiller", "anchor": "tiller-application" }
       ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller" },
+      "exteriorLabel": "Exterior",
+      "interiorLabel": "Interior",
       "items": [
         {
           "name": "NC Plus X",
@@ -364,6 +366,16 @@
           "images": [
             { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller", "caption": "800 mm" }
           ],
+          "wheelOptions": [
+            { "line1": "800 mm", "line2": "+ 3\" wheel blades, 16 pieces" }
+          ],
+          "exterior": ["Short plow shaft", "Wheel hub without stud bolts", "Cannot fit fenders"],
+          "interior": [
+            { "heading": "Standard turning system", "bullets": ["Suited for general use"] },
+            { "heading": "Standard clutch set", "bullets": ["Suited for general use"] },
+            { "heading": "Standard bearing", "bullets": ["Ball-type bearing", "Strong and durable"] }
+          ],
+          "compatNote": "*** Cannot be used with 880 mm / 980 mm steel wheels — this would damage the turning gear system and clutch set",
           "desc": "Cage wheel diameter 800 mm, 3-inch wheel blades (16 pieces). Suitable for loamy or sandy soil, both paddy and dry fields, sugarcane/cassava/bean/vegetable plots. Cage wheels can travel short distances. Not recommended for puddled (deep-mud) fields.",
           "specs": [
             { "label": "Cage wheel diameter", "value": "800 mm" },
@@ -378,6 +390,16 @@
           "images": [
             { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "TRA CHANG NC Plus X Special power tiller — 880", "caption": "880 mm" },
             { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "TRA CHANG NC Plus X Special power tiller — 980", "caption": "980 mm" }
+          ],
+          "wheelOptions": [
+            { "line1": "880 mm", "line2": "+ 4\" wheel blades, 16 pieces" },
+            { "line1": "980 mm", "line2": "+ 5\" wheel blades, 16 pieces" }
+          ],
+          "exterior": ["Long plow shaft", "Wheel hub with stud bolts", "Can fit fenders"],
+          "interior": [
+            { "heading": "Gear Insert turning system", "bullets": ["Strong, built for heavy-duty work, reversible when worn", "Has a safety bolt to reduce damage to the gear teeth", "Easy, light steering"] },
+            { "heading": "Special clutch set with stiffer springs", "bullets": ["Grips and transmits power well, suited for heavy-duty work"] },
+            { "heading": "Special bearing", "bullets": ["Ball-type bearing", "Sealed bearing (shafts 3, 4, 5) — strong and durable", "Protects the gear teeth from damage if a bearing fails"] }
           ],
           "desc": "Cage wheel diameter 880 mm or 980 mm, with the Gear Insert turning system for heavy-duty puddled fields and paddy planted more than twice a year. To relocate it, switch to rubber wheels or use a trailer; for puddle work, pair with a KUBOTA ZT Plus 14-15.5 HP engine.",
           "specs": [
