@@ -430,8 +430,9 @@
         ]
       },
       "authenticity": {
-        "title": "Jinsi ya Kuthibitisha Trekta Halisi la Kutembea la TRA CHANG",
+        "title": "Jinsi ya Kutambua Trekta ya Mkono ya TRA CHANG Halisi",
         "intro": "Bidhaa bandia huathiri imani ya wateja na usalama baada ya mauzo. Tumia vipengele hivi vya ukaguzi kuthibitisha trekta halisi la kutembea la TRA CHANG.",
+        "artworkImage": { "src": "assets/img/product/authenticity/tiller-authenticity-artwork-sw.jpg", "alt": "Jinsi ya kutambua trekta halisi ya TRA CHANG — alama ya biashara ya tembo ndani ya gia kwenye kifuniko cha juu na kishikio cha kubadilisha gia, maandishi yaliyoinuka \"TRA CHANG\" kwenye Transmission Case, kibandiko chekundu chenye ukingo mweupe cha TRA CHANG, na nambari ya fremu NC-XXXXXX" },
         "points": [
           { "text": "Chapa ya biashara ya TRA CHANG: tembo akiwa ameelekea kushoto, ameinua mguu wa mbele wa kushoto, gia ya rangi ya dhahabu inayong'aa, tembo mweupe kwenye mandhari ya duara nyekundu inayong'aa.", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "Chapa ya TRA CHANG — tembo mweupe kwenye duara nyekundu" } },
           { "text": "Kibandiko cha chapa kinaandika \"TRA CHANG\" kwa herufi nyekundu zinazong'aa zenye mpaka mweupe.", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "Kibandiko cha chapa ya TRA CHANG kwenye mpini wa trekta" } },

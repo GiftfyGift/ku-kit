@@ -430,8 +430,9 @@
         ]
       },
       "authenticity": {
-        "title": "Comment vérifier l'authenticité du motoculteur TRA CHANG",
+        "title": "Comment identifier un motoculteur TRA CHANG authentique",
         "intro": "Les contrefaçons nuisent à la confiance des clients et à la sécurité du service après-vente. Utilisez ces points de contrôle pour confirmer qu'il s'agit d'un motoculteur TRA CHANG authentique.",
+        "artworkImage": { "src": "assets/img/product/authenticity/tiller-authenticity-artwork-en.jpg", "alt": "Comment identifier un motoculteur TRA CHANG authentique — marque déposée \"éléphant dans un pignon\" sur le carter supérieur et le levier de vitesses, inscription en relief \"TRA CHANG\" sur le carter de transmission, autocollant TRA CHANG rouge à contour blanc, et numéro de série de châssis NC-XXXXXX" },
         "points": [
           { "text": "Marque déposée TRA CHANG : éléphant tourné vers la gauche, patte avant gauche levée, engrenage doré éclatant, éléphant blanc sur fond circulaire rouge vif.", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "Marque déposée TRA CHANG — éléphant blanc sur fond circulaire rouge" } },
           { "text": "L'autocollant de marque affiche « TRA CHANG » en lettres rouge vif bordées de blanc.", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "Autocollant de marque TRA CHANG sur le guidon du motoculteur" } },

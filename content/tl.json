@@ -430,8 +430,9 @@
         ]
       },
       "authenticity": {
-        "title": "Paano Tiyakin ang Orihinal na TRA CHANG Power Tiller",
+        "title": "Paano Kilalanin ang Isang Tunay na TRA CHANG Power Tiller",
         "intro": "Ang mga peke ay nakakasira sa tiwala ng customer at kaligtasan pagkatapos ng benta. Gamitin ang mga checkpoint na ito para matiyak na orihinal ang TRA CHANG power tiller.",
+        "artworkImage": { "src": "assets/img/product/authenticity/tiller-authenticity-artwork-en.jpg", "alt": "Paano kilalanin ang tunay na TRA CHANG power tiller — elephant-in-cogwheel na trademark sa itaas na takip at gear-shift lever, embossed na \"TRA CHANG\" sa transmission case, puting-may-gilid na pulang TRA CHANG sticker, at NC-XXXXXX na serial number ng frame" },
         "points": [
           { "text": "TRA CHANG trademark: elepanteng nakaharap sa kaliwa, nakataas ang kaliwang harapang paa, makintab na gintong gear, puting elepante sa maningning na pulang bilog na background.", "image": { "src": "assets/img/product/authenticity/tiller-01-trademark.png", "alt": "TRA CHANG trademark — puting elepante sa pulang bilog" } },
           { "text": "Ang trademark sticker ay may baybay na \"TRA CHANG\" sa maningning na pulang letra na may puting border.", "image": { "src": "assets/img/product/authenticity/tiller-02-trademark-sticker.png", "alt": "TRA CHANG trademark sticker sa hawakan ng tiller" } },
