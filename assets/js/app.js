@@ -2765,7 +2765,7 @@ function getArtworkEditorLabels() {
     th: {
       body: 'ข้อความรายละเอียด', uploadLogo: 'เพิ่มโลโก้ร้านค้า', replaceLogo: 'เปลี่ยนโลโก้ร้านค้า',
       uploadHint: 'รองรับ PNG, JPG และ WebP (พื้นหลังโปร่งใสจะสวยที่สุด)', layers: 'เลือกสิ่งที่ต้องการแก้บนแบบ',
-      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', shopLogo: 'โลโก้ร้าน',
+      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', shopLogo: 'โลโก้ร้าน',
       selected: 'กำลังแก้ไข', selectHint: 'คลิกสิ่งที่ต้องการบนภาพ หรือเลือกจากปุ่มด้านล่าง',
       smaller: 'เล็กลง', larger: 'ใหญ่ขึ้น', rotateLeft: 'หมุนซ้าย', rotateRight: 'หมุนขวา',
       reset: 'คืนตำแหน่ง', remove: 'ลบออก', restore: 'นำกลับมา', hidden: 'ซ่อนอยู่',
@@ -2775,7 +2775,7 @@ function getArtworkEditorLabels() {
     en: {
       body: 'Body text', uploadLogo: 'Insert shop logo', replaceLogo: 'Replace shop logo',
       uploadHint: 'PNG, JPG or WebP (a transparent background works best)', layers: 'Select an element to edit',
-      text: 'Text', product: 'Product image', brand: 'Brand logo', shopLogo: 'Shop logo',
+      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', shopLogo: 'Shop logo',
       selected: 'Editing', selectHint: 'Click an element on the artwork or choose it below',
       smaller: 'Smaller', larger: 'Larger', rotateLeft: 'Rotate left', rotateRight: 'Rotate right',
       reset: 'Reset position', remove: 'Remove', restore: 'Restore', hidden: 'Hidden',
@@ -2785,7 +2785,7 @@ function getArtworkEditorLabels() {
     sw: {
       body: 'Maandishi ya maelezo', uploadLogo: 'Weka nembo ya duka', replaceLogo: 'Badilisha nembo ya duka',
       uploadHint: 'PNG, JPG au WebP (mandharinyuma wazi yanafaa zaidi)', layers: 'Chagua kipengele cha kuhariri',
-      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', shopLogo: 'Nembo ya duka',
+      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', shopLogo: 'Nembo ya duka',
       selected: 'Unahariri', selectHint: 'Bofya kipengele kwenye mchoro au ukichague hapa chini',
       smaller: 'Punguza', larger: 'Ongeza', rotateLeft: 'Zungusha kushoto', rotateRight: 'Zungusha kulia',
       reset: 'Rudisha nafasi', remove: 'Ondoa', restore: 'Rudisha', hidden: 'Imefichwa',
@@ -2795,7 +2795,7 @@ function getArtworkEditorLabels() {
     fr: {
       body: 'Corps du texte', uploadLogo: 'Insérer le logo du magasin', replaceLogo: 'Remplacer le logo',
       uploadHint: 'PNG, JPG ou WebP (fond transparent recommandé)', layers: 'Sélectionnez un élément à modifier',
-      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', shopLogo: 'Logo magasin',
+      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', shopLogo: 'Logo magasin',
       selected: 'Modification', selectHint: "Cliquez sur un élément de l’affiche ou choisissez-le ci-dessous",
       smaller: 'Réduire', larger: 'Agrandir', rotateLeft: 'Tourner à gauche', rotateRight: 'Tourner à droite',
       reset: 'Réinitialiser', remove: 'Supprimer', restore: 'Restaurer', hidden: 'Masqué',
@@ -2805,7 +2805,7 @@ function getArtworkEditorLabels() {
     tl: {
       body: 'Detalye ng teksto', uploadLogo: 'Ilagay ang logo ng tindahan', replaceLogo: 'Palitan ang logo',
       uploadHint: 'PNG, JPG o WebP (pinakamaganda ang transparent na background)', layers: 'Pumili ng elementong ie-edit',
-      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', shopLogo: 'Logo ng tindahan',
+      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', shopLogo: 'Logo ng tindahan',
       selected: 'Ine-edit', selectHint: 'I-click ang elemento sa artwork o piliin ito sa ibaba',
       smaller: 'Liitan', larger: 'Lakihan', rotateLeft: 'Ikutin pakaliwa', rotateRight: 'Ikutin pakanan',
       reset: 'I-reset ang posisyon', remove: 'Alisin', restore: 'Ibalik', hidden: 'Nakatago',
@@ -2948,6 +2948,7 @@ function renderArtworkBody(c) {
               <button type="button" data-aw-layer="headline"><span>✎</span>${ui.text}</button>
               <button type="button" data-aw-layer="photo"><span>▣</span>${ui.product}</button>
               <button type="button" data-aw-layer="logo"><span>Ⓚ</span>${ui.brand}</button>
+              <button type="button" data-aw-layer="wordmark"><span>▤</span>${ui.modelLogo}</button>
               <button type="button" data-aw-layer="customLogo"><span>＋</span>${ui.shopLogo}</button>
             </div>
             <div class="artwork-element-toolbar" id="aw-element-toolbar">
@@ -3329,14 +3330,18 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // print canvas — same trick the text offset sliders already use.
   const logoOffsetXpx = (st.logoOffsetXFrac || 0) * pxW;
   const logoOffsetYpx = (st.logoOffsetYFrac || 0) * pxH;
+  const wordmarkOffsetXpx = (st.wordmarkOffsetXFrac || 0) * pxW;
+  const wordmarkOffsetYpx = (st.wordmarkOffsetYFrac || 0) * pxH;
   const photoOffsetXpx = (st.photoOffsetXFrac || 0) * pxW;
   const photoOffsetYpx = (st.photoOffsetYFrac || 0) * pxH;
   const customLogoOffsetXpx = (st.customLogoOffsetXFrac || 0) * pxW;
   const customLogoOffsetYpx = (st.customLogoOffsetYFrac || 0) * pxH;
   const logoScale = st.logoScale || 1;
+  const wordmarkScale = st.wordmarkScale || 1;
   const photoScale = st.photoScale || 1;
   const customLogoScale = st.customLogoScale || 1;
   const logoVisible = st.logoVisible !== false;
+  const wordmarkVisible = st.wordmarkVisible !== false;
   const photoVisible = st.photoVisible !== false;
   const textVisible = st.textVisible !== false;
   const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-wordmark.png');
@@ -3376,7 +3381,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   if (logoVisible) ctx.drawImage(kubotaImg, logoX, logoY, logoW, logoH);
   ctx.filter = 'none';
 
-  const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2 * logoScale;
+  const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2 * wordmarkScale;
   const wmGap = wmHBase * 1.3;
   const maxWmW = isLandscape ? pxW * 0.4 : pxW * 0.7;
   // The "frame" style's orange band already holds the Kubota logo; when there's
@@ -3385,15 +3390,19 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // decoration and promo text.
   const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
-  let wmStartY = logoY + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
+  // Base position (no drag offsets applied) — used for the text-layout math
+  // below so dragging the logo or the wordmark doesn't reshuffle where the
+  // headline block is allowed to sit; only the drawn elements actually move.
+  const wmBaseY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
+  let wmStartY = wmBaseY + wordmarkOffsetYpx;
   let wmBelowCount = productImgs.length;
-  // Collected so the logo + wordmark(s) can be treated as one draggable group —
-  // the drag hit box below is the union of all their rects.
+  // The logo and wordmark(s) are now independently draggable groups, each
+  // with its own bounding box (no longer merged into one).
   const wmRects = [];
-  if (logoVisible && inlineWm) {
-    wmStartY = logoY + logoH + pxH * 0.015;
+  if (wordmarkVisible && inlineWm) {
     wmBelowCount = 0;
-    const areaX = logoX + logoW + pad * 0.6;
+    const areaX = logoX + logoW + pad * 0.6 + wordmarkOffsetXpx;
+    const areaY = pad + wordmarkOffsetYpx;
     const rowGap = logoH * 0.12;
     const rowH = (logoH - rowGap * (productImgs.length - 1)) / productImgs.length;
     productImgs.forEach((p, i) => {
@@ -3404,15 +3413,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
         wmW = bandAreaW;
         wmH = wmW / wmAspect;
       }
-      const wmY = logoY + i * (rowH + rowGap) + (rowH - wmH) / 2;
+      const wmY = areaY + i * (rowH + rowGap) + (rowH - wmH) / 2;
       ctx.drawImage(p.wordmark, areaX, wmY, wmW, wmH);
       wmRects.push({ x: areaX, y: wmY, w: wmW, h: wmH });
     });
-  } else if (logoVisible) {
-    // Only the "frame" style needs the wide gap (in `pad` units, so it scales the
-    // same way as that style's band height) to clear the top color band — on the
-    // other 2 styles there's no band to avoid, so keep the logo and wordmark close.
-    wmStartY = logoY + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
+  } else if (wordmarkVisible) {
     productImgs.forEach((p, i) => {
       const wmAspect = p.wordmark.width / p.wordmark.height;
       let wmH = wmHBase;
@@ -3421,27 +3426,25 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
         wmW = maxWmW;
         wmH = wmW / wmAspect;
       }
-      const wmX = (isLandscape ? pad : (pxW - wmW) / 2) + logoOffsetXpx;
+      const wmX = (isLandscape ? pad : (pxW - wmW) / 2) + wordmarkOffsetXpx;
       const wmY = wmStartY + i * wmGap;
       ctx.drawImage(p.wordmark, wmX, wmY, wmW, wmH);
       wmRects.push({ x: wmX, y: wmY, w: wmW, h: wmH });
     });
   }
 
-  // Layout math below (text zone) uses the un-offset position so dragging the
-  // logo doesn't also reshuffle where the headline block is allowed to sit —
-  // only the drawn logo/wordmark(s) actually move.
-  const wmStartYForLayout = wmStartY - logoOffsetYpx;
+  const wmStartYForLayout = wmBaseY;
 
-  let logoBounds = logoVisible ? { x: logoX, y: logoY, w: logoW, h: logoH } : null;
+  const logoBounds = logoVisible ? { x: logoX, y: logoY, w: logoW, h: logoH } : null;
+  let wordmarkBounds = null;
   wmRects.forEach(r => {
-    if (!logoBounds) logoBounds = { ...r };
-    const x2 = Math.max(logoBounds.x + logoBounds.w, r.x + r.w);
-    const y2 = Math.max(logoBounds.y + logoBounds.h, r.y + r.h);
-    logoBounds.x = Math.min(logoBounds.x, r.x);
-    logoBounds.y = Math.min(logoBounds.y, r.y);
-    logoBounds.w = x2 - logoBounds.x;
-    logoBounds.h = y2 - logoBounds.y;
+    if (!wordmarkBounds) { wordmarkBounds = { ...r }; return; }
+    const x2 = Math.max(wordmarkBounds.x + wordmarkBounds.w, r.x + r.w);
+    const y2 = Math.max(wordmarkBounds.y + wordmarkBounds.h, r.y + r.h);
+    wordmarkBounds.x = Math.min(wordmarkBounds.x, r.x);
+    wordmarkBounds.y = Math.min(wordmarkBounds.y, r.y);
+    wordmarkBounds.w = x2 - wordmarkBounds.x;
+    wordmarkBounds.h = y2 - wordmarkBounds.y;
   });
 
   // --- Bottom info panel geometry: sized to fit shop name + contact so text never overflows ---
@@ -3700,6 +3703,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       ? { x: headlineX - headlineMaxW / 2, y: textBlockStartY, w: headlineMaxW, h: totalTextH, rotationDeg: textRotationDeg, pivotX: headlineX, pivotY }
       : null,
     logoBounds,
+    wordmarkBounds,
     photoBounds: productImgs.length && photoVisible ? photoBounds : null,
     customLogoBounds
   };
@@ -3750,10 +3754,11 @@ function initArtworkPage(c) {
 
   let selectedGroup = 'headline';
   let logoOffsetXFrac = 0, logoOffsetYFrac = 0;
+  let wordmarkOffsetXFrac = 0, wordmarkOffsetYFrac = 0;
   let photoOffsetXFrac = 0, photoOffsetYFrac = 0;
   let customLogoOffsetXFrac = 0, customLogoOffsetYFrac = 0;
-  let logoScale = 1, photoScale = 1, customLogoScale = 1;
-  let logoVisible = true, photoVisible = true, textVisible = true, customLogoVisible = true;
+  let logoScale = 1, wordmarkScale = 1, photoScale = 1, customLogoScale = 1;
+  let logoVisible = true, wordmarkVisible = true, photoVisible = true, textVisible = true, customLogoVisible = true;
   let customLogoDataUrl = '';
 
   function swatchValue(group, fallback) {
@@ -3807,14 +3812,18 @@ function initArtworkPage(c) {
       textRotation: Number(textRotation.value),
       logoOffsetXFrac,
       logoOffsetYFrac,
+      wordmarkOffsetXFrac,
+      wordmarkOffsetYFrac,
       photoOffsetXFrac,
       photoOffsetYFrac,
       customLogoOffsetXFrac,
       customLogoOffsetYFrac,
       logoScale,
+      wordmarkScale,
       photoScale,
       customLogoScale,
       logoVisible,
+      wordmarkVisible,
       photoVisible,
       textVisible,
       customLogoVisible,
@@ -3850,18 +3859,20 @@ function initArtworkPage(c) {
     });
   });
 
-  const layerLabels = { headline: ui.text, photo: ui.product, logo: ui.brand, customLogo: ui.shopLogo };
+  const layerLabels = { headline: ui.text, photo: ui.product, logo: ui.brand, wordmark: ui.modelLogo, customLogo: ui.shopLogo };
 
   function groupVisible(group) {
     if (group === 'headline') return textVisible;
     if (group === 'photo') return photoVisible;
     if (group === 'logo') return logoVisible;
+    if (group === 'wordmark') return wordmarkVisible;
     return !!customLogoDataUrl && customLogoVisible;
   }
 
   function groupScale(group) {
     if (group === 'headline') return Number(textScale.value) / 100;
     if (group === 'logo') return logoScale;
+    if (group === 'wordmark') return wordmarkScale;
     if (group === 'photo') return photoScale;
     return customLogoScale;
   }
@@ -3870,6 +3881,7 @@ function initArtworkPage(c) {
     const next = clamp(scale, 0.3, 2.5);
     if (group === 'headline') textScale.value = Math.round(next * 100);
     else if (group === 'logo') logoScale = next;
+    else if (group === 'wordmark') wordmarkScale = next;
     else if (group === 'photo') photoScale = next;
     else customLogoScale = next;
   }
@@ -3878,6 +3890,7 @@ function initArtworkPage(c) {
     if (group === 'headline') textVisible = visible;
     else if (group === 'photo') photoVisible = visible;
     else if (group === 'logo') logoVisible = visible;
+    else if (group === 'wordmark') wordmarkVisible = visible;
     else customLogoVisible = visible;
   }
 
@@ -3939,6 +3952,8 @@ function initArtworkPage(c) {
       textOffsetX.value = 0; textOffsetY.value = 0; textScale.value = 100; textRotation.value = 0;
     } else if (group === 'logo') {
       logoOffsetXFrac = 0; logoOffsetYFrac = 0; logoScale = 1;
+    } else if (group === 'wordmark') {
+      wordmarkOffsetXFrac = 0; wordmarkOffsetYFrac = 0; wordmarkScale = 1;
     } else if (group === 'photo') {
       photoOffsetXFrac = 0; photoOffsetYFrac = 0; photoScale = 1;
     } else {
@@ -4017,9 +4032,10 @@ function initArtworkPage(c) {
     lastBounds = result ? {
       headline: result.headlineBounds,
       logo: result.logoBounds,
+      wordmark: result.wordmarkBounds,
       photo: result.photoBounds,
       customLogo: result.customLogoBounds
-    } : { headline: null, logo: null, photo: null, customLogo: null };
+    } : { headline: null, logo: null, wordmark: null, photo: null, customLogo: null };
     lastPxW = pxW;
     lastPxH = pxH;
     drawSelectionOverlay();
@@ -4029,7 +4045,7 @@ function initArtworkPage(c) {
   // --- Drag the headline block, the logo/wordmark(s), or the packshot photo
   // directly on the canvas — three independently movable groups sharing one
   // pointer handler, distinguished by which group's bounding box was hit.
-  let lastBounds = { headline: null, logo: null, photo: null, customLogo: null };
+  let lastBounds = { headline: null, logo: null, wordmark: null, photo: null, customLogo: null };
   let lastPxW = 0;
   let lastPxH = 0;
   let dragState = null;
@@ -4103,6 +4119,7 @@ function initArtworkPage(c) {
     if (hitBounds(lastBounds.customLogo, pt)) return 'customLogo';
     if (hitBounds(lastBounds.headline, pt)) return 'headline';
     if (hitBounds(lastBounds.photo, pt)) return 'photo';
+    if (hitBounds(lastBounds.wordmark, pt)) return 'wordmark';
     if (hitBounds(lastBounds.logo, pt)) return 'logo';
     return null;
   }
@@ -4112,6 +4129,7 @@ function initArtworkPage(c) {
   function groupOffset(group) {
     if (group === 'headline') return { x: Number(textOffsetX.value), y: Number(textOffsetY.value) };
     if (group === 'logo') return { x: logoOffsetXFrac, y: logoOffsetYFrac };
+    if (group === 'wordmark') return { x: wordmarkOffsetXFrac, y: wordmarkOffsetYFrac };
     if (group === 'photo') return { x: photoOffsetXFrac, y: photoOffsetYFrac };
     return { x: customLogoOffsetXFrac, y: customLogoOffsetYFrac };
   }
@@ -4170,6 +4188,7 @@ function initArtworkPage(c) {
       const newX = clamp(dragState.startOffsetX + dxFrac, -0.35, 0.35);
       const newY = clamp(dragState.startOffsetY + dyFrac, -0.35, 0.35);
       if (dragState.group === 'logo') { logoOffsetXFrac = newX; logoOffsetYFrac = newY; }
+      else if (dragState.group === 'wordmark') { wordmarkOffsetXFrac = newX; wordmarkOffsetYFrac = newY; }
       else if (dragState.group === 'photo') { photoOffsetXFrac = newX; photoOffsetYFrac = newY; }
       else { customLogoOffsetXFrac = newX; customLogoOffsetYFrac = newY; }
     }
