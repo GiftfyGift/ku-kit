@@ -82,7 +82,7 @@
       },
       "starterSystems": {
         "title": "Mifumo ya Kuwasha Injini za Dizeli za KUBOTA",
-        "intro": "Chagua kati ya aina tatu kulingana na matumizi.",
+        "intro": "Kuna aina 3.",
         "items": [
           { "code": "Standard", "title": "Aina ya Standard", "desc": "Kuwasha kwa mkono kwa mpini", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "Injini ya dizeli ya KUBOTA aina ya Standard inayowashwa kwa mkono" } },
           { "code": "ES", "title": "Aina ya ES (Electric Start)", "desc": "Kuwasha kwa mota ya starter", "image": { "src": "assets/img/product/starter-es.webp", "alt": "Injini ya dizeli ya KUBOTA aina ya ES yenye mota ya starter" } },

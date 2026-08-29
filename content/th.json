@@ -83,7 +83,7 @@
       },
       "starterSystems": {
         "title": "ระบบสตาร์ทของเครื่องยนต์ดีเซลคูโบต้า",
-        "intro": "เลือกได้ 3 รูปแบบให้เหมาะกับลักษณะการใช้งาน",
+        "intro": "มี 3 รูปแบบ",
         "items": [
           { "code": "Standard", "title": "รุ่น Standard", "desc": "แบบมือหมุนสตาร์ท", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "เครื่องยนต์ดีเซลคูโบต้ารุ่น Standard แบบมือหมุนสตาร์ท" } },
           { "code": "ES", "title": "รุ่น ES (Electric Start)", "desc": "แบบมอเตอร์สตาร์ท", "image": { "src": "assets/img/product/starter-es.webp", "alt": "เครื่องยนต์ดีเซลคูโบต้ารุ่น ES แบบมอเตอร์สตาร์ท" } },

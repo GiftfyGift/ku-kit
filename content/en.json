@@ -82,7 +82,7 @@
       },
       "starterSystems": {
         "title": "KUBOTA Diesel Engine Starter Systems",
-        "intro": "Choose from three configurations to suit the application.",
+        "intro": "There are 3 types.",
         "items": [
           { "code": "Standard", "title": "Standard Model", "desc": "Manual hand-crank start", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "KUBOTA diesel engine Standard model with manual hand-crank start" } },
           { "code": "ES", "title": "ES Model (Electric Start)", "desc": "Electric starter motor", "image": { "src": "assets/img/product/starter-es.webp", "alt": "KUBOTA diesel engine ES model with electric starter motor" } },

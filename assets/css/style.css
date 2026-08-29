@@ -2515,21 +2515,21 @@ ol.check-list li::before {
 }
 
 .starter-system-card--standard .starter-system-focus {
-  left: 34%;
+  left: 39%;
   top: 52%;
   width: 20%;
   aspect-ratio: 1;
 }
 
 .starter-system-card--es .starter-system-focus {
-  left: 42%;
+  left: 47%;
   top: 50%;
   width: 24%;
   aspect-ratio: 1;
 }
 
 .starter-system-card--sw .starter-system-focus {
-  left: 34%;
+  left: 39%;
   top: 52%;
   width: 19%;
   aspect-ratio: 1;

@@ -82,7 +82,7 @@
       },
       "starterSystems": {
         "title": "Mga Starter System ng KUBOTA Diesel Engine",
-        "intro": "Pumili sa tatlong configuration ayon sa paggagamitan.",
+        "intro": "May 3 uri.",
         "items": [
           { "code": "Standard", "title": "Standard Model", "desc": "Manu-manong hand-crank start", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "KUBOTA diesel engine Standard model na may manu-manong hand-crank start" } },
           { "code": "ES", "title": "ES Model (Electric Start)", "desc": "Electric starter motor", "image": { "src": "assets/img/product/starter-es.webp", "alt": "KUBOTA diesel engine ES model na may electric starter motor" } },

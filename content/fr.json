@@ -82,7 +82,7 @@
       },
       "starterSystems": {
         "title": "Systèmes de démarrage des moteurs diesel KUBOTA",
-        "intro": "Trois configurations au choix selon l'utilisation.",
+        "intro": "Il existe 3 types.",
         "items": [
           { "code": "Standard", "title": "Modèle Standard", "desc": "Démarrage manuel à la manivelle", "image": { "src": "assets/img/product/starter-standard.webp", "alt": "Moteur diesel KUBOTA Standard à démarrage manuel par manivelle" } },
           { "code": "ES", "title": "Modèle ES (Electric Start)", "desc": "Démarrage électrique par démarreur", "image": { "src": "assets/img/product/starter-es.webp", "alt": "Moteur diesel KUBOTA ES avec démarreur électrique" } },
