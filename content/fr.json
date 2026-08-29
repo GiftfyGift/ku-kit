@@ -1011,7 +1011,8 @@
       "autoFillNote": "Sélectionner un client existant remplit les champs ci-dessous — modifiez n'importe quel champ si les informations ont changé.",
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
-        { "id": "sfh", "label": "Sun Fu Hang — Taïwan", "company": "Sun Fu Hang", "address": "", "country": "Taïwan", "contact": "", "email": "", "phone": "" }
+        { "id": "sfh", "label": "Sun Fu Hang — Taïwan", "company": "Sun Fu Hang", "address": "", "country": "Taïwan", "contact": "", "email": "", "phone": "" },
+        { "id": "jazetwe", "label": "JAZETWE Company Limited — Tanzanie", "company": "JAZETWE Company Limited", "address": "PO.Box 532, Plot No 39, Block No.103, Mbinga, Tanzanie", "country": "Tanzanie", "contact": "", "email": "", "phone": "" }
       ],
       "fields": { "company": "Nom de la société", "address": "Adresse de livraison", "country": "Pays de destination", "contact": "Nom du contact", "email": "E-mail", "phone": "Téléphone / WhatsApp", "customerRef": "N° de référence PO de l'acheteur (le cas échéant)" }
     },
