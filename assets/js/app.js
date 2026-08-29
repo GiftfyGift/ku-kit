@@ -2948,7 +2948,7 @@ function getArtworkEditorLabels() {
     th: {
       body: 'ข้อความรายละเอียด', uploadLogo: 'เพิ่มโลโก้ร้านค้า', replaceLogo: 'เปลี่ยนโลโก้ร้านค้า',
       uploadHint: 'รองรับ PNG, JPG และ WebP (พื้นหลังโปร่งใสจะสวยที่สุด)', layers: 'เลือกสิ่งที่ต้องการแก้บนแบบ',
-      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', shopLogo: 'โลโก้ร้าน',
+      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', modelLogoChoice: 'โลโก้รุ่นสินค้าที่จะแสดง', shopLogo: 'โลโก้ร้าน',
       selected: 'กำลังแก้ไข', selectHint: 'คลิกสิ่งที่ต้องการบนภาพ หรือเลือกจากปุ่มด้านล่าง',
       smaller: 'เล็กลง', larger: 'ใหญ่ขึ้น', rotateLeft: 'หมุนซ้าย', rotateRight: 'หมุนขวา',
       reset: 'คืนตำแหน่ง', remove: 'ลบออก', restore: 'นำกลับมา', hidden: 'ซ่อนอยู่',
@@ -2958,7 +2958,7 @@ function getArtworkEditorLabels() {
     en: {
       body: 'Body text', uploadLogo: 'Insert shop logo', replaceLogo: 'Replace shop logo',
       uploadHint: 'PNG, JPG or WebP (a transparent background works best)', layers: 'Select an element to edit',
-      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', shopLogo: 'Shop logo',
+      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', modelLogoChoice: 'Model logo to display', shopLogo: 'Shop logo',
       selected: 'Editing', selectHint: 'Click an element on the artwork or choose it below',
       smaller: 'Smaller', larger: 'Larger', rotateLeft: 'Rotate left', rotateRight: 'Rotate right',
       reset: 'Reset position', remove: 'Remove', restore: 'Restore', hidden: 'Hidden',
@@ -2968,7 +2968,7 @@ function getArtworkEditorLabels() {
     sw: {
       body: 'Maandishi ya maelezo', uploadLogo: 'Weka nembo ya duka', replaceLogo: 'Badilisha nembo ya duka',
       uploadHint: 'PNG, JPG au WebP (mandharinyuma wazi yanafaa zaidi)', layers: 'Chagua kipengele cha kuhariri',
-      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', shopLogo: 'Nembo ya duka',
+      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', modelLogoChoice: 'Nembo ya mfano inayoonyeshwa', shopLogo: 'Nembo ya duka',
       selected: 'Unahariri', selectHint: 'Bofya kipengele kwenye mchoro au ukichague hapa chini',
       smaller: 'Punguza', larger: 'Ongeza', rotateLeft: 'Zungusha kushoto', rotateRight: 'Zungusha kulia',
       reset: 'Rudisha nafasi', remove: 'Ondoa', restore: 'Rudisha', hidden: 'Imefichwa',
@@ -2978,7 +2978,7 @@ function getArtworkEditorLabels() {
     fr: {
       body: 'Corps du texte', uploadLogo: 'Insérer le logo du magasin', replaceLogo: 'Remplacer le logo',
       uploadHint: 'PNG, JPG ou WebP (fond transparent recommandé)', layers: 'Sélectionnez un élément à modifier',
-      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', shopLogo: 'Logo magasin',
+      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', modelLogoChoice: 'Logo du modèle à afficher', shopLogo: 'Logo magasin',
       selected: 'Modification', selectHint: "Cliquez sur un élément de l’affiche ou choisissez-le ci-dessous",
       smaller: 'Réduire', larger: 'Agrandir', rotateLeft: 'Tourner à gauche', rotateRight: 'Tourner à droite',
       reset: 'Réinitialiser', remove: 'Supprimer', restore: 'Restaurer', hidden: 'Masqué',
@@ -2988,7 +2988,7 @@ function getArtworkEditorLabels() {
     tl: {
       body: 'Detalye ng teksto', uploadLogo: 'Ilagay ang logo ng tindahan', replaceLogo: 'Palitan ang logo',
       uploadHint: 'PNG, JPG o WebP (pinakamaganda ang transparent na background)', layers: 'Pumili ng elementong ie-edit',
-      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', shopLogo: 'Logo ng tindahan',
+      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', modelLogoChoice: 'Logo ng modelong ipapakita', shopLogo: 'Logo ng tindahan',
       selected: 'Ine-edit', selectHint: 'I-click ang elemento sa artwork o piliin ito sa ibaba',
       smaller: 'Liitan', larger: 'Lakihan', rotateLeft: 'Ikutin pakaliwa', rotateRight: 'Ikutin pakanan',
       reset: 'I-reset ang posisyon', remove: 'Alisin', restore: 'Ibalik', hidden: 'Nakatago',
@@ -3057,6 +3057,14 @@ function renderArtworkBody(c) {
               <option value="engine">${a.products.engine}</option>
               <option value="tiller">${a.products.tiller}</option>
               <option value="both">${a.products.both}</option>
+            </select>
+          </label>
+          <label class="artwork-field">
+            <span>${ui.modelLogoChoice}</span>
+            <select id="aw-model-logo-choice">
+              <option value="ztPlus">ZT PLUS</option>
+              <option value="ncPlusX">NC PLUS X</option>
+              <option value="ncPlusXSpecial">NC PLUS X SPECIAL</option>
             </select>
           </label>
           <label class="artwork-field" id="aw-logo-choice-field" hidden>
@@ -3704,16 +3712,20 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const productImgs = [];
   if (st.product === 'engine' || st.product === 'both') {
     productImgs.push({
-      photo: await loadArtworkImage('assets/img/product/zt155-engine-cutout.png'),
-      wordmark: await loadArtworkImage('assets/img/artwork/zt-plus-wordmark.png')
+      photo: await loadArtworkImage('assets/img/product/zt155-engine-cutout.png')
     });
   }
   if (st.product === 'tiller' || st.product === 'both') {
     productImgs.push({
-      photo: await loadArtworkImage('assets/img/product/nc-plusx-tiller-cutout.png'),
-      wordmark: await loadArtworkImage('assets/img/artwork/tra-chang-wordmark.png')
+      photo: await loadArtworkImage('assets/img/product/nc-plusx-tiller-cutout.png')
     });
   }
+  const modelWordmarkSrc = {
+    ztPlus: 'assets/img/artwork/zt-plus-wordmark.png',
+    ncPlusX: 'assets/img/product/logo-nc-plus-x.png',
+    ncPlusXSpecial: 'assets/img/product/logo-nc-plus-x-special.png'
+  }[st.modelLogoChoice] || 'assets/img/artwork/zt-plus-wordmark.png';
+  const modelWordmarkImg = await loadArtworkImage(modelWordmarkSrc);
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
@@ -3743,11 +3755,9 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // decoration and promo text.
   const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
-  // Whenever TRA CHANG is the top brand logo (tiller-only, or "both" with
-  // TRA CHANG picked), the tiller's own wordmark below would just repeat
-  // the same mark — drop it from this row only (the product photo still
-  // comes from the untouched productImgs).
-  const wordmarkImgs = brandChoice === 'traChang' ? productImgs.filter(p => p.wordmark !== traChangImg) : productImgs;
+  // The model logo is selected independently from the product photo so users
+  // can prepare artwork variants without the product picker forcing ZT PLUS.
+  const wordmarkImgs = [{ wordmark: modelWordmarkImg }];
   // Base position (no drag offsets applied) — used for the text-layout math
   // below so dragging the logo or the wordmark doesn't reshuffle where the
   // headline block is allowed to sit; only the drawn elements actually move.
@@ -4074,6 +4084,7 @@ function initArtworkPage(c) {
   const heightInput = document.getElementById('aw-height-cm');
   const bgStyleGroup = document.getElementById('aw-bgstyle-group');
   const productSel = document.getElementById('aw-product');
+  const modelLogoChoiceSel = document.getElementById('aw-model-logo-choice');
   const logoChoiceField = document.getElementById('aw-logo-choice-field');
   const logoChoiceSel = document.getElementById('aw-logo-choice');
   const logoVisibleToggle = document.getElementById('aw-logo-visible-toggle');
@@ -4158,6 +4169,7 @@ function initArtworkPage(c) {
       size: sizeSel.value,
       bgStyle: swatchValue(bgStyleGroup, 'diagonal'),
       product: productSel.value,
+      modelLogoChoice: modelLogoChoiceSel.value,
       logoChoice: logoChoiceSel.value,
       shopName: shopInput.value,
       contact: contactInput.value,
@@ -4606,6 +4618,7 @@ function initArtworkPage(c) {
   }
   updateLogoChoiceVisibility();
   productSel.addEventListener('change', () => { photoVisible = true; updateLogoChoiceVisibility(); schedulePreview(); });
+  modelLogoChoiceSel.addEventListener('change', () => { wordmarkVisible = true; schedulePreview(); });
   logoChoiceSel.addEventListener('change', schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
