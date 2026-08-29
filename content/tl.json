@@ -27,7 +27,7 @@
       "quickLinks": [
         { "label": "Kaalaman sa Produkto", "route": "product-engine", "anchor": "engine-product-info" },
         { "label": "Pagsusuri Bago Ihatid at Tamang Paraan ng Pag-start", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "Paano I-assemble ang Diesel Engine sa Power Tiller", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "Paano I-assemble ang Diesel Engine sa Power Tiller", "route": "product-engine", "anchor": "assembly-engine" },
         { "label": "OPM (Operation Manual)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Mga Checkpoint ng Orihinalidad", "route": "product-engine", "anchor": "engine-authenticity" },
         { "label": "Mga Halimbawa ng Application", "route": "product-engine", "anchor": "engine-application" }

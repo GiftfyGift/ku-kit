@@ -668,9 +668,10 @@ function renderProductEngine(c) {
       ${sellingPoints}
       ${renderPreDeliveryBlock(e.preDelivery, 'engine-pre-delivery')}
       ${renderStartProcedureBlock(e.startProcedure, 'engine-start-procedure')}
-      ${renderApplicationExamples(e.applicationExamples, 'engine-application')}
-      ${renderAuthenticityBlock(e.authenticity, 'engine-authenticity')}
+      ${renderAssemblyBlock(p.assembly)}
       ${renderProductResources(e, 'engine-downloads', true)}
+      ${renderAuthenticityBlock(e.authenticity, 'engine-authenticity')}
+      ${renderApplicationExamples(e.applicationExamples, 'engine-application')}
       <div class="note-callout">${e.note}</div>
     </section>
   `;

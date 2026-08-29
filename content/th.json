@@ -27,7 +27,7 @@
       "quickLinks": [
         { "label": "ความรู้เกี่ยวกับสินค้า", "route": "product-engine", "anchor": "engine-product-info" },
         { "label": "ขั้นตอนการตรวจเช็กก่อนส่งมอบ และวิธีสตาร์ทเครื่องยนต์คูโบต้า", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "วิธีการประกอบเครื่องยนต์ดีเซลคูโบต้ากับรถไถเดินตาม", "route": "product-engine", "anchor": "assembly-engine" },
         { "label": "เอกสาร OPM (Operation manual)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "จุดสังเกตุและวิธีเช็กสินค้าของแท้", "route": "product-engine", "anchor": "engine-authenticity" },
         { "label": "ตัวอย่างภาพการใช้งานใน Application ต่างๆ", "route": "product-engine", "anchor": "engine-application" }

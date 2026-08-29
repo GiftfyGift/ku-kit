@@ -27,7 +27,7 @@
       "quickLinks": [
         { "label": "Maarifa ya Bidhaa", "route": "product-engine", "anchor": "engine-product-info" },
         { "label": "Ukaguzi Kabla ya Kuwasilisha na Utaratibu Sahihi wa Kuwasha", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea", "route": "product-engine", "anchor": "assembly-engine" },
         { "label": "OPM (Mwongozo wa Uendeshaji)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Vipengele vya Ukaguzi wa Uhalisi", "route": "product-engine", "anchor": "engine-authenticity" },
         { "label": "Mifano ya Matumizi", "route": "product-engine", "anchor": "engine-application" }

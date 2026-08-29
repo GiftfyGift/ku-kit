@@ -27,7 +27,7 @@
       "quickLinks": [
         { "label": "Product Knowledge", "route": "product-engine", "anchor": "engine-product-info" },
         { "label": "Pre-Delivery Check & Correct Starting Procedure", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "How to Assemble the Diesel Engine with the Power Tiller", "route": "product-engine", "anchor": "assembly-engine" },
         { "label": "OPM (Operation Manual)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Authenticity Checkpoints", "route": "product-engine", "anchor": "engine-authenticity" },
         { "label": "Application Examples", "route": "product-engine", "anchor": "engine-application" }

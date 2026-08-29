@@ -27,7 +27,7 @@
       "quickLinks": [
         { "label": "Connaissance du produit", "route": "product-engine", "anchor": "engine-product-info" },
         { "label": "Contrôle avant livraison et procédure de démarrage correcte", "route": "product-engine", "anchor": "engine-pre-delivery" },
-        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-assembly", "anchor": "assembly-engine" },
+        { "label": "Comment assembler le moteur diesel avec le motoculteur", "route": "product-engine", "anchor": "assembly-engine" },
         { "label": "OPM (Manuel d'utilisation)", "route": "product-engine", "anchor": "engine-downloads" },
         { "label": "Points de contrôle d'authenticité", "route": "product-engine", "anchor": "engine-authenticity" },
         { "label": "Exemples d'application", "route": "product-engine", "anchor": "engine-application" }
