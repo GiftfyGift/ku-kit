@@ -1,5 +1,5 @@
 {
-  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Lugha", "sampleBadge": "Data ya mfano", "backToTopLabel": "Rudi juu" },
+  "meta": { "siteName": "KU-KIT", "tagline": "One Click for Everyday Success with Kubota", "langLabel": "Lugha", "sampleBadge": "Data ya mfano" },
   "nav": { "home": "Nyumbani", "product": "Bidhaa", "parts": "Vipuri", "service": "Huduma", "crops": "Suluhisho za Mazao", "marketing": "Matukio", "artwork": "Vifaa vya Masoko", "order": "Agiza", "poRequest": "Agizo la Ununuzi (PO)" },
   "hero": {
     "title": "Karibu KU-KIT",
@@ -357,8 +357,6 @@
         { "label": "Vifaa vya Kuongeza kwa Trekta la Kutembea", "route": "product-tiller", "anchor": "tiller-application" }
       ],
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800" },
-      "exteriorLabel": "Nje",
-      "interiorLabel": "Ndani",
       "items": [
         {
           "name": "NC Plus X",
@@ -366,16 +364,6 @@
           "images": [
             { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800", "caption": "800 mm" }
           ],
-          "wheelOptions": [
-            { "line1": "800 mm", "line2": "+ vile vya gurudumu inchi 3, vipande 16" }
-          ],
-          "exterior": ["Fremu fupi ya jembe", "Kitovu cha gurudumu bila stud bolt", "Haiwezi kuwekewa fenda"],
-          "interior": [
-            { "heading": "Mfumo wa kawaida wa kugeuza", "bullets": ["Inafaa kwa matumizi ya kawaida"] },
-            { "heading": "Klachi ya kawaida", "bullets": ["Inafaa kwa matumizi ya kawaida"] },
-            { "heading": "Beringi ya kawaida", "bullets": ["Beringi ya mpira", "Imara na ya kudumu"] }
-          ],
-          "compatNote": "*** Haiwezi kutumika na magurudumu ya chuma ya 880 mm / 980 mm — hii itaharibu mfumo wa kugeuza na klachi",
           "desc": "Kipenyo cha gurudumu la kizimba 800 mm, vile vya gurudumu inchi 3 (vipande 16). Inafaa kwa udongo wa mfinyanzi au mchanga, mashamba ya mpunga na makavu, mashamba ya miwa, muhogo, maharage, na mboga. Gurudumu la kizimba linaweza kutumika kwa safari fupi. Haifai kwa mashamba yenye tope kubwa.",
           "specs": [
             { "label": "Kipenyo cha gurudumu la kizimba", "value": "800 mm" },
@@ -391,16 +379,6 @@
             { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 880", "caption": "880 mm" },
             { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 980", "caption": "980 mm" }
           ],
-          "wheelOptions": [
-            { "line1": "880 mm", "line2": "+ vile vya gurudumu inchi 4, vipande 16" },
-            { "line1": "980 mm", "line2": "+ vile vya gurudumu inchi 5, vipande 16" }
-          ],
-          "exterior": ["Fremu ndefu ya jembe", "Kitovu cha gurudumu na stud bolt", "Inaweza kuwekewa fenda"],
-          "interior": [
-            { "heading": "Mfumo wa Gear Insert wa kugeuza", "bullets": ["Imara, iliyoundwa kwa kazi nzito, inaweza kugeuzwa ukichakaa", "Ina safety bolt kupunguza uharibifu kwa meno ya gia", "Kugeuza kwa urahisi na kwa uzito mwepesi"] },
-            { "heading": "Klachi maalum yenye springi ngumu zaidi", "bullets": ["Inashika na kupitisha nguvu vizuri, inafaa kwa kazi nzito"] },
-            { "heading": "Beringi maalum", "bullets": ["Beringi ya mpira", "Beringi yenye seal (mihimili 3, 4, 5) — imara na ya kudumu", "Inalinda meno ya gia dhidi ya uharibifu iwapo beringi itashindwa"] }
-          ],
           "desc": "Kipenyo cha gurudumu la kizimba 880 mm au 980 mm, na mfumo wa Gear Insert wa kugeuza kwa ajili ya kazi nzito za tope na mpunga unaopandwa zaidi ya mara mbili kwa mwaka. Kubadilisha eneo, badilisha kwa magurudumu ya mpira au tumia trela; kwa kazi za tope, tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP.",
           "specs": [
             { "label": "Kipenyo cha gurudumu la kizimba", "value": "880 mm / 980 mm" },
@@ -410,16 +388,6 @@
           ]
         }
       ],
-      "productKnowledgeDoc": { "title": "EPB_Product Knowledge_Power Tiller NC Plus X", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/epb-product-knowledge-nc-plusx-swa.pdf" },
-      "highlights": {
-        "title": "Vipengele Vingine Muhimu vya Trekta la Kutembea",
-        "items": [
-          { "title": "Sanduku la gia la Special Cast Iron (SCI)", "desc": "Limetengenezwa kwa chuma maalum cha SCI (Special Cast Iron) — imara na ya kudumu", "image": { "src": "assets/img/product/highlight-gear-case-sci.png", "alt": "Sanduku la gia la trekta la TRA CHANG lililotengenezwa kwa chuma maalum cha SCI" } },
-          { "title": "Mfumo wa gia 4", "desc": "Gia 3 za mbele, gia 1 ya nyuma — inayonyumbulika na inayofaa kwa kila aina ya kazi", "image": { "src": "assets/img/product/highlight-4-gear-system.png", "alt": "Mkono wa kubadilisha gia 4 kwenye trekta la TRA CHANG" } },
-          { "title": "Kugeuza kwa urahisi na kwa uzito mwepesi", "desc": "Mfumo wa kugeuza wenye nguvu ndogo, unaonyumbulika na rahisi kudhibiti", "image": { "src": "assets/img/product/highlight-steering-ease.png", "alt": "Mpini wa kugeuza kwenye trekta la TRA CHANG" } },
-          { "title": "Mfumo wa Gear Insert", "desc": "Huongeza unyumbulifu na uimara wa gia (inapatikana kwenye NC Plus X Special pekee)", "image": { "src": "assets/img/product/highlight-gear-insert.png", "alt": "Mfumo wa Gear Insert kwenye trekta la TRA CHANG NC Plus X Special" } }
-        ]
-      },
       "note": "Jinsi ya kutofautisha NC Plus X na NC Plus X Special: (1) msimbo wa chasi kwenye kadi ya udhamini — \"NC131\" haina \"S\" mwishoni (Plus X) wakati \"NC131S\" ina \"S\" mwishoni (Special); (2) alama ya \"S\" iliyochomwa kwenye sanduku la gia kwa Special pekee. Mifano yote 3 ya trekta la kutembea la TRA CHANG inaweza kubadilishwa kuwa magurudumu ya mpira kwa ajili ya kubeba mazao au usafirishaji wa jumla.",
       "applicationExamples": {
         "title": "Mifano ya Matumizi na Vifaa vya Kuongeza kwa Trekta la Kutembea",
@@ -501,14 +469,19 @@
           { "text": "Nambari ya kipekee ya fremu ya PT — \"NC-XXXXXX\" (herufi + tarakimu 5) — iliyochapwa kwa undani na wazi na kuonekana kwa urahisi.", "image": { "src": "assets/img/product/authenticity/tiller-04-frame-number.png", "alt": "Nambari ya fremu iliyochapwa kwenye trekta la kutembea" } },
           { "text": "Alama ya tembo kwenye kifuniko cha juu cha fremu inaelekea kushoto na mguu wa mbele wa kushoto umeinuliwa, ndani ya umbo la gia.", "image": { "src": "assets/img/product/authenticity/tiller-05-top-cover.jpg", "alt": "Alama ya tembo kwenye kifuniko cha juu cha fremu" } },
           { "text": "Alama ya tembo kwenye lever ya kubadilisha gia pia inaelekea kushoto na mguu wa mbele wa kushoto umeinuliwa, ndani ya umbo la gia.", "image": { "src": "assets/img/product/authenticity/tiller-06-gear-lever.png", "alt": "Alama ya tembo kwenye lever ya kubadilisha gia" } }
-        ],
-        "moreFile": { "title": "Check list - The genuine TRA CHANG Power Tiller", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/authenticity-checklist-tra-chang-swa.pdf" }
+        ]
       },
       "resources": [
-        { "title": "Mwongozo wa Uendeshaji wa Trekta la Kutembea la NC131 (OPM)", "lang": "SWA", "type": "pdf", "href": "assets/docs/tiller/nc131-opm-swa.pdf" }
+        { "title": "NC Plus X — Slaidi za Maarifa ya Bidhaa (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-EN.pptx" },
+        { "title": "NC Plus X — Slaidi za Maarifa ya Bidhaa (TH)", "lang": "TH", "type": "pptx", "href": "assets/docs/product-knowledge/NC-PlusX-Product-Knowledge-TH.pptx" },
+        { "title": "Orodha ya ukaguzi wa trekta halisi la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/authenticity/Genuine-PowerTiller-Checklist-EN.pptx" },
+        { "title": "Mwongozo wa uendeshaji wa trekta la kutembea la NC131 (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-EN.pdf" },
+        { "title": "Mwongozo wa uendeshaji wa trekta la kutembea la NC131 (TH)", "lang": "TH", "type": "pdf", "href": "assets/docs/manuals/NC131-Operation-Manual-TH.pdf" },
+        { "title": "Picha ya ubora wa juu — trekta la kutembea NC Plus X 800", "lang": "EN", "type": "jpg", "href": "https://drive.google.com/file/d/1CHOUlo054cFiFoIPmj5RGDVb8BtBHJzr/view" }
       ],
       "videosTitle": "Video",
-      "downloadsTitle": "Vipakuliwa"
+      "downloadsTitle": "Vipakuliwa",
+      "note": "Vipimo hapo juu vinatoka kwenye slaidi halisi za Product Knowledge za NC Plus X zilizotolewa na timu. Picha ya packshot imeunganishwa moja kwa moja na Drive (14MB) — zaidi ya kikomo cha 10MB ambacho kiunganishi cha Drive cha kipindi hiki kinaweza kupakua, hivyo haikuwekwa kwa ndani."
     },
     "assembly": {
       "title": "Jinsi ya Kuunganisha Injini ya Dizeli na Trekta la Kutembea",
@@ -530,12 +503,13 @@
         "Legeza nati 2 kwenye kiongeza mwendo ili lever isogee kwa uhuru, kisha kaza tena.",
         "Unganisha kebo ya kiongeza mwendo kwenye lever ya kiongeza mwendo na kaza nati."
       ],
-      "guideDoc": { "title": "Kuunganisha Injini ya Dizeli ya KUBOTA na Trekta la Kutembea", "lang": "SWA", "type": "pdf", "href": "assets/docs/assembly/assembly-guide-swa.pdf" },
       "resources": [
+        { "title": "Mwongozo wa kuunganisha injini + trekta la kutembea (EN)", "lang": "EN", "type": "pptx", "href": "assets/docs/assembly/Assembly-Guide-EN.pptx" },
         { "title": "Video ya mwongozo wa kuunganisha — injini ya ZT Plus + trekta la NC Plus X", "type": "youtube", "youtubeId": "7_xAb8HLC1I" }
       ],
       "videosTitle": "Video",
-      "downloadsTitle": "Vipakuliwa"
+      "downloadsTitle": "Vipakuliwa",
+      "note": "Hatua hapo juu zinatoka kwenye slaidi rasmi ya mwongozo wa kuunganisha. Kamilisha kuunganisha trekta la kutembea kwanza, kisha shikanisha injini."
     }
   },
   "parts": {
@@ -586,19 +560,17 @@
           { "title": "3. Mafuta ya injini", "desc": "Kwa injini mpya, badilisha mafuta baada ya saa 50 za kwanza; baadaye, kila baada ya saa 100.", "steps": ["Ondoa plagi ya kumwaga mafuta na acha mafuta yamwagike kabisa.", "Safisha kichujio cha mafuta kwa dizeli.", "Rudisha plagi ya kumwaga na ikaze vizuri.", "Jaza mafuta ya injini ya TRA CHANG, SAE40 API CF.", "Kiwango cha mafuta lazima kiwe kati ya alama ya juu na chini."], "image": { "src": "assets/img/service/maintenance-engine-oil.jpg", "alt": "Sehemu halisi ya kumwaga mafuta kwenye injini ya ZT Plus kwa matengenezo ya kawaida" }, "video": { "title": "Video — Matengenezo ya mafuta ya injini", "type": "youtube", "youtubeId": "kXWPZY7N7jU" } },
           { "title": "4. Mfumo wa maji ya kupoza", "desc": "Mwaga na jaza tena radiator kila baada ya miezi 3 ikiwa unatumia unga wa kuzuia kutu, au kila mwezi ikiwa hutumii.", "steps": ["Fungua kifuniko cha radiator ili kusaidia maji kumwagika haraka zaidi.", "Ondoa plagi ya kumwaga, acha maji yamwagike kabisa, kisha kaza plagi.", "Ongeza mfuko 1 wa unga wa kuzuia kutu na jaza maji safi.", "Funga kifuniko kwa nguvu."], "image": { "src": "assets/img/service/maintenance-engine-radiator.jpg", "alt": "Radiator halisi ya injini ya ZT Plus kwa matengenezo ya kawaida" }, "video": { "title": "Video — Matengenezo ya mfumo wa kupoza (radiator)", "type": "youtube", "youtubeId": "T0wEGwJERs0" } },
           { "title": "5. Mkanda wa feni", "desc": "Angalia mkanda kabla ya kila matumizi — mkanda ukikatika wakati wa uendeshaji utasababisha injini kupata joto kupita kiasi.", "steps": ["Mkazo sahihi ni upinde wa 10-15 mm.", "Ikiwa mkanda umepasuka au kuchanika, ubadilishe mara moja."], "image": { "src": "assets/img/service/maintenance-engine-fan-belt.jpg", "alt": "Mkanda halisi wa feni ya kupoza kwenye injini ya ZT Plus kwa matengenezo ya kawaida" }, "video": { "title": "Video — Matengenezo ya mfumo wa feni ya kupoza", "type": "youtube", "youtubeId": "hzJR9amlO1w" } }
-        ],
-        "guideDoc": { "title": "Hatua za Matengenezo ya Injini ya Dizeli ya ZT Plus", "lang": "SWA", "type": "pdf", "href": "assets/docs/service/engine-maintenance-steps-swa.pdf" }
+        ]
       },
       "tiller": {
         "title": "Trekta la Kutembea la NC — Vipengele 5 Muhimu vya Matengenezo",
         "points": [
-          { "title": "1. Mafuta ya usambazaji (gia)", "desc": "Kwa kifaa kipya, badilisha mafuta baada ya saa 50 za kwanza; baadaye, kila baada ya saa 500.", "steps": ["Tumia mafuta ya gia ya TRA CHANG, SAE90 API GL-4.", "Angalia kiwango kwenye kipimo cha kuona — kinapaswa kuwa katikati ya kiashiria.", "Funga kifuniko kwa nguvu ili kuzuia vumbi na maji."], "image": { "src": "assets/img/service/maintenance-tiller-gear-oil.jpg", "alt": "Sehemu halisi ya kuangalia mafuta ya gia kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa mafuta ya usambazaji (trekta la kutembea)", "type": "youtube", "youtubeId": "xLyFjtY72I0" } },
-          { "title": "2. Lever ya kugeuza", "desc": "Upinde huru wa kushoto-kulia wa lever ya kugeuza unapaswa kuwa mm 1-2.", "steps": ["Legeza nati No.12 na No.14, kisha zungusha kirekebishaji hadi upinde huru sahihi na funga nati.", "Weka mafuta kwenye kebo ya kugeuza mara kwa mara ili kuongeza maisha yake.", "Baada ya kuweka mafuta, zungusha kifuniko cha mpira kufunga tundu."], "image": { "src": "assets/img/service/maintenance-tiller-steering.jpg", "alt": "Urekebishaji halisi wa lever ya kugeuza kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa lever ya kugeuza (trekta la kutembea)", "type": "youtube", "youtubeId": "FqEE3gZRTqQ" } },
-          { "title": "3. Upinde huru wa klachi", "desc": "Upinde huru wa lever kuu ya klachi unapaswa kuwa mm 15-20.", "steps": ["Legeza nati mbili za No.14 kwenye kebo ya klachi.", "Zungusha kirekebishaji mwishoni mwa kebo kufikia upinde huru sahihi, kisha angalia tena."], "image": { "src": "assets/img/service/maintenance-tiller-clutch.jpg", "alt": "Urekebishaji halisi wa upinde huru wa klachi kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa upinde huru wa klachi (trekta la kutembea)", "type": "youtube", "youtubeId": "sjAyoYBSHSw" } },
-          { "title": "4. Upinde huru wa breki", "desc": "Upinde huru wa breki kati ya spring na nati ya kurekebisha unapaswa kuwa mm 3-5.", "steps": ["Vuta lever ya klachi hadi nafasi ya kujitenga.", "Legeza nati mwishoni mwa kebo, rekebisha hadi upinde huru sahihi, kisha funga nati kwa nguvu.", "Weka mafuta kwenye kebo ya breki mara kwa mara ili kuongeza maisha yake; zungusha kifuniko cha mpira baada ya hapo."], "image": { "src": "assets/img/service/maintenance-tiller-brake.jpg", "alt": "Urekebishaji halisi wa upinde huru wa breki kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa upinde huru wa breki (trekta la kutembea)", "type": "youtube", "youtubeId": "toW72zz74xE" } },
-          { "title": "5. Mkazo wa mkanda wa kuendesha", "desc": "Mkazo sahihi wa mkanda wa kuendesha ni takriban mm 30-40.", "steps": ["Kaza wing nut kuvuta pulley ya mkanda hadi mkazo sahihi.", "Ikiwa mkanda umepasuka au kuchanika, ubadilishe na mpya."], "image": { "src": "assets/img/service/maintenance-tiller-drive-belt.jpg", "alt": "Urekebishaji halisi wa mkazo wa mkanda wa kuendesha kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa mkanda wa kuendesha (trekta la kutembea)", "type": "youtube", "youtubeId": "9GMf1rZ5DZ4" } }
-        ],
-        "guideDoc": { "title": "Hatua za Matengenezo ya Trekta la Kutembea la TRA CHANG", "lang": "SWA", "type": "pdf", "href": "assets/docs/service/tiller-maintenance-steps-swa.pdf" }
+          { "title": "1. Mafuta ya usambazaji (gia)", "desc": "Kwa kifaa kipya, badilisha mafuta baada ya saa 50 za kwanza; baadaye, kila baada ya saa 500.", "steps": ["Tumia mafuta ya gia ya TRA CHANG, SAE90 API GL-4.", "Angalia kiwango kwenye kipimo cha kuona — kinapaswa kuwa katikati ya kiashiria.", "Funga kifuniko kwa nguvu ili kuzuia vumbi na maji."], "image": { "src": "assets/img/service/maintenance-tiller-gear-oil.jpg", "alt": "Sehemu halisi ya kuangalia mafuta ya gia kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa mafuta ya usambazaji (trekta la kutembea)", "type": "youtube", "youtubeId": "KmbIm6qXAmk" } },
+          { "title": "2. Lever ya kugeuza", "desc": "Upinde huru wa kushoto-kulia wa lever ya kugeuza unapaswa kuwa mm 1-2.", "steps": ["Legeza nati No.12 na No.14, kisha zungusha kirekebishaji hadi upinde huru sahihi na funga nati.", "Weka mafuta kwenye kebo ya kugeuza mara kwa mara ili kuongeza maisha yake.", "Baada ya kuweka mafuta, zungusha kifuniko cha mpira kufunga tundu."], "image": { "src": "assets/img/service/maintenance-tiller-steering.jpg", "alt": "Urekebishaji halisi wa lever ya kugeuza kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa lever ya kugeuza (trekta la kutembea)", "type": "youtube", "youtubeId": "8WXozFrmCIc" } },
+          { "title": "3. Upinde huru wa klachi", "desc": "Upinde huru wa lever kuu ya klachi unapaswa kuwa mm 15-20.", "steps": ["Legeza nati mbili za No.14 kwenye kebo ya klachi.", "Zungusha kirekebishaji mwishoni mwa kebo kufikia upinde huru sahihi, kisha angalia tena."], "image": { "src": "assets/img/service/maintenance-tiller-clutch.jpg", "alt": "Urekebishaji halisi wa upinde huru wa klachi kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa upinde huru wa klachi (trekta la kutembea)", "type": "youtube", "youtubeId": "lZcxUteEVOc" } },
+          { "title": "4. Upinde huru wa breki", "desc": "Upinde huru wa breki kati ya spring na nati ya kurekebisha unapaswa kuwa mm 3-5.", "steps": ["Vuta lever ya klachi hadi nafasi ya kujitenga.", "Legeza nati mwishoni mwa kebo, rekebisha hadi upinde huru sahihi, kisha funga nati kwa nguvu.", "Weka mafuta kwenye kebo ya breki mara kwa mara ili kuongeza maisha yake; zungusha kifuniko cha mpira baada ya hapo."], "image": { "src": "assets/img/service/maintenance-tiller-brake.jpg", "alt": "Urekebishaji halisi wa upinde huru wa breki kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa upinde huru wa breki (trekta la kutembea)", "type": "youtube", "youtubeId": "2ktQBGOFgHw" } },
+          { "title": "5. Mkazo wa mkanda wa kuendesha", "desc": "Mkazo sahihi wa mkanda wa kuendesha ni takriban mm 30-40.", "steps": ["Kaza wing nut kuvuta pulley ya mkanda hadi mkazo sahihi.", "Ikiwa mkanda umepasuka au kuchanika, ubadilishe na mpya."], "image": { "src": "assets/img/service/maintenance-tiller-drive-belt.jpg", "alt": "Urekebishaji halisi wa mkazo wa mkanda wa kuendesha kwenye trekta la kutembea la NC Plus X kwa matengenezo ya kawaida" }, "video": { "title": "Video — Ukaguzi wa mkanda wa kuendesha (trekta la kutembea)", "type": "youtube", "youtubeId": "GHNoDvo5Vnk" } }
+        ]
       }
     },
     "maintenanceSchedule": {
@@ -674,7 +646,7 @@
   },
   "crops": {
     "title": "Suluhisho za Mazao",
-    "intro": "Mbinu za kutumia injini ya dizeli ya KUBOTA ZT Plus na trekta la kutembea la TRA CHANG kwa kila zao, katika kila hatua — kusaidia wakulima kufanya kazi kwa urahisi zaidi na kuokoa muda, iwe ni kilimo cha mpunga kuanzia kuandaa udongo, kupanda, matengenezo, mpaka kuvuna na kusafirisha mazao baadaye, au matumizi katika mashamba ya mahindi au muhogo.",
+    "intro": "Linganisha mpangilio sahihi wa gurudumu na mbinu ya trekta la kutembea na hali ya shamba — mpunga wenye maji au mpunga mkavu — ili Wauzaji waweze kupendekeza mpangilio sahihi kwa wakulima.",
     "quickLinks": [
       {
         "label": "1. Suluhisho la Kilimo cha Mpunga",
@@ -901,13 +873,11 @@
     "company": {
       "title": "Vifaa Kutoka kwa Kampuni",
       "intro": "Faili za sanaa, mabango, mapositi, na vifaa vilivyotayarishwa na KUBOTA ambavyo Wauzaji wanaweza kutumia mara moja.",
-      "downloadLabel": "Pakua Picha",
       "groups": [
         {
           "icon": "📘",
           "title": "Vifaa vya Maarifa ya Bidhaa",
           "intro": "Vipeperushi na karatasi za vipimo kwa wateja wanaotaka kuelewa bidhaa kwa kina.",
-          "downloadable": true,
           "items": [
             { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Kipeperushi cha ZT Plus Afrika ukurasa wa 1 — majedwali ya vipimo vya injini na trekta la kutembea, pamoja na mkulima akishikilia beji ya No.1 Global Brand" }, "title": "Kipeperushi cha ZT Plus Afrika (ukurasa 1)", "format": "Kipeperushi A4" },
             { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Kipeperushi cha ZT Plus Afrika ukurasa wa 2 — picha ya injini na vipengele vyake muhimu pamoja na jedwali la nguvu za farasi kwa kila mfano" }, "title": "Kipeperushi cha ZT Plus Afrika (ukurasa 2)", "format": "Kipeperushi A4" }
@@ -947,11 +917,9 @@
     "heightLabel": "Urefu (sm)",
     "sizeHint": "Ukubwa hujaza kiotomatiki kulingana na aina ya media uliyochagua — unaweza kubadilisha namba kulingana na hali halisi.",
     "bgStyleLabel": "Mtindo wa mandharinyuma",
-    "bgStyles": { "diagonal": "Mstari wa Machungwa", "dark": "Giza na Kifahari", "frame": "Fremu ya Kawaida", "corners": "Fremu ya Pembe Aina ya Backdrop", "photoRainbow": "Shamba la Mpunga (Upinde wa Mvua)", "photoSky": "Shamba chini ya Anga la Bluu", "spotlight": "Mwanga wa Studio", "sunsetGlow": "Mng'ao wa Machweo" },
+    "bgStyles": { "diagonal": "Mstari wa Machungwa", "dark": "Giza na Kifahari", "frame": "Fremu ya Kawaida", "corners": "Fremu ya Pembe Aina ya Backdrop", "photoRainbow": "Shamba la Mpunga (Upinde wa Mvua)", "photoSky": "Shamba chini ya Anga la Bluu" },
     "productLabel": "Bidhaa ya kuonyesha",
     "products": { "engine": "Injini ya dizeli ya ZT Plus", "tiller": "Trekta la kutembea la TRA CHANG NC Plus X", "both": "Bidhaa zote mbili" },
-    "logoChoiceLabel": "Nembo ya kuonyesha (bidhaa zote mbili zikichaguliwa)",
-    "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },
     "shopNameLabel": "Jina la duka / Muuzaji",
     "shopNamePlaceholder": "mfano: Duka la Kilimo la S.",
     "contactLabel": "Anwani / Simu / WhatsApp",
@@ -1111,7 +1079,6 @@
     "notesPlaceholder": "Masharti mengine maalum — ombi la punguzo, tarehe ya nyaraka inayohitajika, n.k.",
     "submitBtn": "Tengeneza Agizo la Ununuzi (PO)",
     "requireItemsNote": "Tafadhali ongeza angalau bidhaa moja kwenye agizo.",
-    "invalidDeliveryDateNote": "Tarehe unayohitaji upokee bidhaa haiwezi kuwa kabla ya leo.",
     "requireFieldsNote": "Tafadhali jaza jina la kampuni na barua pepe ya mawasiliano kabla ya kutengeneza PO.",
     "confirmedTitle": "Agizo la ununuzi limetengenezwa",
     "confirmedBody": "Nambari yako ya PO ni",
