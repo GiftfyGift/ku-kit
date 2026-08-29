@@ -403,6 +403,38 @@
               { "title": "กระดานลูบเทือก + หัวหมูชักร่อง", "desc": "ปรับระดับดินในแปลงให้เรียบ ง่ายต่อการเพาะปลูกและรักษาระดับน้ำในแปลงให้สม่ำเสมอ", "src": "https://drive.google.com/thumbnail?id=1aPrsOebzaqOnUurJzTaJKE757nxq5Twg&sz=w2000", "alt": "กระดานลูบเทือกและหัวหมูชักร่อง เตรียมดินนาน้ำ — ปรับระดับดินในแปลงให้เรียบ รักษาระดับน้ำให้สม่ำเสมอ" },
               { "title": "กระดานลูบเทือก + หัวหมูชักร่อง", "desc": "ปรับระดับดินในแปลงให้เรียบ ง่ายต่อการเพาะปลูกและรักษาระดับน้ำในแปลงให้สม่ำเสมอ", "src": "https://drive.google.com/thumbnail?id=1mPXERhRIBpsf8lEmNr2HpZiMJr_czXUm&sz=w2000", "alt": "กระดานลูบเทือกและหัวหมูชักร่อง เตรียมดินนาน้ำ — ปรับระดับดินในแปลงให้เรียบ รักษาระดับน้ำให้สม่ำเสมอ" }
             ]
+          },
+          {
+            "id": "planting",
+            "title": "เพาะปลูก",
+            "items": [
+              { "title": "เครื่องหยอดข้าว", "desc": "ช่วยให้เมล็ดที่หยอดสม่ำเสมอ ข้าวเป็นแถวเป็นแนว ง่ายต่อการกำจัดวัชพืช หรือบำรุงรักษาตามแถวต้นข้าว", "src": "assets/img/product/application/carousel/tiller-planting-seeder-1.jpg", "alt": "เครื่องหยอดข้าว เพาะปลูก — ช่วยให้เมล็ดที่หยอดสม่ำเสมอ ข้าวเป็นแถวเป็นแนว" },
+              { "title": "เครื่องหยอดข้าว", "desc": "ช่วยให้เมล็ดที่หยอดสม่ำเสมอ ข้าวเป็นแถวเป็นแนว ง่ายต่อการกำจัดวัชพืช หรือบำรุงรักษาตามแถวต้นข้าว", "src": "assets/img/product/application/carousel/tiller-planting-seeder-2.jpg", "alt": "เครื่องหยอดข้าว เพาะปลูก — ช่วยให้เมล็ดที่หยอดสม่ำเสมอ ข้าวเป็นแถวเป็นแนว" }
+            ]
+          },
+          {
+            "id": "maintenance",
+            "title": "บำรุงรักษา",
+            "items": [
+              { "title": "เครื่องกำจัดวัชพืช", "desc": "ใช้กำจัดวัชพืชในไร่มันสำปะหลัง", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-1.jpg", "alt": "เครื่องกำจัดวัชพืช บำรุงรักษา — ใช้กำจัดวัชพืชในไร่มันสำปะหลัง" },
+              { "title": "เครื่องกำจัดวัชพืช", "desc": "ใช้กำจัดวัชพืชในไร่มันสำปะหลัง", "src": "assets/img/product/application/carousel/tiller-maintenance-weeder-2.jpg", "alt": "เครื่องกำจัดวัชพืช บำรุงรักษา — ใช้กำจัดวัชพืชในไร่มันสำปะหลัง" }
+            ]
+          },
+          {
+            "id": "harvest",
+            "title": "เก็บเกี่ยว",
+            "items": [
+              { "title": "อุปกรณ์ต่อพ่วงเก็บเกี่ยว", "src": "assets/img/product/application/carousel/tiller-harvest-1.jpg", "alt": "อุปกรณ์ต่อพ่วงเก็บเกี่ยว — KUBOTA NC Plus X power tiller application" },
+              { "title": "อุปกรณ์ต่อพ่วงเก็บเกี่ยว", "src": "assets/img/product/application/carousel/tiller-harvest-2.jpg", "alt": "อุปกรณ์ต่อพ่วงเก็บเกี่ยว — KUBOTA NC Plus X power tiller application" }
+            ]
+          },
+          {
+            "id": "transport",
+            "title": "ต่อพ่วงกับเทรลเลอร์ ขนส่งผลผลิต",
+            "items": [
+              { "title": "ขนส่งผลผลิต", "src": "assets/img/product/application/carousel/tiller-transport-1.jpg", "alt": "ต่อพ่วงกับเทรลเลอร์ ขนส่งผลผลิต — KUBOTA NC Plus X power tiller application" },
+              { "title": "ขนส่งผลผลิต", "src": "assets/img/product/application/carousel/tiller-transport-2.jpg", "alt": "ต่อพ่วงกับเทรลเลอร์ ขนส่งผลผลิต — KUBOTA NC Plus X power tiller application" }
+            ]
           }
         ]
       },
