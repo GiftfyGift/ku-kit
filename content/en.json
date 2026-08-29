@@ -1280,6 +1280,8 @@
     "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Both products" },
     "logoChoiceLabel": "Logo to display (when both products are shown)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },
+    "brandLogoLabel": "Brand logo",
+    "brandLogoToggle": "Show the brand logo on the design",
     "shopNameLabel": "Shop / Dealer name",
     "shopNamePlaceholder": "e.g. S. Kaset Agri Shop",
     "contactLabel": "Address / Phone / WhatsApp",

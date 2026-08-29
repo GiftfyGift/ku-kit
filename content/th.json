@@ -1289,6 +1289,8 @@
     "products": { "engine": "เครื่องยนต์ดีเซล ZT Plus", "tiller": "รถไถเดินตามตราช้าง NC Plus X", "both": "ทั้งสองสินค้า" },
     "logoChoiceLabel": "โลโก้ที่จะแสดง (เมื่อเลือกทั้งสองสินค้า)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },
+    "brandLogoLabel": "โลโก้แบรนด์",
+    "brandLogoToggle": "แสดงโลโก้แบรนด์บนป้าย",
     "shopNameLabel": "ชื่อร้าน / ตัวแทนจำหน่าย",
     "shopNamePlaceholder": "เช่น ร้าน ส.การเกษตร",
     "contactLabel": "ที่อยู่ / เบอร์โทร / WhatsApp",

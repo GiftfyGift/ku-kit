@@ -945,6 +945,8 @@
     "products": { "engine": "Moteur diesel ZT Plus", "tiller": "Motoculteur TRA CHANG NC Plus X", "both": "Les deux produits" },
     "logoChoiceLabel": "Logo à afficher (quand les deux produits sont sélectionnés)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },
+    "brandLogoLabel": "Logo de marque",
+    "brandLogoToggle": "Afficher le logo de marque sur le support",
     "shopNameLabel": "Nom du point de vente / concessionnaire",
     "shopNamePlaceholder": "ex. Boutique Agri S.",
     "contactLabel": "Adresse / Téléphone / WhatsApp",

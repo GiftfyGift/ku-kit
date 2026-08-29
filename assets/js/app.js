@@ -3066,6 +3066,13 @@ function renderArtworkBody(c) {
               <option value="traChang">${a.logoChoices.traChang}</option>
             </select>
           </label>
+          <div class="artwork-field">
+            <span>${a.brandLogoLabel}</span>
+            <button type="button" class="artwork-toggle-btn active" id="aw-logo-visible-toggle" aria-pressed="true">
+              <span class="artwork-toggle-check" aria-hidden="true">✓</span>
+              <span>${a.brandLogoToggle}</span>
+            </button>
+          </div>
           <div class="artwork-field artwork-upload-field">
             <button type="button" id="aw-logo-upload" class="artwork-upload-btn"><span aria-hidden="true">＋</span><span id="aw-logo-upload-label">${ui.uploadLogo}</span></button>
             <input type="file" id="aw-logo-file" accept="image/png,image/jpeg,image/webp" hidden>
@@ -4069,6 +4076,7 @@ function initArtworkPage(c) {
   const productSel = document.getElementById('aw-product');
   const logoChoiceField = document.getElementById('aw-logo-choice-field');
   const logoChoiceSel = document.getElementById('aw-logo-choice');
+  const logoVisibleToggle = document.getElementById('aw-logo-visible-toggle');
   const shopInput = document.getElementById('aw-shopname');
   const contactInput = document.getElementById('aw-contact');
   const headlineInput = document.getElementById('aw-headline');
@@ -4198,6 +4206,12 @@ function initArtworkPage(c) {
   decorManBtn.addEventListener('click', () => toggleDecor(decorManBtn));
   decorNo1Btn.addEventListener('click', () => toggleDecor(decorNo1Btn));
 
+  logoVisibleToggle.addEventListener('click', () => {
+    setGroupVisible('logo', !logoVisible);
+    updateEditorUi();
+    schedulePreview();
+  });
+
   document.querySelectorAll('[data-aw-stepper]').forEach(stepper => {
     const input = document.getElementById(stepper.dataset.awStepper);
     const output = document.getElementById(`${stepper.dataset.awStepper}-output`);
@@ -4249,6 +4263,8 @@ function initArtworkPage(c) {
   }
 
   function updateEditorUi() {
+    logoVisibleToggle.classList.toggle('active', logoVisible);
+    logoVisibleToggle.setAttribute('aria-pressed', String(logoVisible));
     layerButtons.forEach(btn => {
       const group = btn.dataset.awLayer;
       const available = group !== 'customLogo' || !!customLogoDataUrl;

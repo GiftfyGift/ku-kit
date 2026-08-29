@@ -3431,6 +3431,50 @@ table.parts-table td.code-col {
   object-fit: contain;
 }
 
+.artwork-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--kubota-mid-gray);
+  font-size: 13px;
+  font-weight: 600;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.artwork-toggle-btn:hover { border-color: rgba(255,106,61,0.5); }
+
+.artwork-toggle-btn.active {
+  border-color: var(--kubota-orange);
+  background: rgba(255,106,61,0.12);
+  color: var(--kubota-navy);
+}
+
+.artwork-toggle-check {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1px solid var(--kubota-border);
+  font-size: 12px;
+  color: transparent;
+}
+
+.artwork-toggle-btn.active .artwork-toggle-check {
+  background: var(--kubota-orange);
+  border-color: var(--kubota-orange);
+  color: white;
+}
+
 .artwork-decor-check {
   position: absolute;
   top: -8px;

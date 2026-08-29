@@ -945,6 +945,8 @@
     "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Parehong produkto" },
     "logoChoiceLabel": "Logo na ipapakita (kapag pareho ang napiling produkto)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },
+    "brandLogoLabel": "Logo ng brand",
+    "brandLogoToggle": "Ipakita ang logo ng brand sa disenyo",
     "shopNameLabel": "Pangalan ng tindahan / Dealer",
     "shopNamePlaceholder": "hal. S. Kaset Agri Shop",
     "contactLabel": "Address / Telepono / WhatsApp",
