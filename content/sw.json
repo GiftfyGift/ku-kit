@@ -872,11 +872,13 @@
     "company": {
       "title": "Vifaa Kutoka kwa Kampuni",
       "intro": "Faili za sanaa, mabango, mapositi, na vifaa vilivyotayarishwa na KUBOTA ambavyo Wauzaji wanaweza kutumia mara moja.",
+      "downloadLabel": "Pakua Picha",
       "groups": [
         {
           "icon": "📘",
           "title": "Vifaa vya Maarifa ya Bidhaa",
           "intro": "Vipeperushi na karatasi za vipimo kwa wateja wanaotaka kuelewa bidhaa kwa kina.",
+          "downloadable": true,
           "items": [
             { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Kipeperushi cha ZT Plus Afrika ukurasa wa 1 — majedwali ya vipimo vya injini na trekta la kutembea, pamoja na mkulima akishikilia beji ya No.1 Global Brand" }, "title": "Kipeperushi cha ZT Plus Afrika (ukurasa 1)", "format": "Kipeperushi A4" },
             { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Kipeperushi cha ZT Plus Afrika ukurasa wa 2 — picha ya injini na vipengele vyake muhimu pamoja na jedwali la nguvu za farasi kwa kila mfano" }, "title": "Kipeperushi cha ZT Plus Afrika (ukurasa 2)", "format": "Kipeperushi A4" }

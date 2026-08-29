@@ -866,11 +866,13 @@
     "company": {
       "title": "Materials Mula sa Kompanya",
       "intro": "Mga artwork file, banner, poster, at handa nang materials mula sa KUBOTA na puwedeng gamitin agad ng Dealer.",
+      "downloadLabel": "I-download ang larawan",
       "groups": [
         {
           "icon": "📘",
           "title": "Product Knowledge Media",
           "intro": "Mga brochure at spec sheet para sa mga customer na gustong mas maunawaan pa ang produkto.",
+          "downloadable": true,
           "items": [
             { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "ZT Plus Africa leaflet page 1 — spec table ng engine at power tiller, kasama ang magsasakang may hawak na No.1 Global Brand badge" }, "title": "ZT Plus Africa Leaflet (page 1)", "format": "A4 Leaflet" },
             { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "ZT Plus Africa leaflet page 2 — larawan ng engine kasama ang mga highlight at horsepower table bawat model" }, "title": "ZT Plus Africa Leaflet (page 2)", "format": "A4 Leaflet" }

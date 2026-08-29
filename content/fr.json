@@ -866,11 +866,13 @@
     "company": {
       "title": "Supports fournis par l'entreprise",
       "intro": "Fichiers graphiques, bannières, affiches et supports prêts à l'emploi de KUBOTA que les concessionnaires peuvent utiliser immédiatement.",
+      "downloadLabel": "Télécharger l'image",
       "groups": [
         {
           "icon": "📘",
           "title": "Supports de connaissance produit",
           "intro": "Brochures et fiches techniques pour les clients qui veulent approfondir leur connaissance des produits.",
+          "downloadable": true,
           "items": [
             { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "Dépliant ZT Plus Afrique, page 1 — tableaux de spécifications du moteur et du motoculteur, avec un agriculteur tenant le badge No.1 Global Brand" }, "title": "Dépliant ZT Plus Afrique (page 1)", "format": "Dépliant A4" },
             { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "Dépliant ZT Plus Afrique, page 2 — photo du moteur avec ses points forts et un tableau de puissance par modèle" }, "title": "Dépliant ZT Plus Afrique (page 2)", "format": "Dépliant A4" }

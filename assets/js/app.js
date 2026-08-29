@@ -1509,15 +1509,18 @@ function renderMaterialsSelector(c, active) {
   `;
 }
 
-function renderMaterialsGroup(group) {
+function renderMaterialsGroup(group, downloadLabel) {
   const cards = group.items.map(item => `
-    <button type="button" class="materials-card" data-lightbox-src="${item.image.src}" data-lightbox-alt="${item.image.alt}" data-lightbox-caption="${item.title}">
-      <span class="materials-card-img-wrap">
-        <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy">
-      </span>
-      <span class="materials-card-title">${item.title}</span>
-      <span class="materials-card-tag">${item.format}</span>
-    </button>
+    <div class="materials-card">
+      <button type="button" class="materials-card-open" data-lightbox-src="${item.image.src}" data-lightbox-alt="${item.image.alt}" data-lightbox-caption="${item.title}">
+        <span class="materials-card-img-wrap">
+          <img src="${item.image.src}" alt="${item.image.alt}" loading="lazy">
+        </span>
+        <span class="materials-card-title">${item.title}</span>
+        <span class="materials-card-tag">${item.format}</span>
+      </button>
+      ${group.downloadable ? `<a class="materials-card-download" href="${item.image.src}" download><span aria-hidden="true">⬇</span>${downloadLabel}</a>` : ''}
+    </div>
   `).join('');
   return `
     <div class="category-block">
@@ -1534,7 +1537,7 @@ function renderMaterialsGroup(group) {
 function renderMaterialsCompany(c) {
   const m = c.materials;
   const mc = m.company;
-  const groups = (mc.groups || []).map(renderMaterialsGroup).join('');
+  const groups = (mc.groups || []).map(g => renderMaterialsGroup(g, mc.downloadLabel)).join('');
   return `
     <section>
       <h2 class="section-title">${m.title}</h2>

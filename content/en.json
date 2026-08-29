@@ -1201,11 +1201,13 @@
     "company": {
       "title": "Materials from the Company",
       "intro": "Artwork files, banners, posters, and ready-made materials from KUBOTA that dealers can use right away.",
+      "downloadLabel": "Download image",
       "groups": [
         {
           "icon": "📘",
           "title": "Product Knowledge Media",
           "intro": "Brochures and spec sheets for customers who want an in-depth look at the products.",
+          "downloadable": true,
           "items": [
             { "image": { "src": "assets/img/materials/leaflet-01.jpg", "alt": "ZT Plus Africa leaflet page 1 — engine and power tiller spec tables, plus a farmer holding the No.1 Global Brand badge" }, "title": "ZT Plus Africa Leaflet (page 1)", "format": "A4 Leaflet" },
             { "image": { "src": "assets/img/materials/leaflet-02.jpg", "alt": "ZT Plus Africa leaflet page 2 — engine photo with key highlights and a horsepower table by model" }, "title": "ZT Plus Africa Leaflet (page 2)", "format": "A4 Leaflet" }
