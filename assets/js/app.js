@@ -430,19 +430,30 @@ function renderApplicationExamples(app, id) {
         role="tab" aria-selected="${categoryIdx === 0}" aria-controls="application-panel-${id}-${categoryIdx}"
         id="application-tab-${id}-${categoryIdx}" data-application-tab="${categoryIdx}">${category.title}</button>
     `).join('');
+    const frameHeadingText = id === 'tiller-application'
+      ? ({
+          th: 'อุปกรณ์ต่อพ่วงรถไถเดินตามตราช้าง NC Plus X',
+          en: 'Implements for the TRA CHANG NC Plus X Power Tiller',
+          fr: 'Accessoires pour le motoculteur TRA CHANG NC Plus X',
+          sw: 'Vifaa vya Trekta la Kutembea la TRA CHANG NC Plus X',
+          tl: 'Mga Implement para sa TRA CHANG NC Plus X Power Tiller'
+        })[state.lang] || 'Implements for the TRA CHANG NC Plus X Power Tiller'
+      : 'Applications of Kubota Diesel Engines';
+    const frameHeadingLogo = id === 'tiller-application' ? '' :
+      `<img src="https://drive.google.com/thumbnail?id=1CBjOziL8SgTOTQd-H-g_4SqkFWrE1AHt&sz=w1000" alt="ZT Plus" class="application-zt-plus-logo">`;
     const categoryPanels = app.categories.map((category, categoryIdx) => `
       <section class="application-carousel-panel" id="application-panel-${id}-${categoryIdx}"
         role="tabpanel" aria-labelledby="application-tab-${id}-${categoryIdx}"
         data-application-panel="${categoryIdx}"${categoryIdx === 0 ? '' : ' hidden'}>
         <div class="application-picture-frame-heading">
-          <span>Applications of Kubota Diesel Engines</span>
-          <img src="https://drive.google.com/thumbnail?id=1CBjOziL8SgTOTQd-H-g_4SqkFWrE1AHt&sz=w1000" alt="ZT Plus" class="application-zt-plus-logo">
+          <span>${frameHeadingText}</span>
+          ${frameHeadingLogo}
         </div>
         <div class="application-carousel-frame">
           <div class="application-carousel-track">
             ${category.items.map((item, itemIdx) => `
               <button type="button" class="application-carousel-slide" data-application-slide
-                data-title="${escapeHtml(item.title)}" data-lightbox-src="${item.src}"
+                data-title="${escapeHtml(item.title)}" data-desc="${escapeHtml(item.desc || '')}" data-lightbox-src="${item.src}"
                 data-lightbox-alt="${escapeHtml(item.alt || item.title)}" data-lightbox-caption="${escapeHtml(item.title)}"
                 aria-label="${escapeHtml(ui.openImage)}: ${escapeHtml(item.title)}">
                 <span class="application-slide-backdrop" style="background-image:url('${item.src}')" aria-hidden="true"></span>
@@ -456,6 +467,7 @@ function renderApplicationExamples(app, id) {
         </div>
         <div class="application-carousel-meta">
           <h4 data-application-caption>${category.items[0]?.title || ''}</h4>
+          ${category.items.some(item => item.desc) ? `<p class="section-intro" data-application-desc>${category.items[0]?.desc || ''}</p>` : ''}
           <div class="application-carousel-dots" role="group" aria-label="${escapeHtml(category.title)}">
             ${category.items.map((item, itemIdx) => `<button type="button" class="application-carousel-dot${itemIdx === 0 ? ' active' : ''}" data-application-dot="${itemIdx}" aria-label="${itemIdx + 1}: ${escapeHtml(item.title)}"></button>`).join('')}
           </div>
@@ -504,6 +516,7 @@ function initApplicationCarousels() {
       const slides = Array.from(panel.querySelectorAll('[data-application-slide]'));
       const dots = Array.from(panel.querySelectorAll('[data-application-dot]'));
       const caption = panel.querySelector('[data-application-caption]');
+      const desc = panel.querySelector('[data-application-desc]');
       const count = panel.querySelector('[data-application-count]');
       let current = 0;
       let touchStartX = 0;
@@ -513,6 +526,7 @@ function initApplicationCarousels() {
         track.style.transform = `translateX(-${current * 100}%)`;
         dots.forEach((dot, dotIdx) => dot.classList.toggle('active', dotIdx === current));
         caption.textContent = slides[current]?.dataset.title || '';
+        if (desc) desc.textContent = slides[current]?.dataset.desc || '';
         count.textContent = `${String(current + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
       };
 
@@ -3778,7 +3792,7 @@ function render() {
   });
 
   if (state.route === 'artwork' || state.route === 'materials-custom') initArtworkPage(c);
-  if (state.route === 'product' || state.route === 'product-engine') initApplicationCarousels();
+  if (state.route === 'product' || state.route === 'product-engine' || state.route === 'product-tiller') initApplicationCarousels();
   if (state.route === 'marketing') initActivityCards(c);
   if (state.route === 'service') initMaintenanceSchedule();
   if (state.route === 'order-catalog') initOrderCatalogPage(c);
