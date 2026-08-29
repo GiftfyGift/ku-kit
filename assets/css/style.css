@@ -570,6 +570,10 @@ main {
   gap: 2px;
   min-width: 0;
   flex: 1 1 auto;
+  color: #fff;
+  font-size: clamp(16px, 1.35vw, 18px);
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .product-select-label-line1 {
