@@ -853,14 +853,6 @@ function renderParts(c) {
     </div>
   `;
 
-  const partsDocs = localizedDocsWithFallback(pt.resources);
-  const resources = partsDocs.length ? `
-    <div class="category-block">
-      <h3 class="category-heading">${pt.downloadsTitle}</h3>
-      ${renderResourceList(partsDocs)}
-    </div>
-  ` : '';
-
   return `
     <section>
       <div class="section-header-photo-wrap">
@@ -869,7 +861,6 @@ function renderParts(c) {
         <img class="section-header-photo" src="assets/img/parts/parts-lineup.png" alt="${pt.title}">
       </div>
       ${modelCatalog}
-      ${resources}
       <div class="note-callout">${pt.note}</div>
     </section>
   `;
@@ -2948,7 +2939,7 @@ function getArtworkEditorLabels() {
     th: {
       body: 'ข้อความรายละเอียด', uploadLogo: 'เพิ่มโลโก้ร้านค้า', replaceLogo: 'เปลี่ยนโลโก้ร้านค้า',
       uploadHint: 'รองรับ PNG, JPG และ WebP (พื้นหลังโปร่งใสจะสวยที่สุด)', layers: 'เลือกสิ่งที่ต้องการแก้บนแบบ',
-      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', modelLogoChoice: 'โลโก้รุ่นสินค้าที่จะแสดง', shopLogo: 'โลโก้ร้าน',
+      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', modelLogoChoice: 'โลโก้รุ่นสินค้าที่จะแสดง', shopLogo: 'โลโก้ร้าน', addElements: 'หยิบ element ใส่ป้าย', blankBackground: 'พื้นหลังเปล่า',
       selected: 'กำลังแก้ไข', selectHint: 'คลิกสิ่งที่ต้องการบนภาพ หรือเลือกจากปุ่มด้านล่าง',
       smaller: 'เล็กลง', larger: 'ใหญ่ขึ้น', rotateLeft: 'หมุนซ้าย', rotateRight: 'หมุนขวา',
       reset: 'คืนตำแหน่ง', remove: 'ลบออก', restore: 'นำกลับมา', hidden: 'ซ่อนอยู่',
@@ -2958,7 +2949,7 @@ function getArtworkEditorLabels() {
     en: {
       body: 'Body text', uploadLogo: 'Insert shop logo', replaceLogo: 'Replace shop logo',
       uploadHint: 'PNG, JPG or WebP (a transparent background works best)', layers: 'Select an element to edit',
-      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', modelLogoChoice: 'Model logo to display', shopLogo: 'Shop logo',
+      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', modelLogoChoice: 'Model logo to display', shopLogo: 'Shop logo', addElements: 'Add elements to the sign', blankBackground: 'Blank background',
       selected: 'Editing', selectHint: 'Click an element on the artwork or choose it below',
       smaller: 'Smaller', larger: 'Larger', rotateLeft: 'Rotate left', rotateRight: 'Rotate right',
       reset: 'Reset position', remove: 'Remove', restore: 'Restore', hidden: 'Hidden',
@@ -2968,7 +2959,7 @@ function getArtworkEditorLabels() {
     sw: {
       body: 'Maandishi ya maelezo', uploadLogo: 'Weka nembo ya duka', replaceLogo: 'Badilisha nembo ya duka',
       uploadHint: 'PNG, JPG au WebP (mandharinyuma wazi yanafaa zaidi)', layers: 'Chagua kipengele cha kuhariri',
-      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', modelLogoChoice: 'Nembo ya mfano inayoonyeshwa', shopLogo: 'Nembo ya duka',
+      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', modelLogoChoice: 'Nembo ya mfano inayoonyeshwa', shopLogo: 'Nembo ya duka', addElements: 'Ongeza vipengele kwenye bango', blankBackground: 'Mandharinyuma tupu',
       selected: 'Unahariri', selectHint: 'Bofya kipengele kwenye mchoro au ukichague hapa chini',
       smaller: 'Punguza', larger: 'Ongeza', rotateLeft: 'Zungusha kushoto', rotateRight: 'Zungusha kulia',
       reset: 'Rudisha nafasi', remove: 'Ondoa', restore: 'Rudisha', hidden: 'Imefichwa',
@@ -2978,7 +2969,7 @@ function getArtworkEditorLabels() {
     fr: {
       body: 'Corps du texte', uploadLogo: 'Insérer le logo du magasin', replaceLogo: 'Remplacer le logo',
       uploadHint: 'PNG, JPG ou WebP (fond transparent recommandé)', layers: 'Sélectionnez un élément à modifier',
-      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', modelLogoChoice: 'Logo du modèle à afficher', shopLogo: 'Logo magasin',
+      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', modelLogoChoice: 'Logo du modèle à afficher', shopLogo: 'Logo magasin', addElements: 'Ajouter des éléments à l’affiche', blankBackground: 'Arrière-plan vierge',
       selected: 'Modification', selectHint: "Cliquez sur un élément de l’affiche ou choisissez-le ci-dessous",
       smaller: 'Réduire', larger: 'Agrandir', rotateLeft: 'Tourner à gauche', rotateRight: 'Tourner à droite',
       reset: 'Réinitialiser', remove: 'Supprimer', restore: 'Restaurer', hidden: 'Masqué',
@@ -2988,7 +2979,7 @@ function getArtworkEditorLabels() {
     tl: {
       body: 'Detalye ng teksto', uploadLogo: 'Ilagay ang logo ng tindahan', replaceLogo: 'Palitan ang logo',
       uploadHint: 'PNG, JPG o WebP (pinakamaganda ang transparent na background)', layers: 'Pumili ng elementong ie-edit',
-      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', modelLogoChoice: 'Logo ng modelong ipapakita', shopLogo: 'Logo ng tindahan',
+      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', modelLogoChoice: 'Logo ng modelong ipapakita', shopLogo: 'Logo ng tindahan', addElements: 'Magdagdag ng element sa sign', blankBackground: 'Blankong background',
       selected: 'Ine-edit', selectHint: 'I-click ang elemento sa artwork o piliin ito sa ibaba',
       smaller: 'Liitan', larger: 'Lakihan', rotateLeft: 'Ikutin pakaliwa', rotateRight: 'Ikutin pakanan',
       reset: 'I-reset ang posisyon', remove: 'Alisin', restore: 'Ibalik', hidden: 'Nakatago',
@@ -3041,7 +3032,8 @@ function renderArtworkBody(c) {
           <div class="artwork-field">
             <span>${a.bgStyleLabel}</span>
             <div class="artwork-swatch-group" id="aw-bgstyle-group" role="radiogroup">
-              <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal active" data-value="diagonal" aria-pressed="true" title="${a.bgStyles.diagonal}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-blank active" data-value="blank" aria-pressed="true" title="${ui.blankBackground}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal" data-value="diagonal" aria-pressed="false" title="${a.bgStyles.diagonal}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-dark" data-value="dark" aria-pressed="false" title="${a.bgStyles.dark}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-frame" data-value="frame" aria-pressed="false" title="${a.bgStyles.frame}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-corners" data-value="corners" aria-pressed="false" title="${a.bgStyles.corners}"></button>
@@ -3049,6 +3041,18 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--bg-photo-sky" data-value="photo-sky" aria-pressed="false" title="${a.bgStyles.photoSky}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-spotlight" data-value="spotlight" aria-pressed="false" title="${a.bgStyles.spotlight}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-sunset-glow" data-value="sunset-glow" aria-pressed="false" title="${a.bgStyles.sunsetGlow}"></button>
+            </div>
+          </div>
+          <div class="artwork-field">
+            <span>${ui.addElements}</span>
+            <div class="artwork-element-picker">
+              <button type="button" data-aw-add="headline">＋ ${ui.text}</button>
+              <button type="button" data-aw-add="engine">＋ ZT PLUS</button>
+              <button type="button" data-aw-add="tiller">＋ NC PLUS X</button>
+              <button type="button" data-aw-add="brand">＋ ${ui.brand}</button>
+              <button type="button" data-aw-add="ztPlus">＋ Logo ZT PLUS</button>
+              <button type="button" data-aw-add="ncPlusX">＋ Logo NC PLUS X</button>
+              <button type="button" data-aw-add="ncPlusXSpecial">＋ Logo NC PLUS X SPECIAL</button>
             </div>
           </div>
           <label class="artwork-field">
@@ -3076,7 +3080,7 @@ function renderArtworkBody(c) {
           </label>
           <div class="artwork-field">
             <span>${a.brandLogoLabel}</span>
-            <button type="button" class="artwork-toggle-btn active" id="aw-logo-visible-toggle" aria-pressed="true">
+            <button type="button" class="artwork-toggle-btn" id="aw-logo-visible-toggle" aria-pressed="false">
               <span class="artwork-toggle-check" aria-hidden="true">✓</span>
               <span>${a.brandLogoToggle}</span>
             </button>
@@ -3362,6 +3366,11 @@ const AW_PHOTO_BACKGROUNDS = {
 };
 
 function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, photoImg) {
+  if (bgStyle === 'blank') {
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, pxW, pxH);
+    return;
+  }
   if (photoImg) {
     const scale = Math.max(pxW / photoImg.width, pxH / photoImg.height);
     const dw = photoImg.width * scale;
@@ -3646,7 +3655,7 @@ function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, phot
 async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const isLandscape = spec.wCm >= spec.hCm;
   const a = c.artwork;
-  const bgStyle = st.bgStyle || 'diagonal';
+  const bgStyle = st.bgStyle || 'blank';
 
   ctx.clearRect(0, 0, pxW, pxH);
 
@@ -4123,6 +4132,7 @@ function initArtworkPage(c) {
   const resetElementBtn = document.getElementById('aw-reset-element');
   const removeElementBtn = document.getElementById('aw-remove-element');
   const layerButtons = Array.from(document.querySelectorAll('[data-aw-layer]'));
+  const addElementButtons = Array.from(document.querySelectorAll('[data-aw-add]'));
 
   let selectedGroup = 'headline';
   let logoOffsetXFrac = 0, logoOffsetYFrac = 0;
@@ -4130,7 +4140,7 @@ function initArtworkPage(c) {
   let photoOffsetXFrac = 0, photoOffsetYFrac = 0;
   let customLogoOffsetXFrac = 0, customLogoOffsetYFrac = 0;
   let logoScale = 1, wordmarkScale = 1, photoScale = 1, customLogoScale = 1;
-  let logoVisible = true, wordmarkVisible = true, photoVisible = true, textVisible = true, customLogoVisible = true;
+  let logoVisible = false, wordmarkVisible = false, photoVisible = false, textVisible = false, customLogoVisible = true;
   let customLogoDataUrl = '';
 
   function swatchValue(group, fallback) {
@@ -4167,7 +4177,7 @@ function initArtworkPage(c) {
   function currentState() {
     return {
       size: sizeSel.value,
-      bgStyle: swatchValue(bgStyleGroup, 'diagonal'),
+      bgStyle: swatchValue(bgStyleGroup, 'blank'),
       product: productSel.value,
       modelLogoChoice: modelLogoChoiceSel.value,
       logoChoice: logoChoiceSel.value,
@@ -4311,6 +4321,29 @@ function initArtworkPage(c) {
   }
 
   layerButtons.forEach(btn => btn.addEventListener('click', () => selectGroup(btn.dataset.awLayer)));
+
+  addElementButtons.forEach(btn => btn.addEventListener('click', () => {
+    const kind = btn.dataset.awAdd;
+    if (kind === 'headline') {
+      textVisible = true;
+      selectedGroup = 'headline';
+    } else if (kind === 'brand') {
+      logoVisible = true;
+      selectedGroup = 'logo';
+    } else if (kind === 'engine' || kind === 'tiller') {
+      if (!photoVisible) productSel.value = kind;
+      else if (productSel.value !== kind) productSel.value = 'both';
+      photoVisible = true;
+      selectedGroup = 'photo';
+      updateLogoChoiceVisibility();
+    } else {
+      modelLogoChoiceSel.value = kind;
+      wordmarkVisible = true;
+      selectedGroup = 'wordmark';
+    }
+    updateEditorUi();
+    schedulePreview(0);
+  }));
 
   function adjustSelectedScale(delta) {
     if (selectedGroup === 'customLogo' && !customLogoDataUrl) return;
