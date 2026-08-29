@@ -2443,6 +2443,7 @@ ol.check-list li::before {
 
 /* Artwork-inspired, multilingual comparison of the three starter systems. */
 .starter-systems-section {
+  display: none;
   position: relative;
   overflow: hidden;
   padding: clamp(22px, 3vw, 38px);
