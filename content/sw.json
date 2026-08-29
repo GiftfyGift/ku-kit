@@ -66,6 +66,7 @@
           { "title": "Taa ya mbele ya LED", "desc": "Taa ya mbele yenye mwanga mkali kwa usalama wa kazi za usiku; mfano wa PRO unaongeza taa za kugeuza na tundu la kuchaji la USB.", "image": { "src": "assets/img/product/detail-led-headlamp.jpg", "alt": "Picha ya karibu ya taa ya mbele ya LED yenye mwanga mkali kwenye injini ya ZT Plus" } }
         ],
         "media": {
+          "video": { "title": "ZT Plus Mpya!", "type": "youtube", "youtubeId": "1e3kf9O0z1E" },
           "files": [
             { "title": "EPB_Product Knowledge_ZT Plus", "lang": "SWA", "type": "pdf", "href": "assets/docs/engine/epb-product-knowledge-zt-plus-swa.pdf" }
           ]
