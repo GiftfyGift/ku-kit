@@ -1562,9 +1562,13 @@ main {
 
 .product-card-header {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 112px;
   background: rgba(255,255,255,0.05);
   border-bottom: 1px solid var(--kubota-border);
   padding: 16px 20px;
+  box-sizing: border-box;
 }
 
 .solution-card-icons {
