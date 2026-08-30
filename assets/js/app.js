@@ -2567,16 +2567,37 @@ function initPoRequestPage(c) {
   let customerPriceMap = {};
   let selectedCustomerId = '';
 
+  function knownCustomerCountries() {
+    const known = pr.customer.knownCustomers || [];
+    const seen = [];
+    known.forEach(k => { if (k.country && !seen.includes(k.country)) seen.push(k.country); });
+    return seen.sort((a, b) => a.localeCompare(b));
+  }
+
+  function customerOptionsHtml(countryFilter) {
+    const known = pr.customer.knownCustomers || [];
+    const filtered = countryFilter ? known.filter(k => k.country === countryFilter) : known;
+    return `
+      <option value="">${pr.customer.newCustomerOption}</option>
+      ${filtered.map(k => `<option value="${k.id}">${k.label}</option>`).join('')}
+    `;
+  }
+
   function customerFieldsHtml() {
     const cust = pr.customer;
-    const known = cust.knownCustomers || [];
     const saved = orderLoadBuyer();
     return `
       <label class="po-req-field">
+        <span>${cust.countryFilterLabel}</span>
+        <select id="po-req-country-filter">
+          <option value="">${cust.countryFilterAllOption}</option>
+          ${knownCustomerCountries().map(country => `<option value="${country}">${(cust.countryNames || {})[country] || country}</option>`).join('')}
+        </select>
+      </label>
+      <label class="po-req-field">
         <span>${cust.selectLabel}</span>
         <select id="po-req-known-customer">
-          <option value="">${cust.newCustomerOption}</option>
-          ${known.map(k => `<option value="${k.id}">${k.label}</option>`).join('')}
+          ${customerOptionsHtml('')}
         </select>
       </label>
       <p class="po-req-hint">${cust.autoFillNote}</p>
@@ -2594,6 +2615,15 @@ function initPoRequestPage(c) {
   }
 
   function wireCustomerFields() {
+    document.getElementById('po-req-country-filter').addEventListener('change', (e) => {
+      const customerSel = document.getElementById('po-req-known-customer');
+      customerSel.innerHTML = customerOptionsHtml(e.target.value);
+      // The previously-selected customer may no longer be in the filtered
+      // list — reset back to "new customer" and clear its price/incoterm
+      // effects rather than leaving a stale, invisible selection in place.
+      customerSel.dispatchEvent(new Event('change'));
+    });
+
     const keys = ['company', 'address', 'country', 'contact', 'email', 'phone', 'customerRef'];
     keys.forEach(key => {
       const el = document.getElementById(`po-req-${key === 'customerRef' ? 'customer-ref' : key}`);

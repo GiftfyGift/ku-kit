@@ -1384,6 +1384,9 @@
     "disclaimer": "Right now this form generates a downloadable PO file (and a PI file in Siam Kubota's real format, if requested) immediately. Automatic email notification to the sales team will go live once the backend approach is agreed — in the meantime, please send the generated file(s) directly to your sales contact.",
     "customer": {
       "heading": "1. Buyer information",
+      "countryFilterLabel": "Select destination country (to filter the customer list)",
+      "countryFilterAllOption": "All countries / not sure yet",
+      "countryNames": { "Panama": "Panama", "Taiwan": "Taiwan", "Tanzania": "Tanzania", "Kenya": "Kenya", "South Africa": "South Africa", "Madagascar": "Madagascar", "Uganda": "Uganda", "Nigeria": "Nigeria", "Senegal": "Senegal", "Ethiopia": "Ethiopia", "Congo-Brazzaville": "Congo-Brazzaville", "Somalia": "Somalia", "Benin": "Benin", "Egypt": "Egypt", "Cote d'Ivoire": "Cote d'Ivoire", "Malawi": "Malawi" },
       "selectLabel": "Select an existing customer (if any)",
       "newCustomerOption": "New customer / enter details manually",
       "autoFillNote": "Selecting an existing customer fills in the fields below — edit any field if the details have changed.",

@@ -1059,6 +1059,9 @@
     "disclaimer": "Kwa sasa, fomu hii hutengeneza faili la PO (na faili la PI kwa muundo halisi wa Siam Kubota, ikiwa umeliomba) la kupakua mara moja. Arifa ya kiotomatiki ya barua pepe kwa timu ya mauzo itaanza kufanya kazi baada ya mfumo wa nyuma kukubaliwa — wakati huu, tafadhali tuma faili zilizotengenezwa moja kwa moja kwa muuzaji anayekuhudumia.",
     "customer": {
       "heading": "1. Taarifa za mnunuzi",
+      "countryFilterLabel": "Chagua nchi ya marudio (kuchuja orodha ya wateja)",
+      "countryFilterAllOption": "Nchi zote / bado hujathibitisha",
+      "countryNames": { "Panama": "Panama", "Taiwan": "Taiwan", "Tanzania": "Tanzania", "Kenya": "Kenya", "South Africa": "Afrika Kusini", "Madagascar": "Madagascar", "Uganda": "Uganda", "Nigeria": "Nigeria", "Senegal": "Senegal", "Ethiopia": "Ethiopia", "Congo-Brazzaville": "Congo-Brazzaville", "Somalia": "Somalia", "Benin": "Benin", "Egypt": "Misri", "Cote d'Ivoire": "Cote d'Ivoire", "Malawi": "Malawi" },
       "selectLabel": "Chagua mteja wa zamani (kama yupo)",
       "newCustomerOption": "Mteja mpya / jaza taarifa mwenyewe",
       "autoFillNote": "Kuchagua mteja wa zamani hujaza sehemu zilizo hapa chini — badilisha sehemu yoyote kama taarifa zimebadilika.",

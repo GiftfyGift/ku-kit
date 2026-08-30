@@ -1049,6 +1049,9 @@
     "disclaimer": "Pour l'instant, ce formulaire génère immédiatement un fichier PO téléchargeable (et un fichier PI au format réel de Siam Kubota, si demandé). La notification automatique par e-mail à l'équipe commerciale sera activée une fois l'architecture back-end validée — en attendant, veuillez envoyer les fichiers générés directement à votre contact commercial.",
     "customer": {
       "heading": "1. Informations acheteur",
+      "countryFilterLabel": "Sélectionner le pays de destination (pour filtrer la liste des clients)",
+      "countryFilterAllOption": "Tous les pays / pas encore déterminé",
+      "countryNames": { "Panama": "Panama", "Taiwan": "Taïwan", "Tanzania": "Tanzanie", "Kenya": "Kenya", "South Africa": "Afrique du Sud", "Madagascar": "Madagascar", "Uganda": "Ouganda", "Nigeria": "Nigeria", "Senegal": "Sénégal", "Ethiopia": "Éthiopie", "Congo-Brazzaville": "Congo-Brazzaville", "Somalia": "Somalie", "Benin": "Bénin", "Egypt": "Égypte", "Cote d'Ivoire": "Côte d'Ivoire", "Malawi": "Malawi" },
       "selectLabel": "Sélectionner un client existant (le cas échéant)",
       "newCustomerOption": "Nouveau client / saisir les informations manuellement",
       "autoFillNote": "Sélectionner un client existant remplit les champs ci-dessous — modifiez n'importe quel champ si les informations ont changé.",

@@ -1049,6 +1049,9 @@
     "disclaimer": "Sa ngayon, agad na gumagawa ang form na ito ng PO file (at PI file sa tunay na format ng Siam Kubota, kung hiniling) na madadownload. Ang automatic na email notification sa sales team ay ma-a-activate kapag napagkasunduan na ang backend approach — samantala, ipadala na lang nang direkta sa iyong sales contact ang mga nagawang file.",
     "customer": {
       "heading": "1. Impormasyon ng bumibili",
+      "countryFilterLabel": "Pumili ng bansang destinasyon (para i-filter ang listahan ng customer)",
+      "countryFilterAllOption": "Lahat ng bansa / hindi pa sigurado",
+      "countryNames": { "Panama": "Panama", "Taiwan": "Taiwan", "Tanzania": "Tanzania", "Kenya": "Kenya", "South Africa": "South Africa", "Madagascar": "Madagascar", "Uganda": "Uganda", "Nigeria": "Nigeria", "Senegal": "Senegal", "Ethiopia": "Ethiopia", "Congo-Brazzaville": "Congo-Brazzaville", "Somalia": "Somalia", "Benin": "Benin", "Egypt": "Ehipto", "Cote d'Ivoire": "Cote d'Ivoire", "Malawi": "Malawi" },
       "selectLabel": "Pumili ng dati nang customer (kung mayroon)",
       "newCustomerOption": "Bagong customer / manu-manong ilagay ang impormasyon",
       "autoFillNote": "Kapag pumili ka ng dati nang customer, mapupunan ang mga field sa ibaba — puwede mo pa ring i-edit ang anumang field kung nagbago na ang impormasyon.",
