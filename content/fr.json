@@ -725,6 +725,7 @@
     "cardLabels": { "overviewTitle": "Normes d'activité", "objective": "Objectif", "target": "Clients ciblés", "venue": "Lieu recommandé", "readMore": "Lire la suite", "showLess": "Réduire", "openGuide": "Voir tous les détails de l'activité" },
     "quickSelectTitle": "Sélection rapide d'activité",
     "labels": { "minParticipants": "Participants minimum", "target": "Clients ciblés", "duration": "Durée suggérée", "venue": "Lieu adapté", "basic": "Activités de base (obligatoires)", "optional": "Activités optionnelles", "schedule": "Programme suggéré", "recommendedItems": "Liste de contrôle avant le début de l'événement" },
+    "scheduleHeaders": { "time": "Horaire et durée", "activity": "Activité", "inCharge": "Responsable", "whatToDo": "À faire" },
     "activityComparison": {
       "title": "Comparatif des standards d'activité",
       "criteria": [
@@ -781,100 +782,124 @@
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",
-        "purpose": "Renforcer la notoriété des produits KUBOTA et présenter le concessionnaire local aux clients de la région.",
-        "minParticipants": "30 personnes",
-        "target": ["Agriculteurs utilisant déjà un moteur diesel ou un motoculteur", "Agriculteurs ne possédant pas encore les produits mais susceptibles d'acheter à l'avenir", "Clients potentiels dans une zone où le concessionnaire souhaite renforcer la notoriété des produits"],
+        "purpose": "Présenter les produits réels aux clients de la zone, leur faire comprendre les points forts des produits, et montrer que le concessionnaire peut fournir conseils, service et pièces détachées.",
+        "minParticipants": "Au moins 30 personnes par événement ; 30 à 50 personnes sont recommandées pour que l'équipe puisse échanger avec chaque client et bien s'en occuper.",
+        "target": ["Agriculteurs utilisant un moteur diesel ou un motoculteur d'une autre marque et susceptibles de changer de produit", "Clients utilisant leur moteur ou motoculteur depuis longtemps et à la recherche d'un produit de remplacement", "Nouveaux clients dans une zone où le concessionnaire souhaite présenter ses produits"],
         "duration": "2-3 heures",
-        "venue": "Un lieu communautaire proche des clients ciblés, facile d'accès, avec des places assises pour les clients, un espace d'exposition des produits, un parking, et une protection contre le soleil ou la pluie si nécessaire.",
-        "basicActivities": ["Inscription et accueil des clients", "Exposition du moteur diesel KUBOTA ZT plus", "Exposition du motoculteur KUBOTA", "Présentation des principaux avantages des produits", "Questions et échanges avec les clients", "Collation légère et eau potable"],
-        "optionalActivities": ["Quiz produit", "Tirage au sort", "Promotion de l'événement", "Collecte de prospects clients"],
+        "venue": "Choisissez un lieu facile d'accès pour les clients : place du village, centre communautaire, cour de temple ou terrain du concessionnaire. Prévoyez un espace pour l'inscription, l'exposition des produits, les places assises, le parking et une tente ou un espace ombragé pour environ 30 à 50 personnes.",
+        "basicActivities": ["Inscription des clients et collecte de leurs coordonnées, en notant le produit qui les intéresse", "Exposition du moteur diesel KUBOTA et du motoculteur TRA CHANG pour que les clients voient les produits réels", "Présentation courte, claire et simple des points forts et de la manière de choisir le bon produit", "Présentation du concessionnaire, des moyens de contact, du service après-vente et des pièces détachées", "Temps de questions-réponses et d'échanges avec l'équipe"],
+        "optionalActivities": ["Témoignage client : inviter un utilisateur du produit dans la région à partager une courte expérience", "Reconnaître un produit authentique : montrer aux clients des points de vérification simples", "Promotion ou facilités de paiement : préparer des conditions claires et désigner un responsable pour les expliquer", "Quiz ou tirage au sort : préparer les questions, les coupons, le matériel et les lots"],
         "schedule": [
-          { "time": "09h00-09h30", "activity": "Inscription, accueil et visite des produits" },
-          { "time": "09h30-09h40", "activity": "Mot de bienvenue et présentation du concessionnaire" },
-          { "time": "09h40-10h10", "activity": "Présentation du moteur diesel KUBOTA ZT plus" },
-          { "time": "10h10-10h40", "activity": "Présentation du motoculteur KUBOTA" },
-          { "time": "10h40-11h00", "activity": "Questions et échanges avec les clients" },
-          { "time": "11h00-11h20", "activity": "Jeu ou tirage au sort, si retenu" },
-          { "time": "11h20-11h30", "activity": "Remerciements aux clients et photo de groupe" }
+          { "time": "09h00-09h30<br>(30 min)", "activity": "Inscription et tri des clients", "inCharge": "Équipe du concessionnaire", "whatToDo": "Si l'affluence est forte, prévoir des points d'inscription séparés pour les clients ciblés et les clients généraux. Noter les clients intéressés pour un suivi par l'équipe commerciale, et distribuer souvenirs ou coupons de tirage au sort le cas échéant." },
+          { "time": "09h30-09h45<br>(15 min)", "activity": "Mot de bienvenue et présentation du concessionnaire", "inCharge": "Propriétaire / Animateur", "whatToDo": "Accueillir les clients, présenter le concessionnaire, le centre de service, la disponibilité des pièces détachées et les promotions spéciales du jour, le cas échéant." },
+          { "time": "09h45-10h15<br>(30 min)", "activity": "Présentation des produits", "inCharge": "Présentateur produit", "whatToDo": "Présenter le moteur diesel KUBOTA et le motoculteur TRA CHANG à partir des produits réels : points forts, utilisation et repères simples pour reconnaître un produit authentique." },
+          { "time": "10h15-10h30<br>(15 min)", "activity": "Témoignage client (optionnel)", "inCharge": "Client utilisateur / Animateur", "whatToDo": "Si retenu, inviter un client utilisateur de la région à partager une courte expérience ; l'animateur guide les questions et gère le temps." },
+          { "time": "10h30-11h00<br>(30 min)", "activity": "Questions-réponses et facilités de paiement", "inCharge": "Équipe commerciale / Partenaire financier", "whatToDo": "Répondre aux questions des clients, expliquer le programme de facilités de paiement ou la promotion retenue, et prévoir éventuellement de petits lots pour la session de questions-réponses." },
+          { "time": "11h00-11h30<br>(30 min)", "activity": "Tirage au sort, échanges commerciaux et clôture", "inCharge": "Animateur / Propriétaire / Équipe commerciale", "whatToDo": "Procéder au tirage au sort, remercier les clients et prendre une photo de groupe. L'équipe commerciale poursuit les échanges avec les clients intéressés, et des collations ou des repas sont distribués selon le format de l'événement." }
         ],
-        "checklist": ["Au moins 30 clients sont confirmés.", "Le moteur diesel KUBOTA ZT plus est propre et prêt pour l'exposition.", "Le motoculteur KUBOTA est propre et prêt pour l'exposition.", "Les zones d'inscription, d'exposition des produits, d'assises et de parking sont prêtes.", "Les panneaux de l'événement, le matériel produit et la sonorisation sont prêts.", "Les présentateurs ont revu les informations produit.", "Les collations et l'eau potable sont en quantité suffisante.", "Tous les membres de l'équipe comprennent leurs responsabilités."],
-        "tip": "Une activité de présentation produit de base. Les clients voient les produits réels et reçoivent une présentation, mais aucune démonstration sur le terrain n'est requise.",
+        "checklist": ["Au moins 30 clients sont confirmés.", "Le moteur diesel KUBOTA ZT plus est prêt pour l'exposition.", "Le motoculteur TRA CHANG est prêt pour l'exposition.", "Les zones d'inscription, d'exposition des produits, d'assises et de parking sont prêtes.", "Les panneaux de l'événement, le matériel produit et la sonorisation sont prêts.", "L'équipe a réparti les rôles et répété le contenu de la présentation.", "Les collations et l'eau potable sont en quantité suffisante.", "Chaque membre de l'équipe connaît son rôle."],
+        "tip": "Une activité de présentation produit de base. L'accent est mis sur l'échange et la découverte des produits réels par les clients ; aucune démonstration au champ n'est nécessaire.",
         "resources": [
           { "title": "Manuel d'activité KFD (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-EN.pdf" },
           { "title": "Manuel d'activité KFD (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Produits", "details": "1 à 2 moteurs diesel KUBOTA avec présentoir<br>1 motoculteur TRA CHANG entièrement assemblé" },
+          { "label": "Aménagement du lieu", "details": "Une tente, une table d'inscription et environ 30 à 50 chaises<br>1 microphone et système de sonorisation" },
+          { "label": "Décoration", "details": "1 backdrop d'environ 3 × 3 m<br>4 à 6 J-Flags d'environ 1,65 × 0,45 m<br>2 mini panneaux A-Board et des fanions KUBOTA selon les besoins" },
+          { "label": "Supports produit", "details": "Fiches modèles et informations produit, brochures ou coordonnées du concessionnaire, en quantité suffisante pour tous les clients" },
+          { "label": "Restauration et fournitures", "details": "Eau potable et collations pour au moins le nombre de clients attendus, ainsi que des lots ou souvenirs si des activités optionnelles sont prévues" }
         ]
       },
       {
         "name": "2. Activité de démonstration",
-        "purpose": "Démontrer le motoculteur KUBOTA dans une rizière réelle, expliquer son fonctionnement correct, et laisser les clients l'essayer avec le soutien du personnel.",
-        "minParticipants": "30 personnes",
-        "target": ["Agriculteurs envisageant l'achat d'un motoculteur", "Clients souhaitant constater les performances réelles avant de se décider", "Agriculteurs souhaitant apprendre la bonne méthode d'utilisation du produit"],
+        "purpose": "Permettre aux clients de voir le moteur diesel KUBOTA et le motoculteur TRA CHANG fonctionner en conditions réelles, de comprendre leur bonne utilisation, et de les essayer avant de décider d'un achat.",
+        "minParticipants": "Au moins 30 personnes par événement ; 30 à 50 personnes sont recommandées pour que chacun voie clairement la démonstration et que l'équipe puisse superviser correctement les essais de conduite.",
+        "target": ["Agriculteurs à la recherche d'un moteur diesel ou d'un motoculteur pour des travaux exigeants", "Clients souhaitant voir le produit fonctionner réellement avant de décider d'un achat", "Utilisateurs d'une autre marque souhaitant comparer les performances", "Clients souhaitant apprendre la bonne utilisation et choisir les accessoires adaptés à leurs travaux"],
         "duration": "2-3 heures",
-        "venue": "Une rizière ou une zone de travail réelle préparée à l'avance, avec un parcours de démonstration clairement balisé, un point d'observation pour les clients, et une zone d'essai séparée si nécessaire.",
-        "basicActivities": ["Inscription et présentation de l'activité", "Présentation du motoculteur KUBOTA et consignes d'utilisation", "Démonstration de conduite et de travail réel dans une rizière", "Essai client supervisé", "Questions et conseils d'entretien de base"],
-        "optionalActivities": ["Test de vitesse de travail", "Test de consommation de carburant", "Comparaison avec la concurrence dans les mêmes conditions de test", "Prise de rendez-vous ou promotion de l'événement"],
+        "venue": "Choisir une parcelle agricole facile d'accès, avec un espace de démonstration et d'essai sécurisé, idéalement de 0,25 à 0,5 hectare. Prévoir une séparation claire entre la zone de démonstration, la zone d'essai, la tente clients, le parking et le chemin d'accès des produits.",
+        "basicActivities": ["Inscription, accueil des clients et explication des consignes de sécurité avant l'entrée dans la zone de démonstration", "Présentation du moteur diesel KUBOTA, du motoculteur TRA CHANG, des roues et des accessoires utilisés lors de l'événement", "Démonstration des produits dans une rizière réelle, avec des accessoires adaptés au modèle et aux conditions de travail locales", "Explication des commandes, de l'utilisation et des points forts pendant la démonstration", "Essai de conduite individuel dans la zone prévue, sous la supervision étroite de l'équipe", "Bilan de la démonstration et session de questions-réponses"],
+        "optionalActivities": ["Test de consommation de carburant : comparaison avec un moteur concurrent ou un motoculteur de puissance similaire", "Test de vitesse de travail : définir une zone et une méthode de chronométrage identiques, puis présenter les résultats simplement", "Promotion ou facilités de paiement : préparer des conditions claires et un responsable pour les expliquer", "Tirage au sort et collations : préparer coupons, lots, repas légers et eau potable selon le nombre de clients"],
         "schedule": [
-          { "time": "09h00-09h30", "activity": "Inscription et visite des produits" },
-          { "time": "09h30-09h40", "activity": "Mot de bienvenue et présentation de la démonstration" },
-          { "time": "09h40-10h00", "activity": "Présentation du motoculteur KUBOTA et consignes d'utilisation" },
-          { "time": "10h00-10h30", "activity": "Démonstration de conduite et de travail réel dans la rizière" },
-          { "time": "10h30-11h15", "activity": "Essai client supervisé" },
-          { "time": "11h15-11h35", "activity": "Questions, conseils d'entretien et échanges sur le produit" },
-          { "time": "11h35-11h45", "activity": "Bilan et clôture de l'activité" }
+          { "time": "08h30-09h30<br>(60 min)", "activity": "Inscription et accueil", "inCharge": "Équipe du concessionnaire", "whatToDo": "Inscrire les clients, distribuer souvenirs ou coupons de tirage au sort le cas échéant, puis les inviter à s'installer sous la tente avec de l'eau et des serviettes fraîches." },
+          { "time": "09h30-09h50<br>(20 min)", "activity": "Présentation du produit et des points forts", "inCharge": "Présentateur technique", "whatToDo": "Présenter le moteur diesel KUBOTA, le motoculteur TRA CHANG et les accessoires utilisés pour la démonstration, en choisissant les modèles réellement commercialisés dans le pays." },
+          { "time": "09h50-10h20<br>(30 min)", "activity": "Démonstration en conditions réelles", "inCharge": "Équipe de démonstration", "whatToDo": "Démontrer les produits dans une rizière réelle en utilisant une charrue à socs, une charrue à disques, une herse rotative ou une charrue à disques avec siège, selon le modèle et les conditions de travail." },
+          { "time": "10h20-10h40<br>(20 min)", "activity": "Essai de conduite client", "inCharge": "Équipe de démonstration / Clients", "whatToDo": "Faire essayer le produit aux clients un par un en conditions réelles, l'équipe expliquant les commandes et veillant de près à la sécurité." },
+          { "time": "10h40-10h50<br>(10 min)", "activity": "Test de consommation de carburant (optionnel)", "inCharge": "Équipe de démonstration", "whatToDo": "Si retenu, comparer avec un moteur concurrent ou un motoculteur de puissance similaire ; des conseils peuvent être demandés à l'équipe d'experts KUBOTA." },
+          { "time": "10h50-11h00<br>(10 min)", "activity": "Bilan et questions-réponses", "inCharge": "Animateur / Équipe commerciale", "whatToDo": "Résumer ce que les clients ont vu, annoncer les résultats des tests le cas échéant, et répondre aux questions." },
+          { "time": "11h00-11h30<br>(30 min)", "activity": "Promotion, tirage au sort et collations (optionnel)", "inCharge": "Animateur / Équipe commerciale", "whatToDo": "Si retenu, présenter la promotion, procéder au tirage au sort pour les participants, et distribuer des repas légers et de l'eau avant la clôture." }
         ],
-        "checklist": ["La rizière ou la zone de travail est prête.", "Le motoculteur KUBOTA et son équipement sont prêts à fonctionner.", "Le parcours de démonstration, le point d'observation et la zone d'essai sont clairement séparés.", "Le conducteur de démonstration a testé le parcours.", "Le personnel peut expliquer les commandes et la méthode d'utilisation correcte.", "La zone d'essai client et l'équipement de sécurité sont prêts.", "Si un test de vitesse ou de consommation est retenu, le matériel de mesure et la méthode de test sont prêts."],
-        "tip": "Le produit doit être démontré sur un champ réel et les clients doivent bénéficier d'un essai supervisé. Les tests de vitesse et de consommation sont optionnels.",
+        "checklist": ["Au moins 30 clients sont confirmés.", "La rizière ou la zone de démonstration est prête.", "Le motoculteur TRA CHANG et ses accessoires sont prêts à fonctionner.", "Le parcours de démonstration, le point d'observation et la zone d'essai sont clairement séparés.", "Le conducteur de démonstration a testé le parcours.", "L'équipe peut expliquer les commandes et la méthode d'utilisation.", "L'équipement de sécurité est prêt.", "Si un test de vitesse ou de consommation est retenu, le matériel et la méthode de test sont prêts."],
+        "tip": "La démonstration doit avoir lieu sur un champ réel avec un essai de conduite supervisé. Les tests de vitesse et de consommation de carburant restent optionnels.",
         "resources": [
           { "title": "Manuel d'activité de démonstration (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.pdf" },
           { "title": "Manuel d'activité de démonstration (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Produits", "details": "Motoculteur TRA CHANG et moteur diesel KUBOTA — choisir les modèles commercialisés dans le pays" },
+          { "label": "Accessoires", "details": "NC Plus X : charrue à socs et charrue à disques<br>NC Plus X Special : herse rotative et charrue à disques avec siège" },
+          { "label": "Espace clients", "details": "Tente et environ 30 à 50 chaises<br>Eau potable, serviettes fraîches, microphone et sonorisation mobile" },
+          { "label": "Pour un test de carburant", "details": "Comparer avec un moteur concurrent ou un motoculteur de puissance similaire ; des conseils supplémentaires peuvent être demandés à l'équipe d'experts KUBOTA" }
         ]
       },
       {
         "name": "3. Service mobile",
-        "purpose": "Renforcer le service après-vente en rapprochant les techniciens et le support de service des clients.",
-        "minParticipants": "20 clients",
-        "target": ["Clients existants utilisant des produits KUBOTA", "Zones comptant un nombre raisonnable d'utilisateurs KUBOTA", "Clients vivant loin du concessionnaire ou ayant un accès limité au service"],
-        "duration": "Environ 3 heures",
-        "venue": "Un lieu proche des clients, facile d'accès pour les produits, avec des zones séparées pour la réception, l'attente, l'inspection, la vente de pièces détachées et la remise du produit, ainsi qu'une tente ou un espace couvert pour les techniciens.",
-        "basicActivities": ["Inscription des clients et réception des produits", "Inspection de base en cinq points (filtre à air, système de carburant, huile moteur, radiateur/refroidissement, courroie de ventilateur)", "Explication du résultat de l'inspection", "Conseils d'utilisation et d'entretien", "Vente ou remplacement de pièces détachées si nécessaire", "Restitution du produit au client"],
-        "optionalActivities": ["Courte session d'entretien collective", "Eau et collations légères pour les clients en attente"],
+        "purpose": "Apporter directement chez les clients le service d'inspection et les conseils d'entretien, pour les aider à utiliser correctement leurs produits et à accéder plus facilement aux pièces détachées.",
+        "minParticipants": "Au moins 20 clients par événement. Confirmer au préalable les types et quantités de produits afin de prévoir suffisamment de techniciens, d'outils et de pièces détachées.",
+        "target": ["Clients possédant un moteur diesel KUBOTA ou un motoculteur TRA CHANG", "Clients éloignés du concessionnaire ou ayant des difficultés à s'y rendre pour le service"],
+        "duration": "Environ 3 à 4 heures",
+        "venue": "Choisir un lieu regroupant des clients KUBOTA et facile d'accès pour l'apport des produits. Prévoir des zones clairement séparées pour la réception, l'attente, l'inspection, le remplacement de pièces, le stand de vente de pièces détachées et un espace ombragé.",
+        "basicActivities": ["Inscription des clients, réception des produits et mise en file d'attente pour l'inspection", "Inspection de base en 5 points, gratuite, pour les moteurs diesel KUBOTA et les motoculteurs TRA CHANG", "Conseils sur l'utilisation et l'entretien corrects selon le type de produit", "En cas de pièces à remplacer, conseiller le client et procéder au remplacement si nécessaire", "Prévoir les pièces détachées les plus courantes à la vente sur place", "Restituer le produit au client une fois l'inspection ou le remplacement terminé"],
+        "optionalActivities": ["Session d'entretien collective : environ 10 à 15 minutes pour rappeler les points clés à surveiller régulièrement", "Promotion de pièces détachées ou de kits d'entretien : préparer une liste claire de produits, de prix et de conditions", "Eau potable et collations pendant l'attente : prévoir en fonction du nombre de clients et du temps d'attente"],
         "schedule": [
-          { "time": "08h30-09h00", "activity": "Préparation de la zone de service, des outils, des pièces détachées et des rôles de l'équipe" },
-          { "time": "09h00-09h30", "activity": "Inscription des clients, réception des produits et pose des numéros de suivi" },
-          { "time": "09h30-11h30", "activity": "Inspection en cinq points, explication des résultats et remplacement de pièces si nécessaire" },
-          { "time": "11h30-11h50", "activity": "Courte session collective sur l'utilisation et l'entretien corrects" },
-          { "time": "11h50-12h00", "activity": "Remise finale des produits et clôture de l'activité" }
+          { "time": "08h30-09h00<br>(30 min)", "activity": "Préparation de la zone et de l'équipe", "inCharge": "Chef technicien / Équipe du concessionnaire", "whatToDo": "Organiser la zone, les outils, les pièces détachées et les documents, et revoir le rôle de chacun avant l'arrivée des clients." },
+          { "time": "09h00-09h30<br>(30 min)", "activity": "Inscription et réception des produits", "inCharge": "Équipe d'inscription", "whatToDo": "Inscrire les clients, réceptionner les produits et les placer en file d'attente pour l'inspection." },
+          { "time": "09h30-11h30<br>(120 min)", "activity": "Inspection de base et service", "inCharge": "Techniciens / Équipe pièces détachées", "whatToDo": "Effectuer l'inspection de base en 5 points pour le moteur et le motoculteur, conseiller sur l'utilisation et l'entretien corrects, et remplacer les pièces nécessaires." },
+          { "time": "11h30-11h45<br>(15 min)", "activity": "Session d'entretien collective (optionnel)", "inCharge": "Chef technicien", "whatToDo": "Résumer les bonnes pratiques d'utilisation et d'entretien, puis répondre aux questions." },
+          { "time": "11h45-12h00<br>(15 min)", "activity": "Restitution des produits et clôture", "inCharge": "Équipe du concessionnaire", "whatToDo": "Restituer les produits, enregistrer les interventions réalisées et communiquer les coordonnées du concessionnaire pour tout service supplémentaire." }
         ],
-        "checklist": ["Au moins 20 clients et leurs types de produits sont confirmés.", "Les zones de réception, d'attente, d'inspection et de remise sont prêtes.", "Les techniciens et les outils de base sont prêts.", "Les fiches d'inspection et les étiquettes de numéro de produit sont prêtes.", "Les pièces détachées fréquemment remplacées sont disponibles.", "L'équipe comprend le processus réception-inspection-explication-remise.", "Les places assises pour les clients, l'eau potable et les accès aux produits sont prêts."],
-        "tip": "L'objectif principal est d'apporter le service après-vente directement chez les clients. La vente ou la présentation de produits n'est pas l'objectif principal.",
+        "checklist": ["Au moins 20 clients sont confirmés, avec les types de produits qu'ils apporteront.", "Les zones de réception, d'attente, d'inspection et de restitution sont prêtes.", "Les techniciens et les outils de base sont prêts.", "Les fiches d'inspection et les étiquettes numérotées sont prêtes.", "Les pièces détachées fréquemment remplacées sont disponibles en quantité suffisante.", "L'équipe comprend le déroulement : réception, inspection, explication, restitution.", "Les accès pour les produits, les places assises et l'eau potable sont prêts."],
+        "tip": "L'essentiel est d'apporter le service directement aux clients ; ce n'est pas une activité commerciale ou de présentation produit.",
         "resources": [
           { "title": "Manuel du service mobile (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-EN.pdf" },
           { "title": "Manuel du service mobile (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Produits concernés", "details": "Moteurs diesel KUBOTA et motoculteurs TRA CHANG — inspection de base en 5 points selon la liste standard de chaque type de produit" },
+          { "label": "Outils et documents", "details": "Équipement d'inspection de base pour moteurs et motoculteurs, accompagné des fiches d'inspection" },
+          { "label": "Pièces détachées", "details": "Huile moteur, filtres, courroies et autres pièces — des conseils supplémentaires peuvent être demandés à l'équipe KUBOTA" },
+          { "label": "Espace clients", "details": "Tente ou espace ombragé, chaises, zone de stationnement des produits et eau potable pour les clients en attente" }
         ]
       },
       {
         "name": "4. Activité de remerciement client",
-        "purpose": "Remercier les clients existants d'avoir choisi KUBOTA et renforcer la relation entre les clients, le concessionnaire et la marque KUBOTA.",
-        "minParticipants": "50 personnes",
-        "target": ["Utilisateurs existants du moteur diesel KUBOTA ZT plus ou du motoculteur KUBOTA", "Zones comptant un grand nombre de clients KUBOTA", "Clients avec lesquels le concessionnaire souhaite bâtir une relation à long terme"],
+        "purpose": "Remercier les clients d'avoir choisi les produits KUBOTA, créer une expérience mémorable et renforcer durablement la relation entre les clients, le concessionnaire et la marque.",
+        "minParticipants": "Au moins 50 personnes par événement. Confirmer le nombre de participants à l'avance afin de prévoir suffisamment de repas, de places assises, de souvenirs et de lots.",
+        "target": ["Clients possédant un moteur diesel KUBOTA ou un motoculteur TRA CHANG", "Clients fidèles ou utilisateurs KUBOTA que le concessionnaire souhaite fidéliser durablement", "Clients susceptibles de recommander les produits KUBOTA à des amis ou à d'autres agriculteurs"],
         "duration": "Environ 3 heures",
-        "venue": "Un espace événementiel, le site du concessionnaire, une salle de réception ou un lieu communautaire pouvant accueillir au moins 50 clients, avec de l'espace pour l'inscription, la restauration, les animations, l'exposition de produits, un espace photo et le parking.",
-        "basicActivities": ["Accueillir les clients et transmettre clairement le message de remerciement", "Décorer le lieu aux couleurs de KUBOTA", "Préparer un espace d'exposition de produits et un espace photo", "Fournir un repas et des boissons", "Offrir un souvenir aux clients", "Prévoir un divertissement, des jeux ou un tirage au sort"],
-        "optionalActivities": ["Zone de service mobile", "Courte présentation de nouveaux produits", "Offre spéciale", "Parrainage (Friend Get Friend)", "Divertissement ou chants"],
+        "venue": "Choisir un lieu communautaire ou le site du concessionnaire, facile d'accès et regroupant de nombreux clients KUBOTA, pouvant accueillir au moins 50 personnes. Prévoir l'inscription, une scène, des tables et chaises pour le repas, le parking, une exposition de produits, un coin photo et des stands de jeux.",
+        "basicActivities": ["Inscription, accueil des clients et remise de souvenirs", "Décoration du lieu aux couleurs orange et blanc de KUBOTA, avec tables et chaises pour le repas", "Aménagement d'un coin photo avec accessoires, et invitation des clients à partager leurs photos sur les réseaux sociaux", "Stands de jeux simples, comme le lancer de balle ou la roue de la fortune, pour divertir les clients et distribuer des lots", "Discours de bienvenue et de remerciement pour le choix des produits KUBOTA", "Exposition du moteur diesel KUBOTA et du motoculteur TRA CHANG, avec présentation des produits et conseils d'entretien", "Invitation de clients à partager leur expérience des produits KUBOTA sur scène", "Repas, animation sur scène, tirage au sort et photo de groupe avant la clôture"],
+        "optionalActivities": ["Service mobile pour les grands événements : prévoir techniciens, zone d'inspection, outils et pièces détachées, séparés de l'espace principal", "Parrainage (Friend Get Friend) : prévoir une démarche de parrainage simple, avec un suivi par l'équipe après l'événement", "Présentation d'un nouveau produit ou d'une promotion : prévoir le produit réel, les supports et des conditions claires, avec une présentation concise"],
         "schedule": [
-          { "time": "16h00-16h30", "activity": "Inscription, remise de souvenirs, visite des produits et photos" },
-          { "time": "16h30-16h40", "activity": "Accueil et message de remerciement" },
-          { "time": "16h40-17h00", "activity": "Courte actualité, présentation de nouveau produit ou offre spéciale, si retenue" },
-          { "time": "17h00-17h30", "activity": "Jeux et participation des clients" },
-          { "time": "17h30-18h30", "activity": "Repas et divertissement" },
-          { "time": "18h30-19h00", "activity": "Tirage au sort" },
-          { "time": "19h00-19h10", "activity": "Remerciements finaux et photo de groupe" }
+          { "time": "08h30-09h30<br>(60 min)", "activity": "Accueil, jeux et service mobile", "inCharge": "Toutes les équipes", "whatToDo": "Inscrire les clients et distribuer des sacs en toile. Prendre des photos avec accessoires et les partager sur les réseaux sociaux. Participer aux stands de jeux tels que le lancer de balle ou la roue de la fortune. Pour un grand événement, un service mobile d'inspection gratuite peut être proposé." },
+          { "time": "09h30-09h45<br>(15 min)", "activity": "Ouverture et discours de bienvenue", "inCharge": "Propriétaire / Représentant KUBOTA", "whatToDo": "Ouvrir l'événement, accueillir les clients et les remercier de leur confiance envers les produits KUBOTA." },
+          { "time": "09h45-10h15<br>(30 min)", "activity": "Présentation produit et conseils d'entretien", "inCharge": "Présentateur produit / Technicien", "whatToDo": "Présenter les points forts des produits, les 5 points de vérification d'authenticité et les conseils d'entretien saisonnier." },
+          { "time": "10h15-10h30<br>(15 min)", "activity": "Témoignages clients", "inCharge": "Animateur / 2 clients principaux", "whatToDo": "Interviewer sur scène deux clients utilisateurs, invités à partager leur expérience et leur satisfaction vis-à-vis des produits KUBOTA." },
+          { "time": "10h30-11h15<br>(45 min)", "activity": "Repas et animation sur scène", "inCharge": "Animateur / Équipe d'animation", "whatToDo": "Servir un repas de table chinoise ou buffet, avec des jeux sur scène tels que le concours du cri KUBOTA le plus long ou le jeu des chaises musicales, avec des lots à gagner." },
+          { "time": "11h15-12h00<br>(45 min)", "activity": "Grand tirage au sort et clôture", "inCharge": "Propriétaire / Animateur", "whatToDo": "Procéder au tirage au sort des grands lots, comme des appareils électroménagers ou des kits d'huile moteur, puis prendre une photo de groupe et remercier les clients avant la clôture." }
         ],
-        "checklist": ["Au moins 50 clients sont confirmés.", "Les zones d'inscription, d'assises, de restauration, d'animation et de parking sont prêtes.", "Le fond de scène, l'espace photo et l'exposition de produits sont prêts.", "La nourriture et les boissons sont en quantité suffisante.", "Les souvenirs et les lots sont prêts.", "L'animateur et l'équipe comprennent le déroulement de l'activité.", "Si le service mobile est inclus, sa zone, ses techniciens, ses outils et ses pièces détachées sont prêts."],
-        "tip": "Une activité de reconnaissance et de relation client. L'ambiance doit être chaleureuse et agréable, sans trop insister sur la vente.",
+        "checklist": ["Au moins 50 clients sont confirmés.", "Les zones d'inscription, d'assises, de restauration, de scène et de parking sont prêtes.", "Le backdrop, le coin photo et l'espace d'exposition des produits sont prêts.", "La nourriture et les boissons sont en quantité suffisante.", "Les souvenirs et les lots sont prêts.", "L'animateur et l'équipe connaissent le déroulement de l'événement.", "Si un service mobile est prévu, sa zone, ses techniciens, ses outils et ses pièces détachées sont prêts, séparément."],
+        "tip": "Une activité de fidélisation et de remerciement client. L'ambiance doit être chaleureuse et conviviale, sans trop insister sur la vente.",
         "resources": [
           { "title": "Manuel de l'activité de remerciement client (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-EN.pdf" },
           { "title": "Manuel de l'activité de remerciement client (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Produits exposés", "details": "Moteur diesel KUBOTA et motoculteur TRA CHANG — choisir les modèles commercialisés dans le pays" },
+          { "label": "Lieu et équipement", "details": "Tente ou salle de réception, tables et chaises pour le repas, scène, microphones, sonorisation et parking pour au moins 50 clients" },
+          { "label": "Nourriture et boissons", "details": "Repas de table chinoise ou buffet, avec de l'eau potable en quantité adaptée au nombre de clients et au lieu" },
+          { "label": "Souvenirs et lots", "details": "Sacs en toile ou autres souvenirs, lots des stands de jeux et lots du tirage au sort" },
+          { "label": "Décoration", "details": "Backdrop, fanions, banderoles et autres éléments de décoration, aux couleurs orange et blanc de KUBOTA" }
         ]
       }
     ],

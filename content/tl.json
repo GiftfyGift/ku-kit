@@ -725,6 +725,7 @@
     "cardLabels": { "overviewTitle": "Activity Standards", "objective": "Layunin", "target": "Target na customer", "venue": "Inirerekomendang Venue", "readMore": "Magbasa pa", "showLess": "Ipakita nang kaunti", "openGuide": "Pumunta sa buong detalye ng activity" },
     "quickSelectTitle": "Mabilisang Pagpili ng Activity",
     "labels": { "minParticipants": "Pinakamababang bilang ng kalahok", "target": "Target na customer", "duration": "Rekomendadong tagal", "venue": "Angkop na venue", "basic": "Batayang activities (kailangan)", "optional": "Opsyonal na activities", "schedule": "Iminumungkahing schedule", "recommendedItems": "Checklist bago simulan ang event" },
+    "scheduleHeaders": { "time": "Oras at tagal", "activity": "Activity", "inCharge": "Responsable", "whatToDo": "Gagawin" },
     "activityComparison": {
       "title": "Paghahambing ng Activity Standards",
       "criteria": [
@@ -781,100 +782,124 @@
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",
-        "purpose": "Bumuo ng awareness ng mga produkto ng KUBOTA at ipakilala ang lokal na dealer sa mga customer sa lugar.",
-        "minParticipants": "30 katao",
-        "target": ["Mga magsasakang kasalukuyang gumagamit ng diesel engine o power tiller", "Mga magsasakang wala pang produkto pero may pagkakataong bumili sa hinaharap", "Mga potensyal na customer sa lugar kung saan gustong bumuo ng awareness ng dealer"],
+        "purpose": "Ipakilala ang aktuwal na produkto sa mga customer sa lugar, ipaunawa ang mga pangunahing benepisyo nito, at ipakita na kaya ng dealer na magbigay ng payo, serbisyo, at spare parts.",
+        "minParticipants": "Hindi bababa sa 30 katao bawat event; inirerekomenda ang mga 30–50 katao para masilbihan nang maayos ng team ang bawat customer.",
+        "target": ["Mga magsasakang gumagamit ng diesel engine o power tiller ng ibang brand na may pagkakataong lumipat ng produkto", "Mga customer na matagal nang gumagamit ng kanilang engine o power tiller at naghahanap na ng kapalit", "Mga bagong customer sa lugar kung saan gustong ipakilala ng dealer ang kanilang mga produkto"],
         "duration": "2-3 oras",
-        "venue": "Isang community area na malapit sa target na customer, madaling puntahan, may upuan, espasyo para sa product display, parking, at proteksyon sa araw o ulan kung kailangan.",
-        "basicActivities": ["Pagpaparehistro at pagtanggap sa customer", "I-display ang KUBOTA Diesel engine ZT plus", "I-display ang KUBOTA Power Tiller", "Ipakita ang mga pangunahing benepisyo ng produkto", "Mga tanong at usapan ng customer", "Magaan na meryenda at inuming tubig"],
-        "optionalActivities": ["Product quiz", "Lucky draw", "Event promotion", "Pagkolekta ng lead ng customer"],
+        "venue": "Pumili ng lokasyon na madaling puntahan ng customer, tulad ng plaza ng barangay, community center, patyo ng simbahan, o venue ng dealer. Maghanda ng espasyo para sa rehistro, product display, upuan, parking, at tolda o may lilim na lugar para sa mga 30–50 katao.",
+        "basicActivities": ["Rehistro ng customer at pagkolekta ng contact details, kasama ang produktong interesado sila", "I-display ang KUBOTA Diesel Engine at TRA CHANG Power Tiller para makita ng customer ang aktuwal na produkto", "Maikli at simpleng paliwanag tungkol sa mga highlight ng produkto at paano pumili ng tamang produkto", "Ipakilala ang dealer, contact channels, after-sales service, at spare parts", "Panahon ng Q&A at usapan sa team"],
+        "optionalActivities": ["Karanasan ng aktuwal na customer: anyayahan ang isang user ng produkto sa lugar na magbahagi ng maikling karanasan", "Paano makilala ang orihinal na produkto: ipakita ang mga simpleng punto na madaling sundan ng customer", "Promotion o installment: maghanda ng malinaw na kondisyon at itakda kung sino ang magpapaliwanag", "Quiz game o lucky draw: maghanda ng mga tanong, coupon, kagamitan, at premyo"],
         "schedule": [
-          { "time": "09:00-09:30", "activity": "Rehistro, pagtanggap, at panonood ng produkto" },
-          { "time": "09:30-09:40", "activity": "Mensahe ng pagtanggap at pagpapakilala ng dealer" },
-          { "time": "09:40-10:10", "activity": "Pagpapakilala ng KUBOTA Diesel engine ZT plus" },
-          { "time": "10:10-10:40", "activity": "Pagpapakilala ng KUBOTA Power Tiller" },
-          { "time": "10:40-11:00", "activity": "Mga tanong at usapan ng customer" },
-          { "time": "11:00-11:20", "activity": "Laro o lucky draw, kung pinili" },
-          { "time": "11:20-11:30", "activity": "Pasalamatan ang customer at kuhanan ng group photo" }
+          { "time": "09:00-09:30<br>(30 minuto)", "activity": "Rehistro at pag-sort ng customer", "inCharge": "Team ng dealer", "whatToDo": "Kung marami ang customer, maaaring paghiwalayin ang mga registration point para sa target at general na customer. Itala ang mga interesadong customer para sundan ng sales team, at magbigay ng souvenir o lucky-draw coupon kung meron." },
+          { "time": "09:30-09:45<br>(15 minuto)", "activity": "Mensahe ng pagtanggap at pagpapakilala ng dealer", "inCharge": "May-ari ng tindahan / MC", "whatToDo": "Batiin ang customer, ipakilala ang dealer, service center, availability ng spare parts, at anumang espesyal na promotion sa araw na iyon." },
+          { "time": "09:45-10:15<br>(30 minuto)", "activity": "Pagpapakilala ng produkto", "inCharge": "Presenter ng produkto", "whatToDo": "Ipakilala ang KUBOTA Diesel Engine at TRA CHANG Power Tiller gamit ang aktuwal na produkto. Ipaliwanag ang mga pangunahing highlight, paggamit, at simpleng paraan para makilala ang orihinal na produkto." },
+          { "time": "10:15-10:30<br>(15 minuto)", "activity": "Pagbabahagi ng karanasan ng customer (opsyonal)", "inCharge": "Aktuwal na user / MC", "whatToDo": "Kung isasama, anyayahan ang isang aktuwal na user sa lugar na magbahagi ng maikling karanasan; gagabayan ng MC ang mga tanong at pangangasiwaan ang oras." },
+          { "time": "10:30-11:00<br>(30 minuto)", "activity": "Q&A at installment program", "inCharge": "Sales team / Financing partner", "whatToDo": "Bigyan ng pagkakataon ang customer na magtanong, ipaliwanag ang piniling installment program o promotion, at maghanda ng maliliit na premyo para sa Q&A session." },
+          { "time": "11:00-11:30<br>(30 minuto)", "activity": "Lucky draw, sales talk, at pagsara", "inCharge": "MC / May-ari ng tindahan / Sales team", "whatToDo": "Isagawa ang lucky draw, pasalamatan ang customer, at kumuha ng group photo. Ituloy ng sales team ang usapan sa mga interesadong customer, habang namimigay ng meryenda o pagkain ayon sa format ng event." }
         ],
-        "checklist": ["Nakumpirma ang hindi bababa sa 30 customer.", "Malinis at handa nang i-display ang KUBOTA Diesel engine ZT plus.", "Malinis at handa nang i-display ang KUBOTA Power Tiller.", "Handa na ang rehistro, product display, upuan, at parking area.", "Handa na ang event signs, product materials, at sound system.", "Nasuri na ng mga presenter ang product information.", "Sapat ang meryenda at inuming tubig.", "Naiintindihan ng lahat ng miyembro ng team ang kanilang responsibilidad."],
-        "tip": "Isang batayang product-introduction activity. Nakikita ng customer ang aktuwal na produkto at natatanggap ang presentasyon, pero hindi na kailangan ng field demonstration.",
+        "checklist": ["Nakumpirma ang hindi bababa sa 30 customer.", "Handa nang i-display ang KUBOTA Diesel Engine ZT plus.", "Handa nang i-display ang TRA CHANG Power Tiller.", "Handa na ang rehistro, product display, upuan, at parking area.", "Handa na ang event signs, product materials, at sound system.", "Nahati na ng team ang mga tungkulin at na-practice na ang presentasyon.", "Sapat ang meryenda at inuming tubig.", "Alam ng bawat miyembro ng team ang kanilang tungkulin."],
+        "tip": "Isang batayang product-introduction activity. Nakatuon sa usapan at pagpapakita ng aktuwal na produkto sa customer; hindi pa kailangan ng field demonstration.",
         "resources": [
           { "title": "KFD Activity manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-EN.pdf" },
           { "title": "KFD Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Produkto", "details": "1–2 KUBOTA Diesel Engine na may display stand<br>1 kumpletong assembled na TRA CHANG Power Tiller" },
+          { "label": "Venue Setup", "details": "Tolda, registration table, at mga 30–50 upuan<br>1 mikropono at sound system" },
+          { "label": "Dekorasyon", "details": "1 backdrop, mga 3 × 3 metro<br>4–6 J-Flag, mga 1.65 × 0.45 metro<br>2 Mini A-Board at KUBOTA bunting kung angkop" },
+          { "label": "Product Materials", "details": "Model name cards, product information, brochure o contact details ng dealer, sapat para sa lahat ng customer" },
+          { "label": "Meryenda at Kagamitan", "details": "Inuming tubig at meryenda para sa lahat ng customer, kasama ang premyo o souvenir kung may opsyonal na activities" }
         ]
       },
       {
         "name": "2. Demonstration Activity",
-        "purpose": "Ipakita ang KUBOTA Power Tiller sa tunay na palayan, ipaliwanag ang tamang operasyon, at pahintulutan ang customer na subukan ang produkto na may suporta ng staff.",
-        "minParticipants": "30 katao",
-        "target": ["Mga magsasakang isinasaalang-alang ang pagbili ng power tiller", "Mga customer na gustong makita ang aktuwal na performance bago magdesisyon", "Mga magsasakang gustong matuto ng tamang paraan ng pag-oopereyt"],
+        "purpose": "Ipakita sa customer ang aktuwal na operasyon ng KUBOTA Diesel Engine at TRA CHANG Power Tiller sa totoong kondisyon ng field, ipaunawa ang tamang paggamit, at pahintulutan silang subukan ang produkto bago magdesisyon bumili.",
+        "minParticipants": "Hindi bababa sa 30 katao bawat event; inirerekomenda ang 30–50 katao para malinaw na makita ng lahat ang demonstration at maayos na masubaybayan ng team ang mga test drive.",
+        "target": ["Mga magsasakang naghahanap ng diesel engine o power tiller para sa mabibigat na trabaho", "Mga customer na gustong makita ang aktuwal na performance bago magdesisyon bumili", "Mga user ng ibang brand na gustong ihambing ang performance", "Mga customer na gustong matuto ng tamang paggamit at pumili ng angkop na implement"],
         "duration": "2-3 oras",
-        "venue": "Isang palayan o aktuwal na working area na inihanda nang maaga, may malinaw na markadong demonstration route, viewing point para sa customer, at hiwalay na trial area kung kailangan.",
-        "basicActivities": ["Rehistro at pagpapaliwanag ng activity", "Pagpapakilala ng KUBOTA Power Tiller at mga operating instructions", "Aktuwal na pagmamaneho at working demonstration sa tunay na palayan", "Supervised na pagsubok ng customer", "Mga tanong at batayang payo sa maintenance"],
-        "optionalActivities": ["Working-speed test", "Fuel-consumption test", "Paghahambing sa competitor gamit ang parehong test conditions", "Booking o event promotion"],
+        "venue": "Pumili ng bukid na madaling puntahan, may ligtas na espasyo para sa demonstration at supervised test drive, mga 0.25–0.5 hectare ang inirerekomenda. Maglaan ng malinaw na paghihiwalay sa demonstration field, trial area, tolda ng customer, parking, at access route ng produkto.",
+        "basicActivities": ["Rehistro, pagtanggap sa customer, at pagpapaliwanag ng mga precaution bago pumasok sa demonstration area", "Ipakilala ang KUBOTA Diesel Engine, TRA CHANG Power Tiller, mga gulong, at implements na gagamitin sa event", "Demonstration ng produkto sa tunay na palayan, gamit ang implements na angkop sa modelo at kondisyon ng lugar", "Ipaliwanag ang mga control, paggamit, at highlight habang nagde-demonstrate", "Payagan ang bawat customer na subukang magmaneho nang isa-isa sa itinalagang lugar, na malapit na sinusubaybayan ng team", "Buod ng nakita ng customer at Q&A session"],
+        "optionalActivities": ["Fuel-consumption test: ihambing sa engine ng competitor o power-tiller engine na may katulad na lakas", "Working-speed test: gamitin ang parehong area at timing method, pagkatapos ay ipaliwanag ang resulta nang simple", "Promotion o installment program: maghanda ng malinaw na kondisyon at itakda kung sino ang magpapaliwanag", "Lucky draw at meryenda: maghanda ng coupon, premyo, snack box, at inuming tubig ayon sa bilang ng customer"],
         "schedule": [
-          { "time": "09:00-09:30", "activity": "Rehistro at panonood ng produkto" },
-          { "time": "09:30-09:40", "activity": "Mensahe ng pagtanggap at briefing ng demonstration" },
-          { "time": "09:40-10:00", "activity": "Pagpapakilala ng KUBOTA Power Tiller at operating instructions" },
-          { "time": "10:00-10:30", "activity": "Aktuwal na pagmamaneho at working demonstration sa palayan" },
-          { "time": "10:30-11:15", "activity": "Supervised na pagsubok ng customer" },
-          { "time": "11:15-11:35", "activity": "Mga tanong, payo sa maintenance, at usapan tungkol sa produkto" },
-          { "time": "11:35-11:45", "activity": "Buod at pagsara ng activity" }
+          { "time": "08:30-09:30<br>(60 minuto)", "activity": "Rehistro at pagtanggap", "inCharge": "Team ng dealer", "whatToDo": "I-rehistro ang customer at magbigay ng souvenir o lucky-draw coupon kung meron. Pagkatapos, anyayahan silang umupo sa ilalim ng tolda na may inuming tubig at malamig na tuwalya." },
+          { "time": "09:30-09:50<br>(20 minuto)", "activity": "Pagpapakilala ng produkto at mga highlight", "inCharge": "Technical presenter", "whatToDo": "Ipakilala ang KUBOTA Diesel Engine, TRA CHANG Power Tiller, at mga implements na gagamitin sa demonstration, gamit ang mga modelong aktuwal na binebenta sa bansa." },
+          { "time": "09:50-10:20<br>(30 minuto)", "activity": "Demonstration sa tunay na field", "inCharge": "Demonstration team", "whatToDo": "I-demonstrate ang produkto sa tunay na palayan gamit ang moldboard plow, 2-disc plow, rolling harrow, o ride-on disc plow, depende sa modelo at kondisyon ng lugar." },
+          { "time": "10:20-10:40<br>(20 minuto)", "activity": "Test drive ng customer", "inCharge": "Demonstration team / Customer", "whatToDo": "Payagan ang bawat customer na subukang magmaneho nang isa-isa sa totoong kondisyon ng field, habang ipinaliliwanag ng team ang mga control at malapit na sinusubaybayan ang kaligtasan." },
+          { "time": "10:40-10:50<br>(10 minuto)", "activity": "Fuel-consumption test (opsyonal)", "inCharge": "Demonstration team", "whatToDo": "Kung isasama, ihambing sa engine ng competitor o power-tiller engine na may katulad na lakas. Maaaring humingi ng payo mula sa expert team ng KUBOTA." },
+          { "time": "10:50-11:00<br>(10 minuto)", "activity": "Buod at Q&A", "inCharge": "MC / Sales team", "whatToDo": "Ibuod ang nakita ng customer, i-anunsyo ang resulta ng test kung meron, at sagutin ang mga tanong ng customer." },
+          { "time": "11:00-11:30<br>(30 minuto)", "activity": "Promotion, lucky draw, at meryenda (opsyonal)", "inCharge": "MC / Sales team", "whatToDo": "Kung isasama, ipaliwanag ang promotion, isagawa ang lucky draw para sa mga dumalo, at magbigay ng snack box at inuming tubig bago isara ang event." }
         ],
-        "checklist": ["Handa na ang palayan o working area.", "Handa nang i-opereyt ang KUBOTA Power Tiller at implement.", "Malinaw na hiwalay ang demonstration route, viewing point, at trial area.", "Nasubukan na ng demonstration driver ang ruta.", "Kayang ipaliwanag ng staff ang mga control at tamang paraan ng pag-oopereyt.", "Handa na ang trial area at safety equipment ng customer.", "Kung pinili ang speed o fuel-consumption test, handa na ang measuring equipment at test method."],
-        "tip": "Kailangang ma-demonstrate ang produkto sa tunay na field at magkaroon ng supervised trial ang customer. Opsyonal ang speed at fuel-consumption test.",
+        "checklist": ["Nakumpirma ang hindi bababa sa 30 customer.", "Handa na ang palayan o demonstration area.", "Handa nang gamitin ang TRA CHANG Power Tiller at ang mga implement nito.", "Malinaw na hiwalay ang demonstration route, viewing point, at trial area.", "Nasubukan na ng demonstration driver ang ruta.", "Kayang ipaliwanag ng team ang mga control at paraan ng paggamit.", "Handa na ang safety equipment.", "Kung pinili ang speed o fuel-consumption test, handa na ang kagamitan at test method."],
+        "tip": "Kailangang i-demonstrate ang produkto sa tunay na field kasama ang supervised test drive ng customer. Opsyonal ang speed at fuel-consumption test.",
         "resources": [
           { "title": "Demonstration Activity manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.pdf" },
           { "title": "Demonstration Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Produkto", "details": "TRA CHANG Power Tiller at KUBOTA Diesel Engine — piliin ang mga modelong binebenta sa bansa" },
+          { "label": "Implements", "details": "NC Plus X: moldboard plow at 2-disc plow<br>NC Plus X Special: rolling harrow at ride-on disc plow" },
+          { "label": "Customer Area", "details": "Tolda at mga 30–50 upuan<br>Inuming tubig, malamig na tuwalya, mikropono, at portable sound system" },
+          { "label": "Para sa Fuel Test", "details": "Ihambing sa engine ng competitor o power-tiller engine na may katulad na lakas. Maaaring humingi ng karagdagang payo mula sa expert team ng KUBOTA" }
         ]
       },
       {
         "name": "3. Mobile Service",
-        "purpose": "Palakasin ang after-sales service sa pamamagitan ng pagdadala ng mga technician at service support nang mas malapit sa customer.",
-        "minParticipants": "20 customer",
-        "target": ["Mga umiiral na customer na gumagamit ng produkto ng KUBOTA", "Mga lugar na may makatwirang bilang ng gumagamit ng KUBOTA", "Mga customer na malayo sa dealer o limitado ang access sa serbisyo"],
-        "duration": "Mga 3 oras",
-        "venue": "Isang lokasyon na malapit sa customer na madaling puntahan ang produkto, may hiwalay na area para sa pagtanggap, paghihintay, inspeksyon, pagbebenta ng spare parts, at pag-hahandover ng produkto, plus tolda o may bubong na lugar para sa mga technician.",
-        "basicActivities": ["Rehistro ng customer at pagtanggap ng produkto", "Five-point na batayang inspeksyon (air cleaner, fuel system, engine oil, radiator/cooling, fan belt)", "Ipaliwanag ang resulta ng inspeksyon", "Payo sa operasyon at maintenance", "Magbenta o magpalit ng spare parts kung kinakailangan", "Ibalik ang produkto sa customer"],
-        "optionalActivities": ["Maikling group maintenance session", "Tubig at magaan na meryenda para sa naghihintay na customer"],
+        "purpose": "Dalhin ang inspeksyon at payo sa maintenance nang mas malapit sa customer, tinutulungan silang gamitin nang tama ang kanilang produkto at mas madaling makakuha ng spare parts.",
+        "minParticipants": "Hindi bababa sa 20 customer bawat event. Kumpirmahin nang maaga ang uri at dami ng produkto para makapaghanda ng sapat na technician, kagamitan, at spare parts.",
+        "target": ["Mga customer na may-ari ng KUBOTA Diesel Engine o TRA CHANG Power Tiller", "Mga customer na malayo sa dealer o mahirap pumunta para sa serbisyo"],
+        "duration": "Mga 3-4 oras",
+        "venue": "Pumili ng lugar na may maraming customer ng KUBOTA at madaling padalhan ng produkto. Maglaan ng malinaw na paghihiwalay sa pagtanggap, paghihintay, inspeksyon, pagpapalit ng parts, spare-parts booth, at may lilim na lugar.",
+        "basicActivities": ["Rehistro ng customer, pagtanggap ng produkto, at paglagay sa inspection queue", "Libreng 5-point na batayang inspeksyon para sa KUBOTA Diesel Engine at TRA CHANG Power Tiller", "Payo tungkol sa tamang paggamit at maintenance ayon sa uri ng produkto", "Kung may parts na kailangan nang palitan, payuhan ang customer at palitan ang parts kung kinakailangan", "Ihanda ang madalas na kailangang spare parts para ibenta sa event", "Ibalik ang produkto sa customer pagkatapos ng inspeksyon o pagpapalit ng parts"],
+        "optionalActivities": ["Maikling group maintenance session: mga 10–15 minuto para balikan ang mga mahalagang punto na dapat regular na tingnan ng customer", "Promotion ng spare parts o maintenance kit: maghanda ng malinaw na listahan ng produkto, presyo, at kondisyon", "Inuming tubig at magaan na meryenda habang naghihintay: ihanda ayon sa bilang ng customer at inaasahang oras ng paghihintay"],
         "schedule": [
-          { "time": "08:30-09:00", "activity": "Ihanda ang service area, tools, spare parts, at mga role ng team" },
-          { "time": "09:00-09:30", "activity": "I-rehistro ang customer, tanggapin ang produkto, at lagyan ng product number" },
-          { "time": "09:30-11:30", "activity": "Five-point na inspeksyon, pagpapaliwanag ng resulta, at pagpapalit ng parts kung kinakailangan" },
-          { "time": "11:30-11:50", "activity": "Maikling group session tungkol sa tamang paggamit at maintenance" },
-          { "time": "11:50-12:00", "activity": "Huling pag-hahandover ng produkto at pagsara ng activity" }
+          { "time": "08:30-09:00<br>(30 minuto)", "activity": "Paghahanda ng area at team", "inCharge": "Lead technician / Team ng dealer", "whatToDo": "Ihanda ang area, kagamitan sa inspeksyon, spare parts, at mga form, at balikan ang tungkulin ng bawat miyembro bago dumating ang customer." },
+          { "time": "09:00-09:30<br>(30 minuto)", "activity": "Rehistro at pagtanggap ng produkto", "inCharge": "Registration team", "whatToDo": "I-rehistro ang customer, tanggapin ang kanilang produkto, at ilagay ito sa inspection queue." },
+          { "time": "09:30-11:30<br>(120 minuto)", "activity": "Batayang inspeksyon at serbisyo", "inCharge": "Mga technician / Parts team", "whatToDo": "Isagawa ang 5-point na batayang inspeksyon para sa parehong uri ng produkto, ipakita ang tamang paggamit at maintenance, at palitan ang mga parts kung kinakailangan." },
+          { "time": "11:30-11:45<br>(15 minuto)", "activity": "Group maintenance guidance (opsyonal)", "inCharge": "Lead technician", "whatToDo": "Balikan ang tamang paggamit at mahahalagang punto ng maintenance na dapat regular na tingnan ng customer, pagkatapos ay buksan ang Q&A." },
+          { "time": "11:45-12:00<br>(15 minuto)", "activity": "Pag-hahandover ng produkto at pagsara", "inCharge": "Team ng dealer", "whatToDo": "Ibalik ang produkto, itala ang naisagawang serbisyo, at ibigay ang contact details ng dealer para sa karagdagang serbisyo." }
         ],
-        "checklist": ["Nakumpirma ang hindi bababa sa 20 customer at ang uri ng kanilang produkto.", "Handa na ang mga area para sa pagtanggap, paghihintay, inspeksyon, at handover.", "Handa na ang mga technician at batayang tools.", "Handa na ang inspection sheets at product number tags.", "Available ang madalas na napapalitang spare parts.", "Naiintindihan ng team ang proseso ng receive-inspect-explain-handover.", "Handa na ang upuan ng customer, inuming tubig, at access route ng produkto."],
-        "tip": "Ang pangunahing layunin ay dalhin ang after-sales service sa lugar ng customer. Hindi ito pangunahing tungkol sa pagbebenta o pagpapakilala ng produkto.",
+        "checklist": ["Nakumpirma ang hindi bababa sa 20 customer at ang mga uri ng produktong dadalhin nila.", "Handa na ang mga area para sa pagtanggap, paghihintay, inspeksyon, at handover.", "Handa na ang mga technician at batayang tools.", "Handa na ang mga inspection sheet at numbered tags.", "Sapat ang madalas na napapalitang spare parts.", "Naiintindihan ng team ang proseso ng pagtanggap-inspeksyon-paliwanag-handover.", "Handa na ang mga upuan ng customer, inuming tubig, at access route ng produkto."],
+        "tip": "Ang pangunahing punto ay dalhin ang serbisyo direkta sa lugar ng customer; hindi ito pangunahing tungkol sa pagbebenta o pagpapakilala ng produkto.",
         "resources": [
           { "title": "Mobile Service manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-EN.pdf" },
           { "title": "Mobile Service manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Mga Sineserbisyuhang Produkto", "details": "KUBOTA Diesel Engine at TRA CHANG Power Tiller — gamitin ang standard na 5-point checklist para sa bawat uri ng produkto" },
+          { "label": "Kagamitan at Dokumento", "details": "Batayang kagamitan sa inspeksyon para sa engine at power tiller, kasama ang inspection forms" },
+          { "label": "Spare Parts", "details": "Engine oil, filter, belt, at iba pang spare parts — maaaring humingi ng karagdagang payo mula sa team ng KUBOTA" },
+          { "label": "Customer Area", "details": "Tolda o may lilim na lugar, upuan, waiting area ng produkto, at inuming tubig para sa naghihintay na customer" }
         ]
       },
       {
         "name": "4. Thank You Customer Activity",
-        "purpose": "Pasalamatan ang mga umiiral na customer sa pagpili ng KUBOTA at palakasin ang relasyon sa pagitan ng customer, dealer, at brand ng KUBOTA.",
-        "minParticipants": "50 katao",
-        "target": ["Mga umiiral na gumagamit ng KUBOTA Diesel engine ZT plus o KUBOTA Power Tiller", "Mga lugar na may maraming customer ng KUBOTA", "Mga customer na gustong bumuo ng dealer ng pangmatagalang relasyon"],
+        "purpose": "Pasalamatan ang customer sa pagpili nila ng KUBOTA, lumikha ng hindi malilimutang karanasan, at palakasin nang pangmatagalan ang relasyon ng customer, dealer, at brand ng KUBOTA.",
+        "minParticipants": "Hindi bababa sa 50 customer bawat event. Kumpirmahin nang maaga ang bilang ng dadalo para makapaghanda ng sapat na pagkain, upuan, souvenir, at premyo.",
+        "target": ["Mga customer na may-ari ng KUBOTA Diesel Engine o TRA CHANG Power Tiller", "Regular o long-time na customer ng KUBOTA na gustong panatilihing engaged ng dealer", "Mga customer na malamang na magrekomenda ng produkto ng KUBOTA sa mga kaibigan o kapwa magsasaka"],
         "duration": "Mga 3 oras",
-        "venue": "Isang event area, lokasyon ng dealer, banquet room, o community venue na kayang umupo ng hindi bababa sa 50 customer, may espasyo para sa rehistro, pagkain, stage activities, product display, photo area, at parking.",
-        "basicActivities": ["Tanggapin ang customer at malinaw na ipahayag ang mensahe ng pasasalamat", "Palamutian ang venue gamit ang KUBOTA theme", "Ihanda ang product display at photo area", "Magbigay ng pagkain at inumin", "Magbigay ng souvenir sa customer", "Maglagay ng entertainment, laro, o lucky draw"],
-        "optionalActivities": ["Mobile Service Zone", "Maikling pagpapakilala ng bagong produkto", "Special offer", "Friend Get Friend", "Entertainment o pagkanta"],
+        "venue": "Pumili ng community venue o lokasyon ng dealer na madaling puntahan at may maraming customer ng KUBOTA, na kayang umupo ng hindi bababa sa 50 katao. Maghanda ng rehistro, entablado, mesa at upuan para sa pagkain, parking, product display, photo corner, at game booths.",
+        "basicActivities": ["Rehistro, pagtanggap sa customer, at pamamahagi ng souvenir", "Dekorasyon ng venue gamit ang orange-at-white na tema ng KUBOTA, kasama ang mesa at upuan para sa pagkain", "Paghahanda ng photo corner na may props, at paghikayat sa customer na mag-share ng litrato sa social media", "Simpleng game booths tulad ng ball toss o prize wheel, para libangin ang customer at magbigay ng premyo", "Mensahe ng pagtanggap at pasasalamat sa pagpili ng produkto ng KUBOTA", "Display ng KUBOTA Diesel Engine at TRA CHANG Power Tiller, kasama ang maikling paliwanag ng produkto at maintenance", "Pag-anyaya sa customer na magbahagi ng karanasan nila sa produkto ng KUBOTA sa entablado", "Pagkain, entertainment sa entablado, lucky draw, at group photo bago isara ang event"],
+        "optionalActivities": ["Mobile Service para sa malalaking event: maghanda ng technician, inspection area, kagamitan, at spare parts, hiwalay sa pangunahing venue", "Friend Get Friend: maghanda ng simpleng proseso ng referral, na may team na susubaybay pagkatapos ng event", "Pagpapakilala ng bagong produkto o promotion: ihanda ang aktuwal na produkto, materyales, at malinaw na kondisyon; panatilihing maikli ang presentasyon"],
         "schedule": [
-          { "time": "16:00-16:30", "activity": "Rehistro, pamamahagi ng souvenir, panonood ng produkto, at litrato" },
-          { "time": "16:30-16:40", "activity": "Pagtanggap at mensahe ng pasasalamat" },
-          { "time": "16:40-17:00", "activity": "Maikling balita, bagong produkto, o special-offer update, kung pinili" },
-          { "time": "17:00-17:30", "activity": "Mga laro at partisipasyon ng customer" },
-          { "time": "17:30-18:30", "activity": "Pagkain at entertainment" },
-          { "time": "18:30-19:00", "activity": "Lucky draw" },
-          { "time": "19:00-19:10", "activity": "Huling pasasalamat at group photo" }
+          { "time": "08:30-09:30<br>(60 minuto)", "activity": "Pagtanggap, laro, at Mobile Service", "inCharge": "Lahat ng staff", "whatToDo": "I-rehistro ang customer at magbigay ng calico bag. Kumuha ng litrato gamit ang props at i-share sa social media. Sumali sa mga game booths tulad ng ball toss o prize wheel. Para sa malaking event, maaaring magbigay ng libreng Mobile Service inspection." },
+          { "time": "09:30-09:45<br>(15 minuto)", "activity": "Pagbubukas at mensahe ng pagtanggap", "inCharge": "May-ari ng tindahan / Kinatawan ng KUBOTA", "whatToDo": "Buksan ang event, batiin ang customer, at pasalamatan sila sa pagtitiwala nila sa mga produkto ng KUBOTA." },
+          { "time": "09:45-10:15<br>(30 minuto)", "activity": "Kaalaman sa produkto at maintenance", "inCharge": "Presenter ng produkto / Technician", "whatToDo": "Ipakilala ang mga highlight ng produkto, ang 5 punto ng pag-verify ng orihinal na produkto, at payo sa seasonal maintenance." },
+          { "time": "10:15-10:30<br>(15 minuto)", "activity": "Pagbabahagi ng karanasan ng customer", "inCharge": "MC / 2 pangunahing customer", "whatToDo": "I-interview ang dalawang aktuwal na user sa entablado, anyayahan silang magbahagi ng kanilang karanasan at kasiyahan sa mga produkto ng KUBOTA." },
+          { "time": "10:30-11:15<br>(45 minuto)", "activity": "Pagkain at entertainment sa entablado", "inCharge": "MC / Entertainment team", "whatToDo": "Maghain ng Chinese banquet o buffet, kasama ang mga laro sa entablado tulad ng KUBOTA longest-voice contest o musical chairs na may premyo." },
+          { "time": "11:15-12:00<br>(45 minuto)", "activity": "Grand lucky draw at pagsara", "inCharge": "May-ari ng tindahan / MC", "whatToDo": "Isagawa ang lucky draw para sa mga malalaking premyo tulad ng home appliances o engine-oil sets, pagkatapos ay kumuha ng group photo at magpasalamat bago isara ang event." }
         ],
-        "checklist": ["Nakumpirma ang hindi bababa sa 50 customer.", "Handa na ang rehistro, upuan, pagkain, stage, at parking area.", "Handa na ang event backdrop, photo area, at product display.", "Sapat ang pagkain at inumin.", "Handa na ang mga souvenir at premyo.", "Naiintindihan ng MC at team ang pagkakasunud-sunod ng activity.", "Kung may Mobile Service, handa na ang area, technician, tools, at spare parts nito."],
-        "tip": "Isang customer-appreciation at relationship activity. Dapat mainit at masaya ang atmospera nang hindi masyadong nakatuon sa pagbebenta.",
+        "checklist": ["Nakumpirma ang hindi bababa sa 50 customer.", "Handa na ang rehistro, upuan, pagkain, entablado, at parking area.", "Handa na ang backdrop, photo corner, at product display.", "Sapat ang pagkain at inumin.", "Handa na ang mga souvenir at premyo.", "Naiintindihan ng MC at team ang pagkakasunud-sunod ng activity.", "Kung may Mobile Service, handa na ang hiwalay nitong area, technician, kagamitan, at spare parts."],
+        "tip": "Isang customer-appreciation at relationship activity. Dapat mainit at masaya ang atmospera, nang hindi masyadong nakatuon sa pagbebenta.",
         "resources": [
           { "title": "Thank You Customer Activity manual (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-EN.pdf" },
           { "title": "Thank You Customer Activity manual (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Mga Nakadisplay na Produkto", "details": "KUBOTA Diesel Engine at TRA CHANG Power Tiller — piliin ang mga modelong binebenta sa bansa" },
+          { "label": "Venue at Kagamitan", "details": "Tolda o function room, mesa at upuan para sa pagkain, entablado, mikropono, sound system, at parking para sa hindi bababa sa 50 customer" },
+          { "label": "Pagkain at Inumin", "details": "Chinese banquet o buffet, kasama ang sapat na inuming tubig ayon sa bilang ng customer at venue" },
+          { "label": "Souvenir at Premyo", "details": "Calico bags o iba pang souvenir, premyo mula sa game booths, at premyo ng lucky draw" },
+          { "label": "Dekorasyon", "details": "Backdrop, bandila, banner, at iba pang dekorasyon sa orange-at-white na tema ng KUBOTA" }
         ]
       }
     ],

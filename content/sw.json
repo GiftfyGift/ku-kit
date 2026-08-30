@@ -730,6 +730,7 @@
     "cardLabels": { "overviewTitle": "Viwango vya Shughuli", "objective": "Lengo", "target": "Wateja walengwa", "venue": "Mahali panapopendekezwa", "readMore": "Soma zaidi", "showLess": "Onyesha kidogo", "openGuide": "Nenda kwenye maelezo kamili ya shughuli" },
     "quickSelectTitle": "Uchaguzi wa Haraka wa Shughuli",
     "labels": { "minParticipants": "Idadi ya chini ya washiriki", "target": "Wateja walengwa", "duration": "Muda unaopendekezwa", "venue": "Mahali panapofaa", "basic": "Shughuli za msingi (zinazohitajika)", "optional": "Shughuli za hiari", "schedule": "Ratiba inayopendekezwa", "recommendedItems": "Orodha ya ukaguzi kabla ya tukio kuanza" },
+    "scheduleHeaders": { "time": "Muda na urefu wake", "activity": "Shughuli", "inCharge": "Anayehusika", "whatToDo": "Kinachopaswa kufanywa" },
     "activityComparison": {
       "title": "Ulinganisho wa Viwango vya Shughuli",
       "criteria": [
@@ -786,104 +787,128 @@
     "activities": [
       {
         "name": "1. KUBOTA Family Day (KFD)",
-        "purpose": "Jenga uelewa wa bidhaa za KUBOTA na mtambulishe muuzaji wa eneo kwa wateja katika eneo hilo.",
-        "minParticipants": "Watu 30",
-        "target": ["Wakulima wanaotumia injini ya dizeli au trekta la kutembea kwa sasa", "Wakulima ambao hawana bidhaa bado lakini wanaweza kununua baadaye", "Wateja watarajiwa katika eneo ambalo muuzaji anataka kujenga uelewa wa bidhaa"],
+        "purpose": "Kuwaletea wateja bidhaa halisi ili wazifahamu, waelewe faida zake kuu, na wajue kuwa muuzaji anaweza kutoa ushauri, huduma, na vipuri.",
+        "minParticipants": "Angalau watu 30 kwa kila tukio; watu 30–50 wanapendekezwa ili timu iweze kuzungumza na kuwahudumia wateja wote vizuri.",
+        "target": ["Wakulima wanaotumia injini ya dizeli au trekta la kutembea la chapa nyingine na wanaoweza kubadilisha bidhaa", "Wateja waliotumia injini au trekta lao kwa muda mrefu na wanaotafuta bidhaa mbadala", "Wateja wapya katika eneo ambalo muuzaji anataka kuanzisha bidhaa zake"],
         "duration": "Saa 2-3",
-        "venue": "Eneo la jamii karibu na wateja walengwa, lenye ufikiaji rahisi, viti vya wateja, nafasi ya maonyesho ya bidhaa, maegesho, na kinga dhidi ya jua au mvua inapohitajika.",
-        "basicActivities": ["Usajili na ukaribishaji wa wateja", "Onyesha injini ya dizeli ya KUBOTA ZT plus", "Onyesha trekta la kutembea la KUBOTA", "Toa uwasilishaji mfupi wa faida kuu za bidhaa", "Maswali na majadiliano ya wateja", "Vitafunio vyepesi na maji ya kunywa"],
-        "optionalActivities": ["Mchezo wa maswali kuhusu bidhaa", "Bahati nasibu", "Matangazo ya tukio", "Ukusanyaji wa taarifa za wateja wenye nia"],
+        "venue": "Chagua sehemu inayofikika kwa urahisi na wateja, kama uwanja wa kijiji, kituo cha jamii, uwanja wa kanisa/msikiti, au uwanja wa muuzaji. Andaa nafasi ya usajili, maonyesho ya bidhaa, viti, maegesho, na hema au eneo lenye kivuli kwa watu 30–50.",
+        "basicActivities": ["Usajili wa wateja na ukusanyaji wa taarifa za mawasiliano, ukiandika bidhaa wanayopendezwa nayo", "Onyesho la injini ya dizeli ya KUBOTA na trekta la kutembea la TRA CHANG ili wateja waone bidhaa halisi", "Maelezo mafupi na rahisi kuhusu faida kuu na jinsi ya kuchagua bidhaa sahihi", "Kumtambulisha muuzaji, njia za mawasiliano, huduma baada ya mauzo, na vipuri", "Muda wa maswali na majadiliano na timu"],
+        "optionalActivities": ["Uzoefu wa mteja halisi: mwalike mtumiaji wa bidhaa katika eneo hilo aeleze uzoefu wake kwa ufupi", "Jinsi ya kutambua bidhaa halisi: onyesha alama rahisi ambazo wateja wanaweza kuzifuatilia wenyewe", "Matangazo au malipo ya awamu: andaa masharti wazi na mtu wa kuwaeleza wateja", "Mchezo wa maswali au bahati nasibu: andaa maswali, kuponi, vifaa, na zawadi"],
         "schedule": [
-          { "time": "09:00-09:30", "activity": "Usajili, ukaribishaji, na kuangalia bidhaa" },
-          { "time": "09:30-09:40", "activity": "Maneno ya ukaribishaji na kuanzisha muuzaji" },
-          { "time": "09:40-10:10", "activity": "Kuanzisha injini ya dizeli ya KUBOTA ZT plus" },
-          { "time": "10:10-10:40", "activity": "Kuanzisha trekta la kutembea la KUBOTA" },
-          { "time": "10:40-11:00", "activity": "Maswali na majadiliano ya wateja" },
-          { "time": "11:00-11:20", "activity": "Mchezo au bahati nasibu, ikiwa imechaguliwa" },
-          { "time": "11:20-11:30", "activity": "Shukuru wateja na piga picha ya kikundi" }
+          { "time": "09:00-09:30<br>(dakika 30)", "activity": "Usajili na upangaji wa wateja", "inCharge": "Timu ya muuzaji", "whatToDo": "Iwapo wateja ni wengi, tenga sehemu za usajili kwa wateja walengwa na wateja wa kawaida. Andika majina ya wateja wenye nia kwa ajili ya ufuatiliaji wa timu ya mauzo, na ugawe zawadi za ukumbusho au kuponi za bahati nasibu ikiwa zipo." },
+          { "time": "09:30-09:45<br>(dakika 15)", "activity": "Maneno ya ukaribishaji na kuanzisha muuzaji", "inCharge": "Mmiliki wa duka / Mwenyekiti", "whatToDo": "Karibisha wateja, mtambulishe muuzaji, kituo cha huduma, upatikanaji wa vipuri, na matangazo maalum ya tukio hilo ikiwa yapo." },
+          { "time": "09:45-10:15<br>(dakika 30)", "activity": "Uwasilishaji wa bidhaa", "inCharge": "Mwasilishaji wa bidhaa", "whatToDo": "Tambulisha injini ya dizeli ya KUBOTA na trekta la kutembea la TRA CHANG kwa kutumia bidhaa halisi. Eleza faida kuu, matumizi, na jinsi rahisi ya kutambua bidhaa halisi." },
+          { "time": "10:15-10:30<br>(dakika 15)", "activity": "Mteja kushiriki uzoefu (hiari)", "inCharge": "Mtumiaji halisi / Mwenyekiti", "whatToDo": "Ikiwa imechaguliwa, mwalike mtumiaji halisi wa eneo hilo aeleze uzoefu wake kwa ufupi, huku mwenyekiti akisaidia kuuliza maswali na kudhibiti muda." },
+          { "time": "10:30-11:00<br>(dakika 30)", "activity": "Maswali na majibu, na mpango wa malipo ya awamu", "inCharge": "Timu ya mauzo / Mtoa huduma wa mkopo", "whatToDo": "Wape wateja nafasi ya kuuliza maswali, eleza mpango wa malipo ya awamu au tangazo lililochaguliwa, na andaa zawadi ndogo kwa kipindi cha maswali na majibu." },
+          { "time": "11:00-11:30<br>(dakika 30)", "activity": "Bahati nasibu, majadiliano ya mauzo, na kufunga tukio", "inCharge": "Mwenyekiti / Mmiliki wa duka / Timu ya mauzo", "whatToDo": "Fanya bahati nasibu, shukuru wateja, na pigeni picha ya pamoja. Timu ya mauzo iendelee kuzungumza na wateja wenye nia, huku vitafunio au sanduku la chakula vikigawiwa kulingana na aina ya tukio." }
         ],
-        "checklist": ["Wateja angalau 30 wamethibitishwa.", "Injini ya dizeli ya KUBOTA ZT plus safi na tayari kwa maonyesho.", "Trekta la kutembea la KUBOTA safi na tayari kwa maonyesho.", "Maeneo ya usajili, maonyesho ya bidhaa, viti, na maegesho tayari.", "Ishara za tukio, vifaa vya bidhaa, na mfumo wa sauti tayari.", "Wawasilishaji wamepitia taarifa za bidhaa.", "Vitafunio na maji ya kunywa vinatosha.", "Wanachama wote wa timu wanaelewa majukumu yao."],
-        "tip": "Shughuli ya msingi ya kuanzisha bidhaa. Wateja huona bidhaa halisi na kupokea uwasilishaji, lakini onyesho la shambani halihitajiki.",
+        "checklist": ["Wateja angalau 30 wamethibitishwa.", "Injini ya dizeli ya KUBOTA ZT plus iko tayari kwa maonyesho.", "Trekta la kutembea la TRA CHANG liko tayari kwa maonyesho.", "Maeneo ya usajili, maonyesho ya bidhaa, viti, na maegesho yako tayari.", "Mabango ya tukio, vifaa vya bidhaa, na mfumo wa sauti viko tayari.", "Timu imegawana majukumu na kufanya mazoezi ya uwasilishaji.", "Vitafunio na maji ya kunywa vinatosha.", "Kila mtu anajua wajibu wake."],
+        "tip": "Shughuli ya msingi ya kuanzisha bidhaa. Msisitizo ni kuzungumza na kuwaonyesha wateja bidhaa halisi; onyesho la shambani halihitajiki.",
         "resources": [
           { "title": "Mwongozo wa shughuli za KFD (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-SWA.pdf" },
           { "title": "Mwongozo wa shughuli za KFD (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-01-KFD-Activity-EN.pdf" },
           { "title": "Mwongozo wa shughuli za KFD (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1uk_E1WMgAWKu6WI2EZ3ZDzj2zh2XrNYK/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Bidhaa", "details": "Injini 1–2 za dizeli za KUBOTA zenye jukwaa la maonyesho<br>Trekta 1 la kutembea la TRA CHANG lililokamilika kwa maonyesho" },
+          { "label": "Mahali", "details": "Hema, meza ya usajili, na viti takriban 30–50<br>Kipaza sauti kimoja na mfumo wa sauti" },
+          { "label": "Vifaa vya mapambo", "details": "Mandhari ya nyuma (backdrop) moja ya takriban mita 3 × 3<br>Bendera za J-Flag 4–6 za ukubwa wa takriban mita 1.65 × 0.45<br>Mini A-Board mbili na bendera za KUBOTA kadiri inavyofaa" },
+          { "label": "Vifaa vya bidhaa", "details": "Vibao vya majina ya miundo na taarifa za bidhaa, vipeperushi au maelezo ya mawasiliano ya muuzaji, vitoshee idadi ya wateja" },
+          { "label": "Chakula na vifaa", "details": "Maji ya kunywa na vitafunio kwa angalau idadi ya wateja, pamoja na zawadi au vikumbusho ikiwa shughuli za hiari zimepangwa" }
         ]
       },
       {
         "name": "2. Demonstration Activity",
-        "purpose": "Onyesha trekta la kutembea la KUBOTA kwenye shamba halisi la mpunga, eleza uendeshaji sahihi, na waache wateja wajaribu bidhaa wakiwa na msaada wa wafanyakazi.",
-        "minParticipants": "Watu 30",
-        "target": ["Wakulima wanaofikiria kununua trekta la kutembea", "Wateja wanaotaka kuona utendaji halisi kabla ya kuamua", "Wakulima wanaotaka kujifunza njia sahihi ya kuendesha"],
+        "purpose": "Kuwaonyesha wateja injini ya dizeli ya KUBOTA na trekta la kutembea la TRA CHANG likifanya kazi katika hali halisi ya shambani, kuelewa matumizi sahihi, na kujaribu bidhaa kabla ya kuamua kununua.",
+        "minParticipants": "Angalau watu 30 kwa kila tukio; watu 30–50 wanapendekezwa ili kila mtu aone onyesho vizuri na timu iweze kusimamia majaribio ya kuendesha ipasavyo.",
+        "target": ["Wakulima wanaotafuta injini ya dizeli au trekta la kutembea kwa ajili ya kazi nzito", "Wateja wanaotaka kuona utendaji halisi kabla ya kuamua kununua", "Watumiaji wa chapa nyingine wanaotaka kulinganisha utendaji", "Wateja wanaotaka kujifunza matumizi sahihi na kuchagua vifaa vinavyofaa kazi zao"],
         "duration": "Saa 2-3",
-        "venue": "Shamba la mpunga au eneo halisi la kazi lililoandaliwa mapema, lenye njia ya onyesho iliyowekwa alama wazi, sehemu ya kutazama kwa wateja, na eneo tofauti la majaribio inapohitajika.",
-        "basicActivities": ["Usajili na maelezo ya shughuli", "Kuanzisha trekta la kutembea la KUBOTA na maelekezo ya uendeshaji", "Uendeshaji halisi na onyesho la kazi kwenye shamba halisi la mpunga", "Jaribio la mteja lililosimamiwa", "Maswali na ushauri wa msingi wa matengenezo"],
-        "optionalActivities": ["Jaribio la kasi ya kufanya kazi", "Jaribio la matumizi ya mafuta", "Ulinganisho na washindani kwa masharti sawa ya jaribio", "Uhifadhi au matangazo ya tukio"],
+        "venue": "Chagua shamba linalofikika kwa urahisi, lenye eneo salama la onyesho na majaribio ya kuendesha, takriban hekta 0.25–0.5. Tenga wazi shamba la onyesho, eneo la majaribio, hema ya wateja, maegesho, na njia ya kuingiza na kutoa bidhaa.",
+        "basicActivities": ["Usajili, ukaribishaji wa wateja, na maelezo ya tahadhari kabla ya kuingia eneo la onyesho", "Kuanzisha injini ya dizeli ya KUBOTA, trekta la kutembea la TRA CHANG, magurudumu, na vifaa vitakavyotumika katika tukio", "Onyesho la bidhaa shambani halisi, kwa kutumia vifaa vinavyofaa muundo wa bidhaa na hali ya eneo", "Maelezo ya udhibiti, matumizi, na faida kuu wakati wa onyesho", "Kumwacha kila mteja ajaribu kuendesha katika eneo lililopangwa, akiwa chini ya usimamizi wa karibu wa timu", "Muhtasari wa yaliyoonyeshwa na nafasi ya maswali"],
+        "optionalActivities": ["Jaribio la matumizi ya mafuta: kulinganisha na injini ya washindani au injini ya trekta yenye nguvu inayolingana", "Jaribio la kasi ya kufanya kazi: tumia eneo na mbinu ya kupima muda inayofanana, kisha eleza matokeo kwa urahisi", "Matangazo au mpango wa malipo ya awamu: andaa masharti wazi na mtu wa kuyaeleza", "Bahati nasibu na vitafunio: andaa kuponi, zawadi, sanduku za vitafunio, na maji ya kunywa"],
         "schedule": [
-          { "time": "09:00-09:30", "activity": "Usajili na kuangalia bidhaa" },
-          { "time": "09:30-09:40", "activity": "Maneno ya ukaribishaji na maelezo ya onyesho" },
-          { "time": "09:40-10:00", "activity": "Kuanzisha trekta la kutembea la KUBOTA na maelekezo ya uendeshaji" },
-          { "time": "10:00-10:30", "activity": "Uendeshaji halisi na onyesho la kazi kwenye shamba la mpunga" },
-          { "time": "10:30-11:15", "activity": "Jaribio la mteja lililosimamiwa" },
-          { "time": "11:15-11:35", "activity": "Maswali, ushauri wa matengenezo, na majadiliano ya bidhaa" },
-          { "time": "11:35-11:45", "activity": "Muhtasari na kufunga shughuli" }
+          { "time": "08:30-09:30<br>(dakika 60)", "activity": "Usajili na ukaribishaji", "inCharge": "Timu ya muuzaji", "whatToDo": "Sajili wateja na uwagawie zawadi za ukumbusho au kuponi za bahati nasibu ikiwa zipo. Kisha waalike wakae chini ya hema wakiwa na maji ya kunywa na taulo baridi." },
+          { "time": "09:30-09:50<br>(dakika 20)", "activity": "Uwasilishaji wa bidhaa na faida zake", "inCharge": "Mwasilishaji wa kiufundi", "whatToDo": "Tambulisha injini ya dizeli ya KUBOTA, trekta la kutembea la TRA CHANG, na vifaa vitakavyotumika kwenye onyesho, ukichagua miundo inayouzwa kihalisi nchini humo." },
+          { "time": "09:50-10:20<br>(dakika 30)", "activity": "Onyesho la kazi shambani halisi", "inCharge": "Timu ya onyesho", "whatToDo": "Onyesha bidhaa shambani halisi ukitumia plau ya moldboard, plau ya diski mbili, harrow inayozunguka, au plau ya diski ya kukalia, kulingana na muundo wa bidhaa na hali ya eneo." },
+          { "time": "10:20-10:40<br>(dakika 20)", "activity": "Mteja kujaribu kuendesha", "inCharge": "Timu ya onyesho / Wateja", "whatToDo": "Waache wateja wajaribu kuendesha mmoja mmoja katika hali halisi ya shambani, huku timu ikieleza udhibiti na kusimamia usalama kwa karibu." },
+          { "time": "10:40-10:50<br>(dakika 10)", "activity": "Jaribio la matumizi ya mafuta (hiari)", "inCharge": "Timu ya onyesho", "whatToDo": "Ikiwa imechaguliwa, linganisha na injini ya washindani au injini ya trekta yenye nguvu inayolingana. Ushauri zaidi unaweza kuombwa kutoka kwa timu ya wataalamu wa KUBOTA." },
+          { "time": "10:50-11:00<br>(dakika 10)", "activity": "Muhtasari na maswali na majibu", "inCharge": "Mwenyekiti / Timu ya mauzo", "whatToDo": "Toa muhtasari wa yale wateja walioyaona, tangaza matokeo ya majaribio ikiwa yapo, na wape wateja nafasi ya kuuliza maswali." },
+          { "time": "11:00-11:30<br>(dakika 30)", "activity": "Matangazo, bahati nasibu, na vitafunio (hiari)", "inCharge": "Mwenyekiti / Timu ya mauzo", "whatToDo": "Ikiwa imechaguliwa, eleza tangazo, fanya bahati nasibu kwa washiriki, na ugawie sanduku za vitafunio na maji ya kunywa kabla ya kufunga tukio." }
         ],
-        "checklist": ["Shamba la mpunga au eneo la kazi liko tayari.", "Trekta la kutembea la KUBOTA na kifaa chake tayari kuendeshwa.", "Njia ya onyesho, sehemu ya kutazama, na eneo la majaribio vimetenganishwa wazi.", "Dereva wa onyesho amejaribu njia hiyo.", "Wafanyakazi wanaweza kueleza vidhibiti na njia sahihi ya uendeshaji.", "Eneo la majaribio la mteja na vifaa vya usalama viko tayari.", "Ikiwa jaribio la kasi au matumizi ya mafuta limechaguliwa, vifaa vya kupimia na njia ya jaribio viko tayari."],
-        "tip": "Bidhaa lazima ionyeshwe kwenye shamba halisi na wateja lazima wapate jaribio lililosimamiwa. Majaribio ya kasi na matumizi ya mafuta ni ya hiari.",
+        "checklist": ["Wateja angalau 30 wamethibitishwa.", "Shamba au eneo la onyesho liko tayari.", "Trekta la kutembea la TRA CHANG na vifaa vyake viko tayari kufanya kazi.", "Njia ya onyesho, kituo cha kutazama, na eneo la majaribio vimetenganishwa wazi.", "Dereva wa onyesho ameshajaribu njia hiyo.", "Timu inaweza kueleza udhibiti na matumizi.", "Vifaa vya usalama viko tayari.", "Ikiwa jaribio la kasi au matumizi ya mafuta limechaguliwa, vifaa na mbinu ya jaribio viko tayari."],
+        "tip": "Onyesho lazima lifanyike shambani halisi na wateja wapewe fursa ya kujaribu kuendesha wakiwa chini ya usimamizi. Majaribio ya kasi na matumizi ya mafuta ni ya hiari.",
         "resources": [
           { "title": "Mwongozo wa Demonstration Activity (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-SWA.pdf" },
           { "title": "Mwongozo wa Demonstration Activity (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-02-Demonstration-Activity-EN.pdf" },
           { "title": "Mwongozo wa Demonstration Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1SyJ6vLqaxjOeKGAdrbgrZdrZd1u__HOa/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Bidhaa", "details": "Trekta la kutembea la TRA CHANG na injini ya dizeli ya KUBOTA — chagua miundo inayouzwa nchini humo" },
+          { "label": "Vifaa vya ziada", "details": "NC Plus X: plau ya moldboard na plau ya diski mbili<br>NC Plus X Special: harrow inayozunguka na plau ya diski ya kukalia" },
+          { "label": "Eneo la wateja", "details": "Hema na viti takriban 30–50<br>Maji ya kunywa, taulo baridi, kipaza sauti, na mfumo wa sauti unaosogezeka" },
+          { "label": "Kwa jaribio la mafuta", "details": "Linganisha na injini ya washindani au injini ya trekta yenye nguvu inayolingana. Ushauri zaidi unaweza kuombwa kutoka kwa timu ya wataalamu wa KUBOTA" }
         ]
       },
       {
         "name": "3. Mobile Service",
-        "purpose": "Imarisha huduma baada ya mauzo kwa kuleta mafundi na msaada wa huduma karibu zaidi na wateja.",
-        "minParticipants": "Wateja 20",
-        "target": ["Wateja waliopo wanaotumia bidhaa za KUBOTA", "Maeneo yenye idadi inayofaa ya watumiaji wa KUBOTA", "Wateja wanaoishi mbali na muuzaji au wenye ufikiaji mdogo wa huduma"],
-        "duration": "Takriban saa 3",
-        "venue": "Mahali karibu na wateja penye ufikiaji rahisi wa bidhaa, na maeneo tofauti ya kupokea, kusubiri, ukaguzi, mauzo ya vipuri, na uwasilishaji wa bidhaa, pamoja na hema au eneo lililofunikwa kwa mafundi.",
-        "basicActivities": ["Usajili wa wateja na kupokea bidhaa", "Ukaguzi wa msingi wa vipengele vitano (kichujio cha hewa, mfumo wa mafuta, mafuta ya injini, radiator/kupoza, mkanda wa feni)", "Eleza matokeo ya ukaguzi", "Ushauri wa uendeshaji na matengenezo", "Uza au badilisha vipuri inapohitajika", "Rudisha bidhaa kwa mteja"],
-        "optionalActivities": ["Kikao kifupi cha matengenezo cha kikundi", "Maji na vitafunio vyepesi kwa wateja wanaosubiri"],
+        "purpose": "Kuleta huduma ya ukaguzi na ushauri wa matengenezo karibu na wateja, kuwasaidia kutumia bidhaa zao kwa usahihi na kupata vipuri kwa urahisi zaidi.",
+        "minParticipants": "Angalau wateja 20 kwa kila tukio. Thibitisha aina na idadi ya bidhaa mapema ili kuandaa mafundi, vifaa, na vipuri vya kutosha.",
+        "target": ["Wateja wanaomiliki injini ya dizeli ya KUBOTA au trekta la kutembea la TRA CHANG", "Wateja wanaoishi mbali na muuzaji au wenye ugumu wa kufika dukani kwa huduma"],
+        "duration": "Takriban saa 3-4",
+        "venue": "Chagua eneo lenye wateja wa KUBOTA na linalofikika kwa urahisi kwa kuleta bidhaa. Tenga wazi maeneo ya kupokea, kusubiri, ukaguzi, kubadilisha vipuri, kibanda cha kuuza vipuri, na eneo lenye kivuli.",
+        "basicActivities": ["Usajili wa wateja, kupokea bidhaa, na kuziweka kwenye foleni ya ukaguzi", "Ukaguzi wa msingi wa vituo 5 bila malipo, kwa injini za dizeli za KUBOTA na trekta za kutembea za TRA CHANG", "Ushauri wa matumizi na matengenezo sahihi kulingana na aina ya bidhaa", "Ikiwa vipuri vimefikia muda wa kubadilishwa, mshauri mteja na ubadilishe vipuri inavyofaa", "Andaa vipuri vinavyotumika mara kwa mara kwa mauzo wakati wa tukio", "Rudisha bidhaa kwa mteja baada ya ukaguzi au ubadilishaji wa vipuri kukamilika"],
+        "optionalActivities": ["Kikao kifupi cha matengenezo cha kikundi: dakika 10–15 kupitia mambo muhimu ambayo wateja wanapaswa kuyaangalia mara kwa mara", "Matangazo ya vipuri au vifurushi vya matengenezo: andaa orodha wazi ya bidhaa, bei, na masharti", "Maji ya kunywa na vitafunio wakati wa kusubiri: andaa kulingana na idadi ya wateja na muda wa kusubiri"],
         "schedule": [
-          { "time": "08:30-09:00", "activity": "Andaa eneo la huduma, zana, vipuri, na majukumu ya timu" },
-          { "time": "09:00-09:30", "activity": "Sajili wateja, pokea bidhaa, na weka namba za bidhaa" },
-          { "time": "09:30-11:30", "activity": "Ukaguzi wa vipengele vitano, maelezo ya matokeo, na kubadilisha vipuri inapohitajika" },
-          { "time": "11:30-11:50", "activity": "Kikao kifupi cha kikundi kuhusu matumizi sahihi na matengenezo" },
-          { "time": "11:50-12:00", "activity": "Uwasilishaji wa mwisho wa bidhaa na kufunga shughuli" }
+          { "time": "08:30-09:00<br>(dakika 30)", "activity": "Maandalizi ya eneo na timu", "inCharge": "Fundi mkuu / Timu ya muuzaji", "whatToDo": "Panga eneo, vifaa vya ukaguzi, vipuri, na hati, kisha pitia wajibu wa kila mwanatimu kabla ya wateja kufika." },
+          { "time": "09:00-09:30<br>(dakika 30)", "activity": "Usajili na kupokea bidhaa", "inCharge": "Timu ya usajili", "whatToDo": "Sajili wateja, pokea bidhaa zao, na uziweke kwenye foleni ya ukaguzi." },
+          { "time": "09:30-11:30<br>(dakika 120)", "activity": "Ukaguzi wa msingi na huduma", "inCharge": "Mafundi / Timu ya vipuri", "whatToDo": "Fanya ukaguzi wa msingi wa vituo 5 kwa injini na trekta, ukiwashauri wateja matumizi na matengenezo sahihi. Badilisha vipuri inavyofaa." },
+          { "time": "11:30-11:45<br>(dakika 15)", "activity": "Ushauri wa matengenezo wa kikundi (hiari)", "inCharge": "Fundi mkuu", "whatToDo": "Toa muhtasari wa matumizi sahihi na mambo muhimu ya matengenezo ambayo wateja wanapaswa kuyaangalia mara kwa mara, kisha fungua nafasi ya maswali." },
+          { "time": "11:45-12:00<br>(dakika 15)", "activity": "Kurudisha bidhaa na kufunga tukio", "inCharge": "Timu ya muuzaji", "whatToDo": "Rudisha bidhaa, andika huduma zilizofanyika, na toa maelezo ya mawasiliano ya muuzaji kwa huduma zaidi zinazohitajika." }
         ],
-        "checklist": ["Wateja angalau 20 na aina za bidhaa zao zimethibitishwa.", "Maeneo ya kupokea, kusubiri, ukaguzi, na uwasilishaji tayari.", "Mafundi na zana za msingi tayari.", "Karatasi za ukaguzi na lebo za namba za bidhaa tayari.", "Vipuri vinavyobadilishwa mara kwa mara vinapatikana.", "Timu inaelewa mchakato wa kupokea-kukagua-kueleza-kuwasilisha.", "Viti vya wateja, maji ya kunywa, na njia za kufikia bidhaa tayari."],
-        "tip": "Lengo kuu ni kuleta huduma baada ya mauzo katika eneo la wateja. Mauzo ya bidhaa au uanzishaji wa bidhaa si lengo kuu.",
+        "checklist": ["Wateja angalau 20 wamethibitishwa pamoja na aina za bidhaa watakazoleta.", "Maeneo ya kupokea, kusubiri, ukaguzi, na kurudisha bidhaa yako tayari.", "Mafundi na vifaa vya msingi viko tayari.", "Fomu za ukaguzi na lebo za namba viko tayari.", "Vipuri vinavyobadilishwa mara kwa mara vimeandaliwa vya kutosha.", "Timu inaelewa mchakato wa kupokea-kukagua-kueleza-kurudisha.", "Njia za kuingiza bidhaa, viti, na maji ya kunywa viko tayari."],
+        "tip": "Kiini cha shughuli hii ni mafundi kufikisha huduma karibu na wateja; si shughuli ya mauzo au uanzishaji wa bidhaa hasa.",
         "resources": [
           { "title": "Mwongozo wa Mobile Service (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-SWA.pdf" },
           { "title": "Mwongozo wa Mobile Service (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-03-Mobile-Service-EN.pdf" },
           { "title": "Mwongozo wa Mobile Service (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/13lbgCCBmP51fWsty4KdgbuKm2LbQzTP2/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Bidhaa zinazohudumiwa", "details": "Injini za dizeli za KUBOTA na trekta za kutembea za TRA CHANG — tumia orodha ya kawaida ya ukaguzi wa vituo 5 kwa kila aina ya bidhaa" },
+          { "label": "Vifaa na hati", "details": "Vifaa vya ukaguzi wa msingi kwa injini na trekta, pamoja na fomu za ukaguzi" },
+          { "label": "Vipuri", "details": "Mafuta ya injini, vichujio, mikanda, na vipuri vingine — ushauri zaidi unaweza kuombwa kutoka kwa timu ya KUBOTA" },
+          { "label": "Eneo la wateja", "details": "Hema au eneo lenye kivuli, viti, sehemu ya kusubiri bidhaa, na maji ya kunywa kwa wateja wanaosubiri" }
         ]
       },
       {
         "name": "4. Thank You Customer Activity",
-        "purpose": "Washukuru wateja waliopo kwa kuchagua KUBOTA na uimarishe uhusiano kati ya wateja, muuzaji, na chapa ya KUBOTA.",
-        "minParticipants": "Watu 50",
-        "target": ["Watumiaji waliopo wa injini ya dizeli ya KUBOTA ZT plus au trekta la kutembea la KUBOTA", "Maeneo yenye idadi kubwa ya wateja wa KUBOTA", "Wateja ambao muuzaji anataka kujenga uhusiano wa muda mrefu"],
+        "purpose": "Kuwashukuru wateja kwa kuchagua bidhaa za KUBOTA, kuwaachia hisia njema, na kuimarisha uhusiano wa muda mrefu kati ya wateja, muuzaji, na chapa ya KUBOTA.",
+        "minParticipants": "Angalau wateja 50 kwa kila tukio. Thibitisha idadi mapema ili kuandaa chakula, viti, zawadi za ukumbusho, na zawadi za kutosha.",
+        "target": ["Wateja wanaomiliki injini ya dizeli ya KUBOTA au trekta la kutembea la TRA CHANG", "Wateja wa mara kwa mara au watumiaji wa KUBOTA ambao muuzaji anataka kuendelea kuwashirikisha", "Wateja wanaoweza kupendekeza bidhaa za KUBOTA kwa marafiki au wakulima wengine"],
         "duration": "Takriban saa 3",
-        "venue": "Eneo la tukio, mahali pa muuzaji, chumba cha karamu, au eneo la jamii linaloweza kuchukua angalau wateja 50, lenye nafasi ya usajili, chakula, shughuli za jukwaa, maonyesho ya bidhaa, eneo la picha, na maegesho.",
-        "basicActivities": ["Karibisha wateja na wasilisha wazi ujumbe wa shukrani", "Pamba eneo kwa mandhari ya KUBOTA", "Andaa maonyesho ya bidhaa na eneo la picha", "Toa mlo na vinywaji", "Toa zawadi ya ukumbusho kwa mteja", "Jumuisha burudani, michezo, au bahati nasibu"],
-        "optionalActivities": ["Eneo la Mobile Service", "Utangulizi mfupi wa bidhaa mpya", "Ofa maalum", "Friend Get Friend", "Burudani au uimbaji"],
+        "venue": "Chagua eneo la jamii au mahali pa muuzaji lenye wateja wengi wa KUBOTA na linalofikika kwa urahisi, kwa ajili ya angalau watu 50. Andaa usajili, jukwaa, meza na viti vya chakula, maegesho, maonyesho ya bidhaa, kona ya picha, na vibanda vya michezo.",
+        "basicActivities": ["Usajili, ukaribishaji wa wateja, na ugawaji wa zawadi za ukumbusho", "Pambo la eneo kwa mandhari ya rangi ya machungwa na nyeupe ya KUBOTA, pamoja na meza na viti vya chakula", "Kuandaa kona ya picha yenye vifaa, na kuwahamasisha wateja kushiriki picha zao kwenye mitandao ya kijamii", "Vibanda rahisi vya michezo, kama kurusha mpira au gurudumu la bahati, kuwafurahisha wateja na kutoa zawadi", "Maneno ya ukaribishaji na shukrani kwa kuchagua bidhaa za KUBOTA", "Onyesho la injini ya dizeli ya KUBOTA na trekta la kutembea la TRA CHANG, pamoja na maelezo ya bidhaa na matengenezo", "Kuwaalika wateja kushiriki uzoefu wao wa bidhaa za KUBOTA jukwaani", "Chakula, burudani jukwaani, bahati nasibu, na picha ya pamoja kabla ya kufunga tukio"],
+        "optionalActivities": ["Mobile Service kwa matukio makubwa: andaa mafundi, eneo la ukaguzi, vifaa, na vipuri, tofauti na eneo kuu la tukio", "Friend Get Friend: andaa mchakato rahisi wa kupendekeza rafiki, ukiwa na timu ya kufuatilia baada ya tukio", "Kuanzisha bidhaa mpya au tangazo: andaa bidhaa halisi, vifaa, na masharti wazi; toa maelezo kwa ufupi"],
         "schedule": [
-          { "time": "16:00-16:30", "activity": "Usajili, ugawaji wa zawadi za ukumbusho, kuangalia bidhaa, na picha" },
-          { "time": "16:30-16:40", "activity": "Ukaribishaji na ujumbe wa shukrani" },
-          { "time": "16:40-17:00", "activity": "Habari fupi, bidhaa mpya, au taarifa ya ofa maalum, ikiwa imechaguliwa" },
-          { "time": "17:00-17:30", "activity": "Michezo na ushiriki wa wateja" },
-          { "time": "17:30-18:30", "activity": "Mlo na burudani" },
-          { "time": "18:30-19:00", "activity": "Bahati nasibu" },
-          { "time": "19:00-19:10", "activity": "Shukrani ya mwisho na picha ya kikundi" }
+          { "time": "08:30-09:30<br>(dakika 60)", "activity": "Ukaribishaji, michezo, na Mobile Service", "inCharge": "Wafanyakazi wote", "whatToDo": "Sajili wateja na uwagawie mifuko ya kitambaa. Pigeni picha na vifaa, kisha zishiriki kwenye mitandao ya kijamii. Shiriki kwenye vibanda vya michezo kama kurusha mpira au gurudumu la bahati. Kwa tukio kubwa, Mobile Service ya ukaguzi bila malipo inaweza kutolewa." },
+          { "time": "09:30-09:45<br>(dakika 15)", "activity": "Ufunguzi na hotuba ya ukaribishaji", "inCharge": "Mmiliki wa duka / Mwakilishi wa KUBOTA", "whatToDo": "Fungua tukio, karibisha wateja, na uwashukuru kwa kuamini na kuchagua bidhaa za KUBOTA." },
+          { "time": "09:45-10:15<br>(dakika 30)", "activity": "Maarifa ya bidhaa na matengenezo", "inCharge": "Mwasilishaji wa bidhaa / Fundi", "whatToDo": "Tambulisha faida kuu za bidhaa, njia 5 za kutambua bidhaa halisi, na ushauri wa matengenezo kulingana na msimu." },
+          { "time": "10:15-10:30<br>(dakika 15)", "activity": "Wateja kushiriki uzoefu", "inCharge": "Mwenyekiti / Wateja wakuu 2", "whatToDo": "Wahoji wateja wawili halisi jukwaani, wakiwaalika washiriki uzoefu na kuridhika kwao na bidhaa za KUBOTA." },
+          { "time": "10:30-11:15<br>(dakika 45)", "activity": "Chakula na burudani jukwaani", "inCharge": "Mwenyekiti / Timu ya burudani", "whatToDo": "Toa chakula cha meza ya Kichina au buffet, pamoja na michezo jukwaani kama shindano la sauti ndefu zaidi ya KUBOTA au mchezo wa viti vya muziki wenye zawadi." },
+          { "time": "11:15-12:00<br>(dakika 45)", "activity": "Bahati nasibu kubwa na kufunga tukio", "inCharge": "Mmiliki wa duka / Mwenyekiti", "whatToDo": "Fanya bahati nasibu ya zawadi kubwa, kama vifaa vya nyumbani au vifurushi vya mafuta ya injini, kisha pigeni picha ya pamoja na kutoa shukrani kabla ya kufunga tukio." }
         ],
-        "checklist": ["Wateja angalau 50 wamethibitishwa.", "Maeneo ya usajili, viti, chakula, jukwaa, na maegesho tayari.", "Backdrop ya tukio, eneo la picha, na maonyesho ya bidhaa tayari.", "Chakula na vinywaji vinatosha.", "Zawadi za ukumbusho na tuzo tayari.", "MC na timu wanaelewa mpangilio wa shughuli.", "Ikiwa Mobile Service imejumuishwa, eneo lake, mafundi, zana, na vipuri viko tayari."],
-        "tip": "Shughuli ya kuthamini wateja na kujenga uhusiano. Mazingira yanapaswa kuwa ya joto na ya kufurahisha bila kulenga sana kuuza.",
+        "checklist": ["Wateja angalau 50 wamethibitishwa.", "Maeneo ya usajili, viti, chakula, jukwaa, na maegesho yako tayari.", "Backdrop, kona ya picha, na eneo la maonyesho ya bidhaa viko tayari.", "Chakula na vinywaji vinatosha.", "Zawadi za ukumbusho na zawadi za bahati nasibu ziko tayari.", "Mwenyekiti na timu wanaelewa mpangilio wa shughuli.", "Ikiwa Mobile Service imejumuishwa, eneo lake, mafundi, vifaa, na vipuri viko tayari kando."],
+        "tip": "Shughuli ya kuthamini na kushukuru wateja. Mazingira yanapaswa kuwa ya joto na ya kufurahisha, bila kusisitiza mauzo kupita kiasi.",
         "resources": [
           { "title": "Mwongozo wa Thank You Customer Activity (SWA)", "lang": "SWA", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-SWA.pdf" },
           { "title": "Mwongozo wa Thank You Customer Activity (EN)", "lang": "EN", "type": "pdf", "href": "assets/docs/marketing/KUBOTA-Manual-04-Thank-You-Customer-EN.pdf" },
           { "title": "Mwongozo wa Thank You Customer Activity (TH)", "lang": "TH", "type": "docx", "href": "https://drive.google.com/file/d/1FPR11Ep1o6G9yoSMg0hxyLdLQ4Oi3IPH/view" }
+        ],
+        "recommendedItems": [
+          { "label": "Bidhaa za maonyesho", "details": "Injini ya dizeli ya KUBOTA na trekta la kutembea la TRA CHANG — chagua miundo inayouzwa nchini humo" },
+          { "label": "Mahali na vifaa", "details": "Hema au ukumbi wa tukio, meza na viti vya chakula, jukwaa, vipaza sauti, mfumo wa sauti, na maegesho kwa angalau wateja 50" },
+          { "label": "Chakula na vinywaji", "details": "Chakula cha meza ya Kichina au buffet, pamoja na maji ya kunywa ya kutosha kulingana na idadi ya wateja na eneo la tukio" },
+          { "label": "Zawadi za ukumbusho na tuzo", "details": "Mifuko ya kitambaa au vikumbusho vingine, zawadi za vibanda vya michezo, na zawadi za bahati nasibu" },
+          { "label": "Vifaa vya mapambo", "details": "Backdrop, bendera, mabango, na vifaa vingine vya mapambo katika mandhari ya rangi ya machungwa na nyeupe ya KUBOTA" }
         ]
       }
     ],
