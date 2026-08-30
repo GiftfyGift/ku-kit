@@ -3133,43 +3133,48 @@ function renderArtworkBody(c) {
             <span>${ui.addElements}</span>
             <div class="artwork-element-picker">
               <button type="button" data-aw-add="headline">＋ ${ui.text}</button>
-              <button type="button" data-aw-add="engine">＋ ZT PLUS</button>
-              <button type="button" data-aw-add="tiller">＋ NC PLUS X</button>
-              <button type="button" data-aw-add="brand">＋ ${ui.brand}</button>
-              <button type="button" data-aw-add="ztPlus">＋ Logo ZT PLUS</button>
-              <button type="button" data-aw-add="ncPlusX">＋ Logo NC PLUS X</button>
-              <button type="button" data-aw-add="ncPlusXSpecial">＋ Logo NC PLUS X SPECIAL</button>
             </div>
           </div>
-          <label class="artwork-field">
+          <div class="artwork-field">
             <span>${a.productLabel}</span>
-            <select id="aw-product">
-              <option value="engine">${a.products.engine}</option>
-              <option value="tiller">${a.products.tiller}</option>
-              <option value="both">${a.products.both}</option>
-            </select>
-          </label>
-          <label class="artwork-field">
+            <div class="artwork-product-cards">
+              <button type="button" class="artwork-product-card" id="aw-product-engine" data-product="engine" aria-pressed="false">
+                <img src="assets/img/product/zt155-engine-cutout.png" alt="${a.products.engine}">
+                <span>${a.products.engine}</span>
+                <span class="artwork-decor-check" aria-hidden="true">✓</span>
+              </button>
+              <button type="button" class="artwork-product-card" id="aw-product-tiller" data-product="tiller" aria-pressed="false">
+                <img src="assets/img/product/nc-plusx-tiller-cutout.png" alt="${a.products.tiller}">
+                <span>${a.products.tiller}</span>
+                <span class="artwork-decor-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+            <p class="po-req-hint">${a.productMultiHint}</p>
+          </div>
+          <div class="artwork-field">
             <span>${ui.modelLogoChoice}</span>
-            <select id="aw-model-logo-choice">
-              <option value="ztPlus">ZT PLUS</option>
-              <option value="ncPlusX">NC PLUS X</option>
-              <option value="ncPlusXSpecial">NC PLUS X SPECIAL</option>
-            </select>
-          </label>
-          <label class="artwork-field" id="aw-logo-choice-field" hidden>
-            <span>${a.logoChoiceLabel}</span>
-            <select id="aw-logo-choice">
-              <option value="kubota">${a.logoChoices.kubota}</option>
-              <option value="traChang">${a.logoChoices.traChang}</option>
-            </select>
-          </label>
+            <div class="artwork-toggle-row">
+              <button type="button" class="artwork-toggle-btn" id="aw-wm-ztplus" data-wm="ztPlus" aria-pressed="false">
+                <span class="artwork-toggle-check" aria-hidden="true">✓</span><span>ZT PLUS</span>
+              </button>
+              <button type="button" class="artwork-toggle-btn" id="aw-wm-ncplusx" data-wm="ncPlusX" aria-pressed="false">
+                <span class="artwork-toggle-check" aria-hidden="true">✓</span><span>NC PLUS X</span>
+              </button>
+              <button type="button" class="artwork-toggle-btn" id="aw-wm-ncplusxspecial" data-wm="ncPlusXSpecial" aria-pressed="false">
+                <span class="artwork-toggle-check" aria-hidden="true">✓</span><span>NC PLUS X SPECIAL</span>
+              </button>
+            </div>
+          </div>
           <div class="artwork-field">
             <span>${a.brandLogoLabel}</span>
-            <button type="button" class="artwork-toggle-btn" id="aw-logo-visible-toggle" aria-pressed="false">
-              <span class="artwork-toggle-check" aria-hidden="true">✓</span>
-              <span>${a.brandLogoToggle}</span>
-            </button>
+            <div class="artwork-toggle-row">
+              <button type="button" class="artwork-toggle-btn" id="aw-brand-kubota" data-brand="kubota" aria-pressed="false">
+                <span class="artwork-toggle-check" aria-hidden="true">✓</span><span>Kubota Diesel Engine</span>
+              </button>
+              <button type="button" class="artwork-toggle-btn" id="aw-brand-trachang" data-brand="traChang" aria-pressed="false">
+                <span class="artwork-toggle-check" aria-hidden="true">✓</span><span>TRA CHANG Power Tiller</span>
+              </button>
+            </div>
           </div>
           <div class="artwork-field artwork-upload-field">
             <button type="button" id="aw-logo-upload" class="artwork-upload-btn"><span aria-hidden="true">＋</span><span id="aw-logo-upload-label">${ui.uploadLogo}</span></button>
@@ -3307,6 +3312,45 @@ function loadArtworkImage(src) {
     });
   }
   return artworkImageCache[src];
+}
+
+// Some wordmark PNGs (e.g. the NC PLUS X model logos) carry a lot of empty
+// vertical padding baked into the file, so sizing them by the raw image
+// height makes them look noticeably smaller than a tightly-cropped file like
+// ZT PLUS's even at the "same" box height — most visible now that multiple
+// wordmarks can be stacked together. This trims each image to its actual
+// non-transparent content once (cached by src) so every wordmark reads at a
+// consistent visual size regardless of how much padding its source file has.
+const artworkContentBoundsCache = {};
+function getArtworkContentBounds(img) {
+  const key = img.src;
+  if (artworkContentBoundsCache[key]) return artworkContentBoundsCache[key];
+  const w = img.naturalWidth || img.width;
+  const h = img.naturalHeight || img.height;
+  let bounds = { x: 0, y: 0, w, h };
+  try {
+    const c = document.createElement('canvas');
+    c.width = w; c.height = h;
+    const cctx = c.getContext('2d');
+    cctx.drawImage(img, 0, 0, w, h);
+    const data = cctx.getImageData(0, 0, w, h).data;
+    let minX = w, minY = h, maxX = -1, maxY = -1;
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        if (data[(y * w + x) * 4 + 3] > 10) {
+          if (x < minX) minX = x;
+          if (x > maxX) maxX = x;
+          if (y < minY) minY = y;
+          if (y > maxY) maxY = y;
+        }
+      }
+    }
+    if (maxX >= minX) bounds = { x: minX, y: minY, w: maxX - minX + 1, h: maxY - minY + 1 };
+  } catch (err) {
+    // Cross-origin or otherwise unreadable canvas — fall back to the full image.
+  }
+  artworkContentBoundsCache[key] = bounds;
+  return bounds;
 }
 
 function computePreviewPixels(wCm, hCm) {
@@ -3765,80 +3809,79 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const wordmarkVisible = st.wordmarkVisible !== false;
   const photoVisible = st.photoVisible !== false;
   const textVisible = st.textVisible !== false;
-  // The brand mark + its product-category text ("Diesel Engine" /
-  // "Power Tiller") used to be one baked-in "Kubota ... " image that never
-  // updated when the product changed. The mark itself now tracks the
-  // selected product too: Kubota for the engine, TRA CHANG for the tiller
-  // (the wordmark already used below the product photo). When both products
-  // are shown there's no single correct logo, so that case uses the
-  // separate aw-logo-choice picker (defaults to Kubota).
+  // Kubota and TRA CHANG are independently tickable brand marks now — either
+  // one alone, or both stacked together — instead of one locked either/or
+  // choice. Same for the product photos and the model wordmarks below.
   const kubotaImg = await loadArtworkImage('assets/img/artwork/kubota-logo-only.png');
   const traChangImg = await loadArtworkImage('assets/img/artwork/tra-chang-wordmark.png');
-  const brandChoice = st.product === 'engine' ? 'kubota'
-    : st.product === 'tiller' ? 'traChang'
-    : (st.logoChoice === 'traChang' ? 'traChang' : 'kubota');
-  const brandImg = brandChoice === 'traChang' ? traChangImg : kubotaImg;
-  const brandAspect = brandImg.width / brandImg.height;
-  const categoryText = st.product === 'engine' ? 'Diesel Engine'
-    : st.product === 'tiller' ? 'Power Tiller'
-    : 'Diesel Engine & Power Tiller';
+  const brandRows = [];
+  if (st.brandKubota) brandRows.push({ img: kubotaImg, text: 'Diesel Engine', invertable: true });
+  if (st.brandTraChang) brandRows.push({ img: traChangImg, text: 'Power Tiller', invertable: false });
 
   let logoH = pxH * (isLandscape ? 0.09 : 0.05) * 1.2 * logoScale;
-  let logoImgW = logoH * brandAspect;
   const categoryFontPx = () => Math.round(logoH * 0.42);
   const categoryGap = () => logoH * 0.16;
-  ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
-  let logoW = logoImgW + categoryGap() + ctx.measureText(categoryText).width;
+  const brandRowGap = () => logoH * 0.22;
   // The cropped wordmark is quite wide relative to its height; on the narrower
   // portrait canvas a height-based size can overflow both edges, so cap it to
   // a safe share of the width there and derive the height from that instead.
   const maxLogoW = isLandscape ? pxW * 0.5 : pxW * 0.74;
-  if (logoW > maxLogoW) {
-    const shrink = maxLogoW / logoW;
-    logoH *= shrink;
-    logoImgW = logoH * brandAspect;
+  const measureLogoW = () => {
     ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
-    logoW = logoImgW + categoryGap() + ctx.measureText(categoryText).width;
+    return brandRows.reduce((max, row) => {
+      const rowW = logoH * (row.img.width / row.img.height) + categoryGap() + ctx.measureText(row.text).width;
+      return Math.max(max, rowW);
+    }, 0);
+  };
+  let logoW = measureLogoW();
+  if (logoW > maxLogoW) {
+    logoH *= maxLogoW / logoW;
+    logoW = measureLogoW();
   }
+  const brandAreaH = brandRows.length ? logoH * brandRows.length + brandRowGap() * (brandRows.length - 1) : 0;
 
   const photoBg = AW_PHOTO_BACKGROUNDS[bgStyle] ? await loadArtworkImage(AW_PHOTO_BACKGROUNDS[bgStyle]) : null;
-  awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, photoBg);
+  awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, brandAreaH || logoH, photoBg);
 
   const productImgs = [];
-  if (st.product === 'engine' || st.product === 'both') {
+  if (st.showEngine) {
     productImgs.push({
       photo: await loadArtworkImage('assets/img/product/zt155-engine-cutout.png')
     });
   }
-  if (st.product === 'tiller' || st.product === 'both') {
+  if (st.showTiller) {
     productImgs.push({
       photo: await loadArtworkImage('assets/img/product/nc-plusx-tiller-cutout.png')
     });
   }
-  const modelWordmarkSrc = {
-    ztPlus: 'assets/img/artwork/zt-plus-wordmark.png',
-    ncPlusX: 'assets/img/product/logo-nc-plus-x.png',
-    ncPlusXSpecial: 'assets/img/product/logo-nc-plus-x-special.png'
-  }[st.modelLogoChoice] || 'assets/img/artwork/zt-plus-wordmark.png';
-  const modelWordmarkImg = await loadArtworkImage(modelWordmarkSrc);
+  const wordmarkChoices = [
+    st.wmZtPlus && 'assets/img/artwork/zt-plus-wordmark.png',
+    st.wmNcPlusX && 'assets/img/product/logo-nc-plus-x.png',
+    st.wmNcPlusXSpecial && 'assets/img/product/logo-nc-plus-x-special.png'
+  ].filter(Boolean);
+  const modelWordmarkImgs = await Promise.all(wordmarkChoices.map(src => loadArtworkImage(src)));
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
-  const brandTextOnDark = bgStyle !== 'diagonal' && bgStyle !== 'spotlight';
-  // Kubota's mark is pure black, so inverting it to white on a dark
-  // background is safe; TRA CHANG's mark carries its own brand colors
-  // (red/tan) and would come out wrong inverted, so it's always drawn
-  // as-is — its transparent background and white highlights already read
-  // fine on every background style.
-  const invertBrandImg = brandTextOnDark && brandChoice === 'kubota';
-  if (logoVisible) {
-    if (invertBrandImg) ctx.filter = 'invert(1)';
-    ctx.drawImage(brandImg, logoX, logoY, logoImgW, logoH);
-    if (invertBrandImg) ctx.filter = 'none';
-    ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
-    ctx.fillStyle = brandTextOnDark ? '#fff' : '#000';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(categoryText, logoX + logoImgW + categoryGap(), logoY + logoH / 2);
+  const brandTextOnDark = bgStyle !== 'diagonal' && bgStyle !== 'spotlight' && bgStyle !== 'blank';
+  if (logoVisible && brandRows.length) {
+    brandRows.forEach((row, i) => {
+      const rowY = logoY + i * (logoH + brandRowGap());
+      const imgW = logoH * (row.img.width / row.img.height);
+      // Kubota's mark is pure black, so inverting it to white on a dark
+      // background is safe; TRA CHANG's mark carries its own brand colors
+      // (red/tan) and would come out wrong inverted, so it's always drawn
+      // as-is — its transparent background and white highlights already
+      // read fine on every background style.
+      const invert = brandTextOnDark && row.invertable;
+      if (invert) ctx.filter = 'invert(1)';
+      ctx.drawImage(row.img, logoX, rowY, imgW, logoH);
+      if (invert) ctx.filter = 'none';
+      ctx.font = `600 ${categoryFontPx()}px Prompt, sans-serif`;
+      ctx.fillStyle = brandTextOnDark ? '#fff' : '#000';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(row.text, logoX + imgW + categoryGap(), rowY + logoH / 2);
+    });
   }
 
   const wmHBase = pxH * (isLandscape ? 0.045 : 0.028) * 1.2 * wordmarkScale;
@@ -3852,11 +3895,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
   // The model logo is selected independently from the product photo so users
   // can prepare artwork variants without the product picker forcing ZT PLUS.
-  const wordmarkImgs = [{ wordmark: modelWordmarkImg }];
+  const wordmarkImgs = modelWordmarkImgs.map(img => ({ wordmark: img }));
   // Base position (no drag offsets applied) — used for the text-layout math
   // below so dragging the logo or the wordmark doesn't reshuffle where the
   // headline block is allowed to sit; only the drawn elements actually move.
-  const wmBaseY = pad + logoH + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
+  const wmBaseY = pad + (brandAreaH || logoH) + (bgStyle === 'frame' ? pad * 0.9 : pxH * 0.015);
   let wmStartY = wmBaseY + wordmarkOffsetYpx;
   let wmBelowCount = wordmarkImgs.length;
   // The logo and wordmark(s) are now independently draggable groups, each
@@ -3869,7 +3912,8 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     const rowGap = logoH * 0.12;
     const rowH = (logoH - rowGap * (wordmarkImgs.length - 1)) / wordmarkImgs.length;
     wordmarkImgs.forEach((p, i) => {
-      const wmAspect = p.wordmark.width / p.wordmark.height;
+      const bounds = getArtworkContentBounds(p.wordmark);
+      const wmAspect = bounds.w / bounds.h;
       let wmH = rowH;
       let wmW = wmH * wmAspect;
       if (wmW > bandAreaW) {
@@ -3877,12 +3921,13 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
         wmH = wmW / wmAspect;
       }
       const wmY = areaY + i * (rowH + rowGap) + (rowH - wmH) / 2;
-      ctx.drawImage(p.wordmark, areaX, wmY, wmW, wmH);
+      ctx.drawImage(p.wordmark, bounds.x, bounds.y, bounds.w, bounds.h, areaX, wmY, wmW, wmH);
       wmRects.push({ x: areaX, y: wmY, w: wmW, h: wmH });
     });
   } else if (wordmarkVisible) {
     wordmarkImgs.forEach((p, i) => {
-      const wmAspect = p.wordmark.width / p.wordmark.height;
+      const bounds = getArtworkContentBounds(p.wordmark);
+      const wmAspect = bounds.w / bounds.h;
       let wmH = wmHBase;
       let wmW = wmH * wmAspect;
       if (wmW > maxWmW) {
@@ -3891,14 +3936,14 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
       }
       const wmX = (isLandscape ? pad : (pxW - wmW) / 2) + wordmarkOffsetXpx;
       const wmY = wmStartY + i * wmGap;
-      ctx.drawImage(p.wordmark, wmX, wmY, wmW, wmH);
+      ctx.drawImage(p.wordmark, bounds.x, bounds.y, bounds.w, bounds.h, wmX, wmY, wmW, wmH);
       wmRects.push({ x: wmX, y: wmY, w: wmW, h: wmH });
     });
   }
 
   const wmStartYForLayout = wmBaseY;
 
-  const logoBounds = logoVisible ? { x: logoX, y: logoY, w: logoW, h: logoH } : null;
+  const logoBounds = logoVisible && brandRows.length ? { x: logoX, y: logoY, w: logoW, h: brandAreaH || logoH } : null;
   let wordmarkBounds = null;
   wmRects.forEach(r => {
     if (!wordmarkBounds) { wordmarkBounds = { ...r }; return; }
@@ -4178,11 +4223,13 @@ function initArtworkPage(c) {
   const widthInput = document.getElementById('aw-width-cm');
   const heightInput = document.getElementById('aw-height-cm');
   const bgStyleGroup = document.getElementById('aw-bgstyle-group');
-  const productSel = document.getElementById('aw-product');
-  const modelLogoChoiceSel = document.getElementById('aw-model-logo-choice');
-  const logoChoiceField = document.getElementById('aw-logo-choice-field');
-  const logoChoiceSel = document.getElementById('aw-logo-choice');
-  const logoVisibleToggle = document.getElementById('aw-logo-visible-toggle');
+  const productCardEngine = document.getElementById('aw-product-engine');
+  const productCardTiller = document.getElementById('aw-product-tiller');
+  const wmToggleZtPlus = document.getElementById('aw-wm-ztplus');
+  const wmToggleNcPlusX = document.getElementById('aw-wm-ncplusx');
+  const wmToggleNcPlusXSpecial = document.getElementById('aw-wm-ncplusxspecial');
+  const brandToggleKubota = document.getElementById('aw-brand-kubota');
+  const brandToggleTraChang = document.getElementById('aw-brand-trachang');
   const shopInput = document.getElementById('aw-shopname');
   const contactInput = document.getElementById('aw-contact');
   const headlineInput = document.getElementById('aw-headline');
@@ -4228,6 +4275,14 @@ function initArtworkPage(c) {
   let logoScale = 1, wordmarkScale = 1, photoScale = 1, customLogoScale = 1;
   let logoVisible = false, wordmarkVisible = false, photoVisible = false, textVisible = false, customLogoVisible = true;
   let customLogoDataUrl = '';
+  // Each of these is independently tickable — checking "both products" no
+  // longer means one locked "both" mode; the brand marks and model
+  // wordmarks default to following whichever products are checked, but
+  // stay tickable on their own afterward so either one can be removed
+  // without affecting the other.
+  let showEngine = false, showTiller = false;
+  let brandKubota = false, brandTraChang = false;
+  let wmZtPlus = false, wmNcPlusX = false, wmNcPlusXSpecial = false;
 
   function swatchValue(group, fallback) {
     const active = group.querySelector('.artwork-swatch.active');
@@ -4264,9 +4319,13 @@ function initArtworkPage(c) {
     return {
       size: sizeSel.value,
       bgStyle: swatchValue(bgStyleGroup, 'blank'),
-      product: productSel.value,
-      modelLogoChoice: modelLogoChoiceSel.value,
-      logoChoice: logoChoiceSel.value,
+      showEngine,
+      showTiller,
+      brandKubota,
+      brandTraChang,
+      wmZtPlus,
+      wmNcPlusX,
+      wmNcPlusXSpecial,
       shopName: shopInput.value,
       contact: contactInput.value,
       headline: headlineInput.value,
@@ -4314,8 +4373,59 @@ function initArtworkPage(c) {
   decorManBtn.addEventListener('click', () => toggleDecor(decorManBtn));
   decorNo1Btn.addEventListener('click', () => toggleDecor(decorNo1Btn));
 
-  logoVisibleToggle.addEventListener('click', () => {
-    setGroupVisible('logo', !logoVisible);
+  // Product, brand-logo and model-wordmark pickers: independently
+  // tickable, not a single locked choice. Ticking a product suggests its
+  // matching brand mark + wordmark together (so the common case needs one
+  // click), but every toggle stays individually clickable afterward in
+  // case the shop only wants to remove one of the pair.
+  productCardEngine.addEventListener('click', () => {
+    showEngine = !showEngine;
+    photoVisible = true;
+    logoVisible = true;
+    wordmarkVisible = true;
+    brandKubota = showEngine;
+    wmZtPlus = showEngine;
+    updateEditorUi();
+    schedulePreview();
+  });
+  productCardTiller.addEventListener('click', () => {
+    showTiller = !showTiller;
+    photoVisible = true;
+    logoVisible = true;
+    wordmarkVisible = true;
+    brandTraChang = showTiller;
+    wmNcPlusX = showTiller;
+    if (!showTiller) wmNcPlusXSpecial = false;
+    updateEditorUi();
+    schedulePreview();
+  });
+  brandToggleKubota.addEventListener('click', () => {
+    brandKubota = !brandKubota;
+    logoVisible = true;
+    updateEditorUi();
+    schedulePreview();
+  });
+  brandToggleTraChang.addEventListener('click', () => {
+    brandTraChang = !brandTraChang;
+    logoVisible = true;
+    updateEditorUi();
+    schedulePreview();
+  });
+  wmToggleZtPlus.addEventListener('click', () => {
+    wmZtPlus = !wmZtPlus;
+    wordmarkVisible = true;
+    updateEditorUi();
+    schedulePreview();
+  });
+  wmToggleNcPlusX.addEventListener('click', () => {
+    wmNcPlusX = !wmNcPlusX;
+    wordmarkVisible = true;
+    updateEditorUi();
+    schedulePreview();
+  });
+  wmToggleNcPlusXSpecial.addEventListener('click', () => {
+    wmNcPlusXSpecial = !wmNcPlusXSpecial;
+    wordmarkVisible = true;
     updateEditorUi();
     schedulePreview();
   });
@@ -4370,9 +4480,19 @@ function initArtworkPage(c) {
     else customLogoVisible = visible;
   }
 
+  function syncToggleBtn(btn, active) {
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  }
+
   function updateEditorUi() {
-    logoVisibleToggle.classList.toggle('active', logoVisible);
-    logoVisibleToggle.setAttribute('aria-pressed', String(logoVisible));
+    syncToggleBtn(productCardEngine, showEngine);
+    syncToggleBtn(productCardTiller, showTiller);
+    syncToggleBtn(brandToggleKubota, brandKubota);
+    syncToggleBtn(brandToggleTraChang, brandTraChang);
+    syncToggleBtn(wmToggleZtPlus, wmZtPlus);
+    syncToggleBtn(wmToggleNcPlusX, wmNcPlusX);
+    syncToggleBtn(wmToggleNcPlusXSpecial, wmNcPlusXSpecial);
     layerButtons.forEach(btn => {
       const group = btn.dataset.awLayer;
       const available = group !== 'customLogo' || !!customLogoDataUrl;
@@ -4409,24 +4529,11 @@ function initArtworkPage(c) {
   layerButtons.forEach(btn => btn.addEventListener('click', () => selectGroup(btn.dataset.awLayer)));
 
   addElementButtons.forEach(btn => btn.addEventListener('click', () => {
-    const kind = btn.dataset.awAdd;
-    if (kind === 'headline') {
-      textVisible = true;
-      selectedGroup = 'headline';
-    } else if (kind === 'brand') {
-      logoVisible = true;
-      selectedGroup = 'logo';
-    } else if (kind === 'engine' || kind === 'tiller') {
-      if (!photoVisible) productSel.value = kind;
-      else if (productSel.value !== kind) productSel.value = 'both';
-      photoVisible = true;
-      selectedGroup = 'photo';
-      updateLogoChoiceVisibility();
-    } else {
-      modelLogoChoiceSel.value = kind;
-      wordmarkVisible = true;
-      selectedGroup = 'wordmark';
-    }
+    // Only the headline "add" shortcut remains — product photos, brand
+    // marks and wordmarks now each have their own persistent, always-on
+    // tick control above instead of a one-shot "add" button.
+    textVisible = true;
+    selectedGroup = 'headline';
     updateEditorUi();
     schedulePreview(0);
   }));
@@ -4732,13 +4839,6 @@ function initArtworkPage(c) {
   widthInput.addEventListener('input', schedulePreview);
   heightInput.addEventListener('input', schedulePreview);
   wireSwatchGroup(bgStyleGroup, schedulePreview);
-  function updateLogoChoiceVisibility() {
-    logoChoiceField.hidden = productSel.value !== 'both';
-  }
-  updateLogoChoiceVisibility();
-  productSel.addEventListener('change', () => { photoVisible = true; updateLogoChoiceVisibility(); schedulePreview(); });
-  modelLogoChoiceSel.addEventListener('change', () => { wordmarkVisible = true; schedulePreview(); });
-  logoChoiceSel.addEventListener('change', schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
   headlineInput.addEventListener('input', schedulePreview);

@@ -3475,6 +3475,59 @@ table.parts-table td.code-col {
   color: white;
 }
 
+/* A row of several independently-tickable toggle buttons side by side
+   (e.g. the model wordmarks or the two brand marks) — same visual
+   language as .artwork-toggle-btn, just not stretched full-width. */
+.artwork-toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.artwork-toggle-row .artwork-toggle-btn {
+  width: auto;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.artwork-product-cards {
+  display: flex;
+  gap: 10px;
+}
+
+.artwork-product-card {
+  position: relative;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  padding: 10px 8px;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--kubota-mid-gray);
+  font-size: 12px;
+  font-weight: 600;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.artwork-product-card:hover { border-color: rgba(255,106,61,0.5); }
+
+.artwork-product-card.active {
+  border-color: var(--kubota-orange);
+  background: rgba(255,106,61,0.12);
+  color: var(--kubota-navy);
+}
+
+.artwork-product-card img {
+  width: 100%;
+  height: 56px;
+  object-fit: contain;
+}
+
 .artwork-decor-check {
   position: absolute;
   top: -8px;
@@ -3492,7 +3545,8 @@ table.parts-table td.code-col {
   box-shadow: 0 2px 6px rgba(0,0,0,0.35);
 }
 
-.artwork-decor-btn.active .artwork-decor-check { display: flex; }
+.artwork-decor-btn.active .artwork-decor-check,
+.artwork-product-card.active .artwork-decor-check { display: flex; }
 
 .artwork-decor-sizes {
   margin-top: 10px;

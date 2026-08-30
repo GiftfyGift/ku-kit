@@ -942,6 +942,7 @@
     "bgStyleLabel": "Style de fond",
     "bgStyles": { "diagonal": "Diagonale orange", "dark": "Sombre et premium", "frame": "Cadre classique", "corners": "Cadre d'angle style backdrop", "photoRainbow": "Rizière dorée (arc-en-ciel)", "photoSky": "Ferme sous ciel bleu", "spotlight": "Projecteur studio", "sunsetGlow": "Lueur du coucher de soleil" },
     "productLabel": "Produit à mettre en avant",
+    "productMultiHint": "Vous pouvez cocher plus d'un produit",
     "products": { "engine": "Moteur diesel ZT Plus", "tiller": "Motoculteur TRA CHANG NC Plus X", "both": "Les deux produits" },
     "logoChoiceLabel": "Logo à afficher (quand les deux produits sont sélectionnés)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },

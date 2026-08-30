@@ -942,6 +942,7 @@
     "bgStyleLabel": "Istilo ng background",
     "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame", "corners": "Backdrop Corner Frame", "photoRainbow": "Ginintuang Palayan (Bahaghari)", "photoSky": "Sakahan sa Ilalim ng Asul na Langit", "spotlight": "Spotlight ng Studio", "sunsetGlow": "Ningning ng Paglubog ng Araw" },
     "productLabel": "Produktong ipapakita",
+    "productMultiHint": "Puwede kang mag-tick ng higit sa isang produkto",
     "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Parehong produkto" },
     "logoChoiceLabel": "Logo na ipapakita (kapag pareho ang napiling produkto)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },

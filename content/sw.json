@@ -952,6 +952,7 @@
     "bgStyleLabel": "Mtindo wa mandharinyuma",
     "bgStyles": { "diagonal": "Mstari wa Machungwa", "dark": "Giza na Kifahari", "frame": "Fremu ya Kawaida", "corners": "Fremu ya Pembe Aina ya Backdrop", "photoRainbow": "Shamba la Mpunga (Upinde wa Mvua)", "photoSky": "Shamba chini ya Anga la Bluu", "spotlight": "Mwanga wa Studio", "sunsetGlow": "Mng'ao wa Machweo" },
     "productLabel": "Bidhaa ya kuonyesha",
+    "productMultiHint": "Unaweza kuchagua zaidi ya bidhaa moja",
     "products": { "engine": "Injini ya dizeli ya ZT Plus", "tiller": "Trekta la kutembea la TRA CHANG NC Plus X", "both": "Bidhaa zote mbili" },
     "logoChoiceLabel": "Nembo ya kuonyesha (bidhaa zote mbili zikichaguliwa)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },

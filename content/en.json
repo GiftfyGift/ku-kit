@@ -1277,6 +1277,7 @@
     "bgStyleLabel": "Background style",
     "bgStyles": { "diagonal": "Orange Diagonal", "dark": "Dark & Premium", "frame": "Classic Frame", "corners": "Backdrop Corner Frame", "photoRainbow": "Golden Paddy Field (Rainbow)", "photoSky": "Blue-Sky Farmland", "spotlight": "Studio Spotlight", "sunsetGlow": "Sunset Glow" },
     "productLabel": "Product to feature",
+    "productMultiHint": "You can tick more than one product",
     "products": { "engine": "ZT Plus diesel engine", "tiller": "TRA CHANG NC Plus X power tiller", "both": "Both products" },
     "logoChoiceLabel": "Logo to display (when both products are shown)",
     "logoChoices": { "kubota": "Kubota", "traChang": "TRA CHANG" },
