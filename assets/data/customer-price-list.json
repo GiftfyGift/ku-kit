@@ -1,0 +1,126 @@
+{
+  "updated": "2026-08-30",
+  "currency": "USD",
+  "note": "Per-customer selling prices sourced from Siam Kubota's own country-specific quotations (SKC/AF/001-26 through SKC/AF/017-26). Selling price is not one flat number — it varies by destination/route and Incoterm, so each entry below reflects that customer's own latest quotation on file. Where a customer has more than one quotation on record, the one with the most recent Estimation No./Date wins and older ones are superseded. Prices exclude commission and bank interest, and are based on full-container orders per the source quotations; confirm with Siam Kubota before using for a real order.",
+  "customers": {
+    "scg": {
+      "quotationRef": "SKC/AF/001/26",
+      "quotationDate": "2025-12-24",
+      "incotermId": "fob_bkk",
+      "port": "",
+      "prices": { "ZT125_PLUS": 1113, "ZT140_PLUS": 1129, "ZT155_PLUS": 1144, "NC_PLUS_X": 1156, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "smithmining": {
+      "quotationRef": "SKC/AF/002/26",
+      "quotationDate": "2025-12-24",
+      "incotermId": "fob_bkk",
+      "port": "",
+      "prices": { "ZT125_PLUS": 1195, "ZT140_PLUS": 1199, "ZT155_PLUS": 1234, "NC_PLUS_X": 1156, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "mecama": {
+      "quotationRef": "SKC/AF/003/26",
+      "quotationDate": "2025-12-24",
+      "incotermId": "fob_bkk",
+      "port": "",
+      "prices": { "ZT125_PLUS": 1136, "ZT140_PLUS": 1139, "ZT155_PLUS": 1171, "NC_PLUS_X": 1216, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "simba": {
+      "quotationRef": "SKC/AF/004/26",
+      "quotationDate": "2025-12-24",
+      "incotermId": "cif",
+      "port": "Mombasa",
+      "prices": { "ZT125_PLUS": 1121, "ZT140_PLUS": 1124, "ZT155_PLUS": 1156, "NC_PLUS_X": 1136, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "petros": {
+      "quotationRef": "SKC/AF/005/26",
+      "quotationDate": "2025-12-24",
+      "incotermId": "cif",
+      "port": "Lagos",
+      "prices": { "ZT125_PLUS": 1211, "ZT140_PLUS": 1214, "ZT155_PLUS": 1249, "NC_PLUS_X": 1183, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "agripro": {
+      "quotationRef": "SKC/AF/006/26",
+      "quotationDate": "2025-12-24",
+      "incotermId": "cif",
+      "port": "Dakar",
+      "prices": { "ZT125_PLUS": 1211, "ZT140_PLUS": 1214, "ZT155_PLUS": 1249, "NC_PLUS_X": 1183, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "zanabora": {
+      "quotationRef": "SKC/AF/007/26",
+      "quotationDate": "2026-01-06",
+      "incotermId": "cif",
+      "port": "Dar Es Salaam",
+      "prices": { "ZT125_PLUS": 1136, "ZT140_PLUS": 1139, "ZT155_PLUS": 1171, "NC_PLUS_X": 1216, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "agricom": {
+      "quotationRef": "SKC/AF/008/26",
+      "quotationDate": "2026-01-06",
+      "incotermId": "cif",
+      "port": "Dar Es Salaam",
+      "prices": { "ZT125_PLUS": 1136, "ZT140_PLUS": 1139, "ZT155_PLUS": 1171, "NC_PLUS_X": 1216, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "jazetwe": {
+      "quotationRef": "SKC/AF/009/26",
+      "quotationDate": "2026-01-06",
+      "incotermId": "cif",
+      "port": "Dar Es Salaam",
+      "prices": { "ZT125_PLUS": 1156, "ZT140_PLUS": 1159, "ZT155_PLUS": 1191, "NC_PLUS_X": 1236, "TIRE_L": 133, "TIRE_R": 133, "DISC_PLOW": 195, "MOLD_BOARD_PLOW": 103 }
+    },
+    "hagbes": {
+      "quotationRef": "SKC/AF/010/26",
+      "quotationDate": "2026-01-20",
+      "incotermId": "cif",
+      "port": "Djibouti",
+      "prices": { "ZT125_PLUS": 1136, "ZT140_PLUS": 1139, "ZT155_PLUS": 1171, "NC_PLUS_X": 1216, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "vilco": {
+      "quotationRef": "SKC/AF/011/26",
+      "quotationDate": "2026-01-27",
+      "incotermId": "fob_bkk",
+      "port": "",
+      "prices": { "ZT125_PLUS": 1113, "ZT140_PLUS": 1129, "ZT155_PLUS": 1144, "NC_PLUS_X": 1156, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "tractafric": {
+      "quotationRef": "SKC/AF/012/26",
+      "quotationDate": "2026-02-23",
+      "incotermId": "fob_bkk",
+      "port": "",
+      "prices": { "ZT125_PLUS": 1113, "ZT140_PLUS": 1129, "ZT155_PLUS": 1144, "NC_PLUS_X": 1156, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "gaalooge": {
+      "quotationRef": "SKC/AF/013/26",
+      "quotationDate": "2026-02-28",
+      "incotermId": "fob_bkk",
+      "port": "",
+      "prices": { "ZT125_PLUS": 1113, "ZT140_PLUS": 1129, "ZT155_PLUS": 1144, "NC_PLUS_X": 1156, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "sonama": {
+      "quotationRef": "SKC/AF/014/26",
+      "quotationDate": "2026-04-23",
+      "incotermId": "fob_bkk",
+      "port": "",
+      "prices": { "ZT125_PLUS": 1113, "ZT140_PLUS": 1129, "ZT155_PLUS": 1144, "NC_PLUS_X": 1156, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "alwadi": {
+      "quotationRef": "SKC/AF/015/26",
+      "quotationDate": "2025-12-24",
+      "incotermId": "cif",
+      "port": "Alexandria",
+      "prices": { "ZT125_PLUS": 1136, "ZT140_PLUS": 1139, "ZT155_PLUS": 1171, "NC_PLUS_X": 1216, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "mackabo": {
+      "quotationRef": "SKC/AF/016/26",
+      "quotationDate": "2026-06-23",
+      "incotermId": "cif",
+      "port": "Abidjan",
+      "prices": { "ZT125_PLUS": 1211, "ZT140_PLUS": 1214, "ZT155_PLUS": 1249, "NC_PLUS_X": 1183, "TIRE_L": 113, "TIRE_R": 113, "DISC_PLOW": 175, "MOLD_BOARD_PLOW": 83 }
+    },
+    "universaltraders": {
+      "quotationRef": "SKC/AF/017/26",
+      "quotationDate": "2026-06-23",
+      "incotermId": "cif",
+      "port": "Dar Es Salaam",
+      "prices": { "ZT125_PLUS": 1156, "ZT140_PLUS": 1159, "ZT155_PLUS": 1191, "NC_PLUS_X": 1236, "TIRE_L": 133, "TIRE_R": 133, "DISC_PLOW": 195, "MOLD_BOARD_PLOW": 103 }
+    }
+  }
+}

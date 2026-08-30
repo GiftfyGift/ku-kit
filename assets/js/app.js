@@ -1668,11 +1668,12 @@ function orderComputeStageIndex(order) {
 let orderCatalogDataCache = null;
 async function orderLoadCatalogData() {
   if (orderCatalogDataCache) return orderCatalogDataCache;
-  const [parts, products] = await Promise.all([
+  const [parts, products, customerPrices] = await Promise.all([
     fetch('assets/data/parts-catalog.json', { cache: 'no-store' }).then(r => r.json()),
-    fetch('assets/data/products-catalog.json', { cache: 'no-store' }).then(r => r.json())
+    fetch('assets/data/products-catalog.json', { cache: 'no-store' }).then(r => r.json()),
+    fetch('assets/data/customer-price-list.json', { cache: 'no-store' }).then(r => r.json())
   ]);
-  orderCatalogDataCache = { parts, products };
+  orderCatalogDataCache = { parts, products, customerPrices };
   return orderCatalogDataCache;
 }
 
@@ -2549,6 +2550,8 @@ function initPoRequestPage(c) {
   let items = [{ modelId: '', qty: 1 }];
   let selectedTermId = null;
   let piWanted = null;
+  let customerPriceMap = {};
+  let selectedCustomerId = '';
 
   function customerFieldsHtml() {
     const cust = pr.customer;
@@ -2563,6 +2566,7 @@ function initPoRequestPage(c) {
         </select>
       </label>
       <p class="po-req-hint">${cust.autoFillNote}</p>
+      <p class="po-req-hint po-req-price-note" id="po-req-price-note" hidden></p>
       <div class="po-req-field-grid">
         <label class="po-req-field"><span>${cust.fields.company}</span><input type="text" id="po-req-company" value="${(saved.company || '').replace(/"/g, '&quot;')}"></label>
         <label class="po-req-field"><span>${cust.fields.country}</span><input type="text" id="po-req-country" value="${(saved.country || '').replace(/"/g, '&quot;')}"></label>
@@ -2586,15 +2590,35 @@ function initPoRequestPage(c) {
       });
     });
     document.getElementById('po-req-known-customer').addEventListener('change', (e) => {
-      const known = (pr.customer.knownCustomers || []).find(k => k.id === e.target.value);
-      if (!known) return;
-      const map = { company: known.company, address: known.address, country: known.country, contact: known.contact, email: known.email, phone: known.phone };
-      const b = orderLoadBuyer();
-      Object.keys(map).forEach(key => {
-        document.getElementById(`po-req-${key}`).value = map[key] || '';
-        b[key] = map[key] || '';
-      });
-      orderSaveBuyer(b);
+      selectedCustomerId = e.target.value || '';
+      const known = (pr.customer.knownCustomers || []).find(k => k.id === selectedCustomerId);
+      if (known) {
+        const map = { company: known.company, address: known.address, country: known.country, contact: known.contact, email: known.email, phone: known.phone };
+        const b = orderLoadBuyer();
+        Object.keys(map).forEach(key => {
+          document.getElementById(`po-req-${key}`).value = map[key] || '';
+          b[key] = map[key] || '';
+        });
+        orderSaveBuyer(b);
+      }
+      // The customer's own quotation also carries its own Incoterm/route —
+      // apply it here so the destination-port field and pricing line up
+      // with the price this customer actually pays.
+      const priceEntry = customerPriceMap[selectedCustomerId];
+      const priceNote = document.getElementById('po-req-price-note');
+      if (priceEntry && priceEntry.incotermId) {
+        const incotermSel = document.getElementById('po-req-incoterm');
+        incotermSel.value = priceEntry.incotermId;
+        incotermSel.dispatchEvent(new Event('change'));
+        if (priceEntry.port) document.getElementById('po-req-port').value = priceEntry.port;
+      }
+      if (priceEntry) {
+        priceNote.textContent = `${pr.customer.priceNotePrefix} ${priceEntry.quotationRef} (${priceEntry.quotationDate})`;
+        priceNote.hidden = false;
+      } else {
+        priceNote.hidden = true;
+      }
+      refreshItemsTable();
     });
   }
 
@@ -2611,6 +2635,14 @@ function initPoRequestPage(c) {
   }
 
   function modelPrice(modelId) {
+    // A known customer's own quotation takes priority over the generic
+    // catalog price — selling price isn't one flat number, it varies by
+    // destination/route, so each customer gets their own base price here
+    // (the L/C-term premium below still applies on top of it the same way).
+    const custEntry = customerPriceMap[selectedCustomerId];
+    if (custEntry && custEntry.prices && custEntry.prices[modelId] != null) {
+      return custEntry.prices[modelId];
+    }
     const m = catalogModels.find(x => x.id === modelId);
     return m ? m.basePrice : 0;
   }
@@ -2852,6 +2884,7 @@ function initPoRequestPage(c) {
     catalogModels = [...data.products.engines, ...data.products.tillers, ...data.products.implements];
     paymentTerms = data.products.paymentTerms;
     selectedTermId = paymentTerms[0].id;
+    customerPriceMap = (data.customerPrices && data.customerPrices.customers) || {};
     renderForm();
   });
 }

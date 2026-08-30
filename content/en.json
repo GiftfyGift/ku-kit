@@ -1391,9 +1391,24 @@
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" },
         { "id": "jazetwe", "label": "JAZETWE Company Limited — Tanzania", "company": "JAZETWE Company Limited", "address": "PO.Box 532, Plot No 39, Block No.103, Mbinga, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" },
-        { "id": "zanabora", "label": "ZANA BORA LIMITED — Tanzania", "company": "ZANA BORA LIMITED", "address": "P.O.BOX 2740, Dar Es Salaam, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" }
+        { "id": "zanabora", "label": "ZANA BORA LIMITED — Tanzania", "company": "ZANA BORA LIMITED", "address": "P.O.BOX 2740, Dar Es Salaam, Tanzania", "country": "Tanzania", "contact": "", "email": "", "phone": "" },
+        { "id": "scg", "label": "SCG International Corporation — Kenya and East Africa", "company": "SCG International Corporation Co.,Ltd", "address": "", "country": "Kenya", "contact": "", "email": "", "phone": "" },
+        { "id": "smithmining", "label": "SMITH MINING EQUIPMENT(PTY) LTD. — South Africa", "company": "SMITH MINING EQUIPMENT(PTY) LTD.", "address": "", "country": "South Africa", "contact": "", "email": "", "phone": "" },
+        { "id": "mecama", "label": "MECAMA SARL — Madagascar", "company": "MECAMA SARL", "address": "", "country": "Madagascar", "contact": "", "email": "", "phone": "" },
+        { "id": "simba", "label": "Simba Automotives — Uganda", "company": "Simba Automotives", "address": "", "country": "Uganda", "contact": "", "email": "", "phone": "" },
+        { "id": "petros", "label": "Petros Petropoulos AEBE — Nigeria", "company": "Petros Petropoulos AEBE", "address": "", "country": "Nigeria", "contact": "", "email": "", "phone": "" },
+        { "id": "agripro", "label": "AGRIPRO Technologie Végétale — Senegal", "company": "AGRIPRO Technologie Végétale", "address": "", "country": "Senegal", "contact": "", "email": "", "phone": "" },
+        { "id": "agricom", "label": "Agricom Africa Limited — Tanzania", "company": "Agricom Africa Limited", "address": "", "country": "Tanzania", "contact": "", "email": "", "phone": "" },
+        { "id": "hagbes", "label": "Hagbes PLC — Ethiopia", "company": "Hagbes PLC", "address": "", "country": "Ethiopia", "contact": "", "email": "", "phone": "" },
+        { "id": "tractafric", "label": "Tractafric Equipment — Congo-Brazzaville", "company": "Tractafric Equipment", "address": "", "country": "Congo-Brazzaville", "contact": "", "email": "", "phone": "" },
+        { "id": "gaalooge", "label": "Gaalooge — Somalia", "company": "Gaalooge", "address": "", "country": "Somalia", "contact": "", "email": "", "phone": "" },
+        { "id": "sonama", "label": "Société Nationale de Mécanisation Agricole — Benin", "company": "Société Nationale de Mécanisation Agricole", "address": "", "country": "Benin", "contact": "", "email": "", "phone": "" },
+        { "id": "alwadi", "label": "Alwadi Co. for metal industry — Egypt", "company": "Alwadi Co. for metal industry", "address": "", "country": "Egypt", "contact": "", "email": "", "phone": "" },
+        { "id": "mackabo", "label": "Mackabo — Cote d'Ivoire and Burkina Faso", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
+        { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)" }
+      "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)" },
+      "priceNotePrefix": "Using this customer's own quotation:"
     },
     "items": {
       "heading": "2. Order items",
