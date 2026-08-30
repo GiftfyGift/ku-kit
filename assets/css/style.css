@@ -3579,6 +3579,9 @@ table.parts-table td.code-col {
 }
 
 .artwork-swatch--bg-diagonal { background: linear-gradient(135deg, #FFB35C, #FF6A3D); }
+.artwork-swatch--bg-blank { background: #FFFFFF; box-shadow: inset 0 0 0 1px #C9D0D2; }
+.artwork-swatch--bg-blank.active { box-shadow: inset 0 0 0 1px #C9D0D2, 0 0 0 2px rgba(255,106,61,0.4); }
+.artwork-swatch--bg-blank.active::after { color: #FF6A3D; text-shadow: none; }
 .artwork-swatch--bg-dark { background: linear-gradient(135deg, #0e3338, #081416); box-shadow: inset 0 0 0 2px rgba(255,106,61,0.5); }
 .artwork-swatch--bg-dark.active { box-shadow: inset 0 0 0 2px rgba(255,106,61,0.5), 0 0 0 2px rgba(255,106,61,0.4); }
 .artwork-swatch--bg-frame { background: #F7F5F0; box-shadow: inset 0 0 0 3px #FF6A3D; }
@@ -3596,6 +3599,30 @@ table.parts-table td.code-col {
 .artwork-swatch--text-orange { background: linear-gradient(180deg, #FFEAB0, #FF6A3D 60%, #9C2E0B); }
 .artwork-swatch--text-chrome { background: linear-gradient(180deg, #FFFFFF, #8B98A1 60%, #20262a); }
 .artwork-swatch--text-red { background: linear-gradient(180deg, #FFD3C4, #D42A1B 60%, #5C0E07); }
+
+.artwork-element-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.artwork-element-picker button {
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,106,61,0.42);
+  border-radius: 9px;
+  background: rgba(255,106,61,0.08);
+  color: var(--kubota-navy);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.artwork-element-picker button:hover {
+  border-color: var(--kubota-orange);
+  background: rgba(255,106,61,0.16);
+}
 
 .artwork-download-btn {
   width: 100%;
@@ -3951,6 +3978,11 @@ table.parts-table td.code-col {
 
 .ka-results { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
 
+.ka-result-wrap {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
 .ka-result {
   display: block;
   width: 100%;
@@ -3983,6 +4015,25 @@ table.parts-table td.code-col {
   font-size: 12px;
   color: var(--kubota-mid-gray);
 }
+
+.ka-result-source {
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--kubota-steel-blue);
+}
+
+.ka-source-link {
+  display: block;
+  padding: 5px 10px 7px 13px;
+  background: var(--kubota-light-gray);
+  color: var(--kubota-steel-blue);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ka-source-link:hover { color: var(--kubota-orange); }
 
 .ka-form {
   display: flex;

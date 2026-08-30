@@ -1,0 +1,381 @@
+{
+  "version": 1,
+  "documents": [
+    {
+      "id": "engine-th",
+      "lang": "th",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1jB0DJjDpM6_8gTDXAUi9tdUJ9hh90q7i/view",
+      "characterCount": 2759
+    },
+    {
+      "id": "engine-en",
+      "lang": "en",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/10QAY-n2jJJJzSeGELbonHV0R5P1vhAGM/view",
+      "characterCount": 2909
+    },
+    {
+      "id": "engine-sw",
+      "lang": "sw",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "0. EPB_Product Knowledge_ZT Plus_SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1Iv92MdRNE3fMOVMGRtWKsEFeh0zJbJ-M/view",
+      "characterCount": 4009
+    },
+    {
+      "id": "tiller-th",
+      "lang": "th",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1uDpc7i9QMay6EO79Q_-P7LlchGMIeQgx/view",
+      "characterCount": 4072
+    },
+    {
+      "id": "tiller-en",
+      "lang": "en",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1230unKVRY7KHyh9kdMQEOeTQnKFP5EVm/view",
+      "characterCount": 3712
+    },
+    {
+      "id": "tiller-sw",
+      "lang": "sw",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "0. EPB_Product Knowledge_Power Tiller NC PlusX _SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1i26hr7KmYOTfMsjpMV7h5W3xjlNlc7_-/view",
+      "characterCount": 4329
+    }
+  ],
+  "chunks": [
+    {
+      "id": "engine-th-1",
+      "documentId": "engine-th",
+      "lang": "th",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1jB0DJjDpM6_8gTDXAUi9tdUJ9hh90q7i/view",
+      "chunkNumber": 1,
+      "text": "ทำควำมรู้จักเครื่องยนต์ดีเซลคูโบต้ำ ชนิดและแรงม้ำของเครื่องยนต์ดีเซลคูโบต้ำ ระบบห้องเผำไหม้ช่วย (TVCS) 10-12 แรงม้ำ ระบบDirect Injection 12.5-18 แรงม้ำ หมำยเหตุ : รุ่นที่จำหน่ำยในแต่ละประเทศอำจมีควำมแตกต่ำงกันระบบเผำไหม้เครื่องยนต์ดีเซลคูโบต้ำ ระบบห้องเผำไหม้ช่วย (TVCS) ระบบDirect Injection สำหรับเครื่องยนต์ 10-12 แรงม้ำ สำหรับเครื่องยนต์ 12.5-18 แรงม้ำ • เครื่องยนต์จะสตำร์ทติดง่ำย เสียงของเครื่องยนต์จะเบำ จะประยัดน้ำมันเชื้อเพลิงในขณะ ทำงำนรอบต่ำ เช่น สูบน้ำ และใช้กับรถไถเดินตำม • เครื่องยนต์ระบบนี้จะตอบสนองอัตรำกำรเร่งได้ดีเวลำใช้งำนจะประหยัดน้ำ มันเชื้อเพลิง ในขณะทำงำนที่รอบสูง • เหมำะกับกำรนำไปใช้เป็นเครื่องต้นกำลังของเครื่องจักร เช่น รถใช้ขนส่งผลผลิต กำรเกษตร รถไถเดินตำมรับจ้ำงเตรียมดิน ไดนำโม สูบน้ำบำดำลที่มีควำมลกึ มำกๆวิธีดูแรงม้ำเครื่องยนต์ดีเซลคูโบต้ำ ดูได้จำกสติกเกอร์ชื่อรุ่นข้ำงตัวเครื่อง"
+    },
+    {
+      "id": "engine-th-2",
+      "documentId": "engine-th",
+      "lang": "th",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1jB0DJjDpM6_8gTDXAUi9tdUJ9hh90q7i/view",
+      "chunkNumber": 2,
+      "text": "• ZT100Plus : เลข 100 เท่ำกับ 10 แรงม้ำ • ZT140Plus : เลข 140 เท่ำกับ 14 แรงม้ำ ดูได้จำกName Plateข้ำงตัวเครื่อง • 10 แรงม้ำระบบสตำร์ทของเครื่องยนต์ดีเซลคูโบต้ำ แบ่งออกเป็น 3 แบบ รุ่น Standard แบบมือหมุนสตำร์ท รุ่น ES (Electric Start) แบบมอเตอร์สตำร์ท รุ่น SW (Switch Start) แบบกุญแจสตำร์ท หมำยเหตุ : รุ่นที่จำหน่ำยในแต่ละประเทศอำจมีควำมแตกต่ำงกันรุ่นพิเศษของเครื่องยนต์ดีเซลคูโบต้ำ รุ่น PRO เพิ่มฟงั ก์ชัน่ เสริมเพื่อควำมสะดวกในกำรใช้งำน 1) ไฟเลี้ยว ซ้ำย-ขวำ เพื่อควำมสะดวกในกำรใช้งำนขนส่ง 2) ช่องชำร์จ USB สำหรับอุปกรณ์อิเลคทรอนิกส์ หมำยเหตุ : รุ่นที่จำหน่ำยในแต่ละประเทศอำจมีควำมแตกต่ำงกันจุดเด่นเครื่องยนต์ดีเซลคูโบต้ำ 6. ไฟหน้า LED 1. ถังน า้ มันเหล็ก 2. ตะแกรงเหล็ก 3. เพ่ิมโครงสร้างอลูมิเนียม 4. เพ่ิมจุดยึดแผงควบคุมคันเร่ง 5. ช่องมองระดับน า้ มันจุดเด่นเครื่องยนต์ดีเซลคูโบต้ำ 1. ถังน า้ มันเหล็ก ขนำด 10.5 ลิตร"
+    },
+    {
+      "id": "engine-th-3",
+      "documentId": "engine-th",
+      "lang": "th",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1jB0DJjDpM6_8gTDXAUi9tdUJ9hh90q7i/view",
+      "chunkNumber": 3,
+      "text": "สำหรับเครื่องยนต์ 10-15.5 แรงม้ำ ขนำด 14.5 ลิตร สำหรับเครื่องยนต์ 18 แรงม้ำจุดเด่นเครื่องยนต์ดีเซลคูโบต้ำ 2. ตะแกรงเหล็ก •ผลิตจากเหล็กคุณภาพสูง แข็งแรง ทนทาน •ป้องกันช้ินส่วนฝ่ังหม้อน า้ และพัดลม •เพ่ิมความถี่ของตะแกรงหม้อน า้ ชั้นใน ป้องกัน ฝุ่นได้ดีขึ้น ลดความเสี่ยงการเกิด overheat จุดเด่นเครื่องยนต์ดีเซลคูโบต้ำ • ช่วยป้องกันการเสียหายของหม้อน า้ และช้ินส่วนของเครื่องยนต์ระหว่าง การท างาน 3. เพ่ิมโครงสร้างอลูมิเนียม •เสริมจุดยึดเพ่ิมเป็น 3 จุด • ช่วยลดการสั่นสะเทือนขณะใช้งาน 4. เพ่ิมจุดยึดแผงควบคุมคันเร่งจุดเด่นเครื่องยนต์ดีเซลคูโบต้ำ • หลอด PVC แบบใส แยกจากตัวถังน า้ มัน • สังเกตระดับน า้ มันสะดวกและชัดเจน 5. ช่องมองระดับน า้ มัน • ส่องสว่าง เดินทางขนส่งหรือท างาน กลางคืนได้สะดวกย่ิงขึ้น 6. ไฟหน้า LEDส่วนประกอบของเครื่องยนต์ดีเซลคูโบต้ำลักษณะกำรใช้งำนเครื่องยนต์ดีเซลคูโบต้ำ ติดรถไถเดินตาม ใช้เตรียมดินเพาะปลูก และขนส่งหรือเดินทาง"
+    },
+    {
+      "id": "engine-th-4",
+      "documentId": "engine-th",
+      "lang": "th",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1jB0DJjDpM6_8gTDXAUi9tdUJ9hh90q7i/view",
+      "chunkNumber": 4,
+      "text": "ติดป๊ัมสูบน า้ ติดรถขนส่ง ผลผลิตทางการเกษตร ติดเครื่องปั่ นไฟ ติดรถเพื่องานก่อสร้าง หมุนพัดลม EVAP รถดัมพ์ รถโม่ รถตอกเสาเข็มกำรรับประกันเครื่องยนต์ดีเซลคูโบต้ำ รับประกันคุณภาพ 3 ปี หมำยเหตุ : โปรดศึกษำรำยละเอียดและเงื่อนไขกำรรับประกันสินค้ำอีกครั้งจำกบัตรรับประกัน"
+    },
+    {
+      "id": "engine-en-1",
+      "documentId": "engine-en",
+      "lang": "en",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/10QAY-n2jJJJzSeGELbonHV0R5P1vhAGM/view",
+      "chunkNumber": 1,
+      "text": "Product Knowledge : KUBOTA Diesel EngineType & Horsepower of Kubota Diesel Engine Three Vortex Combustion System (TVCS) 10-12 Horsepower Direct Injection (DI) 12.5-18 Horsepower Remark : Available models may be different in each country.Combustion system of Kubota Diesel Engine Three Vortex Combustion System (TVCS) Direct Injection (DI) For 10-12 Horsepower • TVCS system helps to start the engine easily, • The sound of the engine will be soft • Save the fuel while using low engine rpm such as water pumping or using with power tiller for tillage etc. • DI engine type will response well while speeding up, save the fuel while using high engine rpm such as heavy transportation, tillage contractor ,spin the dynamo, water pumping from underground etc. For 12.5-18 HorsepowerHow to know the horsepower of KUBOTA engine 1) Label on the engine"
+    },
+    {
+      "id": "engine-en-2",
+      "documentId": "engine-en",
+      "lang": "en",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/10QAY-n2jJJJzSeGELbonHV0R5P1vhAGM/view",
+      "chunkNumber": 2,
+      "text": "• ZT100Plus : 100 = 10 HP • ZT140Plus : 140 = 14 HP 2) Name Plate on the engine • 10 HPKUBOTA diesel engine \"ZT Plus\" have 3 engine start method Standard Manual Start ES Electric Start SW Switch Start by key Start system of Kubota Diesel Engine Remark : Available models may be different in each country.“PRO” with additional feature for more convenience 1) LED headlamp with turn signal 2) USB port for electronic devices. Special model of Kubota Diesel Engine Remark : Available models may be different in each country.Highlight Selling Point of KUBOTA diesel engine 6. LED headlamp 1. Steel Fuel Tank 2. Steel grate 3. Add aluminum structure 4. Reinforce by three anchor point 5. Transparent fuel level gauge1. Steel Fuel Tank 10.5 liters for 10-15.5 HP engine 14.5 liters for 18 HP engine"
+    },
+    {
+      "id": "engine-en-3",
+      "documentId": "engine-en",
+      "lang": "en",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/10QAY-n2jJJJzSeGELbonHV0R5P1vhAGM/view",
+      "chunkNumber": 3,
+      "text": "Highlight Selling Point of KUBOTA diesel engine2. Steel grate • Steel grate on the radiator side and the fan side to prevent damage while using the engine •Increase the frequency of the inner radiator filter for better dust protection and reduce the risk of overheating Highlight Selling Point of KUBOTA diesel engine• Add aluminum structure to protect any damages to radiator and other parts while using the engine 3. Add aluminum structure • To reduce vibration during operation 4. Reinforce by three anchor point Highlight Selling Point of KUBOTA diesel engine• Fuel level are visible easily because of transparent PVC fuel level gauge. 5. Transparent fuel level gauge •Bright LED headlamp for your safety while using the KUBOTA diesel engine \"ZT Plus\" in the night. 6. LED Headlamp"
+    },
+    {
+      "id": "engine-en-4",
+      "documentId": "engine-en",
+      "lang": "en",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "EPB_Product Knowledge_ZT Plus (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/10QAY-n2jJJJzSeGELbonHV0R5P1vhAGM/view",
+      "chunkNumber": 4,
+      "text": "Highlight Selling Point of KUBOTA diesel engineComponents of Kubota Diesel EnginesAttach with power tiller for tillage or rubber wheel power tiller for travelling Water Pump Transportation vehicle that need high power Generator Construction machine such as small pile driver, EVAP fan mortar mixer, concrete cutting machine Applications of Kubota Diesel Engines3 YEARS Warranty Please learn more about the warranty conditions. Warranty of Kubota Diesel Engines"
+    },
+    {
+      "id": "engine-sw-1",
+      "documentId": "engine-sw",
+      "lang": "sw",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "0. EPB_Product Knowledge_ZT Plus_SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1Iv92MdRNE3fMOVMGRtWKsEFeh0zJbJ-M/view",
+      "chunkNumber": 1,
+      "text": "Ufahamu wa Bidhaa: Injini ya Dizeli ya KUBOTAAina na Mguvu ya Kutengeneza ya Injini ya Kubota ya Dizeli Mfumo wa Mwako wa Dimbwi la Tatu (TVCS) Mwisho wa Uingizaji Moja kwa 10-12 Mguvu ya Paa ya 12.5-18 Mguvu ya Paa ya Kumbuka: Mifano inayoipa inaweza kuwa tofauti katika kila nchi., Mifumo ya kuwasha ya Injiniya ya Kubota ya Dizeli Mfumo wa Moto wa Vortex Tatu (TVCS) kwa Sawa-10-12 ya Nguvu ya Farasi • Mfumo wa TVCS husaidia kuwasha injini kiurahisi, • Sauti ya injini itakuwa mwororo • Hifadhi mafuta wakati wa kutumia RPM ya chini ya injini kama kusukuma maji au kutumia na mkata-kita cha nguvu kwa kulima nk. Hingizo Mmoja (DI) Kwa Nguvu ya Farasi 12.5-18 • Aina ya injini ya DI itajibu vizuri wakati wa kuongeza kasi, hifadhi mafuta wakati wa kutumia RPM ya juu kama usafiri mzito, mkandarasi wa kulima,"
+    },
+    {
+      "id": "engine-sw-2",
+      "documentId": "engine-sw",
+      "lang": "sw",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "0. EPB_Product Knowledge_ZT Plus_SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1Iv92MdRNE3fMOVMGRtWKsEFeh0zJbJ-M/view",
+      "chunkNumber": 2,
+      "text": "kusukuma dynamo, kusukuma maji kutoka ardhini nk.Jinsi ya kujua nguvu ya injini ya KUBOTA 1) Lebo kwenye injini •ZT100Plus : 100 = 10 HP •ZT140Plus : 140 = 14 HP 2) Plate ya jina kwenye injini •10 HPMwanzo wa mfumo wa Kubota Diesel Engine injini ya dizeli ya KUBOTA \"ZT Plus\" ina njia 3 za kuanzisha injini Awali ya Mwongozo wa Kawaida ES SW Mwendo wa Umeme Anzisha kwa ufunguo Kumbuka: Mifano inayopatikana inaweza kuwa tofauti katika nchi kila moja.Mfano maalum wa Injini ya Kubota ya Dizeli ZT “PRO” na sifa za ziada kwa urahisi zaidi 1) Mwangaza wa kiongozi wa LED na kiashirio cha kugeuza 2)bandari ya USB kwa vifaa vya elektroniki. Maelezo: Mifano inayopatikana inaweza kuwa tofauti katika kila nchi.Kipengele cha Mauzo ya KUBOTA injini ya dizeli 1. Tanki la Mafuta la Chuma 2. Funika ya Chuma 3. Onyesha muundo wa alumini"
+    },
+    {
+      "id": "engine-sw-3",
+      "documentId": "engine-sw",
+      "lang": "sw",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "0. EPB_Product Knowledge_ZT Plus_SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1Iv92MdRNE3fMOVMGRtWKsEFeh0zJbJ-M/view",
+      "chunkNumber": 3,
+      "text": "4. Thibitisha kwa njia ya pointi tatu za nadharia 5. Kipima kiwango cha mafuta kinachoonekana wazi 6. Taa ya kichwa ya LEDSifa kuu ya kuuza ya injini ya kukodi ya KUBOTA ya dizeli ZIDIISHA 1. Tangi la Maji ya Chuma 10.5 lita kwa injini ya 10-15.5 HP 14.5 lita kwa injini ya 18 HPKiini cha kuuza cha KUBOTA dizeli injini ZAIDI 2. Grate ya Chuma •Grate ya chuma upande wa radiator na upande wa fan ili kuzuia uharibifu wakati wa kutumia injini •Ongeza mara kwa mara ya kichungi cha ndani cha radiator kwa kinga bora ya vumbi na kupunguza hatari ya kuzidi jotoKUBOTA dizel injini ya kuuza ya Kukuza Mahitaji OPESA 3. Ongeza muundo wa aluminium • Ongeza muundo wa aluminium ili kulinda uharibifu wowote kwa radiator na sehemu nyingine wakati wa kutumia injini 4. Kudhoofisha kwa alama tatu za kiunganishi"
+    },
+    {
+      "id": "engine-sw-4",
+      "documentId": "engine-sw",
+      "lang": "sw",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "0. EPB_Product Knowledge_ZT Plus_SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1Iv92MdRNE3fMOVMGRtWKsEFeh0zJbJ-M/view",
+      "chunkNumber": 4,
+      "text": "• Kupunguza mtetemo wakati wa uendeshajiKipa cha KUBOTA dizeli injini neno la kuuza MKUU+ 5. Kipima viwango vya mafuta wazi •Viwango vya mafuta vinaonekana kwa urahisi kwa sababu ya kipimo cha mafuta cha PVC cha wazi. 6. Mwanga wa kichwa wa •Mwanga wa LED kama taa ya mbele Mwanga mkali ili kuwezesha usalama wako unapotumia injini ya dizeli ya KUBOTA \"ZT Plus\" usiku.Vipengele vya Injini za Kubota Dizeli 13) (12) (1) 6) — = @ = ° © ®) @ © © @ (1) Mafuta safi ya hewa ya aina ya maji (8) (1) Mwanga wa kichwa na ishara ya kugeuza (3) Nut ya kuratibu mvutano wa mtaani ya ukanda (2) Kipimaa cha shinikizo la mafuta ya injini (9) Shaft ya kuanzisha (Mfano wa Pro pekee) 4) Kifutio (mufler) (3) Kufungua mwendo wa kupunguza presha Mkono wa kuanza (2) Mduara wa kukisababisha (5) Kikusa ya kupoea (4) Patia fimbo ya kungʼolewa maji Kipima mafuta"
+    },
+    {
+      "id": "engine-sw-5",
+      "documentId": "engine-sw",
+      "lang": "sw",
+      "product": "engine",
+      "route": "product-engine",
+      "title": "0. EPB_Product Knowledge_ZT Plus_SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1Iv92MdRNE3fMOVMGRtWKsEFeh0zJbJ-M/view",
+      "chunkNumber": 5,
+      "text": "(5) pampu ya sindiko ya mafuta Kando ya kukizwa mwendo (lever) ya kuongezea mwendo (6) Mtihani wa mafuta ya injini Radiator (7) Kichungi cha mafuta ya injini na fimbo ya kumwaga KUMB. Tintamu hii ya sehemu ni kwa mfano mmoja tu. Kwa matoleo mengine, umbo unaweza kutofautiana.Matumizi ya Injini za Kubota Diesel Unganisha na tilia ya nguvu kwa kilimo au tiler wa miguu ya mpira kwa kusafiri Gari ya usafiri inayohitaji nguvu kubwa Mashine za ujenzi kama dereva wa mfupa mdogo, saruji pampu ya maji Kizalishaji nguvu Kikisia EVAP Kikorokozi, mashine ya kukata sarujiDhamana ya Injiniya za Kubota za Dizeli Kampuni ya SIAM KUBOTA Co., Ltd. Dhamana Mwaka Dhamana ya MIS SA 3 Tafadhali jifunze zaidi kuhusu masharti ya dhamana."
+    },
+    {
+      "id": "tiller-th-1",
+      "documentId": "tiller-th",
+      "lang": "th",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1uDpc7i9QMay6EO79Q_-P7LlchGMIeQgx/view",
+      "chunkNumber": 1,
+      "text": "ทำควำมรู้จักรถไถเดินตำมรุ่นที่มีจำหน่ำยของรถไถเดินตำม NC PLUS X เส้นผ่ำนศูนย์กลำงล้อ 800 มิลลิเมตร ใบล้อขนำด 3\" จำนวน 16 ใบ NC PLUS X Special เส้นผ่ำนศูนย์กลำงล้อ 880 มิลลิเมตร ใบล้อขนำด 4\" จำนวน 16 ใบ NC PLUS X Special เส้นผ่ำนศูนย์กลำงล้อ 980 มิลลิเมตร ใบล้อขนำด 5\" จำนวน 16 ใบจุดเด่นสำคัญของรถไถเดินตำม • เสื้อเกียร์ทำจำกเหล็กหล่อเหนียว พิเศษ SCI : Special Cast Iron แข็งแรงทนทำน • ระบบเกียร์อินเสิร์ท • ระบบ 4 เกียร์ 3 เกียร์เดินหน้ำ 1 เกียร์ถอยหลัง คล่องตัว เหมำะกับกำรใช้งำนทุกประเภท หมำยเหตุ : มีเฉพำะใน NC Plus X special เท่ำนั้น ข้อดีของระบบเกียร์อินเสิร์ท 1) กระจำยแรงจำกกำรรับน้ำหนกั ของ เฟืองเกียร์ ทำให้ชุดเกียร์แข็งแรง และทนทำน 2) Safety Bolt ช่วยลดควำมเสียหำย ที่อำจจะเกิดขึ้นกับระบบเกียร์ คล่องตัว ด้วยระบบบังคับเลี้ยวที่เบำ แรงควบคุมทิศทำงกำรเลี้ยวได้ง่ำย• ชุดเกียร์ที่สำมำรถกลับด้ำนใช้งำนได้ เมื่อเกิดกำรสึกหรอ และมี Safety"
+    },
+    {
+      "id": "tiller-th-2",
+      "documentId": "tiller-th",
+      "lang": "th",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1uDpc7i9QMay6EO79Q_-P7LlchGMIeQgx/view",
+      "chunkNumber": 2,
+      "text": "Bolt เพื่อลดควำมเสียหำยที่อำจจะ เกิดขึ้นกับชุดเกียร์ • ชุดเกียร์ไม่สำมำรถกลับด้ำนได้ และ ไม่มีชุด Safety Bolt จุดเด่นสำคัญของระบบเกียร์ Insert • ระบบเกียร์รับแรงจำกกำรทำงำนด้วย ฟันเฟืองทั้งหมด 14 ฟัน NC PLUS X Special 880 / 980 NC PLUS X 800 • มีร่องรับฟันเฟือง ทั้งหมด 14 ร่อง ทำให้ระบบบังคับเลียวเบำแรง เลี้ยว ง่ำย ทำงำนได้คล่องตัว • ระบบเกียร์รับแรงจำกกำรทำงำนด้วย ระบบเดือยล๊อก 2 ข้ำง • มีร่องรับเดือยล๊อก 4 ร่องส่วนประกอบของรถไถเดินตำม 1 Frame front (แท่นวำงเครื่องยนต์) Cage Wheel ล้อเหล็ก ซ้ำย/ขวำ 3 LEVER steering clutch (มือบีบเลี้ยว ซ้ำย/ขวำ) 6 Handle (ด้ำมจับบังคับรถ) 7 LEVER, Accelerator (คันเร่ง) 8 LEVER, main clutch / Brake 9 (คันคลัชต์/เบรก) LEVER, speed change (คันเกียร์) 2 STAND (ขำตั้ง) PULLEY main clutch (พู่เล่ย์คลัชต์) Hitch (ซองผำน) 5 Transmission Case (เสื้อเกียร์) 4 10 11ควำมแตกต่ำงของรถไถเดินตำม NC PLUS X ภายนอก"
+    },
+    {
+      "id": "tiller-th-3",
+      "documentId": "tiller-th",
+      "lang": "th",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1uDpc7i9QMay6EO79Q_-P7LlchGMIeQgx/view",
+      "chunkNumber": 3,
+      "text": "- ขนำดล้อ 800 มิลลิเมตร - ซองผำนแบบสั้น - ประกับล้อแบบไม่มี Stud Bolt - ใส่บังโคลนไม่ได้ ภายใน - ระบบเกียร์บีบเลี้ยวแบบ Standard - รองรับกำรใช้งำนทั่วไป - ชุดคลัชต์ Standard - รองรับกำรใช้งำนทั่วไป - Standard Bearing - ลูกปืนแบบกลม - แข็งแรง ทนทำน *** ไม่สามารถใช้งานร่วมกับล้อเหล็ก ขนาด 880 / 980 ได้ เพราะจะท าให้ชุดเกียร์บีบเลี้ยว และชุดคลัชต์ เสียหายได้ NC PLUS X Special ทั้ง 2 รุ่น ภายนอก - ขนำดล้อ 880 / 980 มิลลิเมตร - ซองผำนแบบยำว - ประกับล้อแบบมี Stud Bolt - ใส่บังโคลนได้ ภายใน - ระบบเกียร์บีบเลี้ยวแบบ Gear Insert - แข็งแรง รองรับงำนหนักได้ดี สลับด้ำนได้เมื่อมีกำรสึกหรอ - มี Safety Bolt เพื่อลดควำมเสียหำยที่อำจจะเกิดขึ้นกับเฟืองเกียร์ - บังคับเลี้ยวง่ำย เบำแรง - ชุดคลัชต์พิเศษ เพิ่มความแข็งของสปริง - ส่งกำลังขับได้ดี รองรับกำรทำงำนหนัก - Special Bearing - ลูกปืนแบบกลม - มีซีลป้องกันลูกปืน(ที่เพลำ 3,4,5) แข็งแรง ทนทำน"
+    },
+    {
+      "id": "tiller-th-4",
+      "documentId": "tiller-th",
+      "lang": "th",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1uDpc7i9QMay6EO79Q_-P7LlchGMIeQgx/view",
+      "chunkNumber": 4,
+      "text": "- ป้องกันควำมเสียหำยที่อำจจะเกิดขึ้นกับเฟืองเมื่อลูกปืนแตกลักษณะกำรใช้งำนรถไถเดินตำม NC PLUS X เส้นผ่ำนศูนย์กลำงล้อ 800 มิลลิเมตร - เหมำะกับพื้นที่ดินร่วน ดินทรำย ที่พื้นที่ไม่หล่ม - ใช้ได้ทั้งในนำน้และนำแห้ง ที่ทำนำปีละครั้ง - ใช้ได้ในไร่อ้อย มันสำปะหลัง ถั่ว และแปลงผัก - สำมำรถใช้ล้อเหล็กเดินทำงในระยะสั้นๆได้ คำแนะนำ : ไม่เหมำะกับกำรใช้งำนในนำหล่มหรือดินเหนียว NC PLUS X Special เส้นผ่ำนศูนย์กลำงล้อ 880 และ 980 มิลลิเมตร - เหมำะสำหรับกำรใช้งำนเตรียมดินเป็นหลัก ในพื้นที่ดินเหนียว ดินหล่ม - ใช้ได้เฉพำะในนำน้ำ ในพื้นที่ที่ทำนำปีละ 2 ครั้ง คำแนะนำ : - หำกต้องกำรขนย้ำย ควรเปลี่ยนเป็นล้อยำง หรือใช้เทรลเลอร์ - งำนลุยหล่ม ควรใช้งำนร่วมกับเครื่องยนต์คูโบต้ำ 14-15.5 แรงม้ำ รถไถเดินตำมตรำช้ำงทั้ง 3 รุ่น สำมำรถใช้กับล้อยำงในงำนบรรทุกพืชผลทำงกำรเกษตรและขนส่งได้จุดสังเกตระหว่ำง NC PLUS X และ NC PLUS X Special"
+    },
+    {
+      "id": "tiller-th-5",
+      "documentId": "tiller-th",
+      "lang": "th",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (TH).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1uDpc7i9QMay6EO79Q_-P7LlchGMIeQgx/view",
+      "chunkNumber": 5,
+      "text": "จุดที่ 1 สติ๊กเกอร์Case No. ที่บัตรรับประกัน รหัส Chassis NC131 ไม่มีตัว S ต่อท้ำย รหัส Chassis NC131 มีตัว S ต่อท้ำย NC PLUS X เส้นผ่ำนศูนย์กลำงล้อ 800 มิลลิเมตร NC PLUS X Special เส้นผ่ำนศูนย์กลำงล้อ 880 และ 980 มิลลิเมตร จุดสังเกตระหว่ำง NC PLUS X และ NC PLUS X Special จุดที่ 2 ตอกสัญลักษณ์ ตัว S ที่ Case Gear ที่Case Gear ไม่มีสัญลักษณ์ ตัว S ที่Case Gear มีสัญลักษณ์ ตัว S NC PLUS X เส้นผ่ำนศูนย์กลำงล้อ 800 มิลลิเมตร NC PLUS X Special เส้นผ่ำนศูนย์กลำงล้อ 880 และ 980 มิลลิเมตร ตัวอย่ำงกำรใช้งำนรถไถเดินตำม เตรียมดิน ขนส่งกำรรับประกันรถไถเดินตำม • รับประกันคุณภาพ 3 ปี หมำยเหตุ : โปรดศึกษำรำยละเอียดและเงื่อนไขกำรรับประกันสินค้ำอีกครั้งจำกบัตรรับประกัน • เสื้ อเกียร์รับประกัน ตลอดอายุการใช้งาน"
+    },
+    {
+      "id": "tiller-en-1",
+      "documentId": "tiller-en",
+      "lang": "en",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1230unKVRY7KHyh9kdMQEOeTQnKFP5EVm/view",
+      "chunkNumber": 1,
+      "text": "Product Knowledge Power Tiller Available model of Power Tiller NC PLUS X Cage wheel diameter 800 mm. Wheel blade 3 inches 16 pieces NC PLUS X Special Cage wheel diameter 880 mm. Wheel blade 4 inches 16 pieces NC PLUS X Special Cage wheel diameter 980 mm. Wheel blade 5 inches 16 piecesSelling point of power tiller • The gear housing is made of Special Cast Iron (SCI). Durable and tough • Gear insert (Only in NC plus X special) • 4 gears which consist of 3 forward gears and 1 reverse gear Benefits of gear insert 1) Help to distribute load at gear tooth while using to enhance strength and durability. The gear can be reversed when those on the other side have worn down. 2) Safety bolt help to reduce the risk of damage to the gear system. Agile with a light steering system, easy to control the direction of turningApplication of power tiller"
+    },
+    {
+      "id": "tiller-en-2",
+      "documentId": "tiller-en",
+      "lang": "en",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1230unKVRY7KHyh9kdMQEOeTQnKFP5EVm/view",
+      "chunkNumber": 2,
+      "text": "NC PLUS X Cage wheel diameter 800 mm. - Suitable for loamy soil, sandy soil - Can be used in both paddy fields and dry fields - Can be used in sugarcane fields, cassava fields, beans and vegetable plots - Able to use cage wheels to travel for short distances Recommendation : Not suitable for use in the puddle field NC PLUS X Special cage wheel diameter 880mm. & 980 mm. - Suitable for soil preparation in clay soil or puddle field - Suitable for rice field that plant more than 2 times per year Recommendation : - If you need to move NC plus X special, you should change to rubber wheels or use trailer - For working in puddle field, should use with KUBOTA diesel engine ZT Plus 14-15.5 HP TRA CHANG power tiller can change to be rubber wheel for transportation.Notice point of Power tiller NC PLUS X Appearance - Cage wheel’s diameter 800mm"
+    },
+    {
+      "id": "tiller-en-3",
+      "documentId": "tiller-en",
+      "lang": "en",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1230unKVRY7KHyh9kdMQEOeTQnKFP5EVm/view",
+      "chunkNumber": 3,
+      "text": "- Shorter Hitch length - No Stud Bolt at Wheel joint - Cannot install fender Internal parts - Standard turning system - For normal operation - Standard clutch set - For normal operation - Standard Bearing - Ball type bearing - Strong and durable *** NC Plus X cannot working with 880/980 mm diameter cage wheel. It will damage to gear and clutch system NC PLUS X Special 2 Models Appearance - Cage wheel’s diameter 880 &980mm - Longer Hitch length - Stud Bolt at Wheel joint - Fender Installable (Optional) Internal parts - Gear Insert turning system - Strong and durable suit for heavy duty - reversible when worn out - Safety bolt for damage preventive - Better handling - Special clutch set - Better transmission suitable for heavy duty - Special Bearing - Roller bearing suitable for bigger cage wheel"
+    },
+    {
+      "id": "tiller-en-4",
+      "documentId": "tiller-en",
+      "lang": "en",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1230unKVRY7KHyh9kdMQEOeTQnKFP5EVm/view",
+      "chunkNumber": 4,
+      "text": "- Strong and durableNotice point of NC PLUS X and NC PLUS X Special 1 st notice point : Case No. at Warranty card Case No. Chassis “NC131” (No “S” after) Case No. Chassis “NC131S” (has “S” after) NC PLUS X Special cage wheel diameter 880mm. & 980 mm. NC PLUS X Cage wheel diameter 800 mm.No Punching mark “S” at gear case for NC Plus X NC PLUS X Special has punching mark “S” at gear case NC PLUS X Special cage wheel diameter 880mm. & 980 mm. NC PLUS X Cage wheel diameter 800 mm. Notice point of NC PLUS X and NC PLUS X Special 2 nd notice point : Punching Mark “S” at Gear caseWarranty of power tiller • 3 years warranty except gear housing that has lifetime warranty Please learn more about the warranty conditions. Soil preparation Transportation Application of power tillerComponent of power tiller 1 Frame front (แท่นวางเครื่องยนต์) Cage Wheel"
+    },
+    {
+      "id": "tiller-en-5",
+      "documentId": "tiller-en",
+      "lang": "en",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "EPB_Product Knowledge_Power Tiller NC PlusX (ENG).pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1230unKVRY7KHyh9kdMQEOeTQnKFP5EVm/view",
+      "chunkNumber": 5,
+      "text": "ล้อเหล็ก ซ้าย/ขวา 3 LEVER steering clutch (มือบีบเลี้ยว ซ้าย/ขวา) 6 Handle (ด้ามจับบังคับรถ) 7 LEVER, Accelerator (คันเร่ง) 8 LEVER, main clutch / Brake 9 (คันคลัชต์/เบรก) LEVER, speed change (คันเกียร์) 2 STAND (ขาตั้ง) PULLEY main clutch (พู่เล่ย์คลัชต์) Hitch (ซองผาน) 5 Transmission Case (เสื้อเกียร์) 4 10 11"
+    },
+    {
+      "id": "tiller-sw-1",
+      "documentId": "tiller-sw",
+      "lang": "sw",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "0. EPB_Product Knowledge_Power Tiller NC PlusX _SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1i26hr7KmYOTfMsjpMV7h5W3xjlNlc7_-/view",
+      "chunkNumber": 1,
+      "text": "Kifaa cha Kupoza Nguvu cha Maarifa ya BidhaaMfano unaopatikana wa Power Tiller NC PLUS X Maalum ya NC PLUS X Maalum ya NC Kipenyo cha gurudumu la ngome PLUS X milimita 800. Kisu cha gurudumu inchi 3 vipande 16 Kipenyo cha gurudumu la ngome 880mm. Kisu cha gurudumu inchi 4 vipande 16 Kipenyo cha gurudumu la ngome 980mm. Kisu cha gurudumu inchi 5 vipande 16Kifaa cha kuuza cha kupokezana umeme • Kizimba cha gia kimetengenezwa kwa Chuma Maalum cha Kutupwa (SCI). Imara na imara Agile yenye mfumo mwepesi wa usukani, rahisi kudhibiti mwelekeo wa kugeuka • Kiingilio cha gia (Katika NC pamoja na X maalum pekee) •Gia 4 ambazo zinajumuisha 3 gia za mbele na gia 1 ya nyuma Faida za kuingiza gia 1) 2) Husaidia kusambaza mzigo kwenye jino la gia unapotumia ili kuongeza nguvu na uimara. Gia inaweza kugeuzwa nyuma wakati zile zilizo"
+    },
+    {
+      "id": "tiller-sw-2",
+      "documentId": "tiller-sw",
+      "lang": "sw",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "0. EPB_Product Knowledge_Power Tiller NC PlusX _SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1i26hr7KmYOTfMsjpMV7h5W3xjlNlc7_-/view",
+      "chunkNumber": 2,
+      "text": "upande mwingine zimechakaa. Boliti ya usalama husaidia kupunguza hatari ya uharibifu wa mfumo wa gia.Matumizi ya power tiller NC PLUS X Maalum ya NC PLUS X Gurudumu la ngome kipenyo cha milimita 800 Kipenyo cha gurudumu la ngome 880mm.&980 mm. . Mapendekezo: Haifai kutumika katika uwanja wa dimbwi - Inafaa kwa udongo tifutifu, udongo wa kichanga - Inaweza kutumika katika mashamba ya mpunga na mashamba makavu - Inaweza kutumika katika mashamba ya miwa, mashamba ya mihogo, maharagwe na viwanja vya mboga - Uwezo wa kutumia magurudumu ya ngome kusafiri umbali mfupi Mapendekezo: - Ikiwa unahitaji kuhamisha NC pamoja na X maalum, unapaswa kubadilisha kwa magurudumu ya mpira au tumia trela - Kwa kufanya kazi katika uwanja wa dimbwi, inapaswa kutumika na KUBOTA injini ya dizeli ZT Plus 14-15.5 HP"
+    },
+    {
+      "id": "tiller-sw-3",
+      "documentId": "tiller-sw",
+      "lang": "sw",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "0. EPB_Product Knowledge_Power Tiller NC PlusX _SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1i26hr7KmYOTfMsjpMV7h5W3xjlNlc7_-/view",
+      "chunkNumber": 3,
+      "text": "Kifaa cha kupoozea umeme cha TRA CHANG kinaweza kubadilishwa kuwa gurudumu la mpira kwa ajili ya usafiri. - Inafaa kwa ajili ya maandalizi ya udongo katika udongo wa mfinyanzi au uwanja wa madimbwi - Inafaa kwa shamba la mpunga linalopandwa zaidi ya mara 2 kwa mwakaSehemu ya taarifa ya Power tiller Mifano 2 NC PLUS X Maalum ya NC PLUS X Muonekano Muonekano - Kipenyo cha gurudumu la ngome 880 & 980mm - Urefu mrefu zaidi wa kushikilia - Stud Bolt kwenye sehemu ya kuunganisha magurudumu - Fender Inaweza Kusakinishwa (Si lazima) Sehemu za ndani - Mfumo wa kugeuza gia - Kipenyo cha Cagewheel 800mm - Urefu mfupi wa Hitch - Hakuna Bolti ya Stud kwenye kiunganishi cha gurudumu - Haiwezi kusakinisha fenda Sehemu za ndani - Mfumo wa kawaida wa kugeuza - Kwa operesheni ya kawaida - Seti ya kawaida ya clutch - Kwa operesheni ya kawaida"
+    },
+    {
+      "id": "tiller-sw-4",
+      "documentId": "tiller-sw",
+      "lang": "sw",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "0. EPB_Product Knowledge_Power Tiller NC PlusX _SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1i26hr7KmYOTfMsjpMV7h5W3xjlNlc7_-/view",
+      "chunkNumber": 4,
+      "text": "- Ubebaji wa Kawaida - Aina ya mpira - Imara na ya kudumu *** NC Plus X haiwezi kufanya kazi na gurudumu la kizimba lenye kipenyo cha milimita 880/980. Litaharibu gia na mfumo wa clutch - Suti imara na ya kudumu kwa kazi nzito - inayoweza kubadilishwa inapochakaa - Bolti ya usalama kwa ajili ya kuzuia uharibifu - Ushughulikiaji bora - Seti maalum ya clutch - Uwasilishaji bora unaofaa kwa kazi nzito - Uzito Maalum - Bearing ya roller inayofaa kwa gurudumu kubwa la ngome - Imara na hudumuTaarifa kuhusu NC PLUS X na NC PLUS X Maalum NC PLUS X Maalum ya NC PLUS X Kipenyo cha gurudumu la ngome 880mm.&980 mm. \"S\" Notisi ya kwanza: Nambari ya Kesi katika kadi ya udhamini Nambari ya Kesi. Chasisi “NC131” (Hapana “S” baada ya) Gurudumu la ngome kipenyo cha milimita 800."
+    },
+    {
+      "id": "tiller-sw-5",
+      "documentId": "tiller-sw",
+      "lang": "sw",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "0. EPB_Product Knowledge_Power Tiller NC PlusX _SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1i26hr7KmYOTfMsjpMV7h5W3xjlNlc7_-/view",
+      "chunkNumber": 5,
+      "text": "Nambari ya Kesi. Chasisi “NC131S” (ina baada)Kipenyo cha gurudumu la ngome 800 mm. Kipenyo cha gurudumu la ngome ni 880mm. & 980 mm. Hakuna alama ya kuchomwa \"S\" kwenye kisanduku cha gia kwa NC Plus X Gari maalum la NC PLUS X lina alama ya \"S\" kwenye kisanduku cha gia NC PLUS X Maalum ya NC PLUS X sehemu ya taarifa: Alama ya Kuchoma \"S\" kwenye kisanduku cha Gia Taarifa kuhusu NC PLUS X na NC PLUS X Maalum 2Dhamana ya power tiller • Dhamana ya miaka 3 isipokuwa nyumba ya gia ambayo ina dhamana ya maisha yote Tafadhali jifunze zaidi kuhusu masharti ya udhamini.Maandalizi ya udongo Usafiri Matumizi ya power tillerSehemu ya power tiller Kipini (Dereva analazimisha gari kusimama.) LEVER, Kiongeza Kasi (kiongeza kasi) Kipini (jembe la jembe) Kifaa cha clutch cha usukani (kifaa cha ishara ya kugeuka kushoto/kulia) Kesi ya Usafirishaji"
+    },
+    {
+      "id": "tiller-sw-6",
+      "documentId": "tiller-sw",
+      "lang": "sw",
+      "product": "tiller",
+      "route": "product-tiller",
+      "title": "0. EPB_Product Knowledge_Power Tiller NC PlusX _SWA.pdf",
+      "sourceUrl": "https://drive.google.com/file/d/1i26hr7KmYOTfMsjpMV7h5W3xjlNlc7_-/view",
+      "chunkNumber": 6,
+      "text": "(Shati ya gia) Gurudumu la Ngome (Chuma), Kushoto/Kulia KIWEKO, clutch kuu / Breki (clutch/lever ya breki) KIWEKO, mabadiliko ya kasi (kiweko cha gia) 11 Clutch kuu ya PULLEY SIMAMA (simama) Sehemu ya mbele ya fremu (kuweka injini) 7 6 8 4 5 9 10 3 2 1"
+    }
+  ]
+}
+

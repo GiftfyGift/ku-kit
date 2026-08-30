@@ -8,6 +8,8 @@ const state = {
   searchIndex: []
 };
 
+let productKnowledgeCache = null;
+
 const app = document.getElementById('app');
 const langToggle = document.getElementById('lang-toggle');
 const langMenu = document.getElementById('lang-menu');
@@ -25,6 +27,27 @@ async function loadContent(lang) {
   const res = await fetch(`content/${lang}.json`, { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load content/${lang}.json`);
   return res.json();
+}
+
+async function loadProductKnowledge(lang) {
+  if (!productKnowledgeCache) {
+    const res = await fetch('content/product-knowledge.json', { cache: 'no-store' });
+    if (!res.ok) return [];
+    productKnowledgeCache = await res.json();
+  }
+  const documentLang = lang === 'th' || lang === 'sw' ? lang : 'en';
+  return (productKnowledgeCache.chunks || [])
+    .filter(chunk => chunk.lang === documentLang)
+    .map(chunk => ({
+      route: chunk.route,
+      title: chunk.title,
+      snippet: chunk.text.length > 160 ? `${chunk.text.slice(0, 157)}…` : chunk.text,
+      text: normalizeAssistantText(`${chunk.title} ${chunk.text}`),
+      sourceTitle: chunk.title,
+      sourceUrl: chunk.sourceUrl,
+      chunkNumber: chunk.chunkNumber,
+      isDocument: true
+    }));
 }
 
 function setActiveNav(route) {
@@ -349,12 +372,12 @@ function renderPreDeliveryBlock(pd, id) {
 
 function getEngineGuideLabels() {
   return ({
-    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า', details: 'รายละเอียดขั้นตอนตรวจเช็ก', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์', preDeliveryVideoTitle: 'VDO การตรวจเช็กเบื้องต้น เครื่องยนต์ ZT Plus', startVideoTitle: 'VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี', sellingVideoTitle: 'New ZT Plus !' },
-    en: { video: 'Pre-delivery Check Video', manual: '5-Point Kubota Diesel Engine Pre-delivery Manual', details: 'View inspection details', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'ZT Plus Preliminary Inspection Video', startVideoTitle: 'Correct Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' },
-    fr: { video: 'Vidéo de contrôle avant livraison', manual: 'Guide de livraison du moteur diesel Kubota en 5 points', details: 'Voir les détails du contrôle', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit', preDeliveryVideoTitle: 'Contrôle préliminaire du moteur ZT Plus', startVideoTitle: 'Démarrage correct du moteur', sellingVideoTitle: 'Nouveau ZT Plus !' },
-    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', manual: 'Mwongozo wa hatua 5 wa kukabidhi injini ya dizeli ya Kubota', details: 'Tazama maelezo ya ukaguzi', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa', preDeliveryVideoTitle: 'Ukaguzi wa awali wa injini ya ZT Plus', startVideoTitle: 'Namna sahihi ya kuwasha injini', sellingVideoTitle: 'ZT Plus Mpya!' },
-    tl: { video: 'Video ng pre-delivery check', manual: '5-point na gabay sa pag-deliver ng Kubota diesel engine', details: 'Tingnan ang detalye ng pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto', preDeliveryVideoTitle: 'Paunang pagsusuri ng ZT Plus engine', startVideoTitle: 'Tamang paraan ng pag-start ng engine', sellingVideoTitle: 'Bagong ZT Plus!' }
-  })[state.lang] || { video: 'Video', manual: 'Manual', details: 'View details', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'Pre-delivery Check Video', startVideoTitle: 'Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' };
+    th: { video: 'VDO ภาพขั้นตอนการตรวจเช็ก', startVideo: 'VDO ภาพขั้นตอนการสตาร์ทเครื่องยนต์', manual: 'คู่มือ 5 จุดเช็กก่อนส่งมอบเครื่องยนต์ดีเซลคูโบต้า', details: 'รายละเอียดขั้นตอนตรวจเช็ก', steps: '7 ขั้นตอนการสตาร์ท', selling: 'Selling Point', sellingVideo: 'VDO แนะนำผลิตภัณฑ์', preDeliveryVideoTitle: 'VDO การตรวจเช็กเบื้องต้น เครื่องยนต์ ZT Plus', startVideoTitle: 'VDO การสตาร์ทเครื่องยนต์ที่ถูกวิธี', sellingVideoTitle: 'New ZT Plus !' },
+    en: { video: 'Pre-delivery Check Video', startVideo: 'Engine Starting Procedure Video', manual: '5-Point Kubota Diesel Engine Pre-delivery Manual', details: 'View inspection details', steps: '7 Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'ZT Plus Preliminary Inspection Video', startVideoTitle: 'Correct Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' },
+    fr: { video: 'Vidéo de contrôle avant livraison', startVideo: 'Vidéo des étapes de démarrage du moteur', manual: 'Guide de livraison du moteur diesel Kubota en 5 points', details: 'Voir les détails du contrôle', steps: '7 étapes de démarrage', selling: 'Points forts', sellingVideo: 'Vidéo du produit', preDeliveryVideoTitle: 'Contrôle préliminaire du moteur ZT Plus', startVideoTitle: 'Démarrage correct du moteur', sellingVideoTitle: 'Nouveau ZT Plus !' },
+    sw: { video: 'Video ya ukaguzi kabla ya kukabidhi', startVideo: 'Video ya hatua za kuwasha injini', manual: 'Mwongozo wa hatua 5 wa kukabidhi injini ya dizeli ya Kubota', details: 'Tazama maelezo ya ukaguzi', steps: 'Hatua 7 za kuwasha', selling: 'Faida kuu', sellingVideo: 'Video ya bidhaa', preDeliveryVideoTitle: 'Ukaguzi wa awali wa injini ya ZT Plus', startVideoTitle: 'Namna sahihi ya kuwasha injini', sellingVideoTitle: 'ZT Plus Mpya!' },
+    tl: { video: 'Video ng pre-delivery check', startVideo: 'Video ng mga hakbang sa pag-start ng engine', manual: '5-point na gabay sa pag-deliver ng Kubota diesel engine', details: 'Tingnan ang detalye ng pagsusuri', steps: '7 hakbang sa pag-start', selling: 'Mga Selling Point', sellingVideo: 'Video ng produkto', preDeliveryVideoTitle: 'Paunang pagsusuri ng ZT Plus engine', startVideoTitle: 'Tamang paraan ng pag-start ng engine', sellingVideoTitle: 'Bagong ZT Plus!' }
+  })[state.lang] || { video: 'Video', startVideo: 'Engine Starting Procedure Video', manual: 'Manual', details: 'View details', steps: 'Starting Steps', selling: 'Selling Points', sellingVideo: 'Product Video', preDeliveryVideoTitle: 'Pre-delivery Check Video', startVideoTitle: 'Engine Starting Video', sellingVideoTitle: 'New ZT Plus !' };
 }
 
 function renderStartProcedureBlock(sp, id) {
@@ -366,7 +389,7 @@ function renderStartProcedureBlock(sp, id) {
       <h3 class="category-heading">${sp.title}</h3>
       <div class="engine-guide-panel start-guide-layout">
         <section class="engine-guide-group start-guide-video">
-          <h4 class="engine-guide-label"><span>▶</span>${labels.video}</h4>
+          <h4 class="engine-guide-label"><span>▶</span>${labels.startVideo}</h4>
           <div class="video-grid">${renderYouTubeEmbed(video)}</div>
         </section>
         <section class="engine-guide-group start-guide-steps">
@@ -853,14 +876,6 @@ function renderParts(c) {
     </div>
   `;
 
-  const partsDocs = localizedDocsWithFallback(pt.resources);
-  const resources = partsDocs.length ? `
-    <div class="category-block">
-      <h3 class="category-heading">${pt.downloadsTitle}</h3>
-      ${renderResourceList(partsDocs)}
-    </div>
-  ` : '';
-
   return `
     <section>
       <div class="section-header-photo-wrap">
@@ -869,7 +884,6 @@ function renderParts(c) {
         <img class="section-header-photo" src="assets/img/parts/parts-lineup.png" alt="${pt.title}">
       </div>
       ${modelCatalog}
-      ${resources}
       <div class="note-callout">${pt.note}</div>
     </section>
   `;
@@ -2981,7 +2995,7 @@ function getArtworkEditorLabels() {
     th: {
       body: 'ข้อความรายละเอียด', uploadLogo: 'เพิ่มโลโก้ร้านค้า', replaceLogo: 'เปลี่ยนโลโก้ร้านค้า',
       uploadHint: 'รองรับ PNG, JPG และ WebP (พื้นหลังโปร่งใสจะสวยที่สุด)', layers: 'เลือกสิ่งที่ต้องการแก้บนแบบ',
-      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', shopLogo: 'โลโก้ร้าน',
+      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', modelLogoChoice: 'โลโก้รุ่นสินค้าที่จะแสดง', shopLogo: 'โลโก้ร้าน', addElements: 'หยิบ element ใส่ป้าย', blankBackground: 'พื้นหลังเปล่า',
       selected: 'กำลังแก้ไข', selectHint: 'คลิกสิ่งที่ต้องการบนภาพ หรือเลือกจากปุ่มด้านล่าง',
       smaller: 'เล็กลง', larger: 'ใหญ่ขึ้น', rotateLeft: 'หมุนซ้าย', rotateRight: 'หมุนขวา',
       reset: 'คืนตำแหน่ง', remove: 'ลบออก', restore: 'นำกลับมา', hidden: 'ซ่อนอยู่',
@@ -2991,7 +3005,7 @@ function getArtworkEditorLabels() {
     en: {
       body: 'Body text', uploadLogo: 'Insert shop logo', replaceLogo: 'Replace shop logo',
       uploadHint: 'PNG, JPG or WebP (a transparent background works best)', layers: 'Select an element to edit',
-      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', shopLogo: 'Shop logo',
+      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', modelLogoChoice: 'Model logo to display', shopLogo: 'Shop logo', addElements: 'Add elements to the sign', blankBackground: 'Blank background',
       selected: 'Editing', selectHint: 'Click an element on the artwork or choose it below',
       smaller: 'Smaller', larger: 'Larger', rotateLeft: 'Rotate left', rotateRight: 'Rotate right',
       reset: 'Reset position', remove: 'Remove', restore: 'Restore', hidden: 'Hidden',
@@ -3001,7 +3015,7 @@ function getArtworkEditorLabels() {
     sw: {
       body: 'Maandishi ya maelezo', uploadLogo: 'Weka nembo ya duka', replaceLogo: 'Badilisha nembo ya duka',
       uploadHint: 'PNG, JPG au WebP (mandharinyuma wazi yanafaa zaidi)', layers: 'Chagua kipengele cha kuhariri',
-      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', shopLogo: 'Nembo ya duka',
+      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', modelLogoChoice: 'Nembo ya mfano inayoonyeshwa', shopLogo: 'Nembo ya duka', addElements: 'Ongeza vipengele kwenye bango', blankBackground: 'Mandharinyuma tupu',
       selected: 'Unahariri', selectHint: 'Bofya kipengele kwenye mchoro au ukichague hapa chini',
       smaller: 'Punguza', larger: 'Ongeza', rotateLeft: 'Zungusha kushoto', rotateRight: 'Zungusha kulia',
       reset: 'Rudisha nafasi', remove: 'Ondoa', restore: 'Rudisha', hidden: 'Imefichwa',
@@ -3011,7 +3025,7 @@ function getArtworkEditorLabels() {
     fr: {
       body: 'Corps du texte', uploadLogo: 'Insérer le logo du magasin', replaceLogo: 'Remplacer le logo',
       uploadHint: 'PNG, JPG ou WebP (fond transparent recommandé)', layers: 'Sélectionnez un élément à modifier',
-      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', shopLogo: 'Logo magasin',
+      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', modelLogoChoice: 'Logo du modèle à afficher', shopLogo: 'Logo magasin', addElements: 'Ajouter des éléments à l’affiche', blankBackground: 'Arrière-plan vierge',
       selected: 'Modification', selectHint: "Cliquez sur un élément de l’affiche ou choisissez-le ci-dessous",
       smaller: 'Réduire', larger: 'Agrandir', rotateLeft: 'Tourner à gauche', rotateRight: 'Tourner à droite',
       reset: 'Réinitialiser', remove: 'Supprimer', restore: 'Restaurer', hidden: 'Masqué',
@@ -3021,7 +3035,7 @@ function getArtworkEditorLabels() {
     tl: {
       body: 'Detalye ng teksto', uploadLogo: 'Ilagay ang logo ng tindahan', replaceLogo: 'Palitan ang logo',
       uploadHint: 'PNG, JPG o WebP (pinakamaganda ang transparent na background)', layers: 'Pumili ng elementong ie-edit',
-      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', shopLogo: 'Logo ng tindahan',
+      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', modelLogoChoice: 'Logo ng modelong ipapakita', shopLogo: 'Logo ng tindahan', addElements: 'Magdagdag ng element sa sign', blankBackground: 'Blankong background',
       selected: 'Ine-edit', selectHint: 'I-click ang elemento sa artwork o piliin ito sa ibaba',
       smaller: 'Liitan', larger: 'Lakihan', rotateLeft: 'Ikutin pakaliwa', rotateRight: 'Ikutin pakanan',
       reset: 'I-reset ang posisyon', remove: 'Alisin', restore: 'Ibalik', hidden: 'Nakatago',
@@ -3074,7 +3088,8 @@ function renderArtworkBody(c) {
           <div class="artwork-field">
             <span>${a.bgStyleLabel}</span>
             <div class="artwork-swatch-group" id="aw-bgstyle-group" role="radiogroup">
-              <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal active" data-value="diagonal" aria-pressed="true" title="${a.bgStyles.diagonal}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-blank active" data-value="blank" aria-pressed="true" title="${ui.blankBackground}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal" data-value="diagonal" aria-pressed="false" title="${a.bgStyles.diagonal}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-dark" data-value="dark" aria-pressed="false" title="${a.bgStyles.dark}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-frame" data-value="frame" aria-pressed="false" title="${a.bgStyles.frame}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-corners" data-value="corners" aria-pressed="false" title="${a.bgStyles.corners}"></button>
@@ -3084,12 +3099,32 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--bg-sunset-glow" data-value="sunset-glow" aria-pressed="false" title="${a.bgStyles.sunsetGlow}"></button>
             </div>
           </div>
+          <div class="artwork-field">
+            <span>${ui.addElements}</span>
+            <div class="artwork-element-picker">
+              <button type="button" data-aw-add="headline">＋ ${ui.text}</button>
+              <button type="button" data-aw-add="engine">＋ ZT PLUS</button>
+              <button type="button" data-aw-add="tiller">＋ NC PLUS X</button>
+              <button type="button" data-aw-add="brand">＋ ${ui.brand}</button>
+              <button type="button" data-aw-add="ztPlus">＋ Logo ZT PLUS</button>
+              <button type="button" data-aw-add="ncPlusX">＋ Logo NC PLUS X</button>
+              <button type="button" data-aw-add="ncPlusXSpecial">＋ Logo NC PLUS X SPECIAL</button>
+            </div>
+          </div>
           <label class="artwork-field">
             <span>${a.productLabel}</span>
             <select id="aw-product">
               <option value="engine">${a.products.engine}</option>
               <option value="tiller">${a.products.tiller}</option>
               <option value="both">${a.products.both}</option>
+            </select>
+          </label>
+          <label class="artwork-field">
+            <span>${ui.modelLogoChoice}</span>
+            <select id="aw-model-logo-choice">
+              <option value="ztPlus">ZT PLUS</option>
+              <option value="ncPlusX">NC PLUS X</option>
+              <option value="ncPlusXSpecial">NC PLUS X SPECIAL</option>
             </select>
           </label>
           <label class="artwork-field" id="aw-logo-choice-field" hidden>
@@ -3101,7 +3136,7 @@ function renderArtworkBody(c) {
           </label>
           <div class="artwork-field">
             <span>${a.brandLogoLabel}</span>
-            <button type="button" class="artwork-toggle-btn active" id="aw-logo-visible-toggle" aria-pressed="true">
+            <button type="button" class="artwork-toggle-btn" id="aw-logo-visible-toggle" aria-pressed="false">
               <span class="artwork-toggle-check" aria-hidden="true">✓</span>
               <span>${a.brandLogoToggle}</span>
             </button>
@@ -3387,6 +3422,11 @@ const AW_PHOTO_BACKGROUNDS = {
 };
 
 function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, photoImg) {
+  if (bgStyle === 'blank') {
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, pxW, pxH);
+    return;
+  }
   if (photoImg) {
     const scale = Math.max(pxW / photoImg.width, pxH / photoImg.height);
     const dw = photoImg.width * scale;
@@ -3671,7 +3711,7 @@ function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, phot
 async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const isLandscape = spec.wCm >= spec.hCm;
   const a = c.artwork;
-  const bgStyle = st.bgStyle || 'diagonal';
+  const bgStyle = st.bgStyle || 'blank';
 
   ctx.clearRect(0, 0, pxW, pxH);
 
@@ -3737,16 +3777,20 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const productImgs = [];
   if (st.product === 'engine' || st.product === 'both') {
     productImgs.push({
-      photo: await loadArtworkImage('assets/img/product/zt155-engine-cutout.png'),
-      wordmark: await loadArtworkImage('assets/img/artwork/zt-plus-wordmark.png')
+      photo: await loadArtworkImage('assets/img/product/zt155-engine-cutout.png')
     });
   }
   if (st.product === 'tiller' || st.product === 'both') {
     productImgs.push({
-      photo: await loadArtworkImage('assets/img/product/nc-plusx-tiller-cutout.png'),
-      wordmark: await loadArtworkImage('assets/img/artwork/tra-chang-wordmark.png')
+      photo: await loadArtworkImage('assets/img/product/nc-plusx-tiller-cutout.png')
     });
   }
+  const modelWordmarkSrc = {
+    ztPlus: 'assets/img/artwork/zt-plus-wordmark.png',
+    ncPlusX: 'assets/img/product/logo-nc-plus-x.png',
+    ncPlusXSpecial: 'assets/img/product/logo-nc-plus-x-special.png'
+  }[st.modelLogoChoice] || 'assets/img/artwork/zt-plus-wordmark.png';
+  const modelWordmarkImg = await loadArtworkImage(modelWordmarkSrc);
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
@@ -3776,11 +3820,9 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   // decoration and promo text.
   const bandAreaW = (pxW - pad) - (logoX + logoW + pad * 0.6);
   const inlineWm = bgStyle === 'frame' && isLandscape && bandAreaW > pxW * 0.15;
-  // Whenever TRA CHANG is the top brand logo (tiller-only, or "both" with
-  // TRA CHANG picked), the tiller's own wordmark below would just repeat
-  // the same mark — drop it from this row only (the product photo still
-  // comes from the untouched productImgs).
-  const wordmarkImgs = brandChoice === 'traChang' ? productImgs.filter(p => p.wordmark !== traChangImg) : productImgs;
+  // The model logo is selected independently from the product photo so users
+  // can prepare artwork variants without the product picker forcing ZT PLUS.
+  const wordmarkImgs = [{ wordmark: modelWordmarkImg }];
   // Base position (no drag offsets applied) — used for the text-layout math
   // below so dragging the logo or the wordmark doesn't reshuffle where the
   // headline block is allowed to sit; only the drawn elements actually move.
@@ -4107,6 +4149,7 @@ function initArtworkPage(c) {
   const heightInput = document.getElementById('aw-height-cm');
   const bgStyleGroup = document.getElementById('aw-bgstyle-group');
   const productSel = document.getElementById('aw-product');
+  const modelLogoChoiceSel = document.getElementById('aw-model-logo-choice');
   const logoChoiceField = document.getElementById('aw-logo-choice-field');
   const logoChoiceSel = document.getElementById('aw-logo-choice');
   const logoVisibleToggle = document.getElementById('aw-logo-visible-toggle');
@@ -4145,6 +4188,7 @@ function initArtworkPage(c) {
   const resetElementBtn = document.getElementById('aw-reset-element');
   const removeElementBtn = document.getElementById('aw-remove-element');
   const layerButtons = Array.from(document.querySelectorAll('[data-aw-layer]'));
+  const addElementButtons = Array.from(document.querySelectorAll('[data-aw-add]'));
 
   let selectedGroup = 'headline';
   let logoOffsetXFrac = 0, logoOffsetYFrac = 0;
@@ -4152,7 +4196,7 @@ function initArtworkPage(c) {
   let photoOffsetXFrac = 0, photoOffsetYFrac = 0;
   let customLogoOffsetXFrac = 0, customLogoOffsetYFrac = 0;
   let logoScale = 1, wordmarkScale = 1, photoScale = 1, customLogoScale = 1;
-  let logoVisible = true, wordmarkVisible = true, photoVisible = true, textVisible = true, customLogoVisible = true;
+  let logoVisible = false, wordmarkVisible = false, photoVisible = false, textVisible = false, customLogoVisible = true;
   let customLogoDataUrl = '';
 
   function swatchValue(group, fallback) {
@@ -4189,8 +4233,9 @@ function initArtworkPage(c) {
   function currentState() {
     return {
       size: sizeSel.value,
-      bgStyle: swatchValue(bgStyleGroup, 'diagonal'),
+      bgStyle: swatchValue(bgStyleGroup, 'blank'),
       product: productSel.value,
+      modelLogoChoice: modelLogoChoiceSel.value,
       logoChoice: logoChoiceSel.value,
       shopName: shopInput.value,
       contact: contactInput.value,
@@ -4332,6 +4377,29 @@ function initArtworkPage(c) {
   }
 
   layerButtons.forEach(btn => btn.addEventListener('click', () => selectGroup(btn.dataset.awLayer)));
+
+  addElementButtons.forEach(btn => btn.addEventListener('click', () => {
+    const kind = btn.dataset.awAdd;
+    if (kind === 'headline') {
+      textVisible = true;
+      selectedGroup = 'headline';
+    } else if (kind === 'brand') {
+      logoVisible = true;
+      selectedGroup = 'logo';
+    } else if (kind === 'engine' || kind === 'tiller') {
+      if (!photoVisible) productSel.value = kind;
+      else if (productSel.value !== kind) productSel.value = 'both';
+      photoVisible = true;
+      selectedGroup = 'photo';
+      updateLogoChoiceVisibility();
+    } else {
+      modelLogoChoiceSel.value = kind;
+      wordmarkVisible = true;
+      selectedGroup = 'wordmark';
+    }
+    updateEditorUi();
+    schedulePreview(0);
+  }));
 
   function adjustSelectedScale(delta) {
     if (selectedGroup === 'customLogo' && !customLogoDataUrl) return;
@@ -4639,6 +4707,7 @@ function initArtworkPage(c) {
   }
   updateLogoChoiceVisibility();
   productSel.addEventListener('change', () => { photoVisible = true; updateLogoChoiceVisibility(); schedulePreview(); });
+  modelLogoChoiceSel.addEventListener('change', () => { wordmarkVisible = true; schedulePreview(); });
   logoChoiceSel.addEventListener('change', schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
@@ -4793,6 +4862,7 @@ async function setLang(lang) {
   document.documentElement.lang = lang;
   state.content = await loadContent(lang);
   state.searchIndex = buildSearchIndex(state.content);
+  state.searchIndex.push(...await loadProductKnowledge(lang));
   render();
   applyAssistantText(state.content);
   applyBackToTopText(state.content);
@@ -4823,8 +4893,44 @@ function pushEntry(index, route, title, snippet, extraText) {
     route,
     title,
     snippet: snippet.length > 160 ? snippet.slice(0, 157) + '…' : snippet,
-    text: `${title} ${snippet} ${extraText || ''}`.toLowerCase()
+    text: normalizeAssistantText(`${title} ${snippet} ${extraText || ''}`)
   });
+}
+
+function normalizeAssistantText(value) {
+  return String(value || '').normalize('NFKC').toLocaleLowerCase();
+}
+
+function addFullPageIndex(index, route, root, pageTitle) {
+  const skipKeys = new Set(['href', 'src', 'alt', 'id', 'type', 'lang', 'youtubeId', 'image', 'video']);
+  const titleKeys = ['title', 'name', 'label', 'heading', 'question', 'code'];
+
+  function walk(value, inheritedTitle, depth = 0) {
+    if (depth > 12 || value == null) return;
+    if (Array.isArray(value)) {
+      const primitiveText = value.filter(v => typeof v === 'string' || typeof v === 'number').join(' ');
+      if (primitiveText.length >= 12) pushEntry(index, route, inheritedTitle || pageTitle, primitiveText, pageTitle);
+      value.filter(v => v && typeof v === 'object').forEach(v => walk(v, inheritedTitle, depth + 1));
+      return;
+    }
+    if (typeof value !== 'object') return;
+
+    const titleKey = titleKeys.find(k => typeof value[k] === 'string' && value[k].trim());
+    const title = titleKey ? value[titleKey] : inheritedTitle || pageTitle;
+    const ownText = Object.entries(value)
+      .filter(([key, v]) => !skipKeys.has(key) && key !== titleKey && (typeof v === 'string' || typeof v === 'number'))
+      .map(([, v]) => String(v))
+      .join(' ')
+      .trim();
+    if (ownText.length >= 12) pushEntry(index, route, title, ownText, pageTitle);
+
+    Object.entries(value).forEach(([key, child]) => {
+      if (skipKeys.has(key) || key === titleKey || child == null || typeof child !== 'object') return;
+      walk(child, title, depth + 1);
+    });
+  }
+
+  walk(root, pageTitle);
 }
 
 function buildSearchIndex(c) {
@@ -4896,34 +5002,57 @@ function buildSearchIndex(c) {
     pushEntry(idx, 'order-tracking', c.order.tabs.tracking, c.order.tracking.disclaimer);
   }
 
-  return idx;
+  // Index every meaningful text field on every page as a safety net. Newly
+  // added specs, notes, steps and localized copy become searchable without a
+  // matching JavaScript change.
+  [
+    ['home', c.home, c.nav.home],
+    ['product-engine', c.product && c.product.engine, c.product && c.product.tabs && c.product.tabs.engine],
+    ['product-tiller', c.product && c.product.tiller, c.product && c.product.tabs && c.product.tabs.tiller],
+    ['product-assembly', c.product && c.product.assembly, c.product && c.product.tabs && c.product.tabs.assembly],
+    ['parts', c.parts, c.nav.parts],
+    ['service', c.service, c.nav.service],
+    ['crops', c.crops, c.nav.crops],
+    ['marketing', c.marketing, c.nav.marketing],
+    ['materials-company', c.materials && c.materials.company, c.nav.artwork],
+    ['materials-custom', c.artwork, c.nav.artwork],
+    ['order-catalog', c.order, c.nav.order]
+  ].forEach(([route, value, title]) => {
+    if (value) addFullPageIndex(idx, route, value, title || route);
+  });
+
+  const seen = new Set();
+  return idx.filter(entry => {
+    const key = `${entry.route}|${normalizeAssistantText(entry.title)}|${normalizeAssistantText(entry.snippet)}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function searchContent(query, c) {
-  const q = query.trim().toLowerCase();
+  const q = normalizeAssistantText(query.trim());
   if (!q) return [];
-  const tokens = q.split(/\s+/).filter(t => t.length >= 2);
-  const bigrams = [];
-  for (let i = 0; i < q.length - 1; i++) bigrams.push(q.slice(i, i + 2));
+  const tokens = (q.match(/[\p{L}\p{N}]+/gu) || []).filter(t => t.length >= 2);
+  const compact = q.replace(/\s+/g, '');
+  const bigrams = [...new Set(Array.from({ length: Math.max(0, compact.length - 1) }, (_, i) => compact.slice(i, i + 2)))];
 
   const scored = state.searchIndex.map(entry => {
     let score = 0;
-    if (entry.title.toLowerCase().includes(q)) score += 15;
+    if (normalizeAssistantText(entry.title).includes(q)) score += 15;
     if (entry.text.includes(q)) score += 8;
     tokens.forEach(tok => {
-      if (entry.title.toLowerCase().includes(tok)) score += 3;
+      if (normalizeAssistantText(entry.title).includes(tok)) score += 3;
       if (entry.text.includes(tok)) score += 1;
     });
-    if (tokens.length === 0) {
-      bigrams.forEach(bg => { if (entry.text.includes(bg)) score += 0.5; });
-    }
+    bigrams.forEach(bg => { if (entry.text.includes(bg)) score += 0.22; });
     return { entry, score };
   });
 
   return scored
     .filter(r => r.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 5)
+    .slice(0, 6)
     .map(r => r.entry);
 }
 
@@ -4967,13 +5096,23 @@ function kaRenderResults(results, c) {
   if (!results.length) {
     return `<div>${escapeHtml(c.assistant.noResults)}</div>`;
   }
-  const items = results.map(r => `
-    <button type="button" class="ka-result" data-ka-route="${r.route}">
-      <div class="ka-result-tag">${escapeHtml(routeLabel(r.route, c))}</div>
-      <div class="ka-result-title">${escapeHtml(r.title)}</div>
-      <div class="ka-result-snippet">${escapeHtml(r.snippet)}</div>
-    </button>
-  `).join('');
+  const sourceLabel = ({ th: 'แหล่งข้อมูล', en: 'Source', fr: 'Source', sw: 'Chanzo', tl: 'Pinagmulan' })[state.lang] || 'Source';
+  const sectionLabel = ({ th: 'ส่วน', en: 'Section', fr: 'Section', sw: 'Sehemu', tl: 'Seksyon' })[state.lang] || 'Section';
+  const openLabel = ({ th: 'เปิดเอกสารต้นฉบับ ↗', en: 'Open source document ↗', fr: 'Ouvrir le document source ↗', sw: 'Fungua hati chanzo ↗', tl: 'Buksan ang source document ↗' })[state.lang] || 'Open source document ↗';
+  const items = results.map(r => {
+    const source = r.sourceTitle ? `${r.sourceTitle} — ${sectionLabel} ${r.chunkNumber}` : routeLabel(r.route, c);
+    return `
+      <div class="ka-result-wrap">
+        <button type="button" class="ka-result" data-ka-route="${r.route}">
+          <div class="ka-result-tag">${escapeHtml(routeLabel(r.route, c))}</div>
+          <div class="ka-result-title">${escapeHtml(r.title)}</div>
+          <div class="ka-result-snippet">${escapeHtml(r.snippet)}</div>
+          <div class="ka-result-source">${escapeHtml(sourceLabel)}: ${escapeHtml(source)}</div>
+        </button>
+        ${r.sourceUrl ? `<a class="ka-source-link" href="${escapeHtml(r.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(openLabel)}</a>` : ''}
+      </div>
+    `;
+  }).join('');
   return `<div>${escapeHtml(c.assistant.resultsIntro)}</div><div class="ka-results">${items}</div>`;
 }
 
