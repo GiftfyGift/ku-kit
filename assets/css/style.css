@@ -3636,6 +3636,16 @@ table.parts-table td.code-col {
 .artwork-swatch--bg-blank { background: #FFFFFF; box-shadow: inset 0 0 0 1px #C9D0D2; }
 .artwork-swatch--bg-blank.active { box-shadow: inset 0 0 0 1px #C9D0D2, 0 0 0 2px rgba(255,106,61,0.4); }
 .artwork-swatch--bg-blank.active::after { color: #FF6A3D; text-shadow: none; }
+.artwork-swatch--bg-transparent {
+  background-image:
+    linear-gradient(45deg, #C9D0D2 25%, transparent 25%, transparent 75%, #C9D0D2 75%, #C9D0D2),
+    linear-gradient(45deg, #C9D0D2 25%, #FFFFFF 25%, #FFFFFF 75%, #C9D0D2 75%, #C9D0D2);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+  box-shadow: inset 0 0 0 1px #C9D0D2;
+}
+.artwork-swatch--bg-transparent.active { box-shadow: inset 0 0 0 1px #C9D0D2, 0 0 0 2px rgba(255,106,61,0.4); }
+.artwork-swatch--bg-transparent.active::after { color: #FF6A3D; text-shadow: 0 0 2px rgba(255,255,255,0.9); }
 .artwork-swatch--bg-dark { background: linear-gradient(135deg, #0e3338, #081416); box-shadow: inset 0 0 0 2px rgba(255,106,61,0.5); }
 .artwork-swatch--bg-dark.active { box-shadow: inset 0 0 0 2px rgba(255,106,61,0.5), 0 0 0 2px rgba(255,106,61,0.4); }
 .artwork-swatch--bg-frame { background: #F7F5F0; box-shadow: inset 0 0 0 3px #FF6A3D; }
@@ -3809,6 +3819,13 @@ table.parts-table td.code-col {
   touch-action: none;
 }
 
+.artwork-canvas-wrap canvas.artwork-canvas--transparent-bg {
+  background-image:
+    linear-gradient(45deg, #C9D0D2 25%, transparent 25%, transparent 75%, #C9D0D2 75%, #C9D0D2),
+    linear-gradient(45deg, #C9D0D2 25%, #FFFFFF 25%, #FFFFFF 75%, #C9D0D2 75%, #C9D0D2);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
 .artwork-canvas-wrap canvas.is-draggable { cursor: grab; }
 .artwork-canvas-wrap canvas.is-resizable { cursor: nwse-resize; }
 .artwork-canvas-wrap canvas.is-dragging { cursor: grabbing; }

@@ -3119,6 +3119,7 @@ function renderArtworkBody(c) {
             <span>${a.bgStyleLabel}</span>
             <div class="artwork-swatch-group" id="aw-bgstyle-group" role="radiogroup">
               <button type="button" class="artwork-swatch artwork-swatch--bg-blank active" data-value="blank" aria-pressed="true" title="${ui.blankBackground}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--bg-transparent" data-value="transparent" aria-pressed="false" title="${a.bgStyles.transparent}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-diagonal" data-value="diagonal" aria-pressed="false" title="${a.bgStyles.diagonal}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-dark" data-value="dark" aria-pressed="false" title="${a.bgStyles.dark}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--bg-frame" data-value="frame" aria-pressed="false" title="${a.bgStyles.frame}"></button>
@@ -3501,6 +3502,13 @@ function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, phot
     ctx.fillRect(0, 0, pxW, pxH);
     return;
   }
+  if (bgStyle === 'transparent') {
+    // Leave the canvas alpha channel untouched — no fill at all — so a dark
+    // or light logo dropped onto this design can be exported and placed over
+    // any real background (a shop's own poster, a colored shirt, etc.)
+    // without fighting a fixed color baked into this canvas.
+    return;
+  }
   if (photoImg) {
     const scale = Math.max(pxW / photoImg.width, pxH / photoImg.height);
     const dw = photoImg.width * scale;
@@ -3863,7 +3871,7 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
 
   const logoX = (isLandscape ? pad : (pxW - logoW) / 2) + logoOffsetXpx;
   const logoY = pad + logoOffsetYpx;
-  const brandTextOnDark = bgStyle !== 'diagonal' && bgStyle !== 'spotlight' && bgStyle !== 'blank';
+  const brandTextOnDark = bgStyle !== 'diagonal' && bgStyle !== 'spotlight' && bgStyle !== 'blank' && bgStyle !== 'transparent';
   if (logoVisible && brandRows.length) {
     brandRows.forEach((row, i) => {
       const rowY = logoY + i * (logoH + brandRowGap());
@@ -4634,6 +4642,10 @@ function initArtworkPage(c) {
     canvas.width = pxW;
     canvas.height = pxH;
     canvas.getContext('2d').drawImage(offscreen, 0, 0);
+    // A transparent canvas is otherwise invisible against the editor's own
+    // background — show a checkerboard behind it (CSS only, never drawn onto
+    // the canvas itself) so it's obvious the design has no fixed background.
+    canvas.classList.toggle('artwork-canvas--transparent-bg', st.bgStyle === 'transparent');
     // Remembered so the drag handlers below can hit-test each draggable group
     // and convert a pointer delta into the same px→percent scale drawArtwork
     // used to place it.
