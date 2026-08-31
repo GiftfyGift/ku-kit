@@ -1841,7 +1841,28 @@ table.spec-table td:last-child {
 .tiller-compare-notes .compare-note:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
 
 @media (max-width: 620px) {
-  .tiller-compare-col-head { min-width: 170px; }
+  /* Shrink the whole table to fit a phone screen without horizontal
+     scrolling wherever possible — both model columns stay visible at
+     once, which is the whole point of a side-by-side comparison. */
+  .tiller-compare-table { min-width: 0; font-size: 12px; }
+  .tiller-compare-table th,
+  .tiller-compare-table td { padding: 8px; }
+  .tiller-compare-col-head { min-width: 0; }
+  .tiller-compare-row-label {
+    white-space: normal;
+    min-width: 72px;
+    max-width: 84px;
+    font-size: 11px;
+    line-height: 1.3;
+  }
+  .tiller-compare-col-head .product-card-logo { height: 40px; }
+  .tiller-compare-col-head .product-card-photo { flex-basis: 64px; }
+  .tiller-compare-col-head .product-card-photo figcaption { font-size: 10px; }
+  .wheel-badge { padding: 8px 8px; }
+  .wheel-badge span:first-child { font-size: 14px; }
+  .wheel-badge span:last-child { font-size: 10px; }
+  .tiller-compare-type { font-size: 11px; }
+  .tiller-compare-bullets { font-size: 10px; padding-left: 12px; }
 }
 
 /* Generic table (maintenance, kubota-table) */
