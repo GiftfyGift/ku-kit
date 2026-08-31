@@ -358,6 +358,9 @@
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Motoculteur TRA CHANG NC Plus X 800" },
       "exteriorLabel": "Extérieur",
       "interiorLabel": "Intérieur",
+      "wheelSizeLabel": "Taille de roue",
+      "exteriorRowLabels": ["Soc de charrue", "Moyeu de roue", "Garde-boue"],
+      "interiorRowLabels": ["Système de virage", "Embrayage", "Roulement"],
       "items": [
         {
           "name": "NC Plus X",

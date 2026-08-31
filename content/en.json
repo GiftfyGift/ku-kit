@@ -358,6 +358,9 @@
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller" },
       "exteriorLabel": "Exterior",
       "interiorLabel": "Interior",
+      "wheelSizeLabel": "Wheel size",
+      "exteriorRowLabels": ["Plow shaft", "Wheel hub", "Fender"],
+      "interiorRowLabels": ["Turning system", "Clutch set", "Bearing"],
       "items": [
         {
           "name": "NC Plus X",

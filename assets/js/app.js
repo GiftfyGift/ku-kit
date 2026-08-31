@@ -240,8 +240,10 @@ function renderHome(c) {
   `;
 }
 
-function renderProductCategory(cat, id, showHeroImage = true) {
-  const items = cat.items.map(item => {
+function renderTillerCompareTable(cat) {
+  const items = cat.items;
+  const colCount = items.length + 1;
+  const headCells = items.map(item => {
     const isMultiPhoto = item.images && item.images.length > 1;
     const heading = item.logo
       ? `<img class="product-card-logo${isMultiPhoto ? ' product-card-logo--large' : ''}" src="${item.logo.src}" alt="${item.logo.alt}">`
@@ -256,38 +258,73 @@ function renderProductCategory(cat, id, showHeroImage = true) {
         `).join('')}
       </div>
     ` : '';
-    const hasCompare = item.wheelOptions && item.exterior && item.interior;
-    const body = hasCompare ? `
-      <div class="product-card-body product-card-body--compare">
-        <div class="wheel-badge-row">
-          ${item.wheelOptions.map(w => `
-            <div class="wheel-badge">
-              <span>${w.line1}</span>
-              <span>${w.line2}</span>
-            </div>
-          `).join('')}
-        </div>
-        <div class="compare-section">
-          <h5 class="compare-heading">${cat.exteriorLabel}</h5>
-          <ul class="compare-bullets">${item.exterior.map(t => `<li>${t}</li>`).join('')}</ul>
-        </div>
-        <div class="compare-section">
-          <h5 class="compare-heading">${cat.interiorLabel}</h5>
-          ${item.interior.map(group => `
-            <div class="compare-subgroup">
-              <p class="compare-subheading">${group.heading}</p>
-              <ul class="compare-bullets compare-bullets--dash">${group.bullets.map(t => `<li>${t}</li>`).join('')}</ul>
-            </div>
-          `).join('')}
-        </div>
-        ${item.compatNote ? `<p class="compare-note">${item.compatNote}</p>` : ''}
+    return `<th class="tiller-compare-col-head">${heading}${photos}</th>`;
+  }).join('');
+  const wheelCells = items.map(item => `
+    <td>
+      <div class="wheel-badge-row">
+        ${item.wheelOptions.map(w => `<div class="wheel-badge"><span>${w.line1}</span><span>${w.line2}</span></div>`).join('')}
       </div>
-    ` : `
-      <div class="product-card-body">
-        <p class="desc">${item.desc}</p>
-        <table class="spec-table"><tbody>${item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('')}</tbody></table>
+    </td>
+  `).join('');
+  const exteriorRows = (cat.exteriorRowLabels || []).map((label, i) => `
+    <tr>
+      <th class="tiller-compare-row-label">${label}</th>
+      ${items.map(item => `<td>${item.exterior[i] || ''}</td>`).join('')}
+    </tr>
+  `).join('');
+  const interiorRows = (cat.interiorRowLabels || []).map((label, i) => `
+    <tr>
+      <th class="tiller-compare-row-label">${label}</th>
+      ${items.map(item => {
+        const group = item.interior[i];
+        if (!group) return '<td></td>';
+        return `
+          <td>
+            <p class="tiller-compare-type">${group.heading}</p>
+            <ul class="tiller-compare-bullets">${group.bullets.map(t => `<li>${t}</li>`).join('')}</ul>
+          </td>
+        `;
+      }).join('')}
+    </tr>
+  `).join('');
+  const notes = items.filter(item => item.compatNote)
+    .map(item => `<p class="compare-note"><strong>${item.name}:</strong> ${item.compatNote}</p>`).join('');
+  return `
+    <div class="tiller-compare-wrap">
+      <table class="tiller-compare-table">
+        <thead>
+          <tr><th class="tiller-compare-row-label"></th>${headCells}</tr>
+          <tr><th class="tiller-compare-row-label">${cat.wheelSizeLabel || ''}</th>${wheelCells}</tr>
+        </thead>
+        <tbody>
+          <tr class="tiller-compare-section-row"><td colspan="${colCount}">${cat.exteriorLabel}</td></tr>
+          ${exteriorRows}
+          <tr class="tiller-compare-section-row"><td colspan="${colCount}">${cat.interiorLabel}</td></tr>
+          ${interiorRows}
+        </tbody>
+      </table>
+    </div>
+    ${notes ? `<div class="tiller-compare-notes">${notes}</div>` : ''}
+  `;
+}
+
+function renderProductCategory(cat, id, showHeroImage = true) {
+  const isCompareCategory = cat.items.length > 1 && cat.items.every(item => item.wheelOptions && item.exterior && item.interior);
+  const items = isCompareCategory ? renderTillerCompareTable(cat) : `<div class="product-grid">${cat.items.map(item => {
+    const heading = item.logo
+      ? `<img class="product-card-logo" src="${item.logo.src}" alt="${item.logo.alt}">`
+      : `<h4>${item.name}</h4>`;
+    const photos = item.images && item.images.length ? `
+      <div class="product-card-photos">
+        ${item.images.map(img => `
+          <figure class="product-card-photo">
+            <img src="${img.src}" alt="${img.alt}">
+            ${img.caption ? `<figcaption>${img.caption}</figcaption>` : ''}
+          </figure>
+        `).join('')}
       </div>
-    `;
+    ` : '';
     return `
       <div class="product-card-group">
         ${photos}
@@ -295,11 +332,14 @@ function renderProductCategory(cat, id, showHeroImage = true) {
           <div class="product-card-header">
             ${heading}
           </div>
-          ${body}
+          <div class="product-card-body">
+            <p class="desc">${item.desc}</p>
+            <table class="spec-table"><tbody>${item.specs.map(s => `<tr><td>${s.label}</td><td>${s.value}</td></tr>`).join('')}</tbody></table>
+          </div>
         </div>
       </div>
     `;
-  }).join('');
+  }).join('')}</div>`;
   const catImage = (showHeroImage && cat.image) ? `
     <figure class="category-photo">
       <img src="${cat.image.src}" alt="${cat.image.alt}">
@@ -309,7 +349,7 @@ function renderProductCategory(cat, id, showHeroImage = true) {
   return `
     <div class="category-block"${id ? ` id="${id}"` : ''}>
       ${catImage}
-      <div class="product-grid">${items}</div>
+      ${items}
     </div>
   `;
 }

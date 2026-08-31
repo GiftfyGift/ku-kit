@@ -366,6 +366,9 @@
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "รถไถเดินตามตราช้าง NC Plus X 800" },
       "exteriorLabel": "ภายนอก",
       "interiorLabel": "ภายใน",
+      "wheelSizeLabel": "ขนาดล้อ",
+      "exteriorRowLabels": ["ซองผาน", "ประกับล้อ", "บังโคลน"],
+      "interiorRowLabels": ["ระบบเกียร์บีบเลี้ยว", "ชุดคลัตช์", "Bearing"],
       "items": [
         {
           "name": "NC Plus X",

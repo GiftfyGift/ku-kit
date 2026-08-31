@@ -362,6 +362,9 @@
       "image": { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "Trekta la kutembea la TRA CHANG NC Plus X 800" },
       "exteriorLabel": "Nje",
       "interiorLabel": "Ndani",
+      "wheelSizeLabel": "Ukubwa wa gurudumu",
+      "exteriorRowLabels": ["Fremu ya jembe", "Kitovu cha gurudumu", "Fenda"],
+      "interiorRowLabels": ["Mfumo wa kugeuza", "Klachi", "Beringi"],
       "items": [
         {
           "name": "NC Plus X",
