@@ -4157,6 +4157,65 @@ table.parts-table td.code-col {
 
 .ka-source-link:hover { color: var(--kubota-orange); }
 
+.ka-msg--thinking {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.ka-clarify {
+  background: rgba(255,106,61,0.1);
+  border: 1px solid rgba(255,106,61,0.35);
+  border-radius: 8px;
+  padding: 9px 11px;
+  margin-bottom: 8px;
+}
+
+.ka-clarify-question {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--kubota-navy);
+}
+
+.ka-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ka-chip {
+  background: var(--kubota-light-gray);
+  border: 1px solid var(--kubota-border);
+  border-radius: 999px;
+  color: var(--kubota-navy);
+  font-family: inherit;
+  font-size: 11px;
+  padding: 5px 11px;
+  cursor: pointer;
+}
+
+.ka-chip:hover { border-color: var(--kubota-orange); color: var(--kubota-orange); }
+
+.ka-answer {
+  background: var(--kubota-light-gray);
+  border-left: 3px solid var(--kubota-purple);
+  border-radius: 6px;
+  padding: 9px 11px;
+  margin-bottom: 8px;
+}
+
+.ka-answer-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--kubota-navy);
+}
+
+.ka-answer-disclaimer {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--kubota-mid-gray);
+}
+
 .ka-form {
   display: flex;
   gap: 8px;

@@ -14,3 +14,10 @@ assets/docs/*
 
 # Regenerable build output — rebuild via the artifact build script when needed
 artifact/
+
+# KU-KIT Assistant backend — secrets and regenerable local state
+backend/cloudflare-worker/.env
+backend/cloudflare-worker/node_modules/
+scripts/ingest-knowledge/node_modules/
+scripts/ingest-knowledge/staging/
+scripts/ingest-knowledge/source-files/
