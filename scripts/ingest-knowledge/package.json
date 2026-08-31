@@ -1,0 +1,13 @@
+{
+  "name": "kukit-ingest-knowledge",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "ingest": "node ingest.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "pdf-parse": "^1.1.1",
+    "xlsx": "^0.18.5"
+  }
+}

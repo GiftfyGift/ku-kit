@@ -1,0 +1,31 @@
+name = "kukit-assistant-backend"
+main = "src/index.js"
+compatibility_date = "2026-08-31"
+
+# Workers AI binding — used to phrase clarifying questions and to synthesize
+# the grounded answer from retrieved chunks. Free-tier friendly.
+[ai]
+binding = "AI"
+
+# R2 bucket that holds the actual document repository (one text file per
+# source document — see scripts/ingest-knowledge/). AI Search is configured
+# separately (dashboard/REST, not wrangler) to index this same bucket.
+[[r2_buckets]]
+binding = "DOCS_BUCKET"
+bucket_name = "kukit-docs"
+
+# Citation metadata keyed by R2 object key — kept out of the R2 bucket itself
+# so AI Search never tries to index it as a document.
+[[kv_namespaces]]
+binding = "DOC_MANIFEST"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Non-secret config. CF_ACCOUNT_ID and the AI Search instance name are needed
+# to call the AI Search REST API (no native Workers binding for it yet).
+[vars]
+AI_SEARCH_INSTANCE = "kukit-assistant"
+CF_ACCOUNT_ID = "REPLACE_WITH_ACCOUNT_ID"
+
+# Secret — set via `npx wrangler secret put CF_API_TOKEN`, never committed.
+# Same scoped token created in the setup wizard (AI Search:Edit, Workers AI:Edit,
+# R2:Edit, KV:Edit, Workers Scripts:Edit).

@@ -1173,6 +1173,8 @@
     "welcome": "Bonjour ! Posez-moi vos questions sur le ZT Plus, le NC Plus X, les pièces, le service, les solutions agricoles, les activités marketing ou les événements — je chercherai dans le site et vous indiquerai la bonne page.",
     "noResults": "Je n'ai rien trouvé de correspondant dans le contenu du site. Essayez d'autres mots-clés, ou parcourez le menu de navigation ci-dessus.",
     "resultsIntro": "Voici ce que j'ai trouvé :",
+    "thinking": "Recherche en cours…",
+    "answerDisclaimer": "Cette réponse a été générée par l'IA à partir des documents du site — vérifiez toujours la source.",
     "viewButton": "Voir cette section →",
     "onPage": "Sur la page"
   }

@@ -5274,7 +5274,7 @@ function kaResetConversation(c) {
   kaAddMessage('bot', escapeHtml(c.assistant.welcome));
 }
 
-function kaRenderResults(results, c) {
+function kaRenderResults(results, c, answer) {
   if (!results.length) {
     return `<div>${escapeHtml(c.assistant.noResults)}</div>`;
   }
@@ -5295,14 +5295,75 @@ function kaRenderResults(results, c) {
       </div>
     `;
   }).join('');
-  return `<div>${escapeHtml(c.assistant.resultsIntro)}</div><div class="ka-results">${items}</div>`;
+  const answerHtml = answer ? `
+    <div class="ka-answer">
+      <div class="ka-answer-text">${escapeHtml(answer)}</div>
+      <div class="ka-answer-disclaimer">${escapeHtml(c.assistant.answerDisclaimer)}</div>
+    </div>
+  ` : '';
+  return `${answerHtml}<div>${escapeHtml(c.assistant.resultsIntro)}</div><div class="ka-results">${items}</div>`;
 }
 
-function kaHandleQuery(query) {
+function kaRenderClarify(data, c) {
+  const chips = (data.suggestions || []).map(s => `<button type="button" class="ka-chip" data-ka-query="${escapeHtml(s)}">${escapeHtml(s)}</button>`).join('');
+  return `
+    <div class="ka-clarify">
+      <div class="ka-clarify-question">${escapeHtml(data.clarifyingQuestion)}</div>
+      ${chips ? `<div class="ka-chips">${chips}</div>` : ''}
+    </div>
+    ${kaRenderResults(data.results || [], c)}
+  `;
+}
+
+// Backend call has a short timeout and always falls back to the local
+// keyword index on any failure (network error, cold start, CORS, backend
+// down) — the widget should never go silent just because the Worker isn't
+// reachable. KA_API_URL is set once the Cloudflare Worker is deployed (see
+// backend/cloudflare-worker/) — empty string skips straight to the fallback.
+const KA_API_URL = '';
+const KA_REQUEST_TIMEOUT_MS = 6000;
+
+async function kaFetchBackend(query, lang) {
+  if (!KA_API_URL) return null;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), KA_REQUEST_TIMEOUT_MS);
+  try {
+    const res = await fetch(`${KA_API_URL}/api/ask`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query, lang }),
+      signal: controller.signal,
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (err) {
+    console.warn('KU-KIT Assistant backend unavailable, falling back to local search', err);
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function kaHandleQuery(query) {
   const c = state.content;
   kaAddMessage('user', escapeHtml(query));
-  const results = searchContent(query, c);
-  kaAddMessage('bot', kaRenderResults(results, c));
+  const thinkingEl = document.createElement('div');
+  thinkingEl.className = 'ka-msg ka-msg--bot ka-msg--thinking';
+  thinkingEl.textContent = c.assistant.thinking;
+  kaMessages.appendChild(thinkingEl);
+  kaMessages.scrollTop = kaMessages.scrollHeight;
+
+  const data = await kaFetchBackend(query, state.lang);
+  thinkingEl.remove();
+
+  if (data && data.mode === 'clarify') {
+    kaAddMessage('bot', kaRenderClarify(data, c));
+  } else if (data && (data.mode === 'results' || data.mode === 'none')) {
+    kaAddMessage('bot', kaRenderResults(data.results || [], c, data.answer));
+  } else {
+    const results = searchContent(query, c);
+    kaAddMessage('bot', kaRenderResults(results, c));
+  }
 }
 
 navButtons.forEach(btn => {
@@ -5418,6 +5479,11 @@ kaForm.addEventListener('submit', (e) => {
 });
 
 kaMessages.addEventListener('click', (e) => {
+  const chip = e.target.closest('.ka-chip');
+  if (chip) {
+    kaHandleQuery(chip.dataset.kaQuery);
+    return;
+  }
   const btn = e.target.closest('.ka-result');
   if (!btn) return;
   navigate(btn.dataset.kaRoute);
