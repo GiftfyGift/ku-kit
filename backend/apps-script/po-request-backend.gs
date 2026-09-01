@@ -33,12 +33,13 @@
  * version of this script: add these header cells as the LAST columns of
  * row 1 in the Orders tab, in this exact order (this script always appends
  * new fields at the end so existing rows/columns are never disturbed):
- *   Revision Notes | Edit Token | PI Number | PI Approval Token | PI Sent To Customer At | Bank Account
- * (If you already added everything up through "PI Sent To Customer At"
- * from an earlier update, just add "Bank Account" after it.) That's the
- * only sheet change needed; everything else keeps working as before —
- * including a brand-new "Bank Accounts" tab, which this script creates and
- * pre-fills for you the first time setupDropdowns() runs (see below).
+ *   Revision Notes | Edit Token | PI Number | PI Approval Token | PI Sent To Customer At | Bank Account | PI Review Token
+ * (If you already added some of these from an earlier update, just add
+ * whichever ones are missing, in order, after the last one you have.)
+ * That's the only sheet change needed; everything else keeps working as
+ * before — including a brand-new "Bank Accounts" tab, which this script
+ * creates and pre-fills for you the first time setupDropdowns() runs (see
+ * below).
  *
  * MULTIPLE BANK ACCOUNTS: the "Bank Accounts" tab (Label, Bank Name,
  * Account No., SWIFT Code, A/C Name) holds every bank the company can get
@@ -84,31 +85,40 @@
  * both the PO number and the email on file).
  *
  * GENERATING A PI: change that row's "PI Stage" (a different column) to
- * "Requested" — this drafts a Proforma Invoice PDF from the row's data,
- * saves it to a Drive folder called "KU-KIT PI Documents", and emails the
- * DRAFT to the "PI Issuer Email" set in Config (falls back to the assigned
- * sales rep if that's blank), WITH AN "Approve & send to customer" LINK.
- * Requires these Config rows to be filled in: Bank Name, Bank Account No.,
- * Bank SWIFT Code, Bank Account Name, PI Issuer Email (plus the existing
- * Current PI Signer Name/Title). The first time this runs, Google will ask
- * you to re-authorize (it now also needs Drive access to save the PDF) —
- * approve it the same way as the first deployment.
+ * "Requested" — this drafts a Proforma Invoice PDF from the row's data and
+ * saves it to a Drive folder called "KU-KIT PI Documents". Requires these
+ * Config rows to be filled in: Bank Name, Bank Account No., Bank SWIFT
+ * Code, Bank Account Name (or use the "Bank Accounts" tab + this row's
+ * "Bank Account" column instead — see below), PI Issuer Email (plus the
+ * existing Current PI Signer Name/Title). The first time this runs, Google
+ * will ask you to re-authorize (it now also needs Drive access to save the
+ * PDF) — approve it the same way as the first deployment.
  *
- * APPROVING A PI (no more manual sign-and-forward): the PI Issuer opens
- * that draft email and clicks "Approve & send to customer" — ONE CLICK.
- * The script then regenerates the same PI with the company's signature
- * image stamped into the signature block (from "Signature Image File ID"
- * in Config — see below; skipped gracefully if that Config row is blank)
- * and emails the final PDF directly to the customer, no further action
- * needed from anyone. This is a visual signature stamp automatically
- * applied on a one-click email approval — NOT a legally-verifiable
- * cryptographic e-signature with an audit trail (that would mean
- * integrating a real e-signature service like DocuSign or Google
- * Workspace's eSignature, which needs actual API credentials from your
- * IT/Workspace admin — this lightweight version needs none of that and
- * works with what's already deployed). Good enough to move paperwork
- * immediately; upgrade later if a legally-binding signature becomes a
- * requirement.
+ * TWO-STAGE APPROVAL (review, then sign) — PI Stage tracks both:
+ *   1. "Generated": the draft is emailed to whoever is this order's
+ *      "Assigned Sales Rep" (falls back to Config "Default Sales Rep
+ *      Email" if that cell is blank/unmatched), with an "Approve & forward
+ *      for signature" link. This step only forwards the draft on — it
+ *      never reaches the customer, and there's no reject button: if
+ *      something's wrong, fix it directly in the row and set PI Stage back
+ *      to "Requested" to regenerate.
+ *   2. "Reviewed": clicking that link emails the PI Issuer (the person
+ *      with signing authority) the SAME draft with the real "Approve &
+ *      send to customer" link.
+ *   3. "Sent to Customer": the PI Issuer clicks that — ONE CLICK — and the
+ *      script regenerates the same PI with the company's signature image
+ *      stamped into the signature block (from "Signature Image File ID" in
+ *      Config — see below; skipped gracefully if that Config row is
+ *      blank) and emails the final PDF directly to the customer, no
+ *      further action needed from anyone. This is a visual signature stamp
+ *      automatically applied on a one-click email approval — NOT a
+ *      legally-verifiable cryptographic e-signature with an audit trail
+ *      (that would mean integrating a real e-signature service like
+ *      DocuSign or Google Workspace's eSignature, which needs actual API
+ *      credentials from your IT/Workspace admin — this lightweight version
+ *      needs none of that and works with what's already deployed). Good
+ *      enough to move paperwork immediately; upgrade later if a
+ *      legally-binding signature becomes a requirement.
  *   To set up the signature image: upload a PNG of the signature to
  *   Google Drive, right-click it > Share > "Anyone with the link" (Viewer
  *   is enough), then copy the file ID out of the share link — the long
@@ -163,7 +173,7 @@ const ORDERS_HEADERS = [
   'Requested Delivery Date', 'PI Requested', 'Notes', 'Status',
   'Assigned Sales Rep', 'Confirmed By', 'Confirmed At', 'PI Stage',
   'Revision Notes', 'Edit Token', 'PI Number', 'PI Approval Token',
-  'PI Sent To Customer At', 'Bank Account'
+  'PI Sent To Customer At', 'Bank Account', 'PI Review Token'
 ];
 
 // Fields a customer resubmission (via their edit link) is allowed to
@@ -179,7 +189,7 @@ const EDITABLE_FIELDS_ON_RESUBMIT = [
 ];
 
 const STATUS_OPTIONS = ['New', 'Confirmed', 'Needs Revision', 'Closed'];
-const PI_STAGE_OPTIONS = ['', 'Requested', 'Generated', 'Sent to Customer'];
+const PI_STAGE_OPTIONS = ['', 'Requested', 'Generated', 'Reviewed', 'Sent to Customer'];
 
 const DEFAULT_SITE_BASE_URL = 'https://giftfygift.github.io/ku-kit/';
 
@@ -246,11 +256,12 @@ function doPost(e) {
       '', // PI Number — filled in once a PI is drafted
       '', // PI Approval Token — filled in once a PI is drafted
       '', // PI Sent To Customer At
-      getConfig('Default Bank Account', '') // Bank Account — which row of the
+      getConfig('Default Bank Account', ''), // Bank Account — which row of the
       // Bank Accounts tab to print on this order's PI; pre-filled from
       // Config so most orders need no action, but reviewable/overridable
       // per order before the PI is generated (e.g. a deal that should be
       // paid into a different account than the usual default).
+      '' // PI Review Token — filled in once a PI is drafted
     ];
 
     const testMode = isTestMode();
@@ -382,6 +393,7 @@ function doGet(e) {
 
   if (action === 'order') return handleGetOrderForEdit(params);
   if (action === 'status') return handleGetOrderStatus(params);
+  if (action === 'reviewPi') return handleReviewPi(params);
   if (action === 'approvePi') return handleApprovePi(params);
 
   return jsonResponse({
@@ -663,7 +675,8 @@ function setupDropdowns() {
     'ข้อความที่ลูกค้าเห็นหน้าเว็บตอนเช็คสถานะ (แสดงเป็นบรรทัดแยกจาก Status ด้านบน):\n' +
     '(ว่าง) → ไม่แสดงบรรทัดนี้เลย\n' +
     'Requested → "อยู่ระหว่างการออก PI"\n' +
-    'Generated → "จัดทำ PI แล้ว รอผู้บริหารอนุมัติ"\n' +
+    'Generated → "จัดทำ PI แล้ว รอทีมขายตรวจสอบ" (อีเมลไปหาเซลที่ assign ให้ PO นี้)\n' +
+    'Reviewed → "ทีมขายตรวจสอบแล้ว รอผู้บริหารเซ็นอนุมัติ" (อีเมลไปหา PI Issuer)\n' +
     'Sent to Customer → "ส่ง PI ให้คุณทางอีเมลแล้ว"'
   );
   setupSheetFormatting(sheet);
@@ -817,7 +830,9 @@ function testGeneratePi() {
  *               "Needs Revision" emails the customer that something needs
  *               correcting (including the "Revision Notes" cell, if filled
  *               in first) with a link back to fix this exact PO.
- *   - PI Stage: "Requested" drafts and emails the PI PDF for approval.
+ *   - PI Stage: "Requested" drafts the PI and emails it to the assigned
+ *               sales rep for review (see handleReviewPi() for the next
+ *               step, which forwards it on to the PI Issuer to sign).
  * Status and PI Stage are independent — changing one never touches the
  * other. "Closed" and "New" don't trigger any email.
  */
@@ -985,22 +1000,33 @@ function generatePiPdfForRow(sheet, row) {
   const folder = getOrCreateFolder('KU-KIT PI Documents');
   const file = folder.createFile(pdfBlob);
 
-  const repMatch = String(order['Assigned Sales Rep'] || '').match(/<(.+)>/);
-  const issuerEmail = getConfig('PI Issuer Email', '') || (repMatch ? repMatch[1] : '');
-  const testMode = isTestMode();
+  // Two separate one-click links, used at two separate stages: the review
+  // link (sent now, to whoever is assigned to this order) only forwards the
+  // draft on to the signer — it never touches the customer. The approval
+  // link (sent later, by handleReviewPi(), once the reviewer clicks) is the
+  // one that actually stamps the signature and reaches the customer. Both
+  // tokens are generated and stored now so the approval link is ready the
+  // moment it's needed, without a second write to the row.
+  const reviewToken = generateToken(String(order['PO Number']) + '|pireview|' + piNumber);
   const approvalToken = generateToken(String(order['PO Number']) + '|pi|' + piNumber);
   const scriptUrl = ScriptApp.getService().getUrl();
-  const approveLink = scriptUrl + '?action=approvePi&po=' + encodeURIComponent(order['PO Number']) + '&token=' + approvalToken;
+  const reviewLink = scriptUrl + '?action=reviewPi&po=' + encodeURIComponent(order['PO Number']) + '&token=' + reviewToken;
 
-  if (issuerEmail && !testMode) {
+  const repMatch = String(order['Assigned Sales Rep'] || '').match(/<(.+)>/);
+  const reviewerEmail = (repMatch ? repMatch[1] : '') || getConfig('Default Sales Rep Email', '');
+  const testMode = isTestMode();
+
+  if (reviewerEmail && !testMode) {
     MailApp.sendEmail({
-      to: issuerEmail,
-      subject: '[KU-KIT PI Draft] ' + piNumber + ' — ' + (order['Company'] || ''),
+      to: reviewerEmail,
+      subject: '[KU-KIT PI Draft] ' + piNumber + ' — ' + (order['Company'] || '') + ' (please check before it goes to signing)',
       body: 'A draft Proforma Invoice has been generated for PO ' + (order['PO Number'] || '') + '.\n\n' +
-        'Review the attached draft. When it is ready to go out, click the link below — this stamps the ' +
-        'saved signature onto the PDF and emails the final copy straight to the customer. No further ' +
-        'action needed after that.\n\n' +
-        'Approve & send to customer:\n' + approveLink + '\n\n' +
+        'Please check the attached draft against the order details. If everything is correct, click the ' +
+        'link below to forward it on for signature — that\'s the only step this link does, it does NOT go ' +
+        'to the customer yet.\n\n' +
+        'Approve & forward for signature:\n' + reviewLink + '\n\n' +
+        'If something is wrong: fix it directly in the Orders sheet row for this PO, then set PI Stage back ' +
+        'to "Requested" to regenerate the draft — there is no reject button, this is the correction path.\n\n' +
         'Drive copy of the draft: ' + file.getUrl(),
       attachments: [pdfBlob],
       name: getConfig('Notification Sender Name', 'KU-KIT Order System')
@@ -1009,20 +1035,74 @@ function generatePiPdfForRow(sheet, row) {
 
   sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Number') + 1).setValue(piNumber);
   sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Approval Token') + 1).setValue(approvalToken);
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Review Token') + 1).setValue(reviewToken);
 
   const notesCol = ORDERS_HEADERS.indexOf('Notes') + 1;
   const existingNotes = sheet.getRange(row, notesCol).getValue();
-  const stamp = (testMode ? '[TEST] ' : '') + 'PI draft generated ' + dateStr + ': ' + file.getUrl();
+  let stamp = (testMode ? '[TEST] ' : '') + 'PI draft generated ' + dateStr + ': ' + file.getUrl();
+  if (!reviewerEmail) {
+    stamp += ' — ⚠ no reviewer email found (Assigned Sales Rep is blank/unmatched and Config ' +
+      '"Default Sales Rep Email" is also blank), so nobody was notified. Set one of those, then set PI ' +
+      'Stage back to "Requested" to regenerate and actually send the review email.';
+  }
   sheet.getRange(row, notesCol).setValue(existingNotes ? existingNotes + '\n' + stamp : stamp);
 
   // "Requested" only means someone asked for it; "Generated" confirms the
-  // draft exists and is out for approval. Set here rather than left for a
+  // draft exists and is out for review. Set here rather than left for a
   // human, since generation either fully succeeds (we reach this line) or
   // throws above (caught by the caller, PI Stage stays "Requested" so it's
   // obvious it didn't finish).
   sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Stage') + 1).setValue('Generated');
 
-  return { piNumber: piNumber, url: file.getUrl(), approveLink: approveLink };
+  return { piNumber: piNumber, url: file.getUrl(), reviewLink: reviewLink };
+}
+
+/**
+ * Runs when the assigned sales rep clicks "Approve & forward for signature"
+ * in the PI review email — does NOT touch the customer or stamp any
+ * signature; it only forwards the already-drafted PI on to the PI Issuer
+ * (the executive) using the approval token generated back when the draft
+ * was created. Marks PI Stage "Reviewed" so a re-click of an already-used
+ * review link is recognized instead of notifying the issuer twice.
+ */
+function handleReviewPi(params) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_ORDERS);
+  if (!sheet) return htmlResponse('<p>Orders sheet tab not found.</p>');
+  const row = findRowByPoAndToken(sheet, params.po, params.token, 'PI Review Token');
+  if (!row) return htmlResponse('<h2>Link not valid</h2><p>This review link has already been used, or doesn\'t match any order. Check the Orders sheet directly.</p>');
+  const order = getOrderRowData(sheet, row);
+  const stage = order['PI Stage'];
+  if (stage === 'Reviewed' || stage === 'Sent to Customer') {
+    return htmlResponse('<h2>Already forwarded</h2><p>PO ' + escapeHtml(order['PO Number']) + '\'s PI was already forwarded for signature. No need to do this again.</p>');
+  }
+  try {
+    const issuerEmail = getConfig('PI Issuer Email', '');
+    const piNumber = order['PI Number'];
+    const approvalToken = order['PI Approval Token'];
+    const scriptUrl = ScriptApp.getService().getUrl();
+    const approveLink = scriptUrl + '?action=approvePi&po=' + encodeURIComponent(order['PO Number']) + '&token=' + approvalToken;
+    const testMode = isTestMode();
+
+    if (issuerEmail && !testMode) {
+      MailApp.sendEmail({
+        to: issuerEmail,
+        subject: '[KU-KIT PI Ready to Sign] ' + piNumber + ' — ' + (order['Company'] || ''),
+        body: 'PO ' + (order['PO Number'] || '') + ' has been checked by the sales team and is ready for your signature.\n\n' +
+          'Click the link below — this stamps the saved signature onto the PDF and emails the final copy ' +
+          'straight to the customer. No further action needed after that.\n\n' +
+          'Approve & send to customer:\n' + approveLink,
+        name: getConfig('Notification Sender Name', 'KU-KIT Order System')
+      });
+    }
+
+    sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Stage') + 1).setValue('Reviewed');
+
+    return htmlResponse(issuerEmail
+      ? '<h2>✅ Forwarded</h2><p>PI ' + escapeHtml(piNumber) + ' for PO ' + escapeHtml(order['PO Number']) + ' has been forwarded to ' + escapeHtml(issuerEmail) + ' for signature. Nothing more to do on your end.</p>'
+      : '<h2>⚠ No PI Issuer Email set</h2><p>PO ' + escapeHtml(order['PO Number']) + ' was marked reviewed, but Config "PI Issuer Email" is blank so nobody was actually notified. Set that Config row, then open the Orders sheet and re-run this by setting PI Stage back to "Generated" then "Requested" — or approve it directly from the Orders sheet.</p>');
+  } catch (err) {
+    return htmlResponse('<h2>Something went wrong</h2><p>' + escapeHtml(String(err)) + '</p><p>The order itself is unaffected — check the Orders sheet, or try again.</p>');
+  }
 }
 
 /**

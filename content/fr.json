@@ -1182,7 +1182,7 @@
       "editBtn": "Modifier ce PO",
       "statuses": { "New": "En attente d'examen par l'équipe commerciale", "Confirmed": "Commande confirmée", "Needs Revision": "La commande doit être corrigée", "Closed": "Clôturé" },
       "piStageLabel": "Avancement de la PI",
-      "piStages": { "Requested": "La PI est en cours de préparation", "Generated": "PI rédigée, en attente d'approbation", "Sent to Customer": "La PI vous a été envoyée par e-mail" }
+      "piStages": { "Requested": "La PI est en cours de préparation", "Generated": "PI rédigée, en cours de vérification interne", "Reviewed": "Vérifiée, en attente d'approbation finale", "Sent to Customer": "La PI vous a été envoyée par e-mail" }
     }
   },
   "footer": {

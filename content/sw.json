@@ -1192,7 +1192,7 @@
       "editBtn": "Hariri PO hii",
       "statuses": { "New": "Inasubiri ukaguzi wa timu ya mauzo", "Confirmed": "Agizo limethibitishwa", "Needs Revision": "Agizo linahitaji marekebisho", "Closed": "Imefungwa" },
       "piStageLabel": "Maendeleo ya PI",
-      "piStages": { "Requested": "PI inaandaliwa", "Generated": "PI imeandaliwa, inasubiri idhini", "Sent to Customer": "PI imetumwa kwako kwa barua pepe" }
+      "piStages": { "Requested": "PI inaandaliwa", "Generated": "PI imeandaliwa, inakaguliwa ndani", "Reviewed": "Imekaguliwa, inasubiri idhini ya mwisho", "Sent to Customer": "PI imetumwa kwako kwa barua pepe" }
     }
   },
   "footer": {

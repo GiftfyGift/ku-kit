@@ -1182,7 +1182,7 @@
       "editBtn": "I-edit ang PO na ito",
       "statuses": { "New": "Hinihintay suriin ng sales team", "Confirmed": "Nakumpirma ang order", "Needs Revision": "Kailangan ng pagwawasto ang order", "Closed": "Sarado" },
       "piStageLabel": "Progreso ng PI",
-      "piStages": { "Requested": "Inihahanda na ang PI", "Generated": "Nabalangkas na ang PI, hinihintay ang approval", "Sent to Customer": "Naipadala na sa iyo ang PI sa email" }
+      "piStages": { "Requested": "Inihahanda na ang PI", "Generated": "Nabalangkas na ang PI, sinusuri sa loob", "Reviewed": "Nasuri na, hinihintay ang final approval", "Sent to Customer": "Naipadala na sa iyo ang PI sa email" }
     }
   },
   "footer": {

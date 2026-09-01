@@ -1501,7 +1501,7 @@
       "editBtn": "แก้ไข PO นี้",
       "statuses": { "New": "รอทีมขายตรวจสอบ", "Confirmed": "ยืนยันคำสั่งซื้อแล้ว", "Needs Revision": "อยู่ระหว่างการแก้ไขคำสั่งซื้อ", "Closed": "ปิดงานแล้ว" },
       "piStageLabel": "ความคืบหน้าเอกสาร PI",
-      "piStages": { "Requested": "อยู่ระหว่างการออก PI", "Generated": "จัดทำ PI แล้ว รอผู้บริหารอนุมัติ", "Sent to Customer": "ส่ง PI ให้คุณทางอีเมลแล้ว" }
+      "piStages": { "Requested": "อยู่ระหว่างการออก PI", "Generated": "จัดทำ PI แล้ว อยู่ระหว่างตรวจสอบภายใน", "Reviewed": "ตรวจสอบแล้ว รอผู้บริหารอนุมัติ", "Sent to Customer": "ส่ง PI ให้คุณทางอีเมลแล้ว" }
     }
   },
   "footer": {

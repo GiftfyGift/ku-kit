@@ -1493,7 +1493,7 @@
       "editBtn": "Edit this PO",
       "statuses": { "New": "Awaiting sales team review", "Confirmed": "Order confirmed", "Needs Revision": "Order needs correction", "Closed": "Closed" },
       "piStageLabel": "PI progress",
-      "piStages": { "Requested": "PI is being prepared", "Generated": "PI drafted, awaiting approval", "Sent to Customer": "PI has been emailed to you" }
+      "piStages": { "Requested": "PI is being prepared", "Generated": "PI drafted, under internal review", "Reviewed": "Reviewed, awaiting final approval", "Sent to Customer": "PI has been emailed to you" }
     }
   },
   "footer": {
