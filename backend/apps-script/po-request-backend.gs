@@ -599,9 +599,12 @@ function notifySalesRep(rep, data, buyer, rowNum, rowLink) {
  * Run this once (Run button, with this function selected) after installing
  * the script, to turn the Status and PI Stage columns into dropdowns, color
  * the header row (yellow = review/editable fields that feed the PI, gray =
- * system-managed), and color-code each row by its Status so the sheet is
- * scannable at a glance. Safe to re-run any time — e.g. after adding many
- * new rows by hand, to extend the range these cover.
+ * system-managed), color-code each row by its Status, and add a hover-note
+ * on the Status/PI Stage header cells listing what each dropdown value
+ * actually shows to the customer on the website's status-check page (e.g.
+ * "Needs Revision" appears to them as "อยู่ระหว่างการแก้ไขคำสั่งซื้อ" with an
+ * edit-PO button). Safe to re-run any time — e.g. after adding many new
+ * rows by hand, to extend the range these cover.
  */
 function setupDropdowns() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_ORDERS);
@@ -613,6 +616,25 @@ function setupDropdowns() {
   );
   sheet.getRange(2, piStageCol, 1000, 1).setDataValidation(
     SpreadsheetApp.newDataValidation().requireValueInList(PI_STAGE_OPTIONS, true).setAllowInvalid(false).build()
+  );
+  // Hover-note on the header cells translating each dropdown value into
+  // what the customer actually sees on the website's status-check page —
+  // the sheet only ever shows the internal English value, so whoever is
+  // picking a Status/PI Stage here has no way to know the customer-facing
+  // wording without this.
+  sheet.getRange(1, statusCol).setNote(
+    'ข้อความที่ลูกค้าเห็นหน้าเว็บตอนเช็คสถานะ:\n' +
+    'New → "รอทีมขายตรวจสอบ"\n' +
+    'Confirmed → "ยืนยันคำสั่งซื้อแล้ว"\n' +
+    'Needs Revision → "อยู่ระหว่างการแก้ไขคำสั่งซื้อ" (ลูกค้าจะเห็นปุ่ม "แก้ไข PO นี้" ด้วย)\n' +
+    'Closed → "ปิดงานแล้ว"'
+  );
+  sheet.getRange(1, piStageCol).setNote(
+    'ข้อความที่ลูกค้าเห็นหน้าเว็บตอนเช็คสถานะ (แสดงเป็นบรรทัดแยกจาก Status ด้านบน):\n' +
+    '(ว่าง) → ไม่แสดงบรรทัดนี้เลย\n' +
+    'Requested → "อยู่ระหว่างการออก PI"\n' +
+    'Generated → "จัดทำ PI แล้ว รอผู้บริหารอนุมัติ"\n' +
+    'Sent to Customer → "ส่ง PI ให้คุณทางอีเมลแล้ว"'
   );
   setupSheetFormatting(sheet);
 }
