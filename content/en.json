@@ -1473,6 +1473,7 @@
     "downloadAgainBtn": "Download PO again",
     "nextStepsNote": "Download the PDF and send it to your sales contact for review and confirmation — if you selected &ldquo;Yes&rdquo; for the PI, they'll route it to the issuing team once the order is confirmed.",
     "newRequestBtn": "Start a new request",
+    "checkStatusBtn": "Check this order's status",
     "editModeNote": "You're editing your existing PO {po} — fix what's wrong and resubmit; no need to fill everything in again.",
     "editConfirmedTitle": "Purchase order updated",
     "editConfirmedBody": "Your corrected details have been submitted for PO",
@@ -1490,7 +1491,9 @@
       "statusLabel": "Status",
       "revisionNotesLabel": "Note from the sales team",
       "editBtn": "Edit this PO",
-      "statuses": { "New": "Awaiting review", "Confirmed": "Confirmed", "Needs Revision": "Needs correction", "Closed": "Closed" }
+      "statuses": { "New": "Awaiting sales team review", "Confirmed": "Order confirmed", "Needs Revision": "Order needs correction", "Closed": "Closed" },
+      "piStageLabel": "PI progress",
+      "piStages": { "Requested": "PI is being prepared", "Generated": "PI drafted, awaiting approval", "Sent to Customer": "PI has been emailed to you" }
     }
   },
   "footer": {

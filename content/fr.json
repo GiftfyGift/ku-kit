@@ -1162,6 +1162,7 @@
     "downloadAgainBtn": "Retélécharger le PO",
     "nextStepsNote": "Téléchargez le PDF et envoyez-le à votre contact commercial pour vérification et confirmation — si vous avez sélectionné &ldquo;Oui&rdquo; pour la PI, il la transmettra à l'équipe chargée de l'émission une fois la commande confirmée.",
     "newRequestBtn": "Nouvelle demande",
+    "checkStatusBtn": "Vérifier le statut de cette commande",
     "editModeNote": "Vous modifiez votre bon de commande existant {po} — corrigez ce qui ne va pas et renvoyez-le ; inutile de tout ressaisir.",
     "editConfirmedTitle": "Bon de commande mis à jour",
     "editConfirmedBody": "Vos informations corrigées ont été envoyées pour le PO",
@@ -1179,7 +1180,9 @@
       "statusLabel": "Statut",
       "revisionNotesLabel": "Note de l'équipe commerciale",
       "editBtn": "Modifier ce PO",
-      "statuses": { "New": "En attente d'examen", "Confirmed": "Confirmé", "Needs Revision": "Correction nécessaire", "Closed": "Clôturé" }
+      "statuses": { "New": "En attente d'examen par l'équipe commerciale", "Confirmed": "Commande confirmée", "Needs Revision": "La commande doit être corrigée", "Closed": "Clôturé" },
+      "piStageLabel": "Avancement de la PI",
+      "piStages": { "Requested": "La PI est en cours de préparation", "Generated": "PI rédigée, en attente d'approbation", "Sent to Customer": "La PI vous a été envoyée par e-mail" }
     }
   },
   "footer": {

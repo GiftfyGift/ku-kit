@@ -1162,6 +1162,7 @@
     "downloadAgainBtn": "I-download muli ang PO",
     "nextStepsNote": "I-download ang PDF at ipadala sa iyong sales contact para suriin at kumpirmahin ang order — kung pinili mong &ldquo;Oo&rdquo; para sa PI, ipapasa niya ito sa issuing team kapag nakumpirma na ang order.",
     "newRequestBtn": "Simulan ang bagong kahilingan",
+    "checkStatusBtn": "Tingnan ang status ng order na ito",
     "editModeNote": "Ine-edit mo ang umiiral na PO mo {po} — ayusin ang mali at isumite muli; hindi na kailangang punan ulit lahat.",
     "editConfirmedTitle": "Na-update ang purchase order",
     "editConfirmedBody": "Naisumite na ang iyong mga naitamang detalye para sa PO",
@@ -1179,7 +1180,9 @@
       "statusLabel": "Status",
       "revisionNotesLabel": "Tala mula sa sales team",
       "editBtn": "I-edit ang PO na ito",
-      "statuses": { "New": "Hinihintay suriin", "Confirmed": "Nakumpirma", "Needs Revision": "Kailangan ng pagwawasto", "Closed": "Sarado" }
+      "statuses": { "New": "Hinihintay suriin ng sales team", "Confirmed": "Nakumpirma ang order", "Needs Revision": "Kailangan ng pagwawasto ang order", "Closed": "Sarado" },
+      "piStageLabel": "Progreso ng PI",
+      "piStages": { "Requested": "Inihahanda na ang PI", "Generated": "Nabalangkas na ang PI, hinihintay ang approval", "Sent to Customer": "Naipadala na sa iyo ang PI sa email" }
     }
   },
   "footer": {

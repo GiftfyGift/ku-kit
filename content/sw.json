@@ -1172,6 +1172,7 @@
     "downloadAgainBtn": "Pakua PO tena",
     "nextStepsNote": "Pakua faili la PDF kisha ulitume kwa muuzaji anayekuhudumia ili akague na athibitishe agizo — ukichagua &ldquo;Ndiyo&rdquo; kwa PI, ataielekeza kwa timu inayotoa nyaraka baada ya agizo kuthibitishwa.",
     "newRequestBtn": "Anza ombi jipya",
+    "checkStatusBtn": "Angalia hali ya agizo hili",
     "editModeNote": "Unahariri PO yako iliyopo {po} — rekebisha kilichokosewa kisha utume tena; hakuna haja ya kujaza kila kitu upya.",
     "editConfirmedTitle": "Agizo la ununuzi limesasishwa",
     "editConfirmedBody": "Maelezo yako yaliyorekebishwa yametumwa kwa PO",
@@ -1189,7 +1190,9 @@
       "statusLabel": "Hali",
       "revisionNotesLabel": "Ujumbe kutoka timu ya mauzo",
       "editBtn": "Hariri PO hii",
-      "statuses": { "New": "Inasubiri ukaguzi", "Confirmed": "Imethibitishwa", "Needs Revision": "Inahitaji marekebisho", "Closed": "Imefungwa" }
+      "statuses": { "New": "Inasubiri ukaguzi wa timu ya mauzo", "Confirmed": "Agizo limethibitishwa", "Needs Revision": "Agizo linahitaji marekebisho", "Closed": "Imefungwa" },
+      "piStageLabel": "Maendeleo ya PI",
+      "piStages": { "Requested": "PI inaandaliwa", "Generated": "PI imeandaliwa, inasubiri idhini", "Sent to Customer": "PI imetumwa kwako kwa barua pepe" }
     }
   },
   "footer": {

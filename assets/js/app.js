@@ -2921,6 +2921,13 @@ function initPoRequestPage(c) {
         `${sc.statusLabel}: ${statusLabel}`
       ];
       if (data.revisionNotes) lines.push(`${sc.revisionNotesLabel}: ${data.revisionNotes}`);
+      // PI Stage is a separate track from Status (an order can be
+      // "Confirmed" while its PI is still being drafted/approved), so it
+      // only gets its own line once there's actually something to report —
+      // an order that never asked for a PI just has piStage === ''.
+      if (data.piStage && sc.piStages && sc.piStages[data.piStage] && sc.piStageLabel) {
+        lines.push(`${sc.piStageLabel}: ${sc.piStages[data.piStage]}`);
+      }
       result.innerHTML = lines.map(l => `<p>${l}</p>`).join('');
       // A customer checking status this way (rather than reading the
       // original email) still needs a way to actually fix a rejected PO —
@@ -3053,11 +3060,32 @@ function initPoRequestPage(c) {
         ${order.piWanted ? `<p class="po-req-hint">${pr.pi.piAfterConfirmNote}</p>` : ''}
         <div class="po-req-confirmed-actions">
           <button type="button" class="order-btn" id="po-req-download-again-btn">${pr.downloadAgainBtn}</button>
+          <button type="button" class="order-btn order-btn--ghost" id="po-req-check-status-btn">${pr.checkStatusBtn}</button>
           <button type="button" class="order-btn order-btn--ghost" id="po-req-new-btn">${pr.newRequestBtn}</button>
         </div>
       </div>
     `;
     document.getElementById('po-req-download-again-btn').addEventListener('click', () => generatePoRequestPdf(lastPoRequestOrder, pr));
+    // Jumping straight from the confirmation screen into an already-open,
+    // pre-filled status check (instead of making people find "new request"
+    // then hunt for a collapsed toggle above the form) — the PO number and
+    // email are both already known at this point, so there's no reason to
+    // make anyone retype them.
+    document.getElementById('po-req-check-status-btn').addEventListener('click', () => {
+      const poToCheck = order.poNumber;
+      const emailToCheck = order.buyer.email;
+      items = [{ modelId: '', qty: 1 }]; piWanted = null; editMode = null;
+      history.replaceState(null, '', location.pathname + location.hash);
+      renderForm();
+      const toggle = document.getElementById('po-req-status-check-toggle');
+      const panel = document.getElementById('po-req-status-check-panel');
+      if (!toggle || !panel) return;
+      panel.hidden = false;
+      document.getElementById('po-req-status-po').value = poToCheck;
+      document.getElementById('po-req-status-email').value = emailToCheck;
+      document.getElementById('po-req-status-check-btn').click();
+      toggle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
     document.getElementById('po-req-new-btn').addEventListener('click', () => {
       items = [{ modelId: '', qty: 1 }]; piWanted = null; editMode = null;
       history.replaceState(null, '', location.pathname + location.hash);
