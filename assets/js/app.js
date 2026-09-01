@@ -5333,7 +5333,7 @@ function kaRenderClarify(data, c) {
 // down) — the widget should never go silent just because the Worker isn't
 // reachable. KA_API_URL is set once the Cloudflare Worker is deployed (see
 // backend/cloudflare-worker/) — empty string skips straight to the fallback.
-const KA_API_URL = '';
+const KA_API_URL = 'https://kukit-assistant-backend.yuwadee-thaveekij.workers.dev';
 const KA_REQUEST_TIMEOUT_MS = 6000;
 
 async function kaFetchBackend(query, lang) {
