@@ -23,18 +23,20 @@
  *   - "Status"   — the order's own review state: New / Confirmed /
  *                  Needs Revision / Closed.
  *   - "PI Stage" — separate, independent tracker for the PI paperwork:
- *                  (blank) / Requested / Generated.
+ *                  (blank) / Requested / Generated / Sent to Customer.
  *
  * SETUP (once, after pasting/saving this file): run setupDropdowns()
  * (select it in the function dropdown next to the Run button, then click
  * Run) — this adds both dropdowns to the Orders sheet.
  *
  * ONE-TIME MIGRATION if you're updating an existing sheet from an earlier
- * version of this script: add a new header cell "Revision Notes" in the
- * FIRST EMPTY COLUMN after "PI Stage" in row 1 of the Orders tab (it must
- * be the very last column — this script always appends new fields at the
- * end so existing rows/columns are never disturbed). That's the only sheet
- * change needed; everything else keeps working as before.
+ * version of this script: add these header cells as the LAST columns of
+ * row 1 in the Orders tab, in this exact order (this script always appends
+ * new fields at the end so existing rows/columns are never disturbed):
+ *   Revision Notes | Edit Token | PI Number | PI Approval Token | PI Sent To Customer At
+ * (If you already added "Revision Notes" from an earlier update, just add
+ * the four new ones after it.) That's the only sheet change needed;
+ * everything else keeps working as before.
  *
  * CONFIRMING AN ORDER: whoever reviews an order opens the sheet and changes
  * that row's "Status" to "Confirmed" — the "Confirmed By" and
@@ -44,29 +46,59 @@
  * SENDING AN ORDER BACK FOR CORRECTION: if something in the customer's
  * order is wrong, first fix or note the issue, then change that row's
  * "Status" to "Needs Revision" — the customer is automatically emailed
- * that their order needs a correction. Fill in the "Revision Notes"
- * column (last column) BEFORE changing the Status, if you want the
- * customer's email to explain what's wrong / what needs to change; leave
- * it blank for a generic "please contact us" message. You can also just
- * edit any field directly in the row (company name, items, quantities,
- * etc.) to fix a simple typo yourself instead of sending it back — every
- * field the PI later pulls from is a normal cell in that row.
+ * that their order needs a correction, WITH A LINK straight back to their
+ * own PO on the KU-KIT website, pre-filled with everything they already
+ * entered, so they only have to fix what's wrong instead of retyping the
+ * whole form. Submitting that form again updates this SAME row (same PO
+ * number) instead of creating an unrelated new one — Status resets to
+ * "New" so it comes back into your review queue. Fill in the "Revision
+ * Notes" column BEFORE changing the Status, if you want the customer's
+ * email to explain what's wrong / what needs to change; leave it blank for
+ * a generic "please review and correct" message. You can also just edit
+ * any field directly in the row yourself (company name, items, quantities,
+ * etc.) to fix a simple typo instead of sending it back — every field the
+ * PI later pulls from is a normal cell in that row.
  *
  * "Closed" doesn't send any email — use it purely for your own tracking
  * once an order is fully wrapped up.
  *
+ * CUSTOMERS CAN CHECK THEIR OWN STATUS: the KU-KIT website has a "check my
+ * order" box (PO number + the email they used) that calls this script
+ * read-only and shows the current Status — no login, no token needed for
+ * that (it only reveals status, nothing editable, and requires knowing
+ * both the PO number and the email on file).
+ *
  * GENERATING A PI: change that row's "PI Stage" (a different column) to
  * "Requested" — this drafts a Proforma Invoice PDF from the row's data,
- * saves it to a Drive folder called "KU-KIT PI Documents", and emails it
- * to the "PI Issuer Email" set in Config (falls back to the assigned sales
- * rep if that's blank). This is a DRAFT ONLY — someone still has to review,
- * sign, and forward it to the customer by hand; there's no digital
- * signature or auto-send yet. Requires these Config rows to be filled in:
- * Bank Name, Bank Account No., Bank SWIFT Code, Bank Account Name,
- * PI Issuer Email (plus the existing Current PI Signer Name/Title).
- * The first time this runs, Google will ask you to re-authorize (it now
- * also needs Drive access to save the PDF) — approve it the same way as
- * the first deployment.
+ * saves it to a Drive folder called "KU-KIT PI Documents", and emails the
+ * DRAFT to the "PI Issuer Email" set in Config (falls back to the assigned
+ * sales rep if that's blank), WITH AN "Approve & send to customer" LINK.
+ * Requires these Config rows to be filled in: Bank Name, Bank Account No.,
+ * Bank SWIFT Code, Bank Account Name, PI Issuer Email (plus the existing
+ * Current PI Signer Name/Title). The first time this runs, Google will ask
+ * you to re-authorize (it now also needs Drive access to save the PDF) —
+ * approve it the same way as the first deployment.
+ *
+ * APPROVING A PI (no more manual sign-and-forward): the PI Issuer opens
+ * that draft email and clicks "Approve & send to customer" — ONE CLICK.
+ * The script then regenerates the same PI with the company's signature
+ * image stamped into the signature block (from "Signature Image File ID"
+ * in Config — see below; skipped gracefully if that Config row is blank)
+ * and emails the final PDF directly to the customer, no further action
+ * needed from anyone. This is a visual signature stamp automatically
+ * applied on a one-click email approval — NOT a legally-verifiable
+ * cryptographic e-signature with an audit trail (that would mean
+ * integrating a real e-signature service like DocuSign or Google
+ * Workspace's eSignature, which needs actual API credentials from your
+ * IT/Workspace admin — this lightweight version needs none of that and
+ * works with what's already deployed). Good enough to move paperwork
+ * immediately; upgrade later if a legally-binding signature becomes a
+ * requirement.
+ *   To set up the signature image: upload a PNG of the signature to
+ *   Google Drive, right-click it > Share > "Anyone with the link" (Viewer
+ *   is enough), then copy the file ID out of the share link — the long
+ *   string between "/d/" and "/view" — and paste just that ID into the
+ *   "Signature Image File ID" row in Config.
  *
  * REVIEW-BEFORE-GENERATE GATE: PI Stage refuses to become "Requested" (it
  * resets to blank with an on-screen alert) unless that row's Status is
@@ -87,6 +119,18 @@
  * to a specific person). Leave that Config row blank to keep the old
  * silent behavior for unmatched countries.
  *
+ * "Site Base URL" (Config, optional): the live KU-KIT site address used to
+ * build the "edit your PO" link emailed on a revision request. Defaults to
+ * the current GitHub Pages URL if left blank — only fill this in if the
+ * site ever moves.
+ *
+ * "Link Secret" (Config): a random string used to generate the edit/
+ * approval link tokens so they can't be guessed. If you leave this row
+ * blank, the script creates one for you automatically the first time it's
+ * needed and writes it back into Config — you never have to set this by
+ * hand, just don't delete or edit it once it exists (changing it
+ * invalidates every link already emailed out).
+ *
  * None of onEdit/setupDropdowns/PI generation need a Web App redeploy to
  * take effect — only doGet/doPost do. Just saving the script is enough.
  */
@@ -101,11 +145,26 @@ const ORDERS_HEADERS = [
   'Incoterm', 'Port', 'Payment Terms', 'Shipping Method',
   'Requested Delivery Date', 'PI Requested', 'Notes', 'Status',
   'Assigned Sales Rep', 'Confirmed By', 'Confirmed At', 'PI Stage',
-  'Revision Notes'
+  'Revision Notes', 'Edit Token', 'PI Number', 'PI Approval Token',
+  'PI Sent To Customer At'
+];
+
+// Fields a customer resubmission (via their edit link) is allowed to
+// overwrite — deliberately excludes Timestamp/PO Number/Status/Assigned
+// Sales Rep/Confirmed By/Confirmed At/PI Stage/tokens/PI fields, which are
+// either identity/history that must never move, or internal workflow state
+// this script itself owns.
+const EDITABLE_FIELDS_ON_RESUBMIT = [
+  'Company', 'Address', 'Country', 'Contact', 'Email', 'Phone',
+  'Customer PO Ref', 'Items', 'Subtotal (USD)', 'Incoterm', 'Port',
+  'Payment Terms', 'Shipping Method', 'Requested Delivery Date',
+  'PI Requested', 'Notes'
 ];
 
 const STATUS_OPTIONS = ['New', 'Confirmed', 'Needs Revision', 'Closed'];
-const PI_STAGE_OPTIONS = ['', 'Requested', 'Generated'];
+const PI_STAGE_OPTIONS = ['', 'Requested', 'Generated', 'Sent to Customer'];
+
+const DEFAULT_SITE_BASE_URL = 'https://giftfygift.github.io/ku-kit/';
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
@@ -121,12 +180,25 @@ function doPost(e) {
       return jsonResponse({ ok: false, error: 'Orders sheet tab not found — check the tab name is exactly "Orders".' });
     }
 
+    // Resubmission of a PO the customer was asked to correct — update the
+    // SAME row in place instead of appending a new, unrelated one.
+    if (data.editPoNumber && data.editToken) {
+      const existingRow = findRowByPoAndToken(ordersSheet, data.editPoNumber, data.editToken, 'Edit Token');
+      if (existingRow) {
+        return jsonResponse(applyResubmission(ordersSheet, existingRow, data));
+      }
+      // Token didn't match (stale/edited link, or the row's token somehow
+      // changed) — fall through and treat it as a brand-new submission
+      // rather than silently failing the customer's resubmit.
+    }
+
     const buyer = data.buyer || {};
     const itemsText = (data.items || [])
       .map(function (i) { return i.name + ' x' + i.qty + ' ($' + i.price + ')'; })
       .join('; ');
     const subtotal = (data.items || [])
       .reduce(function (sum, i) { return sum + (i.price || 0) * (i.qty || 0); }, 0);
+    const editToken = generateToken(data.poNumber || (Date.now() + ''));
 
     const row = [
       new Date(),
@@ -152,7 +224,11 @@ function doPost(e) {
       '', // Confirmed By
       '', // Confirmed At
       '', // PI Stage — blank until someone requests a PI
-      ''  // Revision Notes — filled in by sales before sending a "Needs Revision" email
+      '', // Revision Notes — filled in by sales before sending a "Needs Revision" email
+      editToken,
+      '', // PI Number — filled in once a PI is drafted
+      '', // PI Approval Token — filled in once a PI is drafted
+      ''  // PI Sent To Customer At
     ];
 
     const testMode = isTestMode();
@@ -202,7 +278,89 @@ function doPost(e) {
   }
 }
 
+/**
+ * Overwrites the customer-editable fields of an existing row with a
+ * resubmission, resets it back into the review queue, and notifies both
+ * the customer (received the update) and the assigned rep (needs another
+ * look) — mirroring what a fresh submission does, minus creating a new PO
+ * number or a new Edit Token (the same edit link keeps working for
+ * however many rounds of correction it takes).
+ */
+function applyResubmission(sheet, row, data) {
+  const buyer = data.buyer || {};
+  const itemsText = (data.items || [])
+    .map(function (i) { return i.name + ' x' + i.qty + ' ($' + i.price + ')'; })
+    .join('; ');
+  const subtotal = (data.items || [])
+    .reduce(function (sum, i) { return sum + (i.price || 0) * (i.qty || 0); }, 0);
+
+  const values = {
+    'Company': buyer.company || '',
+    'Address': buyer.address || '',
+    'Country': buyer.country || '',
+    'Contact': buyer.contact || '',
+    'Email': buyer.email || '',
+    'Phone': buyer.phone || '',
+    'Customer PO Ref': buyer.customerRef || '',
+    'Items': itemsText,
+    'Subtotal (USD)': subtotal,
+    'Incoterm': data.incotermLabel || '',
+    'Port': data.port || '',
+    'Payment Terms': data.paymentTermLabel || '',
+    'Shipping Method': data.shippingLabel || '',
+    'Requested Delivery Date': data.deliveryDate || '',
+    'PI Requested': data.piWanted ? 'Yes' : 'No',
+    'Notes': data.notes || ''
+  };
+  EDITABLE_FIELDS_ON_RESUBMIT.forEach(function (field) {
+    sheet.getRange(row, ORDERS_HEADERS.indexOf(field) + 1).setValue(values[field]);
+  });
+
+  const testMode = isTestMode();
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('Status') + 1).setValue(testMode ? 'TEST (no email sent)' : 'New');
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('Confirmed By') + 1).setValue('');
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('Confirmed At') + 1).setValue('');
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('Revision Notes') + 1).setValue('');
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('Timestamp') + 1).setValue(new Date());
+
+  const poNumber = sheet.getRange(row, ORDERS_HEADERS.indexOf('PO Number') + 1).getValue();
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const rowLink = ss.getUrl() + '#gid=' + sheet.getSheetId() + '&range=A' + row;
+
+  // Re-resolve the rep rather than trusting the old "Assigned Sales Rep"
+  // cell as-is — the buyer's country may have changed as part of the
+  // correction, and re-deriving here also self-heals the case where the
+  // original submission fell back to the default inbox (that cell has no
+  // parseable "<email>" to reuse).
+  let rep = findSalesRep(buyer.country || '');
+  let unassignedFallback = false;
+  if (!rep) {
+    const fallbackEmail = getConfig('Default Sales Rep Email', '');
+    if (fallbackEmail) {
+      rep = { name: 'Sales Team', email: fallbackEmail };
+      unassignedFallback = true;
+    }
+  }
+  if (rep) {
+    sheet.getRange(row, ORDERS_HEADERS.indexOf('Assigned Sales Rep') + 1)
+      .setValue(unassignedFallback ? '(unassigned — sent to default inbox)' : rep.name + ' <' + rep.email + '>');
+  }
+  if (!testMode) {
+    if (rep) notifySalesRep(rep, { poNumber: poNumber, piWanted: data.piWanted }, buyer, row, rowLink);
+    notifyCustomer({ poNumber: poNumber }, buyer);
+  }
+
+  return { ok: true, row: row, updated: true, poNumber: poNumber, testMode: testMode };
+}
+
 function doGet(e) {
+  const params = (e && e.parameter) || {};
+  const action = params.action || '';
+
+  if (action === 'order') return handleGetOrderForEdit(params);
+  if (action === 'status') return handleGetOrderStatus(params);
+  if (action === 'approvePi') return handleApprovePi(params);
+
   return jsonResponse({
     ok: true,
     message: 'KU-KIT PO webhook is live. POST a PO payload here.',
@@ -210,9 +368,88 @@ function doGet(e) {
   });
 }
 
+/**
+ * Used by the KU-KIT website to prefill the PO form when a customer opens
+ * their "fix this PO" link — requires the real Edit Token, not just the PO
+ * number, since this returns full order detail.
+ */
+function handleGetOrderForEdit(params) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_ORDERS);
+  if (!sheet) return jsonResponse({ ok: false, error: 'Orders sheet tab not found.' });
+  const row = findRowByPoAndToken(sheet, params.po, params.token, 'Edit Token');
+  if (!row) return jsonResponse({ ok: false, error: 'No matching order found for that link.' });
+  const order = getOrderRowData(sheet, row);
+  return jsonResponse({
+    ok: true,
+    poNumber: order['PO Number'],
+    status: order['Status'],
+    revisionNotes: order['Revision Notes'],
+    buyer: {
+      company: order['Company'], address: order['Address'], country: order['Country'],
+      contact: order['Contact'], email: order['Email'], phone: order['Phone'],
+      customerRef: order['Customer PO Ref']
+    },
+    itemsText: order['Items'],
+    incoterm: order['Incoterm'], port: order['Port'], paymentTerms: order['Payment Terms'],
+    shippingMethod: order['Shipping Method'], deliveryDate: order['Requested Delivery Date'],
+    piWanted: order['PI Requested'] === 'Yes', notes: order['Notes']
+  });
+}
+
+/**
+ * Read-only status lookup for the "check my order" box on the website — no
+ * token, just the PO number plus the email already on file for it (so a
+ * random guessed PO number alone can't be used to see whose order it is).
+ */
+function handleGetOrderStatus(params) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_ORDERS);
+  if (!sheet) return jsonResponse({ ok: false, error: 'Orders sheet tab not found.' });
+  const row = findRowByPoAndEmail(sheet, params.po, params.email);
+  if (!row) return jsonResponse({ ok: false, error: 'No order found matching that PO number and email.' });
+  const order = getOrderRowData(sheet, row);
+  return jsonResponse({
+    ok: true,
+    poNumber: order['PO Number'],
+    submittedAt: order['Timestamp'],
+    status: order['Status'],
+    revisionNotes: order['Status'] === 'Needs Revision' ? order['Revision Notes'] : '',
+    piStage: order['PI Stage'] || ''
+  });
+}
+
+/**
+ * Opened directly by a human clicking "Approve & send to customer" in the
+ * PI draft email — returns a plain HTML confirmation/error page, not JSON,
+ * since nothing but a browser opening the link is on the other end.
+ */
+function handleApprovePi(params) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_ORDERS);
+  if (!sheet) return htmlResponse('<p>Orders sheet tab not found.</p>');
+  const row = findRowByPoAndToken(sheet, params.po, params.token, 'PI Approval Token');
+  if (!row) return htmlResponse('<h2>Link not valid</h2><p>This approval link has already been used, or doesn\'t match any order. Check the Orders sheet directly.</p>');
+  const order = getOrderRowData(sheet, row);
+  if (order['PI Sent To Customer At']) {
+    return htmlResponse('<h2>Already sent</h2><p>PO ' + escapeHtml(order['PO Number']) + '\'s PI was already sent to the customer on ' + escapeHtml(String(order['PI Sent To Customer At'])) + '.</p>');
+  }
+  try {
+    const result = approvePiAndSendToCustomer(sheet, row);
+    return htmlResponse('<h2>✅ Sent</h2><p>PI ' + escapeHtml(result.piNumber) + ' for PO ' + escapeHtml(order['PO Number']) +
+      ' has been emailed directly to ' + escapeHtml(order['Email']) + '. Nothing more to do.</p>');
+  } catch (err) {
+    return htmlResponse('<h2>Something went wrong</h2><p>' + escapeHtml(String(err)) + '</p><p>The order itself is unaffected — check the Orders sheet, or try again.</p>');
+  }
+}
+
 function jsonResponse(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+function htmlResponse(bodyHtml) {
+  return HtmlService.createHtmlOutput(
+    '<html><body style="font-family:Arial,sans-serif;max-width:480px;margin:60px auto;padding:0 20px;color:#222;">' +
+    bodyHtml + '</body></html>'
+  );
 }
 
 function findSalesRep(country) {
@@ -246,6 +483,84 @@ function getConfig(key, fallback) {
   return fallback;
 }
 
+/**
+ * Writes a value into the Config tab, adding the row if that key doesn't
+ * exist yet. Used only to self-provision "Link Secret" the first time it's
+ * needed (see getLinkSecret()) — every other Config value is meant to stay
+ * a manual, human-edited setting.
+ */
+function setConfig(key, value) {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_CONFIG);
+  if (!sheet) return;
+  const rows = sheet.getDataRange().getValues();
+  for (let i = 1; i < rows.length; i++) {
+    if (String(rows[i][0]).trim() === key) {
+      sheet.getRange(i + 1, 2).setValue(value);
+      return;
+    }
+  }
+  sheet.appendRow([key, value]);
+}
+
+/**
+ * The secret used to derive edit/approval tokens. Auto-created and saved
+ * back into Config on first use so nobody has to remember to set it up —
+ * just don't hand-edit or delete the row afterward, or every link already
+ * emailed out stops matching.
+ */
+function getLinkSecret() {
+  let secret = getConfig('Link Secret', '');
+  if (!secret) {
+    secret = Utilities.getUuid() + Utilities.getUuid();
+    setConfig('Link Secret', secret);
+  }
+  return secret;
+}
+
+/**
+ * A short, unguessable, deterministic token for a given seed (typically a
+ * PO number) — same seed always produces the same token as long as "Link
+ * Secret" in Config hasn't changed, so it never needs to be looked up or
+ * stored separately from being written into the Orders row once.
+ */
+function generateToken(seed) {
+  const raw = Utilities.computeHmacSha256Signature(String(seed), getLinkSecret());
+  return raw.map(function (b) { return ('0' + (b & 0xFF).toString(16)).slice(-2); }).join('').slice(0, 24);
+}
+
+function findRowByPoAndToken(sheet, poNumber, token, tokenColumnName) {
+  if (!poNumber || !token) return null;
+  const poCol = ORDERS_HEADERS.indexOf('PO Number') + 1;
+  const tokenCol = ORDERS_HEADERS.indexOf(tokenColumnName) + 1;
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return null;
+  const poValues = sheet.getRange(2, poCol, lastRow - 1, 1).getValues();
+  const tokenValues = sheet.getRange(2, tokenCol, lastRow - 1, 1).getValues();
+  for (let i = 0; i < poValues.length; i++) {
+    if (String(poValues[i][0]) === String(poNumber) && String(tokenValues[i][0]) === String(token)) {
+      return i + 2;
+    }
+  }
+  return null;
+}
+
+function findRowByPoAndEmail(sheet, poNumber, email) {
+  if (!poNumber || !email) return null;
+  const poCol = ORDERS_HEADERS.indexOf('PO Number') + 1;
+  const emailCol = ORDERS_HEADERS.indexOf('Email') + 1;
+  const lastRow = sheet.getLastRow();
+  if (lastRow < 2) return null;
+  const poValues = sheet.getRange(2, poCol, lastRow - 1, 1).getValues();
+  const emailValues = sheet.getRange(2, emailCol, lastRow - 1, 1).getValues();
+  const needleEmail = String(email).trim().toLowerCase();
+  for (let i = 0; i < poValues.length; i++) {
+    if (String(poValues[i][0]) === String(poNumber) && String(emailValues[i][0]).trim().toLowerCase() === needleEmail) {
+      return i + 2;
+    }
+  }
+  return null;
+}
+
 function notifySalesRep(rep, data, buyer, rowNum, rowLink) {
   const senderName = getConfig('Notification Sender Name', 'KU-KIT Order System');
   const subject = '[KU-KIT PO] New order from ' + (buyer.company || 'Unknown') + ' — ' + (data.poNumber || '');
@@ -263,7 +578,7 @@ function notifySalesRep(rep, data, buyer, rowNum, rowLink) {
     '',
     'To confirm it, set this row\'s Status to "Confirmed" — the customer is emailed automatically.',
     'If something\'s wrong, fill in "Revision Notes" and set Status to "Needs Revision" — the ',
-    'customer is emailed automatically with that note asking them to correct and resubmit.'
+    'customer is emailed automatically with that note, plus a link back to fix this exact PO.'
   ].join('\n');
   MailApp.sendEmail({
     to: rep.email,
@@ -368,8 +683,8 @@ function testGeneratePi() {
  *               emails the customer that their order is confirmed.
  *               "Needs Revision" emails the customer that something needs
  *               correcting (including the "Revision Notes" cell, if filled
- *               in first).
- *   - PI Stage: "Requested" drafts and emails the PI PDF.
+ *               in first) with a link back to fix this exact PO.
+ *   - PI Stage: "Requested" drafts and emails the PI PDF for approval.
  * Status and PI Stage are independent — changing one never touches the
  * other. "Closed" and "New" don't trigger any email.
  */
@@ -449,14 +764,14 @@ function getOrCreateFolder(name) {
   return DriveApp.createFolder(name);
 }
 
-function generatePiPdfForRow(sheet, row) {
-  const order = getOrderRowData(sheet, row);
+/**
+ * Builds the PI's HTML (shared by the draft and the final signed copy) —
+ * `signatureDataUri`, when provided, replaces the blank signature line
+ * with the actual stamped image.
+ */
+function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
   const items = parseItemsText(order['Items']);
   const total = items.reduce(function (s, it) { return s + it.qty * it.price; }, 0);
-
-  const piNumber = getConfig('PI Number Prefix', 'SKC-PI') + '-' +
-    Utilities.formatDate(new Date(), 'GMT+7', 'yyMMdd') + '-' + row;
-  const dateStr = Utilities.formatDate(new Date(), 'GMT+7', 'dd-MMM-yyyy');
 
   const companyName = getConfig('Company Name (for emails)', 'Siam Kubota Corporation Co., Ltd.');
   const signerName = getConfig('Current PI Signer Name', '');
@@ -473,7 +788,11 @@ function generatePiPdfForRow(sheet, row) {
       '<td style="text-align:right">' + (it.qty * it.price).toFixed(2) + '</td></tr>';
   }).join('');
 
-  const html = '<html><head><style>' +
+  const sigBlock = signatureDataUri
+    ? '<img src="' + signatureDataUri + '" style="height:60px;display:block;margin-top:10px;" alt="Signature">'
+    : '<p style="margin-top:40px;">_______________________________</p>';
+
+  return '<html><head><style>' +
     'body{font-family:Arial,sans-serif;font-size:11px;color:#111;}' +
     'h1{text-align:center;font-size:20px;letter-spacing:2px;margin-bottom:20px;}' +
     'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
@@ -508,15 +827,26 @@ function generatePiPdfForRow(sheet, row) {
     '<br>A/C Name: ' + escapeHtml(bankAccountName) + '</td></tr></table>' +
     '<div class="sig-block">' +
     '<p>' + escapeHtml(companyName) + '</p>' +
-    '<p style="margin-top:40px;">_______________________________</p>' +
+    sigBlock +
     '<p>(' + escapeHtml(signerName) + ')<br>' + escapeHtml(signerTitle) + '</p>' +
     '</div>' +
     '<p class="small">E.&amp;O.E. — Draft generated by the KU-KIT PO/PI system on ' + dateStr +
-    '. Requires manual review and signature before sending to the customer.</p>' +
+    (signatureDataUri ? '.' : '. Requires manual review and approval before sending to the customer.') +
+    '</p>' +
     '</body></html>';
+}
 
+function generatePiPdfForRow(sheet, row) {
+  const order = getOrderRowData(sheet, row);
+
+  const existingPiNumber = order['PI Number'];
+  const piNumber = existingPiNumber || (getConfig('PI Number Prefix', 'SKC-PI') + '-' +
+    Utilities.formatDate(new Date(), 'GMT+7', 'yyMMdd') + '-' + row);
+  const dateStr = Utilities.formatDate(new Date(), 'GMT+7', 'dd-MMM-yyyy');
+
+  const html = buildPiHtml(order, piNumber, dateStr, null);
   const pdfBlob = Utilities.newBlob(html, 'text/html', piNumber + '.html')
-    .getAs('application/pdf').setName(piNumber + '.pdf');
+    .getAs('application/pdf').setName(piNumber + '-draft.pdf');
 
   const folder = getOrCreateFolder('KU-KIT PI Documents');
   const file = folder.createFile(pdfBlob);
@@ -524,28 +854,91 @@ function generatePiPdfForRow(sheet, row) {
   const repMatch = String(order['Assigned Sales Rep'] || '').match(/<(.+)>/);
   const issuerEmail = getConfig('PI Issuer Email', '') || (repMatch ? repMatch[1] : '');
   const testMode = isTestMode();
+  const approvalToken = generateToken(String(order['PO Number']) + '|pi|' + piNumber);
+  const scriptUrl = ScriptApp.getService().getUrl();
+  const approveLink = scriptUrl + '?action=approvePi&po=' + encodeURIComponent(order['PO Number']) + '&token=' + approvalToken;
+
   if (issuerEmail && !testMode) {
     MailApp.sendEmail({
       to: issuerEmail,
       subject: '[KU-KIT PI Draft] ' + piNumber + ' — ' + (order['Company'] || ''),
       body: 'A draft Proforma Invoice has been generated for PO ' + (order['PO Number'] || '') + '.\n\n' +
-        'Please review, sign, and forward it to the customer.\n\nDrive link: ' + file.getUrl(),
+        'Review the attached draft. When it is ready to go out, click the link below — this stamps the ' +
+        'saved signature onto the PDF and emails the final copy straight to the customer. No further ' +
+        'action needed after that.\n\n' +
+        'Approve & send to customer:\n' + approveLink + '\n\n' +
+        'Drive copy of the draft: ' + file.getUrl(),
       attachments: [pdfBlob],
       name: getConfig('Notification Sender Name', 'KU-KIT Order System')
     });
   }
 
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Number') + 1).setValue(piNumber);
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Approval Token') + 1).setValue(approvalToken);
+
   const notesCol = ORDERS_HEADERS.indexOf('Notes') + 1;
   const existingNotes = sheet.getRange(row, notesCol).getValue();
-  const stamp = (testMode ? '[TEST] ' : '') + 'PI generated ' + dateStr + ': ' + file.getUrl();
+  const stamp = (testMode ? '[TEST] ' : '') + 'PI draft generated ' + dateStr + ': ' + file.getUrl();
   sheet.getRange(row, notesCol).setValue(existingNotes ? existingNotes + '\n' + stamp : stamp);
 
-  // Mark the PDF as actually done — "Requested" only means someone asked
-  // for it; "Generated" confirms the file exists. Set here rather than left
-  // for a human, since generation either fully succeeds (we reach this
-  // line) or throws above (caught by the caller, PI Stage stays "Requested"
-  // so it's obvious it didn't finish).
+  // "Requested" only means someone asked for it; "Generated" confirms the
+  // draft exists and is out for approval. Set here rather than left for a
+  // human, since generation either fully succeeds (we reach this line) or
+  // throws above (caught by the caller, PI Stage stays "Requested" so it's
+  // obvious it didn't finish).
   sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Stage') + 1).setValue('Generated');
+
+  return { piNumber: piNumber, url: file.getUrl(), approveLink: approveLink };
+}
+
+/**
+ * Runs when the PI Issuer clicks "Approve & send to customer" — stamps the
+ * signature image (if configured) into a fresh copy of the same PI and
+ * emails it directly to the customer. Marks PI Stage "Sent to Customer" and
+ * fills "PI Sent To Customer At" so handleApprovePi() can recognize a
+ * re-click of an already-used link instead of sending twice.
+ */
+function approvePiAndSendToCustomer(sheet, row) {
+  const order = getOrderRowData(sheet, row);
+  const piNumber = order['PI Number'] || (getConfig('PI Number Prefix', 'SKC-PI') + '-' +
+    Utilities.formatDate(new Date(), 'GMT+7', 'yyMMdd') + '-' + row);
+  const dateStr = Utilities.formatDate(new Date(), 'GMT+7', 'dd-MMM-yyyy');
+
+  let signatureDataUri = null;
+  const sigFileId = getConfig('Signature Image File ID', '');
+  if (sigFileId) {
+    try {
+      const sigBlob = DriveApp.getFileById(sigFileId).getBlob();
+      signatureDataUri = 'data:' + sigBlob.getContentType() + ';base64,' + Utilities.base64Encode(sigBlob.getBytes());
+    } catch (err) {
+      // Missing/inaccessible file shouldn't block sending the PI — it just
+      // goes out without a stamped signature image, same as the draft.
+      console.error('Could not load signature image: ' + err);
+    }
+  }
+
+  const html = buildPiHtml(order, piNumber, dateStr, signatureDataUri);
+  const pdfBlob = Utilities.newBlob(html, 'text/html', piNumber + '.html')
+    .getAs('application/pdf').setName(piNumber + '.pdf');
+
+  const folder = getOrCreateFolder('KU-KIT PI Documents');
+  const file = folder.createFile(pdfBlob);
+
+  const companyName = getConfig('Company Name (for emails)', 'Siam Kubota Corporation Co., Ltd.');
+  if (order['Email']) {
+    MailApp.sendEmail({
+      to: order['Email'],
+      subject: 'Proforma Invoice ' + piNumber + ' — PO ' + (order['PO Number'] || ''),
+      body: 'Dear ' + (order['Contact'] || 'Customer') + ',\n\n' +
+        'Please find attached the Proforma Invoice for your purchase order ' + (order['PO Number'] || '') + '.\n\n' +
+        companyName,
+      attachments: [pdfBlob],
+      name: getConfig('Notification Sender Name', 'KU-KIT Order System')
+    });
+  }
+
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Stage') + 1).setValue('Sent to Customer');
+  sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Sent To Customer At') + 1).setValue(new Date());
 
   return { piNumber: piNumber, url: file.getUrl() };
 }
@@ -569,6 +962,12 @@ function notifyCustomer(data, buyer) {
     body: body,
     name: senderName
   });
+}
+
+function siteBaseUrl() {
+  const configured = getConfig('Site Base URL', '');
+  const base = configured || DEFAULT_SITE_BASE_URL;
+  return base.replace(/\/+$/, '') + '/';
 }
 
 /**
@@ -598,7 +997,10 @@ function notifyCustomerConfirmed(order) {
 /**
  * Sent automatically when a sales rep sets an order's Status to
  * "Needs Revision" (see onEdit). Include whatever's in that row's
- * "Revision Notes" cell, if anything, so the customer knows what to fix.
+ * "Revision Notes" cell, if anything, plus a link straight back to that
+ * exact PO on the KU-KIT website (pre-filled, editable) so the customer
+ * doesn't have to retype the whole form or accidentally create an
+ * unrelated second PO.
  */
 function notifyCustomerNeedsRevision(order) {
   const email = order['Email'];
@@ -606,14 +1008,16 @@ function notifyCustomerNeedsRevision(order) {
   const senderName = getConfig('Notification Sender Name', 'KU-KIT Order System');
   const companyName = getConfig('Company Name (for emails)', 'Siam Kubota Corporation Co., Ltd.');
   const notes = String(order['Revision Notes'] || '').trim();
+  const editLink = siteBaseUrl() + '?po=' + encodeURIComponent(order['PO Number']) + '&token=' + encodeURIComponent(order['Edit Token']) + '#po-request';
   const subject = 'Your purchase order needs a correction — ' + (order['PO Number'] || '');
   const body = [
     'Dear ' + (order['Contact'] || 'Customer') + ',',
     '',
     'We reviewed your purchase order ' + (order['PO Number'] || '') + ' and it needs a correction before we can proceed.',
-    notes ? ('Details: ' + notes) : 'Please contact us so we can go over the details together.',
+    notes ? ('Details: ' + notes) : 'Please review and correct the order below.',
     '',
-    'Once corrected, please resubmit your order through the KU-KIT website.',
+    'Fix and resubmit this exact PO here (your details are already filled in):',
+    editLink,
     '',
     companyName
   ].join('\n');

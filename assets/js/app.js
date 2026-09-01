@@ -1667,6 +1667,24 @@ function submitPoWebhook(payload) {
   }).catch(err => console.error('PO webhook failed', err));
 }
 
+// GET-based reads (fetch an existing order for editing, or check its
+// status) — unlike submitPoWebhook this one actually needs the response,
+// so callers await it and branch on `ok`. A plain GET with no custom
+// headers is a CORS "simple request" (no preflight), and Apps Script Web
+// Apps deployed with "Anyone" access already serve these cross-origin —
+// same assumption the POST webhook above already relies on.
+async function poWebhookGet(params) {
+  if (!PO_WEBHOOK_URL) return { ok: false, error: 'Webhook not configured.' };
+  try {
+    const qs = new URLSearchParams(params).toString();
+    const res = await fetch(`${PO_WEBHOOK_URL}?${qs}`);
+    return await res.json();
+  } catch (err) {
+    console.error('PO webhook GET failed', err);
+    return { ok: false, error: String(err) };
+  }
+}
+
 const ORDER_LIST_KEY = 'kukit_orders';
 const ORDER_BUYER_KEY = 'kukit_buyer';
 const ORDER_TRACKING_STAGE_KEYS = ['orderConfirmed', 'paymentReceived', 'production', 'shipped', 'customs', 'delivered'];
@@ -2616,6 +2634,12 @@ function initPoRequestPage(c) {
   let piWanted = null;
   let customerPriceMap = {};
   let selectedCustomerId = '';
+  // Set when the page was opened via the "fix this PO" link emailed on a
+  // Needs Revision — { poNumber, token, loaded }. `loaded` stays false
+  // until the existing order's data has actually been fetched, so the
+  // catalog-ready renderForm() call can wait for both before drawing the
+  // form (otherwise it would flash empty, then re-render once prefilled).
+  let editMode = null;
 
   function knownCustomerCountries() {
     const known = pr.customer.knownCustomers || [];
@@ -2855,8 +2879,55 @@ function initPoRequestPage(c) {
     `;
   }
 
+  function statusCheckHtml() {
+    const sc = pr.statusCheck;
+    if (!sc) return '';
+    return `
+      <div class="po-req-status-check">
+        <button type="button" class="po-req-status-check-toggle" id="po-req-status-check-toggle">${sc.toggleLabel}</button>
+        <div class="po-req-status-check-panel" id="po-req-status-check-panel" hidden>
+          <div class="po-req-field-grid">
+            <label class="po-req-field"><span>${sc.poLabel}</span><input type="text" id="po-req-status-po" placeholder="${sc.poPlaceholder}"></label>
+            <label class="po-req-field"><span>${sc.emailLabel}</span><input type="email" id="po-req-status-email"></label>
+          </div>
+          <button type="button" class="order-btn" id="po-req-status-check-btn">${sc.checkBtn}</button>
+          <div id="po-req-status-result" class="po-req-status-result"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  function wireStatusCheck() {
+    const sc = pr.statusCheck;
+    const toggle = document.getElementById('po-req-status-check-toggle');
+    const panel = document.getElementById('po-req-status-check-panel');
+    if (!toggle || !panel) return;
+    toggle.addEventListener('click', () => { panel.hidden = !panel.hidden; });
+    document.getElementById('po-req-status-check-btn').addEventListener('click', async () => {
+      const po = document.getElementById('po-req-status-po').value.trim();
+      const email = document.getElementById('po-req-status-email').value.trim();
+      const result = document.getElementById('po-req-status-result');
+      if (!po || !email) { result.textContent = sc.notFound; return; }
+      result.textContent = sc.loading;
+      const data = await poWebhookGet({ action: 'status', po, email });
+      // Require an actual status field, not just ok:true — guards against
+      // a stale/mismatched backend deployment returning its generic
+      // "webhook is live" response, which is also ok:true but has none of
+      // the real fields, so it would otherwise render as blank/"undefined".
+      if (!data || !data.ok || !data.status) { result.textContent = sc.notFound; return; }
+      const statusLabel = (sc.statuses && sc.statuses[data.status]) || data.status;
+      const lines = [
+        `${sc.submittedLabel}: ${data.submittedAt || '-'}`,
+        `${sc.statusLabel}: ${statusLabel}`
+      ];
+      if (data.revisionNotes) lines.push(`${sc.revisionNotesLabel}: ${data.revisionNotes}`);
+      result.innerHTML = lines.map(l => `<p>${l}</p>`).join('');
+    });
+  }
+
   function renderForm() {
     body.innerHTML = `
+      ${editMode ? `<div class="po-req-edit-banner">${pr.editModeNote.replace('{po}', editMode.poNumber)}</div>` : statusCheckHtml()}
       <div class="po-req-progress">
         <div class="po-req-progress-dot po-req-progress-dot--1"><span>1</span></div>
         <div class="po-req-progress-dot po-req-progress-dot--2"><span>2</span></div>
@@ -2890,6 +2961,7 @@ function initPoRequestPage(c) {
     wireCustomerFields();
     wireItemsTable();
     updateItemCount();
+    if (!editMode) wireStatusCheck();
 
     document.getElementById('po-req-payment').addEventListener('change', (e) => { selectedTermId = e.target.value; refreshItemsTable(); });
     document.getElementById('po-req-incoterm').addEventListener('change', (e) => {
@@ -2924,7 +2996,7 @@ function initPoRequestPage(c) {
       return { name: m.label, price: m.basePrice * premium, qty: row.qty };
     });
 
-    const poNumber = orderGenNumber('PO');
+    const poNumber = editMode ? editMode.poNumber : orderGenNumber('PO');
     const incoterm = pr.terms.incoterms.find(i => i.id === document.getElementById('po-req-incoterm').value);
     const shippingId = document.getElementById('po-req-shipping').value;
     const shipping = pr.terms.shippingMethods.find(s => s.id === shippingId);
@@ -2948,6 +3020,10 @@ function initPoRequestPage(c) {
       piWantedSet: piWanted !== null,
       notes: document.getElementById('po-req-notes').value
     };
+    if (editMode) {
+      order.editPoNumber = editMode.poNumber;
+      order.editToken = editMode.token;
+    }
     lastPoRequestOrder = order;
     generatePoRequestPdf(order, pr);
     if (order.piWanted) {
@@ -2956,12 +3032,13 @@ function initPoRequestPage(c) {
     }
     submitPoWebhook(order);
 
+    const wasEditMode = !!editMode;
     body.innerHTML = `
       <div class="order-confirmed-card po-req-confirmed">
         <div class="po-req-confirmed-check"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M14 27l7 7 17-17"/></svg></div>
-        <h3>${pr.confirmedTitle}</h3>
-        <p>${pr.confirmedBody} <strong>${poNumber}</strong></p>
-        <p class="po-req-hint">${pr.nextStepsNote}</p>
+        <h3>${wasEditMode ? pr.editConfirmedTitle : pr.confirmedTitle}</h3>
+        <p>${wasEditMode ? pr.editConfirmedBody : pr.confirmedBody} <strong>${poNumber}</strong></p>
+        <p class="po-req-hint">${wasEditMode ? pr.editNextStepsNote : pr.nextStepsNote}</p>
         <div class="po-req-confirmed-actions">
           <button type="button" class="order-btn" id="po-req-download-again-btn">${pr.downloadAgainBtn}</button>
           ${order.piWanted ? `<button type="button" class="order-btn" id="po-req-download-pi-again-btn">${pr.pi.downloadPiBtn}</button>` : ''}
@@ -2972,17 +3049,103 @@ function initPoRequestPage(c) {
     document.getElementById('po-req-download-again-btn').addEventListener('click', () => generatePoRequestPdf(lastPoRequestOrder, pr));
     const downloadPiAgainBtn = document.getElementById('po-req-download-pi-again-btn');
     if (downloadPiAgainBtn) downloadPiAgainBtn.addEventListener('click', () => generatePiPdf(lastPoRequestOrder));
-    document.getElementById('po-req-new-btn').addEventListener('click', () => { items = [{ modelId: '', qty: 1 }]; piWanted = null; renderForm(); });
+    document.getElementById('po-req-new-btn').addEventListener('click', () => {
+      items = [{ modelId: '', qty: 1 }]; piWanted = null; editMode = null;
+      history.replaceState(null, '', location.pathname + location.hash);
+      renderForm();
+    });
+  }
+
+  // Recovers what a plain "Name x Qty ($Price)" itemsText string (the
+  // format the backend stores/returns) maps back to in terms of catalog
+  // model IDs — used only when prefilling an edit link, where the backend
+  // has no concept of modelId, only the human-readable line it was built
+  // from at submit time.
+  function parseItemsTextToRows(itemsText) {
+    if (!itemsText) return [{ modelId: '', qty: 1 }];
+    const rows = String(itemsText).split(';').map(s => s.trim()).filter(Boolean).map(seg => {
+      const m = seg.match(/^(.*)\sx(\d+(?:\.\d+)?)\s\(\$([\d,.]+)\)$/);
+      if (!m) return null;
+      const found = catalogModels.find(x => x.label === m[1].trim());
+      return { modelId: found ? found.id : '', qty: parseInt(m[2], 10) || 1 };
+    }).filter(Boolean);
+    return rows.length ? rows : [{ modelId: '', qty: 1 }];
+  }
+
+  // Fills in everything renderForm() doesn't already read from `items`/
+  // `piWanted`/`selectedTermId` at template-build time — plain input
+  // values and select/radio state that only exist once the DOM is live.
+  function applyEditPrefillFields(editData) {
+    const b = editData.buyer || {};
+    const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val || ''; };
+    setVal('po-req-company', b.company);
+    setVal('po-req-country', b.country);
+    setVal('po-req-address', b.address);
+    setVal('po-req-contact', b.contact);
+    setVal('po-req-email', b.email);
+    setVal('po-req-phone', b.phone);
+    setVal('po-req-customer-ref', b.customerRef);
+    setVal('po-req-notes', editData.notes);
+    setVal('po-req-port', editData.port);
+    setVal('po-req-delivery-date', editData.deliveryDate);
+
+    const incotermSel = document.getElementById('po-req-incoterm');
+    const incotermMatch = pr.terms.incoterms.find(i => i.label === editData.incoterm);
+    if (incotermSel && incotermMatch) {
+      incotermSel.value = incotermMatch.id;
+      incotermSel.dispatchEvent(new Event('change'));
+    }
+
+    const shippingSel = document.getElementById('po-req-shipping');
+    const shippingMatch = pr.terms.shippingMethods.find(s => s.label === editData.shippingMethod);
+    if (shippingSel && shippingMatch) shippingSel.value = shippingMatch.id;
+
+    if (editData.piWanted) {
+      const yesRadio = body.querySelector('input[name="po-req-pi"][value="yes"]');
+      if (yesRadio) yesRadio.checked = true;
+      const consigneeField = document.getElementById('po-req-consignee-field');
+      if (consigneeField) consigneeField.hidden = false;
+    }
+  }
+
+  function loadEditOrderFromUrl() {
+    const params = new URLSearchParams(location.search);
+    const po = params.get('po');
+    const token = params.get('token');
+    if (!po || !token) return Promise.resolve(null);
+    return poWebhookGet({ action: 'order', po, token }).then(res => ({ res, po, token }));
   }
 
   body.innerHTML = `<div class="order-loading">${pr.items.loading}</div>`;
-  orderLoadCatalogData().then(data => {
+  Promise.all([orderLoadCatalogData(), loadEditOrderFromUrl()]).then(([data, editResult]) => {
     if (state.route !== 'po-request') return;
     catalogModels = [...data.products.engines, ...data.products.tillers, ...data.products.implements];
     paymentTerms = data.products.paymentTerms;
     selectedTermId = paymentTerms[0].id;
     customerPriceMap = (data.customerPrices && data.customerPrices.customers) || {};
-    renderForm();
+
+    // Require poNumber too, not just ok:true — a stale/mismatched backend
+    // deployment answers every GET with ok:true and no real fields, which
+    // would otherwise silently "succeed" into an edit mode with nothing
+    // actually loaded.
+    if (editResult && editResult.res && editResult.res.ok && editResult.res.poNumber) {
+      const editData = editResult.res;
+      editMode = { poNumber: editData.poNumber, token: editResult.token };
+      items = parseItemsTextToRows(editData.itemsText);
+      piWanted = editData.piWanted ? 'yes' : null;
+      const paymentMatch = paymentTerms.find(t => t.label === editData.paymentTerms);
+      if (paymentMatch) selectedTermId = paymentMatch.id;
+      renderForm();
+      applyEditPrefillFields(editData);
+    } else {
+      // A po+token was in the URL but the lookup didn't come back with a
+      // real order — whether the backend said so explicitly (ok:false) or
+      // just didn't have the fields (stale/mismatched deployment), the
+      // customer still needs to know their link didn't work rather than
+      // silently landing on a blank form.
+      if (editResult && editResult.res) alert(pr.editLoadErrorNote);
+      renderForm();
+    }
   });
 }
 

@@ -1471,7 +1471,25 @@
     "confirmedBody": "Your PO number is",
     "downloadAgainBtn": "Download PO again",
     "nextStepsNote": "Download the PDF and send it to your sales contact for review and confirmation — if you selected &ldquo;Yes&rdquo; for the PI, they'll route it to the issuing team once the order is confirmed.",
-    "newRequestBtn": "Start a new request"
+    "newRequestBtn": "Start a new request",
+    "editModeNote": "You're editing your existing PO {po} — fix what's wrong and resubmit; no need to fill everything in again.",
+    "editConfirmedTitle": "Purchase order updated",
+    "editConfirmedBody": "Your corrected details have been submitted for PO",
+    "editNextStepsNote": "Our sales team has been notified to review the updated order again.",
+    "editLoadErrorNote": "We couldn't find an order for this link — it may have expired or be invalid. Please fill in the form again.",
+    "statusCheck": {
+      "toggleLabel": "Check the status of a PO you already submitted",
+      "poLabel": "PO number",
+      "poPlaceholder": "e.g. PO-KUKIT-20260901-1234",
+      "emailLabel": "Email used when you submitted it",
+      "checkBtn": "Check status",
+      "loading": "Checking...",
+      "notFound": "No order found matching that PO number and email. Please double-check and try again.",
+      "submittedLabel": "Submitted",
+      "statusLabel": "Status",
+      "revisionNotesLabel": "Note from the sales team",
+      "statuses": { "New": "Awaiting review", "Confirmed": "Confirmed", "Needs Revision": "Needs correction", "Closed": "Closed" }
+    }
   },
   "footer": {
     "contact": "Contact the Dealer Support Team",

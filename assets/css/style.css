@@ -4849,6 +4849,39 @@ table.parts-table td.code-col {
 
 .po-req-price-note { color: var(--kubota-orange); font-weight: 600; }
 
+.po-req-edit-banner {
+  background: rgba(255,106,61,0.14);
+  border: 1px solid var(--kubota-orange);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  color: var(--kubota-dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.po-req-status-check-toggle {
+  background: none;
+  border: none;
+  color: var(--kubota-steel-blue);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+.po-req-status-check-toggle:hover { color: var(--kubota-orange); }
+
+.po-req-status-check-panel {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--kubota-border);
+  border-radius: var(--radius-md);
+  background: var(--kubota-light-gray);
+}
+
+.po-req-status-result { margin-top: 10px; font-size: 13px; color: var(--kubota-dark); }
+.po-req-status-result p { margin: 4px 0; }
+
 .po-req-pi-toggle { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
 .po-req-pi-toggle label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
 

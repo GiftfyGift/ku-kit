@@ -1170,7 +1170,25 @@
     "confirmedBody": "Nambari yako ya PO ni",
     "downloadAgainBtn": "Pakua PO tena",
     "nextStepsNote": "Pakua faili la PDF kisha ulitume kwa muuzaji anayekuhudumia ili akague na athibitishe agizo — ukichagua &ldquo;Ndiyo&rdquo; kwa PI, ataielekeza kwa timu inayotoa nyaraka baada ya agizo kuthibitishwa.",
-    "newRequestBtn": "Anza ombi jipya"
+    "newRequestBtn": "Anza ombi jipya",
+    "editModeNote": "Unahariri PO yako iliyopo {po} — rekebisha kilichokosewa kisha utume tena; hakuna haja ya kujaza kila kitu upya.",
+    "editConfirmedTitle": "Agizo la ununuzi limesasishwa",
+    "editConfirmedBody": "Maelezo yako yaliyorekebishwa yametumwa kwa PO",
+    "editNextStepsNote": "Timu yetu ya mauzo imejulishwa kukagua agizo lililosasishwa tena.",
+    "editLoadErrorNote": "Hatukuweza kupata agizo kwa kiungo hiki — huenda kimeisha muda au si sahihi. Tafadhali jaza fomu tena.",
+    "statusCheck": {
+      "toggleLabel": "Angalia hali ya PO uliyokwisha tuma",
+      "poLabel": "Namba ya PO",
+      "poPlaceholder": "mfano PO-KUKIT-20260901-1234",
+      "emailLabel": "Barua pepe uliyotumia ulipotuma",
+      "checkBtn": "Angalia hali",
+      "loading": "Inaangalia...",
+      "notFound": "Hakuna agizo lililopatikana linalolingana na namba hii ya PO na barua pepe. Tafadhali kagua tena.",
+      "submittedLabel": "Ilitumwa",
+      "statusLabel": "Hali",
+      "revisionNotesLabel": "Ujumbe kutoka timu ya mauzo",
+      "statuses": { "New": "Inasubiri ukaguzi", "Confirmed": "Imethibitishwa", "Needs Revision": "Inahitaji marekebisho", "Closed": "Imefungwa" }
+    }
   },
   "footer": {
     "contact": "Wasiliana na Timu ya Msaada kwa Wauzaji",

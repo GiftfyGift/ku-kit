@@ -1160,7 +1160,25 @@
     "confirmedBody": "Ang PO number mo ay",
     "downloadAgainBtn": "I-download muli ang PO",
     "nextStepsNote": "I-download ang PDF at ipadala sa iyong sales contact para suriin at kumpirmahin ang order — kung pinili mong &ldquo;Oo&rdquo; para sa PI, ipapasa niya ito sa issuing team kapag nakumpirma na ang order.",
-    "newRequestBtn": "Simulan ang bagong kahilingan"
+    "newRequestBtn": "Simulan ang bagong kahilingan",
+    "editModeNote": "Ine-edit mo ang umiiral na PO mo {po} — ayusin ang mali at isumite muli; hindi na kailangang punan ulit lahat.",
+    "editConfirmedTitle": "Na-update ang purchase order",
+    "editConfirmedBody": "Naisumite na ang iyong mga naitamang detalye para sa PO",
+    "editNextStepsNote": "Naabisuhan na ang aming sales team na suriin muli ang na-update na order.",
+    "editLoadErrorNote": "Hindi namin nahanap ang order na tugma sa link na ito — maaaring expired o hindi wasto. Pakipunan ulit ang form.",
+    "statusCheck": {
+      "toggleLabel": "Tingnan ang status ng dati mo nang naisumiteng PO",
+      "poLabel": "PO number",
+      "poPlaceholder": "hal. PO-KUKIT-20260901-1234",
+      "emailLabel": "Email na ginamit noong isinumite mo",
+      "checkBtn": "Tingnan ang status",
+      "loading": "Chinecheck...",
+      "notFound": "Walang nahanap na order na tugma sa PO number at email na ito. Paki-check ulit.",
+      "submittedLabel": "Isinumite noong",
+      "statusLabel": "Status",
+      "revisionNotesLabel": "Tala mula sa sales team",
+      "statuses": { "New": "Hinihintay suriin", "Confirmed": "Nakumpirma", "Needs Revision": "Kailangan ng pagwawasto", "Closed": "Sarado" }
+    }
   },
   "footer": {
     "contact": "Makipag-ugnayan sa Dealer Support Team",

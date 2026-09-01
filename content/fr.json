@@ -1160,7 +1160,25 @@
     "confirmedBody": "Votre numéro de PO est",
     "downloadAgainBtn": "Retélécharger le PO",
     "nextStepsNote": "Téléchargez le PDF et envoyez-le à votre contact commercial pour vérification et confirmation — si vous avez sélectionné &ldquo;Oui&rdquo; pour la PI, il la transmettra à l'équipe chargée de l'émission une fois la commande confirmée.",
-    "newRequestBtn": "Nouvelle demande"
+    "newRequestBtn": "Nouvelle demande",
+    "editModeNote": "Vous modifiez votre bon de commande existant {po} — corrigez ce qui ne va pas et renvoyez-le ; inutile de tout ressaisir.",
+    "editConfirmedTitle": "Bon de commande mis à jour",
+    "editConfirmedBody": "Vos informations corrigées ont été envoyées pour le PO",
+    "editNextStepsNote": "Notre équipe commerciale a été prévenue pour réexaminer la commande mise à jour.",
+    "editLoadErrorNote": "Impossible de trouver une commande correspondant à ce lien — il a peut-être expiré ou n'est pas valide. Veuillez remplir le formulaire à nouveau.",
+    "statusCheck": {
+      "toggleLabel": "Vérifier le statut d'un bon de commande déjà envoyé",
+      "poLabel": "Numéro de PO",
+      "poPlaceholder": "ex. PO-KUKIT-20260901-1234",
+      "emailLabel": "E-mail utilisé lors de l'envoi",
+      "checkBtn": "Vérifier le statut",
+      "loading": "Vérification en cours...",
+      "notFound": "Aucune commande trouvée correspondant à ce numéro de PO et cet e-mail. Veuillez vérifier et réessayer.",
+      "submittedLabel": "Envoyé le",
+      "statusLabel": "Statut",
+      "revisionNotesLabel": "Note de l'équipe commerciale",
+      "statuses": { "New": "En attente d'examen", "Confirmed": "Confirmé", "Needs Revision": "Correction nécessaire", "Closed": "Clôturé" }
+    }
   },
   "footer": {
     "contact": "Contactez l'équipe de support concessionnaires",
