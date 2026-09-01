@@ -16,9 +16,16 @@ const ALLOWED_ORIGINS = new Set([
 
 // Tune these against real query logs once this is live — they're a starting
 // point, not a calibrated result of analysis.
+//
+// AI Search's top-level `score` is an RRF-fused, RANK-based value (confirmed
+// against a live response during setup: top few results all land near
+// 0.93-1.0 regardless of how topically relevant they actually are) — it's
+// only meaningful for ordering, never as an absolute confidence number. So
+// broadness is decided from category *diversity* among the top matches, not
+// from any score threshold; SCORE_FLOOR only trims the weak rank-tail before
+// that diversity count, it isn't a relevance/confidence gate.
 const TOP_K = 8;
-const SCORE_FLOOR = 0.35;       // below this, a match isn't worth citing at all
-const CONFIDENT_SCORE = 0.55;   // a single match at/above this = not broad
+const SCORE_FLOOR = 0.2;
 const BROAD_CATEGORY_SPREAD = 3; // this many distinct categories among decent matches = broad
 
 const ANSWER_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
@@ -57,18 +64,17 @@ async function aiSearchRetrieve(env, query) {
     throw new Error(`AI Search retrieval failed: HTTP ${res.status} — ${await res.text().catch(() => '')}`);
   }
   const body = await res.json();
-  // AI Search's exact response shape wasn't fully confirmed against live docs
-  // during implementation — this defensively checks a couple of plausible
-  // shapes. If this throws in practice, log `body` once and fix the path
-  // below rather than guessing further.
-  const raw = body?.result?.data || body?.result?.matches || body?.result || [];
-  if (!Array.isArray(raw)) {
+  // Confirmed against a live call during setup: body.result.chunks[], each
+  // { id, type, score, text, item: { key, timestamp, metadata }, scoring_details }
+  // — `item.key` is the R2 object key, exactly what DOC_MANIFEST is keyed by.
+  const chunks = body?.result?.chunks;
+  if (!Array.isArray(chunks)) {
     throw new Error(`Unexpected AI Search response shape: ${JSON.stringify(body).slice(0, 500)}`);
   }
-  return raw.map(item => ({
-    key: item.filename || item.attributes?.filename || item.id || '',
-    score: typeof item.score === 'number' ? item.score : (item.attributes?.score ?? 0),
-    text: item.content || item.text || item.attributes?.content || '',
+  return chunks.map(chunk => ({
+    key: chunk.item?.key || '',
+    score: typeof chunk.score === 'number' ? chunk.score : 0,
+    text: chunk.text || '',
   })).filter(r => r.key);
 }
 
@@ -90,7 +96,6 @@ async function attachManifest(env, matches) {
 function decideBroad(matches) {
   const decent = matches.filter(m => m.score >= SCORE_FLOOR);
   if (!decent.length) return { broad: false, decent }; // "no results" path, not "broad"
-  if (decent[0].score >= CONFIDENT_SCORE) return { broad: false, decent };
   const categories = new Set(decent.map(m => m.category).filter(Boolean));
   return { broad: categories.size >= BROAD_CATEGORY_SPREAD, decent };
 }
@@ -104,11 +109,17 @@ topics they meant, plus up to 4 short suggested topic labels (each under 6 words
 Respond with ONLY this JSON, no other text: {"question": "...", "suggestions": ["...", "..."]}`;
   try {
     const result = await env.AI.run(CLARIFY_MODEL, { messages: [{ role: 'user', content: prompt }] });
-    const text = result?.response || '';
-    const match = text.match(/\{[\s\S]*\}/);
-    if (!match) return null;
-    const parsed = JSON.parse(match[0]);
-    if (!parsed.question) return null;
+    // Workers AI auto-parses JSON-looking completions: `response` comes back
+    // as an object directly, not a string to regex out — confirmed via a
+    // live call during setup. Still handle the string case defensively in
+    // case a different model/version reverts to plain text.
+    let parsed = result?.response;
+    if (typeof parsed === 'string') {
+      const match = parsed.match(/\{[\s\S]*\}/);
+      if (!match) return null;
+      parsed = JSON.parse(match[0]);
+    }
+    if (!parsed?.question) return null;
     return { question: parsed.question, suggestions: (parsed.suggestions || []).slice(0, 4) };
   } catch (err) {
     console.error('clarify phrasing failed', err);
@@ -187,7 +198,12 @@ export default {
       return new Response(null, { headers: corsHeaders(origin) });
     }
     if (url.pathname === '/api/ask' && request.method === 'POST') {
-      return handleAsk(request, env, origin);
+      try {
+        return await handleAsk(request, env, origin);
+      } catch (err) {
+        console.error('Unhandled error in handleAsk', err);
+        return jsonResponse({ error: 'Internal error', detail: String(err && err.stack || err) }, origin, 500);
+      }
     }
     return jsonResponse({ error: 'Not found' }, origin, 404);
   },

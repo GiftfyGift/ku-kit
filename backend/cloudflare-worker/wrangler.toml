@@ -18,13 +18,13 @@ bucket_name = "kukit-docs"
 # so AI Search never tries to index it as a document.
 [[kv_namespaces]]
 binding = "DOC_MANIFEST"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "36f55991c9d24b6b9971c899befb248e"
 
 # Non-secret config. CF_ACCOUNT_ID and the AI Search instance name are needed
 # to call the AI Search REST API (no native Workers binding for it yet).
 [vars]
 AI_SEARCH_INSTANCE = "kukit-assistant"
-CF_ACCOUNT_ID = "REPLACE_WITH_ACCOUNT_ID"
+CF_ACCOUNT_ID = "dfc7495f081520f0933b3663b570ab4c"
 
 # Secret — set via `npx wrangler secret put CF_API_TOKEN`, never committed.
 # Same scoped token created in the setup wizard (AI Search:Edit, Workers AI:Edit,

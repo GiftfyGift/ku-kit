@@ -22,6 +22,14 @@ const STAGING_DIR = path.join(ROOT, 'staging');
 const SOURCE_FILES_DIR = path.join(ROOT, 'source-files');
 const DRY_RUN = process.argv.includes('--dry-run');
 
+// Windows needs shell:true for npx (it's npx.cmd, not directly spawnable) —
+// but this repo's path contains `&` (De&PT), which cmd.exe's shell parsing
+// mangles when it shows up inside an argument. Fix is to never pass a path
+// containing it: every path-bearing argument below is made relative to the
+// command's own cwd instead of absolute, so the shared "De&PT" prefix never
+// appears on the command line at all.
+const NPX = 'npx';
+const EXEC_OPTS = { stdio: 'inherit', shell: true };
 const R2_BUCKET = 'kukit-docs';
 const KV_BINDING = 'DOC_MANIFEST';
 const WORKER_DIR = path.join(KU_KIT_ROOT, 'backend', 'cloudflare-worker');
@@ -44,11 +52,19 @@ function stageAndUpload({ key, text, meta }) {
 
   if (DRY_RUN) return;
 
-  execFileSync('npx', ['wrangler', 'r2', 'object', 'put', `${R2_BUCKET}/${key}`,
-    '--file', stagedPath, '--remote'], { cwd: WORKER_DIR, stdio: 'inherit' });
+  const relativeFile = path.relative(WORKER_DIR, stagedPath);
+  execFileSync(NPX, ['wrangler', 'r2', 'object', 'put', `${R2_BUCKET}/${key}`,
+    '--file', relativeFile, '--remote'], { cwd: WORKER_DIR, ...EXEC_OPTS });
 
-  execFileSync('npx', ['wrangler', 'kv', 'key', 'put', '--binding', KV_BINDING,
-    key, JSON.stringify(meta), '--remote'], { cwd: WORKER_DIR, stdio: 'inherit' });
+  // --path (read the value from a file) instead of passing the JSON string
+  // as a shell argument — cmd.exe's shell:true quoting mangles embedded
+  // double-quotes, which corrupted every stored manifest entry the first
+  // time this shipped a plain string argument here.
+  const metaPath = stagedPath + '.meta.json';
+  fs.writeFileSync(metaPath, JSON.stringify(meta), 'utf8');
+  const relativeMetaFile = path.relative(WORKER_DIR, metaPath);
+  execFileSync(NPX, ['wrangler', 'kv', 'key', 'put', '--binding', KV_BINDING,
+    key, '--path', relativeMetaFile, '--remote'], { cwd: WORKER_DIR, ...EXEC_OPTS });
 }
 
 async function ingestFromSourcesJson() {
