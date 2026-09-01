@@ -3549,6 +3549,17 @@ const AW_PHOTO_BACKGROUNDS = {
   'photo-sky': 'assets/img/artwork/backgrounds/bg-farm-field-sky.jpg'
 };
 
+// How far the headline/subheadline/body text block can be dragged, as a
+// fraction of canvas width/height. Shared between drawArtwork() (which reads
+// textOffsetX/Y to place the text) and the pointerMove drag handler in
+// initArtworkPage() (which converts a canvas-pixel drag back into the same
+// percent units) — keep both reads in sync or a drag stops matching 1:1 with
+// the mouse. Previously 0.12/0.10, which felt "locked near the middle" on a
+// blank/transparent canvas with nothing else to anchor against; widened to
+// roughly match how far logo/photo/wordmark can already move (±0.35).
+const AW_TEXT_OFFSET_X_FRAC = 0.32;
+const AW_TEXT_OFFSET_Y_FRAC = 0.30;
+
 function awPaintBackground(ctx, pxW, pxH, isLandscape, bgStyle, pad, logoH, photoImg) {
   if (bgStyle === 'blank') {
     ctx.fillStyle = '#FFFFFF';
@@ -4128,8 +4139,8 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const manGap = manW ? pxW * 0.03 : 0;
   const farmerRightEdge = manW ? pad + manW + manGap : pad;
   const headlineMaxW = isLandscape ? pxW * 0.62 : pxW * 0.86;
-  const textOffsetXpx = ((st.textOffsetX || 0) / 100) * pxW * 0.12;
-  const textOffsetYpx = ((st.textOffsetY || 0) / 100) * pxH * 0.10;
+  const textOffsetXpx = ((st.textOffsetX || 0) / 100) * pxW * AW_TEXT_OFFSET_X_FRAC;
+  const textOffsetYpx = ((st.textOffsetY || 0) / 100) * pxH * AW_TEXT_OFFSET_Y_FRAC;
   const userTextScale = (st.textScale || 100) / 100;
   const textRotationDeg = st.textRotation || 0;
   const textStyle = st.textStyle || 'orange';
@@ -4848,8 +4859,8 @@ function initArtworkPage(c) {
       // Same px↔percent mapping drawArtwork uses for textOffsetXpx/textOffsetYpx,
       // inverted here so a drag of N canvas pixels moves the text by exactly
       // that many pixels rather than some slider-scaled amount.
-      const dxPct = lastPxW ? (dx / (lastPxW * 0.12)) * 100 : 0;
-      const dyPct = lastPxH ? (dy / (lastPxH * 0.10)) * 100 : 0;
+      const dxPct = lastPxW ? (dx / (lastPxW * AW_TEXT_OFFSET_X_FRAC)) * 100 : 0;
+      const dyPct = lastPxH ? (dy / (lastPxH * AW_TEXT_OFFSET_Y_FRAC)) * 100 : 0;
       textOffsetX.value = clamp(Math.round(dragState.startOffsetX + dxPct), -100, 100);
       textOffsetY.value = clamp(Math.round(dragState.startOffsetY + dyPct), -100, 100);
     } else {
@@ -4906,9 +4917,17 @@ function initArtworkPage(c) {
   wireSwatchGroup(bgStyleGroup, schedulePreview);
   shopInput.addEventListener('input', schedulePreview);
   contactInput.addEventListener('input', schedulePreview);
-  headlineInput.addEventListener('input', schedulePreview);
-  subheadlineInput.addEventListener('input', schedulePreview);
-  bodyInput.addEventListener('input', schedulePreview);
+  // Typing into any of these three fields should just show the text — a
+  // separate "add text" click first (only needed for a truly empty field)
+  // read as "I typed a headline and nothing showed up".
+  function onTextFieldInput() {
+    textVisible = true;
+    updateEditorUi();
+    schedulePreview();
+  }
+  headlineInput.addEventListener('input', onTextFieldInput);
+  subheadlineInput.addEventListener('input', onTextFieldInput);
+  bodyInput.addEventListener('input', onTextFieldInput);
   wireSwatchGroup(textStyleGroup, schedulePreview);
   textOffsetX.addEventListener('input', schedulePreview);
   textOffsetY.addEventListener('input', schedulePreview);
