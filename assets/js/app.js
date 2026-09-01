@@ -2922,6 +2922,14 @@ function initPoRequestPage(c) {
       ];
       if (data.revisionNotes) lines.push(`${sc.revisionNotesLabel}: ${data.revisionNotes}`);
       result.innerHTML = lines.map(l => `<p>${l}</p>`).join('');
+      // A customer checking status this way (rather than reading the
+      // original email) still needs a way to actually fix a rejected PO —
+      // the backend only includes editToken when Status is Needs Revision,
+      // so this link only ever appears when there's something to fix.
+      if (data.status === 'Needs Revision' && data.editToken) {
+        const editUrl = `?po=${encodeURIComponent(data.poNumber)}&token=${encodeURIComponent(data.editToken)}#po-request`;
+        result.insertAdjacentHTML('beforeend', `<a class="order-btn po-req-status-edit-link" href="${editUrl}">${sc.editBtn}</a>`);
+      }
     });
   }
 
@@ -3026,10 +3034,13 @@ function initPoRequestPage(c) {
     }
     lastPoRequestOrder = order;
     generatePoRequestPdf(order, pr);
-    if (order.piWanted) {
-      order.piNumber = orderGenNumber('PI');
-      generatePiPdf(order);
-    }
+    // The PI itself is no longer generated/offered for download here — it's
+    // an official company document now, and per the real approval flow it
+    // only gets prepared (with the actual Sales Confirmation No., bank
+    // detail, and signature) once sales has reviewed and confirmed this
+    // order, then emailed straight to the customer. Handing out a
+    // PI-shaped PDF immediately, before any of that happened, was
+    // confusing and undercut the whole point of the approval step.
     submitPoWebhook(order);
 
     const wasEditMode = !!editMode;
@@ -3039,16 +3050,14 @@ function initPoRequestPage(c) {
         <h3>${wasEditMode ? pr.editConfirmedTitle : pr.confirmedTitle}</h3>
         <p>${wasEditMode ? pr.editConfirmedBody : pr.confirmedBody} <strong>${poNumber}</strong></p>
         <p class="po-req-hint">${wasEditMode ? pr.editNextStepsNote : pr.nextStepsNote}</p>
+        ${order.piWanted ? `<p class="po-req-hint">${pr.pi.piAfterConfirmNote}</p>` : ''}
         <div class="po-req-confirmed-actions">
           <button type="button" class="order-btn" id="po-req-download-again-btn">${pr.downloadAgainBtn}</button>
-          ${order.piWanted ? `<button type="button" class="order-btn" id="po-req-download-pi-again-btn">${pr.pi.downloadPiBtn}</button>` : ''}
           <button type="button" class="order-btn order-btn--ghost" id="po-req-new-btn">${pr.newRequestBtn}</button>
         </div>
       </div>
     `;
     document.getElementById('po-req-download-again-btn').addEventListener('click', () => generatePoRequestPdf(lastPoRequestOrder, pr));
-    const downloadPiAgainBtn = document.getElementById('po-req-download-pi-again-btn');
-    if (downloadPiAgainBtn) downloadPiAgainBtn.addEventListener('click', () => generatePiPdf(lastPoRequestOrder));
     document.getElementById('po-req-new-btn').addEventListener('click', () => {
       items = [{ modelId: '', qty: 1 }]; piWanted = null; editMode = null;
       history.replaceState(null, '', location.pathname + location.hash);

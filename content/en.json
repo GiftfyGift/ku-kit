@@ -1456,10 +1456,11 @@
       "question": "Do you need a Proforma Invoice for this order?",
       "yes": "Yes",
       "no": "No",
-      "helpText": "Some countries require a PI to process a bank transfer or import declaration — for example, where cross-border USD transfers need supporting documentation. If you select &ldquo;Yes&rdquo;, the system generates a PI file in Siam Kubota's real format to download alongside the PO immediately — the official Sales Confirmation No. is issued once your sales contact confirms the order.",
+      "helpText": "Some countries require a PI to process a bank transfer or import declaration — for example, where cross-border USD transfers need supporting documentation. If you select &ldquo;Yes&rdquo;, our sales team will prepare the official PI after reviewing and confirming this order, and email it to you directly.",
       "consigneeLabel": "Consignee — if different from the buyer",
       "consigneePlaceholder": "Leave blank if the consignee is the same company as the buyer",
-      "downloadPiBtn": "Download PI again"
+      "downloadPiBtn": "Download PI again",
+      "piAfterConfirmNote": "The official PI will be prepared and emailed to you once our sales team has reviewed and confirmed this order."
     },
     "notesLabel": "Additional notes",
     "notesPlaceholder": "Any special conditions — a discount request, a required document date, etc.",
@@ -1488,6 +1489,7 @@
       "submittedLabel": "Submitted",
       "statusLabel": "Status",
       "revisionNotesLabel": "Note from the sales team",
+      "editBtn": "Edit this PO",
       "statuses": { "New": "Awaiting review", "Confirmed": "Confirmed", "Needs Revision": "Needs correction", "Closed": "Closed" }
     }
   },

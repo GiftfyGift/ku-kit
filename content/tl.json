@@ -1145,10 +1145,11 @@
       "question": "Kailangan mo ba ng Proforma Invoice para sa order na ito?",
       "yes": "Oo",
       "no": "Hindi",
-      "helpText": "May mga bansang nangangailangan ng PI para makapagproseso ng bank transfer o import declaration — halimbawa, kapag kailangan ng supporting document ang cross-border na paglipat ng USD. Kapag pinili mo ang &ldquo;Oo&rdquo;, agad na gagawa ang system ng PI file sa tunay na format ng Siam Kubota na madadownload kasabay ng PO — ang opisyal na Sales Confirmation No. ay ibibigay kapag nakumpirma na ng iyong sales contact ang order.",
+      "helpText": "May mga bansang nangangailangan ng PI para makapagproseso ng bank transfer o import declaration — halimbawa, kapag kailangan ng supporting document ang cross-border na paglipat ng USD. Kapag pinili mo ang &ldquo;Oo&rdquo;, ihahanda ng aming sales team ang opisyal na PI pagkatapos suriin at kumpirmahin ang order na ito, at ipapadala ito nang direkta sa iyong email.",
       "consigneeLabel": "Consignee — kung iba sa bumibili",
       "consigneePlaceholder": "Iwanang blangko kung ang consignee ay parehong kompanya ng bumibili",
-      "downloadPiBtn": "I-download muli ang PI"
+      "downloadPiBtn": "I-download muli ang PI",
+      "piAfterConfirmNote": "Ihahanda at ipapadala ang opisyal na PI sa email mo kapag nasuri at nakumpirma na ng aming sales team ang order na ito."
     },
     "notesLabel": "Karagdagang notes",
     "notesPlaceholder": "Anumang espesyal na kondisyon — kahilingan ng diskwento, kailangang petsa ng dokumento, atbp.",
@@ -1177,6 +1178,7 @@
       "submittedLabel": "Isinumite noong",
       "statusLabel": "Status",
       "revisionNotesLabel": "Tala mula sa sales team",
+      "editBtn": "I-edit ang PO na ito",
       "statuses": { "New": "Hinihintay suriin", "Confirmed": "Nakumpirma", "Needs Revision": "Kailangan ng pagwawasto", "Closed": "Sarado" }
     }
   },

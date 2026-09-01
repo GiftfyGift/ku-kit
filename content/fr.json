@@ -1145,10 +1145,11 @@
       "question": "Avez-vous besoin d'une facture proforma pour cette commande ?",
       "yes": "Oui",
       "no": "Non",
-      "helpText": "Certains pays exigent une PI pour effectuer un virement bancaire ou une déclaration d'importation — par exemple lorsque les virements transfrontaliers en USD nécessitent un justificatif. Si vous sélectionnez &ldquo;Oui&rdquo;, le système génère immédiatement un fichier PI au format réel de Siam Kubota, téléchargeable avec le PO — le numéro officiel de confirmation de vente (Sales Confirmation No.) sera délivré une fois votre contact commercial ayant confirmé la commande.",
+      "helpText": "Certains pays exigent une PI pour effectuer un virement bancaire ou une déclaration d'importation — par exemple lorsque les virements transfrontaliers en USD nécessitent un justificatif. Si vous sélectionnez &ldquo;Oui&rdquo;, notre équipe commerciale préparera la PI officielle après avoir examiné et confirmé cette commande, puis vous l'enverra directement par e-mail.",
       "consigneeLabel": "Destinataire (Consignee) — si différent de l'acheteur",
       "consigneePlaceholder": "Laissez vide si le destinataire est la même société que l'acheteur",
-      "downloadPiBtn": "Retélécharger la PI"
+      "downloadPiBtn": "Retélécharger la PI",
+      "piAfterConfirmNote": "La PI officielle sera préparée et envoyée par e-mail une fois que notre équipe commerciale aura examiné et confirmé cette commande."
     },
     "notesLabel": "Notes complémentaires",
     "notesPlaceholder": "Toute condition particulière — demande de remise, date d'obtention requise pour un document, etc.",
@@ -1177,6 +1178,7 @@
       "submittedLabel": "Envoyé le",
       "statusLabel": "Statut",
       "revisionNotesLabel": "Note de l'équipe commerciale",
+      "editBtn": "Modifier ce PO",
       "statuses": { "New": "En attente d'examen", "Confirmed": "Confirmé", "Needs Revision": "Correction nécessaire", "Closed": "Clôturé" }
     }
   },

@@ -400,6 +400,11 @@ function handleGetOrderForEdit(params) {
  * Read-only status lookup for the "check my order" box on the website — no
  * token, just the PO number plus the email already on file for it (so a
  * random guessed PO number alone can't be used to see whose order it is).
+ * Deliberately doesn't hand back the Edit Token in general — except when
+ * the order actually needs a correction, where handing it over here is no
+ * more sensitive than what's already emailed automatically, and it means a
+ * customer who lost/can't find that email can still get straight to fixing
+ * their PO from the status box instead of being stuck.
  */
 function handleGetOrderStatus(params) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_ORDERS);
@@ -407,12 +412,14 @@ function handleGetOrderStatus(params) {
   const row = findRowByPoAndEmail(sheet, params.po, params.email);
   if (!row) return jsonResponse({ ok: false, error: 'No order found matching that PO number and email.' });
   const order = getOrderRowData(sheet, row);
+  const needsRevision = order['Status'] === 'Needs Revision';
   return jsonResponse({
     ok: true,
     poNumber: order['PO Number'],
     submittedAt: order['Timestamp'],
     status: order['Status'],
-    revisionNotes: order['Status'] === 'Needs Revision' ? order['Revision Notes'] : '',
+    revisionNotes: needsRevision ? order['Revision Notes'] : '',
+    editToken: needsRevision ? order['Edit Token'] : '',
     piStage: order['PI Stage'] || ''
   });
 }

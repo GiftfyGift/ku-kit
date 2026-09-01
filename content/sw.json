@@ -1155,10 +1155,11 @@
       "question": "Je, unahitaji Ankara ya Awali kwa agizo hili?",
       "yes": "Ndiyo",
       "no": "Hapana",
-      "helpText": "Baadhi ya nchi zinahitaji PI kufanikisha uhamisho wa benki au tamko la uagizaji bidhaa — kwa mfano, ambapo uhamisho wa fedha za USD wa kuvuka mipaka unahitaji nyaraka za kuunga mkono. Ukichagua &ldquo;Ndiyo&rdquo;, mfumo utatengeneza faili la PI kwa muundo halisi wa Siam Kubota kwa kupakua pamoja na PO mara moja — Nambari rasmi ya Sales Confirmation itatolewa baada ya muuzaji wako kuthibitisha agizo.",
+      "helpText": "Baadhi ya nchi zinahitaji PI kufanikisha uhamisho wa benki au tamko la uagizaji bidhaa — kwa mfano, ambapo uhamisho wa fedha za USD wa kuvuka mipaka unahitaji nyaraka za kuunga mkono. Ukichagua &ldquo;Ndiyo&rdquo;, timu yetu ya mauzo itaandaa PI rasmi baada ya kukagua na kuthibitisha agizo hili, kisha kukutumia moja kwa moja kwa barua pepe.",
       "consigneeLabel": "Mpokeaji wa mzigo (Consignee) — ikiwa tofauti na mnunuzi",
       "consigneePlaceholder": "Acha wazi ikiwa mpokeaji wa mzigo ni kampuni ile ile ya mnunuzi",
-      "downloadPiBtn": "Pakua PI tena"
+      "downloadPiBtn": "Pakua PI tena",
+      "piAfterConfirmNote": "PI rasmi itaandaliwa na kutumwa kwa barua pepe mara timu yetu ya mauzo itakapokagua na kuthibitisha agizo hili."
     },
     "notesLabel": "Maelezo ya ziada",
     "notesPlaceholder": "Masharti mengine maalum — ombi la punguzo, tarehe ya nyaraka inayohitajika, n.k.",
@@ -1187,6 +1188,7 @@
       "submittedLabel": "Ilitumwa",
       "statusLabel": "Hali",
       "revisionNotesLabel": "Ujumbe kutoka timu ya mauzo",
+      "editBtn": "Hariri PO hii",
       "statuses": { "New": "Inasubiri ukaguzi", "Confirmed": "Imethibitishwa", "Needs Revision": "Inahitaji marekebisho", "Closed": "Imefungwa" }
     }
   },
