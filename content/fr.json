@@ -1137,7 +1137,8 @@
         { "id": "sea_fcl", "label": "Par mer — FCL (conteneur complet)" },
         { "id": "air", "label": "Par avion" }
       ],
-      "deliveryDateLabel": "Date de livraison souhaitée"
+      "deliveryDateLabel": "Date de livraison souhaitée",
+      "deliveryDateHint": "Sélectionnable à partir de 2 mois, pour laisser le temps à la production et à l'expédition."
     },
     "pi": {
       "heading": "4. Facture proforma (PI)",
@@ -1153,7 +1154,7 @@
     "notesPlaceholder": "Toute condition particulière — demande de remise, date d'obtention requise pour un document, etc.",
     "submitBtn": "Générer le bon de commande (PO)",
     "requireItemsNote": "Veuillez ajouter au moins un article à la commande.",
-    "invalidDeliveryDateNote": "La date de livraison souhaitée ne peut pas être antérieure à aujourd'hui.",
+    "invalidDeliveryDateNote": "La date de livraison souhaitée doit être d'au moins 2 mois à compter d'aujourd'hui.",
     "requireFieldsNote": "Veuillez saisir le nom de la société et l'e-mail de contact avant de générer le PO.",
     "confirmedTitle": "Bon de commande généré",
     "confirmedBody": "Votre numéro de PO est",

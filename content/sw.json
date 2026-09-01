@@ -1147,7 +1147,8 @@
         { "id": "sea_fcl", "label": "Kwa meli — FCL (kontena kamili)" },
         { "id": "air", "label": "Kwa ndege" }
       ],
-      "deliveryDateLabel": "Tarehe unayohitaji upokee bidhaa"
+      "deliveryDateLabel": "Tarehe unayohitaji upokee bidhaa",
+      "deliveryDateHint": "Chagua kuanzia miezi 2 na kuendelea, ili kutoa muda wa uzalishaji na usafirishaji."
     },
     "pi": {
       "heading": "4. Ankara ya Awali (PI)",
@@ -1163,7 +1164,7 @@
     "notesPlaceholder": "Masharti mengine maalum — ombi la punguzo, tarehe ya nyaraka inayohitajika, n.k.",
     "submitBtn": "Tengeneza Agizo la Ununuzi (PO)",
     "requireItemsNote": "Tafadhali ongeza angalau bidhaa moja kwenye agizo.",
-    "invalidDeliveryDateNote": "Tarehe unayohitaji upokee bidhaa haiwezi kuwa kabla ya leo.",
+    "invalidDeliveryDateNote": "Tarehe unayohitaji upokee bidhaa lazima iwe angalau miezi 2 kutoka leo.",
     "requireFieldsNote": "Tafadhali jaza jina la kampuni na barua pepe ya mawasiliano kabla ya kutengeneza PO.",
     "confirmedTitle": "Agizo la ununuzi limetengenezwa",
     "confirmedBody": "Nambari yako ya PO ni",

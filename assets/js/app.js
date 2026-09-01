@@ -1698,6 +1698,16 @@ function orderCartQtyFor(key) {
   return item ? item.qty : 0;
 }
 
+// Earliest deliverable date: 2 calendar months out from today, to cover
+// production + shipping lead time. Recomputed fresh each call rather than
+// cached, so a page left open across midnight (or across a month boundary)
+// always reflects the correct minimum.
+function minDeliveryDateIso() {
+  const d = new Date();
+  d.setMonth(d.getMonth() + 2);
+  return d.toISOString().slice(0, 10);
+}
+
 function orderGenNumber(prefix) {
   const d = new Date();
   const ymd = `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
@@ -2805,7 +2815,6 @@ function initPoRequestPage(c) {
 
   function termsHtml() {
     const t = pr.terms;
-    const todayIso = new Date().toISOString().slice(0, 10);
     return `
       <div class="po-req-field-grid">
         <label class="po-req-field">
@@ -2822,7 +2831,11 @@ function initPoRequestPage(c) {
           <span>${t.shippingLabel}</span>
           <select id="po-req-shipping">${t.shippingMethods.map(s => `<option value="${s.id}">${s.label}</option>`).join('')}</select>
         </label>
-        <label class="po-req-field"><span>${t.deliveryDateLabel}</span><input type="date" id="po-req-delivery-date" min="${todayIso}"></label>
+        <label class="po-req-field">
+          <span>${t.deliveryDateLabel}</span>
+          <input type="date" id="po-req-delivery-date" min="${minDeliveryDateIso()}">
+          ${t.deliveryDateHint ? `<p class="po-req-hint">${t.deliveryDateHint}</p>` : ''}
+        </label>
       </div>
     `;
   }
@@ -2900,7 +2913,7 @@ function initPoRequestPage(c) {
     const validItems = items.filter(row => row.modelId && row.qty > 0);
     if (!validItems.length) { alert(pr.requireItemsNote); return; }
     const deliveryDateValue = document.getElementById('po-req-delivery-date').value;
-    if (deliveryDateValue && deliveryDateValue < new Date().toISOString().slice(0, 10)) {
+    if (deliveryDateValue && deliveryDateValue < minDeliveryDateIso()) {
       alert(pr.invalidDeliveryDateNote);
       return;
     }

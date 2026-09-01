@@ -1137,7 +1137,8 @@
         { "id": "sea_fcl", "label": "Sa dagat — FCL (buong container)" },
         { "id": "air", "label": "Sa himpapawid" }
       ],
-      "deliveryDateLabel": "Petsang gusto ng pagtanggap"
+      "deliveryDateLabel": "Petsang gusto ng pagtanggap",
+      "deliveryDateHint": "Puwedeng piliin mula 2 buwan pasulong, para magkaroon ng oras para sa produksyon at padala."
     },
     "pi": {
       "heading": "4. Proforma Invoice (PI)",
@@ -1153,7 +1154,7 @@
     "notesPlaceholder": "Anumang espesyal na kondisyon — kahilingan ng diskwento, kailangang petsa ng dokumento, atbp.",
     "submitBtn": "Gumawa ng Purchase Order (PO)",
     "requireItemsNote": "Magdagdag muna ng kahit isang item sa order.",
-    "invalidDeliveryDateNote": "Hindi puwedeng mas maaga sa ngayon ang petsang gusto ng pagtanggap.",
+    "invalidDeliveryDateNote": "Ang petsang gusto ng pagtanggap ay dapat hindi bababa sa 2 buwan mula ngayon.",
     "requireFieldsNote": "Ilagay muna ang pangalan ng kompanya at email ng contact bago gumawa ng PO.",
     "confirmedTitle": "Nagawa na ang purchase order",
     "confirmedBody": "Ang PO number mo ay",
