@@ -33,10 +33,25 @@
  * version of this script: add these header cells as the LAST columns of
  * row 1 in the Orders tab, in this exact order (this script always appends
  * new fields at the end so existing rows/columns are never disturbed):
- *   Revision Notes | Edit Token | PI Number | PI Approval Token | PI Sent To Customer At
- * (If you already added "Revision Notes" from an earlier update, just add
- * the four new ones after it.) That's the only sheet change needed;
- * everything else keeps working as before.
+ *   Revision Notes | Edit Token | PI Number | PI Approval Token | PI Sent To Customer At | Bank Account
+ * (If you already added everything up through "PI Sent To Customer At"
+ * from an earlier update, just add "Bank Account" after it.) That's the
+ * only sheet change needed; everything else keeps working as before —
+ * including a brand-new "Bank Accounts" tab, which this script creates and
+ * pre-fills for you the first time setupDropdowns() runs (see below).
+ *
+ * MULTIPLE BANK ACCOUNTS: the "Bank Accounts" tab (Label, Bank Name,
+ * Account No., SWIFT Code, A/C Name) holds every bank the company can get
+ * paid into. Each Orders row's "Bank Account" dropdown picks which one
+ * that order's PI prints — reviewable/overridable per order before the PI
+ * is generated. Add, remove, or edit rows in that tab any time; every
+ * dropdown reads it live, no code change or re-run needed. Leave a row's
+ * "Bank Account" blank to fall back to the Config "Default Bank Account"
+ * label (pre-filled onto every new order automatically), or leave that
+ * blank too to fall back further to the old single-account Config rows
+ * (Bank Name / Bank Account No. / Bank SWIFT Code / Bank Account Name) —
+ * kept around as a last-resort default so nothing breaks if the Bank
+ * Accounts tab is ever emptied out.
  *
  * CONFIRMING AN ORDER: whoever reviews an order opens the sheet and changes
  * that row's "Status" to "Confirmed" — the "Confirmed By" and
@@ -138,6 +153,8 @@
 const SHEET_ORDERS = 'Orders';
 const SHEET_SALES_REPS = 'Sales Reps';
 const SHEET_CONFIG = 'Config';
+const SHEET_BANK_ACCOUNTS = 'Bank Accounts';
+const BANK_ACCOUNTS_HEADERS = ['Label', 'Bank Name', 'Account No.', 'SWIFT Code', 'A/C Name'];
 
 const ORDERS_HEADERS = [
   'Timestamp', 'PO Number', 'Company', 'Address', 'Country', 'Contact',
@@ -146,7 +163,7 @@ const ORDERS_HEADERS = [
   'Requested Delivery Date', 'PI Requested', 'Notes', 'Status',
   'Assigned Sales Rep', 'Confirmed By', 'Confirmed At', 'PI Stage',
   'Revision Notes', 'Edit Token', 'PI Number', 'PI Approval Token',
-  'PI Sent To Customer At'
+  'PI Sent To Customer At', 'Bank Account'
 ];
 
 // Fields a customer resubmission (via their edit link) is allowed to
@@ -228,7 +245,12 @@ function doPost(e) {
       editToken,
       '', // PI Number — filled in once a PI is drafted
       '', // PI Approval Token — filled in once a PI is drafted
-      ''  // PI Sent To Customer At
+      '', // PI Sent To Customer At
+      getConfig('Default Bank Account', '') // Bank Account — which row of the
+      // Bank Accounts tab to print on this order's PI; pre-filled from
+      // Config so most orders need no action, but reviewable/overridable
+      // per order before the PI is generated (e.g. a deal that should be
+      // paid into a different account than the usual default).
     ];
 
     const testMode = isTestMode();
@@ -248,6 +270,7 @@ function doPost(e) {
     ordersSheet.getRange(newRow, ORDERS_HEADERS.indexOf('PI Stage') + 1).setDataValidation(
       SpreadsheetApp.newDataValidation().requireValueInList(PI_STAGE_OPTIONS, true).setAllowInvalid(false).build()
     );
+    applyBankAccountValidation(ordersSheet, newRow, 1);
 
     // Deep-link straight to this row instead of just the spreadsheet's front
     // page, so the "review this order" email drops the rep right where the
@@ -611,11 +634,18 @@ function setupDropdowns() {
   if (!sheet) throw new Error('Orders sheet tab not found.');
   const statusCol = ORDERS_HEADERS.indexOf('Status') + 1;
   const piStageCol = ORDERS_HEADERS.indexOf('PI Stage') + 1;
+  const bankAccountCol = ORDERS_HEADERS.indexOf('Bank Account') + 1;
   sheet.getRange(2, statusCol, 1000, 1).setDataValidation(
     SpreadsheetApp.newDataValidation().requireValueInList(STATUS_OPTIONS, true).setAllowInvalid(false).build()
   );
   sheet.getRange(2, piStageCol, 1000, 1).setDataValidation(
     SpreadsheetApp.newDataValidation().requireValueInList(PI_STAGE_OPTIONS, true).setAllowInvalid(false).build()
+  );
+  applyBankAccountValidation(sheet, 2, 1000);
+  sheet.getRange(1, bankAccountCol).setNote(
+    'เลือกว่า PI ของ PO แถวนี้จะพิมพ์บัญชีธนาคารไหน — รายชื่อบัญชีมาจากแท็บ "Bank Accounts" ' +
+    '(เพิ่ม/แก้บัญชีได้ที่แท็บนั้นโดยตรง ไม่ต้องแก้โค้ด)\n' +
+    'ปล่อยว่างได้ — จะใช้ Config "Default Bank Account" หรือค่าเก่าใน Config (Bank Name ฯลฯ) แทน'
   );
   // Hover-note on the header cells translating each dropdown value into
   // what the customer actually sees on the website's status-check page —
@@ -639,13 +669,87 @@ function setupDropdowns() {
   setupSheetFormatting(sheet);
 }
 
+/**
+ * Creates the "Bank Accounts" tab (Label, Bank Name, Account No., SWIFT
+ * Code, A/C Name) the first time it's needed, pre-filled with the two
+ * accounts found in use on real PIs at the time this was written — Mizuho
+ * for the Africa/CIF deals, Bangkok Bank for the Panama/Dubai/FOB deals.
+ * Safe to re-run: never touches a tab that already exists, so accounts
+ * added or edited by hand afterward are left alone. Add more rows any
+ * time — every "Bank Account" dropdown on the Orders sheet reads this
+ * range live, so a new row is selectable immediately, no code change or
+ * re-run of setupDropdowns() needed.
+ */
+function ensureBankAccountsSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(SHEET_BANK_ACCOUNTS);
+  if (sheet) return sheet;
+  sheet = ss.insertSheet(SHEET_BANK_ACCOUNTS);
+  sheet.appendRow(BANK_ACCOUNTS_HEADERS);
+  sheet.getRange(1, 1, 1, BANK_ACCOUNTS_HEADERS.length).setFontWeight('bold');
+  sheet.appendRow([
+    'Mizuho Bank (Africa / CIF deals)', 'MIZUHO BANK, LTD.',
+    'F15-764-917686', 'MHCBTHBKXXX', 'Siam Kubota Corporation Co.,Ltd.'
+  ]);
+  sheet.appendRow([
+    'Bangkok Bank (Panama / Dubai / FOB deals)', 'BANGKOK BANK PCL',
+    '083-3-00059-9', 'BKKBTHBK', 'SIAM KUBOTA Corporation Co., Ltd.'
+  ]);
+  sheet.autoResizeColumns(1, BANK_ACCOUNTS_HEADERS.length);
+  return sheet;
+}
+
+// Points an Orders-sheet range's "Bank Account" column at a dropdown built
+// from the Bank Accounts tab's Label column — requireValueInRange (not a
+// hardcoded list) so it always reflects whatever rows are in that tab.
+function applyBankAccountValidation(ordersSheet, startRow, numRows) {
+  const bankSheet = ensureBankAccountsSheet();
+  const labelRange = bankSheet.getRange(2, 1, Math.max(bankSheet.getMaxRows() - 1, 1), 1);
+  const bankAccountCol = ORDERS_HEADERS.indexOf('Bank Account') + 1;
+  ordersSheet.getRange(startRow, bankAccountCol, numRows, 1).setDataValidation(
+    SpreadsheetApp.newDataValidation().requireValueInRange(labelRange, true).setAllowInvalid(false).build()
+  );
+}
+
+/**
+ * Resolves an Orders row's "Bank Account" label into the actual bank
+ * detail block to print on that order's PI. Falls back, in order, to: the
+ * Config "Default Bank Account" label, then the old flat Bank Name/Bank
+ * Account No./Bank SWIFT Code/Bank Account Name Config keys (kept as a
+ * safety net for setups that predate the Bank Accounts tab) — so a blank
+ * Bank Account cell, an empty Bank Accounts tab, or an old order all still
+ * produce a usable PI instead of a blank bank-detail block.
+ */
+function getBankAccountDetails(label) {
+  const bankSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_BANK_ACCOUNTS);
+  const tryLabel = function (l) {
+    if (!bankSheet || !l) return null;
+    const rows = bankSheet.getDataRange().getValues();
+    for (let i = 1; i < rows.length; i++) {
+      if (String(rows[i][0]).trim() === String(l).trim()) {
+        return { bankName: rows[i][1], accountNo: rows[i][2], swift: rows[i][3], accountName: rows[i][4] };
+      }
+    }
+    return null;
+  };
+  const found = tryLabel(label) || tryLabel(getConfig('Default Bank Account', ''));
+  if (found) return found;
+  const companyName = getConfig('Company Name (for emails)', 'Siam Kubota Corporation Co., Ltd.');
+  return {
+    bankName: getConfig('Bank Name', ''),
+    accountNo: getConfig('Bank Account No.', ''),
+    swift: getConfig('Bank SWIFT Code', ''),
+    accountName: getConfig('Bank Account Name', companyName)
+  };
+}
+
 // Columns whose values actually feed into the generated PI — highlighted in
 // the header as "review/editable"; everything else is system-managed.
 const REVIEWABLE_COLUMNS = [
   'Company', 'Address', 'Country', 'Contact', 'Email', 'Phone',
   'Customer PO Ref', 'Items', 'Incoterm', 'Port', 'Payment Terms',
   'Shipping Method', 'Requested Delivery Date', 'PI Requested', 'Notes',
-  'Revision Notes'
+  'Revision Notes', 'Bank Account'
 ];
 
 function columnToLetter(col) {
@@ -805,10 +909,11 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
   const companyName = getConfig('Company Name (for emails)', 'Siam Kubota Corporation Co., Ltd.');
   const signerName = getConfig('Current PI Signer Name', '');
   const signerTitle = getConfig('Current PI Signer Title', '');
-  const bankName = getConfig('Bank Name', '');
-  const bankAccountNo = getConfig('Bank Account No.', '');
-  const bankSwift = getConfig('Bank SWIFT Code', '');
-  const bankAccountName = getConfig('Bank Account Name', companyName);
+  const bank = getBankAccountDetails(order['Bank Account']);
+  const bankName = bank.bankName;
+  const bankAccountNo = bank.accountNo;
+  const bankSwift = bank.swift;
+  const bankAccountName = bank.accountName;
 
   const itemRows = items.map(function (it, i) {
     return '<tr><td>' + (i + 1) + '</td><td>' + escapeHtml(it.name) + '</td>' +
