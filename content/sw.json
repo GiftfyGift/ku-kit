@@ -1085,7 +1085,7 @@
   "poRequest": {
     "title": "Ombi la Agizo la Ununuzi (PO)",
     "intro": "Fomu ya kawaida kwa wauzaji na wasambazaji kuwasilisha agizo la ununuzi la kimataifa kwa injini za dizeli za Kubota na matrekta ya kutembea ya Tra Chang — ikitumia sehemu zile zile ambazo Siam Kubota hutumia kutoa PO na Ankara ya Awali halisi.",
-    "disclaimer": "Kwa sasa, fomu hii hutengeneza faili la PO (na faili la PI kwa muundo halisi wa Siam Kubota, ikiwa umeliomba) la kupakua mara moja. Arifa ya kiotomatiki ya barua pepe kwa timu ya mauzo itaanza kufanya kazi baada ya mfumo wa nyuma kukubaliwa — wakati huu, tafadhali tuma faili zilizotengenezwa moja kwa moja kwa muuzaji anayekuhudumia.",
+    "disclaimer": "Uwasilishaji wa agizo kiotomatiki na arifa kwa timu ya mauzo tayari zinafanya kazi — utapata faili lako la PO kupakua mara moja, na PI (ikiwa umeliomba) itaandaliwa na kutumwa kwako kwa barua pepe baada ya kukaguliwa na kuidhinishwa na timu ya mauzo na uongozi.",
     "customer": {
       "heading": "1. Taarifa za mnunuzi",
       "countryFilterLabel": "Chagua nchi ya marudio (kuchuja orodha ya wateja)",
@@ -1193,6 +1193,17 @@
       "statuses": { "New": "Inasubiri ukaguzi wa timu ya mauzo", "Confirmed": "Agizo limethibitishwa", "Needs Revision": "Agizo linahitaji marekebisho", "Closed": "Imefungwa" },
       "piStageLabel": "Maendeleo ya PI",
       "piStages": { "Requested": "PI inaandaliwa", "Generated": "PI imeandaliwa, inakaguliwa ndani", "Reviewed": "Imekaguliwa, inasubiri idhini ya mwisho", "Sent to Customer": "PI imetumwa kwako kwa barua pepe" }
+    },
+    "hub": {
+      "statusBadge": "Angalia Hali",
+      "statusTitle": "Fuatilia agizo lako",
+      "statusDesc": "Ingiza namba ya PO na barua pepe yako ili kuona maendeleo ya hivi karibuni mwenyewe — hakuna haja ya kuuliza timu ya mauzo.",
+      "editBadge": "Hariri PO",
+      "editTitle": "Rekebisha agizo lililorudishwa",
+      "editDesc": "Ikiwa timu ya mauzo itapata kitu cha kurekebisha, kiungo cha kurekebisha cha kibinafsi kitaonekana kwenye matokeo ya hali yako (na kwenye barua pepe ya arifa) — rekebisha fomu ile ile moja kwa moja, hakuna haja ya kuwasilisha upya kutoka mwanzo.",
+      "piBadge": "Mtiririko wa PI",
+      "piTitle": "Baada ya agizo lako kuthibitishwa",
+      "piDesc": "Timu ya mauzo inakagua → meneja anatia saini → Ankara ya Awali (PI) iliyokamilika inatumwa kwako kiotomatiki kwa barua pepe."
     }
   },
   "footer": {

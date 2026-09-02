@@ -4859,29 +4859,65 @@ table.parts-table td.code-col {
   font-weight: 600;
 }
 
-.po-req-status-check-toggle {
-  background: none;
-  border: none;
-  color: var(--kubota-steel-blue);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: underline;
-  cursor: pointer;
-  padding: 0;
-}
-.po-req-status-check-toggle:hover { color: var(--kubota-orange); }
+/* ---------- PO request: three-card self-service hub ---------- */
+/* Landing strip above the form — one working card (check status) plus two
+   explainer cards for the parts of the flow that otherwise only ever show
+   up inside an email (the edit link, the PI approval chain), so the whole
+   self-service story is visible at a glance instead of a single toggle. */
 
-.po-req-status-check-panel {
-  margin-top: 12px;
-  padding: 14px 16px;
+.po-req-hub {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.po-req-hub-card {
+  position: relative;
+  padding: 20px 20px 22px;
+  border-radius: var(--radius-lg);
   border: 1px solid var(--kubota-border);
-  border-radius: var(--radius-md);
   background: var(--kubota-light-gray);
+  overflow: hidden;
+}
+.po-req-hub-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  background: var(--hub-accent, var(--kubota-steel-blue));
+}
+.po-req-hub-card--status { --hub-accent: var(--kubota-steel-blue); }
+.po-req-hub-card--edit { --hub-accent: var(--kubota-orange); }
+.po-req-hub-card--pi { --hub-accent: var(--kubota-purple); }
+
+.po-req-hub-badge {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hub-accent, var(--kubota-steel-blue));
+  background: color-mix(in srgb, var(--hub-accent, var(--kubota-steel-blue)) 18%, transparent);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 10px;
 }
 
-.po-req-status-result { margin-top: 10px; font-size: 13px; color: var(--kubota-dark); }
+.po-req-hub-title { font-size: 16px; font-weight: 700; color: var(--kubota-navy); margin: 0 0 6px; }
+.po-req-hub-desc { font-size: 12.5px; line-height: 1.5; color: var(--kubota-mid-gray); margin: 0 0 14px; }
+
+.po-req-hub-card--status .po-req-field-grid { grid-template-columns: 1fr; gap: 10px; margin-bottom: 12px; }
+.po-req-hub-card--status .po-req-field { margin: 0; }
+.po-req-hub-card--status .order-btn { width: 100%; justify-content: center; }
+
+.po-req-status-result { margin-top: 12px; font-size: 13px; color: var(--kubota-dark); }
 .po-req-status-result p { margin: 4px 0; }
 .po-req-status-edit-link { margin-top: 10px; text-decoration: none; font-size: 13px; padding: 10px 18px; }
+
+@media (max-width: 900px) {
+  .po-req-hub { grid-template-columns: 1fr; }
+}
 
 .po-req-pi-toggle { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
 .po-req-pi-toggle label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }

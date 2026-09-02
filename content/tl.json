@@ -1075,7 +1075,7 @@
   "poRequest": {
     "title": "Kahilingan sa Purchase Order",
     "intro": "Standard na form para sa mga dealer at distributor para magsumite ng international purchase order para sa mga Kubota diesel engine at Tra Chang power tiller — gamit ang parehong mga field na ginagamit ng Siam Kubota para maglabas ng tunay na PO at Proforma Invoice.",
-    "disclaimer": "Sa ngayon, agad na gumagawa ang form na ito ng PO file (at PI file sa tunay na format ng Siam Kubota, kung hiniling) na madadownload. Ang automatic na email notification sa sales team ay ma-a-activate kapag napagkasunduan na ang backend approach — samantala, ipadala na lang nang direkta sa iyong sales contact ang mga nagawang file.",
+    "disclaimer": "Aktibo na ang automatic na pagsumite ng order at notification sa sales team — madadownload mo agad ang PO file mo, at ang PI (kung hiniling) ay ihahanda at ipapadala sa email mo pagkatapos itong suriin at aprubahan ng sales team at management.",
     "customer": {
       "heading": "1. Impormasyon ng bumibili",
       "countryFilterLabel": "Pumili ng bansang destinasyon (para i-filter ang listahan ng customer)",
@@ -1183,6 +1183,17 @@
       "statuses": { "New": "Hinihintay suriin ng sales team", "Confirmed": "Nakumpirma ang order", "Needs Revision": "Kailangan ng pagwawasto ang order", "Closed": "Sarado" },
       "piStageLabel": "Progreso ng PI",
       "piStages": { "Requested": "Inihahanda na ang PI", "Generated": "Nabalangkas na ang PI, sinusuri sa loob", "Reviewed": "Nasuri na, hinihintay ang final approval", "Sent to Customer": "Naipadala na sa iyo ang PI sa email" }
+    },
+    "hub": {
+      "statusBadge": "Tingnan ang Status",
+      "statusTitle": "I-track ang order mo",
+      "statusDesc": "I-type ang PO number at email mo para makita ang pinakabagong progreso mismo — hindi na kailangang magtanong sa sales team.",
+      "editBadge": "I-edit ang PO",
+      "editTitle": "Ayusin ang ibinalik na order",
+      "editDesc": "Kapag may nakita ang sales na dapat itama, lalabas ang personal na edit link sa resulta ng status mo (at sa notification email) — ayusin diretso ang parehong form, hindi na kailangang magsumite ulit mula sa umpisa.",
+      "piBadge": "PI Flow",
+      "piTitle": "Pagkatapos ma-confirm ang order mo",
+      "piDesc": "Susuriin ito ng sales → pipirmahan ng isang executive → ipapadala sa email mo awtomatiko ang kumpletong Proforma Invoice (PI)."
     }
   },
   "footer": {

@@ -2879,13 +2879,23 @@ function initPoRequestPage(c) {
     `;
   }
 
-  function statusCheckHtml() {
+  // Three-card "PO Center" hub shown above the form: the status checker is
+  // a real working card (same fields/logic as before, just no longer
+  // tucked behind a collapsed toggle), the other two are short explainer
+  // cards for the parts of the flow that only ever show up inside an
+  // email (the edit link, the PI approval chain) — so a dealer landing on
+  // this page cold can see the whole self-service story at a glance
+  // instead of just a lone "check status" link.
+  function poHubHtml() {
     const sc = pr.statusCheck;
-    if (!sc) return '';
+    const hub = pr.hub;
+    if (!sc || !hub) return '';
     return `
-      <div class="po-req-status-check">
-        <button type="button" class="po-req-status-check-toggle" id="po-req-status-check-toggle">${sc.toggleLabel}</button>
-        <div class="po-req-status-check-panel" id="po-req-status-check-panel" hidden>
+      <div class="po-req-hub">
+        <div class="po-req-hub-card po-req-hub-card--status">
+          <span class="po-req-hub-badge">${hub.statusBadge}</span>
+          <h3 class="po-req-hub-title">${hub.statusTitle}</h3>
+          <p class="po-req-hub-desc">${hub.statusDesc}</p>
           <div class="po-req-field-grid">
             <label class="po-req-field"><span>${sc.poLabel}</span><input type="text" id="po-req-status-po" placeholder="${sc.poPlaceholder}"></label>
             <label class="po-req-field"><span>${sc.emailLabel}</span><input type="email" id="po-req-status-email"></label>
@@ -2893,16 +2903,22 @@ function initPoRequestPage(c) {
           <button type="button" class="order-btn" id="po-req-status-check-btn">${sc.checkBtn}</button>
           <div id="po-req-status-result" class="po-req-status-result"></div>
         </div>
+        <div class="po-req-hub-card po-req-hub-card--edit">
+          <span class="po-req-hub-badge">${hub.editBadge}</span>
+          <h3 class="po-req-hub-title">${hub.editTitle}</h3>
+          <p class="po-req-hub-desc">${hub.editDesc}</p>
+        </div>
+        <div class="po-req-hub-card po-req-hub-card--pi">
+          <span class="po-req-hub-badge">${hub.piBadge}</span>
+          <h3 class="po-req-hub-title">${hub.piTitle}</h3>
+          <p class="po-req-hub-desc">${hub.piDesc}</p>
+        </div>
       </div>
     `;
   }
 
   function wireStatusCheck() {
     const sc = pr.statusCheck;
-    const toggle = document.getElementById('po-req-status-check-toggle');
-    const panel = document.getElementById('po-req-status-check-panel');
-    if (!toggle || !panel) return;
-    toggle.addEventListener('click', () => { panel.hidden = !panel.hidden; });
     document.getElementById('po-req-status-check-btn').addEventListener('click', async () => {
       const po = document.getElementById('po-req-status-po').value.trim();
       const email = document.getElementById('po-req-status-email').value.trim();
@@ -2942,7 +2958,7 @@ function initPoRequestPage(c) {
 
   function renderForm() {
     body.innerHTML = `
-      ${editMode ? `<div class="po-req-edit-banner">${pr.editModeNote.replace('{po}', editMode.poNumber)}</div>` : statusCheckHtml()}
+      ${editMode ? `<div class="po-req-edit-banner">${pr.editModeNote.replace('{po}', editMode.poNumber)}</div>` : poHubHtml()}
       <div class="po-req-progress">
         <div class="po-req-progress-dot po-req-progress-dot--1"><span>1</span></div>
         <div class="po-req-progress-dot po-req-progress-dot--2"><span>2</span></div>
@@ -3066,25 +3082,23 @@ function initPoRequestPage(c) {
       </div>
     `;
     document.getElementById('po-req-download-again-btn').addEventListener('click', () => generatePoRequestPdf(lastPoRequestOrder, pr));
-    // Jumping straight from the confirmation screen into an already-open,
-    // pre-filled status check (instead of making people find "new request"
-    // then hunt for a collapsed toggle above the form) — the PO number and
-    // email are both already known at this point, so there's no reason to
-    // make anyone retype them.
+    // Jumping straight from the confirmation screen into an already
+    // pre-filled status check (instead of making people find "new
+    // request" then hunt for the status card above the form) — the PO
+    // number and email are both already known at this point, so there's
+    // no reason to make anyone retype them.
     document.getElementById('po-req-check-status-btn').addEventListener('click', () => {
       const poToCheck = order.poNumber;
       const emailToCheck = order.buyer.email;
       items = [{ modelId: '', qty: 1 }]; piWanted = null; editMode = null;
       history.replaceState(null, '', location.pathname + location.hash);
       renderForm();
-      const toggle = document.getElementById('po-req-status-check-toggle');
-      const panel = document.getElementById('po-req-status-check-panel');
-      if (!toggle || !panel) return;
-      panel.hidden = false;
-      document.getElementById('po-req-status-po').value = poToCheck;
+      const statusPoInput = document.getElementById('po-req-status-po');
+      if (!statusPoInput) return;
+      statusPoInput.value = poToCheck;
       document.getElementById('po-req-status-email').value = emailToCheck;
       document.getElementById('po-req-status-check-btn').click();
-      toggle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      statusPoInput.closest('.po-req-hub-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     document.getElementById('po-req-new-btn').addEventListener('click', () => {
       items = [{ modelId: '', qty: 1 }]; piWanted = null; editMode = null;

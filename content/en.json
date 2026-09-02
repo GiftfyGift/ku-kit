@@ -1386,7 +1386,7 @@
   "poRequest": {
     "title": "Purchase Order Request",
     "intro": "A standardized form for dealers and distributors to submit an international purchase order for Kubota diesel engines and Tra Chang power tillers — using the same fields Siam Kubota uses to issue a real PO and Proforma Invoice.",
-    "disclaimer": "Right now this form generates a downloadable PO file (and a PI file in Siam Kubota's real format, if requested) immediately. Automatic email notification to the sales team will go live once the backend approach is agreed — in the meantime, please send the generated file(s) directly to your sales contact.",
+    "disclaimer": "Automatic order submission and sales-team notification are live — you'll get your PO file to download right away, and the PI (if requested) will be prepared and emailed to you once it's been reviewed and approved by sales and management.",
     "customer": {
       "heading": "1. Buyer information",
       "countryFilterLabel": "Select destination country (to filter the customer list)",
@@ -1494,6 +1494,17 @@
       "statuses": { "New": "Awaiting sales team review", "Confirmed": "Order confirmed", "Needs Revision": "Order needs correction", "Closed": "Closed" },
       "piStageLabel": "PI progress",
       "piStages": { "Requested": "PI is being prepared", "Generated": "PI drafted, under internal review", "Reviewed": "Reviewed, awaiting final approval", "Sent to Customer": "PI has been emailed to you" }
+    },
+    "hub": {
+      "statusBadge": "Check Status",
+      "statusTitle": "Track your order",
+      "statusDesc": "Enter your PO number and email to see the latest progress yourself — no need to ask the sales team.",
+      "editBadge": "Edit PO",
+      "editTitle": "Fix a returned order",
+      "editDesc": "If sales finds something to correct, a personal edit link appears in your status result (and in the notification email) — fix the same form directly, no need to resubmit from scratch.",
+      "piBadge": "PI Flow",
+      "piTitle": "After your order is confirmed",
+      "piDesc": "Sales reviews it → an executive signs off → the completed Proforma Invoice (PI) is emailed to you automatically."
     }
   },
   "footer": {

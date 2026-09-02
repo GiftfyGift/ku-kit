@@ -1075,7 +1075,7 @@
   "poRequest": {
     "title": "Demande de bon de commande",
     "intro": "Formulaire standardisé permettant aux concessionnaires et distributeurs de soumettre un bon de commande international pour les moteurs diesel Kubota et les motoculteurs Tra Chang — avec les mêmes champs que ceux utilisés par Siam Kubota pour émettre un PO et une facture proforma réels.",
-    "disclaimer": "Pour l'instant, ce formulaire génère immédiatement un fichier PO téléchargeable (et un fichier PI au format réel de Siam Kubota, si demandé). La notification automatique par e-mail à l'équipe commerciale sera activée une fois l'architecture back-end validée — en attendant, veuillez envoyer les fichiers générés directement à votre contact commercial.",
+    "disclaimer": "La soumission automatique des commandes et la notification à l'équipe commerciale sont actives — vous recevrez votre fichier PO à télécharger immédiatement, et la PI (si demandée) sera préparée et vous sera envoyée par e-mail une fois vérifiée et approuvée par l'équipe commerciale et la direction.",
     "customer": {
       "heading": "1. Informations acheteur",
       "countryFilterLabel": "Sélectionner le pays de destination (pour filtrer la liste des clients)",
@@ -1183,6 +1183,17 @@
       "statuses": { "New": "En attente d'examen par l'équipe commerciale", "Confirmed": "Commande confirmée", "Needs Revision": "La commande doit être corrigée", "Closed": "Clôturé" },
       "piStageLabel": "Avancement de la PI",
       "piStages": { "Requested": "La PI est en cours de préparation", "Generated": "PI rédigée, en cours de vérification interne", "Reviewed": "Vérifiée, en attente d'approbation finale", "Sent to Customer": "La PI vous a été envoyée par e-mail" }
+    },
+    "hub": {
+      "statusBadge": "Vérifier le statut",
+      "statusTitle": "Suivez votre commande",
+      "statusDesc": "Saisissez votre numéro de PO et votre e-mail pour voir l'avancement vous-même — pas besoin de contacter l'équipe commerciale.",
+      "editBadge": "Modifier le PO",
+      "editTitle": "Corriger une commande renvoyée",
+      "editDesc": "Si l'équipe commerciale trouve quelque chose à corriger, un lien de modification personnel apparaît dans le résultat de votre statut (et dans l'e-mail de notification) — corrigez directement le même formulaire, pas besoin de tout renvoyer.",
+      "piBadge": "Processus PI",
+      "piTitle": "Après confirmation de votre commande",
+      "piDesc": "L'équipe commerciale la vérifie → un responsable la signe → la Facture Proforma (PI) finalisée vous est envoyée automatiquement par e-mail."
     }
   },
   "footer": {
