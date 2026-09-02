@@ -536,6 +536,28 @@ function findDealer(email) {
 }
 
 /**
+ * DIAGNOSTIC — run this directly (select it in the function dropdown,
+ * click Run), then View > Logs (or Ctrl+Enter) to see every row of the
+ * Dealers tab with each value wrapped in quotes — makes a stray leading/
+ * trailing space in "Password" or "Dealer Email" (which looks identical
+ * to a normal cell at a glance) obvious immediately, instead of just
+ * getting "Email or password not recognized" from the website with no
+ * way to tell why.
+ */
+function debugDealers() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_DEALERS);
+  if (!sheet) throw new Error('Dealers sheet tab not found — check the tab name is exactly "Dealers".');
+  const rows = sheet.getDataRange().getValues();
+  for (let i = 1; i < rows.length; i++) {
+    if (!rows[i][0] && !rows[i][3]) continue; // skip fully blank rows
+    Logger.log(
+      'Row %s: Company="%s" Email="%s" Approved="%s" Password="%s"',
+      i + 1, rows[i][0], rows[i][3], rows[i][4], rows[i][5]
+    );
+  }
+}
+
+/**
  * Instant sign-in: email + a password set for that dealer in the "Password"
  * column of the Dealers tab (plain text — an admin/sales sets it by hand
  * per dealer, there is no self-service reset). This is deliberately a
@@ -547,9 +569,13 @@ function findDealer(email) {
  */
 function handleDealerLogin(params) {
   const email = String(params.email || '').trim();
-  const password = String(params.password || '');
+  // Trimmed on both sides of the comparison — a stray leading/trailing
+  // space from copy-pasting into the sheet (or from a mobile keyboard's
+  // autocomplete) would otherwise cause a silent, confusing mismatch even
+  // though the password "looks" right in both places.
+  const password = String(params.password || '').trim();
   const dealer = findDealer(email);
-  if (!dealer || !password || dealer.password !== password) {
+  if (!dealer || !password || String(dealer.password || '').trim() !== password) {
     return jsonResponse({ ok: false, error: 'Email or password not recognized. Contact your KU-KIT sales rep to get set up.' });
   }
   return jsonResponse({ ok: true, company: dealer.company, country: dealer.country, contact: dealer.contact, email: dealer.email });
