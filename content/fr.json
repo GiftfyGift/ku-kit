@@ -1197,12 +1197,13 @@
     },
     "login": {
       "title": "Connectez-vous pour soumettre une commande",
-      "desc": "Saisissez votre e-mail de concessionnaire et nous vous enverrons un lien de connexion en un clic — aucun mot de passe requis.",
+      "desc": "Saisissez l'e-mail et le mot de passe que votre représentant commercial KU-KIT vous a fournis.",
       "emailPlaceholder": "Votre e-mail",
-      "sendBtn": "Envoyer le lien de connexion",
-      "emailRequiredNote": "Veuillez d'abord saisir votre e-mail.",
-      "sending": "Envoi en cours...",
-      "sent": "Si cet e-mail est enregistré, un lien de connexion est en route — vérifiez votre boîte de réception dans quelques minutes.",
+      "passwordPlaceholder": "Mot de passe",
+      "signInBtn": "Se connecter",
+      "emailRequiredNote": "Veuillez saisir votre e-mail et votre mot de passe.",
+      "signingIn": "Connexion en cours...",
+      "invalidNote": "E-mail ou mot de passe non reconnu. Contactez votre représentant commercial KU-KIT.",
       "signedInAsPrefix": "Connecté en tant que",
       "signOutBtn": "Se déconnecter"
     }

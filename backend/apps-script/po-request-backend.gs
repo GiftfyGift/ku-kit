@@ -161,17 +161,24 @@
  * hand, just don't delete or edit it once it exists (changing it
  * invalidates every link already emailed out).
  *
- * DEALER LOGIN (magic link, no password): the "Dealers" tab — Company |
- * Country | Dealer Contact Name | Dealer Email | Approved — is the
- * allow-list for the website's sign-in box. A dealer types their email,
- * gets a one-click sign-in link if that email is in this tab with
- * "Approved" set to exactly "Y", and the site remembers them (prefilling
- * the order form's company/country/contact fields) until they sign out.
- * Set "Approved" to anything else (or delete the row) to revoke access —
- * takes effect immediately, no redeploy. This is the same lightweight,
- * no-real-backend approach as every other link in this system (edit PO,
- * review/approve PI) — good enough to keep random visitors from spamming
- * the order form, not a hardened enterprise login.
+ * DEALER LOGIN (email + password, set by you — no self-service reset): the
+ * "Dealers" tab — Company | Country | Dealer Contact Name | Dealer Email |
+ * Approved | Password — is the allow-list for the website's sign-in box. A
+ * dealer types their email and the password you set for them in that
+ * "Password" column; if both match a row with "Approved" set to exactly
+ * "Y", they're signed in immediately (no email round-trip) and the site
+ * remembers them (prefilling the order form's company/country/contact
+ * fields) until they sign out. Set "Approved" to anything else (or delete
+ * the row) to revoke access — takes effect immediately, no redeploy.
+ *   Security note: "Password" is stored and compared as plain text —
+ *   anyone with edit access to this spreadsheet can read every dealer's
+ *   password. This is a deliberately lightweight gate (consistent with
+ *   every other link/token in this system) meant to keep random visitors
+ *   from spamming the order form, NOT a hardened login — tell dealers to
+ *   use a password made up for this, never one they reuse elsewhere.
+ * The dealer-login request is sent as a POST (not a GET query string) from
+ * the site specifically so the password never ends up in a URL or access
+ * log.
  *
  * None of onEdit/setupDropdowns/PI generation need a Web App redeploy to
  * take effect — only doGet/doPost do. Just saving the script is enough.
@@ -242,6 +249,12 @@ function doPost(e) {
       return jsonResponse({ ok: false, error: 'No POST body received.' });
     }
     const data = JSON.parse(e.postData.contents);
+
+    // Dealer sign-in travels as POST body, never a GET query string, since
+    // it carries a password — routed here, ahead of everything else below,
+    // since it doesn't touch the Orders sheet at all.
+    if (data.action === 'dealerLogin') return handleDealerLogin(data);
+
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const ordersSheet = ss.getSheetByName(SHEET_ORDERS);
     if (!ordersSheet) {
@@ -436,8 +449,6 @@ function doGet(e) {
   if (action === 'status') return handleGetOrderStatus(params);
   if (action === 'reviewPi') return handleReviewPi(params);
   if (action === 'approvePi') return handleApprovePi(params);
-  if (action === 'requestLogin') return handleRequestLogin(params);
-  if (action === 'dealerProfile') return handleDealerProfile(params);
 
   return jsonResponse({
     ok: true,
@@ -505,7 +516,8 @@ function handleGetOrderStatus(params) {
 // Looks up an approved row in the "Dealers" tab by email (case-insensitive,
 // trimmed). A row whose "Approved" cell isn't exactly "Y" is treated the
 // same as not found — lets a company be suspended without deleting its row
-// or losing its history.
+// or losing its history. Columns: Company | Country | Dealer Contact Name |
+// Dealer Email | Approved | Password.
 function findDealer(email) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_DEALERS);
   if (!sheet) return null;
@@ -517,60 +529,28 @@ function findDealer(email) {
     if (rowEmail && rowEmail === needle) {
       const approved = String(rows[i][4] || '').trim().toUpperCase();
       if (approved !== 'Y') return null;
-      return { company: rows[i][0], country: rows[i][1], contact: rows[i][2], email: rows[i][3] };
+      return { company: rows[i][0], country: rows[i][1], contact: rows[i][2], email: rows[i][3], password: String(rows[i][5] || '') };
     }
   }
   return null;
 }
 
-// Same HMAC pattern as every other magic link in this script (edit/review/
-// approve) — deterministic per email, so it never needs a Script Property
-// or a separate "sessions" sheet to track. Non-expiring by design, same
-// trade-off already made for those other links: simplicity over an
-// expiry/rotation mechanism, acceptable for an internal dealer tool.
-function dealerLoginToken(email) {
-  return generateToken(String(email || '').trim().toLowerCase() + '|dealerlogin');
-}
-
 /**
- * Called when a dealer types their email into the website's login box.
- * Always returns {ok:true} whether or not that email is actually an
- * approved dealer — deliberately doesn't reveal which emails are
- * registered. Only actually sends an email when there's a real, approved
- * match.
+ * Instant sign-in: email + a password set for that dealer in the "Password"
+ * column of the Dealers tab (plain text — an admin/sales sets it by hand
+ * per dealer, there is no self-service reset). This is deliberately a
+ * lightweight gate, the same trade-off already made everywhere else in
+ * this system: good enough to stop a random visitor from spamming the
+ * order form, NOT a hardened login — anyone with edit access to this
+ * spreadsheet can read every dealer's password in plain sight, so don't
+ * reuse a real account password here.
  */
-function handleRequestLogin(params) {
+function handleDealerLogin(params) {
   const email = String(params.email || '').trim();
+  const password = String(params.password || '');
   const dealer = findDealer(email);
-  if (dealer && !isTestMode()) {
-    const token = dealerLoginToken(dealer.email);
-    const loginLink = siteBaseUrl() + '?dealer_email=' + encodeURIComponent(dealer.email) +
-      '&dealer_token=' + token + '#po-request';
-    const senderName = getConfig('Notification Sender Name', 'KU-KIT Order System');
-    MailApp.sendEmail({
-      to: dealer.email,
-      subject: 'Your KU-KIT sign-in link',
-      body: 'Hi' + (dealer.contact ? ' ' + dealer.contact : '') + ',\n\n' +
-        'Click the link below to sign in to the KU-KIT purchase order form as ' + (dealer.company || 'your company') + '.\n\n' +
-        loginLink + '\n\n' +
-        "If you didn't request this, you can ignore this email.",
-      name: senderName
-    });
-  }
-  return jsonResponse({ ok: true });
-}
-
-/**
- * Called by the website right after a dealer clicks their sign-in link (or
- * on a later visit, if it kept the token around) — verifies the token
- * against the same deterministic HMAC and that the dealer is still
- * approved, then hands back their profile to prefill the order form.
- */
-function handleDealerProfile(params) {
-  const email = String(params.email || '').trim();
-  const dealer = findDealer(email);
-  if (!dealer || dealerLoginToken(dealer.email) !== params.token) {
-    return jsonResponse({ ok: false, error: 'Not signed in.' });
+  if (!dealer || !password || dealer.password !== password) {
+    return jsonResponse({ ok: false, error: 'Email or password not recognized. Contact your KU-KIT sales rep to get set up.' });
   }
   return jsonResponse({ ok: true, company: dealer.company, country: dealer.country, contact: dealer.contact, email: dealer.email });
 }

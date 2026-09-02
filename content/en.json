@@ -1508,12 +1508,13 @@
     },
     "login": {
       "title": "Sign in to submit a purchase order",
-      "desc": "Enter your dealer email and we'll send you a one-click sign-in link — no password needed.",
+      "desc": "Enter the email and password your KU-KIT sales rep set up for you.",
       "emailPlaceholder": "Your email",
-      "sendBtn": "Send sign-in link",
-      "emailRequiredNote": "Please enter your email first.",
-      "sending": "Sending...",
-      "sent": "If that email is registered, a sign-in link is on its way — check your inbox in a few minutes.",
+      "passwordPlaceholder": "Password",
+      "signInBtn": "Sign in",
+      "emailRequiredNote": "Please enter both your email and password.",
+      "signingIn": "Signing in...",
+      "invalidNote": "Email or password not recognized. Contact your KU-KIT sales rep.",
       "signedInAsPrefix": "Signed in as",
       "signOutBtn": "Sign out"
     }

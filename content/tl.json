@@ -1197,12 +1197,13 @@
     },
     "login": {
       "title": "Mag-sign in para magsumite ng purchase order",
-      "desc": "I-type ang email mo bilang dealer at magpapadala kami ng one-click na sign-in link — walang kailangang password.",
+      "desc": "I-type ang email at password na inihanda ng sales rep mo sa KU-KIT.",
       "emailPlaceholder": "Email mo",
-      "sendBtn": "Ipadala ang sign-in link",
-      "emailRequiredNote": "Pakisulat muna ang email mo.",
-      "sending": "Ipinapadala...",
-      "sent": "Kung nakarehistro ang email na iyon, paparating na ang sign-in link — tingnan ang inbox mo sa loob ng ilang minuto.",
+      "passwordPlaceholder": "Password",
+      "signInBtn": "Mag-sign in",
+      "emailRequiredNote": "Pakisulat ang email at password mo.",
+      "signingIn": "Nagsa-sign in...",
+      "invalidNote": "Hindi nakilala ang email o password. Makipag-ugnayan sa sales rep mo sa KU-KIT.",
       "signedInAsPrefix": "Naka-sign in bilang",
       "signOutBtn": "Mag-sign out"
     }

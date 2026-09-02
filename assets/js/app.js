@@ -1685,6 +1685,25 @@ async function poWebhookGet(params) {
   }
 }
 
+// POST variant that (unlike submitPoWebhook, which is fire-and-forget)
+// actually awaits and returns the response — for anything whose payload
+// shouldn't ever end up in a URL/query string (a password, namely) and
+// whose caller needs to know whether it succeeded.
+async function poWebhookPost(payload) {
+  if (!PO_WEBHOOK_URL) return { ok: false, error: 'Webhook not configured.' };
+  try {
+    const res = await fetch(PO_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+    return await res.json();
+  } catch (err) {
+    console.error('PO webhook POST failed', err);
+    return { ok: false, error: String(err) };
+  }
+}
+
 const ORDER_LIST_KEY = 'kukit_orders';
 const ORDER_BUYER_KEY = 'kukit_buyer';
 const ORDER_TRACKING_STAGE_KEYS = ['orderConfirmed', 'paymentReceived', 'production', 'shipped', 'customs', 'delivered'];
@@ -2641,12 +2660,12 @@ function initPoRequestPage(c) {
   // form (otherwise it would flash empty, then re-render once prefilled).
   let editMode = null;
 
-  // Lightweight magic-link dealer login (see "DEALER LOGIN" in the .gs
-  // header comment) — { company, country, contact, email, token } once
-  // signed in, else null. Loaded synchronously from localStorage so a
-  // returning visitor is recognized instantly; a fresh sign-in click
-  // (dealer_email/dealer_token in the URL) is verified server-side in the
-  // catalog-load Promise.all below, then persisted here the same way.
+  // Lightweight email+password dealer login (see "DEALER LOGIN" in the .gs
+  // header comment) — { company, country, contact, email } once signed in,
+  // else null. Loaded synchronously from localStorage so a returning
+  // visitor is recognized instantly; a fresh sign-in submits email+
+  // password to the backend (see wireDealerLogin()) and, on success,
+  // persists here the same way.
   const DEALER_SESSION_KEY = 'kukit_dealer_session';
   function loadDealerSession() {
     try { return JSON.parse(localStorage.getItem(DEALER_SESSION_KEY)) || null; } catch (e) { return null; }
@@ -2995,12 +3014,13 @@ function initPoRequestPage(c) {
     `;
   }
 
-  // Gate shown instead of the order form for an anonymous visitor — a
-  // magic-link login (see "DEALER LOGIN" in the .gs header comment) is the
-  // only thing standing between "anyone on the internet" and "an approved
-  // dealer", so this is deliberately the only way into steps 1-5. The
-  // status-check/edit-PO cards in the hub above stay open regardless,
-  // since those already carry their own PO+email or token proof.
+  // Gate shown instead of the order form for an anonymous visitor —
+  // email+password checked straight against the "Dealers" tab (see
+  // "DEALER LOGIN" in the .gs header comment) is the only thing standing
+  // between "anyone on the internet" and "an approved dealer", so this is
+  // deliberately the only way into steps 1-5. The status-check/edit-PO
+  // cards in the hub above stay open regardless, since those already
+  // carry their own PO+email or token proof.
   function dealerLoginHtml() {
     const lg = pr.login;
     if (!lg) return '';
@@ -3010,7 +3030,8 @@ function initPoRequestPage(c) {
         <p class="po-req-login-desc">${lg.desc}</p>
         <div class="po-req-login-row">
           <input type="email" id="po-req-login-email" placeholder="${lg.emailPlaceholder}">
-          <button type="button" class="order-btn" id="po-req-login-btn">${lg.sendBtn}</button>
+          <input type="password" id="po-req-login-password" placeholder="${lg.passwordPlaceholder}">
+          <button type="button" class="order-btn" id="po-req-login-btn">${lg.signInBtn}</button>
         </div>
         <p class="po-req-login-status" id="po-req-login-status"></p>
       </div>
@@ -3019,14 +3040,23 @@ function initPoRequestPage(c) {
 
   function wireDealerLogin() {
     const lg = pr.login;
-    document.getElementById('po-req-login-btn').addEventListener('click', async () => {
-      const email = document.getElementById('po-req-login-email').value.trim();
-      const status = document.getElementById('po-req-login-status');
-      if (!email) { status.textContent = lg.emailRequiredNote; return; }
-      status.textContent = lg.sending;
-      await poWebhookGet({ action: 'requestLogin', email });
-      status.textContent = lg.sent;
-    });
+    const emailInput = document.getElementById('po-req-login-email');
+    const passwordInput = document.getElementById('po-req-login-password');
+    const status = document.getElementById('po-req-login-status');
+    const submit = async () => {
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+      if (!email || !password) { status.textContent = lg.emailRequiredNote; return; }
+      status.textContent = lg.signingIn;
+      // POST, not GET — a password never belongs in a URL/query string.
+      const res = await poWebhookPost({ action: 'dealerLogin', email, password });
+      if (!res || !res.ok) { status.textContent = lg.invalidNote; return; }
+      dealerSession = { company: res.company, country: res.country, contact: res.contact, email: res.email };
+      saveDealerSession(dealerSession);
+      renderForm();
+    };
+    document.getElementById('po-req-login-btn').addEventListener('click', submit);
+    passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
   }
 
   function orderFormStepsHtml() {
@@ -3265,38 +3295,13 @@ function initPoRequestPage(c) {
     return poWebhookGet({ action: 'order', po, token }).then(res => ({ res, po, token }));
   }
 
-  // Only present right after a dealer clicks their emailed sign-in link —
-  // a returning visitor's session already came from localStorage above,
-  // synchronously, with no fetch needed.
-  function loadDealerLoginFromUrl() {
-    const params = new URLSearchParams(location.search);
-    const email = params.get('dealer_email');
-    const token = params.get('dealer_token');
-    if (!email || !token) return Promise.resolve(null);
-    return poWebhookGet({ action: 'dealerProfile', email, token }).then(res => ({ res, email, token }));
-  }
-
   body.innerHTML = `<div class="order-loading">${pr.items.loading}</div>`;
-  Promise.all([orderLoadCatalogData(), loadEditOrderFromUrl(), loadDealerLoginFromUrl()]).then(([data, editResult, loginResult]) => {
+  Promise.all([orderLoadCatalogData(), loadEditOrderFromUrl()]).then(([data, editResult]) => {
     if (state.route !== 'po-request') return;
     catalogModels = [...data.products.engines, ...data.products.tillers, ...data.products.implements];
     paymentTerms = data.products.paymentTerms;
     selectedTermId = paymentTerms[0].id;
     customerPriceMap = (data.customerPrices && data.customerPrices.customers) || {};
-
-    if (loginResult) {
-      if (loginResult.res && loginResult.res.ok) {
-        dealerSession = {
-          company: loginResult.res.company, country: loginResult.res.country,
-          contact: loginResult.res.contact, email: loginResult.res.email, token: loginResult.token
-        };
-        saveDealerSession(dealerSession);
-      }
-      // Strip dealer_email/dealer_token either way (success or a dead
-      // link) so a refresh doesn't keep re-verifying, and a bookmark of
-      // this URL doesn't carry the token around forever.
-      history.replaceState(null, '', location.pathname + location.hash);
-    }
 
     // Require poNumber too, not just ok:true — a stale/mismatched backend
     // deployment answers every GET with ok:true and no real fields, which

@@ -1207,12 +1207,13 @@
     },
     "login": {
       "title": "Ingia ili kuwasilisha agizo la ununuzi",
-      "desc": "Ingiza barua pepe yako ya muuzaji na tutakutumia kiungo cha kuingia kwa mbofyo mmoja — hakuna nenosiri linalohitajika.",
+      "desc": "Ingiza barua pepe na nenosiri ambalo muuzaji wako wa KU-KIT alikuwekea.",
       "emailPlaceholder": "Barua pepe yako",
-      "sendBtn": "Tuma kiungo cha kuingia",
-      "emailRequiredNote": "Tafadhali ingiza barua pepe yako kwanza.",
-      "sending": "Inatuma...",
-      "sent": "Ikiwa barua pepe hiyo imesajiliwa, kiungo cha kuingia kiko njiani — angalia kikasha chako baada ya dakika chache.",
+      "passwordPlaceholder": "Nenosiri",
+      "signInBtn": "Ingia",
+      "emailRequiredNote": "Tafadhali ingiza barua pepe na nenosiri lako.",
+      "signingIn": "Inaingia...",
+      "invalidNote": "Barua pepe au nenosiri halijatambuliwa. Wasiliana na muuzaji wako wa KU-KIT.",
       "signedInAsPrefix": "Umeingia kama",
       "signOutBtn": "Toka"
     }
