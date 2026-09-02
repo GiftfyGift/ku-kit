@@ -522,7 +522,7 @@
   },
   "service": {
     "title": "Huduma",
-    "intro": "Miongozo ya matengenezo kwa injini ya dizeli ya KUBOTA ZT Plus na trekta la kutembea la TRA CHANG, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo — pamoja na mipango ya baada ya mauzo ambayo kila Muuzaji anapaswa kujua.",
+    "intro": "Miongozo ya matengenezo kwa injini ya dizeli ya KUBOTA ZT Plus na trekta la kutembea la TRA CHANG, moja kwa moja kutoka kwenye slaidi rasmi za mafunzo.",
     "quickLinks": [
       {
         "label": "Hatua za Matengenezo ya Injini",
@@ -627,11 +627,6 @@
         { "type": "inspect", "name": "Skrini ya Radiator, Namba ya Injini ≥100118", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] }
       ]
     },
-    "programsTitle": "Mipango ya Baada ya Mauzo",
-    "programs": [
-      { "name": "Mpango wa Udhamini (mfano)", "desc": "Unahusu muundo mkuu na sehemu muhimu kwa kipindi kilichowekwa." },
-      { "name": "Mafunzo ya Mafundi (mfano)", "desc": "Kozi za mafunzo ya matengenezo kwa mafundi wa Muuzaji, nadharia na vitendo." }
-    ],
     "resources": [
       { "title": "Slaidi za matengenezo ya injini — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/1ybWdLs__PklG4uZ1Z5Oi6mgyC3TSYd4M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
       { "title": "Slaidi za matengenezo ya injini — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "https://docs.google.com/presentation/d/1efpJq94Jh72ve4nIzgTi1FA1OGIUgg_M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },

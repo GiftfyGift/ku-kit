@@ -529,7 +529,7 @@
   },
   "service": {
     "title": "Serbisyo",
-    "intro": "Gabay sa maintenance para sa KUBOTA ZT Plus diesel engine at TRA CHANG power tiller, direkta mula sa opisyal na training deck — kasama ang mga after-sales program na dapat malaman ng bawat Dealer.",
+    "intro": "Gabay sa maintenance para sa KUBOTA ZT Plus diesel engine at TRA CHANG power tiller, direkta mula sa opisyal na training deck.",
     "quickLinks": [
       {
         "label": "Mga Hakbang sa Maintenance ng Engine",
@@ -634,11 +634,6 @@
         { "type": "inspect", "name": "Radiator Screen, Engine No. ≥100118", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] }
       ]
     },
-    "programsTitle": "Mga After-Sales Program",
-    "programs": [
-      { "name": "Warranty Program (sample)", "desc": "Saklaw ang pangunahing istraktura at mahahalagang bahagi sa loob ng itinakdang panahon." },
-      { "name": "Training para sa Technician (sample)", "desc": "Kurso sa maintenance training para sa mga technician ng Dealer, teorya at praktikal." }
-    ],
     "resources": [
       { "title": "Deck ng engine maintenance — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/1ybWdLs__PklG4uZ1Z5Oi6mgyC3TSYd4M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
       { "title": "Deck ng engine maintenance — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "https://docs.google.com/presentation/d/1efpJq94Jh72ve4nIzgTi1FA1OGIUgg_M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },

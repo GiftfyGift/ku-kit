@@ -1211,13 +1211,6 @@ function renderService(c) {
     </div>
   ` : '';
 
-  const programs = s.programs.map(p => `
-    <div class="program-card">
-      <h4>${p.name}</h4>
-      <p>${p.desc}</p>
-    </div>
-  `).join('');
-
   const docs = localizedDocsWithFallback(s.resources);
   const resources = docs.length ? `
     <div class="category-block">
@@ -1235,10 +1228,6 @@ function renderService(c) {
       </div>
       ${renderQuickLinksColumns(s.quickLinks)}
       ${maintenance}
-      <div class="category-block">
-        <h3 class="category-heading">${s.programsTitle} ${c.meta.sampleBadge ? `<span class="sample-badge">${c.meta.sampleBadge}</span>` : ''}</h3>
-        <div class="program-grid">${programs}</div>
-      </div>
       ${resources}
       <div class="note-callout">${s.note}</div>
     </section>
@@ -5615,8 +5604,6 @@ function buildSearchIndex(c) {
     (s.maintenance.engine.points || []).forEach(pt => pushEntry(idx, 'service', pt.title, pt.desc, (pt.steps || []).join(' ')));
     (s.maintenance.tiller.points || []).forEach(pt => pushEntry(idx, 'service', pt.title, pt.desc, (pt.steps || []).join(' ')));
   }
-  (s.programs || []).forEach(pg => pushEntry(idx, 'service', pg.name, pg.desc));
-
   // Crops
   (c.crops.solutions || []).forEach(sol => pushEntry(idx, 'crops', sol.name, sol.desc));
 

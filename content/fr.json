@@ -518,7 +518,7 @@
   },
   "service": {
     "title": "Service",
-    "intro": "Conseils d'entretien pour le moteur diesel KUBOTA ZT Plus et le motoculteur TRA CHANG, directement issus du diaporama de formation officiel — ainsi que les programmes après-vente que tout concessionnaire doit connaître.",
+    "intro": "Conseils d'entretien pour le moteur diesel KUBOTA ZT Plus et le motoculteur TRA CHANG, directement issus du diaporama de formation officiel.",
     "quickLinks": [
       {
         "label": "Étapes d'entretien du moteur",
@@ -623,11 +623,6 @@
         { "type": "inspect", "name": "Grille du radiateur, n° moteur ≥100118", "code": "1WA71-72652", "intervals": ["preuse"], "allModels": false, "models": ["ZT100 Plus"] }
       ]
     },
-    "programsTitle": "Programmes après-vente",
-    "programs": [
-      { "name": "Programme de garantie (exemple)", "desc": "Couverture de la structure principale et des composants clés pendant une période déterminée." },
-      { "name": "Formation technicien (exemple)", "desc": "Cours de formation à l'entretien pour les techniciens du concessionnaire, alliant théorie et pratique." }
-    ],
     "resources": [
       { "title": "Diaporama entretien moteur — ZT Plus (EN)", "lang": "EN", "type": "pptx", "href": "https://docs.google.com/presentation/d/1ybWdLs__PklG4uZ1Z5Oi6mgyC3TSYd4M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
       { "title": "Diaporama entretien moteur — ZT Plus (TH)", "lang": "TH", "type": "pptx", "href": "https://docs.google.com/presentation/d/1efpJq94Jh72ve4nIzgTi1FA1OGIUgg_M/edit?usp=drivesdk&ouid=111720681555070261366&rtpof=true&sd=true" },
