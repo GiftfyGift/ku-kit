@@ -4286,6 +4286,18 @@ table.parts-table td.code-col {
   .ka-panel { width: calc(100vw - 28px); height: calc(100vh - 120px); bottom: 68px; }
 }
 
+@media (max-width: 640px) {
+  /* The chat launcher is position:fixed over the bottom-right corner of
+     the viewport at every scroll position — on a short page (e.g.
+     Marketing Materials, with just 2 selector cards) the last card can
+     render exactly there on first load, so its checkmark badge and the
+     tail of its label sit underneath the button, permanently hidden.
+     Reserving a gutter the width of the widget's footprint keeps every
+     select-card's content clear of that corner regardless of how tall
+     the page ends up being. */
+  .product-select-card { margin-right: 60px; }
+}
+
 /* Marketing materials — company media groups */
 .materials-group-heading {
   display: flex;

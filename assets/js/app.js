@@ -61,8 +61,23 @@ function setActiveNav(route) {
   });
 }
 
+// Set right before navigate() assigns location.hash, so the hashchange
+// listener below can tell "the app just navigated itself" apart from a
+// real back/forward or manually-edited-URL hash change. Without this,
+// EVERY navigate() call (every nav button, card, subnav, quick link —
+// essentially all internal navigation) rendered the page twice: once
+// synchronously here, and again when the hash assignment's hashchange
+// event fired a moment later. Most pages just did double the wiring
+// work silently; the po-request page actually crashed from it — its
+// async catalog-load callback captures a #po-request-body DOM reference
+// that the second render() call orphans before the first callback
+// finishes, so its later document.getElementById(...).addEventListener(...)
+// calls hit null.
+let suppressNextHashchange = false;
+
 function navigate(route, anchor) {
   state.route = route;
+  suppressNextHashchange = true;
   location.hash = route;
   setActiveNav(route);
   render();
@@ -2780,7 +2795,18 @@ function renderPoRequest(c) {
 
 function poReqFmtUsd(n) { return orderFmtUsd(n); }
 
+// Bumped on every initPoRequestPage() call so its async catalog-load
+// callback (below) can tell whether it's still the page the visitor is
+// actually looking at by the time the fetch resolves. Navigating away
+// from po-request and back before that fetch finishes — easy to do with
+// a couple of quick taps — used to leave a stale closure holding a DOM
+// reference to an already-discarded #po-request-body; when it finally
+// resolved it would write into that orphaned node and then crash trying
+// to wire up elements that only exist in the CURRENT one.
+let poRequestPageGeneration = 0;
+
 function initPoRequestPage(c) {
+  const myGeneration = ++poRequestPageGeneration;
   const pr = c.poRequest;
   const body = document.getElementById('po-request-body');
 
@@ -3350,7 +3376,12 @@ function initPoRequestPage(c) {
 
   body.innerHTML = `<div class="order-loading">${pr.items.loading}</div>`;
   Promise.all([orderLoadCatalogData(), loadEditOrderFromUrl()]).then(([data, editResult]) => {
-    if (state.route !== 'po-request') return;
+    // Bail if either the route moved on, or another initPoRequestPage()
+    // call has since started (even if it later navigated back to
+    // po-request) — this exact instance's #po-request-body reference is
+    // stale either way, and touching it/re-querying the live DOM through
+    // it is exactly what used to throw.
+    if (state.route !== 'po-request' || myGeneration !== poRequestPageGeneration) return;
     // An engine/tiller with a "langs" list is only sold in those markets —
     // filter it out for every other site language. No "langs" field at
     // all means it's sold everywhere (implements always fall in this
@@ -5860,6 +5891,12 @@ document.addEventListener('keydown', (e) => {
 });
 
 window.addEventListener('hashchange', () => {
+  // navigate() already did this exact route-change + render() itself,
+  // synchronously, right before setting location.hash — this event
+  // firing a moment later for that same change is redundant, not a new
+  // navigation (a real back/forward tap or a pasted/edited URL still
+  // reaches here with the flag unset, and renders as before).
+  if (suppressNextHashchange) { suppressNextHashchange = false; return; }
   const route = (location.hash || '#home').replace('#', '');
   state.route = route;
   render();
