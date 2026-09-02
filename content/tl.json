@@ -1196,7 +1196,7 @@
       "piDesc": "Susuriin ito ng sales → pipirmahan ng isang executive → ipapadala sa email mo awtomatiko ang kumpletong Proforma Invoice (PI)."
     },
     "login": {
-      "title": "Mag-sign in para magsumite ng purchase order",
+      "title": "Mag-sign in para magamit ang site na ito",
       "desc": "I-type ang email at password na inihanda ng sales rep mo sa KU-KIT.",
       "emailPlaceholder": "Email mo",
       "passwordPlaceholder": "Password",

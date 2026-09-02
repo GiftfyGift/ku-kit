@@ -1704,6 +1704,100 @@ async function poWebhookPost(payload) {
   }
 }
 
+/* ---------- Site-wide dealer login (email + password) ---------- */
+// Gates the ENTIRE site, not just the PO form — render() shows this
+// instead of any routed page until a session exists. Checked directly
+// against the "Dealers" tab (see the .gs header comment) — no email
+// round-trip, signs in immediately. { company, country, contact, email }
+// once signed in, else null. Loaded synchronously from localStorage so a
+// returning visitor is recognized instantly.
+const DEALER_SESSION_KEY = 'kukit_dealer_session';
+function loadDealerSession() {
+  try { return JSON.parse(localStorage.getItem(DEALER_SESSION_KEY)) || null; } catch (e) { return null; }
+}
+function saveDealerSession(session) {
+  try { localStorage.setItem(DEALER_SESSION_KEY, JSON.stringify(session)); } catch (e) { /* ignore */ }
+}
+function clearDealerSession() {
+  try { localStorage.removeItem(DEALER_SESSION_KEY); } catch (e) { /* ignore */ }
+}
+let dealerSession = loadDealerSession();
+
+// A "fix this PO" link emailed on a revision request carries its own
+// proof of identity (the token) — it has to keep working for whoever
+// clicked it even if they've never signed in as a dealer, so this is the
+// one deliberate hole in the site-wide gate below.
+function hasEditLinkInUrl() {
+  const params = new URLSearchParams(location.search);
+  return !!(params.get('po') && params.get('token'));
+}
+
+function siteLoginGateHtml(c) {
+  const lg = (c.poRequest && c.poRequest.login) || {};
+  return `
+    <div class="site-login-gate">
+      <div class="site-login-card">
+        <h2 class="site-login-title">${lg.title || ''}</h2>
+        <p class="site-login-desc">${lg.desc || ''}</p>
+        <div class="site-login-row">
+          <input type="email" id="site-login-email" placeholder="${lg.emailPlaceholder || ''}" autocomplete="username">
+          <input type="password" id="site-login-password" placeholder="${lg.passwordPlaceholder || ''}" autocomplete="current-password">
+          <button type="button" class="order-btn" id="site-login-btn">${lg.signInBtn || ''}</button>
+        </div>
+        <p class="site-login-status" id="site-login-status"></p>
+      </div>
+    </div>
+  `;
+}
+
+function wireSiteLoginGate(c) {
+  const lg = (c.poRequest && c.poRequest.login) || {};
+  const emailInput = document.getElementById('site-login-email');
+  const passwordInput = document.getElementById('site-login-password');
+  const status = document.getElementById('site-login-status');
+  if (!emailInput || !passwordInput) return;
+  const submit = async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+    if (!email || !password) { status.textContent = lg.emailRequiredNote || ''; return; }
+    status.textContent = lg.signingIn || '';
+    // POST, not GET — a password never belongs in a URL/query string.
+    const res = await poWebhookPost({ action: 'dealerLogin', email, password });
+    if (!res || !res.ok) { status.textContent = lg.invalidNote || ''; return; }
+    dealerSession = { company: res.company, country: res.country, contact: res.contact, email: res.email };
+    saveDealerSession(dealerSession);
+    render();
+  };
+  document.getElementById('site-login-btn').addEventListener('click', submit);
+  passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
+}
+
+// Small "Signed in as X (Sign out)" indicator appended next to the
+// language switcher — the only always-visible way back out once signed
+// in, since the gate itself is gone from view after that point.
+function updateHeaderSessionIndicator(c) {
+  const langSwitch = document.querySelector('.lang-switch');
+  if (!langSwitch) return;
+  let el = document.getElementById('header-dealer-session');
+  if (!dealerSession) {
+    if (el) el.remove();
+    return;
+  }
+  const lg = (c && c.poRequest && c.poRequest.login) || {};
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'header-dealer-session';
+    el.className = 'header-dealer-session';
+    langSwitch.insertAdjacentElement('afterend', el);
+  }
+  el.innerHTML = `<span>${lg.signedInAsPrefix || ''} <strong>${dealerSession.company}</strong></span><button type="button" id="header-dealer-signout">${lg.signOutBtn || ''}</button>`;
+  document.getElementById('header-dealer-signout').addEventListener('click', () => {
+    dealerSession = null;
+    clearDealerSession();
+    render();
+  });
+}
+
 const ORDER_LIST_KEY = 'kukit_orders';
 const ORDER_BUYER_KEY = 'kukit_buyer';
 const ORDER_TRACKING_STAGE_KEYS = ['orderConfirmed', 'paymentReceived', 'production', 'shipped', 'customs', 'delivered'];
@@ -2660,23 +2754,11 @@ function initPoRequestPage(c) {
   // form (otherwise it would flash empty, then re-render once prefilled).
   let editMode = null;
 
-  // Lightweight email+password dealer login (see "DEALER LOGIN" in the .gs
-  // header comment) — { company, country, contact, email } once signed in,
-  // else null. Loaded synchronously from localStorage so a returning
-  // visitor is recognized instantly; a fresh sign-in submits email+
-  // password to the backend (see wireDealerLogin()) and, on success,
-  // persists here the same way.
-  const DEALER_SESSION_KEY = 'kukit_dealer_session';
-  function loadDealerSession() {
-    try { return JSON.parse(localStorage.getItem(DEALER_SESSION_KEY)) || null; } catch (e) { return null; }
-  }
-  function saveDealerSession(session) {
-    try { localStorage.setItem(DEALER_SESSION_KEY, JSON.stringify(session)); } catch (e) { /* ignore */ }
-  }
-  function clearDealerSession() {
-    try { localStorage.removeItem(DEALER_SESSION_KEY); } catch (e) { /* ignore */ }
-  }
-  let dealerSession = loadDealerSession();
+  // `dealerSession` itself is the module-level one (see "Site-wide dealer
+  // login" near poWebhookPost) — this page never renders at all unless
+  // it's already set (render()'s site-wide gate sees to that, aside from
+  // the edit-link exception), so customerFieldsHtml() below can trust it
+  // for prefill without needing its own copy of the login UI anymore.
 
   function knownCustomerCountries() {
     const known = pr.customer.knownCustomers || [];
@@ -2999,66 +3081,6 @@ function initPoRequestPage(c) {
     });
   }
 
-  // Short banner shown above the form whenever a signed-in dealer session
-  // is prefilling it (not shown in edit mode — the edit banner already
-  // covers that case) — mainly there so "why is this already filled in"
-  // has an obvious answer, plus a way back out.
-  function dealerSessionBarHtml() {
-    const lg = pr.login;
-    if (!lg) return '';
-    return `
-      <div class="po-req-session-bar">
-        <span>${lg.signedInAsPrefix} <strong>${dealerSession.company}</strong></span>
-        <button type="button" class="po-req-session-signout" id="po-req-session-signout">${lg.signOutBtn}</button>
-      </div>
-    `;
-  }
-
-  // Gate shown instead of the order form for an anonymous visitor —
-  // email+password checked straight against the "Dealers" tab (see
-  // "DEALER LOGIN" in the .gs header comment) is the only thing standing
-  // between "anyone on the internet" and "an approved dealer", so this is
-  // deliberately the only way into steps 1-5. The status-check/edit-PO
-  // cards in the hub above stay open regardless, since those already
-  // carry their own PO+email or token proof.
-  function dealerLoginHtml() {
-    const lg = pr.login;
-    if (!lg) return '';
-    return `
-      <div class="po-req-login-gate">
-        <h3 class="po-req-login-title">${lg.title}</h3>
-        <p class="po-req-login-desc">${lg.desc}</p>
-        <div class="po-req-login-row">
-          <input type="email" id="po-req-login-email" placeholder="${lg.emailPlaceholder}">
-          <input type="password" id="po-req-login-password" placeholder="${lg.passwordPlaceholder}">
-          <button type="button" class="order-btn" id="po-req-login-btn">${lg.signInBtn}</button>
-        </div>
-        <p class="po-req-login-status" id="po-req-login-status"></p>
-      </div>
-    `;
-  }
-
-  function wireDealerLogin() {
-    const lg = pr.login;
-    const emailInput = document.getElementById('po-req-login-email');
-    const passwordInput = document.getElementById('po-req-login-password');
-    const status = document.getElementById('po-req-login-status');
-    const submit = async () => {
-      const email = emailInput.value.trim();
-      const password = passwordInput.value;
-      if (!email || !password) { status.textContent = lg.emailRequiredNote; return; }
-      status.textContent = lg.signingIn;
-      // POST, not GET — a password never belongs in a URL/query string.
-      const res = await poWebhookPost({ action: 'dealerLogin', email, password });
-      if (!res || !res.ok) { status.textContent = lg.invalidNote; return; }
-      dealerSession = { company: res.company, country: res.country, contact: res.contact, email: res.email };
-      saveDealerSession(dealerSession);
-      renderForm();
-    };
-    document.getElementById('po-req-login-btn').addEventListener('click', submit);
-    passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') submit(); });
-  }
-
   function orderFormStepsHtml() {
     return `
       <div class="po-req-progress">
@@ -3093,30 +3115,17 @@ function initPoRequestPage(c) {
   }
 
   function renderForm() {
-    // Edit mode always shows the form (the edit link's token is its own
-    // proof of identity for that one PO) — otherwise a signed-in dealer
-    // session is required to reach steps 1-5 at all.
-    const showForm = !!editMode || !!dealerSession;
+    // This page never renders at all unless dealerSession is already set
+    // (render()'s site-wide gate) or we're in edit mode (the edit link's
+    // token is its own proof of identity) — so the form always shows here,
+    // no local login gate needed. Signing out is the header-wide control
+    // (see updateHeaderSessionIndicator()), not something this page owns.
     body.innerHTML = `
       ${editMode ? `<div class="po-req-edit-banner">${pr.editModeNote.replace('{po}', editMode.poNumber)}</div>` : poHubHtml()}
-      ${!editMode && dealerSession ? dealerSessionBarHtml() : ''}
-      ${showForm ? orderFormStepsHtml() : dealerLoginHtml()}
+      ${orderFormStepsHtml()}
     `;
 
     if (!editMode) wireStatusCheck();
-
-    if (!showForm) {
-      wireDealerLogin();
-      return;
-    }
-
-    if (!editMode && dealerSession) {
-      document.getElementById('po-req-session-signout').addEventListener('click', () => {
-        dealerSession = null;
-        clearDealerSession();
-        renderForm();
-      });
-    }
 
     wireCustomerFields();
     wireItemsTable();
@@ -3323,6 +3332,15 @@ function initPoRequestPage(c) {
       // customer still needs to know their link didn't work rather than
       // silently landing on a blank form.
       if (editResult && editResult.res) alert(pr.editLoadErrorNote);
+      if (editResult && !dealerSession) {
+        // That dead po/token pair was the ONLY reason the site-wide gate
+        // let this visitor in (they were never actually signed in) —
+        // strip it so the gate re-evaluates honestly, then hand off to it
+        // instead of exposing a blank order form to an anonymous visitor.
+        history.replaceState(null, '', location.pathname + location.hash);
+        render();
+        return;
+      }
       renderForm();
     }
   });
@@ -5371,11 +5389,27 @@ function applyStaticText(c) {
 function render() {
   const c = state.content;
   if (!c) return;
+
+  // Site-wide gate: nothing renders — not even Home — until signed in,
+  // except a "fix this PO" link's own token, which is its own proof of
+  // identity and has to keep working for someone who isn't a signed-in
+  // dealer at all.
+  if (!dealerSession && !hasEditLinkInUrl()) {
+    app.innerHTML = siteLoginGateHtml(c);
+    applyStaticText(c);
+    setActiveNav(state.route);
+    document.querySelector('.hero').hidden = true;
+    updateHeaderSessionIndicator(c);
+    wireSiteLoginGate(c);
+    return;
+  }
+
   const renderer = RENDERERS[state.route] || RENDERERS.home;
   app.innerHTML = renderer(c);
   applyStaticText(c);
   setActiveNav(state.route);
   document.querySelector('.hero').hidden = state.route !== 'home';
+  updateHeaderSessionIndicator(c);
 
   app.querySelectorAll('.card[data-target]').forEach(card => {
     card.addEventListener('click', () => navigate(card.dataset.target));

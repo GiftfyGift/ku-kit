@@ -1507,7 +1507,7 @@
       "piDesc": "Sales reviews it → an executive signs off → the completed Proforma Invoice (PI) is emailed to you automatically."
     },
     "login": {
-      "title": "Sign in to submit a purchase order",
+      "title": "Sign in to use this site",
       "desc": "Enter the email and password your KU-KIT sales rep set up for you.",
       "emailPlaceholder": "Your email",
       "passwordPlaceholder": "Password",

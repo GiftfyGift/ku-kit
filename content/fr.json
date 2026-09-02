@@ -1196,7 +1196,7 @@
       "piDesc": "L'équipe commerciale la vérifie → un responsable la signe → la Facture Proforma (PI) finalisée vous est envoyée automatiquement par e-mail."
     },
     "login": {
-      "title": "Connectez-vous pour soumettre une commande",
+      "title": "Connectez-vous pour utiliser ce site",
       "desc": "Saisissez l'e-mail et le mot de passe que votre représentant commercial KU-KIT vous a fournis.",
       "emailPlaceholder": "Votre e-mail",
       "passwordPlaceholder": "Mot de passe",
