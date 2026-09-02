@@ -1174,6 +1174,7 @@
       "emailRequiredNote": "Tafadhali ingiza barua pepe na nenosiri lako.",
       "signingIn": "Inaingia...",
       "invalidNote": "Barua pepe au nenosiri halijatambuliwa. Wasiliana na muuzaji wako wa KU-KIT.",
+      "connectionErrorNote": "Imeshindwa kufikia seva. Tafadhali jaribu tena — huenda ni tatizo la muunganisho, si barua pepe au nenosiri lako.",
       "signedInAsPrefix": "Umeingia kama",
       "signOutBtn": "Toka"
     }

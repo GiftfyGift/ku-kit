@@ -1706,17 +1706,29 @@ async function poWebhookGet(params) {
 // shouldn't ever end up in a URL/query string (a password, namely) and
 // whose caller needs to know whether it succeeded.
 async function poWebhookPost(payload) {
-  if (!PO_WEBHOOK_URL) return { ok: false, error: 'Webhook not configured.' };
+  if (!PO_WEBHOOK_URL) return { ok: false, networkError: true, error: 'Webhook not configured.' };
   try {
     const res = await fetch(PO_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
       body: JSON.stringify(payload)
     });
-    return await res.json();
+    // The request reached the server and came back — whatever it says
+    // (ok:true or a real ok:false rejection) is a genuine answer, not a
+    // networkError, even if parsing the body then fails.
+    try {
+      return await res.json();
+    } catch (parseErr) {
+      console.error('PO webhook POST returned non-JSON', parseErr);
+      return { ok: false, networkError: true, error: String(parseErr) };
+    }
   } catch (err) {
+    // The request never got a response at all (offline, blocked by an
+    // extension/firewall, DNS failure, timeout, etc.) — this is NOT the
+    // server saying "wrong credentials", so callers must not treat it as
+    // one (see wireSiteLoginGate).
     console.error('PO webhook POST failed', err);
-    return { ok: false, error: String(err) };
+    return { ok: false, networkError: true, error: String(err) };
   }
 }
 
@@ -1788,7 +1800,13 @@ function wireSiteLoginGate(c) {
     status.textContent = lg.signingIn || '';
     // POST, not GET — a password never belongs in a URL/query string.
     const res = await poWebhookPost({ action: 'dealerLogin', email, password });
-    if (!res || !res.ok) { status.textContent = lg.invalidNote || ''; return; }
+    // A request that never reached the server (offline, blocked, timed
+    // out) is not the same thing as the server rejecting the password —
+    // conflating the two used to make every connection hiccup look like
+    // a typo'd password. Tell them apart so "it keeps failing to log in"
+    // is actually diagnosable.
+    if (!res || res.networkError) { status.textContent = lg.connectionErrorNote || lg.invalidNote || ''; return; }
+    if (!res.ok) { status.textContent = lg.invalidNote || ''; return; }
     dealerSession = { company: res.company, country: res.country, contact: res.contact, email: res.email };
     saveDealerSession(dealerSession);
     render();

@@ -1510,6 +1510,7 @@
       "emailRequiredNote": "Please enter both your email and password.",
       "signingIn": "Signing in...",
       "invalidNote": "Email or password not recognized. Contact your KU-KIT sales rep.",
+      "connectionErrorNote": "Could not reach the server. Please try again — this may be a connection issue, not your email or password.",
       "signedInAsPrefix": "Signed in as",
       "signOutBtn": "Sign out"
     }

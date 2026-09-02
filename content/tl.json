@@ -1175,6 +1175,7 @@
       "emailRequiredNote": "Pakisulat ang email at password mo.",
       "signingIn": "Nagsa-sign in...",
       "invalidNote": "Hindi nakilala ang email o password. Makipag-ugnayan sa sales rep mo sa KU-KIT.",
+      "connectionErrorNote": "Hindi ma-reach ang server. Pakisubukan ulit — maaaring problema ito sa koneksyon, hindi sa email o password mo.",
       "signedInAsPrefix": "Naka-sign in bilang",
       "signOutBtn": "Mag-sign out"
     }

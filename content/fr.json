@@ -1164,6 +1164,7 @@
       "emailRequiredNote": "Veuillez saisir votre e-mail et votre mot de passe.",
       "signingIn": "Connexion en cours...",
       "invalidNote": "E-mail ou mot de passe non reconnu. Contactez votre représentant commercial KU-KIT.",
+      "connectionErrorNote": "Impossible de contacter le serveur. Veuillez réessayer — il peut s'agir d'un problème de connexion, pas de votre e-mail ou mot de passe.",
       "signedInAsPrefix": "Connecté en tant que",
       "signOutBtn": "Se déconnecter"
     }
