@@ -145,6 +145,36 @@ nav.main-nav button.active {
   padding: 8px 15px;
 }
 
+/* Nav menu groups — colored backdrop behind related sections */
+.main-nav .nav-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+}
+
+.main-nav .nav-group-product { background: #BFE3FB; } /* baby blue: Product / Parts / Service / Crop Solutions */
+.main-nav .nav-group-marketing { background: #FFD3A0; } /* light orange: Marketing / Marketing Materials */
+.main-nav .nav-group-order { background: #C3F0C8; } /* light green: Purchase Order */
+
+.main-nav .nav-group button {
+  color: #0c2430;
+  text-shadow: none;
+}
+
+.main-nav .nav-group button:hover {
+  background: rgba(0,0,0,0.10);
+  color: #071620;
+}
+
+.main-nav .nav-group button.active {
+  background: rgba(6,20,26,0.85);
+  border: 1px solid rgba(255,255,255,0.55);
+  color: white;
+  padding: 8px 15px;
+}
+
 .lang-switch {
   display: flex;
   gap: 4px;

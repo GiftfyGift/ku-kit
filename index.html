@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KU-KIT</title>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&family=Noto+Sans+Thai:wght@400;500;700&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20260902-site-gate-1">
+<link rel="stylesheet" href="assets/css/style.css?v=20260902-nav-group-bg-1">
 </head>
 <body>
 
@@ -17,13 +17,19 @@
     </div>
     <nav class="main-nav">
       <button data-route="home">Home</button>
-      <button data-route="product-engine" data-navkey="product">Product</button>
-      <button data-route="parts">Parts</button>
-      <button data-route="service">Service</button>
-      <button data-route="crops">Crop Solutions</button>
-      <button data-route="marketing">Marketing</button>
-      <button data-route="materials-company" data-navkey="artwork">Marketing Materials</button>
-      <button data-route="po-request" data-navkey="poRequest">Purchase Order</button>
+      <div class="nav-group nav-group-product">
+        <button data-route="product-engine" data-navkey="product">Product</button>
+        <button data-route="parts">Parts</button>
+        <button data-route="service">Service</button>
+        <button data-route="crops">Crop Solutions</button>
+      </div>
+      <div class="nav-group nav-group-marketing">
+        <button data-route="marketing">Marketing</button>
+        <button data-route="materials-company" data-navkey="artwork">Marketing Materials</button>
+      </div>
+      <div class="nav-group nav-group-order">
+        <button data-route="po-request" data-navkey="poRequest">Purchase Order</button>
+      </div>
     </nav>
     <div class="lang-switch">
       <button type="button" class="lang-switch-toggle" id="lang-toggle" aria-haspopup="listbox" aria-expanded="false">
