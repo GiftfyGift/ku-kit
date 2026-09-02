@@ -837,9 +837,36 @@ function renderStarterSystems(starterSystems) {
   `;
 }
 
+// Durability "Drop Test" demo — shown right before the assembly-steps
+// content wherever renderAssemblyBlock() appears (engine page, tiller
+// page, and the dedicated Assembly route), so it's the first thing a
+// dealer sees before the how-to-assemble instructions. One video for
+// Thai, a different one for every other language.
+function renderDropTestVideo() {
+  const titles = {
+    th: 'VDO ทดสอบประสิทธิภาพความแข็งแกร่ง (Drop Test)',
+    en: 'Durability Drop Test Video',
+    fr: 'Vidéo du test de résistance (Drop Test)',
+    sw: 'Video ya Jaribio la Uimara (Drop Test)',
+    tl: 'Drop Test Video para sa Durability'
+  };
+  const video = {
+    title: titles[state.lang] || titles.en,
+    type: 'youtube',
+    youtubeId: state.lang === 'th' ? 'RaPMzt-Qv6g' : 'Bf0-xON_v7M'
+  };
+  return `
+    <div class="category-block engine-guide-section">
+      <h3 class="category-heading">${video.title}</h3>
+      <div class="video-grid engine-guide-video">${renderYouTubeEmbed(video)}</div>
+    </div>
+  `;
+}
+
 function renderAssemblyBlock(a) {
   if (!a) return '';
   return `
+    ${renderDropTestVideo()}
     <div class="category-block">
       <h3 class="category-heading">${a.title}</h3>
       <p class="section-intro">${a.intro}</p>
