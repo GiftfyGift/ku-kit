@@ -1134,13 +1134,21 @@ function handleReviewPi(params) {
     const testMode = isTestMode();
 
     if (issuerEmail && !testMode) {
+      // Rebuild the same unsigned draft to attach here — the signer should
+      // see exactly what they're approving without having to dig up the
+      // Drive link from the earlier review email themselves.
+      const dateStr = Utilities.formatDate(new Date(), 'GMT+7', 'dd-MMM-yyyy');
+      const html = buildPiHtml(order, piNumber, dateStr, null);
+      const pdfBlob = Utilities.newBlob(html, 'text/html', piNumber + '.html')
+        .getAs('application/pdf').setName(piNumber + '-draft.pdf');
       MailApp.sendEmail({
         to: issuerEmail,
         subject: '[KU-KIT PI Ready to Sign] ' + piNumber + ' — ' + (order['Company'] || ''),
         body: 'PO ' + (order['PO Number'] || '') + ' has been checked by the sales team and is ready for your signature.\n\n' +
-          'Click the link below — this stamps the saved signature onto the PDF and emails the final copy ' +
-          'straight to the customer. No further action needed after that.\n\n' +
+          'Review the attached draft. Click the link below — this stamps the saved signature onto the PDF ' +
+          'and emails the final copy straight to the customer. No further action needed after that.\n\n' +
           'Approve & send to customer:\n' + approveLink,
+        attachments: [pdfBlob],
         name: getConfig('Notification Sender Name', 'KU-KIT Order System')
       });
     }
