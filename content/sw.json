@@ -41,7 +41,7 @@
             { "label": "Wigo wa nguvu", "value": "10 - 12 HP" },
             { "label": "Mfumo wa mwako", "value": "Three Vortex Combustion System (TVCS)" },
             { "label": "Njia za kuwasha", "value": "Standard (mkono) / ES (kuwasha kwa umeme) / SW (funguo)" },
-            { "label": "Udhamini", "value": "Miaka 3" }
+            { "label": "Udhamini", "value": "Miaka 2" }
           ]
         },
         {
@@ -51,7 +51,7 @@
             { "label": "Wigo wa nguvu", "value": "12.5 - 18 HP" },
             { "label": "Mfumo wa mwako", "value": "Direct Injection (DI)" },
             { "label": "Njia za kuwasha", "value": "Standard (mkono) / ES (kuwasha kwa umeme) / SW (funguo)" },
-            { "label": "Udhamini", "value": "Miaka 3" }
+            { "label": "Udhamini", "value": "Miaka 2" }
           ]
         }
       ],
@@ -387,32 +387,7 @@
             { "label": "Kipenyo cha gurudumu la kizimba", "value": "800 mm" },
             { "label": "Vile vya gurudumu", "value": "Inchi 3 x vipande 16" },
             { "label": "Mfumo wa uendeshaji / klachi", "value": "Mfumo wa kawaida wa kugeuza, klachi ya kawaida, beringi ya mpira" },
-            { "label": "Udhamini wa fremu / sanduku la gia", "value": "Miaka 3 / maisha yote kwa sanduku la gia" }
-          ]
-        },
-        {
-          "name": "NC Plus X Special",
-          "logo": { "src": "assets/img/product/logo-nc-plus-x-special.png", "alt": "Nembo ya NC Plus X Special" },
-          "images": [
-            { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 880", "caption": "880 mm" },
-            { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "Trekta la TRA CHANG NC Plus X Special — 980", "caption": "980 mm" }
-          ],
-          "wheelOptions": [
-            { "line1": "880 mm", "line2": "+ vile vya gurudumu inchi 4, vipande 16" },
-            { "line1": "980 mm", "line2": "+ vile vya gurudumu inchi 5, vipande 16" }
-          ],
-          "exterior": ["Fremu ndefu ya jembe", "Kitovu cha gurudumu na stud bolt", "Inaweza kuwekewa fenda"],
-          "interior": [
-            { "heading": "Mfumo wa Gear Insert wa kugeuza", "bullets": ["Imara, iliyoundwa kwa kazi nzito, inaweza kugeuzwa ukichakaa", "Ina safety bolt kupunguza uharibifu kwa meno ya gia", "Kugeuza kwa urahisi na kwa uzito mwepesi"] },
-            { "heading": "Klachi maalum yenye springi ngumu zaidi", "bullets": ["Inashika na kupitisha nguvu vizuri, inafaa kwa kazi nzito"] },
-            { "heading": "Beringi maalum", "bullets": ["Beringi ya mpira", "Beringi yenye seal (mihimili 3, 4, 5) — imara na ya kudumu", "Inalinda meno ya gia dhidi ya uharibifu iwapo beringi itashindwa"] }
-          ],
-          "desc": "Kipenyo cha gurudumu la kizimba 880 mm au 980 mm, na mfumo wa Gear Insert wa kugeuza kwa ajili ya kazi nzito za tope na mpunga unaopandwa zaidi ya mara mbili kwa mwaka. Kubadilisha eneo, badilisha kwa magurudumu ya mpira au tumia trela; kwa kazi za tope, tumia pamoja na injini ya KUBOTA ZT Plus ya 14-15.5 HP.",
-          "specs": [
-            { "label": "Kipenyo cha gurudumu la kizimba", "value": "880 mm / 980 mm" },
-            { "label": "Vile vya gurudumu", "value": "Inchi 4 au 5 x vipande 16" },
-            { "label": "Mfumo wa uendeshaji / klachi", "value": "Mfumo wa Gear Insert (unaweza kugeuzwa ukichakaa, una safety bolt), klachi maalum, beringi ya roller" },
-            { "label": "Udhamini wa fremu / sanduku la gia", "value": "Miaka 3 / maisha yote kwa sanduku la gia" }
+            { "label": "Udhamini wa fremu / sanduku la gia", "value": "Miaka 2 / maisha yote kwa sanduku la gia" }
           ]
         }
       ],

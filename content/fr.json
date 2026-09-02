@@ -41,7 +41,7 @@
             { "label": "Plage de puissance", "value": "10 - 12 ch" },
             { "label": "Système de combustion", "value": "Three Vortex Combustion System (TVCS)" },
             { "label": "Méthodes de démarrage", "value": "Standard (manuel) / ES (démarrage électrique) / SW (à clé)" },
-            { "label": "Garantie", "value": "3 ans" }
+            { "label": "Garantie", "value": "2 ans" }
           ]
         },
         {
@@ -51,7 +51,7 @@
             { "label": "Plage de puissance", "value": "12,5 - 18 ch" },
             { "label": "Système de combustion", "value": "Injection directe (DI)" },
             { "label": "Méthodes de démarrage", "value": "Standard (manuel) / ES (démarrage électrique) / SW (à clé)" },
-            { "label": "Garantie", "value": "3 ans" }
+            { "label": "Garantie", "value": "2 ans" }
           ]
         }
       ],
@@ -383,32 +383,7 @@
             { "label": "Diamètre de la roue à cage", "value": "800 mm" },
             { "label": "Pales de roue", "value": "3 pouces x 16 pièces" },
             { "label": "Système de direction / embrayage", "value": "Système de virage standard, embrayage standard, roulement à billes" },
-            { "label": "Garantie châssis / carter de transmission", "value": "3 ans / à vie sur le carter de transmission" }
-          ]
-        },
-        {
-          "name": "NC Plus X Special",
-          "logo": { "src": "assets/img/product/logo-nc-plus-x-special.png", "alt": "Logo NC Plus X Special" },
-          "images": [
-            { "src": "assets/img/product/nc-plusx-special-880.png", "alt": "Motoculteur TRA CHANG NC Plus X Special — 880", "caption": "880 mm" },
-            { "src": "assets/img/product/nc-plusx-special-980.png", "alt": "Motoculteur TRA CHANG NC Plus X Special — 980", "caption": "980 mm" }
-          ],
-          "wheelOptions": [
-            { "line1": "880 mm", "line2": "+ pales de roue 4 po, 16 pièces" },
-            { "line1": "980 mm", "line2": "+ pales de roue 5 po, 16 pièces" }
-          ],
-          "exterior": ["Soc de charrue long", "Moyeu de roue avec boulons prisonniers", "Peut recevoir des garde-boue"],
-          "interior": [
-            { "heading": "Système de virage à insert d'engrenage", "bullets": ["Solide, conçu pour les travaux intensifs, réversible en cas d'usure", "Boulon de sécurité pour réduire les dommages aux dents d'engrenage", "Direction facile et légère"] },
-            { "heading": "Embrayage spécial à ressorts renforcés", "bullets": ["Bonne transmission de puissance, adapté aux travaux intensifs"] },
-            { "heading": "Roulement spécial", "bullets": ["Roulement à billes", "Roulement à joint (arbres 3, 4, 5) — solide et durable", "Protège les dents d'engrenage en cas de défaillance du roulement"] }
-          ],
-          "desc": "Roue à cage de 880 mm ou 980 mm de diamètre, avec système de virage à insert d'engrenage pour les travaux intensifs en rizière boueuse et les rizières cultivées plus de deux fois par an. Pour le déplacer, passez aux roues en caoutchouc ou utilisez une remorque ; pour le travail en boue profonde, associez-le à un moteur KUBOTA ZT Plus de 14 à 15,5 ch.",
-          "specs": [
-            { "label": "Diamètre de la roue à cage", "value": "880 mm / 980 mm" },
-            { "label": "Pales de roue", "value": "4 ou 5 pouces x 16 pièces" },
-            { "label": "Système de direction / embrayage", "value": "Système de virage à insert d'engrenage (réversible en cas d'usure, boulon de sécurité), embrayage spécial, roulement à rouleaux" },
-            { "label": "Garantie châssis / carter de transmission", "value": "3 ans / à vie sur le carter de transmission" }
+            { "label": "Garantie châssis / carter de transmission", "value": "2 ans / à vie sur le carter de transmission" }
           ]
         }
       ],

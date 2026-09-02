@@ -11,17 +11,19 @@
     { "id": "lc270", "label": "L/C 270 Days after B/L Date", "premium": 1.0543 },
     { "id": "lc360", "label": "L/C 360 Days after B/L Date", "premium": 1.077 }
   ],
+  "modelAvailabilityNote": "\"langs\" on an engine/tiller restricts which site language sees it in the PO order form's model dropdown (matches which SKUs that market actually sells) — omit \"langs\" entirely to show it for every language, same as before this field existed. Implements are unrestricted on purpose (tires/plows aren't model-specific).",
   "engines": [
-    { "id": "ZT100_PLUS", "label": "Kubota Diesel Engine ZT100 Plus", "basePrice": 1000, "priceSource": "example" },
-    { "id": "ZT110_PLUS", "label": "Kubota Diesel Engine ZT110 Plus", "basePrice": 970, "priceSource": "example" },
-    { "id": "ZT120_PLUS", "label": "Kubota Diesel Engine ZT120 Plus", "basePrice": 970, "priceSource": "example" },
+    { "id": "ZT100_PLUS", "label": "Kubota Diesel Engine ZT100 Plus", "basePrice": 1000, "priceSource": "example", "langs": ["th", "en", "tl"] },
+    { "id": "ZT110_PLUS", "label": "Kubota Diesel Engine ZT110 Plus", "basePrice": 970, "priceSource": "example", "langs": ["th", "en"] },
+    { "id": "ZT120_PLUS", "label": "Kubota Diesel Engine ZT120 Plus", "basePrice": 970, "priceSource": "example", "langs": ["th", "en"] },
     { "id": "ZT125_PLUS", "label": "Kubota Diesel Engine ZT125 Plus", "basePrice": 1136, "priceSource": "Quotation AF-007-26 (Zana Bora)" },
     { "id": "ZT140_PLUS", "label": "Kubota Diesel Engine ZT140 Plus", "basePrice": 1139, "priceSource": "Quotation AF-007-26 (Zana Bora)" },
     { "id": "ZT155_PLUS", "label": "Kubota Diesel Engine ZT155 Plus", "basePrice": 1171, "priceSource": "Quotation AF-007-26 (Zana Bora)" },
-    { "id": "ZT180_PLUS", "label": "Kubota Diesel Engine ZT180 Plus", "basePrice": 1567, "priceSource": "example" }
+    { "id": "ZT180_PLUS", "label": "Kubota Diesel Engine ZT180 Plus", "basePrice": 1567, "priceSource": "example", "langs": ["th", "en", "tl"] }
   ],
   "tillers": [
-    { "id": "NC_PLUS_X", "label": "Tra Chang Power Tiller NC Plus X", "basePrice": 1216, "priceSource": "Quotation AF-007-26 (Zana Bora)" }
+    { "id": "NC_PLUS_X", "label": "Tra Chang Power Tiller NC Plus X", "basePrice": 1216, "priceSource": "Quotation AF-007-26 (Zana Bora)", "langs": ["th", "en", "fr", "sw"] },
+    { "id": "NC_PLUS_X_SPECIAL", "label": "Tra Chang Power Tiller NC Plus X Special", "basePrice": 1450, "priceSource": "example — NOT a real quotation, confirm with Siam Kubota before using", "langs": ["tl"] }
   ],
   "implements": [
     { "id": "TIRE_L", "label": "Rubber Tire (L)", "basePrice": 113, "priceSource": "Quotation AF-007-26 (Zana Bora)" },

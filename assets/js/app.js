@@ -3334,7 +3334,16 @@ function initPoRequestPage(c) {
   body.innerHTML = `<div class="order-loading">${pr.items.loading}</div>`;
   Promise.all([orderLoadCatalogData(), loadEditOrderFromUrl()]).then(([data, editResult]) => {
     if (state.route !== 'po-request') return;
-    catalogModels = [...data.products.engines, ...data.products.tillers, ...data.products.implements];
+    // An engine/tiller with a "langs" list is only sold in those markets —
+    // filter it out for every other site language. No "langs" field at
+    // all means it's sold everywhere (implements always fall in this
+    // bucket — tires/plows aren't model-specific).
+    const availableForLang = (m) => !m.langs || m.langs.includes(state.lang);
+    catalogModels = [
+      ...data.products.engines.filter(availableForLang),
+      ...data.products.tillers.filter(availableForLang),
+      ...data.products.implements.filter(availableForLang)
+    ];
     paymentTerms = data.products.paymentTerms;
     selectedTermId = paymentTerms[0].id;
     customerPriceMap = (data.customerPrices && data.customerPrices.customers) || {};

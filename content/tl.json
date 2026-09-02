@@ -363,30 +363,6 @@
       "interiorRowLabels": ["Turning system", "Clutch set", "Bearing"],
       "items": [
         {
-          "name": "NC Plus X",
-          "logo": { "src": "assets/img/product/logo-nc-plus-x.png", "alt": "Logo ng NC Plus X" },
-          "images": [
-            { "src": "assets/img/product/nc-plusx-tiller-cutout.png", "alt": "TRA CHANG NC Plus X 800 power tiller", "caption": "800 mm" }
-          ],
-          "wheelOptions": [
-            { "line1": "800 mm", "line2": "+ 3\" wheel blade, 16 piraso" }
-          ],
-          "exterior": ["Maikling plow shaft", "Wheel hub na walang stud bolt", "Hindi puwedeng lagyan ng fender"],
-          "interior": [
-            { "heading": "Standard turning system", "bullets": ["Angkop sa pangkalahatang gamit"] },
-            { "heading": "Standard clutch set", "bullets": ["Angkop sa pangkalahatang gamit"] },
-            { "heading": "Standard bearing", "bullets": ["Ball bearing", "Matibay at matatag"] }
-          ],
-          "compatNote": "*** Hindi puwedeng gamitin kasama ng 880 mm / 980 mm na steel wheel — masisira ang turning gear system at clutch set",
-          "desc": "Cage wheel na 800 mm ang diameter, 3-pulgadang wheel blade (16 piraso). Angkop para sa lupang mabuhangin o hindi masyadong malagkit, parehong basa at tuyong bukid, taniman ng tubo, kamoteng-kahoy, munggo, at gulay. Puwedeng gamitin ang cage wheel para sa maikling biyahe. Hindi angkop sa napakalalim na putikan.",
-          "specs": [
-            { "label": "Diameter ng cage wheel", "value": "800 mm" },
-            { "label": "Wheel blade", "value": "3 pulgada x 16 piraso" },
-            { "label": "Steering / clutch system", "value": "Standard turning system, standard clutch, ball bearing" },
-            { "label": "Warranty ng frame / gear case", "value": "3 taon / habambuhay para sa gear housing" }
-          ]
-        },
-        {
           "name": "NC Plus X Special",
           "logo": { "src": "assets/img/product/logo-nc-plus-x-special.png", "alt": "Logo ng NC Plus X Special" },
           "images": [
