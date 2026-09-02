@@ -3319,16 +3319,6 @@ table.parts-table td.code-col {
   align-items: start;
 }
 
-@media (max-width: 860px) {
-  .artwork-layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "preview"
-      "form";
-  }
-  .artwork-preview { position: relative; top: auto; }
-}
-
 .artwork-form {
   grid-area: form;
   background: var(--kubota-light-gray);
@@ -3344,6 +3334,25 @@ table.parts-table td.code-col {
      view above while adjusting a field further down the form. */
   position: sticky;
   top: 84px;
+}
+
+/* This has to come AFTER the unconditional .artwork-preview rule above —
+   two rules with equal specificity where only one is inside a media
+   query does NOT make the media-query one win; plain source order does.
+   Defined further up (as it was before), this reset was silently losing
+   the cascade to the sticky rule below it, so .artwork-preview stayed
+   position:sticky on mobile too — pinned near the top of the viewport
+   while the single-column form scrolled underneath/through it, instead
+   of stacking normally above the form as the grid-template-areas swap
+   intended. */
+@media (max-width: 860px) {
+  .artwork-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "preview"
+      "form";
+  }
+  .artwork-preview { position: relative; top: auto; }
 }
 
 .artwork-form h3 {
