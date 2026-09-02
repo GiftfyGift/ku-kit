@@ -1749,6 +1749,15 @@ function clearDealerSession() {
   try { localStorage.removeItem(DEALER_SESSION_KEY); } catch (e) { /* ignore */ }
 }
 let dealerSession = loadDealerSession();
+// Defensive: a session cached in localStorage from an earlier build (e.g.
+// before "company" was part of the login response) would otherwise show
+// "Signed in as undefined" forever, since a session is only re-fetched on
+// the next login. Treat any session missing its company as invalid so the
+// gate reappears and a real login repopulates it correctly.
+if (dealerSession && !dealerSession.company) {
+  dealerSession = null;
+  clearDealerSession();
+}
 
 // A "fix this PO" link emailed on a revision request carries its own
 // proof of identity (the token) — it has to keep working for whoever
@@ -1817,7 +1826,8 @@ function updateHeaderSessionIndicator(c) {
     el.className = 'header-dealer-session';
     langSwitch.insertAdjacentElement('afterend', el);
   }
-  el.innerHTML = `<span>${lg.signedInAsPrefix || ''} <strong>${dealerSession.company}</strong></span><button type="button" id="header-dealer-signout">${lg.signOutBtn || ''}</button>`;
+  const displayName = dealerSession.company || dealerSession.contact || dealerSession.email || '';
+  el.innerHTML = `<span>${lg.signedInAsPrefix || ''} <strong>${displayName}</strong></span><button type="button" id="header-dealer-signout">${lg.signOutBtn || ''}</button>`;
   document.getElementById('header-dealer-signout').addEventListener('click', () => {
     dealerSession = null;
     clearDealerSession();
