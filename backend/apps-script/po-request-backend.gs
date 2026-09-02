@@ -193,6 +193,24 @@ const PI_STAGE_OPTIONS = ['', 'Requested', 'Generated', 'Reviewed', 'Sent to Cus
 
 const DEFAULT_SITE_BASE_URL = 'https://giftfygift.github.io/ku-kit/';
 
+// ScriptApp.getService().getUrl() is only reliable when the current
+// execution is itself an incoming web-app request (doGet/doPost). Called
+// from anywhere else — an onEdit trigger being the case that bit us — it
+// falls back to the "test deployment" (/dev) URL instead of the real
+// deployed (/exec) one. A /dev link only works for whoever is logged in as
+// the script's own editor, so a PI review/approval email built from inside
+// onEdit would silently hand the reviewer or signer a broken link. Every
+// link this script emails out is built from this constant instead — never
+// from getUrl() directly. If you ever create a genuinely NEW deployment
+// (not just "New version" on the existing one — that keeps the same URL),
+// update the "Web App URL" row in Config to the new /exec URL; this
+// constant is just the fallback when that Config row is blank.
+const DEFAULT_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbydrktlXuRtS5Ja1BmEb0j47XV7xDLxck_nCANFRVLPdOwPkWIPw1y0Lw6fh4G_5RSvUw/exec';
+function webAppUrl() {
+  const configured = getConfig('Web App URL', '');
+  return (configured || DEFAULT_WEB_APP_URL).replace(/\/+$/, '');
+}
+
 function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
@@ -1009,7 +1027,7 @@ function generatePiPdfForRow(sheet, row) {
   // moment it's needed, without a second write to the row.
   const reviewToken = generateToken(String(order['PO Number']) + '|pireview|' + piNumber);
   const approvalToken = generateToken(String(order['PO Number']) + '|pi|' + piNumber);
-  const scriptUrl = ScriptApp.getService().getUrl();
+  const scriptUrl = webAppUrl();
   const reviewLink = scriptUrl + '?action=reviewPi&po=' + encodeURIComponent(order['PO Number']) + '&token=' + reviewToken;
 
   const repMatch = String(order['Assigned Sales Rep'] || '').match(/<(.+)>/);
@@ -1079,7 +1097,7 @@ function handleReviewPi(params) {
     const issuerEmail = getConfig('PI Issuer Email', '');
     const piNumber = order['PI Number'];
     const approvalToken = order['PI Approval Token'];
-    const scriptUrl = ScriptApp.getService().getUrl();
+    const scriptUrl = webAppUrl();
     const approveLink = scriptUrl + '?action=approvePi&po=' + encodeURIComponent(order['PO Number']) + '&token=' + approvalToken;
     const testMode = isTestMode();
 
