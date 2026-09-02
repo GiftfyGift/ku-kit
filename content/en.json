@@ -1505,6 +1505,17 @@
       "piBadge": "PI Flow",
       "piTitle": "After your order is confirmed",
       "piDesc": "Sales reviews it → an executive signs off → the completed Proforma Invoice (PI) is emailed to you automatically."
+    },
+    "login": {
+      "title": "Sign in to submit a purchase order",
+      "desc": "Enter your dealer email and we'll send you a one-click sign-in link — no password needed.",
+      "emailPlaceholder": "Your email",
+      "sendBtn": "Send sign-in link",
+      "emailRequiredNote": "Please enter your email first.",
+      "sending": "Sending...",
+      "sent": "If that email is registered, a sign-in link is on its way — check your inbox in a few minutes.",
+      "signedInAsPrefix": "Signed in as",
+      "signOutBtn": "Sign out"
     }
   },
   "footer": {

@@ -1194,6 +1194,17 @@
       "piBadge": "PI Flow",
       "piTitle": "Pagkatapos ma-confirm ang order mo",
       "piDesc": "Susuriin ito ng sales → pipirmahan ng isang executive → ipapadala sa email mo awtomatiko ang kumpletong Proforma Invoice (PI)."
+    },
+    "login": {
+      "title": "Mag-sign in para magsumite ng purchase order",
+      "desc": "I-type ang email mo bilang dealer at magpapadala kami ng one-click na sign-in link — walang kailangang password.",
+      "emailPlaceholder": "Email mo",
+      "sendBtn": "Ipadala ang sign-in link",
+      "emailRequiredNote": "Pakisulat muna ang email mo.",
+      "sending": "Ipinapadala...",
+      "sent": "Kung nakarehistro ang email na iyon, paparating na ang sign-in link — tingnan ang inbox mo sa loob ng ilang minuto.",
+      "signedInAsPrefix": "Naka-sign in bilang",
+      "signOutBtn": "Mag-sign out"
     }
   },
   "footer": {

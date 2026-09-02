@@ -1194,6 +1194,17 @@
       "piBadge": "Processus PI",
       "piTitle": "Après confirmation de votre commande",
       "piDesc": "L'équipe commerciale la vérifie → un responsable la signe → la Facture Proforma (PI) finalisée vous est envoyée automatiquement par e-mail."
+    },
+    "login": {
+      "title": "Connectez-vous pour soumettre une commande",
+      "desc": "Saisissez votre e-mail de concessionnaire et nous vous enverrons un lien de connexion en un clic — aucun mot de passe requis.",
+      "emailPlaceholder": "Votre e-mail",
+      "sendBtn": "Envoyer le lien de connexion",
+      "emailRequiredNote": "Veuillez d'abord saisir votre e-mail.",
+      "sending": "Envoi en cours...",
+      "sent": "Si cet e-mail est enregistré, un lien de connexion est en route — vérifiez votre boîte de réception dans quelques minutes.",
+      "signedInAsPrefix": "Connecté en tant que",
+      "signOutBtn": "Se déconnecter"
     }
   },
   "footer": {

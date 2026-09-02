@@ -2641,6 +2641,24 @@ function initPoRequestPage(c) {
   // form (otherwise it would flash empty, then re-render once prefilled).
   let editMode = null;
 
+  // Lightweight magic-link dealer login (see "DEALER LOGIN" in the .gs
+  // header comment) — { company, country, contact, email, token } once
+  // signed in, else null. Loaded synchronously from localStorage so a
+  // returning visitor is recognized instantly; a fresh sign-in click
+  // (dealer_email/dealer_token in the URL) is verified server-side in the
+  // catalog-load Promise.all below, then persisted here the same way.
+  const DEALER_SESSION_KEY = 'kukit_dealer_session';
+  function loadDealerSession() {
+    try { return JSON.parse(localStorage.getItem(DEALER_SESSION_KEY)) || null; } catch (e) { return null; }
+  }
+  function saveDealerSession(session) {
+    try { localStorage.setItem(DEALER_SESSION_KEY, JSON.stringify(session)); } catch (e) { /* ignore */ }
+  }
+  function clearDealerSession() {
+    try { localStorage.removeItem(DEALER_SESSION_KEY); } catch (e) { /* ignore */ }
+  }
+  let dealerSession = loadDealerSession();
+
   function knownCustomerCountries() {
     const known = pr.customer.knownCustomers || [];
     const seen = [];
@@ -2659,7 +2677,13 @@ function initPoRequestPage(c) {
 
   function customerFieldsHtml() {
     const cust = pr.customer;
-    const saved = orderLoadBuyer();
+    // A signed-in dealer's own record wins over generic locally-cached
+    // buyer info for the fields it actually knows (company/country/
+    // contact/email) — address/phone/customerRef, which the Dealers tab
+    // doesn't track, still fall back to whatever was locally remembered.
+    const saved = dealerSession
+      ? { ...orderLoadBuyer(), company: dealerSession.company, country: dealerSession.country, contact: dealerSession.contact, email: dealerSession.email }
+      : orderLoadBuyer();
     return `
       <label class="po-req-field">
         <span>${cust.countryFilterLabel}</span>
@@ -2956,9 +2980,57 @@ function initPoRequestPage(c) {
     });
   }
 
-  function renderForm() {
-    body.innerHTML = `
-      ${editMode ? `<div class="po-req-edit-banner">${pr.editModeNote.replace('{po}', editMode.poNumber)}</div>` : poHubHtml()}
+  // Short banner shown above the form whenever a signed-in dealer session
+  // is prefilling it (not shown in edit mode — the edit banner already
+  // covers that case) — mainly there so "why is this already filled in"
+  // has an obvious answer, plus a way back out.
+  function dealerSessionBarHtml() {
+    const lg = pr.login;
+    if (!lg) return '';
+    return `
+      <div class="po-req-session-bar">
+        <span>${lg.signedInAsPrefix} <strong>${dealerSession.company}</strong></span>
+        <button type="button" class="po-req-session-signout" id="po-req-session-signout">${lg.signOutBtn}</button>
+      </div>
+    `;
+  }
+
+  // Gate shown instead of the order form for an anonymous visitor — a
+  // magic-link login (see "DEALER LOGIN" in the .gs header comment) is the
+  // only thing standing between "anyone on the internet" and "an approved
+  // dealer", so this is deliberately the only way into steps 1-5. The
+  // status-check/edit-PO cards in the hub above stay open regardless,
+  // since those already carry their own PO+email or token proof.
+  function dealerLoginHtml() {
+    const lg = pr.login;
+    if (!lg) return '';
+    return `
+      <div class="po-req-login-gate">
+        <h3 class="po-req-login-title">${lg.title}</h3>
+        <p class="po-req-login-desc">${lg.desc}</p>
+        <div class="po-req-login-row">
+          <input type="email" id="po-req-login-email" placeholder="${lg.emailPlaceholder}">
+          <button type="button" class="order-btn" id="po-req-login-btn">${lg.sendBtn}</button>
+        </div>
+        <p class="po-req-login-status" id="po-req-login-status"></p>
+      </div>
+    `;
+  }
+
+  function wireDealerLogin() {
+    const lg = pr.login;
+    document.getElementById('po-req-login-btn').addEventListener('click', async () => {
+      const email = document.getElementById('po-req-login-email').value.trim();
+      const status = document.getElementById('po-req-login-status');
+      if (!email) { status.textContent = lg.emailRequiredNote; return; }
+      status.textContent = lg.sending;
+      await poWebhookGet({ action: 'requestLogin', email });
+      status.textContent = lg.sent;
+    });
+  }
+
+  function orderFormStepsHtml() {
+    return `
       <div class="po-req-progress">
         <div class="po-req-progress-dot po-req-progress-dot--1"><span>1</span></div>
         <div class="po-req-progress-dot po-req-progress-dot--2"><span>2</span></div>
@@ -2988,11 +3060,37 @@ function initPoRequestPage(c) {
       </div>
       <button type="button" class="order-btn order-confirm-btn po-req-submit-btn" id="po-req-submit-btn"><span>🚀</span>${pr.submitBtn}</button>
     `;
+  }
+
+  function renderForm() {
+    // Edit mode always shows the form (the edit link's token is its own
+    // proof of identity for that one PO) — otherwise a signed-in dealer
+    // session is required to reach steps 1-5 at all.
+    const showForm = !!editMode || !!dealerSession;
+    body.innerHTML = `
+      ${editMode ? `<div class="po-req-edit-banner">${pr.editModeNote.replace('{po}', editMode.poNumber)}</div>` : poHubHtml()}
+      ${!editMode && dealerSession ? dealerSessionBarHtml() : ''}
+      ${showForm ? orderFormStepsHtml() : dealerLoginHtml()}
+    `;
+
+    if (!editMode) wireStatusCheck();
+
+    if (!showForm) {
+      wireDealerLogin();
+      return;
+    }
+
+    if (!editMode && dealerSession) {
+      document.getElementById('po-req-session-signout').addEventListener('click', () => {
+        dealerSession = null;
+        clearDealerSession();
+        renderForm();
+      });
+    }
 
     wireCustomerFields();
     wireItemsTable();
     updateItemCount();
-    if (!editMode) wireStatusCheck();
 
     document.getElementById('po-req-payment').addEventListener('change', (e) => { selectedTermId = e.target.value; refreshItemsTable(); });
     document.getElementById('po-req-incoterm').addEventListener('change', (e) => {
@@ -3167,13 +3265,38 @@ function initPoRequestPage(c) {
     return poWebhookGet({ action: 'order', po, token }).then(res => ({ res, po, token }));
   }
 
+  // Only present right after a dealer clicks their emailed sign-in link —
+  // a returning visitor's session already came from localStorage above,
+  // synchronously, with no fetch needed.
+  function loadDealerLoginFromUrl() {
+    const params = new URLSearchParams(location.search);
+    const email = params.get('dealer_email');
+    const token = params.get('dealer_token');
+    if (!email || !token) return Promise.resolve(null);
+    return poWebhookGet({ action: 'dealerProfile', email, token }).then(res => ({ res, email, token }));
+  }
+
   body.innerHTML = `<div class="order-loading">${pr.items.loading}</div>`;
-  Promise.all([orderLoadCatalogData(), loadEditOrderFromUrl()]).then(([data, editResult]) => {
+  Promise.all([orderLoadCatalogData(), loadEditOrderFromUrl(), loadDealerLoginFromUrl()]).then(([data, editResult, loginResult]) => {
     if (state.route !== 'po-request') return;
     catalogModels = [...data.products.engines, ...data.products.tillers, ...data.products.implements];
     paymentTerms = data.products.paymentTerms;
     selectedTermId = paymentTerms[0].id;
     customerPriceMap = (data.customerPrices && data.customerPrices.customers) || {};
+
+    if (loginResult) {
+      if (loginResult.res && loginResult.res.ok) {
+        dealerSession = {
+          company: loginResult.res.company, country: loginResult.res.country,
+          contact: loginResult.res.contact, email: loginResult.res.email, token: loginResult.token
+        };
+        saveDealerSession(dealerSession);
+      }
+      // Strip dealer_email/dealer_token either way (success or a dead
+      // link) so a refresh doesn't keep re-verifying, and a bookmark of
+      // this URL doesn't carry the token around forever.
+      history.replaceState(null, '', location.pathname + location.hash);
+    }
 
     // Require poNumber too, not just ok:true — a stale/mismatched backend
     // deployment answers every GET with ok:true and no real fields, which

@@ -1204,6 +1204,17 @@
       "piBadge": "Mtiririko wa PI",
       "piTitle": "Baada ya agizo lako kuthibitishwa",
       "piDesc": "Timu ya mauzo inakagua → meneja anatia saini → Ankara ya Awali (PI) iliyokamilika inatumwa kwako kiotomatiki kwa barua pepe."
+    },
+    "login": {
+      "title": "Ingia ili kuwasilisha agizo la ununuzi",
+      "desc": "Ingiza barua pepe yako ya muuzaji na tutakutumia kiungo cha kuingia kwa mbofyo mmoja — hakuna nenosiri linalohitajika.",
+      "emailPlaceholder": "Barua pepe yako",
+      "sendBtn": "Tuma kiungo cha kuingia",
+      "emailRequiredNote": "Tafadhali ingiza barua pepe yako kwanza.",
+      "sending": "Inatuma...",
+      "sent": "Ikiwa barua pepe hiyo imesajiliwa, kiungo cha kuingia kiko njiani — angalia kikasha chako baada ya dakika chache.",
+      "signedInAsPrefix": "Umeingia kama",
+      "signOutBtn": "Toka"
     }
   },
   "footer": {

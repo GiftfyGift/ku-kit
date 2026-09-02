@@ -4859,6 +4859,57 @@ table.parts-table td.code-col {
   font-weight: 600;
 }
 
+/* ---------- PO request: dealer sign-in gate ---------- */
+
+.po-req-login-gate {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 28px 26px 26px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--kubota-border);
+  background: var(--kubota-light-gray);
+  text-align: center;
+}
+.po-req-login-title { font-size: 19px; font-weight: 700; color: var(--kubota-navy); margin: 0 0 8px; }
+.po-req-login-desc { font-size: 13px; line-height: 1.5; color: var(--kubota-mid-gray); margin: 0 0 18px; }
+.po-req-login-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.po-req-login-row input {
+  flex: 1 1 220px;
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--kubota-border);
+  background: rgba(0,0,0,0.2);
+  color: var(--kubota-dark);
+  font-size: 14px;
+}
+.po-req-login-status { margin-top: 12px; font-size: 12.5px; color: var(--kubota-steel-blue); min-height: 1em; }
+
+.po-req-session-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(16,149,156,0.4);
+  background: rgba(16,149,156,0.12);
+  font-size: 13px;
+  color: var(--kubota-dark);
+}
+.po-req-session-signout {
+  background: none;
+  border: none;
+  color: var(--kubota-purple);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+.po-req-session-signout:hover { color: var(--kubota-orange); }
+
 /* ---------- PO request: three-card self-service hub ---------- */
 /* Landing strip above the form — one working card (check status) plus two
    explainer cards for the parts of the flow that otherwise only ever show
