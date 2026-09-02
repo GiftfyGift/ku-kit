@@ -145,35 +145,34 @@ nav.main-nav button.active {
   padding: 8px 15px;
 }
 
-/* Nav menu groups — colored backdrop behind related sections */
+/* Nav menu groups — a soft tint of glass behind related sections, echoing the header's own frosted panel */
 .main-nav .nav-group {
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
   padding: 3px;
   border-radius: 999px;
+  border: 1px solid transparent;
 }
 
-.main-nav .nav-group-product { background: #BFE3FB; } /* baby blue: Product / Parts / Service / Crop Solutions */
-.main-nav .nav-group-marketing { background: #FFD3A0; } /* light orange: Marketing / Marketing Materials */
-.main-nav .nav-group-order { background: #C3F0C8; } /* light green: Purchase Order */
-
-.main-nav .nav-group button {
-  color: #0c2430;
-  text-shadow: none;
-}
+.main-nav .nav-group-product { background: rgba(107,182,255,0.16); border-color: rgba(107,182,255,0.34); } /* steel blue: Product / Parts / Service / Crop Solutions */
+.main-nav .nav-group-marketing { background: rgba(255,179,92,0.18); border-color: rgba(255,179,92,0.38); } /* light orange: Marketing / Marketing Materials */
+.main-nav .nav-group-order { background: rgba(111,224,164,0.18); border-color: rgba(111,224,164,0.38); } /* mint green: Purchase Order */
 
 .main-nav .nav-group button:hover {
-  background: rgba(0,0,0,0.10);
-  color: #071620;
+  background: rgba(255,255,255,0.12);
+  color: white;
 }
 
 .main-nav .nav-group button.active {
-  background: rgba(6,20,26,0.85);
-  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(4,14,17,0.55);
   color: white;
   padding: 8px 15px;
 }
+
+.main-nav .nav-group-product button.active { border-color: rgba(107,182,255,0.8); }
+.main-nav .nav-group-marketing button.active { border-color: rgba(255,179,92,0.8); }
+.main-nav .nav-group-order button.active { border-color: rgba(111,224,164,0.8); }
 
 .lang-switch {
   display: flex;
