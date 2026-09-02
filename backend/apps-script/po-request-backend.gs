@@ -311,7 +311,7 @@ function doPost(e) {
     // data is instead of making them scroll/search for it.
     const rowLink = ss.getUrl() + '#gid=' + ordersSheet.getSheetId() + '&range=A' + newRow;
 
-    let rep = findSalesRep(buyer.country || '');
+    let rep = findSalesRep(buyer.country || '', buyer.company || '');
     let unassignedFallback = false;
     if (!rep) {
       const fallbackEmail = getConfig('Default Sales Rep Email', '');
@@ -389,7 +389,7 @@ function applyResubmission(sheet, row, data) {
   // correction, and re-deriving here also self-heals the case where the
   // original submission fell back to the default inbox (that cell has no
   // parseable "<email>" to reuse).
-  let rep = findSalesRep(buyer.country || '');
+  let rep = findSalesRep(buyer.country || '', buyer.company || '');
   let unassignedFallback = false;
   if (!rep) {
     const fallbackEmail = getConfig('Default Sales Rep Email', '');
@@ -517,16 +517,35 @@ function htmlResponse(bodyHtml) {
   );
 }
 
-function findSalesRep(country) {
+// Sales Reps tab columns (as of the "Company" column added): Company |
+// Country | Sales Rep Name | Sales Rep Email. Tries an exact company match
+// first (case-insensitive) — lets specific known dealers be routed to a
+// particular rep even when they share a country with other dealers — then
+// falls back to matching on country alone, same as before that column
+// existed, for any row/company not explicitly listed.
+function findSalesRep(country, company) {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_SALES_REPS);
   if (!sheet) return null;
   const rows = sheet.getDataRange().getValues();
-  const needle = String(country).trim().toLowerCase();
+
+  const companyNeedle = String(company || '').trim().toLowerCase();
+  if (companyNeedle) {
+    for (let i = 1; i < rows.length; i++) {
+      const rowCompany = String(rows[i][0] || '').trim().toLowerCase();
+      if (rowCompany && rowCompany === companyNeedle) {
+        const name = rows[i][2];
+        const email = rows[i][3];
+        if (email) return { name: name || email, email: email };
+      }
+    }
+  }
+
+  const countryNeedle = String(country || '').trim().toLowerCase();
   for (let i = 1; i < rows.length; i++) {
-    const rowCountry = String(rows[i][0] || '').trim().toLowerCase();
-    if (rowCountry && rowCountry === needle) {
-      const name = rows[i][1];
-      const email = rows[i][2];
+    const rowCountry = String(rows[i][1] || '').trim().toLowerCase();
+    if (rowCountry && rowCountry === countryNeedle) {
+      const name = rows[i][2];
+      const email = rows[i][3];
       if (email) return { name: name || email, email: email };
     }
   }
