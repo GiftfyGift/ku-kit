@@ -84,9 +84,12 @@
  * that (it only reveals status, nothing editable, and requires knowing
  * both the PO number and the email on file).
  *
- * GENERATING A PI: change that row's "PI Stage" (a different column) to
- * "Requested" — this drafts a Proforma Invoice PDF from the row's data and
- * saves it to a Drive folder called "KU-KIT PI Documents". Requires these
+ * GENERATING A PI: happens automatically the moment you set Status to
+ * "Confirmed" on a row that asked for a PI — no separate step needed. (To
+ * manually (re)trigger it instead — e.g. to redraft after a correction —
+ * change that row's "PI Stage", a different column, to "Requested".) Either
+ * way this drafts a Proforma Invoice PDF from the row's data and saves it
+ * to a Drive folder called "KU-KIT PI Documents". Requires these
  * Config rows to be filled in: Bank Name, Bank Account No., Bank SWIFT
  * Code, Bank Account Name (or use the "Bank Accounts" tab + this row's
  * "Bank Account" column instead — see below), PI Issuer Email (plus the
@@ -127,12 +130,14 @@
  *
  * REVIEW-BEFORE-GENERATE GATE: PI Stage refuses to become "Requested" (it
  * resets to blank with an on-screen alert) unless that row's Status is
- * already "Confirmed". This is the review checkpoint — whoever needs to
- * check the order (management/sales) does so by editing the Orders row
- * itself before confirming: every field the PI pulls from (company,
- * address, items, Incoterm, payment terms, bank detail, signer, etc.) is
- * just a normal cell in that row, so correct anything there first, then
- * set Status to Confirmed, then PI Stage to Requested.
+ * already "Confirmed" — and since Confirmed now auto-drafts the PI anyway,
+ * this gate mainly matters for the manual regenerate path. Either way,
+ * this is the review checkpoint — whoever needs to check the order
+ * (management/sales) does so by editing the Orders row itself BEFORE
+ * confirming: every field the PI pulls from (company, address, items,
+ * Incoterm, payment terms, bank detail, signer, etc.) is just a normal
+ * cell in that row, so correct anything there first, then set Status to
+ * Confirmed — that alone starts the PI draft + sales-rep review email.
  *
  * NO MATCHING SALES REP: if the buyer's country doesn't match any row in
  * the "Sales Reps" tab, the order still gets logged and the customer still
@@ -843,16 +848,25 @@ function testGeneratePi() {
 /**
  * Simple trigger — runs automatically whenever anyone edits this
  * spreadsheet. Watches two separate columns on the Orders sheet:
- *   - Status:   "Confirmed" stamps who confirmed the order and when, and
- *               emails the customer that their order is confirmed.
+ *   - Status:   "Confirmed" stamps who confirmed the order and when, emails
+ *               the customer that their order is confirmed, AND — if that
+ *               order asked for a PI — immediately drafts it and emails
+ *               the assigned sales rep for review, same as if you'd
+ *               manually set PI Stage to "Requested" right after (see
+ *               below). No separate click needed for the common case.
  *               "Needs Revision" emails the customer that something needs
  *               correcting (including the "Revision Notes" cell, if filled
  *               in first) with a link back to fix this exact PO.
- *   - PI Stage: "Requested" drafts the PI and emails it to the assigned
- *               sales rep for review (see handleReviewPi() for the next
- *               step, which forwards it on to the PI Issuer to sign).
- * Status and PI Stage are independent — changing one never touches the
- * other. "Closed" and "New" don't trigger any email.
+ *   - PI Stage: "Requested" (still available manually) drafts the PI and
+ *               emails it to the assigned sales rep for review (see
+ *               handleReviewPi() for the next step, which forwards it on
+ *               to the PI Issuer to sign) — this is now mainly the
+ *               regenerate/correction path: if the sales rep finds
+ *               something wrong, fix the row and set this back to
+ *               "Requested" to redraft and re-send for review.
+ * Status and PI Stage are otherwise independent — changing one never
+ * touches the other except for this one auto-trigger. "Closed" and "New"
+ * don't trigger any email.
  */
 function onEdit(e) {
   try {
@@ -874,6 +888,24 @@ function onEdit(e) {
       sheet.getRange(row, confirmedByCol).setValue(user || 'Confirmed (user email unavailable)');
       sheet.getRange(row, confirmedAtCol).setValue(new Date());
       if (!isTestMode()) notifyCustomerConfirmed(getOrderRowData(sheet, row));
+
+      // Auto-draft the PI right on confirmation when one was requested —
+      // removes the separate manual "set PI Stage to Requested" click for
+      // the common case, so Confirm alone is enough to kick the sales-rep
+      // review email out. Guarded on PI Stage still being blank so
+      // re-selecting "Confirmed" on an already-in-progress order (e.g. a
+      // stray re-click) doesn't regenerate and re-notify everyone; PI
+      // Stage -> "Requested" (the branch below) remains the manual
+      // regenerate/correction path for after this.
+      const piWanted = sheet.getRange(row, ORDERS_HEADERS.indexOf('PI Requested') + 1).getValue();
+      const currentPiStage = String(sheet.getRange(row, piStageCol).getValue() || '').trim();
+      if (piWanted === 'Yes' && !currentPiStage) {
+        try {
+          generatePiPdfForRow(sheet, row);
+        } catch (err) {
+          console.error('Auto PI generation on confirm failed: ' + err);
+        }
+      }
       return;
     }
 
