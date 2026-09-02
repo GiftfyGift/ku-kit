@@ -14,6 +14,24 @@ const ALLOWED_ORIGINS = new Set([
   'http://localhost:8843',
 ]);
 
+// Netlify subdomains aren't a fixed, predictable set — the site's own
+// *.netlify.app name has already been renamed once this project
+// (astonishing-zabaione-717191 -> siamkubotakukit), and every branch/PR
+// preview deploy gets its own random deploy-preview-N--<site>.netlify.app
+// host too. An exact-match ALLOWED_ORIGINS set can't keep up with that
+// without a code change (and a re-deploy) every time — so any
+// https://*.netlify.app origin is allowed outright here instead. A
+// custom domain, once one exists, still needs adding to the Set above.
+function isAllowedOrigin(origin) {
+  if (ALLOWED_ORIGINS.has(origin)) return true;
+  try {
+    const { protocol, hostname } = new URL(origin);
+    return protocol === 'https:' && hostname.endsWith('.netlify.app');
+  } catch {
+    return false;
+  }
+}
+
 // Tune these against real query logs once this is live — they're a starting
 // point, not a calibrated result of analysis.
 //
@@ -34,7 +52,7 @@ const CLARIFY_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
 const LANG_NAMES = { th: 'Thai', en: 'English', fr: 'French', tl: 'Filipino', sw: 'Swahili' };
 
 function corsHeaders(origin) {
-  const allow = ALLOWED_ORIGINS.has(origin) ? origin : '';
+  const allow = isAllowedOrigin(origin) ? origin : '';
   return {
     'Access-Control-Allow-Origin': allow,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
