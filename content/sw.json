@@ -35,16 +35,6 @@
       "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "Injini ya dizeli ya KUBOTA ZT155 DI Plus" },
       "items": [
         {
-          "name": "ZT Plus (aina ya TVCS)",
-          "desc": "Mfumo wa Three Vortex Combustion (TVCS). Huwaka kwa urahisi, hufanya kazi kimya, na huokoa mafuta kwa mzunguko wa chini — inafaa kwa kusukuma maji au kushikanishwa na trekta la kutembea.",
-          "specs": [
-            { "label": "Wigo wa nguvu", "value": "10 - 12 HP" },
-            { "label": "Mfumo wa mwako", "value": "Three Vortex Combustion System (TVCS)" },
-            { "label": "Njia za kuwasha", "value": "Standard (mkono) / ES (kuwasha kwa umeme) / SW (funguo)" },
-            { "label": "Udhamini", "value": "Miaka 2" }
-          ]
-        },
-        {
           "name": "ZT Plus (aina ya DI)",
           "desc": "Direct Injection (DI). Hujibu vizuri wakati wa kuongeza mwendo na huokoa mafuta kwa mzunguko wa juu — inafaa kwa usafirishaji mzito, kulima kwa mkataba, kuzungusha dynamo, au kusukuma maji kutoka kisima kirefu.",
           "specs": [

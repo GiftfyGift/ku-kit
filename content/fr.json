@@ -35,16 +35,6 @@
       "image": { "src": "assets/img/product/zt155-engine-cutout.png", "alt": "Moteur diesel KUBOTA ZT155 DI Plus" },
       "items": [
         {
-          "name": "ZT Plus (type TVCS)",
-          "desc": "Système de combustion à triple tourbillon (TVCS). Démarrage facile, fonctionnement silencieux et économie de carburant à bas régime — idéal pour le pompage d'eau ou l'attelage à un motoculteur pour le travail du sol.",
-          "specs": [
-            { "label": "Plage de puissance", "value": "10 - 12 ch" },
-            { "label": "Système de combustion", "value": "Three Vortex Combustion System (TVCS)" },
-            { "label": "Méthodes de démarrage", "value": "Standard (manuel) / ES (démarrage électrique) / SW (à clé)" },
-            { "label": "Garantie", "value": "2 ans" }
-          ]
-        },
-        {
           "name": "ZT Plus (type DI)",
           "desc": "Injection directe (DI). Bonne réponse à l'accélération et économie de carburant à haut régime — adapté au transport lourd, aux prestations de travail du sol, à l'entraînement de dynamo ou au pompage de puits profonds.",
           "specs": [
