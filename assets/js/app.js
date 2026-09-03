@@ -1704,15 +1704,31 @@ function submitPoWebhook(payload) {
 // headers is a CORS "simple request" (no preflight), and Apps Script Web
 // Apps deployed with "Anyone" access already serve these cross-origin —
 // same assumption the POST webhook above already relies on.
+// How long poWebhookGet()/poWebhookPost() wait before giving up — without
+// this, a stalled connection (or an Apps Script cold start that just
+// never comes back) left `await fetch(...)` hanging forever with nothing
+// to catch: the "fix my PO" edit-link page, the status-check box, and the
+// site-wide login's "Signing in..." status would all sit there
+// indefinitely, no error, no way out except refreshing the page. This is
+// almost certainly what "login keeps getting stuck" actually was. 20s is
+// long enough to ride out a genuine Apps Script cold start (can
+// legitimately take several seconds) without making someone wait forever
+// on a request that's truly never coming back.
+const PO_WEBHOOK_TIMEOUT_MS = 20000;
+
 async function poWebhookGet(params) {
   if (!PO_WEBHOOK_URL) return { ok: false, error: 'Webhook not configured.' };
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), PO_WEBHOOK_TIMEOUT_MS);
   try {
     const qs = new URLSearchParams(params).toString();
-    const res = await fetch(`${PO_WEBHOOK_URL}?${qs}`);
+    const res = await fetch(`${PO_WEBHOOK_URL}?${qs}`, { signal: controller.signal });
     return await res.json();
   } catch (err) {
     console.error('PO webhook GET failed', err);
     return { ok: false, error: String(err) };
+  } finally {
+    clearTimeout(timer);
   }
 }
 
@@ -1722,11 +1738,14 @@ async function poWebhookGet(params) {
 // whose caller needs to know whether it succeeded.
 async function poWebhookPost(payload) {
   if (!PO_WEBHOOK_URL) return { ok: false, networkError: true, error: 'Webhook not configured.' };
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), PO_WEBHOOK_TIMEOUT_MS);
   try {
     const res = await fetch(PO_WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      signal: controller.signal
     });
     // The request reached the server and came back — whatever it says
     // (ok:true or a real ok:false rejection) is a genuine answer, not a
@@ -1739,11 +1758,13 @@ async function poWebhookPost(payload) {
     }
   } catch (err) {
     // The request never got a response at all (offline, blocked by an
-    // extension/firewall, DNS failure, timeout, etc.) — this is NOT the
-    // server saying "wrong credentials", so callers must not treat it as
-    // one (see wireSiteLoginGate).
+    // extension/firewall, DNS failure, our own timeout above, etc.) —
+    // this is NOT the server saying "wrong credentials", so callers must
+    // not treat it as one (see wireSiteLoginGate).
     console.error('PO webhook POST failed', err);
     return { ok: false, networkError: true, error: String(err) };
+  } finally {
+    clearTimeout(timer);
   }
 }
 
