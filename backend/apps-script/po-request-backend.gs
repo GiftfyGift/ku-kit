@@ -354,7 +354,7 @@ function doPost(e) {
     if (rep) {
       ordersSheet.getRange(newRow, ORDERS_HEADERS.indexOf('Assigned Sales Rep') + 1)
         .setValue(unassignedFallback ? '(unassigned — sent to default inbox)' : rep.name + ' <' + rep.email + '>');
-      if (!testMode) notifySalesRep(rep, data, buyer, newRow, rowLink);
+      if (!testMode) notifySalesRep(ordersSheet, rep, data, buyer, newRow, rowLink);
     }
     if (!testMode) notifyCustomer(data, buyer);
 
@@ -434,7 +434,7 @@ function applyResubmission(sheet, row, data) {
       .setValue(unassignedFallback ? '(unassigned — sent to default inbox)' : rep.name + ' <' + rep.email + '>');
   }
   if (!testMode) {
-    if (rep) notifySalesRep(rep, { poNumber: poNumber, piWanted: data.piWanted }, buyer, row, rowLink);
+    if (rep) notifySalesRep(sheet, rep, { poNumber: poNumber, piWanted: data.piWanted }, buyer, row, rowLink);
     notifyCustomer({ poNumber: poNumber }, buyer);
   }
 
@@ -744,7 +744,7 @@ function findRowByPoAndEmail(sheet, poNumber, email) {
   return null;
 }
 
-function notifySalesRep(rep, data, buyer, rowNum, rowLink) {
+function notifySalesRep(sheet, rep, data, buyer, rowNum, rowLink) {
   const senderName = getConfig('Notification Sender Name', 'KU-KIT Order System');
   const subject = '[KU-KIT PO] New order from ' + (buyer.company || 'Unknown') + ' — ' + (data.poNumber || '');
   const body = [
@@ -756,18 +756,31 @@ function notifySalesRep(rep, data, buyer, rowNum, rowLink) {
     'Contact: ' + (buyer.contact || '-') + ' (' + (buyer.email || '-') + ')',
     'PI Requested: ' + (data.piWanted ? 'Yes' : 'No'),
     '',
-    'Review this order (row ' + rowNum + '):',
+    'The submitted PO is attached as a PDF for a quick check — full details (and the Confirm/',
+    'Needs Revision controls) are in row ' + rowNum + ' of the sheet:',
     rowLink,
     '',
     'To confirm it, set this row\'s Status to "Confirmed" — the customer is emailed automatically.',
     'If something\'s wrong, fill in "Revision Notes" and set Status to "Needs Revision" — the ',
     'customer is emailed automatically with that note, plus a link back to fix this exact PO.'
   ].join('\n');
+
+  // Best-effort — a PDF-build hiccup (e.g. a malformed Items string) should
+  // never block the notification itself from going out; the sheet link
+  // above still gets the rep to the same data either way.
+  let attachments = [];
+  try {
+    attachments = [buildPoPdfBlob(getOrderRowData(sheet, rowNum))];
+  } catch (err) {
+    console.error('Failed to build PO PDF attachment for row ' + rowNum, err);
+  }
+
   MailApp.sendEmail({
     to: rep.email,
     subject: subject,
     body: body,
-    name: senderName
+    name: senderName,
+    attachments: attachments
   });
 }
 
@@ -1072,6 +1085,75 @@ function parseItemsText(text) {
     if (!m) return { name: seg, qty: 1, price: 0 };
     return { name: m[1].trim(), qty: parseFloat(m[2]), price: parseFloat(m[3].replace(/,/g, '')) };
   });
+}
+
+/**
+ * PDF attached to the sales-rep "new order" notification (notifySalesRep,
+ * below) — a quick-glance copy of what the customer submitted, so the rep
+ * can check it without opening the sheet first. Deliberately a plain
+ * record of the submission, NOT a formal company document: no signature
+ * block, no bank detail, no Siam Kubota address block — those only belong
+ * on the real PI once sales/an executive have actually reviewed and
+ * approved this order (see buildPiHtml). Built from the same
+ * getOrderRowData() shape buildPiHtml uses, so it's unaffected by which
+ * language the dealer filled the form in — every field here comes from
+ * whatever was actually stored in the row.
+ */
+function buildPoHtml(order, dateStr) {
+  const items = parseItemsText(order['Items']);
+  const total = items.reduce(function (s, it) { return s + it.qty * it.price; }, 0);
+
+  const itemRows = items.map(function (it, i) {
+    return '<tr><td>' + (i + 1) + '</td><td>' + escapeHtml(it.name) + '</td>' +
+      '<td style="text-align:right">' + it.qty + '</td>' +
+      '<td style="text-align:right">' + it.price.toFixed(2) + '</td>' +
+      '<td style="text-align:right">' + (it.qty * it.price).toFixed(2) + '</td></tr>';
+  }).join('');
+
+  return '<html><head><style>' +
+    'body{font-family:Arial,sans-serif;font-size:11px;color:#111;}' +
+    'h1{text-align:center;font-size:20px;letter-spacing:2px;margin-bottom:20px;}' +
+    'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
+    'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
+    '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
+    '.items th{background:#f2f2f2;text-align:left;}' +
+    '.total-row td{font-weight:bold;}' +
+    '.small{font-size:9px;color:#555;margin-top:16px;}' +
+    '</style></head><body>' +
+    '<h1>PURCHASE ORDER (submitted)</h1>' +
+    '<table>' +
+    '<tr><td class="label">PO No.</td><td>' + escapeHtml(order['PO Number']) + '</td>' +
+    '<td class="label">Date</td><td>' + dateStr + '</td></tr>' +
+    '<tr><td class="label">Buyer</td><td colspan="3">' + escapeHtml(order['Company'] || '-') +
+    (order['Address'] ? '<br>' + escapeHtml(order['Address']) : '') +
+    '<br>Country: ' + escapeHtml(order['Country'] || '-') +
+    '<br>Contact: ' + escapeHtml(order['Contact'] || '-') + ' (' + escapeHtml(order['Email'] || '-') + ')' +
+    (order['Phone'] ? '<br>Tel/WhatsApp: ' + escapeHtml(order['Phone']) : '') +
+    (order['Customer PO Ref'] ? '<br>Buyer\'s Order No.: ' + escapeHtml(order['Customer PO Ref']) : '') +
+    '</td></tr>' +
+    '<tr><td class="label">Terms of Payment</td><td colspan="3">' + escapeHtml(order['Payment Terms'] || '-') + '</td></tr>' +
+    '<tr><td class="label">Incoterm</td><td>' + escapeHtml(order['Incoterm'] || '-') +
+    (order['Port'] ? ' (' + escapeHtml(order['Port']) + ')' : '') + '</td>' +
+    '<td class="label">Shipping Method</td><td>' + escapeHtml(order['Shipping Method'] || '-') + '</td></tr>' +
+    '<tr><td class="label">Requested Delivery</td><td>' + escapeHtml(order['Requested Delivery Date'] || '-') + '</td>' +
+    '<td class="label">PI Requested</td><td>' + escapeHtml(order['PI Requested'] || '-') + '</td></tr>' +
+    '</table>' +
+    '<table class="items"><thead><tr><th>No.</th><th>Description</th><th>Qty</th><th>Unit Price (USD)</th><th>Amount (USD)</th></tr></thead>' +
+    '<tbody>' + itemRows +
+    '<tr class="total-row"><td colspan="4" style="text-align:right">Grand Total (USD)</td>' +
+    '<td style="text-align:right">' + total.toFixed(2) + '</td></tr>' +
+    '</tbody></table>' +
+    (order['Notes'] ? '<p><strong>Notes:</strong> ' + escapeHtml(order['Notes']) + '</p>' : '') +
+    '<p class="small">As submitted by the customer on the KU-KIT website, ' + dateStr + '. Not a formal PO/PI — ' +
+    'review against the Orders sheet row before confirming.</p>' +
+    '</body></html>';
+}
+
+function buildPoPdfBlob(order) {
+  const dateStr = Utilities.formatDate(new Date(), 'GMT+7', 'dd-MMM-yyyy');
+  const html = buildPoHtml(order, dateStr);
+  return Utilities.newBlob(html, 'text/html', order['PO Number'] + '.html')
+    .getAs('application/pdf').setName(order['PO Number'] + '.pdf');
 }
 
 function getOrCreateFolder(name) {
