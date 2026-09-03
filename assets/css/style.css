@@ -3474,12 +3474,38 @@ table.parts-table td.code-col {
   background: rgba(255,106,61,0.13);
 }
 
-.artwork-stepper output {
+.artwork-stepper output,
+.artwork-stepper input[type="number"] {
   text-align: center;
   color: var(--kubota-navy);
   font-size: 11px;
   font-weight: 700;
 }
+
+/* The value is a typeable number input now (see renderArtworkStepper) — the
+   goal is to keep it looking like the plain <output> it replaced, not like
+   a normal form field, since the +/- buttons either side already make the
+   control obvious. */
+.artwork-stepper input[type="number"] {
+  font-family: inherit;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  width: 100%;
+  padding: 4px 0;
+}
+.artwork-stepper input[type="number"]:hover { border-color: rgba(255,255,255,0.16); }
+.artwork-stepper input[type="number"]:focus {
+  outline: none;
+  border-color: var(--kubota-orange);
+  background: rgba(255,255,255,0.08);
+}
+.artwork-stepper input[type="number"]::-webkit-inner-spin-button,
+.artwork-stepper input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.artwork-stepper input[type="number"] { -moz-appearance: textfield; }
 
 .artwork-decor-grid {
   display: flex;

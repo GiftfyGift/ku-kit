@@ -3742,7 +3742,8 @@ function getArtworkEditorLabels() {
     th: {
       body: 'ข้อความรายละเอียด', uploadLogo: 'เพิ่มโลโก้ร้านค้า', replaceLogo: 'เปลี่ยนโลโก้ร้านค้า',
       uploadHint: 'รองรับ PNG, JPG และ WebP (พื้นหลังโปร่งใสจะสวยที่สุด)', layers: 'เลือกสิ่งที่ต้องการแก้บนแบบ',
-      text: 'ข้อความ', product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', modelLogoChoice: 'โลโก้รุ่นสินค้าที่จะแสดง', shopLogo: 'โลโก้ร้าน', addElements: 'หยิบ element ใส่ป้าย', blankBackground: 'พื้นหลังเปล่า',
+      text: 'ข้อความ', subheadline: 'หัวข้อรอง', bodyText: 'ข้อความรายละเอียด', decorMan: 'รูปเกษตรกร', decorNo1: 'ตรา No.1',
+      product: 'รูปสินค้า', brand: 'โลโก้แบรนด์', modelLogo: 'โลโก้รุ่นสินค้า', modelLogoChoice: 'โลโก้รุ่นสินค้าที่จะแสดง', shopLogo: 'โลโก้ร้าน', addElements: 'หยิบ element ใส่ป้าย', blankBackground: 'พื้นหลังเปล่า',
       selected: 'กำลังแก้ไข', selectHint: 'คลิกสิ่งที่ต้องการบนภาพ หรือเลือกจากปุ่มด้านล่าง',
       smaller: 'เล็กลง', larger: 'ใหญ่ขึ้น', rotateLeft: 'หมุนซ้าย', rotateRight: 'หมุนขวา',
       reset: 'คืนตำแหน่ง', remove: 'ลบออก', restore: 'นำกลับมา', hidden: 'ซ่อนอยู่',
@@ -3752,7 +3753,8 @@ function getArtworkEditorLabels() {
     en: {
       body: 'Body text', uploadLogo: 'Insert shop logo', replaceLogo: 'Replace shop logo',
       uploadHint: 'PNG, JPG or WebP (a transparent background works best)', layers: 'Select an element to edit',
-      text: 'Text', product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', modelLogoChoice: 'Model logo to display', shopLogo: 'Shop logo', addElements: 'Add elements to the sign', blankBackground: 'Blank background',
+      text: 'Text', subheadline: 'Sub-headline', bodyText: 'Body text', decorMan: 'Farmer decor', decorNo1: 'No.1 badge',
+      product: 'Product image', brand: 'Brand logo', modelLogo: 'Model logo', modelLogoChoice: 'Model logo to display', shopLogo: 'Shop logo', addElements: 'Add elements to the sign', blankBackground: 'Blank background',
       selected: 'Editing', selectHint: 'Click an element on the artwork or choose it below',
       smaller: 'Smaller', larger: 'Larger', rotateLeft: 'Rotate left', rotateRight: 'Rotate right',
       reset: 'Reset position', remove: 'Remove', restore: 'Restore', hidden: 'Hidden',
@@ -3762,7 +3764,8 @@ function getArtworkEditorLabels() {
     sw: {
       body: 'Maandishi ya maelezo', uploadLogo: 'Weka nembo ya duka', replaceLogo: 'Badilisha nembo ya duka',
       uploadHint: 'PNG, JPG au WebP (mandharinyuma wazi yanafaa zaidi)', layers: 'Chagua kipengele cha kuhariri',
-      text: 'Maandishi', product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', modelLogoChoice: 'Nembo ya mfano inayoonyeshwa', shopLogo: 'Nembo ya duka', addElements: 'Ongeza vipengele kwenye bango', blankBackground: 'Mandharinyuma tupu',
+      text: 'Maandishi', subheadline: 'Kichwa kidogo', bodyText: 'Maandishi ya maelezo', decorMan: 'Mkulima', decorNo1: 'Beji ya No.1',
+      product: 'Picha ya bidhaa', brand: 'Nembo ya chapa', modelLogo: 'Nembo ya mfano', modelLogoChoice: 'Nembo ya mfano inayoonyeshwa', shopLogo: 'Nembo ya duka', addElements: 'Ongeza vipengele kwenye bango', blankBackground: 'Mandharinyuma tupu',
       selected: 'Unahariri', selectHint: 'Bofya kipengele kwenye mchoro au ukichague hapa chini',
       smaller: 'Punguza', larger: 'Ongeza', rotateLeft: 'Zungusha kushoto', rotateRight: 'Zungusha kulia',
       reset: 'Rudisha nafasi', remove: 'Ondoa', restore: 'Rudisha', hidden: 'Imefichwa',
@@ -3772,7 +3775,8 @@ function getArtworkEditorLabels() {
     fr: {
       body: 'Corps du texte', uploadLogo: 'Insérer le logo du magasin', replaceLogo: 'Remplacer le logo',
       uploadHint: 'PNG, JPG ou WebP (fond transparent recommandé)', layers: 'Sélectionnez un élément à modifier',
-      text: 'Texte', product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', modelLogoChoice: 'Logo du modèle à afficher', shopLogo: 'Logo magasin', addElements: 'Ajouter des éléments à l’affiche', blankBackground: 'Arrière-plan vierge',
+      text: 'Texte', subheadline: 'Sous-titre', bodyText: 'Texte', decorMan: 'Agriculteur', decorNo1: 'Badge No.1',
+      product: 'Image produit', brand: 'Logo de marque', modelLogo: 'Logo du modèle', modelLogoChoice: 'Logo du modèle à afficher', shopLogo: 'Logo magasin', addElements: 'Ajouter des éléments à l’affiche', blankBackground: 'Arrière-plan vierge',
       selected: 'Modification', selectHint: "Cliquez sur un élément de l’affiche ou choisissez-le ci-dessous",
       smaller: 'Réduire', larger: 'Agrandir', rotateLeft: 'Tourner à gauche', rotateRight: 'Tourner à droite',
       reset: 'Réinitialiser', remove: 'Supprimer', restore: 'Restaurer', hidden: 'Masqué',
@@ -3782,7 +3786,8 @@ function getArtworkEditorLabels() {
     tl: {
       body: 'Detalye ng teksto', uploadLogo: 'Ilagay ang logo ng tindahan', replaceLogo: 'Palitan ang logo',
       uploadHint: 'PNG, JPG o WebP (pinakamaganda ang transparent na background)', layers: 'Pumili ng elementong ie-edit',
-      text: 'Teksto', product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', modelLogoChoice: 'Logo ng modelong ipapakita', shopLogo: 'Logo ng tindahan', addElements: 'Magdagdag ng element sa sign', blankBackground: 'Blankong background',
+      text: 'Teksto', subheadline: 'Subheadline', bodyText: 'Teksto ng detalye', decorMan: 'Magsasaka', decorNo1: 'No.1 badge',
+      product: 'Larawan ng produkto', brand: 'Brand logo', modelLogo: 'Logo ng modelo', modelLogoChoice: 'Logo ng modelong ipapakita', shopLogo: 'Logo ng tindahan', addElements: 'Magdagdag ng element sa sign', blankBackground: 'Blankong background',
       selected: 'Ine-edit', selectHint: 'I-click ang elemento sa artwork o piliin ito sa ibaba',
       smaller: 'Liitan', larger: 'Lakihan', rotateLeft: 'Ikutin pakaliwa', rotateRight: 'Ikutin pakanan',
       reset: 'I-reset ang posisyon', remove: 'Alisin', restore: 'Ibalik', hidden: 'Nakatago',
@@ -3794,11 +3799,15 @@ function getArtworkEditorLabels() {
 }
 
 function renderArtworkStepper(id, label, value, min, max, step) {
+  // The value is a real number input now (not a read-only <output>) so a
+  // size can be typed in directly instead of only reachable by clicking
+  // +/- one `step` at a time — useful once `max` allows a much bigger
+  // number than the stepper buttons alone would take long to reach.
   return `
     <div class="artwork-stepper" data-aw-stepper="${id}">
       <span class="artwork-stepper-label">${label}</span>
       <button type="button" data-aw-step="-${step}" aria-label="− ${label}">−</button>
-      <output id="${id}-output">${value}%</output>
+      <input type="number" id="${id}-output" class="artwork-stepper-value" value="${value}" min="${min}" max="${max}" step="${step}" inputmode="numeric" aria-label="${label} %">
       <button type="button" data-aw-step="${step}" aria-label="+ ${label}">+</button>
       <input type="hidden" id="${id}" value="${value}" data-min="${min}" data-max="${max}">
     </div>`;
@@ -3910,17 +3919,17 @@ function renderArtworkBody(c) {
           <label class="artwork-field">
             <span>${a.headlineLabel}</span>
             <input type="text" id="aw-headline" placeholder="${a.headlinePlaceholder}" maxlength="60">
-            ${renderArtworkStepper('aw-headline-scale', a.textScaleLabel, 100, 50, 200, 5)}
+            ${renderArtworkStepper('aw-headline-scale', a.textScaleLabel, 100, 50, 400, 5)}
           </label>
           <label class="artwork-field">
             <span>${a.subheadlineLabel}</span>
             <input type="text" id="aw-subheadline" placeholder="${a.subheadlinePlaceholder}" maxlength="80">
-            ${renderArtworkStepper('aw-subheadline-scale', a.textScaleLabel, 100, 50, 200, 5)}
+            ${renderArtworkStepper('aw-subheadline-scale', a.textScaleLabel, 100, 50, 400, 5)}
           </label>
           <label class="artwork-field">
             <span>${a.bodyLabel || ui.body}</span>
             <textarea id="aw-body" rows="2" placeholder="${a.bodyPlaceholder || ''}" maxlength="180"></textarea>
-            ${renderArtworkStepper('aw-body-scale', a.textScaleLabel, 100, 50, 200, 5)}
+            ${renderArtworkStepper('aw-body-scale', a.textScaleLabel, 100, 50, 400, 5)}
           </label>
           <div class="artwork-field">
             <span>${a.textStyleLabel}</span>
@@ -3949,8 +3958,8 @@ function renderArtworkBody(c) {
               </button>
             </div>
             <div class="artwork-decor-sizes">
-              ${renderArtworkStepper('aw-decor-man-size', `${a.decorations.man} — ${a.decorations.sizeLabel}`, 100, 40, 220, 10)}
-              ${renderArtworkStepper('aw-decor-no1-size', `${a.decorations.no1} — ${a.decorations.sizeLabel}`, 100, 40, 220, 10)}
+              ${renderArtworkStepper('aw-decor-man-size', `${a.decorations.man} — ${a.decorations.sizeLabel}`, 100, 40, 400, 10)}
+              ${renderArtworkStepper('aw-decor-no1-size', `${a.decorations.no1} — ${a.decorations.sizeLabel}`, 100, 40, 400, 10)}
             </div>
           </div>
           <button type="button" id="aw-download" class="file-pill artwork-download-btn">${a.downloadButton}</button>
@@ -3966,10 +3975,14 @@ function renderArtworkBody(c) {
             <div class="artwork-layer-panel-head"><strong>${ui.layers}</strong><span>${ui.selectHint}</span></div>
             <div class="artwork-layer-list" id="aw-layer-list">
               <button type="button" data-aw-layer="headline"><span>✎</span>${ui.text}</button>
+              <button type="button" data-aw-layer="subheadline"><span>✎</span>${ui.subheadline}</button>
+              <button type="button" data-aw-layer="body"><span>✎</span>${ui.bodyText}</button>
               <button type="button" data-aw-layer="photo"><span>▣</span>${ui.product}</button>
               <button type="button" data-aw-layer="logo"><span>Ⓚ</span>${ui.brand}</button>
               <button type="button" data-aw-layer="wordmark"><span>▤</span>${ui.modelLogo}</button>
               <button type="button" data-aw-layer="customLogo"><span>＋</span>${ui.shopLogo}</button>
+              <button type="button" data-aw-layer="decorMan"><span>☺</span>${ui.decorMan}</button>
+              <button type="button" data-aw-layer="decorNo1"><span>①</span>${ui.decorNo1}</button>
             </div>
             <div class="artwork-element-toolbar" id="aw-element-toolbar">
               <div class="artwork-element-title"><small>${ui.selected}</small><strong id="aw-selected-label">${ui.text}</strong><span id="aw-selected-state"></span></div>
@@ -4778,20 +4791,38 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     awDrawImageContain(ctx, customLogoImg, boxX, boxY, boxW, boxH);
   }
 
+  const decorNo1OffsetXpx = (st.decorNo1OffsetXFrac || 0) * pxW;
+  const decorNo1OffsetYpx = (st.decorNo1OffsetYFrac || 0) * pxH;
+  const decorManOffsetXpx = (st.decorManOffsetXFrac || 0) * pxW;
+  const decorManOffsetYpx = (st.decorManOffsetYFrac || 0) * pxH;
+
+  let decorNo1Bounds = null;
   if (st.decorNo1) {
     const no1Img = await loadArtworkImage('assets/img/artwork/decor-no1-badge.png');
     const badgeH = pxH * (isLandscape ? 0.14 : 0.07) * (st.decorNo1Scale || 1);
     const badgeW = badgeH * (no1Img.width / no1Img.height);
-    ctx.drawImage(no1Img, pxW - pad - badgeW, pad, badgeW, badgeH);
+    const badgeX = pxW - pad - badgeW + decorNo1OffsetXpx;
+    const badgeY = pad + decorNo1OffsetYpx;
+    decorNo1Bounds = { x: badgeX, y: badgeY, w: badgeW, h: badgeH };
+    ctx.drawImage(no1Img, badgeX, badgeY, badgeW, badgeH);
   }
   let manW = 0;
   let manTopY = null;
+  let decorManBounds = null;
   if (st.decorMan) {
     const manImg = await loadArtworkImage('assets/img/artwork/decor-farmer-thumbsup.png');
     const manH = pxH * (isLandscape ? 0.30 : 0.16) * (st.decorManScale || 1);
     manW = manH * (manImg.width / manImg.height);
     manTopY = panelY - manH;
-    ctx.drawImage(manImg, pad, manTopY, manW, manH);
+    // manW/manTopY (used just below to keep the headline text from
+    // overlapping this decoration) stay pinned to the UNMOVED default
+    // corner on purpose — reserving headline space around wherever the
+    // dealer happened to drag the farmer to would make the headline jump
+    // around as a side effect of an unrelated drag.
+    const manX = pad + decorManOffsetXpx;
+    const manY = manTopY + decorManOffsetYpx;
+    decorManBounds = { x: manX, y: manY, w: manW, h: manH };
+    ctx.drawImage(manImg, manX, manY, manW, manH);
   }
 
   // --- Headline / sub-headline / body, stacked and centered as one block ---
@@ -4808,7 +4839,15 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const userTextScale = (st.textScale || 100) / 100;
   const textRotationDeg = st.textRotation || 0;
   const textStyle = st.textStyle || 'orange';
-  const headlineX = Math.max(pxW / 2, farmerRightEdge + headlineMaxW / 2) + textOffsetXpx;
+  const subheadlineOffsetXpx = (st.subheadlineOffsetXFrac || 0) * pxW;
+  const subheadlineOffsetYpx = (st.subheadlineOffsetYFrac || 0) * pxH;
+  const bodyOffsetXpx = (st.bodyOffsetXFrac || 0) * pxW;
+  const bodyOffsetYpx = (st.bodyOffsetYFrac || 0) * pxH;
+  // The natural, un-offset horizontal center every block starts from —
+  // each block's own offset (textOffsetXpx for headline, or the new
+  // subheadline/body ones) is added on top of this individually below,
+  // instead of baked into one shared X like before.
+  const baseHeadlineX = Math.max(pxW / 2, farmerRightEdge + headlineMaxW / 2);
   const baseFontSize = pxH * (isLandscape ? 0.075 : 0.035);
   ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
 
@@ -4857,41 +4896,55 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   }
 
   // Centered — "the artwork" reads as one balanced block, not pinned to a fixed line.
-  // The manual offset is applied after centering/clamping so it nudges the whole
-  // block from its balanced position rather than fighting the auto-fit logic.
-  let cursorY = zoneTop + Math.max(0, (availableH - totalTextH) / 2);
-  cursorY = Math.max(zoneTop, Math.min(cursorY, zoneBottomLimit - totalTextH));
-  cursorY += textOffsetYpx;
-  const textBlockStartY = cursorY;
+  // This is the NATURAL/default stack position, computed with no per-block manual
+  // offset baked in — each block's own offset (headline/subheadline/body, each
+  // now independently draggable instead of glued together) is added only when
+  // that specific block is actually positioned/drawn, below.
+  let naturalCursorY = zoneTop + Math.max(0, (availableH - totalTextH) / 2);
+  naturalCursorY = Math.max(zoneTop, Math.min(naturalCursorY, zoneBottomLimit - totalTextH));
 
   // Tilt the whole headline/sub-headline/body stack together around its own
-  // center, like rotating a text layer in a design tool — everything after
-  // this transform is drawn in the rotated space and ctx.restore() below
-  // undoes it before the info panel is drawn (which must stay level).
-  const pivotY = cursorY + totalTextH / 2;
+  // (natural, un-offset) center, like rotating a text layer in a design tool —
+  // everything after this transform is drawn in the rotated space and
+  // ctx.restore() below undoes it before the info panel is drawn (which must
+  // stay level). Rotation is still a single shared control (see the
+  // rotate-left/right buttons, only enabled for the headline group) — only
+  // each block's own position became independent, not its tilt.
+  const pivotY = naturalCursorY + totalTextH / 2;
   ctx.save();
   if (textRotationDeg) {
-    ctx.translate(headlineX, pivotY);
+    ctx.translate(baseHeadlineX, pivotY);
     ctx.rotate(textRotationDeg * Math.PI / 180);
-    ctx.translate(-headlineX, -pivotY);
+    ctx.translate(-baseHeadlineX, -pivotY);
   }
 
+  const blockOffsets = { headline: [textOffsetXpx, textOffsetYpx], subheadline: [subheadlineOffsetXpx, subheadlineOffsetYpx], body: [bodyOffsetXpx, bodyOffsetYpx] };
   measuredBlocks.forEach(b => {
     ctx.font = awBlockFont(b, b.fontSize);
     ctx.textAlign = 'center';
+    const [offsetXpx, offsetYpx] = blockOffsets[b.key];
+    b.drawX = baseHeadlineX + offsetXpx;
+    b.drawY = naturalCursorY + offsetYpx;
+    b.blockH = b.lines.length * b.lineHeight;
     if (b.key === 'headline') {
-      awDrawImpactText(ctx, b.lines, headlineX, cursorY, b.lineHeight, b.fontSize, textStyle, 1);
+      awDrawImpactText(ctx, b.lines, b.drawX, b.drawY, b.lineHeight, b.fontSize, textStyle, 1);
     } else if (b.key === 'subheadline') {
       // Same glossy theme as the headline but toned down — a lighter outline
       // and shallower extrusion so it reads as secondary, not competing.
-      awDrawImpactText(ctx, b.lines, headlineX, cursorY, b.lineHeight, b.fontSize, textStyle, 0.5);
+      awDrawImpactText(ctx, b.lines, b.drawX, b.drawY, b.lineHeight, b.fontSize, textStyle, 0.5);
     } else {
       ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
-      b.lines.forEach((ln, i) => ctx.fillText(ln, headlineX, cursorY + i * b.lineHeight));
+      b.lines.forEach((ln, i) => ctx.fillText(ln, b.drawX, b.drawY + i * b.lineHeight));
     }
-    cursorY += b.lines.length * b.lineHeight + b.fontSize * 0.12;
+    naturalCursorY += b.blockH + b.fontSize * 0.12;
   });
   ctx.restore();
+
+  function textBoundsFor(key) {
+    const b = measuredBlocks.find(x => x.key === key);
+    if (!b) return null;
+    return { x: b.drawX - headlineMaxW / 2, y: b.drawY, w: headlineMaxW, h: b.blockH, rotationDeg: textRotationDeg, pivotX: baseHeadlineX, pivotY };
+  }
 
   // --- Bottom info panel ---
   ctx.fillStyle = 'rgba(255,255,255,0.94)';
@@ -4939,17 +4992,21 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   }
 
   // Hand back the (unrotated) bounding boxes for every independently
-  // draggable group — headline stack, logo + wordmark(s), and the packshot —
-  // so the caller can hit-test mouse/touch drags against them and convert a
-  // drag delta back into the same offset units drawArtwork reads here.
+  // draggable group — headline, sub-headline and body each get their own now
+  // (previously one shared box for the whole stack), plus logo + wordmark(s),
+  // the packshot, and the two decorations — so the caller can hit-test
+  // mouse/touch drags against them and convert a drag delta back into the
+  // same offset units drawArtwork reads here.
   return {
-    headlineBounds: measuredBlocks.length
-      ? { x: headlineX - headlineMaxW / 2, y: textBlockStartY, w: headlineMaxW, h: totalTextH, rotationDeg: textRotationDeg, pivotX: headlineX, pivotY }
-      : null,
+    headlineBounds: textBoundsFor('headline'),
+    subheadlineBounds: textBoundsFor('subheadline'),
+    bodyBounds: textBoundsFor('body'),
     logoBounds,
     wordmarkBounds,
     photoBounds: productImgs.length && photoVisible ? photoBounds : null,
-    customLogoBounds
+    customLogoBounds,
+    decorManBounds,
+    decorNo1Bounds
   };
 }
 
@@ -5008,6 +5065,15 @@ function initArtworkPage(c) {
   let wordmarkOffsetXFrac = 0, wordmarkOffsetYFrac = 0;
   let photoOffsetXFrac = 0, photoOffsetYFrac = 0;
   let customLogoOffsetXFrac = 0, customLogoOffsetYFrac = 0;
+  // Sub-headline/body used to be locked to the headline's own position —
+  // stacked as one glued block with no way to nudge just one line. Each
+  // now gets its own offset, applied on TOP of that line's normal stacked
+  // position (see drawArtwork), so leaving it at 0 still looks exactly
+  // like the old glued-together layout.
+  let subheadlineOffsetXFrac = 0, subheadlineOffsetYFrac = 0;
+  let bodyOffsetXFrac = 0, bodyOffsetYFrac = 0;
+  let decorManOffsetXFrac = 0, decorManOffsetYFrac = 0;
+  let decorNo1OffsetXFrac = 0, decorNo1OffsetYFrac = 0;
   let logoScale = 1, wordmarkScale = 1, photoScale = 1, customLogoScale = 1;
   let logoVisible = false, wordmarkVisible = false, photoVisible = false, textVisible = false, customLogoVisible = true;
   let customLogoDataUrl = '';
@@ -5083,6 +5149,14 @@ function initArtworkPage(c) {
       photoOffsetYFrac,
       customLogoOffsetXFrac,
       customLogoOffsetYFrac,
+      subheadlineOffsetXFrac,
+      subheadlineOffsetYFrac,
+      bodyOffsetXFrac,
+      bodyOffsetYFrac,
+      decorManOffsetXFrac,
+      decorManOffsetYFrac,
+      decorNo1OffsetXFrac,
+      decorNo1OffsetYFrac,
       logoScale,
       wordmarkScale,
       photoScale,
@@ -5175,44 +5249,94 @@ function initArtworkPage(c) {
         const min = Number(input.dataset.min);
         const max = Number(input.dataset.max);
         input.value = clamp(Number(input.value) + Number(btn.dataset.awStep), min, max);
-        output.textContent = `${input.value}%`;
+        output.value = input.value;
         schedulePreview();
       });
     });
+    // `output` is a real number input now — typing a value directly is the
+    // whole point (the +/- buttons alone were painfully slow once `max`
+    // allows several hundred percent). Blank/non-numeric input falls back
+    // to the last valid value rather than silently zeroing the size out.
+    output.addEventListener('input', () => {
+      const min = Number(input.dataset.min);
+      const max = Number(input.dataset.max);
+      const parsed = Number(output.value);
+      if (output.value === '' || Number.isNaN(parsed)) return;
+      input.value = clamp(parsed, min, max);
+      schedulePreview();
+    });
+    output.addEventListener('blur', () => {
+      const min = Number(input.dataset.min);
+      const max = Number(input.dataset.max);
+      const parsed = Number(output.value);
+      output.value = Number.isNaN(parsed) ? input.value : clamp(parsed, min, max);
+      input.value = output.value;
+    });
   });
 
-  const layerLabels = { headline: ui.text, photo: ui.product, logo: ui.brand, wordmark: ui.modelLogo, customLogo: ui.shopLogo };
+  const layerLabels = {
+    headline: ui.text, subheadline: ui.subheadline, body: ui.bodyText,
+    photo: ui.product, logo: ui.brand, wordmark: ui.modelLogo, customLogo: ui.shopLogo,
+    decorMan: ui.decorMan, decorNo1: ui.decorNo1
+  };
 
+  function syncStepperOutput(id) {
+    const output = document.getElementById(`${id}-output`);
+    const input = document.getElementById(id);
+    if (output && input) output.value = input.value;
+  }
+
+  // Sub-headline and body share the headline's single textVisible toggle
+  // (there's no separate "hide just the sub-headline" concept — Remove/
+  // Restore on any of the three still hides or shows the whole text
+  // stack together, only their POSITION became independent, not their
+  // visibility). The decorations' own on/off tick buttons already act as
+  // their visibility flag, so those are read/set straight off the button.
   function groupVisible(group) {
-    if (group === 'headline') return textVisible;
+    if (group === 'headline' || group === 'subheadline' || group === 'body') return textVisible;
     if (group === 'photo') return photoVisible;
     if (group === 'logo') return logoVisible;
     if (group === 'wordmark') return wordmarkVisible;
+    if (group === 'decorMan') return decorManBtn.classList.contains('active');
+    if (group === 'decorNo1') return decorNo1Btn.classList.contains('active');
     return !!customLogoDataUrl && customLogoVisible;
   }
 
   function groupScale(group) {
     if (group === 'headline') return Number(textScale.value) / 100;
+    if (group === 'subheadline') return Number(subheadlineScaleInput.value) / 100;
+    if (group === 'body') return Number(bodyScaleInput.value) / 100;
     if (group === 'logo') return logoScale;
     if (group === 'wordmark') return wordmarkScale;
     if (group === 'photo') return photoScale;
+    if (group === 'decorMan') return Number(decorManSize.value) / 100;
+    if (group === 'decorNo1') return Number(decorNo1Size.value) / 100;
     return customLogoScale;
   }
 
   function setGroupScale(group, scale) {
-    const next = clamp(scale, 0.3, 2.5);
+    // 4.0 matches the highest a typed/stepper value can now reach (see the
+    // 400%-max steppers above) — keeping this in sync so a canvas
+    // resize-drag can't undo a bigger size that was typed in directly.
+    const next = clamp(scale, 0.3, 4.0);
     if (group === 'headline') textScale.value = Math.round(next * 100);
+    else if (group === 'subheadline') { subheadlineScaleInput.value = Math.round(next * 100); syncStepperOutput('aw-subheadline-scale'); }
+    else if (group === 'body') { bodyScaleInput.value = Math.round(next * 100); syncStepperOutput('aw-body-scale'); }
     else if (group === 'logo') logoScale = next;
     else if (group === 'wordmark') wordmarkScale = next;
     else if (group === 'photo') photoScale = next;
+    else if (group === 'decorMan') { decorManSize.value = Math.round(next * 100); syncStepperOutput('aw-decor-man-size'); }
+    else if (group === 'decorNo1') { decorNo1Size.value = Math.round(next * 100); syncStepperOutput('aw-decor-no1-size'); }
     else customLogoScale = next;
   }
 
   function setGroupVisible(group, visible) {
-    if (group === 'headline') textVisible = visible;
+    if (group === 'headline' || group === 'subheadline' || group === 'body') textVisible = visible;
     else if (group === 'photo') photoVisible = visible;
     else if (group === 'logo') logoVisible = visible;
     else if (group === 'wordmark') wordmarkVisible = visible;
+    else if (group === 'decorMan') syncToggleBtn(decorManBtn, visible);
+    else if (group === 'decorNo1') syncToggleBtn(decorNo1Btn, visible);
     else customLogoVisible = visible;
   }
 
@@ -5244,7 +5368,9 @@ function initArtworkPage(c) {
     const visible = groupVisible(selectedGroup);
     selectedState.textContent = visible ? '' : ui.hidden;
     selectedScaleOutput.textContent = `${Math.round(groupScale(selectedGroup) * 100)}%`;
-    const canTransform = selectedGroup !== 'customLogo' || hasCustomLogo;
+    const canTransform = (selectedGroup !== 'customLogo' || hasCustomLogo) &&
+      (selectedGroup !== 'decorMan' || decorManBtn.classList.contains('active')) &&
+      (selectedGroup !== 'decorNo1' || decorNo1Btn.classList.contains('active'));
     [smallerBtn, largerBtn, resetElementBtn, removeElementBtn].forEach(btn => { btn.disabled = !canTransform; });
     rotateLeftBtn.disabled = selectedGroup !== 'headline' || !canTransform;
     rotateRightBtn.disabled = selectedGroup !== 'headline' || !canTransform;
@@ -5257,6 +5383,12 @@ function initArtworkPage(c) {
       logoFileInput.click();
       return;
     }
+    // Picking an off decoration from the layer panel turns it on (same
+    // "selecting it is how you add it" idea as the customLogo case above)
+    // instead of selecting an inactive group with nothing on the canvas
+    // to actually drag.
+    if (group === 'decorMan' && !decorManBtn.classList.contains('active')) toggleDecor(decorManBtn);
+    if (group === 'decorNo1' && !decorNo1Btn.classList.contains('active')) toggleDecor(decorNo1Btn);
     selectedGroup = group;
     updateEditorUi();
     schedulePreview(0);
@@ -5294,12 +5426,24 @@ function initArtworkPage(c) {
   function resetGroup(group) {
     if (group === 'headline') {
       textOffsetX.value = 0; textOffsetY.value = 0; textScale.value = 100; textRotation.value = 0;
+    } else if (group === 'subheadline') {
+      subheadlineOffsetXFrac = 0; subheadlineOffsetYFrac = 0;
+      subheadlineScaleInput.value = 100; syncStepperOutput('aw-subheadline-scale');
+    } else if (group === 'body') {
+      bodyOffsetXFrac = 0; bodyOffsetYFrac = 0;
+      bodyScaleInput.value = 100; syncStepperOutput('aw-body-scale');
     } else if (group === 'logo') {
       logoOffsetXFrac = 0; logoOffsetYFrac = 0; logoScale = 1;
     } else if (group === 'wordmark') {
       wordmarkOffsetXFrac = 0; wordmarkOffsetYFrac = 0; wordmarkScale = 1;
     } else if (group === 'photo') {
       photoOffsetXFrac = 0; photoOffsetYFrac = 0; photoScale = 1;
+    } else if (group === 'decorMan') {
+      decorManOffsetXFrac = 0; decorManOffsetYFrac = 0;
+      decorManSize.value = 100; syncStepperOutput('aw-decor-man-size');
+    } else if (group === 'decorNo1') {
+      decorNo1OffsetXFrac = 0; decorNo1OffsetYFrac = 0;
+      decorNo1Size.value = 100; syncStepperOutput('aw-decor-no1-size');
     } else {
       customLogoOffsetXFrac = 0; customLogoOffsetYFrac = 0; customLogoScale = 1;
     }
@@ -5379,21 +5523,27 @@ function initArtworkPage(c) {
     // used to place it.
     lastBounds = result ? {
       headline: result.headlineBounds,
+      subheadline: result.subheadlineBounds,
+      body: result.bodyBounds,
       logo: result.logoBounds,
       wordmark: result.wordmarkBounds,
       photo: result.photoBounds,
-      customLogo: result.customLogoBounds
-    } : { headline: null, logo: null, wordmark: null, photo: null, customLogo: null };
+      customLogo: result.customLogoBounds,
+      decorMan: result.decorManBounds,
+      decorNo1: result.decorNo1Bounds
+    } : EMPTY_AW_BOUNDS;
     lastPxW = pxW;
     lastPxH = pxH;
     drawSelectionOverlay();
     updateEditorUi();
   }
 
-  // --- Drag the headline block, the logo/wordmark(s), or the packshot photo
-  // directly on the canvas — three independently movable groups sharing one
-  // pointer handler, distinguished by which group's bounding box was hit.
-  let lastBounds = { headline: null, logo: null, wordmark: null, photo: null, customLogo: null };
+  // --- Drag the headline/sub-headline/body blocks, the logo/wordmark(s), the
+  // packshot photo, the two decorations, or a custom shop logo directly on
+  // the canvas — nine independently movable groups sharing one pointer
+  // handler, distinguished by which group's bounding box was hit.
+  const EMPTY_AW_BOUNDS = { headline: null, subheadline: null, body: null, logo: null, wordmark: null, photo: null, customLogo: null, decorMan: null, decorNo1: null };
+  let lastBounds = EMPTY_AW_BOUNDS;
   let lastPxW = 0;
   let lastPxH = 0;
   let dragState = null;
@@ -5463,9 +5613,17 @@ function initArtworkPage(c) {
     return pt.x >= b.x && pt.x <= b.x + b.w && pt.y >= b.y && pt.y <= b.y + b.h;
   }
 
+  // Checked in roughly reverse draw order (top-most/last-drawn first) so an
+  // overlapping click resolves to whichever element is actually on top —
+  // body/subheadline/headline text is drawn last (topmost), then the
+  // decorations, then the custom shop logo, then photo/wordmark/logo.
   function hitGroup(pt) {
-    if (hitBounds(lastBounds.customLogo, pt)) return 'customLogo';
+    if (hitBounds(lastBounds.body, pt)) return 'body';
+    if (hitBounds(lastBounds.subheadline, pt)) return 'subheadline';
     if (hitBounds(lastBounds.headline, pt)) return 'headline';
+    if (hitBounds(lastBounds.decorMan, pt)) return 'decorMan';
+    if (hitBounds(lastBounds.decorNo1, pt)) return 'decorNo1';
+    if (hitBounds(lastBounds.customLogo, pt)) return 'customLogo';
     if (hitBounds(lastBounds.photo, pt)) return 'photo';
     if (hitBounds(lastBounds.wordmark, pt)) return 'wordmark';
     if (hitBounds(lastBounds.logo, pt)) return 'logo';
@@ -5476,9 +5634,13 @@ function initArtworkPage(c) {
 
   function groupOffset(group) {
     if (group === 'headline') return { x: Number(textOffsetX.value), y: Number(textOffsetY.value) };
+    if (group === 'subheadline') return { x: subheadlineOffsetXFrac, y: subheadlineOffsetYFrac };
+    if (group === 'body') return { x: bodyOffsetXFrac, y: bodyOffsetYFrac };
     if (group === 'logo') return { x: logoOffsetXFrac, y: logoOffsetYFrac };
     if (group === 'wordmark') return { x: wordmarkOffsetXFrac, y: wordmarkOffsetYFrac };
     if (group === 'photo') return { x: photoOffsetXFrac, y: photoOffsetYFrac };
+    if (group === 'decorMan') return { x: decorManOffsetXFrac, y: decorManOffsetYFrac };
+    if (group === 'decorNo1') return { x: decorNo1OffsetXFrac, y: decorNo1OffsetYFrac };
     return { x: customLogoOffsetXFrac, y: customLogoOffsetYFrac };
   }
 
@@ -5538,6 +5700,10 @@ function initArtworkPage(c) {
       if (dragState.group === 'logo') { logoOffsetXFrac = newX; logoOffsetYFrac = newY; }
       else if (dragState.group === 'wordmark') { wordmarkOffsetXFrac = newX; wordmarkOffsetYFrac = newY; }
       else if (dragState.group === 'photo') { photoOffsetXFrac = newX; photoOffsetYFrac = newY; }
+      else if (dragState.group === 'subheadline') { subheadlineOffsetXFrac = newX; subheadlineOffsetYFrac = newY; }
+      else if (dragState.group === 'body') { bodyOffsetXFrac = newX; bodyOffsetYFrac = newY; }
+      else if (dragState.group === 'decorMan') { decorManOffsetXFrac = newX; decorManOffsetYFrac = newY; }
+      else if (dragState.group === 'decorNo1') { decorNo1OffsetXFrac = newX; decorNo1OffsetYFrac = newY; }
       else { customLogoOffsetXFrac = newX; customLogoOffsetYFrac = newY; }
     }
     schedulePreview(16);
