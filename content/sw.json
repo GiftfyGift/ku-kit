@@ -1054,6 +1054,7 @@
       "selectLabel": "Chagua mteja wa zamani (kama yupo)",
       "newCustomerOption": "Mteja mpya / jaza taarifa mwenyewe",
       "autoFillNote": "Kuchagua mteja wa zamani hujaza sehemu zilizo hapa chini — badilisha sehemu yoyote kama taarifa zimebadilika.",
+      "buyerSameAsConsigneeLabel": "Mnunuzi ni kampuni ile ile ya mpokeaji hapo juu",
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" },
@@ -1074,7 +1075,7 @@
         { "id": "mackabo", "label": "Mackabo — Cote d'Ivoire na Burkina Faso", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Jina la kampuni", "address": "Anwani ya kuletewa", "country": "Nchi ya marudio", "contact": "Jina la mawasiliano", "email": "Barua pepe", "phone": "Simu / WhatsApp", "customerRef": "Nambari ya PO ya mnunuzi (kama ipo)", "buyerName": "Mnunuzi (kama ni tofauti na mpokeaji hapo juu — mfano kampuni ya ufadhili)" },
+      "fields": { "company": "Jina la kampuni", "address": "Anwani ya kuletewa", "country": "Nchi ya marudio", "contact": "Jina la mawasiliano", "email": "Barua pepe", "phone": "Simu / WhatsApp", "customerRef": "Nambari ya PO ya mnunuzi (kama ipo)", "buyerName": "Mnunuzi (kama ni tofauti na mpokeaji hapo juu — mfano kampuni ya ufadhili)", "buyerAddress": "Anwani ya mnunuzi" },
       "priceNotePrefix": "Inatumia nukuu ya bei ya mteja huyu:"
     },
     "items": {

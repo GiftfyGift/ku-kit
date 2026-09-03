@@ -1398,6 +1398,7 @@
       "selectLabel": "เลือกลูกค้าเดิม (ถ้ามี)",
       "newCustomerOption": "ลูกค้าใหม่ / กรอกข้อมูลเอง",
       "autoFillNote": "เลือกลูกค้าเดิมเพื่อเติมข้อมูลให้อัตโนมัติ — แก้ไขฟิลด์ไหนก็ได้ถ้าข้อมูลเปลี่ยนไปแล้ว",
+      "buyerSameAsConsigneeLabel": "ผู้ซื้อ (Buyer) เป็นบริษัทเดียวกับผู้รับสินค้า (Consignee) ด้านบน",
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — ปานามา", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — ไต้หวัน", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" },
@@ -1418,7 +1419,7 @@
         { "id": "mackabo", "label": "Mackabo — โกตดิวัวร์ และบูร์กินาฟาโซ", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — มาลาวี", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "ชื่อบริษัท", "address": "ที่อยู่จัดส่ง", "country": "ประเทศปลายทาง", "contact": "ชื่อผู้ติดต่อ", "email": "อีเมล", "phone": "เบอร์โทร / WhatsApp", "customerRef": "เลข PO อ้างอิงของลูกค้า (ถ้ามี)", "buyerName": "ผู้ซื้อ (ถ้าต่างจากผู้รับสินค้าด้านบน — เช่น บริษัทไฟแนนซ์)" },
+      "fields": { "company": "ชื่อบริษัท", "address": "ที่อยู่จัดส่ง", "country": "ประเทศปลายทาง", "contact": "ชื่อผู้ติดต่อ", "email": "อีเมล", "phone": "เบอร์โทร / WhatsApp", "customerRef": "เลข PO อ้างอิงของลูกค้า (ถ้ามี)", "buyerName": "ผู้ซื้อ (ถ้าต่างจากผู้รับสินค้าด้านบน — เช่น บริษัทไฟแนนซ์)", "buyerAddress": "ที่อยู่ผู้ซื้อ" },
       "priceNotePrefix": "ใช้ราคาตามใบเสนอราคาลูกค้ารายนี้:"
     },
     "items": {

@@ -215,8 +215,11 @@ const ORDERS_HEADERS = [
   // Optional: a real PI sometimes lists a Buyer (who's financially/
   // contractually responsible, e.g. a financing company) distinct from
   // the Consignee (who physically receives the goods) — see buildPiHtml.
-  // Left blank on most orders, where they're the same company.
-  'Buyer'
+  // Left blank on most orders, where they're the same company. 'Buyer
+  // Address' follows the same append-at-the-end convention and the same
+  // "blank means same as consignee" rule — add a matching header for it
+  // too.
+  'Buyer', 'Buyer Address'
 ];
 
 // Fields a customer resubmission (via their edit link) is allowed to
@@ -228,7 +231,7 @@ const EDITABLE_FIELDS_ON_RESUBMIT = [
   'Company', 'Address', 'Country', 'Contact', 'Email', 'Phone',
   'Customer PO Ref', 'Items', 'Subtotal (USD)', 'Incoterm', 'Port',
   'Payment Terms', 'Shipping Method', 'Requested Delivery Date',
-  'PI Requested', 'Notes', 'Buyer'
+  'PI Requested', 'Notes', 'Buyer', 'Buyer Address'
 ];
 
 const STATUS_OPTIONS = ['New', 'Confirmed', 'Needs Revision', 'Closed'];
@@ -329,7 +332,8 @@ function doPost(e) {
       // per order before the PI is generated (e.g. a deal that should be
       // paid into a different account than the usual default).
       '', // PI Review Token — filled in once a PI is drafted
-      buyer.buyerName || '' // Buyer — only set when it differs from Company (see ORDERS_HEADERS)
+      buyer.buyerName || '', // Buyer — only set when it differs from Company (see ORDERS_HEADERS)
+      buyer.buyerAddress || '' // Buyer Address — same "blank means same as consignee" rule
     ];
 
     const testMode = isTestMode();
@@ -413,7 +417,8 @@ function applyResubmission(sheet, row, data) {
     'Requested Delivery Date': data.deliveryDate || '',
     'PI Requested': data.piWanted ? 'Yes' : 'No',
     'Notes': data.notes || '',
-    'Buyer': buyer.buyerName || ''
+    'Buyer': buyer.buyerName || '',
+    'Buyer Address': buyer.buyerAddress || ''
   };
   EDITABLE_FIELDS_ON_RESUBMIT.forEach(function (field) {
     sheet.getRange(row, ORDERS_HEADERS.indexOf(field) + 1).setValue(values[field]);
@@ -491,7 +496,7 @@ function handleGetOrderForEdit(params) {
     buyer: {
       company: order['Company'], address: order['Address'], country: order['Country'],
       contact: order['Contact'], email: order['Email'], phone: order['Phone'],
-      customerRef: order['Customer PO Ref'], buyerName: order['Buyer']
+      customerRef: order['Customer PO Ref'], buyerName: order['Buyer'], buyerAddress: order['Buyer Address']
     },
     itemsText: order['Items'],
     incoterm: order['Incoterm'], port: order['Port'], paymentTerms: order['Payment Terms'],
@@ -1214,6 +1219,10 @@ function buildPoHtml(order, dateStr) {
     'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
     'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
     '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
+    '.field-caption{font-size:8px;text-transform:uppercase;letter-spacing:0.05em;color:#009299;' +
+    'font-weight:700;border-bottom:1.5px solid #009299;padding-bottom:3px;margin-bottom:5px;}' +
+    '.field-name{font-weight:700;font-size:11.5px;margin-bottom:2px;}' +
+    '.field-address{color:#333;}' +
     '.items th{background:#f2f2f2;text-align:left;}' +
     '.total-row td{font-weight:bold;}' +
     '.small{font-size:9px;color:#555;margin-top:16px;}' +
@@ -1222,13 +1231,23 @@ function buildPoHtml(order, dateStr) {
     '<table>' +
     '<tr><td class="label">PO No.</td><td>' + escapeHtml(order['PO Number']) + '</td>' +
     '<td class="label">Date</td><td>' + dateStr + '</td></tr>' +
-    '<tr><td class="label">Buyer</td><td colspan="3">' + escapeHtml(order['Company'] || '-') +
-    (order['Address'] ? '<br>' + escapeHtml(order['Address']) : '') +
-    '<br>Country: ' + escapeHtml(order['Country'] || '-') +
-    '<br>Contact: ' + escapeHtml(order['Contact'] || '-') + ' (' + escapeHtml(order['Email'] || '-') + ')' +
-    (order['Phone'] ? '<br>Tel/WhatsApp: ' + escapeHtml(order['Phone']) : '') +
-    (order['Customer PO Ref'] ? '<br>Buyer\'s Order No.: ' + escapeHtml(order['Customer PO Ref']) : '') +
-    '</td></tr>' +
+    // Same "Consigned to Messrs / Buyer" split as the PI (buildPiHtml,
+    // below) instead of one merged "Buyer" cell — Buyer falls back to the
+    // consignee's own name/address whenever the dealer left "Buyer is the
+    // same as the consignee" checked on the form (the common case).
+    '<tr>' +
+    '<td style="width:50%;"><div class="field-caption">Consigned to Messrs</div>' +
+    '<div class="field-name">' + escapeHtml(order['Company'] || '-') + '</div>' +
+    '<div class="field-address">' + escapeHtml(order['Address'] || '') + '</div></td>' +
+    '<td style="width:50%;"><div class="field-caption">Buyer</div>' +
+    '<div class="field-name">' + escapeHtml(order['Buyer'] || order['Company'] || '-') + '</div>' +
+    '<div class="field-address">' + escapeHtml(order['Buyer'] ? (order['Buyer Address'] || '') : (order['Address'] || '')) + '</div></td>' +
+    '</tr>' +
+    '<tr><td class="label">Country</td><td>' + escapeHtml(order['Country'] || '-') + '</td>' +
+    '<td class="label">Buyer\'s Order No.</td><td>' + escapeHtml(order['Customer PO Ref'] || '-') + '</td></tr>' +
+    '<tr><td class="label">Contact</td><td>' + escapeHtml(order['Contact'] || '-') + '</td>' +
+    '<td class="label">Email</td><td>' + escapeHtml(order['Email'] || '-') + '</td></tr>' +
+    (order['Phone'] ? '<tr><td class="label">Tel/WhatsApp</td><td colspan="3">' + escapeHtml(order['Phone']) + '</td></tr>' : '') +
     '<tr><td class="label">Terms of Payment</td><td colspan="3">' + escapeHtml(order['Payment Terms'] || '-') + '</td></tr>' +
     '<tr><td class="label">Incoterm</td><td>' + escapeHtml(order['Incoterm'] || '-') +
     (order['Port'] ? ' (' + escapeHtml(order['Port']) + ')' : '') + '</td>' +
@@ -1340,7 +1359,8 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
     '<div class="field-name">' + escapeHtml(order['Company']) + '</div>' +
     '<div class="field-address">' + escapeHtml(order['Address']) + '</div></td>' +
     '<td style="width:50%;"><div class="field-caption">Buyer</div>' +
-    '<div class="field-name">' + escapeHtml(order['Buyer'] || order['Company'] || '-') + '</div></td>' +
+    '<div class="field-name">' + escapeHtml(order['Buyer'] || order['Company'] || '-') + '</div>' +
+    '<div class="field-address">' + escapeHtml(order['Buyer'] ? (order['Buyer Address'] || '') : (order['Address'] || '')) + '</div></td>' +
     '</tr>' +
     '<tr><td class="label">Sales Confirmation No.</td><td>' + escapeHtml(order['PO Number']) + '</td>' +
     '<td class="label">Buyer\'s Order No.</td><td>' + escapeHtml(order['Customer PO Ref'] || order['PO Number']) + '</td></tr>' +

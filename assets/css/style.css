@@ -4895,6 +4895,16 @@ table.parts-table td.code-col {
 
 #po-req-known-customer { max-width: 420px; }
 
+.po-req-checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--kubota-mid-gray);
+  cursor: pointer;
+}
+.po-req-checkbox-field input[type="checkbox"] { accent-color: var(--kubota-orange); width: 16px; height: 16px; cursor: pointer; }
+
 /* The browser's native date-picker icon defaults to dark/black — on this
    site's dark input background it looks like a barely-visible sunken
    smudge instead of a clickable calendar button. color-scheme tells the

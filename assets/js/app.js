@@ -2921,7 +2921,14 @@ function initPoRequestPage(c) {
         <label class="po-req-field"><span>${cust.fields.email}</span><input type="email" id="po-req-email" value="${(saved.email || '').replace(/"/g, '&quot;')}"></label>
         <label class="po-req-field"><span>${cust.fields.phone}</span><input type="text" id="po-req-phone" value="${(saved.phone || '').replace(/"/g, '&quot;')}"></label>
         <label class="po-req-field"><span>${cust.fields.customerRef}</span><input type="text" id="po-req-customer-ref" value="${(saved.customerRef || '').replace(/"/g, '&quot;')}"></label>
+      </div>
+      <label class="po-req-checkbox-field">
+        <input type="checkbox" id="po-req-buyer-same" ${saved.buyerName ? '' : 'checked'}>
+        <span>${cust.buyerSameAsConsigneeLabel}</span>
+      </label>
+      <div class="po-req-field-grid" id="po-req-buyer-fields" ${saved.buyerName ? '' : 'hidden'}>
         <label class="po-req-field po-req-field--wide"><span>${cust.fields.buyerName}</span><input type="text" id="po-req-buyer-name" value="${(saved.buyerName || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field po-req-field--wide"><span>${cust.fields.buyerAddress}</span><input type="text" id="po-req-buyer-address" value="${(saved.buyerAddress || '').replace(/"/g, '&quot;')}"></label>
       </div>
     `;
   }
@@ -2936,8 +2943,8 @@ function initPoRequestPage(c) {
       customerSel.dispatchEvent(new Event('change'));
     });
 
-    const keys = ['company', 'address', 'country', 'contact', 'email', 'phone', 'customerRef', 'buyerName'];
-    const fieldIdOverrides = { customerRef: 'customer-ref', buyerName: 'buyer-name' };
+    const keys = ['company', 'address', 'country', 'contact', 'email', 'phone', 'customerRef', 'buyerName', 'buyerAddress'];
+    const fieldIdOverrides = { customerRef: 'customer-ref', buyerName: 'buyer-name', buyerAddress: 'buyer-address' };
     keys.forEach(key => {
       const el = document.getElementById(`po-req-${fieldIdOverrides[key] || key}`);
       el.addEventListener('input', () => {
@@ -2945,6 +2952,26 @@ function initPoRequestPage(c) {
         b[key] = el.value;
         orderSaveBuyer(b);
       });
+    });
+
+    // "Buyer is the same as the consignee" — checked (the common case)
+    // hides the Buyer name/address fields entirely and leaves them blank,
+    // so the PI/PO documents fall back to the consignee's own details.
+    // Unchecking reveals the fields for the rarer case (e.g. a financing
+    // company) where the two are genuinely different.
+    document.getElementById('po-req-buyer-same').addEventListener('change', (e) => {
+      const fields = document.getElementById('po-req-buyer-fields');
+      fields.hidden = e.target.checked;
+      if (e.target.checked) {
+        const nameEl = document.getElementById('po-req-buyer-name');
+        const addrEl = document.getElementById('po-req-buyer-address');
+        nameEl.value = '';
+        addrEl.value = '';
+        const b = orderLoadBuyer();
+        b.buyerName = '';
+        b.buyerAddress = '';
+        orderSaveBuyer(b);
+      }
     });
     document.getElementById('po-req-known-customer').addEventListener('change', (e) => {
       selectedCustomerId = e.target.value || '';
@@ -2980,6 +3007,11 @@ function initPoRequestPage(c) {
   }
 
   function currentBuyer() {
+    // When "same as consignee" is checked, always send blank buyer
+    // name/address regardless of whatever the (hidden) inputs still hold
+    // — that's what makes the PI/PO documents fall back to the
+    // consignee's own details instead of a stale leftover value.
+    const buyerSame = document.getElementById('po-req-buyer-same').checked;
     return {
       company: document.getElementById('po-req-company').value,
       address: document.getElementById('po-req-address').value,
@@ -2988,7 +3020,8 @@ function initPoRequestPage(c) {
       email: document.getElementById('po-req-email').value,
       phone: document.getElementById('po-req-phone').value,
       customerRef: document.getElementById('po-req-customer-ref').value,
-      buyerName: document.getElementById('po-req-buyer-name').value
+      buyerName: buyerSame ? '' : document.getElementById('po-req-buyer-name').value,
+      buyerAddress: buyerSame ? '' : document.getElementById('po-req-buyer-address').value
     };
   }
 
@@ -3398,6 +3431,14 @@ function initPoRequestPage(c) {
     setVal('po-req-phone', b.phone);
     setVal('po-req-customer-ref', b.customerRef);
     setVal('po-req-buyer-name', b.buyerName);
+    setVal('po-req-buyer-address', b.buyerAddress);
+    const buyerSameEl = document.getElementById('po-req-buyer-same');
+    const buyerFieldsEl = document.getElementById('po-req-buyer-fields');
+    if (buyerSameEl && buyerFieldsEl) {
+      const hasBuyerOverride = !!(b.buyerName || b.buyerAddress);
+      buyerSameEl.checked = !hasBuyerOverride;
+      buyerFieldsEl.hidden = !hasBuyerOverride;
+    }
     setVal('po-req-notes', editData.notes);
     setVal('po-req-port', editData.port);
     setVal('po-req-delivery-date', editData.deliveryDate);
@@ -3564,20 +3605,35 @@ function generatePoRequestPdf(order, pr) {
   doc.text(`Date: ${order.date}`, pageW - marginX, y, { align: 'right' });
   y += 22;
 
+  // Two side-by-side boxes — same "Consigned to Messrs / Buyer" split the
+  // official PI/PO documents use — rather than one merged block, so it's
+  // never ambiguous which company physically receives the goods versus
+  // which one is financially/contractually the buyer. Buyer falls back to
+  // the consignee's own name/address whenever the dealer left "Buyer is
+  // the same as the consignee" checked on the form (the common case).
   doc.setFont('helvetica', 'bold');
-  doc.text('Buyer:', marginX, y);
+  doc.text('Consigned to Messrs.:', marginX, y);
+  doc.text('Buyer:', pageW / 2 + 6, y);
   doc.setFont('helvetica', 'normal');
-  doc.text(order.buyer.company || '-', marginX + 90, y);
   y += 14;
-  doc.text(doc.splitTextToSize(order.buyer.address || '-', pageW - marginX * 2 - 90), marginX + 90, y);
+  const buyerColW = pageW / 2 - marginX - 10;
+  const buyerRightX = pageW / 2 + 6;
+  const buyerName = order.buyer.buyerName || order.buyer.company || '-';
+  const buyerAddress = order.buyer.buyerName ? (order.buyer.buyerAddress || '-') : (order.buyer.address || '-');
+  doc.text(doc.splitTextToSize(order.buyer.company || '-', buyerColW), marginX, y);
+  doc.text(doc.splitTextToSize(buyerName, buyerColW), buyerRightX, y);
   y += 14;
-  doc.text(`Country: ${order.buyer.country || '-'}`, marginX + 90, y);
+  doc.text(doc.splitTextToSize(order.buyer.address || '-', buyerColW), marginX, y);
+  doc.text(doc.splitTextToSize(buyerAddress, buyerColW), buyerRightX, y);
+  y += 28;
+
+  doc.text(`Country: ${order.buyer.country || '-'}`, marginX, y);
   y += 14;
-  doc.text(`Contact: ${order.buyer.contact || '-'}   Email: ${order.buyer.email || '-'}`, marginX + 90, y);
+  doc.text(`Contact: ${order.buyer.contact || '-'}   Email: ${order.buyer.email || '-'}`, marginX, y);
   y += 14;
-  doc.text(`Tel / WhatsApp: ${order.buyer.phone || '-'}`, marginX + 90, y);
+  doc.text(`Tel / WhatsApp: ${order.buyer.phone || '-'}`, marginX, y);
   y += 14;
-  if (order.buyer.customerRef) { doc.text(`Buyer's Order No.: ${order.buyer.customerRef}`, marginX + 90, y); y += 14; }
+  if (order.buyer.customerRef) { doc.text(`Buyer's Order No.: ${order.buyer.customerRef}`, marginX, y); y += 14; }
   y += 8;
 
   doc.setFont('helvetica', 'bold');

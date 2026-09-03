@@ -1390,6 +1390,7 @@
       "selectLabel": "Select an existing customer (if any)",
       "newCustomerOption": "New customer / enter details manually",
       "autoFillNote": "Selecting an existing customer fills in the fields below — edit any field if the details have changed.",
+      "buyerSameAsConsigneeLabel": "Buyer is the same company as the consignee above",
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" },
@@ -1410,7 +1411,7 @@
         { "id": "mackabo", "label": "Mackabo — Cote d'Ivoire and Burkina Faso", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)", "buyerName": "Buyer (if different from the consignee above — e.g. a financing company)" },
+      "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)", "buyerName": "Buyer (if different from the consignee above — e.g. a financing company)", "buyerAddress": "Buyer's address" },
       "priceNotePrefix": "Using this customer's own quotation:"
     },
     "items": {

@@ -1044,6 +1044,7 @@
       "selectLabel": "Sélectionner un client existant (le cas échéant)",
       "newCustomerOption": "Nouveau client / saisir les informations manuellement",
       "autoFillNote": "Sélectionner un client existant remplit les champs ci-dessous — modifiez n'importe quel champ si les informations ont changé.",
+      "buyerSameAsConsigneeLabel": "L'acheteur est la même société que le destinataire ci-dessus",
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — Taïwan", "company": "Sun Fu Hang", "address": "", "country": "Taïwan", "contact": "", "email": "", "phone": "" },
@@ -1064,7 +1065,7 @@
         { "id": "mackabo", "label": "Mackabo — Côte d'Ivoire et Burkina Faso", "company": "Mackabo", "address": "", "country": "Côte d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Nom de la société", "address": "Adresse de livraison", "country": "Pays de destination", "contact": "Nom du contact", "email": "E-mail", "phone": "Téléphone / WhatsApp", "customerRef": "N° de référence PO de l'acheteur (le cas échéant)", "buyerName": "Acheteur (si différent du destinataire ci-dessus — ex. société de financement)" },
+      "fields": { "company": "Nom de la société", "address": "Adresse de livraison", "country": "Pays de destination", "contact": "Nom du contact", "email": "E-mail", "phone": "Téléphone / WhatsApp", "customerRef": "N° de référence PO de l'acheteur (le cas échéant)", "buyerName": "Acheteur (si différent du destinataire ci-dessus — ex. société de financement)", "buyerAddress": "Adresse de l'acheteur" },
       "priceNotePrefix": "Utilise le devis propre à ce client :"
     },
     "items": {

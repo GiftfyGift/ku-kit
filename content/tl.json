@@ -1055,6 +1055,7 @@
       "selectLabel": "Pumili ng dati nang customer (kung mayroon)",
       "newCustomerOption": "Bagong customer / manu-manong ilagay ang impormasyon",
       "autoFillNote": "Kapag pumili ka ng dati nang customer, mapupunan ang mga field sa ibaba — puwede mo pa ring i-edit ang anumang field kung nagbago na ang impormasyon.",
+      "buyerSameAsConsigneeLabel": "Ang buyer ay parehong kompanya ng consignee sa itaas",
       "knownCustomers": [
         { "id": "vilco", "label": "VILCO INTERNATIONAL SA — Panama", "company": "VILCO INTERNATIONAL SA", "address": "Calla Santa Isabe, Vilco Building, Zona Libre de Colon, Rep. de Panama", "country": "Panama", "contact": "Roberto Maroday", "email": "", "phone": "" },
         { "id": "sfh", "label": "Sun Fu Hang — Taiwan", "company": "Sun Fu Hang", "address": "", "country": "Taiwan", "contact": "", "email": "", "phone": "" },
@@ -1075,7 +1076,7 @@
         { "id": "mackabo", "label": "Mackabo — Cote d'Ivoire at Burkina Faso", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Pangalan ng kompanya", "address": "Address ng padala", "country": "Bansang destinasyon", "contact": "Pangalan ng contact", "email": "Email", "phone": "Telepono / WhatsApp", "customerRef": "PO reference number ng bumibili (kung mayroon)", "buyerName": "Buyer (kung iba sa consignee sa itaas — hal. financing company)" },
+      "fields": { "company": "Pangalan ng kompanya", "address": "Address ng padala", "country": "Bansang destinasyon", "contact": "Pangalan ng contact", "email": "Email", "phone": "Telepono / WhatsApp", "customerRef": "PO reference number ng bumibili (kung mayroon)", "buyerName": "Buyer (kung iba sa consignee sa itaas — hal. financing company)", "buyerAddress": "Address ng buyer" },
       "priceNotePrefix": "Gumagamit ng sariling quotation ng customer na ito:"
     },
     "items": {
