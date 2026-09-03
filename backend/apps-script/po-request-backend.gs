@@ -1161,8 +1161,8 @@ function getCompanyLogoDataUri() {
  * templates below.
  */
 function letterheadTitleHtml(logoDataUri, title) {
-  return '<div style="position:relative;text-align:center;margin-bottom:18px;">' +
-    (logoDataUri ? '<img src="' + logoDataUri + '" style="height:30px;position:absolute;top:0;right:0;" alt="Kubota">' : '') +
+  return '<div style="position:relative;text-align:center;margin-bottom:14px;">' +
+    (logoDataUri ? '<img src="' + logoDataUri + '" style="height:24px;position:absolute;top:0;right:0;" alt="Kubota">' : '') +
     '<h1>' + title + '</h1>' +
     '</div>';
 }
@@ -1170,14 +1170,15 @@ function letterheadTitleHtml(logoDataUri, title) {
 /**
  * Official letterhead footer — the same company/factory block Siam Kubota
  * uses on its own letterhead — shared by the PO and PI templates below.
- * margin-top:auto (rather than a fixed gap) is what pins this to the
- * physical bottom of the page instead of just trailing wherever the
- * content happens to end — it only works together with the
- * display:flex/flex-direction:column + min-height on <body> in
- * buildPoHtml/buildPiHtml below, which is what gives this div the
- * leftover vertical space to be pushed into.
+ * A fixed top margin, not margin-top:auto pinned via a flex-column body —
+ * that trick relied on Apps Script's HTML->PDF conversion respecting a
+ * forced min-height on <body>, and instead it was pushing this whole
+ * block onto a near-blank second page (just its own top border showing)
+ * on anything shorter than a full page of content. Trailing directly
+ * under the document, the same way every other section here does, is
+ * what actually keeps everything on one page.
  */
-var LETTERHEAD_FOOTER_HTML = '<div style="margin-top:auto;padding-top:7px;border-top:2px solid #009299;font-size:8px;color:#555;">' +
+var LETTERHEAD_FOOTER_HTML = '<div style="margin-top:16px;padding-top:6px;border-top:2px solid #009299;font-size:7px;color:#555;">' +
   '<strong>SIAM KUBOTA Corporation Co., Ltd.</strong><br>' +
   'Head Office / Navanakorn Factory: 101/19-24 Moo 20, Navanakorn Industrial Estate, Khlongnueng, Khlongluang, Pathumthani 12120 — Tel +66 (0) 2909 0300<br>' +
   'Amata City Factory: 700/867 Moo 3, Amata City Chonburi Industrial Estate, Nonggakha, Panthong, Chonburi 20160 — Tel +66 (0) 3818 5130 — www.siamkubota.co.th' +
@@ -1209,23 +1210,21 @@ function buildPoHtml(order, dateStr) {
   }).join('');
 
   return '<html><head><style>' +
-    // display:flex/flex-direction:column + min-height gives the page a
-    // full sheet's worth of vertical space to work with; the footer's own
-    // margin-top:auto (see LETTERHEAD_FOOTER_HTML) is what then pushes it
-    // down into whatever room that leaves, so it lands at the bottom of
-    // the printed page instead of directly under a short order.
-    'body{font-family:Arial,sans-serif;font-size:11px;color:#111;display:flex;flex-direction:column;min-height:970px;}' +
-    'h1{text-align:center;font-size:20px;letter-spacing:2px;}' +
-    'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
-    'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
-    '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
-    '.field-caption{font-size:8px;text-transform:uppercase;letter-spacing:0.05em;color:#009299;' +
-    'font-weight:700;border-bottom:1.5px solid #009299;padding-bottom:3px;margin-bottom:5px;}' +
-    '.field-name{font-weight:700;font-size:11.5px;margin-bottom:2px;}' +
+    // Tighter font/padding scale, matching the compact layout the real
+    // Siam Kubota PI/PO templates use — the earlier, larger sizing here is
+    // what was crowding a normal-length order onto two pages.
+    'body{font-family:Arial,sans-serif;font-size:9px;color:#111;}' +
+    'h1{text-align:center;font-size:16px;letter-spacing:1.2px;margin:0;}' +
+    'table{width:100%;border-collapse:collapse;margin-bottom:8px;}' +
+    'td,th{border:1px solid #333;padding:4px 6px;vertical-align:top;}' +
+    '.label{font-weight:bold;background:#f2f2f2;width:18%;}' +
+    '.field-caption{font-size:7px;text-transform:uppercase;letter-spacing:0.05em;color:#009299;' +
+    'font-weight:700;border-bottom:1.5px solid #009299;padding-bottom:2px;margin-bottom:3px;}' +
+    '.field-name{font-weight:700;font-size:10px;margin-bottom:1px;}' +
     '.field-address{color:#333;}' +
     '.items th{background:#f2f2f2;text-align:left;}' +
     '.total-row td{font-weight:bold;}' +
-    '.small{font-size:9px;color:#555;margin-top:16px;}' +
+    '.small{font-size:7.5px;color:#555;margin-top:10px;}' +
     '</style></head><body>' +
     letterheadTitleHtml(logoDataUri, 'PURCHASE ORDER (submitted)') +
     '<table>' +
@@ -1320,22 +1319,22 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
     : '<p style="margin:36px 0 4px;">_______________________________</p>';
 
   return '<html><head><style>' +
-    // See buildPoHtml above for why body is a flex column with a
-    // min-height — it's what lets LETTERHEAD_FOOTER_HTML's margin-top:auto
-    // actually pin the footer to the bottom of the page.
-    'body{font-family:Arial,sans-serif;font-size:11px;color:#111;display:flex;flex-direction:column;min-height:970px;}' +
-    'h1{text-align:center;font-size:20px;letter-spacing:2px;margin:0;}' +
-    'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
-    'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
-    '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
-    '.field-caption{font-size:8px;text-transform:uppercase;letter-spacing:0.05em;color:#009299;' +
-    'font-weight:700;border-bottom:1.5px solid #009299;padding-bottom:3px;margin-bottom:5px;}' +
-    '.field-name{font-weight:700;font-size:11.5px;margin-bottom:2px;}' +
+    // See buildPoHtml above for why this dropped the flex/min-height body
+    // trick — same tighter font/padding scale here too, for the same
+    // one-page-instead-of-two reason.
+    'body{font-family:Arial,sans-serif;font-size:9px;color:#111;}' +
+    'h1{text-align:center;font-size:16px;letter-spacing:1.2px;margin:0;}' +
+    'table{width:100%;border-collapse:collapse;margin-bottom:8px;}' +
+    'td,th{border:1px solid #333;padding:4px 6px;vertical-align:top;}' +
+    '.label{font-weight:bold;background:#f2f2f2;width:18%;}' +
+    '.field-caption{font-size:7px;text-transform:uppercase;letter-spacing:0.05em;color:#009299;' +
+    'font-weight:700;border-bottom:1.5px solid #009299;padding-bottom:2px;margin-bottom:3px;}' +
+    '.field-name{font-weight:700;font-size:10px;margin-bottom:1px;}' +
     '.field-address{color:#333;}' +
     '.items th{background:#f2f2f2;text-align:left;}' +
     '.total-row td{font-weight:bold;}' +
     '.sig-block{text-align:right;}' +
-    '.small{font-size:9px;color:#555;}' +
+    '.small{font-size:7.5px;color:#555;}' +
     '</style></head><body>' +
     letterheadTitleHtml(logoDataUri, 'PROFORMA INVOICE') +
     '<table>' +
