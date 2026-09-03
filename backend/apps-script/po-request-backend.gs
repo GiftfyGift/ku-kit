@@ -97,6 +97,11 @@
  * will ask you to re-authorize (it now also needs Drive access to save the
  * PDF) — approve it the same way as the first deployment.
  *
+ * LETTERHEAD LOGO (optional): set Config "Company Logo File ID" to a Drive
+ * file ID for the Kubota wordmark image — same pattern as "Signature Image
+ * File ID" below. Used on every generated PO and PI PDF. Leave blank to
+ * generate documents without it (nothing else breaks).
+ *
  * TWO-STAGE APPROVAL (review, then sign) — PI Stage tracks both:
  *   1. "Generated": the draft is emailed to whoever is this order's
  *      "Assigned Sales Rep" (falls back to Config "Default Sales Rep
@@ -1088,20 +1093,62 @@ function parseItemsText(text) {
 }
 
 /**
+ * Kubota wordmark for the PO/PI letterhead, as a data URI — mirrors the
+ * existing "Signature Image File ID" pattern exactly (Config-stored Drive
+ * File ID, fetched and base64-encoded at build time) rather than embedding
+ * the image as a giant base64 literal in this source file. Missing/
+ * inaccessible file degrades to no logo, not a broken document.
+ */
+function getCompanyLogoDataUri() {
+  const fileId = getConfig('Company Logo File ID', '');
+  if (!fileId) return null;
+  try {
+    const blob = DriveApp.getFileById(fileId).getBlob();
+    return 'data:' + blob.getContentType() + ';base64,' + Utilities.base64Encode(blob.getBytes());
+  } catch (err) {
+    console.error('Could not load company logo image: ' + err);
+    return null;
+  }
+}
+
+/**
+ * Letterhead title row (logo + document name) shared by the PO and PI
+ * templates below.
+ */
+function letterheadTitleHtml(logoDataUri, title) {
+  return '<div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;">' +
+    (logoDataUri ? '<img src="' + logoDataUri + '" style="height:26px;" alt="Kubota">' : '') +
+    '<h1 style="margin:0;">' + title + '</h1>' +
+    '</div>';
+}
+
+/**
+ * Official letterhead footer — the same company/factory block Siam Kubota
+ * uses on its own letterhead — shared by the PO and PI templates below.
+ */
+var LETTERHEAD_FOOTER_HTML = '<div style="margin-top:22px;padding-top:7px;border-top:2px solid #009299;font-size:8px;color:#555;">' +
+  '<strong>SIAM KUBOTA Corporation Co., Ltd.</strong><br>' +
+  'Head Office / Navanakorn Factory: 101/19-24 Moo 20, Navanakorn Industrial Estate, Khlongnueng, Khlongluang, Pathumthani 12120 — Tel +66 (0) 2909 0300<br>' +
+  'Amata City Factory: 700/867 Moo 3, Amata City Chonburi Industrial Estate, Nonggakha, Panthong, Chonburi 20160 — Tel +66 (0) 3818 5130 — www.siamkubota.co.th' +
+  '</div>';
+
+/**
  * PDF attached to the sales-rep "new order" notification (notifySalesRep,
  * below) — a quick-glance copy of what the customer submitted, so the rep
  * can check it without opening the sheet first. Deliberately a plain
  * record of the submission, NOT a formal company document: no signature
- * block, no bank detail, no Siam Kubota address block — those only belong
- * on the real PI once sales/an executive have actually reviewed and
- * approved this order (see buildPiHtml). Built from the same
- * getOrderRowData() shape buildPiHtml uses, so it's unaffected by which
- * language the dealer filled the form in — every field here comes from
- * whatever was actually stored in the row.
+ * block, no bank detail — those only belong on the real PI once sales/an
+ * executive have actually reviewed and approved this order (see
+ * buildPiHtml). The logo/footer are still applied, same as the PI, so it
+ * reads as a professional document rather than a bare data dump. Built
+ * from the same getOrderRowData() shape buildPiHtml uses, so it's
+ * unaffected by which language the dealer filled the form in — every
+ * field here comes from whatever was actually stored in the row.
  */
 function buildPoHtml(order, dateStr) {
   const items = parseItemsText(order['Items']);
   const total = items.reduce(function (s, it) { return s + it.qty * it.price; }, 0);
+  const logoDataUri = getCompanyLogoDataUri();
 
   const itemRows = items.map(function (it, i) {
     return '<tr><td>' + (i + 1) + '</td><td>' + escapeHtml(it.name) + '</td>' +
@@ -1112,7 +1159,7 @@ function buildPoHtml(order, dateStr) {
 
   return '<html><head><style>' +
     'body{font-family:Arial,sans-serif;font-size:11px;color:#111;}' +
-    'h1{text-align:center;font-size:20px;letter-spacing:2px;margin-bottom:20px;}' +
+    'h1{text-align:center;font-size:20px;letter-spacing:2px;}' +
     'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
     'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
     '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
@@ -1120,7 +1167,7 @@ function buildPoHtml(order, dateStr) {
     '.total-row td{font-weight:bold;}' +
     '.small{font-size:9px;color:#555;margin-top:16px;}' +
     '</style></head><body>' +
-    '<h1>PURCHASE ORDER (submitted)</h1>' +
+    letterheadTitleHtml(logoDataUri, 'PURCHASE ORDER (submitted)') +
     '<table>' +
     '<tr><td class="label">PO No.</td><td>' + escapeHtml(order['PO Number']) + '</td>' +
     '<td class="label">Date</td><td>' + dateStr + '</td></tr>' +
@@ -1146,6 +1193,7 @@ function buildPoHtml(order, dateStr) {
     (order['Notes'] ? '<p><strong>Notes:</strong> ' + escapeHtml(order['Notes']) + '</p>' : '') +
     '<p class="small">As submitted by the customer on the KU-KIT website, ' + dateStr + '. Not a formal PO/PI — ' +
     'review against the Orders sheet row before confirming.</p>' +
+    LETTERHEAD_FOOTER_HTML +
     '</body></html>';
 }
 
@@ -1170,6 +1218,7 @@ function getOrCreateFolder(name) {
 function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
   const items = parseItemsText(order['Items']);
   const total = items.reduce(function (s, it) { return s + it.qty * it.price; }, 0);
+  const logoDataUri = getCompanyLogoDataUri();
 
   const companyName = getConfig('Company Name (for emails)', 'Siam Kubota Corporation Co., Ltd.');
   const signerName = getConfig('Current PI Signer Name', '');
@@ -1193,7 +1242,7 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
 
   return '<html><head><style>' +
     'body{font-family:Arial,sans-serif;font-size:11px;color:#111;}' +
-    'h1{text-align:center;font-size:20px;letter-spacing:2px;margin-bottom:20px;}' +
+    'h1{text-align:center;font-size:20px;letter-spacing:2px;}' +
     'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
     'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
     '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
@@ -1202,7 +1251,7 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
     '.sig-block{margin-top:30px;}' +
     '.small{font-size:9px;color:#555;margin-top:16px;}' +
     '</style></head><body>' +
-    '<h1>PROFORMA INVOICE</h1>' +
+    letterheadTitleHtml(logoDataUri, 'PROFORMA INVOICE') +
     '<table>' +
     '<tr><td class="label">Invoice No.</td><td>' + piNumber + '</td><td class="label">Date</td><td>' + dateStr + '</td></tr>' +
     '<tr><td class="label">Consigned to Messrs</td><td colspan="3">' + escapeHtml(order['Company']) + '<br>' + escapeHtml(order['Address']) + '</td></tr>' +
@@ -1232,6 +1281,7 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
     '<p class="small">E.&amp;O.E. — Draft generated by the KU-KIT PO/PI system on ' + dateStr +
     (signatureDataUri ? '.' : '. Requires manual review and approval before sending to the customer.') +
     '</p>' +
+    LETTERHEAD_FOOTER_HTML +
     '</body></html>';
 }
 

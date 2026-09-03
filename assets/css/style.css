@@ -4902,14 +4902,23 @@ table.parts-table td.code-col {
    surface instead of a light one; the indicator rule brightens it further
    and gives it a real hover state so it reads as an actual button. */
 input[type="date"] { color-scheme: dark; }
+input[type="date"] { position: relative; }
 input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) brightness(1.6);
-  opacity: 0.85;
-  padding: 3px;
+  /* A dimmed/inverted native icon was still too subtle to register as a
+     button at a glance — a solid orange chip (inverting the icon to white
+     on top of it) reads unambiguously as "tap here" instead of blending
+     into the field. */
+  filter: invert(1);
+  opacity: 1;
+  background: var(--kubota-orange);
   border-radius: 6px;
+  width: 22px;
+  height: 22px;
+  padding: 3px;
+  margin-right: 2px;
   cursor: pointer;
 }
-input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; background: rgba(255,255,255,0.1); }
+input[type="date"]::-webkit-calendar-picker-indicator:hover { background: #e6531f; }
 
 .po-req-hint { font-size: 12px; color: var(--kubota-mid-gray); margin: 6px 0 14px; }
 
