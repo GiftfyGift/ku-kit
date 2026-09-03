@@ -3246,12 +3246,21 @@ function initPoRequestPage(c) {
       buyer,
       items: pdfItems,
       paymentTermLabel: term ? term.label : '',
-      incotermLabel: incoterm ? incoterm.label : '',
+      // Always the English label here, never incoterm.label directly — this
+      // PDF is a formal English trade document (every other line in it is
+      // hardcoded English) generated with jsPDF's built-in "helvetica" font,
+      // which only supports Latin/WinAnsi glyphs. A dealer filling the form
+      // in Thai/Swahili/etc. picks from THAT language's dropdown, so
+      // incoterm.label can be non-Latin text — jsPDF then silently renders
+      // it as garbled placeholder glyphs instead of an error. The on-screen
+      // dropdown itself stays correctly localized; only the label baked
+      // into this specific PDF needs to be pinned to English.
+      incotermLabel: incoterm ? (PDF_INCOTERM_LABELS_EN[incoterm.id] || incoterm.label) : '',
       incotermCode: incoterm && incoterm.id === 'fob_bkk' ? 'FOB' : incoterm && incoterm.id === 'cif' ? 'CIF' : '',
       portOfLoading: document.getElementById('po-req-port-of-loading').value,
       port: document.getElementById('po-req-port').value,
       shippedPer: shippingId.startsWith('air') ? 'By Air' : 'By Sea',
-      shippingLabel: shipping ? shipping.label : '',
+      shippingLabel: shipping ? (PDF_SHIPPING_LABELS_EN[shippingId] || shipping.label) : '',
       deliveryDate: document.getElementById('po-req-delivery-date').value,
       consignee: document.getElementById('po-req-consignee').value,
       piWanted: piWanted === 'yes',
@@ -3429,6 +3438,16 @@ function initPoRequestPage(c) {
     }
   });
 }
+
+// English label lookups (by the same stable ids used across every
+// content/*.json) for generatePoRequestPdf() below — that PDF is a formal
+// English trade document rendered with jsPDF's built-in "helvetica" font,
+// which has no glyphs outside Latin/WinAnsi. Pulling a label straight from
+// the dealer's current site language would silently render as garbled
+// placeholder glyphs for Thai/etc; the on-screen dropdown stays localized,
+// only what gets baked into the PDF is pinned to English here.
+const PDF_INCOTERM_LABELS_EN = { fob_bkk: 'FOB Bangkok, Thailand', cif: 'CIF destination port (specify below)', other: 'Other (specify in notes)' };
+const PDF_SHIPPING_LABELS_EN = { sea_lcl: 'By sea — LCL', sea_fcl: 'By sea — FCL (full container)', air: 'By air' };
 
 let lastPoRequestOrder = null;
 
