@@ -1116,9 +1116,9 @@ function getCompanyLogoDataUri() {
  * templates below.
  */
 function letterheadTitleHtml(logoDataUri, title) {
-  return '<div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:18px;">' +
-    (logoDataUri ? '<img src="' + logoDataUri + '" style="height:26px;" alt="Kubota">' : '') +
-    '<h1 style="margin:0;">' + title + '</h1>' +
+  return '<div style="position:relative;text-align:center;margin-bottom:18px;">' +
+    (logoDataUri ? '<img src="' + logoDataUri + '" style="height:30px;position:absolute;top:0;right:0;" alt="Kubota">' : '') +
+    '<h1>' + title + '</h1>' +
     '</div>';
 }
 
@@ -1236,49 +1236,79 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
       '<td style="text-align:right">' + (it.qty * it.price).toFixed(2) + '</td></tr>';
   }).join('');
 
+  // "*** TOTAL CIF Dar Es Salaam, Tanzania ***" — the incoterm code (FOB/
+  // CIF/whatever the Incoterm text actually starts with) plus wherever the
+  // goods are actually going, matching how Siam Kubota's own PI templates
+  // phrase the total line instead of a plain "TOTAL (USD)".
+  const incotermText = String(order['Incoterm'] || '');
+  const incotermCode = incotermText.split(/\s+/)[0] || 'TOTAL';
+  const destination = order['Port'] || order['Country'] || '';
+  const totalLabel = '*** TOTAL ' + incotermCode + (destination ? ' ' + destination : '') + ' ***';
+
   const sigBlock = signatureDataUri
-    ? '<img src="' + signatureDataUri + '" style="height:60px;display:block;margin-top:10px;" alt="Signature">'
-    : '<p style="margin-top:40px;">_______________________________</p>';
+    ? '<img src="' + signatureDataUri + '" style="height:55px;display:block;margin:6px 0 4px auto;" alt="Signature">'
+    : '<p style="margin:36px 0 4px;">_______________________________</p>';
 
   return '<html><head><style>' +
     'body{font-family:Arial,sans-serif;font-size:11px;color:#111;}' +
-    'h1{text-align:center;font-size:20px;letter-spacing:2px;}' +
+    'h1{text-align:center;font-size:20px;letter-spacing:2px;margin:0;}' +
     'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
     'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
     '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
     '.items th{background:#f2f2f2;text-align:left;}' +
     '.total-row td{font-weight:bold;}' +
-    '.sig-block{margin-top:30px;}' +
-    '.small{font-size:9px;color:#555;margin-top:16px;}' +
+    '.sig-block{text-align:right;}' +
+    '.small{font-size:9px;color:#555;}' +
     '</style></head><body>' +
     letterheadTitleHtml(logoDataUri, 'PROFORMA INVOICE') +
     '<table>' +
-    '<tr><td class="label">Invoice No.</td><td>' + piNumber + '</td><td class="label">Date</td><td>' + dateStr + '</td></tr>' +
+    '<tr><td class="label">Invoice No.</td><td>' + piNumber + '</td>' +
+    '<td class="label">Date</td><td>' + dateStr + '</td></tr>' +
+    '<tr><td class="label">Shipping Marks &amp; Nos.</td><td colspan="3" style="text-align:center">' +
+    escapeHtml(order['Company'] || '-') + '<br>DIESEL ENGINE / POWER TILLER AND IMPLEMENTS</td></tr>' +
     '<tr><td class="label">Consigned to Messrs</td><td colspan="3">' + escapeHtml(order['Company']) + '<br>' + escapeHtml(order['Address']) + '</td></tr>' +
-    '<tr><td class="label">Buyer\'s Order No.</td><td>' + escapeHtml(order['Customer PO Ref'] || order['PO Number']) + '</td>' +
-    '<td class="label">Sales Confirmation No.</td><td>' + escapeHtml(order['PO Number']) + '</td></tr>' +
+    '<tr><td class="label">Sales Confirmation No.</td><td>' + escapeHtml(order['PO Number']) + '</td>' +
+    '<td class="label">Buyer\'s Order No.</td><td>' + escapeHtml(order['Customer PO Ref'] || order['PO Number']) + '</td></tr>' +
     '<tr><td class="label">Shipped Per</td><td>' + escapeHtml(order['Shipping Method']) + '</td>' +
     '<td class="label">On or About</td><td>' + escapeHtml(order['Requested Delivery Date']) + '</td></tr>' +
     '<tr><td class="label">Port of Loading</td><td>Laem Chabang, Thailand</td>' +
     '<td class="label">Port of Discharge</td><td>' + escapeHtml(order['Port'] || '-') + '</td></tr>' +
-    '<tr><td class="label">Terms of Payment</td><td colspan="3">' + escapeHtml(order['Payment Terms']) + '</td></tr>' +
     '<tr><td class="label">Place of Delivery</td><td>' + escapeHtml(order['Incoterm']) + '</td>' +
     '<td class="label">Country of Origin</td><td>Thailand</td></tr>' +
+    '<tr><td class="label">Terms of Payment</td><td colspan="3">' + escapeHtml(order['Payment Terms']) + '</td></tr>' +
     '</table>' +
     '<table class="items"><thead><tr><th>No.</th><th>Description</th><th>Qty</th><th>Unit Price (USD)</th><th>Amount (USD)</th></tr></thead>' +
     '<tbody>' + itemRows +
-    '<tr class="total-row"><td colspan="4" style="text-align:right">TOTAL (USD)</td><td style="text-align:right">' + total.toFixed(2) + '</td></tr>' +
+    '<tr class="total-row"><td colspan="4" style="text-align:right">' + escapeHtml(totalLabel) + '</td>' +
+    '<td style="text-align:right">' + total.toFixed(2) + '</td></tr>' +
     '</tbody></table>' +
-    '<table><tr><td class="label">Bank Detail</td><td>' + escapeHtml(bankName) +
-    '<br>Account No.: ' + escapeHtml(bankAccountNo) +
-    '<br>SWIFT Code: ' + escapeHtml(bankSwift) +
-    '<br>A/C Name: ' + escapeHtml(bankAccountName) + '</td></tr></table>' +
-    '<div class="sig-block">' +
+    '<table><tr>' +
+    '<td style="width:50%;vertical-align:top;">' +
+    '<strong>PACKING LIST : PER CARTON</strong><br><br>' +
+    'N.W. _______________ KGS.<br>' +
+    'G.W. _______________ KGS.<br>' +
+    'DIMENSION _______________ CMS.<br>' +
+    'TOTAL _______________ CARTONS' +
+    '</td>' +
+    '<td style="width:50%;vertical-align:top;">' +
+    '<strong>BANK DETAIL</strong><br><br>' +
+    escapeHtml(bankName) + '<br>' +
+    'Account No.: ' + escapeHtml(bankAccountNo) + '<br>' +
+    'SWIFT Code: ' + escapeHtml(bankSwift) + '<br>' +
+    'A/C Name: ' + escapeHtml(bankAccountName) +
+    '</td>' +
+    '</tr></table>' +
+    '<table style="border:none;margin-bottom:0;"><tr style="border:none;">' +
+    '<td style="border:none;width:55%;vertical-align:bottom;padding:0;">' +
+    '<p class="small">E.&amp;O.E.<br>ORIGIN OF THAILAND</p>' +
+    '</td>' +
+    '<td class="sig-block" style="border:none;padding:0;">' +
     '<p>' + escapeHtml(companyName) + '</p>' +
     sigBlock +
     '<p>(' + escapeHtml(signerName) + ')<br>' + escapeHtml(signerTitle) + '</p>' +
-    '</div>' +
-    '<p class="small">E.&amp;O.E. — Draft generated by the KU-KIT PO/PI system on ' + dateStr +
+    '</td>' +
+    '</tr></table>' +
+    '<p class="small">Draft generated by the KU-KIT PO/PI system on ' + dateStr +
     (signatureDataUri ? '.' : '. Requires manual review and approval before sending to the customer.') +
     '</p>' +
     LETTERHEAD_FOOTER_HTML +
