@@ -4904,23 +4904,26 @@ table.parts-table td.code-col {
 input[type="date"] { color-scheme: dark; }
 input[type="date"] { position: relative; }
 input[type="date"]::-webkit-calendar-picker-indicator {
-  /* filter applies to this whole box, background included — invert(1)
-     alongside an orange background was inverting the ORANGE too (its
-     complementary color is blue), not just the icon glyph, which is why
-     an earlier version of this rendered as a blue blob instead of an
-     orange one. No filter needed at all here: the native icon is already
-     a dark glyph, which reads perfectly clearly on its own against a
-     light solid chip like this — a solid orange chip reads unambiguously
-     as "tap here" instead of blending into the field. */
-  background: var(--kubota-orange);
-  border-radius: 6px;
-  width: 22px;
-  height: 22px;
-  padding: 3px;
+  /* A plain solid-color chip read as an unlabeled orange blob — nothing
+     about it actually looked like "a calendar", so it wasn't obviously
+     tappable. Swap the whole indicator for a real calendar glyph (drawn
+     inline as SVG so no extra image request/asset is needed): a white
+     card with an orange header band, two binder rings, and a few date
+     squares — the ::-webkit-calendar-picker-indicator pseudo-element
+     stays a real, clickable native control, only its background-image
+     changes, so the actual browser date picker still opens on click. */
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3CclipPath id='body'%3E%3Crect x='2' y='4' width='20' height='18' rx='3'/%3E%3C/clipPath%3E%3C/defs%3E%3Crect x='2' y='4' width='20' height='18' rx='3' fill='%23FFFFFF'/%3E%3Cg clip-path='url(%23body)'%3E%3Crect x='2' y='4' width='20' height='6' fill='%23FF6A3D'/%3E%3C/g%3E%3Crect x='6.5' y='1.6' width='2' height='5' rx='1' fill='%23B7BEC6'/%3E%3Crect x='15.5' y='1.6' width='2' height='5' rx='1' fill='%23B7BEC6'/%3E%3Crect x='5' y='12.5' width='3' height='3' rx='0.6' fill='%23B7BEC6'/%3E%3Crect x='10.5' y='12.5' width='3' height='3' rx='0.6' fill='%23B7BEC6'/%3E%3Crect x='16' y='12.5' width='3' height='3' rx='0.6' fill='%23B7BEC6'/%3E%3Crect x='5' y='17' width='3' height='3' rx='0.6' fill='%23B7BEC6'/%3E%3Crect x='10.5' y='17' width='3' height='3' rx='0.6' fill='%23B7BEC6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 22px 22px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
   margin-right: 2px;
   cursor: pointer;
 }
-input[type="date"]::-webkit-calendar-picker-indicator:hover { background: #e6531f; }
+input[type="date"]::-webkit-calendar-picker-indicator:hover { filter: brightness(1.12); }
 
 .po-req-hint { font-size: 12px; color: var(--kubota-mid-gray); margin: 6px 0 14px; }
 
