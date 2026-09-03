@@ -528,13 +528,37 @@ function handleGetOrderStatus(params) {
   });
 }
 
-// Looks up an approved row in the "Dealers" tab by email (case-insensitive,
+// Finds the Dealers tab by its exact name first (the fast path); if
+// that's not there — a rename that didn't quite take, a typo, a trailing
+// space, anyone editing the tab name by hand at all — falls back to
+// scanning every tab for the one whose header row actually matches
+// (Company | Country | Dealer Contact Name | Dealer Email | ...), so a
+// slightly-off tab name doesn't lock every dealer out of signing in.
+// This was hit for real: a rename attempt left the tab not-quite-named
+// "Dealers", every login failed with no clue why (see debugDealers()).
+function findDealersSheet() {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const exact = ss.getSheetByName(SHEET_DEALERS);
+  if (exact) return exact;
+  const sheets = ss.getSheets();
+  for (let i = 0; i < sheets.length; i++) {
+    const lastCol = sheets[i].getLastColumn();
+    if (lastCol < 4) continue;
+    const header = sheets[i].getRange(1, 1, 1, Math.min(4, lastCol)).getValues()[0].map(function (v) { return String(v).trim(); });
+    if (header[0] === 'Company' && header[2] === 'Dealer Contact Name' && header[3] === 'Dealer Email') {
+      return sheets[i];
+    }
+  }
+  return null;
+}
+
+// Looks up an approved row in the Dealers tab by email (case-insensitive,
 // trimmed). A row whose "Approved" cell isn't exactly "Y" is treated the
 // same as not found — lets a company be suspended without deleting its row
 // or losing its history. Columns: Company | Country | Dealer Contact Name |
 // Dealer Email | Approved | Password.
 function findDealer(email) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_DEALERS);
+  const sheet = findDealersSheet();
   if (!sheet) return null;
   const needle = String(email || '').trim().toLowerCase();
   if (!needle) return null;
@@ -560,8 +584,14 @@ function findDealer(email) {
  * way to tell why.
  */
 function debugDealers() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_DEALERS);
-  if (!sheet) throw new Error('Dealers sheet tab not found — check the tab name is exactly "Dealers".');
+  const sheet = findDealersSheet();
+  if (!sheet) {
+    const names = SpreadsheetApp.getActiveSpreadsheet().getSheets().map(function (s) { return '"' + s.getName() + '"'; }).join(', ');
+    throw new Error('Could not find the Dealers tab by name OR by its header row (Company | Country | ' +
+      'Dealer Contact Name | Dealer Email | ...). Tabs that actually exist in this spreadsheet: ' + names +
+      '. Check one of those has that exact header row in row 1.');
+  }
+  Logger.log('Using tab: "' + sheet.getName() + '"');
   const rows = sheet.getDataRange().getValues();
   for (let i = 1; i < rows.length; i++) {
     if (!rows[i][0] && !rows[i][3]) continue; // skip fully blank rows
