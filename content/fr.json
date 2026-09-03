@@ -947,7 +947,7 @@
     "bodyLabel": "Texte de détail (le plus petit)",
     "bodyPlaceholder": "ex. Conditions générales applicables. Contactez-nous pour plus de détails.",
     "textStyleLabel": "Couleur du texte du titre",
-    "textStyles": { "orange": "Orange-or brillant", "chrome": "Chrome argenté", "red": "Rouge intense" },
+    "textStyles": { "orange": "Orange-or brillant", "chrome": "Chrome argenté", "red": "Rouge intense", "custom": "Couleur personnalisée" },
     "textPositionLabel": "Ajuster la position/taille du titre",
     "textOffsetXLabel": "Décaler gauche-droite",
     "textOffsetYLabel": "Décaler haut-bas",

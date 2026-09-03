@@ -957,7 +957,7 @@
     "bodyLabel": "Maandishi ya maelezo (madogo zaidi)",
     "bodyPlaceholder": "mfano: Masharti na vigezo vinatumika. Wasiliana nasi kwa maelezo zaidi.",
     "textStyleLabel": "Rangi ya Maandishi ya Kichwa",
-    "textStyles": { "orange": "Chungwa-Dhahabu Inayong'aa", "chrome": "Fedha ya Chrome", "red": "Nyekundu Iliyokolea" },
+    "textStyles": { "orange": "Chungwa-Dhahabu Inayong'aa", "chrome": "Fedha ya Chrome", "red": "Nyekundu Iliyokolea", "custom": "Chagua rangi yako" },
     "textPositionLabel": "Rekebisha Nafasi/Ukubwa wa Kichwa",
     "textOffsetXLabel": "Sogeza Kushoto-Kulia",
     "textOffsetYLabel": "Sogeza Juu-Chini",

@@ -958,7 +958,7 @@
     "bodyLabel": "Body text (pinakamaliit)",
     "bodyPlaceholder": "hal. May mga tuntunin at kondisyon. Makipag-ugnayan sa amin para sa detalye.",
     "textStyleLabel": "Kulay ng Text ng Headline",
-    "textStyles": { "orange": "Makintab na Orange-Gold", "chrome": "Chrome Silver", "red": "Matingkad na Pula" },
+    "textStyles": { "orange": "Makintab na Orange-Gold", "chrome": "Chrome Silver", "red": "Matingkad na Pula", "custom": "Sariling kulay" },
     "textPositionLabel": "I-adjust ang Posisyon/Laki ng Headline",
     "textOffsetXLabel": "Ilipat Kaliwa-Kanan",
     "textOffsetYLabel": "Ilipat Taas-Baba",

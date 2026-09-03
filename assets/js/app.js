@@ -3937,6 +3937,13 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--text-orange active" data-value="orange" aria-pressed="true" title="${a.textStyles.orange}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--text-chrome" data-value="chrome" aria-pressed="false" title="${a.textStyles.chrome}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--text-red" data-value="red" aria-pressed="false" title="${a.textStyles.red}"></button>
+              <!-- A real color input, not another plain button — clicking it
+                   both opens the native color picker AND (via the generic
+                   .artwork-swatch click handling below) marks it the active
+                   style, so the dealer can pick any color for the headline
+                   when none of the three fixed presets reads well against
+                   their chosen background. -->
+              <input type="color" id="aw-text-color" class="artwork-swatch artwork-swatch--text-custom" data-value="custom" value="#FF6A3D" aria-pressed="false" title="${a.textStyles.custom}">
             </div>
           </div>
           <input type="hidden" id="aw-text-offset-x" value="0">
@@ -4162,8 +4169,65 @@ const AW_TEXT_THEMES = {
   red:    { hi: '#FFD3C4', mid: '#FF6A4D', base: '#D42A1B', deep: '#5C0E07', outline: '#1a0403' }
 };
 
+function awHexToHsl(hex) {
+  const m = /^#?([0-9a-f]{6})$/i.exec(hex || '');
+  const int = parseInt(m ? m[1] : 'FF6A3D', 16);
+  const r = ((int >> 16) & 255) / 255, g = ((int >> 8) & 255) / 255, b = (int & 255) / 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const l = (max + min) / 2;
+  const d = max - min;
+  let h = 0, s = 0;
+  if (d) {
+    s = d / (1 - Math.abs(2 * l - 1));
+    if (max === r) h = 60 * (((g - b) / d) % 6);
+    else if (max === g) h = 60 * ((b - r) / d + 2);
+    else h = 60 * ((r - g) / d + 4);
+  }
+  if (h < 0) h += 360;
+  return { h, s: s * 100, l: l * 100 };
+}
+
+function awHslToHex(h, s, l) {
+  s = Math.max(0, Math.min(100, s)) / 100;
+  l = Math.max(0, Math.min(100, l)) / 100;
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+  const m = l - c / 2;
+  let r = 0, g = 0, b = 0;
+  if (h < 60) { r = c; g = x; }
+  else if (h < 120) { r = x; g = c; }
+  else if (h < 180) { g = c; b = x; }
+  else if (h < 240) { g = x; b = c; }
+  else if (h < 300) { r = x; b = c; }
+  else { r = c; b = x; }
+  const toHex = v => Math.round((v + m) * 255).toString(16).padStart(2, '0');
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+// Builds the same {hi, mid, base, deep, outline} shape the three hand-tuned
+// presets above use — a light glint, a mid-tone, the picked color itself, a
+// dark extrusion shade, and a near-black outline — but derived from
+// whatever single color the dealer actually picks, so "Headline Text Color"
+// can cover a background none of the three fixed presets reads well
+// against, without hand-authoring a theme for every possible hue.
+function awDeriveTextTheme(hex) {
+  const { h, s, l } = awHexToHsl(hex);
+  const clampL = v => Math.max(4, Math.min(96, v));
+  return {
+    hi: awHslToHex(h, Math.max(0, s * 0.7), clampL(l + 42)),
+    mid: awHslToHex(h, Math.max(0, s * 0.9), clampL(l + 18)),
+    base: hex,
+    deep: awHslToHex(h, Math.min(100, s * 1.1), clampL(l - 30)),
+    outline: awHslToHex(h, Math.min(100, s * 1.05), clampL(l - 45))
+  };
+}
+
 function awDrawImpactText(ctx, lines, cx, startY, lineHeight, fontSize, theme, strength) {
-  const t = AW_TEXT_THEMES[theme] || AW_TEXT_THEMES.orange;
+  // `theme` is either one of the three preset keys (looked up below, as
+  // before) or an already-resolved {hi,mid,base,deep,outline} object —
+  // the caller passes the latter for the "custom color" option, since
+  // that shape has to be derived from a hex value rather than looked up.
+  const t = typeof theme === 'string' ? (AW_TEXT_THEMES[theme] || AW_TEXT_THEMES.orange) : theme;
   // A chunky stepped extrusion (many thin offset copies, each a touch darker)
   // reads as a solid 3D block viewed from a slight angle — the single/shallow
   // offset used before looked more like a drop shadow than actual depth.
@@ -4839,6 +4903,10 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
   const userTextScale = (st.textScale || 100) / 100;
   const textRotationDeg = st.textRotation || 0;
   const textStyle = st.textStyle || 'orange';
+  // Custom is derived once here (not per line/per block) from whatever hex
+  // the dealer picked, so it's still just one cheap lookup either way by
+  // the time awDrawImpactText runs.
+  const resolvedTextTheme = textStyle === 'custom' ? awDeriveTextTheme(st.textColor || '#FF6A3D') : textStyle;
   const subheadlineOffsetXpx = (st.subheadlineOffsetXFrac || 0) * pxW;
   const subheadlineOffsetYpx = (st.subheadlineOffsetYFrac || 0) * pxH;
   const bodyOffsetXpx = (st.bodyOffsetXFrac || 0) * pxW;
@@ -4927,11 +4995,11 @@ async function drawArtwork(ctx, pxW, pxH, spec, st, c) {
     b.drawY = naturalCursorY + offsetYpx;
     b.blockH = b.lines.length * b.lineHeight;
     if (b.key === 'headline') {
-      awDrawImpactText(ctx, b.lines, b.drawX, b.drawY, b.lineHeight, b.fontSize, textStyle, 1);
+      awDrawImpactText(ctx, b.lines, b.drawX, b.drawY, b.lineHeight, b.fontSize, resolvedTextTheme, 1);
     } else if (b.key === 'subheadline') {
       // Same glossy theme as the headline but toned down — a lighter outline
       // and shallower extrusion so it reads as secondary, not competing.
-      awDrawImpactText(ctx, b.lines, b.drawX, b.drawY, b.lineHeight, b.fontSize, textStyle, 0.5);
+      awDrawImpactText(ctx, b.lines, b.drawX, b.drawY, b.lineHeight, b.fontSize, resolvedTextTheme, 0.5);
     } else {
       ctx.fillStyle = textOnDark ? '#FFFFFF' : '#081416';
       b.lines.forEach((ln, i) => ctx.fillText(ln, b.drawX, b.drawY + i * b.lineHeight));
@@ -5032,6 +5100,7 @@ function initArtworkPage(c) {
   const subheadlineScaleInput = document.getElementById('aw-subheadline-scale');
   const bodyScaleInput = document.getElementById('aw-body-scale');
   const textStyleGroup = document.getElementById('aw-text-style-group');
+  const textColorInput = document.getElementById('aw-text-color');
   const textOffsetX = document.getElementById('aw-text-offset-x');
   const textOffsetY = document.getElementById('aw-text-offset-y');
   const textScale = document.getElementById('aw-text-scale');
@@ -5137,6 +5206,7 @@ function initArtworkPage(c) {
       subheadlineScale: Number(subheadlineScaleInput.value) / 100,
       bodyScale: Number(bodyScaleInput.value) / 100,
       textStyle: swatchValue(textStyleGroup, 'orange'),
+      textColor: textColorInput.value,
       textOffsetX: Number(textOffsetX.value),
       textOffsetY: Number(textOffsetY.value),
       textScale: Number(textScale.value),
@@ -5759,6 +5829,18 @@ function initArtworkPage(c) {
   subheadlineInput.addEventListener('input', onTextFieldInput);
   bodyInput.addEventListener('input', onTextFieldInput);
   wireSwatchGroup(textStyleGroup, schedulePreview);
+  // wireSwatchGroup's own click handler (above) already marks this input
+  // "active" the moment it's clicked (opening the native color picker) —
+  // but the chosen color itself only lands via input/change events after
+  // that, once the dealer actually picks one, so this is what re-renders
+  // the headline in the color they picked.
+  textColorInput.addEventListener('input', () => {
+    textStyleGroup.querySelectorAll('.artwork-swatch').forEach(b => {
+      b.classList.toggle('active', b === textColorInput);
+      b.setAttribute('aria-pressed', String(b === textColorInput));
+    });
+    schedulePreview();
+  });
   textOffsetX.addEventListener('input', schedulePreview);
   textOffsetY.addEventListener('input', schedulePreview);
   textScale.addEventListener('input', schedulePreview);

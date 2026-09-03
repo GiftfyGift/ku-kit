@@ -3779,6 +3779,22 @@ table.parts-table td.code-col {
 .artwork-swatch--text-chrome { background: linear-gradient(180deg, #FFFFFF, #8B98A1 60%, #20262a); }
 .artwork-swatch--text-red { background: linear-gradient(180deg, #FFD3C4, #D42A1B 60%, #5C0E07); }
 
+/* A real <input type="color"> styled to sit in the swatch row like the
+   three fixed-color buttons beside it — a rainbow ring hints "pick your
+   own" before anything's chosen; once picked, the browser's own color
+   swatch (stripped of its native chrome via -webkit/-moz-appearance) fills
+   the same circle with the actual color. */
+.artwork-swatch--text-custom {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  background: conic-gradient(from 0deg, #ff3b30, #ffcc00, #34c759, #30b0c7, #007aff, #af52de, #ff3b30);
+}
+.artwork-swatch--text-custom::-webkit-color-swatch-wrapper { padding: 2px; border-radius: 50%; }
+.artwork-swatch--text-custom::-webkit-color-swatch { border: none; border-radius: 50%; }
+.artwork-swatch--text-custom::-moz-color-swatch { border: none; border-radius: 50%; }
+
 .artwork-element-picker {
   display: flex;
   flex-wrap: wrap;
