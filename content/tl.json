@@ -1075,7 +1075,7 @@
         { "id": "mackabo", "label": "Mackabo — Cote d'Ivoire at Burkina Faso", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Pangalan ng kompanya", "address": "Address ng padala", "country": "Bansang destinasyon", "contact": "Pangalan ng contact", "email": "Email", "phone": "Telepono / WhatsApp", "customerRef": "PO reference number ng bumibili (kung mayroon)" },
+      "fields": { "company": "Pangalan ng kompanya", "address": "Address ng padala", "country": "Bansang destinasyon", "contact": "Pangalan ng contact", "email": "Email", "phone": "Telepono / WhatsApp", "customerRef": "PO reference number ng bumibili (kung mayroon)", "buyerName": "Buyer (kung iba sa consignee sa itaas — hal. financing company)" },
       "priceNotePrefix": "Gumagamit ng sariling quotation ng customer na ito:"
     },
     "items": {

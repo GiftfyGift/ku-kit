@@ -1064,7 +1064,7 @@
         { "id": "mackabo", "label": "Mackabo — Côte d'Ivoire et Burkina Faso", "company": "Mackabo", "address": "", "country": "Côte d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Nom de la société", "address": "Adresse de livraison", "country": "Pays de destination", "contact": "Nom du contact", "email": "E-mail", "phone": "Téléphone / WhatsApp", "customerRef": "N° de référence PO de l'acheteur (le cas échéant)" },
+      "fields": { "company": "Nom de la société", "address": "Adresse de livraison", "country": "Pays de destination", "contact": "Nom du contact", "email": "E-mail", "phone": "Téléphone / WhatsApp", "customerRef": "N° de référence PO de l'acheteur (le cas échéant)", "buyerName": "Acheteur (si différent du destinataire ci-dessus — ex. société de financement)" },
       "priceNotePrefix": "Utilise le devis propre à ce client :"
     },
     "items": {

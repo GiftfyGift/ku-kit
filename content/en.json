@@ -1410,7 +1410,7 @@
         { "id": "mackabo", "label": "Mackabo — Cote d'Ivoire and Burkina Faso", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — Malawi", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)" },
+      "fields": { "company": "Company name", "address": "Delivery address", "country": "Destination country", "contact": "Contact name", "email": "Email", "phone": "Phone / WhatsApp", "customerRef": "Buyer's PO reference no. (if any)", "buyerName": "Buyer (if different from the consignee above — e.g. a financing company)" },
       "priceNotePrefix": "Using this customer's own quotation:"
     },
     "items": {

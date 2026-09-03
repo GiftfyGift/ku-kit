@@ -2830,15 +2830,36 @@ function initPoRequestPage(c) {
   // the edit-link exception), so customerFieldsHtml() below can trust it
   // for prefill without needing its own copy of the login UI anymore.
 
-  function knownCustomerCountries() {
+  // Some site languages serve one specific regional market rather than
+  // every country the catalog ships to — French for its francophone-Africa
+  // dealers, Swahili for East Africa. Restricting the destination-country
+  // picker (and the known-customer list it filters) to just those
+  // countries keeps a dealer using that language from being offered
+  // customers/countries outside the market it actually serves. Every
+  // other language (Thai/English/Filipino) stays unrestricted. Country
+  // strings here must match this language's own knownCustomers entries
+  // exactly — each content/*.json localizes country names differently
+  // (e.g. fr.json says "Sénégal", sw.json says "Senegal").
+  const MARKET_COUNTRIES_BY_LANG = {
+    fr: ['Sénégal', 'Congo-Brazzaville', 'Bénin', 'Côte d\'Ivoire', 'Burkina Faso', 'Madagascar'],
+    sw: ['Tanzania', 'Kenya', 'Uganda']
+  };
+
+  function marketFilteredCustomers() {
     const known = pr.customer.knownCustomers || [];
+    const allowed = MARKET_COUNTRIES_BY_LANG[state.lang];
+    return allowed ? known.filter(k => allowed.includes(k.country)) : known;
+  }
+
+  function knownCustomerCountries() {
+    const known = marketFilteredCustomers();
     const seen = [];
     known.forEach(k => { if (k.country && !seen.includes(k.country)) seen.push(k.country); });
     return seen.sort((a, b) => a.localeCompare(b));
   }
 
   function customerOptionsHtml(countryFilter) {
-    const known = pr.customer.knownCustomers || [];
+    const known = marketFilteredCustomers();
     const filtered = countryFilter ? known.filter(k => k.country === countryFilter) : known;
     return `
       <option value="">${pr.customer.newCustomerOption}</option>
@@ -2879,6 +2900,7 @@ function initPoRequestPage(c) {
         <label class="po-req-field"><span>${cust.fields.email}</span><input type="email" id="po-req-email" value="${(saved.email || '').replace(/"/g, '&quot;')}"></label>
         <label class="po-req-field"><span>${cust.fields.phone}</span><input type="text" id="po-req-phone" value="${(saved.phone || '').replace(/"/g, '&quot;')}"></label>
         <label class="po-req-field"><span>${cust.fields.customerRef}</span><input type="text" id="po-req-customer-ref" value="${(saved.customerRef || '').replace(/"/g, '&quot;')}"></label>
+        <label class="po-req-field po-req-field--wide"><span>${cust.fields.buyerName}</span><input type="text" id="po-req-buyer-name" value="${(saved.buyerName || '').replace(/"/g, '&quot;')}"></label>
       </div>
     `;
   }
@@ -2893,9 +2915,10 @@ function initPoRequestPage(c) {
       customerSel.dispatchEvent(new Event('change'));
     });
 
-    const keys = ['company', 'address', 'country', 'contact', 'email', 'phone', 'customerRef'];
+    const keys = ['company', 'address', 'country', 'contact', 'email', 'phone', 'customerRef', 'buyerName'];
+    const fieldIdOverrides = { customerRef: 'customer-ref', buyerName: 'buyer-name' };
     keys.forEach(key => {
-      const el = document.getElementById(`po-req-${key === 'customerRef' ? 'customer-ref' : key}`);
+      const el = document.getElementById(`po-req-${fieldIdOverrides[key] || key}`);
       el.addEventListener('input', () => {
         const b = orderLoadBuyer();
         b[key] = el.value;
@@ -2943,7 +2966,8 @@ function initPoRequestPage(c) {
       contact: document.getElementById('po-req-contact').value,
       email: document.getElementById('po-req-email').value,
       phone: document.getElementById('po-req-phone').value,
-      customerRef: document.getElementById('po-req-customer-ref').value
+      customerRef: document.getElementById('po-req-customer-ref').value,
+      buyerName: document.getElementById('po-req-buyer-name').value
     };
   }
 
@@ -3352,6 +3376,7 @@ function initPoRequestPage(c) {
     setVal('po-req-email', b.email);
     setVal('po-req-phone', b.phone);
     setVal('po-req-customer-ref', b.customerRef);
+    setVal('po-req-buyer-name', b.buyerName);
     setVal('po-req-notes', editData.notes);
     setVal('po-req-port', editData.port);
     setVal('po-req-delivery-date', editData.deliveryDate);

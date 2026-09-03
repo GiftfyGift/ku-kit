@@ -1418,7 +1418,7 @@
         { "id": "mackabo", "label": "Mackabo — โกตดิวัวร์ และบูร์กินาฟาโซ", "company": "Mackabo", "address": "", "country": "Cote d'Ivoire", "contact": "", "email": "", "phone": "" },
         { "id": "universaltraders", "label": "UNIVERSAL TRADERS — มาลาวี", "company": "UNIVERSAL TRADERS", "address": "", "country": "Malawi", "contact": "", "email": "", "phone": "" }
       ],
-      "fields": { "company": "ชื่อบริษัท", "address": "ที่อยู่จัดส่ง", "country": "ประเทศปลายทาง", "contact": "ชื่อผู้ติดต่อ", "email": "อีเมล", "phone": "เบอร์โทร / WhatsApp", "customerRef": "เลข PO อ้างอิงของลูกค้า (ถ้ามี)" },
+      "fields": { "company": "ชื่อบริษัท", "address": "ที่อยู่จัดส่ง", "country": "ประเทศปลายทาง", "contact": "ชื่อผู้ติดต่อ", "email": "อีเมล", "phone": "เบอร์โทร / WhatsApp", "customerRef": "เลข PO อ้างอิงของลูกค้า (ถ้ามี)", "buyerName": "ผู้ซื้อ (ถ้าต่างจากผู้รับสินค้าด้านบน — เช่น บริษัทไฟแนนซ์)" },
       "priceNotePrefix": "ใช้ราคาตามใบเสนอราคาลูกค้ารายนี้:"
     },
     "items": {

@@ -208,7 +208,15 @@ const ORDERS_HEADERS = [
   'Requested Delivery Date', 'PI Requested', 'Notes', 'Status',
   'Assigned Sales Rep', 'Confirmed By', 'Confirmed At', 'PI Stage',
   'Revision Notes', 'Edit Token', 'PI Number', 'PI Approval Token',
-  'PI Sent To Customer At', 'Bank Account', 'PI Review Token'
+  'PI Sent To Customer At', 'Bank Account', 'PI Review Token',
+  // Appended at the end (not slotted in near Company) so existing sheet
+  // columns/data-validation ranges never have to shift — add a matching
+  // "Buyer" column at the end of the physical sheet's header row too.
+  // Optional: a real PI sometimes lists a Buyer (who's financially/
+  // contractually responsible, e.g. a financing company) distinct from
+  // the Consignee (who physically receives the goods) — see buildPiHtml.
+  // Left blank on most orders, where they're the same company.
+  'Buyer'
 ];
 
 // Fields a customer resubmission (via their edit link) is allowed to
@@ -220,7 +228,7 @@ const EDITABLE_FIELDS_ON_RESUBMIT = [
   'Company', 'Address', 'Country', 'Contact', 'Email', 'Phone',
   'Customer PO Ref', 'Items', 'Subtotal (USD)', 'Incoterm', 'Port',
   'Payment Terms', 'Shipping Method', 'Requested Delivery Date',
-  'PI Requested', 'Notes'
+  'PI Requested', 'Notes', 'Buyer'
 ];
 
 const STATUS_OPTIONS = ['New', 'Confirmed', 'Needs Revision', 'Closed'];
@@ -320,7 +328,8 @@ function doPost(e) {
       // Config so most orders need no action, but reviewable/overridable
       // per order before the PI is generated (e.g. a deal that should be
       // paid into a different account than the usual default).
-      '' // PI Review Token — filled in once a PI is drafted
+      '', // PI Review Token — filled in once a PI is drafted
+      buyer.buyerName || '' // Buyer — only set when it differs from Company (see ORDERS_HEADERS)
     ];
 
     const testMode = isTestMode();
@@ -403,7 +412,8 @@ function applyResubmission(sheet, row, data) {
     'Shipping Method': data.shippingLabel || '',
     'Requested Delivery Date': data.deliveryDate || '',
     'PI Requested': data.piWanted ? 'Yes' : 'No',
-    'Notes': data.notes || ''
+    'Notes': data.notes || '',
+    'Buyer': buyer.buyerName || ''
   };
   EDITABLE_FIELDS_ON_RESUBMIT.forEach(function (field) {
     sheet.getRange(row, ORDERS_HEADERS.indexOf(field) + 1).setValue(values[field]);
@@ -481,7 +491,7 @@ function handleGetOrderForEdit(params) {
     buyer: {
       company: order['Company'], address: order['Address'], country: order['Country'],
       contact: order['Contact'], email: order['Email'], phone: order['Phone'],
-      customerRef: order['Customer PO Ref']
+      customerRef: order['Customer PO Ref'], buyerName: order['Buyer']
     },
     itemsText: order['Items'],
     incoterm: order['Incoterm'], port: order['Port'], paymentTerms: order['Payment Terms'],
@@ -1266,7 +1276,12 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
     '<td class="label">Date</td><td>' + dateStr + '</td></tr>' +
     '<tr><td class="label">Shipping Marks &amp; Nos.</td><td colspan="3" style="text-align:center">' +
     escapeHtml(order['Company'] || '-') + '<br>DIESEL ENGINE / POWER TILLER AND IMPLEMENTS</td></tr>' +
-    '<tr><td class="label">Consigned to Messrs</td><td colspan="3">' + escapeHtml(order['Company']) + '<br>' + escapeHtml(order['Address']) + '</td></tr>' +
+    '<tr><td class="label">Consigned to Messrs</td><td>' + escapeHtml(order['Company']) + '<br>' + escapeHtml(order['Address']) + '</td>' +
+    // A real PI sometimes lists a Buyer (financially/contractually
+    // responsible, e.g. a financing company) distinct from the Consignee
+    // (who physically receives the goods) — falls back to the same
+    // company when the order didn't set one, which is the common case.
+    '<td class="label">Buyer</td><td>' + escapeHtml(order['Buyer'] || order['Company'] || '-') + '</td></tr>' +
     '<tr><td class="label">Sales Confirmation No.</td><td>' + escapeHtml(order['PO Number']) + '</td>' +
     '<td class="label">Buyer\'s Order No.</td><td>' + escapeHtml(order['Customer PO Ref'] || order['PO Number']) + '</td></tr>' +
     '<tr><td class="label">Shipped Per</td><td>' + escapeHtml(order['Shipping Method']) + '</td>' +
