@@ -3474,17 +3474,21 @@ function initPoRequestPage(c) {
 const PDF_INCOTERM_LABELS_EN = { fob_bkk: 'FOB Bangkok, Thailand', cif: 'CIF destination port (specify below)', other: 'Other (specify in notes)' };
 const PDF_SHIPPING_LABELS_EN = { sea_lcl: 'By sea — LCL', sea_fcl: 'By sea — FCL (full container)', air: 'By air' };
 
-// Kubota wordmark for the PO PDF letterhead — fetched once at load and
-// cached as a data URI, since jsPDF's addImage() needs the image data
-// synchronously in hand by the time generatePoRequestPdf() runs (which is
-// itself synchronous, called straight from the submit click). A visitor
-// takes at least a few seconds to fill in the form, so this small ~16KB
-// fetch is always long done by the time it's actually needed; if it
-// somehow isn't (fetch blocked, offline), the PDF still generates fine,
-// just without the logo image.
+// Kubota wordmark for the PO PDF letterhead — the official teal brand
+// mark (extracted from the company's own letterhead template), NOT
+// kubota-logo-only.png (the plain black version used elsewhere, in the
+// artwork designer, where it has to sit legibly on varying background
+// colors/photos — wrong choice for an official document). Fetched once
+// at load and cached as a data URI, since jsPDF's addImage() needs the
+// image data synchronously in hand by the time generatePoRequestPdf()
+// runs (which is itself synchronous, called straight from the submit
+// click). A visitor takes at least a few seconds to fill in the form, so
+// this small ~17KB fetch is always long done by the time it's actually
+// needed; if it somehow isn't (fetch blocked, offline), the PDF still
+// generates fine, just without the logo image.
 let poPdfLogoDataUrl = null;
 (function preloadPoPdfLogo() {
-  fetch('assets/img/artwork/kubota-logo-only.png')
+  fetch('assets/img/artwork/kubota-logo-teal.png')
     .then(res => res.blob())
     .then(blob => new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -3507,11 +3511,11 @@ function generatePoRequestPdf(order, pr) {
   let y = 40;
 
   if (poPdfLogoDataUrl) {
-    // Original asset is 1650x388 (~4.25:1) — held to a small letterhead
+    // Original asset is 433x124 (~3.49:1) — held to a small letterhead
     // mark, not a hero logo, so it reads as an official document rather
     // than a poster.
-    const logoW = 96;
-    const logoH = logoW / (1650 / 388);
+    const logoW = 72;
+    const logoH = logoW / (433 / 124);
     doc.addImage(poPdfLogoDataUrl, 'PNG', marginX, y, logoW, logoH);
   }
   y += 34;
