@@ -1444,7 +1444,7 @@
         { "id": "air", "label": "By air" }
       ],
       "deliveryDateLabel": "Requested delivery date",
-      "deliveryDateHint": "Selectable from 2 months onward, to allow time for production and shipping."
+      "deliveryDateHint": "Selectable from 2 months onward, to allow time for production and shipping. Tap the orange calendar icon to open the date picker."
     },
     "pi": {
       "heading": "4. Proforma Invoice (PI)",

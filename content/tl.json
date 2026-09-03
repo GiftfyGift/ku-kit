@@ -1109,7 +1109,7 @@
         { "id": "air", "label": "Sa himpapawid" }
       ],
       "deliveryDateLabel": "Petsang gusto ng pagtanggap",
-      "deliveryDateHint": "Puwedeng piliin mula 2 buwan pasulong, para magkaroon ng oras para sa produksyon at padala."
+      "deliveryDateHint": "Puwedeng piliin mula 2 buwan pasulong, para magkaroon ng oras para sa produksyon at padala. I-tap ang orange na icon ng kalendaryo para pumili ng petsa."
     },
     "pi": {
       "heading": "4. Proforma Invoice (PI)",

@@ -1108,7 +1108,7 @@
         { "id": "air", "label": "Kwa ndege" }
       ],
       "deliveryDateLabel": "Tarehe unayohitaji upokee bidhaa",
-      "deliveryDateHint": "Chagua kuanzia miezi 2 na kuendelea, ili kutoa muda wa uzalishaji na usafirishaji."
+      "deliveryDateHint": "Chagua kuanzia miezi 2 na kuendelea, ili kutoa muda wa uzalishaji na usafirishaji. Gusa aikoni ya kalenda ya rangi ya chungwa kuchagua tarehe."
     },
     "pi": {
       "heading": "4. Ankara ya Awali (PI)",

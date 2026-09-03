@@ -1098,7 +1098,7 @@
         { "id": "air", "label": "Par avion" }
       ],
       "deliveryDateLabel": "Date de livraison souhaitée",
-      "deliveryDateHint": "Sélectionnable à partir de 2 mois, pour laisser le temps à la production et à l'expédition."
+      "deliveryDateHint": "Sélectionnable à partir de 2 mois, pour laisser le temps à la production et à l'expédition. Appuyez sur l'icône de calendrier orange pour choisir une date."
     },
     "pi": {
       "heading": "4. Facture proforma (PI)",
