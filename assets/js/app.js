@@ -5690,6 +5690,13 @@ function applyStaticText(c) {
   });
 }
 
+// TEMPORARY — requested by the client to unblock testing (2026-09-03):
+// flip this back to false (or delete it and the `!SITE_LOGIN_GATE_DISABLED
+// &&` below) to restore the site-wide login gate. The client said they'll
+// ask for it back explicitly, pulled from this point in git history —
+// don't remove this flag/comment on your own judgment, wait to be asked.
+const SITE_LOGIN_GATE_DISABLED = true;
+
 function render() {
   const c = state.content;
   if (!c) return;
@@ -5698,7 +5705,7 @@ function render() {
   // except a "fix this PO" link's own token, which is its own proof of
   // identity and has to keep working for someone who isn't a signed-in
   // dealer at all.
-  if (!dealerSession && !hasEditLinkInUrl()) {
+  if (!SITE_LOGIN_GATE_DISABLED && !dealerSession && !hasEditLinkInUrl()) {
     app.innerHTML = siteLoginGateHtml(c);
     applyStaticText(c);
     setActiveNav(state.route);
