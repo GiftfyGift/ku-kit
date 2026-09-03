@@ -4895,6 +4895,22 @@ table.parts-table td.code-col {
 
 #po-req-known-customer { max-width: 420px; }
 
+/* The browser's native date-picker icon defaults to dark/black — on this
+   site's dark input background it looks like a barely-visible sunken
+   smudge instead of a clickable calendar button. color-scheme tells the
+   browser to draw the icon (and the popup calendar it opens) for a dark
+   surface instead of a light one; the indicator rule brightens it further
+   and gives it a real hover state so it reads as an actual button. */
+input[type="date"] { color-scheme: dark; }
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.6);
+  opacity: 0.85;
+  padding: 3px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; background: rgba(255,255,255,0.1); }
+
 .po-req-hint { font-size: 12px; color: var(--kubota-mid-gray); margin: 6px 0 14px; }
 
 .po-req-price-note { color: var(--kubota-orange); font-weight: 600; }
