@@ -1,0 +1,68 @@
+name: Deploy Apps Script backend
+
+# Auto-deploys backend/apps-script/po-request-backend.gs to the live
+# Google Apps Script Web App whenever it changes on main — replaces the
+# manual "copy the file, paste it into the Apps Script editor, Deploy ->
+# Manage deployments -> New version -> Deploy" dance that's been the
+# recurring friction point for every backend fix this project has needed.
+#
+# One-time setup required before this can run — see
+# backend/apps-script/README.md. Until CLASP_CREDENTIALS,
+# APPS_SCRIPT_ID and APPS_SCRIPT_DEPLOYMENT_ID exist as repo secrets,
+# every run of this workflow fails at the "Write clasp credentials" step
+# with a clear error rather than silently doing nothing.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/apps-script/**'
+  workflow_dispatch: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install clasp
+        run: npm install -g @google/clasp@2
+
+      - name: Write clasp credentials
+        run: |
+          if [ -z "$CLASP_CREDENTIALS" ]; then
+            echo "::error::Repo secret CLASP_CREDENTIALS is not set — see backend/apps-script/README.md for one-time setup." >&2
+            exit 1
+          fi
+          echo "$CLASP_CREDENTIALS" > ~/.clasprc.json
+        env:
+          CLASP_CREDENTIALS: ${{ secrets.CLASP_CREDENTIALS }}
+
+      - name: Write clasp project config
+        run: |
+          if [ -z "$SCRIPT_ID" ]; then
+            echo "::error::Repo secret APPS_SCRIPT_ID is not set — see backend/apps-script/README.md for one-time setup." >&2
+            exit 1
+          fi
+          printf '{"scriptId":"%s","rootDir":"."}' "$SCRIPT_ID" > backend/apps-script/.clasp.json
+        env:
+          SCRIPT_ID: ${{ secrets.APPS_SCRIPT_ID }}
+
+      - name: Push source to Apps Script
+        working-directory: backend/apps-script
+        run: clasp push --force
+
+      - name: Deploy to the existing Web App deployment
+        working-directory: backend/apps-script
+        run: |
+          if [ -z "$DEPLOYMENT_ID" ]; then
+            echo "::error::Repo secret APPS_SCRIPT_DEPLOYMENT_ID is not set — see backend/apps-script/README.md for one-time setup." >&2
+            exit 1
+          fi
+          clasp deploy --deploymentId "$DEPLOYMENT_ID" --description "Auto-deploy from GitHub — ${GITHUB_SHA::7} ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+        env:
+          DEPLOYMENT_ID: ${{ secrets.APPS_SCRIPT_DEPLOYMENT_ID }}
