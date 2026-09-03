@@ -1165,8 +1165,14 @@ function letterheadTitleHtml(logoDataUri, title) {
 /**
  * Official letterhead footer — the same company/factory block Siam Kubota
  * uses on its own letterhead — shared by the PO and PI templates below.
+ * margin-top:auto (rather than a fixed gap) is what pins this to the
+ * physical bottom of the page instead of just trailing wherever the
+ * content happens to end — it only works together with the
+ * display:flex/flex-direction:column + min-height on <body> in
+ * buildPoHtml/buildPiHtml below, which is what gives this div the
+ * leftover vertical space to be pushed into.
  */
-var LETTERHEAD_FOOTER_HTML = '<div style="margin-top:22px;padding-top:7px;border-top:2px solid #009299;font-size:8px;color:#555;">' +
+var LETTERHEAD_FOOTER_HTML = '<div style="margin-top:auto;padding-top:7px;border-top:2px solid #009299;font-size:8px;color:#555;">' +
   '<strong>SIAM KUBOTA Corporation Co., Ltd.</strong><br>' +
   'Head Office / Navanakorn Factory: 101/19-24 Moo 20, Navanakorn Industrial Estate, Khlongnueng, Khlongluang, Pathumthani 12120 — Tel +66 (0) 2909 0300<br>' +
   'Amata City Factory: 700/867 Moo 3, Amata City Chonburi Industrial Estate, Nonggakha, Panthong, Chonburi 20160 — Tel +66 (0) 3818 5130 — www.siamkubota.co.th' +
@@ -1198,7 +1204,12 @@ function buildPoHtml(order, dateStr) {
   }).join('');
 
   return '<html><head><style>' +
-    'body{font-family:Arial,sans-serif;font-size:11px;color:#111;}' +
+    // display:flex/flex-direction:column + min-height gives the page a
+    // full sheet's worth of vertical space to work with; the footer's own
+    // margin-top:auto (see LETTERHEAD_FOOTER_HTML) is what then pushes it
+    // down into whatever room that leaves, so it lands at the bottom of
+    // the printed page instead of directly under a short order.
+    'body{font-family:Arial,sans-serif;font-size:11px;color:#111;display:flex;flex-direction:column;min-height:970px;}' +
     'h1{text-align:center;font-size:20px;letter-spacing:2px;}' +
     'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
     'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
@@ -1290,11 +1301,18 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
     : '<p style="margin:36px 0 4px;">_______________________________</p>';
 
   return '<html><head><style>' +
-    'body{font-family:Arial,sans-serif;font-size:11px;color:#111;}' +
+    // See buildPoHtml above for why body is a flex column with a
+    // min-height — it's what lets LETTERHEAD_FOOTER_HTML's margin-top:auto
+    // actually pin the footer to the bottom of the page.
+    'body{font-family:Arial,sans-serif;font-size:11px;color:#111;display:flex;flex-direction:column;min-height:970px;}' +
     'h1{text-align:center;font-size:20px;letter-spacing:2px;margin:0;}' +
     'table{width:100%;border-collapse:collapse;margin-bottom:12px;}' +
     'td,th{border:1px solid #333;padding:5px 8px;vertical-align:top;}' +
     '.label{font-weight:bold;background:#f2f2f2;width:22%;}' +
+    '.field-caption{font-size:8px;text-transform:uppercase;letter-spacing:0.05em;color:#009299;' +
+    'font-weight:700;border-bottom:1.5px solid #009299;padding-bottom:3px;margin-bottom:5px;}' +
+    '.field-name{font-weight:700;font-size:11.5px;margin-bottom:2px;}' +
+    '.field-address{color:#333;}' +
     '.items th{background:#f2f2f2;text-align:left;}' +
     '.total-row td{font-weight:bold;}' +
     '.sig-block{text-align:right;}' +
@@ -1306,12 +1324,24 @@ function buildPiHtml(order, piNumber, dateStr, signatureDataUri) {
     '<td class="label">Date</td><td>' + dateStr + '</td></tr>' +
     '<tr><td class="label">Shipping Marks &amp; Nos.</td><td colspan="3" style="text-align:center">' +
     escapeHtml(order['Company'] || '-') + '<br>DIESEL ENGINE / POWER TILLER AND IMPLEMENTS</td></tr>' +
-    '<tr><td class="label">Consigned to Messrs</td><td>' + escapeHtml(order['Company']) + '<br>' + escapeHtml(order['Address']) + '</td>' +
-    // A real PI sometimes lists a Buyer (financially/contractually
-    // responsible, e.g. a financing company) distinct from the Consignee
-    // (who physically receives the goods) — falls back to the same
-    // company when the order didn't set one, which is the common case.
-    '<td class="label">Buyer</td><td>' + escapeHtml(order['Buyer'] || order['Company'] || '-') + '</td></tr>' +
+    // A plain "label column | address text" layout (matching the
+    // reference PI) reads as one dense blur — nothing marks where the
+    // field name ends and the actual company name begins, so it's easy
+    // to misread which box is the consignee and which is the buyer.
+    // Stacking a small colored caption above a bold company name inside
+    // each full-width cell instead makes each box read as its own
+    // labeled unit at a glance. A real PI sometimes lists a Buyer
+    // (financially/contractually responsible, e.g. a financing company)
+    // distinct from the Consignee (who physically receives the goods) —
+    // falls back to the same company when the order didn't set one,
+    // which is the common case.
+    '<tr>' +
+    '<td style="width:50%;"><div class="field-caption">Consigned to Messrs</div>' +
+    '<div class="field-name">' + escapeHtml(order['Company']) + '</div>' +
+    '<div class="field-address">' + escapeHtml(order['Address']) + '</div></td>' +
+    '<td style="width:50%;"><div class="field-caption">Buyer</div>' +
+    '<div class="field-name">' + escapeHtml(order['Buyer'] || order['Company'] || '-') + '</div></td>' +
+    '</tr>' +
     '<tr><td class="label">Sales Confirmation No.</td><td>' + escapeHtml(order['PO Number']) + '</td>' +
     '<td class="label">Buyer\'s Order No.</td><td>' + escapeHtml(order['Customer PO Ref'] || order['PO Number']) + '</td></tr>' +
     '<tr><td class="label">Shipped Per</td><td>' + escapeHtml(order['Shipping Method']) + '</td>' +

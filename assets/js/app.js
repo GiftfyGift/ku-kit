@@ -3509,16 +3509,28 @@ const PDF_SHIPPING_LABELS_EN = { sea_lcl: 'By sea — LCL', sea_fcl: 'By sea —
 // generates fine, just without the logo image.
 let poPdfLogoDataUrl = null;
 (function preloadPoPdfLogo() {
-  fetch('assets/img/artwork/kubota-logo-teal.png')
-    .then(res => res.blob())
-    .then(blob => new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
-    }))
-    .then(dataUrl => { poPdfLogoDataUrl = dataUrl; })
-    .catch(err => console.warn('PO PDF logo preload failed', err));
+  // The source asset (433x124) is the wordmark PLUS a Thai tagline line
+  // underneath it — fine on a full letterhead, too cluttered at the
+  // small size this renders at here. Crop to roughly the top two-thirds
+  // (just the "Kubota" glyph) via an offscreen canvas rather than adding
+  // a second image asset, since jsPDF draws a raw bitmap and can't clip
+  // an <img> the way CSS could.
+  const img = new Image();
+  img.onload = () => {
+    try {
+      const cropH = Math.round(img.naturalHeight * 0.66);
+      const canvas = document.createElement('canvas');
+      canvas.width = img.naturalWidth;
+      canvas.height = cropH;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, img.naturalWidth, cropH, 0, 0, img.naturalWidth, cropH);
+      poPdfLogoDataUrl = canvas.toDataURL('image/png');
+    } catch (err) {
+      console.warn('PO PDF logo crop failed', err);
+    }
+  };
+  img.onerror = (err) => console.warn('PO PDF logo preload failed', err);
+  img.src = 'assets/img/artwork/kubota-logo-teal.png';
 })();
 
 let lastPoRequestOrder = null;
@@ -3534,9 +3546,10 @@ function generatePoRequestPdf(order, pr) {
   if (poPdfLogoDataUrl) {
     // Original asset is 433x124 (~3.49:1) — held to a small letterhead
     // mark, not a hero logo, so it reads as an official document rather
-    // than a poster.
+    // than a poster. Cropped to the top ~66% at preload time (wordmark
+    // only, tagline trimmed off) — 433 x ~82 once cropped.
     const logoW = 72;
-    const logoH = logoW / (433 / 124);
+    const logoH = logoW / (433 / 82);
     doc.addImage(poPdfLogoDataUrl, 'PNG', marginX, y, logoW, logoH);
   }
   y += 34;
@@ -3630,17 +3643,39 @@ function generatePoRequestPdf(order, pr) {
   // templates — a plain divider rule plus the two factory addresses,
   // pinned to the bottom of the page rather than following the content
   // (so it lands in the same place a one-item and a ten-item order).
-  const footerY = doc.internal.pageSize.getHeight() - 46;
+  // The two address lines are long enough at this font size to run past
+  // the right margin if drawn as single strings (doc.text() never wraps
+  // on its own) — that was the "ตกขอบ" overflow the dealer saw. Wrap each
+  // line to the printable width with splitTextToSize first, the same way
+  // the Notes block above already does, and size the block's height off
+  // however many lines that wrapping actually produces so the footer
+  // still lands flush with the bottom of the page instead of running off
+  // it once the address text wraps to two lines.
+  doc.setFontSize(7.5);
+  const footerWrapWidth = pageW - marginX * 2;
+  const footerLine1 = doc.splitTextToSize(
+    'Head Office / Navanakorn Factory: 101/19-24 Moo 20, Navanakorn Industrial Estate, Khlongnueng, Khlongluang, Pathumthani 12120 — Tel +66 (0) 2909 0300',
+    footerWrapWidth
+  );
+  const footerLine2 = doc.splitTextToSize(
+    'Amata City Factory: 700/867 Moo 3, Amata City Chonburi Industrial Estate, Nonggakha, Panthong, Chonburi 20160 — Tel +66 (0) 3818 5130 — www.siamkubota.co.th',
+    footerWrapWidth
+  );
+  const footerLineH = 9.5;
+  const footerTextRows = 1 + footerLine1.length + footerLine2.length; // company name + wrapped address lines
+  const footerY = doc.internal.pageSize.getHeight() - (footerTextRows * footerLineH + 16);
   doc.setDrawColor(0, 120, 130);
   doc.setLineWidth(1.2);
   doc.line(marginX, footerY, pageW - marginX, footerY);
-  doc.setFontSize(7.5);
   doc.setTextColor(60);
   doc.setFont('helvetica', 'bold');
-  doc.text('SIAM KUBOTA Corporation Co., Ltd.', marginX, footerY + 12);
+  let footerRowY = footerY + 12;
+  doc.text('SIAM KUBOTA Corporation Co., Ltd.', marginX, footerRowY);
   doc.setFont('helvetica', 'normal');
-  doc.text('Head Office / Navanakorn Factory: 101/19-24 Moo 20, Navanakorn Industrial Estate, Khlongnueng, Khlongluang, Pathumthani 12120 — Tel +66 (0) 2909 0300', marginX, footerY + 23);
-  doc.text('Amata City Factory: 700/867 Moo 3, Amata City Chonburi Industrial Estate, Nonggakha, Panthong, Chonburi 20160 — Tel +66 (0) 3818 5130 — www.siamkubota.co.th', marginX, footerY + 34);
+  footerRowY += footerLineH;
+  doc.text(footerLine1, marginX, footerRowY);
+  footerRowY += footerLine1.length * footerLineH;
+  doc.text(footerLine2, marginX, footerRowY);
   doc.setTextColor(0);
 
   doc.save(`${order.poNumber}.pdf`);

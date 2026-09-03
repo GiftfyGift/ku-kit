@@ -4904,12 +4904,14 @@ table.parts-table td.code-col {
 input[type="date"] { color-scheme: dark; }
 input[type="date"] { position: relative; }
 input[type="date"]::-webkit-calendar-picker-indicator {
-  /* A dimmed/inverted native icon was still too subtle to register as a
-     button at a glance — a solid orange chip (inverting the icon to white
-     on top of it) reads unambiguously as "tap here" instead of blending
-     into the field. */
-  filter: invert(1);
-  opacity: 1;
+  /* filter applies to this whole box, background included — invert(1)
+     alongside an orange background was inverting the ORANGE too (its
+     complementary color is blue), not just the icon glyph, which is why
+     an earlier version of this rendered as a blue blob instead of an
+     orange one. No filter needed at all here: the native icon is already
+     a dark glyph, which reads perfectly clearly on its own against a
+     light solid chip like this — a solid orange chip reads unambiguously
+     as "tap here" instead of blending into the field. */
   background: var(--kubota-orange);
   border-radius: 6px;
   width: 22px;
