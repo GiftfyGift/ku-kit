@@ -1293,7 +1293,7 @@
     "bodyLabel": "Body text (smallest)",
     "bodyPlaceholder": "e.g. Terms and conditions apply. Contact us for details.",
     "textStyleLabel": "Headline Text Color",
-    "textStyles": { "orange": "Glossy Orange-Gold", "chrome": "Chrome Silver", "red": "Deep Red", "custom": "Custom color — pick your own" },
+    "textStyles": { "orange": "Glossy Orange-Gold", "chrome": "Chrome Silver", "red": "Deep Red", "green": "Vivid Green", "gold": "Rich Gold", "blue": "Bright Blue", "custom": "Custom color — pick your own" },
     "textPositionLabel": "Adjust Headline Position/Size",
     "textOffsetXLabel": "Shift Left-Right",
     "textOffsetYLabel": "Shift Up-Down",

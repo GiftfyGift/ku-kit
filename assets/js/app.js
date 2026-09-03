@@ -3937,6 +3937,9 @@ function renderArtworkBody(c) {
               <button type="button" class="artwork-swatch artwork-swatch--text-orange active" data-value="orange" aria-pressed="true" title="${a.textStyles.orange}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--text-chrome" data-value="chrome" aria-pressed="false" title="${a.textStyles.chrome}"></button>
               <button type="button" class="artwork-swatch artwork-swatch--text-red" data-value="red" aria-pressed="false" title="${a.textStyles.red}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--text-green" data-value="green" aria-pressed="false" title="${a.textStyles.green}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--text-gold" data-value="gold" aria-pressed="false" title="${a.textStyles.gold}"></button>
+              <button type="button" class="artwork-swatch artwork-swatch--text-blue" data-value="blue" aria-pressed="false" title="${a.textStyles.blue}"></button>
               <!-- A real color input, not another plain button — clicking it
                    both opens the native color picker AND (via the generic
                    .artwork-swatch click handling below) marks it the active
@@ -4166,7 +4169,10 @@ function awWrapText(ctx, text, x, y, maxWidth, lineHeight, align) {
 const AW_TEXT_THEMES = {
   orange: { hi: '#FFEAB0', mid: '#FFB35C', base: '#FF6A3D', deep: '#9C2E0B', outline: '#1a0e05' },
   chrome: { hi: '#FFFFFF', mid: '#D8E0E4', base: '#8B98A1', deep: '#20262a', outline: '#050607' },
-  red:    { hi: '#FFD3C4', mid: '#FF6A4D', base: '#D42A1B', deep: '#5C0E07', outline: '#1a0403' }
+  red:    { hi: '#FFD3C4', mid: '#FF6A4D', base: '#D42A1B', deep: '#5C0E07', outline: '#1a0403' },
+  green:  { hi: '#F2FFC9', mid: '#B4E23B', base: '#6FC127', deep: '#2B5E14', outline: '#0a1706' },
+  gold:   { hi: '#FFF6D2', mid: '#FFD35C', base: '#E8A33D', deep: '#8A4E10', outline: '#2b1704' },
+  blue:   { hi: '#D6ECFF', mid: '#5FA8E8', base: '#1E6FC9', deep: '#0B3D78', outline: '#04101f' }
 };
 
 function awHexToHsl(hex) {

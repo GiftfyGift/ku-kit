@@ -3778,6 +3778,9 @@ table.parts-table td.code-col {
 .artwork-swatch--text-orange { background: linear-gradient(180deg, #FFEAB0, #FF6A3D 60%, #9C2E0B); }
 .artwork-swatch--text-chrome { background: linear-gradient(180deg, #FFFFFF, #8B98A1 60%, #20262a); }
 .artwork-swatch--text-red { background: linear-gradient(180deg, #FFD3C4, #D42A1B 60%, #5C0E07); }
+.artwork-swatch--text-green { background: linear-gradient(180deg, #F2FFC9, #6FC127 60%, #2B5E14); }
+.artwork-swatch--text-gold { background: linear-gradient(180deg, #FFF6D2, #E8A33D 60%, #8A4E10); }
+.artwork-swatch--text-blue { background: linear-gradient(180deg, #D6ECFF, #1E6FC9 60%, #0B3D78); }
 
 /* A real <input type="color"> styled to sit in the swatch row like the
    three fixed-color buttons beside it — a rainbow ring hints "pick your
